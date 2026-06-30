@@ -1,20 +1,13 @@
 from core.entities import Person, Place, Event
+from core.repositories.entity_repository import EntityRepository
 
-person = Person(
-    name="Muhammad",
-    arabic_name="محمد ﷺ"
-)
+repo = EntityRepository()
 
-place = Place(
-    name="Makkah",
-    arabic_name="مكة"
-)
+repo.add(Person(name="Muhammad", arabic_name="محمد ﷺ"))
+repo.add(Place(name="Makkah", arabic_name="مكة"))
+repo.add(Event(name="Battle of Badr", arabic_name="غزوة بدر"))
 
-event = Event(
-    name="Battle of Badr",
-    arabic_name="غزوة بدر"
-)
+print(f"Entities: {repo.count()}")
 
-print(person.to_dict())
-print(place.to_dict())
-print(event.to_dict())
+for entity in repo.all():
+    print(entity.to_dict())
