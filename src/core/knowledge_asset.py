@@ -44,5 +44,40 @@ class KnowledgeAsset:
             "metadata": self.metadata,
         }
 
+    def add_source(self, source: "Source") -> None:
+        self.sources.append(source)
+
+    def add_entity(self, entity: "Entity") -> None:
+        self.entities.append(entity)
+
+    def add_claim(self, claim: "Claim") -> None:
+        self.claims.append(claim)
+
+    def summary(self) -> str:
+        entity_names = ", ".join(
+            entity.name for entity in self.entities if hasattr(entity, "name") and entity.name
+        )
+        source_count = len(self.sources)
+
+        return (
+            "Knowledge Asset\n"
+            f"Title:\n{self.title}\n\n"
+            f"Sources:\n{source_count}\n\n"
+            f"Entities:\n{entity_names or 'None'}\n\n"
+            f"Status:\n{self.status}"
+        )
+
+    def validate(self) -> Dict[str, object]:
+        errors: List[str] = []
+
+        if not self.title.strip():
+            errors.append("Title is required")
+        if not self.sources:
+            errors.append("At least one source is required")
+        if not self.entities:
+            errors.append("At least one entity is required")
+
+        return {"valid": not errors, "errors": errors}
+
 
 __all__ = ["KnowledgeAsset"]
