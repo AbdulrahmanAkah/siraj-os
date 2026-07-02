@@ -10,4 +10,4 @@ asset.add_source(Source(title="Sahih Muslim"))
 asset.add_claim(Claim(text="The Battle of Badr occurred in the second year after Hijrah."))
 
 engine = SirajEngine()
-print(engine.build_outline(asset))
+print(engine.build_outline(asset).to_dict())

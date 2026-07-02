@@ -3,6 +3,8 @@ from datetime import datetime
 from typing import Dict, List
 from uuid import UUID, uuid4
 
+from domain.relationships.relationship import Relationship
+
 
 @dataclass
 class KnowledgeAsset:
@@ -17,6 +19,7 @@ class KnowledgeAsset:
     entities: List["Entity"] = field(default_factory=list)
     claims: List["Claim"] = field(default_factory=list)
     sources: List["Source"] = field(default_factory=list)
+    relationships: List[Relationship] = field(default_factory=list)
     metadata: Dict[str, object] = field(default_factory=dict)
 
     def to_dict(self) -> Dict[str, object]:
@@ -41,6 +44,10 @@ class KnowledgeAsset:
                 item.to_dict() if hasattr(item, "to_dict") and callable(item.to_dict) else item
                 for item in self.sources
             ],
+            "relationships": [
+                item.to_dict() if hasattr(item, "to_dict") and callable(item.to_dict) else item
+                for item in self.relationships
+            ],
             "metadata": self.metadata,
         }
 
@@ -52,6 +59,9 @@ class KnowledgeAsset:
 
     def add_claim(self, claim: "Claim") -> None:
         self.claims.append(claim)
+
+    def add_relationship(self, relationship: Relationship) -> None:
+        self.relationships.append(relationship)
 
     def summary(self) -> str:
         entity_names = ", ".join(

@@ -1,13 +1,12 @@
-from typing import Dict, List
-
+from application.models.outline import Outline
 from core.knowledge_asset import KnowledgeAsset
 
 
 class SirajEngine:
-    def build_outline(self, asset: KnowledgeAsset) -> Dict[str, object]:
-        entities: List[str] = []
-        claims: List[str] = []
-        sources: List[str] = []
+    def build_outline(self, asset: KnowledgeAsset) -> Outline:
+        entities = []
+        claims = []
+        sources = []
 
         for entity in asset.entities:
             if entity.name:
@@ -21,13 +20,13 @@ class SirajEngine:
             if source.title:
                 sources.append(source.title)
 
-        return {
-            "title": asset.title,
-            "description": asset.description,
-            "entities": entities,
-            "claims": claims,
-            "sources": sources,
-        }
+        return Outline(
+            title=asset.title,
+            description=asset.description,
+            entities=entities,
+            claims=claims,
+            sources=sources,
+        )
 
 
 __all__ = ["SirajEngine"]
