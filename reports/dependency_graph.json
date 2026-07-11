@@ -1,0 +1,362 @@
+{
+  "main": [
+    "application.services.knowledge_service",
+    "domain.entities.entity"
+  ],
+  "test_artifact_store": [
+    "application.artifacts.artifact",
+    "application.artifacts.artifact_store"
+  ],
+  "test_claim": [
+    "domain.claims.claim"
+  ],
+  "test_documentary_generator": [
+    "application.documentary.documentary_generator"
+  ],
+  "test_documentary_outline": [
+    "application.documentary.documentary_outline"
+  ],
+  "test_extraction_object": [
+    "application.models.extraction_object",
+    "domain.knowledge_objects.knowledge_object",
+    "domain.knowledge_objects.knowledge_object_type"
+  ],
+  "test_gemini_gateway": [
+    "application.llm.providers.gemini_gateway"
+  ],
+  "test_graph_index": [
+    "domain.knowledge_graph.graph_index",
+    "domain.knowledge_graph.knowledge_edge",
+    "domain.knowledge_graph.knowledge_graph",
+    "domain.knowledge_graph.knowledge_node"
+  ],
+  "test_graph_queries": [
+    "domain.knowledge_graph.knowledge_edge",
+    "domain.knowledge_graph.knowledge_graph",
+    "domain.knowledge_graph.knowledge_node"
+  ],
+  "test_knowledge_asset": [
+    "core.knowledge_asset"
+  ],
+  "test_knowledge_asset_behavior": [
+    "core.knowledge_asset",
+    "domain.entities.entity",
+    "domain.sources.source"
+  ],
+  "test_knowledge_asset_validation": [
+    "core.knowledge_asset",
+    "domain.entities.entity",
+    "domain.sources.source"
+  ],
+  "test_knowledge_edge": [
+    "domain.knowledge_graph.knowledge_edge"
+  ],
+  "test_knowledge_graph": [
+    "domain.knowledge_graph.knowledge_edge",
+    "domain.knowledge_graph.knowledge_graph",
+    "domain.knowledge_graph.knowledge_node"
+  ],
+  "test_knowledge_graph_query": [
+    "domain.knowledge_graph.knowledge_edge",
+    "domain.knowledge_graph.knowledge_graph",
+    "domain.knowledge_graph.knowledge_graph_query",
+    "domain.knowledge_graph.knowledge_node"
+  ],
+  "test_knowledge_node": [
+    "domain.knowledge_graph.knowledge_node"
+  ],
+  "test_llm_gateway": [
+    "application.llm.core.fake_gateway",
+    "application.llm.core.llm_request"
+  ],
+  "test_openai_gateway": [
+    "application.llm.providers.openai_gateway"
+  ],
+  "test_person_object": [
+    "domain.knowledge_objects.person"
+  ],
+  "test_prompt": [
+    "application.models.llm.prompt"
+  ],
+  "test_relationship": [
+    "domain.entities.entity",
+    "domain.relationships.relationship"
+  ],
+  "test_relationship_object": [
+    "domain.knowledge_objects.relationship"
+  ],
+  "test_scene_planner": [
+    "application.documentary.documentary_generator",
+    "application.planning.scene_plan",
+    "application.planning.scene_planner"
+  ],
+  "test_script_model": [
+    "application.models.documentary.script"
+  ],
+  "test_settings": [
+    "application.config.settings"
+  ],
+  "test_source": [
+    "domain.sources.source"
+  ],
+  "test_statistic_object": [
+    "domain.knowledge_objects.statistic"
+  ],
+  "test_timeline_event": [
+    "application.models.documentary.timeline_event"
+  ],
+  "test_workflow_context": [
+    "application.workflow.workflow_context"
+  ],
+  "__init__": [],
+  "cli.generate": [
+    "application.pipeline.production_pipeline"
+  ],
+  "core.entities": [
+    "domain.entities.entity"
+  ],
+  "core.knowledge_asset": [
+    "domain.relationships.relationship"
+  ],
+  "core.knowledge_engine": [
+    "application.services.knowledge_service"
+  ],
+  "infrastructure.llm.mock_llm_provider": [
+    "application.models.prompt",
+    "application.models.script",
+    "application.ports.llm_gateway"
+  ],
+  "domain.claims.claim": [],
+  "domain.entities.entity": [],
+  "domain.entities.__init__": [],
+  "domain.knowledge_graph.graph_index": [],
+  "domain.knowledge_graph.knowledge_edge": [],
+  "domain.knowledge_graph.knowledge_graph": [
+    "domain.knowledge_graph.graph_index"
+  ],
+  "domain.knowledge_graph.knowledge_graph_query": [
+    "domain.knowledge_graph.knowledge_graph"
+  ],
+  "domain.knowledge_graph.knowledge_node": [],
+  "domain.knowledge_objects.claim": [
+    "domain.knowledge_objects.knowledge_object"
+  ],
+  "domain.knowledge_objects.event": [
+    "domain.knowledge_objects.knowledge_object"
+  ],
+  "domain.knowledge_objects.knowledge_object": [],
+  "domain.knowledge_objects.knowledge_object_type": [],
+  "domain.knowledge_objects.location": [
+    "domain.knowledge_objects.knowledge_object"
+  ],
+  "domain.knowledge_objects.person": [
+    "domain.knowledge_objects.knowledge_object"
+  ],
+  "domain.knowledge_objects.relationship": [
+    "domain.knowledge_objects.knowledge_object"
+  ],
+  "domain.knowledge_objects.source": [
+    "domain.knowledge_objects.knowledge_object"
+  ],
+  "domain.knowledge_objects.statistic": [
+    "domain.knowledge_objects.knowledge_object"
+  ],
+  "domain.knowledge_objects.timeline_event": [
+    "domain.knowledge_objects.knowledge_object"
+  ],
+  "domain.relationships.relationship": [],
+  "domain.sources.source": [],
+  "core.repositories.entity_repository": [],
+  "core.storage.json_storage": [],
+  "application.artifacts.artifact": [],
+  "application.artifacts.artifact_store": [
+    "application.artifacts.artifact"
+  ],
+  "application.config.environment_loader": [],
+  "application.config.settings": [
+    "application.config.environment_loader"
+  ],
+  "application.documentary.documentary_generator": [
+    "application.documentary.documentary_outline",
+    "domain.knowledge_graph.knowledge_graph"
+  ],
+  "application.documentary.documentary_outline": [],
+  "application.documentary.documentary_script": [],
+  "application.documentary.knowledge_outline_builder": [
+    "application.models.outline"
+  ],
+  "application.image.image_prompt": [],
+  "application.image.image_prompt_generator": [],
+  "application.knowledge.character_engine": [],
+  "application.knowledge.citation_engine": [],
+  "application.knowledge.extraction_result": [
+    "domain.knowledge_objects.claim",
+    "domain.knowledge_objects.event",
+    "domain.knowledge_objects.location",
+    "domain.knowledge_objects.person",
+    "domain.knowledge_objects.source",
+    "domain.knowledge_objects.statistic",
+    "domain.knowledge_objects.timeline_event",
+    "domain.relationships.relationship"
+  ],
+  "application.knowledge.fact_verification_engine": [],
+  "application.knowledge.knowledge_extractor": [
+    "application.knowledge.extraction_result",
+    "application.knowledge.knowledge_parser",
+    "application.llm.core.llm_gateway",
+    "application.llm.core.llm_request"
+  ],
+  "application.knowledge.knowledge_graph_builder": [
+    "domain.knowledge_graph.knowledge_edge",
+    "domain.knowledge_graph.knowledge_graph",
+    "domain.knowledge_graph.knowledge_node"
+  ],
+  "application.knowledge.knowledge_parser": [
+    "application.knowledge.extraction_result",
+    "application.knowledge.utils.model_factory",
+    "domain.relationships.relationship"
+  ],
+  "application.knowledge.knowledge_repository": [
+    "application.knowledge.extraction_result",
+    "application.knowledge.knowledge_extractor",
+    "application.knowledge.knowledge_graph_builder"
+  ],
+  "application.knowledge.relationship_engine": [],
+  "application.knowledge.source_ranking_engine": [],
+  "application.knowledge.timeline_engine": [],
+  "application.models.content_specification": [],
+  "application.models.extraction_object": [
+    "domain.knowledge_objects.knowledge_object",
+    "domain.knowledge_objects.knowledge_object_type"
+  ],
+  "application.models.knowledge_context": [],
+  "application.models.narrative_plan": [],
+  "application.models.organized_knowledge": [],
+  "application.models.outline": [],
+  "application.models.prompt": [],
+  "application.models.script": [],
+  "application.models.script_structure": [],
+  "application.narrative.narrative_builder": [],
+  "application.pipeline.production_pipeline": [
+    "application.llm.providers.gemini_gateway",
+    "application.llm.providers.manual_gateway",
+    "application.llm.providers.openai_gateway",
+    "application.workflow.documentary_workflow"
+  ],
+  "application.planning.scene_plan": [],
+  "application.planning.scene_planner": [],
+  "application.ports.llm_gateway": [
+    "application.models.prompt",
+    "application.models.script"
+  ],
+  "application.scene.scene": [],
+  "application.scene_generation.scene_generator": [
+    "application.llm.core.llm_gateway",
+    "application.llm.core.llm_request",
+    "application.planning.scene_plan",
+    "application.scene.scene"
+  ],
+  "application.script.script_generator": [],
+  "application.services.generation_service": [
+    "application.models.prompt",
+    "application.models.script",
+    "application.ports.llm_gateway"
+  ],
+  "application.services.knowledge_context_builder": [
+    "application.models.knowledge_context",
+    "application.models.outline"
+  ],
+  "application.services.knowledge_organizer": [
+    "application.models.knowledge_context",
+    "application.models.organized_knowledge",
+    "domain.relationships.relationship"
+  ],
+  "application.services.knowledge_service": [],
+  "application.services.narrative_builder": [],
+  "application.services.narrative_planner": [
+    "application.models.narrative_plan",
+    "application.models.organized_knowledge"
+  ],
+  "application.services.prompt_builder": [
+    "application.models.content_specification",
+    "application.models.narrative_plan",
+    "application.models.prompt"
+  ],
+  "application.services.script_structure_builder": [
+    "application.models.outline",
+    "application.models.script",
+    "application.models.script_structure"
+  ],
+  "application.services.siraj_engine": [
+    "application.models.outline",
+    "core.knowledge_asset"
+  ],
+  "application.workflow.documentary_workflow": [
+    "application.artifacts.artifact",
+    "application.artifacts.artifact_store",
+    "application.documentary.knowledge_outline_builder",
+    "application.image.image_prompt",
+    "application.image.image_prompt_generator",
+    "application.knowledge.character_engine",
+    "application.knowledge.citation_engine",
+    "application.knowledge.fact_verification_engine",
+    "application.knowledge.knowledge_repository",
+    "application.knowledge.relationship_engine",
+    "application.knowledge.source_ranking_engine",
+    "application.knowledge.timeline_engine",
+    "application.narrative.narrative_builder",
+    "application.planning.scene_plan",
+    "application.planning.scene_planner",
+    "application.scene_generation.scene_generator",
+    "application.script.script_generator",
+    "application.workflow.workflow_context"
+  ],
+  "application.workflow.workflow_context": [],
+  "application.models.documentary.script": [],
+  "application.models.documentary.timeline_event": [
+    "domain.knowledge_objects.knowledge_object"
+  ],
+  "application.models.knowledge.important_typed_claim": [],
+  "application.models.knowledge.prioritized_knowledge": [
+    "application.models.knowledge.important_typed_claim"
+  ],
+  "application.models.knowledge.typed_claim": [],
+  "application.models.llm.prompt": [],
+  "application.llm.core.fake_gateway": [
+    "application.llm.core.llm_gateway",
+    "application.llm.core.llm_request",
+    "application.llm.core.llm_response"
+  ],
+  "application.llm.core.llm_gateway": [
+    "application.llm.core.llm_request",
+    "application.llm.core.llm_response"
+  ],
+  "application.llm.core.llm_request": [],
+  "application.llm.core.llm_response": [],
+  "application.llm.providers.gemini_gateway": [
+    "application.config.environment_loader",
+    "application.llm.core.llm_gateway",
+    "application.llm.core.llm_request",
+    "application.llm.core.llm_response"
+  ],
+  "application.llm.providers.manual_gateway": [
+    "application.llm.core.llm_gateway",
+    "application.llm.core.llm_request",
+    "application.llm.core.llm_response"
+  ],
+  "application.llm.providers.openai_gateway": [
+    "application.config.environment_loader",
+    "application.llm.core.llm_gateway",
+    "application.llm.core.llm_request",
+    "application.llm.core.llm_response"
+  ],
+  "application.knowledge.utils.model_factory": [
+    "domain.knowledge_objects.claim",
+    "domain.knowledge_objects.event",
+    "domain.knowledge_objects.location",
+    "domain.knowledge_objects.person",
+    "domain.knowledge_objects.source",
+    "domain.knowledge_objects.statistic",
+    "domain.knowledge_objects.timeline_event"
+  ]
+}

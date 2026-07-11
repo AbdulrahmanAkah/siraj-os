@@ -1,0 +1,1340 @@
+[
+  {
+    "type": "function",
+    "module": "main",
+    "name": "main",
+    "line": 5
+  },
+  {
+    "type": "class",
+    "module": "core.knowledge_asset",
+    "name": "KnowledgeAsset",
+    "line": 10
+  },
+  {
+    "type": "function",
+    "module": "core.knowledge_asset",
+    "name": "to_dict",
+    "line": 25
+  },
+  {
+    "type": "function",
+    "module": "core.knowledge_asset",
+    "name": "add_source",
+    "line": 54
+  },
+  {
+    "type": "function",
+    "module": "core.knowledge_asset",
+    "name": "add_entity",
+    "line": 57
+  },
+  {
+    "type": "function",
+    "module": "core.knowledge_asset",
+    "name": "add_claim",
+    "line": 60
+  },
+  {
+    "type": "function",
+    "module": "core.knowledge_asset",
+    "name": "add_relationship",
+    "line": 63
+  },
+  {
+    "type": "function",
+    "module": "core.knowledge_asset",
+    "name": "summary",
+    "line": 66
+  },
+  {
+    "type": "function",
+    "module": "core.knowledge_asset",
+    "name": "validate",
+    "line": 80
+  },
+  {
+    "type": "class",
+    "module": "core.knowledge_engine",
+    "name": "KnowledgeEngine",
+    "line": 4
+  },
+  {
+    "type": "class",
+    "module": "infrastructure.llm.mock_llm_provider",
+    "name": "MockLLMProvider",
+    "line": 6
+  },
+  {
+    "type": "function",
+    "module": "infrastructure.llm.mock_llm_provider",
+    "name": "generate",
+    "line": 7
+  },
+  {
+    "type": "class",
+    "module": "domain.claims.claim",
+    "name": "Claim",
+    "line": 7
+  },
+  {
+    "type": "function",
+    "module": "domain.claims.claim",
+    "name": "to_dict",
+    "line": 17
+  },
+  {
+    "type": "class",
+    "module": "domain.entities.entity",
+    "name": "Entity",
+    "line": 7
+  },
+  {
+    "type": "function",
+    "module": "domain.entities.entity",
+    "name": "to_dict",
+    "line": 13
+  },
+  {
+    "type": "class",
+    "module": "domain.entities.entity",
+    "name": "Person",
+    "line": 23
+  },
+  {
+    "type": "class",
+    "module": "domain.entities.entity",
+    "name": "Place",
+    "line": 28
+  },
+  {
+    "type": "class",
+    "module": "domain.entities.entity",
+    "name": "Event",
+    "line": 33
+  },
+  {
+    "type": "class",
+    "module": "domain.knowledge_graph.graph_index",
+    "name": "GraphIndex",
+    "line": 3
+  },
+  {
+    "type": "function",
+    "module": "domain.knowledge_graph.graph_index",
+    "name": "__init__",
+    "line": 4
+  },
+  {
+    "type": "function",
+    "module": "domain.knowledge_graph.graph_index",
+    "name": "build",
+    "line": 10
+  },
+  {
+    "type": "function",
+    "module": "domain.knowledge_graph.graph_index",
+    "name": "get_node",
+    "line": 24
+  },
+  {
+    "type": "function",
+    "module": "domain.knowledge_graph.graph_index",
+    "name": "get_nodes_by_type",
+    "line": 27
+  },
+  {
+    "type": "function",
+    "module": "domain.knowledge_graph.graph_index",
+    "name": "outgoing",
+    "line": 30
+  },
+  {
+    "type": "function",
+    "module": "domain.knowledge_graph.graph_index",
+    "name": "incoming",
+    "line": 33
+  },
+  {
+    "type": "class",
+    "module": "domain.knowledge_graph.knowledge_edge",
+    "name": "KnowledgeEdge",
+    "line": 5
+  },
+  {
+    "type": "function",
+    "module": "domain.knowledge_graph.knowledge_edge",
+    "name": "to_dict",
+    "line": 11
+  },
+  {
+    "type": "class",
+    "module": "domain.knowledge_graph.knowledge_graph",
+    "name": "KnowledgeGraph",
+    "line": 7
+  },
+  {
+    "type": "function",
+    "module": "domain.knowledge_graph.knowledge_graph",
+    "name": "__post_init__",
+    "line": 11
+  },
+  {
+    "type": "function",
+    "module": "domain.knowledge_graph.knowledge_graph",
+    "name": "rebuild_index",
+    "line": 15
+  },
+  {
+    "type": "function",
+    "module": "domain.knowledge_graph.knowledge_graph",
+    "name": "add_node",
+    "line": 18
+  },
+  {
+    "type": "function",
+    "module": "domain.knowledge_graph.knowledge_graph",
+    "name": "add_edge",
+    "line": 22
+  },
+  {
+    "type": "function",
+    "module": "domain.knowledge_graph.knowledge_graph",
+    "name": "get_node",
+    "line": 26
+  },
+  {
+    "type": "function",
+    "module": "domain.knowledge_graph.knowledge_graph",
+    "name": "get_nodes_by_type",
+    "line": 29
+  },
+  {
+    "type": "function",
+    "module": "domain.knowledge_graph.knowledge_graph",
+    "name": "outgoing",
+    "line": 32
+  },
+  {
+    "type": "function",
+    "module": "domain.knowledge_graph.knowledge_graph",
+    "name": "incoming",
+    "line": 35
+  },
+  {
+    "type": "function",
+    "module": "domain.knowledge_graph.knowledge_graph",
+    "name": "to_dict",
+    "line": 38
+  },
+  {
+    "type": "class",
+    "module": "domain.knowledge_graph.knowledge_graph_query",
+    "name": "KnowledgeGraphQuery",
+    "line": 4
+  },
+  {
+    "type": "function",
+    "module": "domain.knowledge_graph.knowledge_graph_query",
+    "name": "__init__",
+    "line": 5
+  },
+  {
+    "type": "function",
+    "module": "domain.knowledge_graph.knowledge_graph_query",
+    "name": "node",
+    "line": 8
+  },
+  {
+    "type": "function",
+    "module": "domain.knowledge_graph.knowledge_graph_query",
+    "name": "people",
+    "line": 11
+  },
+  {
+    "type": "function",
+    "module": "domain.knowledge_graph.knowledge_graph_query",
+    "name": "events",
+    "line": 14
+  },
+  {
+    "type": "function",
+    "module": "domain.knowledge_graph.knowledge_graph_query",
+    "name": "timeline",
+    "line": 17
+  },
+  {
+    "type": "function",
+    "module": "domain.knowledge_graph.knowledge_graph_query",
+    "name": "statistics",
+    "line": 20
+  },
+  {
+    "type": "function",
+    "module": "domain.knowledge_graph.knowledge_graph_query",
+    "name": "relationships",
+    "line": 23
+  },
+  {
+    "type": "function",
+    "module": "domain.knowledge_graph.knowledge_graph_query",
+    "name": "outgoing",
+    "line": 26
+  },
+  {
+    "type": "function",
+    "module": "domain.knowledge_graph.knowledge_graph_query",
+    "name": "incoming",
+    "line": 29
+  },
+  {
+    "type": "class",
+    "module": "domain.knowledge_graph.knowledge_node",
+    "name": "KnowledgeNode",
+    "line": 5
+  },
+  {
+    "type": "function",
+    "module": "domain.knowledge_graph.knowledge_node",
+    "name": "to_dict",
+    "line": 11
+  },
+  {
+    "type": "class",
+    "module": "domain.knowledge_objects.claim",
+    "name": "Claim",
+    "line": 7
+  },
+  {
+    "type": "class",
+    "module": "domain.knowledge_objects.event",
+    "name": "Event",
+    "line": 7
+  },
+  {
+    "type": "class",
+    "module": "domain.knowledge_objects.knowledge_object",
+    "name": "KnowledgeObject",
+    "line": 5
+  },
+  {
+    "type": "function",
+    "module": "domain.knowledge_objects.knowledge_object",
+    "name": "to_dict",
+    "line": 8
+  },
+  {
+    "type": "class",
+    "module": "domain.knowledge_objects.knowledge_object_type",
+    "name": "KnowledgeObjectType",
+    "line": 4
+  },
+  {
+    "type": "class",
+    "module": "domain.knowledge_objects.location",
+    "name": "Location",
+    "line": 7
+  },
+  {
+    "type": "class",
+    "module": "domain.knowledge_objects.person",
+    "name": "Person",
+    "line": 7
+  },
+  {
+    "type": "class",
+    "module": "domain.knowledge_objects.relationship",
+    "name": "Relationship",
+    "line": 7
+  },
+  {
+    "type": "class",
+    "module": "domain.knowledge_objects.source",
+    "name": "Source",
+    "line": 7
+  },
+  {
+    "type": "class",
+    "module": "domain.knowledge_objects.statistic",
+    "name": "Statistic",
+    "line": 7
+  },
+  {
+    "type": "class",
+    "module": "domain.knowledge_objects.timeline_event",
+    "name": "TimelineEvent",
+    "line": 7
+  },
+  {
+    "type": "class",
+    "module": "domain.relationships.relationship",
+    "name": "Relationship",
+    "line": 6
+  },
+  {
+    "type": "function",
+    "module": "domain.relationships.relationship",
+    "name": "to_dict",
+    "line": 14
+  },
+  {
+    "type": "class",
+    "module": "domain.sources.source",
+    "name": "Source",
+    "line": 7
+  },
+  {
+    "type": "function",
+    "module": "domain.sources.source",
+    "name": "to_dict",
+    "line": 19
+  },
+  {
+    "type": "class",
+    "module": "application.artifacts.artifact",
+    "name": "ArtifactType",
+    "line": 5
+  },
+  {
+    "type": "class",
+    "module": "application.artifacts.artifact",
+    "name": "Artifact",
+    "line": 25
+  },
+  {
+    "type": "class",
+    "module": "application.artifacts.artifact_store",
+    "name": "ArtifactStore",
+    "line": 4
+  },
+  {
+    "type": "function",
+    "module": "application.artifacts.artifact_store",
+    "name": "__init__",
+    "line": 6
+  },
+  {
+    "type": "function",
+    "module": "application.artifacts.artifact_store",
+    "name": "put",
+    "line": 9
+  },
+  {
+    "type": "function",
+    "module": "application.artifacts.artifact_store",
+    "name": "get",
+    "line": 12
+  },
+  {
+    "type": "function",
+    "module": "application.artifacts.artifact_store",
+    "name": "has",
+    "line": 16
+  },
+  {
+    "type": "function",
+    "module": "application.artifacts.artifact_store",
+    "name": "all",
+    "line": 19
+  },
+  {
+    "type": "class",
+    "module": "application.config.settings",
+    "name": "Settings",
+    "line": 8
+  },
+  {
+    "type": "class",
+    "module": "application.documentary.documentary_generator",
+    "name": "DocumentaryGenerator",
+    "line": 6
+  },
+  {
+    "type": "function",
+    "module": "application.documentary.documentary_generator",
+    "name": "generate",
+    "line": 8
+  },
+  {
+    "type": "class",
+    "module": "application.documentary.documentary_outline",
+    "name": "DocumentaryOutline",
+    "line": 5
+  },
+  {
+    "type": "function",
+    "module": "application.documentary.documentary_outline",
+    "name": "to_dict",
+    "line": 11
+  },
+  {
+    "type": "class",
+    "module": "application.documentary.documentary_script",
+    "name": "DocumentaryScript",
+    "line": 5
+  },
+  {
+    "type": "function",
+    "module": "application.documentary.documentary_script",
+    "name": "to_dict",
+    "line": 9
+  },
+  {
+    "type": "class",
+    "module": "application.documentary.knowledge_outline_builder",
+    "name": "KnowledgeOutlineBuilder",
+    "line": 4
+  },
+  {
+    "type": "function",
+    "module": "application.documentary.knowledge_outline_builder",
+    "name": "build",
+    "line": 6
+  },
+  {
+    "type": "class",
+    "module": "application.image.image_prompt",
+    "name": "ImagePrompt",
+    "line": 5
+  },
+  {
+    "type": "function",
+    "module": "application.image.image_prompt",
+    "name": "to_dict",
+    "line": 10
+  },
+  {
+    "type": "class",
+    "module": "application.image.image_prompt_generator",
+    "name": "ImagePromptGenerator",
+    "line": 1
+  },
+  {
+    "type": "function",
+    "module": "application.image.image_prompt_generator",
+    "name": "generate",
+    "line": 3
+  },
+  {
+    "type": "class",
+    "module": "application.knowledge.character_engine",
+    "name": "CharacterProfile",
+    "line": 4
+  },
+  {
+    "type": "class",
+    "module": "application.knowledge.character_engine",
+    "name": "CharacterEngine",
+    "line": 10
+  },
+  {
+    "type": "function",
+    "module": "application.knowledge.character_engine",
+    "name": "build",
+    "line": 12
+  },
+  {
+    "type": "class",
+    "module": "application.knowledge.citation_engine",
+    "name": "Citation",
+    "line": 5
+  },
+  {
+    "type": "class",
+    "module": "application.knowledge.citation_engine",
+    "name": "CitationEngine",
+    "line": 15
+  },
+  {
+    "type": "function",
+    "module": "application.knowledge.citation_engine",
+    "name": "build",
+    "line": 17
+  },
+  {
+    "type": "class",
+    "module": "application.knowledge.extraction_result",
+    "name": "ExtractionResult",
+    "line": 14
+  },
+  {
+    "type": "class",
+    "module": "application.knowledge.fact_verification_engine",
+    "name": "VerifiedClaim",
+    "line": 5
+  },
+  {
+    "type": "class",
+    "module": "application.knowledge.fact_verification_engine",
+    "name": "FactVerificationEngine",
+    "line": 16
+  },
+  {
+    "type": "function",
+    "module": "application.knowledge.fact_verification_engine",
+    "name": "verify",
+    "line": 18
+  },
+  {
+    "type": "class",
+    "module": "application.knowledge.knowledge_extractor",
+    "name": "KnowledgeExtractor",
+    "line": 8
+  },
+  {
+    "type": "function",
+    "module": "application.knowledge.knowledge_extractor",
+    "name": "__init__",
+    "line": 10
+  },
+  {
+    "type": "function",
+    "module": "application.knowledge.knowledge_extractor",
+    "name": "extract",
+    "line": 14
+  },
+  {
+    "type": "class",
+    "module": "application.knowledge.knowledge_graph_builder",
+    "name": "KnowledgeGraphBuilder",
+    "line": 6
+  },
+  {
+    "type": "function",
+    "module": "application.knowledge.knowledge_graph_builder",
+    "name": "build",
+    "line": 8
+  },
+  {
+    "type": "function",
+    "module": "application.knowledge.knowledge_graph_builder",
+    "name": "add",
+    "line": 12
+  },
+  {
+    "type": "class",
+    "module": "application.knowledge.knowledge_parser",
+    "name": "KnowledgeParser",
+    "line": 11
+  },
+  {
+    "type": "function",
+    "module": "application.knowledge.knowledge_parser",
+    "name": "parse",
+    "line": 13
+  },
+  {
+    "type": "class",
+    "module": "application.knowledge.knowledge_repository",
+    "name": "KnowledgeRepository",
+    "line": 10
+  },
+  {
+    "type": "function",
+    "module": "application.knowledge.knowledge_repository",
+    "name": "__post_init__",
+    "line": 15
+  },
+  {
+    "type": "function",
+    "module": "application.knowledge.knowledge_repository",
+    "name": "add",
+    "line": 21
+  },
+  {
+    "type": "function",
+    "module": "application.knowledge.knowledge_repository",
+    "name": "ingest_text",
+    "line": 27
+  },
+  {
+    "type": "function",
+    "module": "application.knowledge.knowledge_repository",
+    "name": "ingest_file",
+    "line": 38
+  },
+  {
+    "type": "function",
+    "module": "application.knowledge.knowledge_repository",
+    "name": "persons",
+    "line": 50
+  },
+  {
+    "type": "function",
+    "module": "application.knowledge.knowledge_repository",
+    "name": "events",
+    "line": 54
+  },
+  {
+    "type": "function",
+    "module": "application.knowledge.knowledge_repository",
+    "name": "locations",
+    "line": 58
+  },
+  {
+    "type": "function",
+    "module": "application.knowledge.knowledge_repository",
+    "name": "claims",
+    "line": 62
+  },
+  {
+    "type": "function",
+    "module": "application.knowledge.knowledge_repository",
+    "name": "statistics",
+    "line": 66
+  },
+  {
+    "type": "function",
+    "module": "application.knowledge.knowledge_repository",
+    "name": "timeline",
+    "line": 70
+  },
+  {
+    "type": "function",
+    "module": "application.knowledge.knowledge_repository",
+    "name": "relationships",
+    "line": 74
+  },
+  {
+    "type": "function",
+    "module": "application.knowledge.knowledge_repository",
+    "name": "sources",
+    "line": 78
+  },
+  {
+    "type": "class",
+    "module": "application.knowledge.relationship_engine",
+    "name": "RelationshipRecord",
+    "line": 4
+  },
+  {
+    "type": "class",
+    "module": "application.knowledge.relationship_engine",
+    "name": "RelationshipEngine",
+    "line": 10
+  },
+  {
+    "type": "function",
+    "module": "application.knowledge.relationship_engine",
+    "name": "build",
+    "line": 12
+  },
+  {
+    "type": "class",
+    "module": "application.knowledge.source_ranking_engine",
+    "name": "RankedSource",
+    "line": 5
+  },
+  {
+    "type": "class",
+    "module": "application.knowledge.source_ranking_engine",
+    "name": "SourceRankingEngine",
+    "line": 14
+  },
+  {
+    "type": "function",
+    "module": "application.knowledge.source_ranking_engine",
+    "name": "rank",
+    "line": 16
+  },
+  {
+    "type": "class",
+    "module": "application.knowledge.timeline_engine",
+    "name": "TimelineEntry",
+    "line": 4
+  },
+  {
+    "type": "class",
+    "module": "application.knowledge.timeline_engine",
+    "name": "TimelineEngine",
+    "line": 9
+  },
+  {
+    "type": "function",
+    "module": "application.knowledge.timeline_engine",
+    "name": "build",
+    "line": 11
+  },
+  {
+    "type": "class",
+    "module": "application.models.content_specification",
+    "name": "ContentSpecification",
+    "line": 5
+  },
+  {
+    "type": "function",
+    "module": "application.models.content_specification",
+    "name": "to_dict",
+    "line": 14
+  },
+  {
+    "type": "class",
+    "module": "application.models.extraction_object",
+    "name": "ExtractionObject",
+    "line": 6
+  },
+  {
+    "type": "function",
+    "module": "application.models.extraction_object",
+    "name": "to_dict",
+    "line": 12
+  },
+  {
+    "type": "class",
+    "module": "application.models.knowledge_context",
+    "name": "KnowledgeContext",
+    "line": 5
+  },
+  {
+    "type": "function",
+    "module": "application.models.knowledge_context",
+    "name": "to_dict",
+    "line": 13
+  },
+  {
+    "type": "class",
+    "module": "application.models.narrative_plan",
+    "name": "NarrativePlan",
+    "line": 5
+  },
+  {
+    "type": "function",
+    "module": "application.models.narrative_plan",
+    "name": "to_dict",
+    "line": 14
+  },
+  {
+    "type": "class",
+    "module": "application.models.organized_knowledge",
+    "name": "OrganizedKnowledge",
+    "line": 5
+  },
+  {
+    "type": "function",
+    "module": "application.models.organized_knowledge",
+    "name": "to_dict",
+    "line": 16
+  },
+  {
+    "type": "class",
+    "module": "application.models.outline",
+    "name": "Outline",
+    "line": 6
+  },
+  {
+    "type": "function",
+    "module": "application.models.outline",
+    "name": "to_dict",
+    "line": 13
+  },
+  {
+    "type": "class",
+    "module": "application.models.outline",
+    "name": "DocumentaryOutline",
+    "line": 24
+  },
+  {
+    "type": "function",
+    "module": "application.models.outline",
+    "name": "to_dict",
+    "line": 30
+  },
+  {
+    "type": "class",
+    "module": "application.models.prompt",
+    "name": "Prompt",
+    "line": 5
+  },
+  {
+    "type": "function",
+    "module": "application.models.prompt",
+    "name": "to_dict",
+    "line": 12
+  },
+  {
+    "type": "class",
+    "module": "application.models.script",
+    "name": "Script",
+    "line": 5
+  },
+  {
+    "type": "function",
+    "module": "application.models.script",
+    "name": "to_dict",
+    "line": 14
+  },
+  {
+    "type": "class",
+    "module": "application.models.script_structure",
+    "name": "ScriptStructure",
+    "line": 6
+  },
+  {
+    "type": "function",
+    "module": "application.models.script_structure",
+    "name": "to_dict",
+    "line": 13
+  },
+  {
+    "type": "class",
+    "module": "application.narrative.narrative_builder",
+    "name": "Narrative",
+    "line": 5
+  },
+  {
+    "type": "function",
+    "module": "application.narrative.narrative_builder",
+    "name": "_field",
+    "line": 14
+  },
+  {
+    "type": "class",
+    "module": "application.narrative.narrative_builder",
+    "name": "NarrativeBuilder",
+    "line": 20
+  },
+  {
+    "type": "function",
+    "module": "application.narrative.narrative_builder",
+    "name": "build",
+    "line": 22
+  },
+  {
+    "type": "class",
+    "module": "application.pipeline.production_pipeline",
+    "name": "ProductionPipeline",
+    "line": 10
+  },
+  {
+    "type": "function",
+    "module": "application.pipeline.production_pipeline",
+    "name": "__init__",
+    "line": 12
+  },
+  {
+    "type": "function",
+    "module": "application.pipeline.production_pipeline",
+    "name": "run",
+    "line": 30
+  },
+  {
+    "type": "class",
+    "module": "application.planning.scene_plan",
+    "name": "ScenePlan",
+    "line": 5
+  },
+  {
+    "type": "function",
+    "module": "application.planning.scene_plan",
+    "name": "to_dict",
+    "line": 11
+  },
+  {
+    "type": "class",
+    "module": "application.planning.scene_planner",
+    "name": "ScenePlan",
+    "line": 4
+  },
+  {
+    "type": "class",
+    "module": "application.planning.scene_planner",
+    "name": "ScenePlanner",
+    "line": 15
+  },
+  {
+    "type": "function",
+    "module": "application.planning.scene_planner",
+    "name": "plan",
+    "line": 17
+  },
+  {
+    "type": "function",
+    "module": "application.planning.scene_planner",
+    "name": "field",
+    "line": 57
+  },
+  {
+    "type": "class",
+    "module": "application.ports.llm_gateway",
+    "name": "LLMGateway",
+    "line": 7
+  },
+  {
+    "type": "function",
+    "module": "application.ports.llm_gateway",
+    "name": "generate",
+    "line": 9
+  },
+  {
+    "type": "class",
+    "module": "application.scene.scene",
+    "name": "Scene",
+    "line": 5
+  },
+  {
+    "type": "function",
+    "module": "application.scene.scene",
+    "name": "to_dict",
+    "line": 11
+  },
+  {
+    "type": "class",
+    "module": "application.scene_generation.scene_generator",
+    "name": "SceneGenerator",
+    "line": 8
+  },
+  {
+    "type": "function",
+    "module": "application.scene_generation.scene_generator",
+    "name": "__init__",
+    "line": 10
+  },
+  {
+    "type": "function",
+    "module": "application.scene_generation.scene_generator",
+    "name": "generate",
+    "line": 13
+  },
+  {
+    "type": "class",
+    "module": "application.script.script_generator",
+    "name": "Script",
+    "line": 5
+  },
+  {
+    "type": "class",
+    "module": "application.script.script_generator",
+    "name": "ScriptGenerator",
+    "line": 12
+  },
+  {
+    "type": "function",
+    "module": "application.script.script_generator",
+    "name": "build",
+    "line": 14
+  },
+  {
+    "type": "class",
+    "module": "application.services.generation_service",
+    "name": "GenerationService",
+    "line": 6
+  },
+  {
+    "type": "function",
+    "module": "application.services.generation_service",
+    "name": "__init__",
+    "line": 7
+  },
+  {
+    "type": "function",
+    "module": "application.services.generation_service",
+    "name": "generate",
+    "line": 10
+  },
+  {
+    "type": "class",
+    "module": "application.services.knowledge_context_builder",
+    "name": "KnowledgeContextBuilder",
+    "line": 5
+  },
+  {
+    "type": "function",
+    "module": "application.services.knowledge_context_builder",
+    "name": "build",
+    "line": 6
+  },
+  {
+    "type": "class",
+    "module": "application.services.knowledge_organizer",
+    "name": "KnowledgeOrganizer",
+    "line": 8
+  },
+  {
+    "type": "function",
+    "module": "application.services.knowledge_organizer",
+    "name": "build",
+    "line": 9
+  },
+  {
+    "type": "class",
+    "module": "application.services.knowledge_service",
+    "name": "KnowledgeService",
+    "line": 4
+  },
+  {
+    "type": "function",
+    "module": "application.services.knowledge_service",
+    "name": "__init__",
+    "line": 5
+  },
+  {
+    "type": "function",
+    "module": "application.services.knowledge_service",
+    "name": "register",
+    "line": 8
+  },
+  {
+    "type": "function",
+    "module": "application.services.knowledge_service",
+    "name": "all_entities",
+    "line": 11
+  },
+  {
+    "type": "function",
+    "module": "application.services.knowledge_service",
+    "name": "stats",
+    "line": 14
+  },
+  {
+    "type": "class",
+    "module": "application.services.narrative_builder",
+    "name": "NarrativeBuilder",
+    "line": 4
+  },
+  {
+    "type": "function",
+    "module": "application.services.narrative_builder",
+    "name": "build",
+    "line": 5
+  },
+  {
+    "type": "class",
+    "module": "application.services.narrative_planner",
+    "name": "NarrativePlanner",
+    "line": 5
+  },
+  {
+    "type": "function",
+    "module": "application.services.narrative_planner",
+    "name": "build",
+    "line": 6
+  },
+  {
+    "type": "class",
+    "module": "application.services.prompt_builder",
+    "name": "PromptBuilder",
+    "line": 6
+  },
+  {
+    "type": "function",
+    "module": "application.services.prompt_builder",
+    "name": "build",
+    "line": 7
+  },
+  {
+    "type": "class",
+    "module": "application.services.script_structure_builder",
+    "name": "ScriptStructureBuilder",
+    "line": 5
+  },
+  {
+    "type": "function",
+    "module": "application.services.script_structure_builder",
+    "name": "build",
+    "line": 6
+  },
+  {
+    "type": "class",
+    "module": "application.services.siraj_engine",
+    "name": "SirajEngine",
+    "line": 5
+  },
+  {
+    "type": "function",
+    "module": "application.services.siraj_engine",
+    "name": "build_outline",
+    "line": 6
+  },
+  {
+    "type": "class",
+    "module": "application.workflow.documentary_workflow",
+    "name": "DocumentaryWorkflow",
+    "line": 24
+  },
+  {
+    "type": "function",
+    "module": "application.workflow.documentary_workflow",
+    "name": "__init__",
+    "line": 26
+  },
+  {
+    "type": "function",
+    "module": "application.workflow.documentary_workflow",
+    "name": "run",
+    "line": 52
+  },
+  {
+    "type": "class",
+    "module": "application.workflow.workflow_context",
+    "name": "WorkflowContext",
+    "line": 5
+  },
+  {
+    "type": "function",
+    "module": "application.workflow.workflow_context",
+    "name": "to_dict",
+    "line": 29
+  },
+  {
+    "type": "class",
+    "module": "application.models.documentary.script",
+    "name": "Script",
+    "line": 5
+  },
+  {
+    "type": "function",
+    "module": "application.models.documentary.script",
+    "name": "to_dict",
+    "line": 14
+  },
+  {
+    "type": "class",
+    "module": "application.models.documentary.timeline_event",
+    "name": "TimelineEvent",
+    "line": 7
+  },
+  {
+    "type": "class",
+    "module": "application.models.knowledge.important_typed_claim",
+    "name": "ImportantTypedClaim",
+    "line": 5
+  },
+  {
+    "type": "function",
+    "module": "application.models.knowledge.important_typed_claim",
+    "name": "to_dict",
+    "line": 11
+  },
+  {
+    "type": "class",
+    "module": "application.models.knowledge.prioritized_knowledge",
+    "name": "PrioritizedKnowledge",
+    "line": 7
+  },
+  {
+    "type": "function",
+    "module": "application.models.knowledge.prioritized_knowledge",
+    "name": "to_dict",
+    "line": 16
+  },
+  {
+    "type": "class",
+    "module": "application.models.knowledge.typed_claim",
+    "name": "TypedClaim",
+    "line": 5
+  },
+  {
+    "type": "function",
+    "module": "application.models.knowledge.typed_claim",
+    "name": "to_dict",
+    "line": 10
+  },
+  {
+    "type": "class",
+    "module": "application.models.llm.prompt",
+    "name": "Prompt",
+    "line": 5
+  },
+  {
+    "type": "function",
+    "module": "application.models.llm.prompt",
+    "name": "to_dict",
+    "line": 12
+  },
+  {
+    "type": "class",
+    "module": "application.llm.core.fake_gateway",
+    "name": "FakeGateway",
+    "line": 6
+  },
+  {
+    "type": "function",
+    "module": "application.llm.core.fake_gateway",
+    "name": "generate",
+    "line": 8
+  },
+  {
+    "type": "class",
+    "module": "application.llm.core.llm_gateway",
+    "name": "LLMGateway",
+    "line": 7
+  },
+  {
+    "type": "function",
+    "module": "application.llm.core.llm_gateway",
+    "name": "generate",
+    "line": 10
+  },
+  {
+    "type": "class",
+    "module": "application.llm.core.llm_request",
+    "name": "LLMRequest",
+    "line": 5
+  },
+  {
+    "type": "class",
+    "module": "application.llm.core.llm_response",
+    "name": "LLMResponse",
+    "line": 5
+  },
+  {
+    "type": "class",
+    "module": "application.llm.providers.gemini_gateway",
+    "name": "GeminiGateway",
+    "line": 12
+  },
+  {
+    "type": "function",
+    "module": "application.llm.providers.gemini_gateway",
+    "name": "__init__",
+    "line": 14
+  },
+  {
+    "type": "function",
+    "module": "application.llm.providers.gemini_gateway",
+    "name": "generate",
+    "line": 27
+  },
+  {
+    "type": "class",
+    "module": "application.llm.providers.manual_gateway",
+    "name": "ManualGateway",
+    "line": 8
+  },
+  {
+    "type": "function",
+    "module": "application.llm.providers.manual_gateway",
+    "name": "generate",
+    "line": 10
+  },
+  {
+    "type": "class",
+    "module": "application.llm.providers.openai_gateway",
+    "name": "OpenAIGateway",
+    "line": 12
+  },
+  {
+    "type": "function",
+    "module": "application.llm.providers.openai_gateway",
+    "name": "__init__",
+    "line": 14
+  },
+  {
+    "type": "function",
+    "module": "application.llm.providers.openai_gateway",
+    "name": "generate",
+    "line": 27
+  },
+  {
+    "type": "function",
+    "module": "application.knowledge.utils.model_factory",
+    "name": "normalize_payload",
+    "line": 21
+  },
+  {
+    "type": "function",
+    "module": "application.knowledge.utils.model_factory",
+    "name": "create_model",
+    "line": 40
+  }
+]

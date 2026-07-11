@@ -1,0 +1,813 @@
+{
+  "delete": [
+    {
+      "module": "test_artifact_store",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_artifact_store",
+      "validated": true
+    },
+    {
+      "module": "test_claim",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_claim",
+      "validated": true
+    },
+    {
+      "module": "test_documentary_generator",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_documentary_generator",
+      "validated": true
+    },
+    {
+      "module": "test_documentary_outline",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_documentary_outline",
+      "validated": true
+    },
+    {
+      "module": "test_extraction_object",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_extraction_object",
+      "validated": true
+    },
+    {
+      "module": "test_gemini_gateway",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_gemini_gateway",
+      "validated": true
+    },
+    {
+      "module": "test_graph_index",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_graph_index",
+      "validated": true
+    },
+    {
+      "module": "test_graph_queries",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_graph_queries",
+      "validated": true
+    },
+    {
+      "module": "test_knowledge_asset",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_knowledge_asset",
+      "validated": true
+    },
+    {
+      "module": "test_knowledge_asset_behavior",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_knowledge_asset_behavior",
+      "validated": true
+    },
+    {
+      "module": "test_knowledge_asset_validation",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_knowledge_asset_validation",
+      "validated": true
+    },
+    {
+      "module": "test_knowledge_edge",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_knowledge_edge",
+      "validated": true
+    },
+    {
+      "module": "test_knowledge_graph",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_knowledge_graph",
+      "validated": true
+    },
+    {
+      "module": "test_knowledge_graph_query",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_knowledge_graph_query",
+      "validated": true
+    },
+    {
+      "module": "test_knowledge_node",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_knowledge_node",
+      "validated": true
+    },
+    {
+      "module": "test_llm_gateway",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_llm_gateway",
+      "validated": true
+    },
+    {
+      "module": "test_openai_gateway",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_openai_gateway",
+      "validated": true
+    },
+    {
+      "module": "test_person_object",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_person_object",
+      "validated": true
+    },
+    {
+      "module": "test_prompt",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_prompt",
+      "validated": true
+    },
+    {
+      "module": "test_relationship",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_relationship",
+      "validated": true
+    },
+    {
+      "module": "test_relationship_object",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_relationship_object",
+      "validated": true
+    },
+    {
+      "module": "test_scene_planner",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_scene_planner",
+      "validated": true
+    },
+    {
+      "module": "test_script_model",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_script_model",
+      "validated": true
+    },
+    {
+      "module": "test_settings",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_settings",
+      "validated": true
+    },
+    {
+      "module": "test_source",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_source",
+      "validated": true
+    },
+    {
+      "module": "test_statistic_object",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_statistic_object",
+      "validated": true
+    },
+    {
+      "module": "test_timeline_event",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_timeline_event",
+      "validated": true
+    },
+    {
+      "module": "test_workflow_context",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_workflow_context",
+      "validated": true
+    },
+    {
+      "module": "__init__",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "__init__",
+      "validated": true
+    },
+    {
+      "module": "core.entities",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "core.entities",
+      "validated": true
+    },
+    {
+      "module": "core.knowledge_engine",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "core.knowledge_engine",
+      "validated": true
+    },
+    {
+      "module": "infrastructure.llm.mock_llm_provider",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "infrastructure.llm",
+      "validated": true
+    },
+    {
+      "module": "domain.entities.__init__",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "domain.entities",
+      "validated": true
+    },
+    {
+      "module": "core.repositories.entity_repository",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "core.repositories",
+      "validated": true
+    },
+    {
+      "module": "core.storage.json_storage",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "core.storage",
+      "validated": true
+    },
+    {
+      "module": "application.documentary.documentary_script",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "application.documentary",
+      "validated": true
+    },
+    {
+      "module": "application.image.image_prompt",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "application.image",
+      "validated": true
+    },
+    {
+      "module": "application.services.generation_service",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "application.services",
+      "validated": true
+    },
+    {
+      "module": "application.services.knowledge_context_builder",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "application.services",
+      "validated": true
+    },
+    {
+      "module": "application.services.knowledge_organizer",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "application.services",
+      "validated": true
+    },
+    {
+      "module": "application.services.narrative_builder",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "duplicate",
+        "dead_candidate"
+      ],
+      "cluster": "application.services",
+      "validated": true
+    },
+    {
+      "module": "application.services.narrative_planner",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "application.services",
+      "validated": true
+    },
+    {
+      "module": "application.services.prompt_builder",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "application.services",
+      "validated": true
+    },
+    {
+      "module": "application.services.script_structure_builder",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "application.services",
+      "validated": true
+    },
+    {
+      "module": "application.services.siraj_engine",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "application.services",
+      "validated": true
+    },
+    {
+      "module": "application.models.knowledge.prioritized_knowledge",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "application.models",
+      "validated": true
+    },
+    {
+      "module": "application.models.knowledge.typed_claim",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "application.models",
+      "validated": true
+    }
+  ],
+  "merge": [
+    {
+      "module": "domain.claims.claim",
+      "decision": "MERGE",
+      "confidence": 95,
+      "reasons": [
+        "unreachable",
+        "duplicate"
+      ],
+      "cluster": "domain.claims",
+      "validated": true
+    },
+    {
+      "module": "domain.knowledge_objects.relationship",
+      "decision": "MERGE",
+      "confidence": 95,
+      "reasons": [
+        "unreachable",
+        "duplicate"
+      ],
+      "cluster": "domain.knowledge_objects",
+      "validated": true
+    },
+    {
+      "module": "domain.sources.source",
+      "decision": "MERGE",
+      "confidence": 95,
+      "reasons": [
+        "unreachable",
+        "duplicate"
+      ],
+      "cluster": "domain.sources",
+      "validated": true
+    },
+    {
+      "module": "application.documentary.documentary_outline",
+      "decision": "MERGE",
+      "confidence": 95,
+      "reasons": [
+        "unreachable",
+        "duplicate"
+      ],
+      "cluster": "application.documentary",
+      "validated": true
+    },
+    {
+      "module": "application.models.prompt",
+      "decision": "MERGE",
+      "confidence": 95,
+      "reasons": [
+        "unreachable",
+        "duplicate"
+      ],
+      "cluster": "application.models",
+      "validated": true
+    },
+    {
+      "module": "application.models.script",
+      "decision": "MERGE",
+      "confidence": 95,
+      "reasons": [
+        "unreachable",
+        "duplicate"
+      ],
+      "cluster": "application.models",
+      "validated": true
+    },
+    {
+      "module": "application.ports.llm_gateway",
+      "decision": "MERGE",
+      "confidence": 95,
+      "reasons": [
+        "unreachable",
+        "duplicate"
+      ],
+      "cluster": "application.ports",
+      "validated": true
+    },
+    {
+      "module": "application.models.documentary.script",
+      "decision": "MERGE",
+      "confidence": 95,
+      "reasons": [
+        "unreachable",
+        "duplicate"
+      ],
+      "cluster": "application.models",
+      "validated": true
+    },
+    {
+      "module": "application.models.documentary.timeline_event",
+      "decision": "MERGE",
+      "confidence": 95,
+      "reasons": [
+        "unreachable",
+        "duplicate"
+      ],
+      "cluster": "application.models",
+      "validated": true
+    },
+    {
+      "module": "application.models.llm.prompt",
+      "decision": "MERGE",
+      "confidence": 95,
+      "reasons": [
+        "unreachable",
+        "duplicate"
+      ],
+      "cluster": "application.models",
+      "validated": true
+    }
+  ],
+  "rename": [
+    {
+      "module": "domain.entities.entity",
+      "decision": "RENAME",
+      "confidence": 80,
+      "reasons": [
+        "duplicate"
+      ],
+      "cluster": "domain.entities",
+      "validated": true
+    },
+    {
+      "module": "domain.knowledge_objects.claim",
+      "decision": "RENAME",
+      "confidence": 80,
+      "reasons": [
+        "duplicate"
+      ],
+      "cluster": "domain.knowledge_objects",
+      "validated": true
+    },
+    {
+      "module": "domain.knowledge_objects.event",
+      "decision": "RENAME",
+      "confidence": 80,
+      "reasons": [
+        "duplicate"
+      ],
+      "cluster": "domain.knowledge_objects",
+      "validated": true
+    },
+    {
+      "module": "domain.knowledge_objects.person",
+      "decision": "RENAME",
+      "confidence": 80,
+      "reasons": [
+        "duplicate"
+      ],
+      "cluster": "domain.knowledge_objects",
+      "validated": true
+    },
+    {
+      "module": "domain.knowledge_objects.source",
+      "decision": "RENAME",
+      "confidence": 80,
+      "reasons": [
+        "duplicate"
+      ],
+      "cluster": "domain.knowledge_objects",
+      "validated": true
+    },
+    {
+      "module": "domain.knowledge_objects.timeline_event",
+      "decision": "RENAME",
+      "confidence": 80,
+      "reasons": [
+        "duplicate"
+      ],
+      "cluster": "domain.knowledge_objects",
+      "validated": true
+    },
+    {
+      "module": "domain.relationships.relationship",
+      "decision": "RENAME",
+      "confidence": 80,
+      "reasons": [
+        "duplicate"
+      ],
+      "cluster": "domain.relationships",
+      "validated": true
+    },
+    {
+      "module": "application.models.outline",
+      "decision": "RENAME",
+      "confidence": 80,
+      "reasons": [
+        "duplicate"
+      ],
+      "cluster": "application.models",
+      "validated": true
+    },
+    {
+      "module": "application.narrative.narrative_builder",
+      "decision": "RENAME",
+      "confidence": 80,
+      "reasons": [
+        "duplicate"
+      ],
+      "cluster": "application.narrative",
+      "validated": true
+    },
+    {
+      "module": "application.planning.scene_plan",
+      "decision": "RENAME",
+      "confidence": 80,
+      "reasons": [
+        "duplicate"
+      ],
+      "cluster": "application.planning",
+      "validated": true
+    },
+    {
+      "module": "application.planning.scene_planner",
+      "decision": "RENAME",
+      "confidence": 80,
+      "reasons": [
+        "duplicate"
+      ],
+      "cluster": "application.planning",
+      "validated": true
+    },
+    {
+      "module": "application.script.script_generator",
+      "decision": "RENAME",
+      "confidence": 80,
+      "reasons": [
+        "duplicate"
+      ],
+      "cluster": "application.script",
+      "validated": true
+    },
+    {
+      "module": "application.llm.core.llm_gateway",
+      "decision": "RENAME",
+      "confidence": 80,
+      "reasons": [
+        "duplicate"
+      ],
+      "cluster": "application.llm",
+      "validated": true
+    }
+  ]
+}

@@ -1,0 +1,2869 @@
+[
+  {
+    "path": "src\\main.py",
+    "module": "main",
+    "lines": 17,
+    "imports": [
+      "application.services.knowledge_service.KnowledgeService",
+      "domain.entities.entity.Person",
+      "domain.entities.entity.Place",
+      "domain.entities.entity.Event"
+    ],
+    "classes": [],
+    "functions": [
+      "main"
+    ],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {},
+    "decorators": {}
+  },
+  {
+    "path": "src\\test_artifact_store.py",
+    "module": "test_artifact_store",
+    "lines": 28,
+    "imports": [
+      "application.artifacts.artifact.Artifact",
+      "application.artifacts.artifact.ArtifactType",
+      "application.artifacts.artifact_store.ArtifactStore"
+    ],
+    "classes": [],
+    "functions": [],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {},
+    "decorators": {}
+  },
+  {
+    "path": "src\\test_claim.py",
+    "module": "test_claim",
+    "lines": 7,
+    "imports": [
+      "domain.claims.claim.Claim"
+    ],
+    "classes": [],
+    "functions": [],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {},
+    "decorators": {}
+  },
+  {
+    "path": "src\\test_documentary_generator.py",
+    "module": "test_documentary_generator",
+    "lines": 15,
+    "imports": [
+      "application.documentary.documentary_generator.DocumentaryGenerator"
+    ],
+    "classes": [],
+    "functions": [],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {},
+    "decorators": {}
+  },
+  {
+    "path": "src\\test_documentary_outline.py",
+    "module": "test_documentary_outline",
+    "lines": 21,
+    "imports": [
+      "application.documentary.documentary_outline.DocumentaryOutline"
+    ],
+    "classes": [],
+    "functions": [],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {},
+    "decorators": {}
+  },
+  {
+    "path": "src\\test_extraction_object.py",
+    "module": "test_extraction_object",
+    "lines": 43,
+    "imports": [
+      "application.models.extraction_object.ExtractionObject",
+      "domain.knowledge_objects.knowledge_object_type.KnowledgeObjectType"
+    ],
+    "classes": [],
+    "functions": [],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {},
+    "decorators": {}
+  },
+  {
+    "path": "src\\test_gemini_gateway.py",
+    "module": "test_gemini_gateway",
+    "lines": 13,
+    "imports": [
+      "application.llm.providers.gemini_gateway.GeminiGateway"
+    ],
+    "classes": [],
+    "functions": [],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {},
+    "decorators": {}
+  },
+  {
+    "path": "src\\test_graph_index.py",
+    "module": "test_graph_index",
+    "lines": 36,
+    "imports": [
+      "domain.knowledge_graph.graph_index.GraphIndex",
+      "domain.knowledge_graph.knowledge_graph.KnowledgeGraph",
+      "domain.knowledge_graph.knowledge_node.KnowledgeNode",
+      "domain.knowledge_graph.knowledge_edge.KnowledgeEdge"
+    ],
+    "classes": [],
+    "functions": [],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {},
+    "decorators": {}
+  },
+  {
+    "path": "src\\test_graph_queries.py",
+    "module": "test_graph_queries",
+    "lines": 37,
+    "imports": [
+      "domain.knowledge_graph.knowledge_graph.KnowledgeGraph",
+      "domain.knowledge_graph.knowledge_node.KnowledgeNode",
+      "domain.knowledge_graph.knowledge_edge.KnowledgeEdge"
+    ],
+    "classes": [],
+    "functions": [],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {},
+    "decorators": {}
+  },
+  {
+    "path": "src\\test_knowledge_asset.py",
+    "module": "test_knowledge_asset",
+    "lines": 9,
+    "imports": [
+      "core.knowledge_asset.KnowledgeAsset"
+    ],
+    "classes": [],
+    "functions": [],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {},
+    "decorators": {}
+  },
+  {
+    "path": "src\\test_knowledge_asset_behavior.py",
+    "module": "test_knowledge_asset_behavior",
+    "lines": 9,
+    "imports": [
+      "core.knowledge_asset.KnowledgeAsset",
+      "domain.entities.entity.Person",
+      "domain.sources.source.Source"
+    ],
+    "classes": [],
+    "functions": [],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {},
+    "decorators": {}
+  },
+  {
+    "path": "src\\test_knowledge_asset_validation.py",
+    "module": "test_knowledge_asset_validation",
+    "lines": 12,
+    "imports": [
+      "core.knowledge_asset.KnowledgeAsset",
+      "domain.entities.entity.Person",
+      "domain.sources.source.Source"
+    ],
+    "classes": [],
+    "functions": [],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {},
+    "decorators": {}
+  },
+  {
+    "path": "src\\test_knowledge_edge.py",
+    "module": "test_knowledge_edge",
+    "lines": 13,
+    "imports": [
+      "domain.knowledge_graph.knowledge_edge.KnowledgeEdge"
+    ],
+    "classes": [],
+    "functions": [],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {},
+    "decorators": {}
+  },
+  {
+    "path": "src\\test_knowledge_graph.py",
+    "module": "test_knowledge_graph",
+    "lines": 36,
+    "imports": [
+      "domain.knowledge_graph.knowledge_graph.KnowledgeGraph",
+      "domain.knowledge_graph.knowledge_node.KnowledgeNode",
+      "domain.knowledge_graph.knowledge_edge.KnowledgeEdge"
+    ],
+    "classes": [],
+    "functions": [],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {},
+    "decorators": {}
+  },
+  {
+    "path": "src\\test_knowledge_graph_query.py",
+    "module": "test_knowledge_graph_query",
+    "lines": 43,
+    "imports": [
+      "domain.knowledge_graph.knowledge_graph.KnowledgeGraph",
+      "domain.knowledge_graph.knowledge_graph_query.KnowledgeGraphQuery",
+      "domain.knowledge_graph.knowledge_node.KnowledgeNode",
+      "domain.knowledge_graph.knowledge_edge.KnowledgeEdge"
+    ],
+    "classes": [],
+    "functions": [],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {},
+    "decorators": {}
+  },
+  {
+    "path": "src\\test_knowledge_node.py",
+    "module": "test_knowledge_node",
+    "lines": 15,
+    "imports": [
+      "domain.knowledge_graph.knowledge_node.KnowledgeNode"
+    ],
+    "classes": [],
+    "functions": [],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {},
+    "decorators": {}
+  },
+  {
+    "path": "src\\test_llm_gateway.py",
+    "module": "test_llm_gateway",
+    "lines": 18,
+    "imports": [
+      "application.llm.core.fake_gateway.FakeGateway",
+      "application.llm.core.llm_request.LLMRequest"
+    ],
+    "classes": [],
+    "functions": [],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {},
+    "decorators": {}
+  },
+  {
+    "path": "src\\test_openai_gateway.py",
+    "module": "test_openai_gateway",
+    "lines": 13,
+    "imports": [
+      "application.llm.providers.openai_gateway.OpenAIGateway"
+    ],
+    "classes": [],
+    "functions": [],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {},
+    "decorators": {}
+  },
+  {
+    "path": "src\\test_person_object.py",
+    "module": "test_person_object",
+    "lines": 24,
+    "imports": [
+      "domain.knowledge_objects.person.Person"
+    ],
+    "classes": [],
+    "functions": [],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {},
+    "decorators": {}
+  },
+  {
+    "path": "src\\test_prompt.py",
+    "module": "test_prompt",
+    "lines": 10,
+    "imports": [
+      "application.models.llm.prompt.Prompt"
+    ],
+    "classes": [],
+    "functions": [],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {},
+    "decorators": {}
+  },
+  {
+    "path": "src\\test_relationship.py",
+    "module": "test_relationship",
+    "lines": 9,
+    "imports": [
+      "domain.entities.entity.Person",
+      "domain.relationships.relationship.Relationship"
+    ],
+    "classes": [],
+    "functions": [],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {},
+    "decorators": {}
+  },
+  {
+    "path": "src\\test_relationship_object.py",
+    "module": "test_relationship_object",
+    "lines": 24,
+    "imports": [
+      "domain.knowledge_objects.relationship.Relationship"
+    ],
+    "classes": [],
+    "functions": [],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {},
+    "decorators": {}
+  },
+  {
+    "path": "src\\test_scene_planner.py",
+    "module": "test_scene_planner",
+    "lines": 16,
+    "imports": [
+      "application.documentary.documentary_generator.DocumentaryGenerator",
+      "application.planning.scene_planner.ScenePlanner"
+    ],
+    "classes": [],
+    "functions": [],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {},
+    "decorators": {}
+  },
+  {
+    "path": "src\\test_script_model.py",
+    "module": "test_script_model",
+    "lines": 13,
+    "imports": [
+      "application.models.documentary.script.Script"
+    ],
+    "classes": [],
+    "functions": [],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {},
+    "decorators": {}
+  },
+  {
+    "path": "src\\test_settings.py",
+    "module": "test_settings",
+    "lines": 10,
+    "imports": [
+      "application.config.settings.settings"
+    ],
+    "classes": [],
+    "functions": [],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {},
+    "decorators": {}
+  },
+  {
+    "path": "src\\test_source.py",
+    "module": "test_source",
+    "lines": 9,
+    "imports": [
+      "domain.sources.source.Source"
+    ],
+    "classes": [],
+    "functions": [],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {},
+    "decorators": {}
+  },
+  {
+    "path": "src\\test_statistic_object.py",
+    "module": "test_statistic_object",
+    "lines": 21,
+    "imports": [
+      "domain.knowledge_objects.statistic.Statistic"
+    ],
+    "classes": [],
+    "functions": [],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {},
+    "decorators": {}
+  },
+  {
+    "path": "src\\test_timeline_event.py",
+    "module": "test_timeline_event",
+    "lines": 44,
+    "imports": [
+      "application.models.documentary.timeline_event.TimelineEvent"
+    ],
+    "classes": [],
+    "functions": [],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {},
+    "decorators": {}
+  },
+  {
+    "path": "src\\test_workflow_context.py",
+    "module": "test_workflow_context",
+    "lines": 16,
+    "imports": [
+      "application.workflow.workflow_context.WorkflowContext"
+    ],
+    "classes": [],
+    "functions": [],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {},
+    "decorators": {}
+  },
+  {
+    "path": "src\\__init__.py",
+    "module": "__init__",
+    "lines": 0,
+    "imports": [],
+    "classes": [],
+    "functions": [],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {},
+    "decorators": {}
+  },
+  {
+    "path": "src\\cli\\generate.py",
+    "module": "cli.generate",
+    "lines": 33,
+    "imports": [
+      "json",
+      "sys",
+      "application.pipeline.production_pipeline.ProductionPipeline"
+    ],
+    "classes": [],
+    "functions": [],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {},
+    "decorators": {}
+  },
+  {
+    "path": "src\\core\\entities.py",
+    "module": "core.entities",
+    "lines": 8,
+    "imports": [
+      "domain.entities.entity.Entity",
+      "domain.entities.entity.Person",
+      "domain.entities.entity.Place",
+      "domain.entities.entity.Event"
+    ],
+    "classes": [],
+    "functions": [],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {},
+    "decorators": {}
+  },
+  {
+    "path": "src\\core\\knowledge_asset.py",
+    "module": "core.knowledge_asset",
+    "lines": 93,
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "datetime.datetime",
+      "typing.Dict",
+      "typing.List",
+      "uuid.UUID",
+      "uuid.uuid4",
+      "domain.relationships.relationship.Relationship"
+    ],
+    "classes": [
+      "KnowledgeAsset"
+    ],
+    "functions": [
+      "to_dict",
+      "add_source",
+      "add_entity",
+      "add_claim",
+      "add_relationship",
+      "summary",
+      "validate"
+    ],
+    "dataclasses": [
+      "KnowledgeAsset"
+    ],
+    "enums": [],
+    "inheritance": {
+      "KnowledgeAsset": []
+    },
+    "decorators": {
+      "KnowledgeAsset": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\core\\knowledge_engine.py",
+    "module": "core.knowledge_engine",
+    "lines": 5,
+    "imports": [
+      "application.services.knowledge_service.KnowledgeService"
+    ],
+    "classes": [
+      "KnowledgeEngine"
+    ],
+    "functions": [],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {
+      "KnowledgeEngine": [
+        "KnowledgeService"
+      ]
+    },
+    "decorators": {
+      "KnowledgeEngine": []
+    }
+  },
+  {
+    "path": "src\\infrastructure\\llm\\mock_llm_provider.py",
+    "module": "infrastructure.llm.mock_llm_provider",
+    "lines": 27,
+    "imports": [
+      "application.models.prompt.Prompt",
+      "application.models.script.Script",
+      "application.ports.llm_gateway.LLMGateway"
+    ],
+    "classes": [
+      "MockLLMProvider"
+    ],
+    "functions": [
+      "generate"
+    ],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {
+      "MockLLMProvider": [
+        "LLMGateway"
+      ]
+    },
+    "decorators": {
+      "MockLLMProvider": []
+    }
+  },
+  {
+    "path": "src\\domain\\claims\\claim.py",
+    "module": "domain.claims.claim",
+    "lines": 36,
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "typing.Dict",
+      "typing.List",
+      "typing.Optional",
+      "uuid.uuid4"
+    ],
+    "classes": [
+      "Claim"
+    ],
+    "functions": [
+      "to_dict"
+    ],
+    "dataclasses": [
+      "Claim"
+    ],
+    "enums": [],
+    "inheritance": {
+      "Claim": []
+    },
+    "decorators": {
+      "Claim": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\domain\\entities\\entity.py",
+    "module": "domain.entities.entity",
+    "lines": 37,
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "typing.Dict",
+      "uuid.uuid4"
+    ],
+    "classes": [
+      "Entity",
+      "Person",
+      "Place",
+      "Event"
+    ],
+    "functions": [
+      "to_dict"
+    ],
+    "dataclasses": [
+      "Entity",
+      "Person",
+      "Place",
+      "Event"
+    ],
+    "enums": [],
+    "inheritance": {
+      "Entity": [],
+      "Person": [
+        "Entity"
+      ],
+      "Place": [
+        "Entity"
+      ],
+      "Event": [
+        "Entity"
+      ]
+    },
+    "decorators": {
+      "Entity": [
+        "dataclass"
+      ],
+      "Person": [
+        "dataclass"
+      ],
+      "Place": [
+        "dataclass"
+      ],
+      "Event": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\domain\\entities\\__init__.py",
+    "module": "domain.entities.__init__",
+    "lines": 3,
+    "imports": [
+      "entity.Entity",
+      "entity.Person",
+      "entity.Place",
+      "entity.Event"
+    ],
+    "classes": [],
+    "functions": [],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {},
+    "decorators": {}
+  },
+  {
+    "path": "src\\domain\\knowledge_graph\\graph_index.py",
+    "module": "domain.knowledge_graph.graph_index",
+    "lines": 34,
+    "imports": [
+      "collections.defaultdict"
+    ],
+    "classes": [
+      "GraphIndex"
+    ],
+    "functions": [
+      "__init__",
+      "build",
+      "get_node",
+      "get_nodes_by_type",
+      "outgoing",
+      "incoming"
+    ],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {
+      "GraphIndex": []
+    },
+    "decorators": {
+      "GraphIndex": []
+    }
+  },
+  {
+    "path": "src\\domain\\knowledge_graph\\knowledge_edge.py",
+    "module": "domain.knowledge_graph.knowledge_edge",
+    "lines": 20,
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field"
+    ],
+    "classes": [
+      "KnowledgeEdge"
+    ],
+    "functions": [
+      "to_dict"
+    ],
+    "dataclasses": [
+      "KnowledgeEdge"
+    ],
+    "enums": [],
+    "inheritance": {
+      "KnowledgeEdge": []
+    },
+    "decorators": {
+      "KnowledgeEdge": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\domain\\knowledge_graph\\knowledge_graph.py",
+    "module": "domain.knowledge_graph.knowledge_graph",
+    "lines": 45,
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "domain.knowledge_graph.graph_index.GraphIndex"
+    ],
+    "classes": [
+      "KnowledgeGraph"
+    ],
+    "functions": [
+      "__post_init__",
+      "rebuild_index",
+      "add_node",
+      "add_edge",
+      "get_node",
+      "get_nodes_by_type",
+      "outgoing",
+      "incoming",
+      "to_dict"
+    ],
+    "dataclasses": [
+      "KnowledgeGraph"
+    ],
+    "enums": [],
+    "inheritance": {
+      "KnowledgeGraph": []
+    },
+    "decorators": {
+      "KnowledgeGraph": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\domain\\knowledge_graph\\knowledge_graph_query.py",
+    "module": "domain.knowledge_graph.knowledge_graph_query",
+    "lines": 30,
+    "imports": [
+      "domain.knowledge_graph.knowledge_graph.KnowledgeGraph"
+    ],
+    "classes": [
+      "KnowledgeGraphQuery"
+    ],
+    "functions": [
+      "__init__",
+      "node",
+      "people",
+      "events",
+      "timeline",
+      "statistics",
+      "relationships",
+      "outgoing",
+      "incoming"
+    ],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {
+      "KnowledgeGraphQuery": []
+    },
+    "decorators": {
+      "KnowledgeGraphQuery": []
+    }
+  },
+  {
+    "path": "src\\domain\\knowledge_graph\\knowledge_node.py",
+    "module": "domain.knowledge_graph.knowledge_node",
+    "lines": 20,
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field"
+    ],
+    "classes": [
+      "KnowledgeNode"
+    ],
+    "functions": [
+      "to_dict"
+    ],
+    "dataclasses": [
+      "KnowledgeNode"
+    ],
+    "enums": [],
+    "inheritance": {
+      "KnowledgeNode": []
+    },
+    "decorators": {
+      "KnowledgeNode": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\domain\\knowledge_objects\\claim.py",
+    "module": "domain.knowledge_objects.claim",
+    "lines": 11,
+    "imports": [
+      "dataclasses.dataclass",
+      "domain.knowledge_objects.knowledge_object.KnowledgeObject"
+    ],
+    "classes": [
+      "Claim"
+    ],
+    "functions": [],
+    "dataclasses": [
+      "Claim"
+    ],
+    "enums": [],
+    "inheritance": {
+      "Claim": [
+        "KnowledgeObject"
+      ]
+    },
+    "decorators": {
+      "Claim": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\domain\\knowledge_objects\\event.py",
+    "module": "domain.knowledge_objects.event",
+    "lines": 12,
+    "imports": [
+      "dataclasses.dataclass",
+      "domain.knowledge_objects.knowledge_object.KnowledgeObject"
+    ],
+    "classes": [
+      "Event"
+    ],
+    "functions": [],
+    "dataclasses": [
+      "Event"
+    ],
+    "enums": [],
+    "inheritance": {
+      "Event": [
+        "KnowledgeObject"
+      ]
+    },
+    "decorators": {
+      "Event": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\domain\\knowledge_objects\\knowledge_object.py",
+    "module": "domain.knowledge_objects.knowledge_object",
+    "lines": 12,
+    "imports": [
+      "dataclasses.asdict",
+      "dataclasses.dataclass",
+      "dataclasses.field"
+    ],
+    "classes": [
+      "KnowledgeObject"
+    ],
+    "functions": [
+      "to_dict"
+    ],
+    "dataclasses": [
+      "KnowledgeObject"
+    ],
+    "enums": [],
+    "inheritance": {
+      "KnowledgeObject": []
+    },
+    "decorators": {
+      "KnowledgeObject": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\domain\\knowledge_objects\\knowledge_object_type.py",
+    "module": "domain.knowledge_objects.knowledge_object_type",
+    "lines": 12,
+    "imports": [
+      "enum.Enum"
+    ],
+    "classes": [
+      "KnowledgeObjectType"
+    ],
+    "functions": [],
+    "dataclasses": [],
+    "enums": [
+      "KnowledgeObjectType"
+    ],
+    "inheritance": {
+      "KnowledgeObjectType": [
+        "str",
+        "Enum"
+      ]
+    },
+    "decorators": {
+      "KnowledgeObjectType": []
+    }
+  },
+  {
+    "path": "src\\domain\\knowledge_objects\\location.py",
+    "module": "domain.knowledge_objects.location",
+    "lines": 12,
+    "imports": [
+      "dataclasses.dataclass",
+      "domain.knowledge_objects.knowledge_object.KnowledgeObject"
+    ],
+    "classes": [
+      "Location"
+    ],
+    "functions": [],
+    "dataclasses": [
+      "Location"
+    ],
+    "enums": [],
+    "inheritance": {
+      "Location": [
+        "KnowledgeObject"
+      ]
+    },
+    "decorators": {
+      "Location": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\domain\\knowledge_objects\\person.py",
+    "module": "domain.knowledge_objects.person",
+    "lines": 13,
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "domain.knowledge_objects.knowledge_object.KnowledgeObject"
+    ],
+    "classes": [
+      "Person"
+    ],
+    "functions": [],
+    "dataclasses": [
+      "Person"
+    ],
+    "enums": [],
+    "inheritance": {
+      "Person": [
+        "KnowledgeObject"
+      ]
+    },
+    "decorators": {
+      "Person": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\domain\\knowledge_objects\\relationship.py",
+    "module": "domain.knowledge_objects.relationship",
+    "lines": 13,
+    "imports": [
+      "dataclasses.dataclass",
+      "domain.knowledge_objects.knowledge_object.KnowledgeObject"
+    ],
+    "classes": [
+      "Relationship"
+    ],
+    "functions": [],
+    "dataclasses": [
+      "Relationship"
+    ],
+    "enums": [],
+    "inheritance": {
+      "Relationship": [
+        "KnowledgeObject"
+      ]
+    },
+    "decorators": {
+      "Relationship": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\domain\\knowledge_objects\\source.py",
+    "module": "domain.knowledge_objects.source",
+    "lines": 13,
+    "imports": [
+      "dataclasses.dataclass",
+      "domain.knowledge_objects.knowledge_object.KnowledgeObject"
+    ],
+    "classes": [
+      "Source"
+    ],
+    "functions": [],
+    "dataclasses": [
+      "Source"
+    ],
+    "enums": [],
+    "inheritance": {
+      "Source": [
+        "KnowledgeObject"
+      ]
+    },
+    "decorators": {
+      "Source": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\domain\\knowledge_objects\\statistic.py",
+    "module": "domain.knowledge_objects.statistic",
+    "lines": 12,
+    "imports": [
+      "dataclasses.dataclass",
+      "domain.knowledge_objects.knowledge_object.KnowledgeObject"
+    ],
+    "classes": [
+      "Statistic"
+    ],
+    "functions": [],
+    "dataclasses": [
+      "Statistic"
+    ],
+    "enums": [],
+    "inheritance": {
+      "Statistic": [
+        "KnowledgeObject"
+      ]
+    },
+    "decorators": {
+      "Statistic": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\domain\\knowledge_objects\\timeline_event.py",
+    "module": "domain.knowledge_objects.timeline_event",
+    "lines": 12,
+    "imports": [
+      "dataclasses.dataclass",
+      "domain.knowledge_objects.knowledge_object.KnowledgeObject"
+    ],
+    "classes": [
+      "TimelineEvent"
+    ],
+    "functions": [],
+    "dataclasses": [
+      "TimelineEvent"
+    ],
+    "enums": [],
+    "inheritance": {
+      "TimelineEvent": [
+        "KnowledgeObject"
+      ]
+    },
+    "decorators": {
+      "TimelineEvent": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\domain\\relationships\\relationship.py",
+    "module": "domain.relationships.relationship",
+    "lines": 25,
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "uuid.UUID",
+      "uuid.uuid4"
+    ],
+    "classes": [
+      "Relationship"
+    ],
+    "functions": [
+      "to_dict"
+    ],
+    "dataclasses": [
+      "Relationship"
+    ],
+    "enums": [],
+    "inheritance": {
+      "Relationship": []
+    },
+    "decorators": {
+      "Relationship": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\domain\\sources\\source.py",
+    "module": "domain.sources.source",
+    "lines": 34,
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "typing.Dict",
+      "typing.Optional",
+      "uuid.uuid4"
+    ],
+    "classes": [
+      "Source"
+    ],
+    "functions": [
+      "to_dict"
+    ],
+    "dataclasses": [
+      "Source"
+    ],
+    "enums": [],
+    "inheritance": {
+      "Source": []
+    },
+    "decorators": {
+      "Source": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\core\\repositories\\entity_repository.py",
+    "module": "core.repositories.entity_repository",
+    "lines": 3,
+    "imports": [
+      "domain.repositories.entity_repository.EntityRepository"
+    ],
+    "classes": [],
+    "functions": [],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {},
+    "decorators": {}
+  },
+  {
+    "path": "src\\core\\storage\\json_storage.py",
+    "module": "core.storage.json_storage",
+    "lines": 3,
+    "imports": [
+      "infrastructure.storage.json_storage.JsonStorage"
+    ],
+    "classes": [],
+    "functions": [],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {},
+    "decorators": {}
+  },
+  {
+    "path": "src\\application\\artifacts\\artifact.py",
+    "module": "application.artifacts.artifact",
+    "lines": 35,
+    "imports": [
+      "dataclasses.dataclass",
+      "enum.Enum"
+    ],
+    "classes": [
+      "ArtifactType",
+      "Artifact"
+    ],
+    "functions": [],
+    "dataclasses": [
+      "Artifact"
+    ],
+    "enums": [
+      "ArtifactType"
+    ],
+    "inheritance": {
+      "ArtifactType": [
+        "str",
+        "Enum"
+      ],
+      "Artifact": []
+    },
+    "decorators": {
+      "ArtifactType": [],
+      "Artifact": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\application\\artifacts\\artifact_store.py",
+    "module": "application.artifacts.artifact_store",
+    "lines": 26,
+    "imports": [
+      "application.artifacts.artifact.Artifact",
+      "application.artifacts.artifact.ArtifactType"
+    ],
+    "classes": [
+      "ArtifactStore"
+    ],
+    "functions": [
+      "__init__",
+      "put",
+      "get",
+      "has",
+      "all"
+    ],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {
+      "ArtifactStore": []
+    },
+    "decorators": {
+      "ArtifactStore": []
+    }
+  },
+  {
+    "path": "src\\application\\config\\environment_loader.py",
+    "module": "application.config.environment_loader",
+    "lines": 5,
+    "imports": [
+      "dotenv.load_dotenv"
+    ],
+    "classes": [],
+    "functions": [],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {},
+    "decorators": {}
+  },
+  {
+    "path": "src\\application\\config\\settings.py",
+    "module": "application.config.settings",
+    "lines": 38,
+    "imports": [
+      "os",
+      "dataclasses.dataclass",
+      "application.config.environment_loader.*"
+    ],
+    "classes": [
+      "Settings"
+    ],
+    "functions": [],
+    "dataclasses": [
+      "Settings"
+    ],
+    "enums": [],
+    "inheritance": {
+      "Settings": []
+    },
+    "decorators": {
+      "Settings": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\application\\documentary\\documentary_generator.py",
+    "module": "application.documentary.documentary_generator",
+    "lines": 56,
+    "imports": [
+      "domain.knowledge_graph.knowledge_graph.KnowledgeGraph",
+      "application.documentary.documentary_outline.DocumentaryOutline"
+    ],
+    "classes": [
+      "DocumentaryGenerator"
+    ],
+    "functions": [
+      "generate"
+    ],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {
+      "DocumentaryGenerator": []
+    },
+    "decorators": {
+      "DocumentaryGenerator": []
+    }
+  },
+  {
+    "path": "src\\application\\documentary\\documentary_outline.py",
+    "module": "application.documentary.documentary_outline",
+    "lines": 20,
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field"
+    ],
+    "classes": [
+      "DocumentaryOutline"
+    ],
+    "functions": [
+      "to_dict"
+    ],
+    "dataclasses": [
+      "DocumentaryOutline"
+    ],
+    "enums": [],
+    "inheritance": {
+      "DocumentaryOutline": []
+    },
+    "decorators": {
+      "DocumentaryOutline": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\application\\documentary\\documentary_script.py",
+    "module": "application.documentary.documentary_script",
+    "lines": 16,
+    "imports": [
+      "dataclasses.dataclass"
+    ],
+    "classes": [
+      "DocumentaryScript"
+    ],
+    "functions": [
+      "to_dict"
+    ],
+    "dataclasses": [
+      "DocumentaryScript"
+    ],
+    "enums": [],
+    "inheritance": {
+      "DocumentaryScript": []
+    },
+    "decorators": {
+      "DocumentaryScript": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\application\\documentary\\knowledge_outline_builder.py",
+    "module": "application.documentary.knowledge_outline_builder",
+    "lines": 47,
+    "imports": [
+      "application.models.outline.DocumentaryOutline"
+    ],
+    "classes": [
+      "KnowledgeOutlineBuilder"
+    ],
+    "functions": [
+      "build"
+    ],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {
+      "KnowledgeOutlineBuilder": []
+    },
+    "decorators": {
+      "KnowledgeOutlineBuilder": []
+    }
+  },
+  {
+    "path": "src\\application\\image\\image_prompt.py",
+    "module": "application.image.image_prompt",
+    "lines": 18,
+    "imports": [
+      "dataclasses.dataclass"
+    ],
+    "classes": [
+      "ImagePrompt"
+    ],
+    "functions": [
+      "to_dict"
+    ],
+    "dataclasses": [
+      "ImagePrompt"
+    ],
+    "enums": [],
+    "inheritance": {
+      "ImagePrompt": []
+    },
+    "decorators": {
+      "ImagePrompt": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\application\\image\\image_prompt_generator.py",
+    "module": "application.image.image_prompt_generator",
+    "lines": 51,
+    "imports": [],
+    "classes": [
+      "ImagePromptGenerator"
+    ],
+    "functions": [
+      "generate"
+    ],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {
+      "ImagePromptGenerator": []
+    },
+    "decorators": {
+      "ImagePromptGenerator": []
+    }
+  },
+  {
+    "path": "src\\application\\knowledge\\character_engine.py",
+    "module": "application.knowledge.character_engine",
+    "lines": 37,
+    "imports": [
+      "dataclasses.dataclass"
+    ],
+    "classes": [
+      "CharacterProfile",
+      "CharacterEngine"
+    ],
+    "functions": [
+      "build"
+    ],
+    "dataclasses": [
+      "CharacterProfile"
+    ],
+    "enums": [],
+    "inheritance": {
+      "CharacterProfile": [],
+      "CharacterEngine": []
+    },
+    "decorators": {
+      "CharacterProfile": [
+        "dataclass"
+      ],
+      "CharacterEngine": []
+    }
+  },
+  {
+    "path": "src\\application\\knowledge\\citation_engine.py",
+    "module": "application.knowledge.citation_engine",
+    "lines": 70,
+    "imports": [
+      "dataclasses.dataclass"
+    ],
+    "classes": [
+      "Citation",
+      "CitationEngine"
+    ],
+    "functions": [
+      "build"
+    ],
+    "dataclasses": [
+      "Citation"
+    ],
+    "enums": [],
+    "inheritance": {
+      "Citation": [],
+      "CitationEngine": []
+    },
+    "decorators": {
+      "Citation": [
+        "dataclass"
+      ],
+      "CitationEngine": []
+    }
+  },
+  {
+    "path": "src\\application\\knowledge\\extraction_result.py",
+    "module": "application.knowledge.extraction_result",
+    "lines": 33,
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "domain.knowledge_objects.person.Person",
+      "domain.knowledge_objects.event.Event",
+      "domain.knowledge_objects.location.Location",
+      "domain.knowledge_objects.claim.Claim",
+      "domain.knowledge_objects.source.Source",
+      "domain.knowledge_objects.statistic.Statistic",
+      "domain.knowledge_objects.timeline_event.TimelineEvent",
+      "domain.relationships.relationship.Relationship"
+    ],
+    "classes": [
+      "ExtractionResult"
+    ],
+    "functions": [],
+    "dataclasses": [
+      "ExtractionResult"
+    ],
+    "enums": [],
+    "inheritance": {
+      "ExtractionResult": []
+    },
+    "decorators": {
+      "ExtractionResult": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\application\\knowledge\\fact_verification_engine.py",
+    "module": "application.knowledge.fact_verification_engine",
+    "lines": 69,
+    "imports": [
+      "dataclasses.dataclass"
+    ],
+    "classes": [
+      "VerifiedClaim",
+      "FactVerificationEngine"
+    ],
+    "functions": [
+      "verify"
+    ],
+    "dataclasses": [
+      "VerifiedClaim"
+    ],
+    "enums": [],
+    "inheritance": {
+      "VerifiedClaim": [],
+      "FactVerificationEngine": []
+    },
+    "decorators": {
+      "VerifiedClaim": [
+        "dataclass"
+      ],
+      "FactVerificationEngine": []
+    }
+  },
+  {
+    "path": "src\\application\\knowledge\\knowledge_extractor.py",
+    "module": "application.knowledge.knowledge_extractor",
+    "lines": 53,
+    "imports": [
+      "application.llm.core.llm_gateway.LLMGateway",
+      "application.llm.core.llm_request.LLMRequest",
+      "application.knowledge.knowledge_parser.KnowledgeParser",
+      "application.knowledge.extraction_result.ExtractionResult"
+    ],
+    "classes": [
+      "KnowledgeExtractor"
+    ],
+    "functions": [
+      "__init__",
+      "extract"
+    ],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {
+      "KnowledgeExtractor": []
+    },
+    "decorators": {
+      "KnowledgeExtractor": []
+    }
+  },
+  {
+    "path": "src\\application\\knowledge\\knowledge_graph_builder.py",
+    "module": "application.knowledge.knowledge_graph_builder",
+    "lines": 56,
+    "imports": [
+      "domain.knowledge_graph.knowledge_graph.KnowledgeGraph",
+      "domain.knowledge_graph.knowledge_node.KnowledgeNode",
+      "domain.knowledge_graph.knowledge_edge.KnowledgeEdge"
+    ],
+    "classes": [
+      "KnowledgeGraphBuilder"
+    ],
+    "functions": [
+      "build",
+      "add"
+    ],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {
+      "KnowledgeGraphBuilder": []
+    },
+    "decorators": {
+      "KnowledgeGraphBuilder": []
+    }
+  },
+  {
+    "path": "src\\application\\knowledge\\knowledge_parser.py",
+    "module": "application.knowledge.knowledge_parser",
+    "lines": 69,
+    "imports": [
+      "application.knowledge.utils.model_factory.create_model",
+      "json",
+      "application.knowledge.extraction_result.ExtractionResult",
+      "domain.relationships.relationship.Relationship"
+    ],
+    "classes": [
+      "KnowledgeParser"
+    ],
+    "functions": [
+      "parse"
+    ],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {
+      "KnowledgeParser": []
+    },
+    "decorators": {
+      "KnowledgeParser": []
+    }
+  },
+  {
+    "path": "src\\application\\knowledge\\knowledge_repository.py",
+    "module": "application.knowledge.knowledge_repository",
+    "lines": 82,
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "pathlib.Path",
+      "application.knowledge.extraction_result.ExtractionResult",
+      "application.knowledge.knowledge_extractor.KnowledgeExtractor",
+      "application.knowledge.knowledge_graph_builder.KnowledgeGraphBuilder"
+    ],
+    "classes": [
+      "KnowledgeRepository"
+    ],
+    "functions": [
+      "__post_init__",
+      "add",
+      "ingest_text",
+      "ingest_file",
+      "persons",
+      "events",
+      "locations",
+      "claims",
+      "statistics",
+      "timeline",
+      "relationships",
+      "sources"
+    ],
+    "dataclasses": [
+      "KnowledgeRepository"
+    ],
+    "enums": [],
+    "inheritance": {
+      "KnowledgeRepository": []
+    },
+    "decorators": {
+      "KnowledgeRepository": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\application\\knowledge\\relationship_engine.py",
+    "module": "application.knowledge.relationship_engine",
+    "lines": 40,
+    "imports": [
+      "dataclasses.dataclass"
+    ],
+    "classes": [
+      "RelationshipRecord",
+      "RelationshipEngine"
+    ],
+    "functions": [
+      "build"
+    ],
+    "dataclasses": [
+      "RelationshipRecord"
+    ],
+    "enums": [],
+    "inheritance": {
+      "RelationshipRecord": [],
+      "RelationshipEngine": []
+    },
+    "decorators": {
+      "RelationshipRecord": [
+        "dataclass"
+      ],
+      "RelationshipEngine": []
+    }
+  },
+  {
+    "path": "src\\application\\knowledge\\source_ranking_engine.py",
+    "module": "application.knowledge.source_ranking_engine",
+    "lines": 79,
+    "imports": [
+      "dataclasses.dataclass"
+    ],
+    "classes": [
+      "RankedSource",
+      "SourceRankingEngine"
+    ],
+    "functions": [
+      "rank"
+    ],
+    "dataclasses": [
+      "RankedSource"
+    ],
+    "enums": [],
+    "inheritance": {
+      "RankedSource": [],
+      "SourceRankingEngine": []
+    },
+    "decorators": {
+      "RankedSource": [
+        "dataclass"
+      ],
+      "SourceRankingEngine": []
+    }
+  },
+  {
+    "path": "src\\application\\knowledge\\timeline_engine.py",
+    "module": "application.knowledge.timeline_engine",
+    "lines": 34,
+    "imports": [
+      "dataclasses.dataclass"
+    ],
+    "classes": [
+      "TimelineEntry",
+      "TimelineEngine"
+    ],
+    "functions": [
+      "build"
+    ],
+    "dataclasses": [
+      "TimelineEntry"
+    ],
+    "enums": [],
+    "inheritance": {
+      "TimelineEntry": [],
+      "TimelineEngine": []
+    },
+    "decorators": {
+      "TimelineEntry": [
+        "dataclass"
+      ],
+      "TimelineEngine": []
+    }
+  },
+  {
+    "path": "src\\application\\models\\content_specification.py",
+    "module": "application.models.content_specification",
+    "lines": 26,
+    "imports": [
+      "dataclasses.dataclass"
+    ],
+    "classes": [
+      "ContentSpecification"
+    ],
+    "functions": [
+      "to_dict"
+    ],
+    "dataclasses": [
+      "ContentSpecification"
+    ],
+    "enums": [],
+    "inheritance": {
+      "ContentSpecification": []
+    },
+    "decorators": {
+      "ContentSpecification": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\application\\models\\extraction_object.py",
+    "module": "application.models.extraction_object",
+    "lines": 21,
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "domain.knowledge_objects.knowledge_object_type.KnowledgeObjectType"
+    ],
+    "classes": [
+      "ExtractionObject"
+    ],
+    "functions": [
+      "to_dict"
+    ],
+    "dataclasses": [
+      "ExtractionObject"
+    ],
+    "enums": [],
+    "inheritance": {
+      "ExtractionObject": []
+    },
+    "decorators": {
+      "ExtractionObject": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\application\\models\\knowledge_context.py",
+    "module": "application.models.knowledge_context",
+    "lines": 24,
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field"
+    ],
+    "classes": [
+      "KnowledgeContext"
+    ],
+    "functions": [
+      "to_dict"
+    ],
+    "dataclasses": [
+      "KnowledgeContext"
+    ],
+    "enums": [],
+    "inheritance": {
+      "KnowledgeContext": []
+    },
+    "decorators": {
+      "KnowledgeContext": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\application\\models\\narrative_plan.py",
+    "module": "application.models.narrative_plan",
+    "lines": 26,
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field"
+    ],
+    "classes": [
+      "NarrativePlan"
+    ],
+    "functions": [
+      "to_dict"
+    ],
+    "dataclasses": [
+      "NarrativePlan"
+    ],
+    "enums": [],
+    "inheritance": {
+      "NarrativePlan": []
+    },
+    "decorators": {
+      "NarrativePlan": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\application\\models\\organized_knowledge.py",
+    "module": "application.models.organized_knowledge",
+    "lines": 30,
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field"
+    ],
+    "classes": [
+      "OrganizedKnowledge"
+    ],
+    "functions": [
+      "to_dict"
+    ],
+    "dataclasses": [
+      "OrganizedKnowledge"
+    ],
+    "enums": [],
+    "inheritance": {
+      "OrganizedKnowledge": []
+    },
+    "decorators": {
+      "OrganizedKnowledge": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\application\\models\\outline.py",
+    "module": "application.models.outline",
+    "lines": 42,
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "typing.List"
+    ],
+    "classes": [
+      "Outline",
+      "DocumentaryOutline"
+    ],
+    "functions": [
+      "to_dict",
+      "to_dict"
+    ],
+    "dataclasses": [
+      "Outline",
+      "DocumentaryOutline"
+    ],
+    "enums": [],
+    "inheritance": {
+      "Outline": [],
+      "DocumentaryOutline": []
+    },
+    "decorators": {
+      "Outline": [
+        "dataclass"
+      ],
+      "DocumentaryOutline": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\application\\models\\prompt.py",
+    "module": "application.models.prompt",
+    "lines": 22,
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field"
+    ],
+    "classes": [
+      "Prompt"
+    ],
+    "functions": [
+      "to_dict"
+    ],
+    "dataclasses": [
+      "Prompt"
+    ],
+    "enums": [],
+    "inheritance": {
+      "Prompt": []
+    },
+    "decorators": {
+      "Prompt": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\application\\models\\script.py",
+    "module": "application.models.script",
+    "lines": 26,
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field"
+    ],
+    "classes": [
+      "Script"
+    ],
+    "functions": [
+      "to_dict"
+    ],
+    "dataclasses": [
+      "Script"
+    ],
+    "enums": [],
+    "inheritance": {
+      "Script": []
+    },
+    "decorators": {
+      "Script": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\application\\models\\script_structure.py",
+    "module": "application.models.script_structure",
+    "lines": 23,
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "typing.List"
+    ],
+    "classes": [
+      "ScriptStructure"
+    ],
+    "functions": [
+      "to_dict"
+    ],
+    "dataclasses": [
+      "ScriptStructure"
+    ],
+    "enums": [],
+    "inheritance": {
+      "ScriptStructure": []
+    },
+    "decorators": {
+      "ScriptStructure": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\application\\narrative\\narrative_builder.py",
+    "module": "application.narrative.narrative_builder",
+    "lines": 101,
+    "imports": [
+      "dataclasses.dataclass"
+    ],
+    "classes": [
+      "Narrative",
+      "NarrativeBuilder"
+    ],
+    "functions": [
+      "_field",
+      "build"
+    ],
+    "dataclasses": [
+      "Narrative"
+    ],
+    "enums": [],
+    "inheritance": {
+      "Narrative": [],
+      "NarrativeBuilder": []
+    },
+    "decorators": {
+      "Narrative": [
+        "dataclass"
+      ],
+      "NarrativeBuilder": []
+    }
+  },
+  {
+    "path": "src\\application\\pipeline\\production_pipeline.py",
+    "module": "application.pipeline.production_pipeline",
+    "lines": 42,
+    "imports": [
+      "os",
+      "application.llm.providers.openai_gateway.OpenAIGateway",
+      "application.llm.providers.gemini_gateway.GeminiGateway",
+      "application.llm.providers.manual_gateway.ManualGateway",
+      "application.workflow.documentary_workflow.DocumentaryWorkflow"
+    ],
+    "classes": [
+      "ProductionPipeline"
+    ],
+    "functions": [
+      "__init__",
+      "run"
+    ],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {
+      "ProductionPipeline": []
+    },
+    "decorators": {
+      "ProductionPipeline": []
+    }
+  },
+  {
+    "path": "src\\application\\planning\\scene_plan.py",
+    "module": "application.planning.scene_plan",
+    "lines": 20,
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field"
+    ],
+    "classes": [
+      "ScenePlan"
+    ],
+    "functions": [
+      "to_dict"
+    ],
+    "dataclasses": [
+      "ScenePlan"
+    ],
+    "enums": [],
+    "inheritance": {
+      "ScenePlan": []
+    },
+    "decorators": {
+      "ScenePlan": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\application\\planning\\scene_planner.py",
+    "module": "application.planning.scene_planner",
+    "lines": 113,
+    "imports": [
+      "dataclasses.dataclass"
+    ],
+    "classes": [
+      "ScenePlan",
+      "ScenePlanner"
+    ],
+    "functions": [
+      "plan",
+      "field"
+    ],
+    "dataclasses": [
+      "ScenePlan"
+    ],
+    "enums": [],
+    "inheritance": {
+      "ScenePlan": [],
+      "ScenePlanner": []
+    },
+    "decorators": {
+      "ScenePlan": [
+        "dataclass"
+      ],
+      "ScenePlanner": []
+    }
+  },
+  {
+    "path": "src\\application\\ports\\llm_gateway.py",
+    "module": "application.ports.llm_gateway",
+    "lines": 16,
+    "imports": [
+      "abc.ABC",
+      "abc.abstractmethod",
+      "application.models.prompt.Prompt",
+      "application.models.script.Script"
+    ],
+    "classes": [
+      "LLMGateway"
+    ],
+    "functions": [
+      "generate"
+    ],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {
+      "LLMGateway": [
+        "ABC"
+      ]
+    },
+    "decorators": {
+      "LLMGateway": []
+    }
+  },
+  {
+    "path": "src\\application\\scene\\scene.py",
+    "module": "application.scene.scene",
+    "lines": 20,
+    "imports": [
+      "dataclasses.dataclass"
+    ],
+    "classes": [
+      "Scene"
+    ],
+    "functions": [
+      "to_dict"
+    ],
+    "dataclasses": [
+      "Scene"
+    ],
+    "enums": [],
+    "inheritance": {
+      "Scene": []
+    },
+    "decorators": {
+      "Scene": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\application\\scene_generation\\scene_generator.py",
+    "module": "application.scene_generation.scene_generator",
+    "lines": 55,
+    "imports": [
+      "application.planning.scene_plan.ScenePlan",
+      "application.scene.scene.Scene",
+      "application.llm.core.llm_gateway.LLMGateway",
+      "application.llm.core.llm_request.LLMRequest"
+    ],
+    "classes": [
+      "SceneGenerator"
+    ],
+    "functions": [
+      "__init__",
+      "generate"
+    ],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {
+      "SceneGenerator": []
+    },
+    "decorators": {
+      "SceneGenerator": []
+    }
+  },
+  {
+    "path": "src\\application\\script\\script_generator.py",
+    "module": "application.script.script_generator",
+    "lines": 43,
+    "imports": [
+      "dataclasses.dataclass"
+    ],
+    "classes": [
+      "Script",
+      "ScriptGenerator"
+    ],
+    "functions": [
+      "build"
+    ],
+    "dataclasses": [
+      "Script"
+    ],
+    "enums": [],
+    "inheritance": {
+      "Script": [],
+      "ScriptGenerator": []
+    },
+    "decorators": {
+      "Script": [
+        "dataclass"
+      ],
+      "ScriptGenerator": []
+    }
+  },
+  {
+    "path": "src\\application\\services\\generation_service.py",
+    "module": "application.services.generation_service",
+    "lines": 14,
+    "imports": [
+      "application.models.prompt.Prompt",
+      "application.models.script.Script",
+      "application.ports.llm_gateway.LLMGateway"
+    ],
+    "classes": [
+      "GenerationService"
+    ],
+    "functions": [
+      "__init__",
+      "generate"
+    ],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {
+      "GenerationService": []
+    },
+    "decorators": {
+      "GenerationService": []
+    }
+  },
+  {
+    "path": "src\\application\\services\\knowledge_context_builder.py",
+    "module": "application.services.knowledge_context_builder",
+    "lines": 17,
+    "imports": [
+      "application.models.knowledge_context.KnowledgeContext",
+      "application.models.outline.Outline"
+    ],
+    "classes": [
+      "KnowledgeContextBuilder"
+    ],
+    "functions": [
+      "build"
+    ],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {
+      "KnowledgeContextBuilder": []
+    },
+    "decorators": {
+      "KnowledgeContextBuilder": []
+    }
+  },
+  {
+    "path": "src\\application\\services\\knowledge_organizer.py",
+    "module": "application.services.knowledge_organizer",
+    "lines": 31,
+    "imports": [
+      "typing.Optional",
+      "application.models.knowledge_context.KnowledgeContext",
+      "application.models.organized_knowledge.OrganizedKnowledge",
+      "domain.relationships.relationship.Relationship"
+    ],
+    "classes": [
+      "KnowledgeOrganizer"
+    ],
+    "functions": [
+      "build"
+    ],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {
+      "KnowledgeOrganizer": []
+    },
+    "decorators": {
+      "KnowledgeOrganizer": []
+    }
+  },
+  {
+    "path": "src\\application\\services\\knowledge_service.py",
+    "module": "application.services.knowledge_service",
+    "lines": 15,
+    "imports": [
+      "typing.List"
+    ],
+    "classes": [
+      "KnowledgeService"
+    ],
+    "functions": [
+      "__init__",
+      "register",
+      "all_entities",
+      "stats"
+    ],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {
+      "KnowledgeService": []
+    },
+    "decorators": {
+      "KnowledgeService": []
+    }
+  },
+  {
+    "path": "src\\application\\services\\narrative_builder.py",
+    "module": "application.services.narrative_builder",
+    "lines": 24,
+    "imports": [
+      "typing.Dict",
+      "typing.List"
+    ],
+    "classes": [
+      "NarrativeBuilder"
+    ],
+    "functions": [
+      "build"
+    ],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {
+      "NarrativeBuilder": []
+    },
+    "decorators": {
+      "NarrativeBuilder": []
+    }
+  },
+  {
+    "path": "src\\application\\services\\narrative_planner.py",
+    "module": "application.services.narrative_planner",
+    "lines": 23,
+    "imports": [
+      "application.models.organized_knowledge.OrganizedKnowledge",
+      "application.models.narrative_plan.NarrativePlan"
+    ],
+    "classes": [
+      "NarrativePlanner"
+    ],
+    "functions": [
+      "build"
+    ],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {
+      "NarrativePlanner": []
+    },
+    "decorators": {
+      "NarrativePlanner": []
+    }
+  },
+  {
+    "path": "src\\application\\services\\prompt_builder.py",
+    "module": "application.services.prompt_builder",
+    "lines": 41,
+    "imports": [
+      "application.models.content_specification.ContentSpecification",
+      "application.models.narrative_plan.NarrativePlan",
+      "application.models.prompt.Prompt"
+    ],
+    "classes": [
+      "PromptBuilder"
+    ],
+    "functions": [
+      "build"
+    ],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {
+      "PromptBuilder": []
+    },
+    "decorators": {
+      "PromptBuilder": []
+    }
+  },
+  {
+    "path": "src\\application\\services\\script_structure_builder.py",
+    "module": "application.services.script_structure_builder",
+    "lines": 20,
+    "imports": [
+      "application.models.outline.Outline",
+      "application.models.script_structure.ScriptStructure"
+    ],
+    "classes": [
+      "ScriptStructureBuilder"
+    ],
+    "functions": [
+      "build"
+    ],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {
+      "ScriptStructureBuilder": []
+    },
+    "decorators": {
+      "ScriptStructureBuilder": []
+    }
+  },
+  {
+    "path": "src\\application\\services\\siraj_engine.py",
+    "module": "application.services.siraj_engine",
+    "lines": 32,
+    "imports": [
+      "application.models.outline.Outline",
+      "core.knowledge_asset.KnowledgeAsset"
+    ],
+    "classes": [
+      "SirajEngine"
+    ],
+    "functions": [
+      "build_outline"
+    ],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {
+      "SirajEngine": []
+    },
+    "decorators": {
+      "SirajEngine": []
+    }
+  },
+  {
+    "path": "src\\application\\workflow\\documentary_workflow.py",
+    "module": "application.workflow.documentary_workflow",
+    "lines": 161,
+    "imports": [
+      "application.artifacts.artifact.Artifact",
+      "application.artifacts.artifact.ArtifactType",
+      "application.artifacts.artifact_store.ArtifactStore",
+      "application.workflow.workflow_context.WorkflowContext",
+      "application.knowledge.knowledge_repository.KnowledgeRepository",
+      "application.knowledge.character_engine.CharacterEngine",
+      "application.knowledge.relationship_engine.RelationshipEngine",
+      "application.knowledge.timeline_engine.TimelineEngine",
+      "application.documentary.knowledge_outline_builder.KnowledgeOutlineBuilder",
+      "application.narrative.narrative_builder.NarrativeBuilder",
+      "application.script.script_generator.ScriptGenerator",
+      "application.planning.scene_planner.ScenePlanner",
+      "application.scene_generation.scene_generator.SceneGenerator",
+      "application.image.image_prompt_generator.ImagePromptGenerator",
+      "application.knowledge.citation_engine.CitationEngine",
+      "application.knowledge.source_ranking_engine.SourceRankingEngine",
+      "application.knowledge.fact_verification_engine.FactVerificationEngine"
+    ],
+    "classes": [
+      "DocumentaryWorkflow"
+    ],
+    "functions": [
+      "__init__",
+      "run"
+    ],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {
+      "DocumentaryWorkflow": []
+    },
+    "decorators": {
+      "DocumentaryWorkflow": []
+    }
+  },
+  {
+    "path": "src\\application\\workflow\\workflow_context.py",
+    "module": "application.workflow.workflow_context",
+    "lines": 58,
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field"
+    ],
+    "classes": [
+      "WorkflowContext"
+    ],
+    "functions": [
+      "to_dict"
+    ],
+    "dataclasses": [
+      "WorkflowContext"
+    ],
+    "enums": [],
+    "inheritance": {
+      "WorkflowContext": []
+    },
+    "decorators": {
+      "WorkflowContext": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\application\\models\\documentary\\script.py",
+    "module": "application.models.documentary.script",
+    "lines": 26,
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field"
+    ],
+    "classes": [
+      "Script"
+    ],
+    "functions": [
+      "to_dict"
+    ],
+    "dataclasses": [
+      "Script"
+    ],
+    "enums": [],
+    "inheritance": {
+      "Script": []
+    },
+    "decorators": {
+      "Script": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\application\\models\\documentary\\timeline_event.py",
+    "module": "application.models.documentary.timeline_event",
+    "lines": 15,
+    "imports": [
+      "dataclasses.dataclass",
+      "domain.knowledge_objects.knowledge_object.KnowledgeObject"
+    ],
+    "classes": [
+      "TimelineEvent"
+    ],
+    "functions": [],
+    "dataclasses": [
+      "TimelineEvent"
+    ],
+    "enums": [],
+    "inheritance": {
+      "TimelineEvent": [
+        "KnowledgeObject"
+      ]
+    },
+    "decorators": {
+      "TimelineEvent": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\application\\models\\knowledge\\important_typed_claim.py",
+    "module": "application.models.knowledge.important_typed_claim",
+    "lines": 20,
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field"
+    ],
+    "classes": [
+      "ImportantTypedClaim"
+    ],
+    "functions": [
+      "to_dict"
+    ],
+    "dataclasses": [
+      "ImportantTypedClaim"
+    ],
+    "enums": [],
+    "inheritance": {
+      "ImportantTypedClaim": []
+    },
+    "decorators": {
+      "ImportantTypedClaim": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\application\\models\\knowledge\\prioritized_knowledge.py",
+    "module": "application.models.knowledge.prioritized_knowledge",
+    "lines": 28,
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "application.models.knowledge.important_typed_claim.ImportantTypedClaim"
+    ],
+    "classes": [
+      "PrioritizedKnowledge"
+    ],
+    "functions": [
+      "to_dict"
+    ],
+    "dataclasses": [
+      "PrioritizedKnowledge"
+    ],
+    "enums": [],
+    "inheritance": {
+      "PrioritizedKnowledge": []
+    },
+    "decorators": {
+      "PrioritizedKnowledge": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\application\\models\\knowledge\\typed_claim.py",
+    "module": "application.models.knowledge.typed_claim",
+    "lines": 18,
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field"
+    ],
+    "classes": [
+      "TypedClaim"
+    ],
+    "functions": [
+      "to_dict"
+    ],
+    "dataclasses": [
+      "TypedClaim"
+    ],
+    "enums": [],
+    "inheritance": {
+      "TypedClaim": []
+    },
+    "decorators": {
+      "TypedClaim": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\application\\models\\llm\\prompt.py",
+    "module": "application.models.llm.prompt",
+    "lines": 22,
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field"
+    ],
+    "classes": [
+      "Prompt"
+    ],
+    "functions": [
+      "to_dict"
+    ],
+    "dataclasses": [
+      "Prompt"
+    ],
+    "enums": [],
+    "inheritance": {
+      "Prompt": []
+    },
+    "decorators": {
+      "Prompt": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\application\\llm\\core\\fake_gateway.py",
+    "module": "application.llm.core.fake_gateway",
+    "lines": 20,
+    "imports": [
+      "application.llm.core.llm_gateway.LLMGateway",
+      "application.llm.core.llm_request.LLMRequest",
+      "application.llm.core.llm_response.LLMResponse"
+    ],
+    "classes": [
+      "FakeGateway"
+    ],
+    "functions": [
+      "generate"
+    ],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {
+      "FakeGateway": [
+        "LLMGateway"
+      ]
+    },
+    "decorators": {
+      "FakeGateway": []
+    }
+  },
+  {
+    "path": "src\\application\\llm\\core\\llm_gateway.py",
+    "module": "application.llm.core.llm_gateway",
+    "lines": 17,
+    "imports": [
+      "abc.ABC",
+      "abc.abstractmethod",
+      "application.llm.core.llm_request.LLMRequest",
+      "application.llm.core.llm_response.LLMResponse"
+    ],
+    "classes": [
+      "LLMGateway"
+    ],
+    "functions": [
+      "generate"
+    ],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {
+      "LLMGateway": [
+        "ABC"
+      ]
+    },
+    "decorators": {
+      "LLMGateway": []
+    }
+  },
+  {
+    "path": "src\\application\\llm\\core\\llm_request.py",
+    "module": "application.llm.core.llm_request",
+    "lines": 13,
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field"
+    ],
+    "classes": [
+      "LLMRequest"
+    ],
+    "functions": [],
+    "dataclasses": [
+      "LLMRequest"
+    ],
+    "enums": [],
+    "inheritance": {
+      "LLMRequest": []
+    },
+    "decorators": {
+      "LLMRequest": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\application\\llm\\core\\llm_response.py",
+    "module": "application.llm.core.llm_response",
+    "lines": 12,
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field"
+    ],
+    "classes": [
+      "LLMResponse"
+    ],
+    "functions": [],
+    "dataclasses": [
+      "LLMResponse"
+    ],
+    "enums": [],
+    "inheritance": {
+      "LLMResponse": []
+    },
+    "decorators": {
+      "LLMResponse": [
+        "dataclass"
+      ]
+    }
+  },
+  {
+    "path": "src\\application\\llm\\providers\\gemini_gateway.py",
+    "module": "application.llm.providers.gemini_gateway",
+    "lines": 45,
+    "imports": [
+      "os",
+      "google.genai",
+      "application.llm.core.llm_gateway.LLMGateway",
+      "application.llm.core.llm_request.LLMRequest",
+      "application.llm.core.llm_response.LLMResponse",
+      "application.config.environment_loader"
+    ],
+    "classes": [
+      "GeminiGateway"
+    ],
+    "functions": [
+      "__init__",
+      "generate"
+    ],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {
+      "GeminiGateway": [
+        "LLMGateway"
+      ]
+    },
+    "decorators": {
+      "GeminiGateway": []
+    }
+  },
+  {
+    "path": "src\\application\\llm\\providers\\manual_gateway.py",
+    "module": "application.llm.providers.manual_gateway",
+    "lines": 50,
+    "imports": [
+      "application.llm.core.llm_gateway.LLMGateway",
+      "application.llm.core.llm_request.LLMRequest",
+      "application.llm.core.llm_response.LLMResponse",
+      "sys"
+    ],
+    "classes": [
+      "ManualGateway"
+    ],
+    "functions": [
+      "generate"
+    ],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {
+      "ManualGateway": [
+        "LLMGateway"
+      ]
+    },
+    "decorators": {
+      "ManualGateway": []
+    }
+  },
+  {
+    "path": "src\\application\\llm\\providers\\openai_gateway.py",
+    "module": "application.llm.providers.openai_gateway",
+    "lines": 47,
+    "imports": [
+      "os",
+      "openai.OpenAI",
+      "application.llm.core.llm_gateway.LLMGateway",
+      "application.llm.core.llm_request.LLMRequest",
+      "application.llm.core.llm_response.LLMResponse",
+      "application.config.environment_loader"
+    ],
+    "classes": [
+      "OpenAIGateway"
+    ],
+    "functions": [
+      "__init__",
+      "generate"
+    ],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {
+      "OpenAIGateway": [
+        "LLMGateway"
+      ]
+    },
+    "decorators": {
+      "OpenAIGateway": []
+    }
+  },
+  {
+    "path": "src\\application\\knowledge\\utils\\model_factory.py",
+    "module": "application.knowledge.utils.model_factory",
+    "lines": 50,
+    "imports": [
+      "domain.knowledge_objects.person.Person",
+      "domain.knowledge_objects.event.Event",
+      "domain.knowledge_objects.location.Location",
+      "domain.knowledge_objects.claim.Claim",
+      "domain.knowledge_objects.statistic.Statistic",
+      "domain.knowledge_objects.timeline_event.TimelineEvent",
+      "domain.knowledge_objects.source.Source"
+    ],
+    "classes": [],
+    "functions": [
+      "normalize_payload",
+      "create_model"
+    ],
+    "dataclasses": [],
+    "enums": [],
+    "inheritance": {},
+    "decorators": {}
+  }
+]

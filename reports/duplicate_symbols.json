@@ -1,0 +1,51 @@
+{
+  "Claim": [
+    "domain.claims.claim",
+    "domain.knowledge_objects.claim"
+  ],
+  "Person": [
+    "domain.entities.entity",
+    "domain.knowledge_objects.person"
+  ],
+  "Event": [
+    "domain.entities.entity",
+    "domain.knowledge_objects.event"
+  ],
+  "Relationship": [
+    "domain.knowledge_objects.relationship",
+    "domain.relationships.relationship"
+  ],
+  "Source": [
+    "domain.knowledge_objects.source",
+    "domain.sources.source"
+  ],
+  "TimelineEvent": [
+    "domain.knowledge_objects.timeline_event",
+    "application.models.documentary.timeline_event"
+  ],
+  "DocumentaryOutline": [
+    "application.documentary.documentary_outline",
+    "application.models.outline"
+  ],
+  "Prompt": [
+    "application.models.prompt",
+    "application.models.llm.prompt"
+  ],
+  "Script": [
+    "application.models.script",
+    "application.script.script_generator",
+    "application.models.documentary.script"
+  ],
+  "NarrativeBuilder": [
+    "application.narrative.narrative_builder",
+    "application.services.narrative_builder"
+  ],
+  "ScenePlan": [
+    "application.planning.scene_plan",
+    "application.planning.scene_planner"
+  ],
+  "LLMGateway": [
+    "application.ports.llm_gateway",
+    "application.llm.core.llm_gateway"
+  ]
+}
