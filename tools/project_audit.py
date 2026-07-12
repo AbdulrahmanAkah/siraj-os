@@ -50,7 +50,7 @@ print("="*120)
 print("IMPORTS")
 print("="*120)
 
-imports = defaultdict(set)
+import_map = defaultdict(set)
 
 for f in Path("src").rglob("*.py"):
 
@@ -61,12 +61,12 @@ for f in Path("src").rglob("*.py"):
         line=line.strip()
 
         if line.startswith("from "):
-            imports[str(f)].add(line)
+            import_map[str(f)].add(line)
 
         if line.startswith("import "):
-            imports[str(f)].add(line)
+            import_map[str(f)].add(line)
 
-for file, imps in sorted(imports.items()):
+for file, imps in sorted(import_map.items()):
 
     print()
     print(file)
@@ -135,9 +135,9 @@ for cls, files in sorted(classes.items()):
 
         users = []
 
-        for file, imports in imports.items():
+        for file, file_imports in import_map.items():
 
-            for imp in imports:
+            for imp in file_imports:
 
                 if module in imp:
                     users.append(file)
