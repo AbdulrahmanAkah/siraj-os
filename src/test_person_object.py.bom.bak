@@ -1,0 +1,24 @@
+﻿from domain.knowledge_objects.person import Person
+
+person = Person()
+
+assert person.name == ""
+assert person.aliases == []
+assert person.description == ""
+assert person.metadata == {}
+
+print(person.to_dict())
+
+person = Person(
+    name="Muhammad",
+    aliases=["Messenger of Allah", "Prophet"],
+    description="Final Prophet",
+    metadata={"source": "test"},
+)
+
+print(person.to_dict())
+
+assert person.to_dict()["name"] == "Muhammad"
+assert person.to_dict()["aliases"] == ["Messenger of Allah", "Prophet"]
+assert person.to_dict()["description"] == "Final Prophet"
+assert person.to_dict()["metadata"]["source"] == "test"

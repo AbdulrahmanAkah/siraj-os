@@ -1,0 +1,15 @@
+from src.application.llm.providers.openai_gateway import OpenAIGateway
+
+try:
+
+    gateway = OpenAIGateway()
+
+    print("OpenAIGateway initialized.")
+
+except Exception as ex:
+
+    print(ex)
+
+print("OpenAIGateway Test Finished")
+
+

@@ -1,0 +1,34 @@
+﻿from dataclasses import dataclass
+
+@dataclass
+class TimelineEntry:
+
+    date:str
+    title:str
+
+class TimelineEngine:
+
+    def build(self,graph):
+
+        node_types=getattr(graph.index,"nodes_by_type",{})
+
+        result=[]
+
+        for node in node_types.get("TIMELINE_EVENT",[]):
+
+            d=node.data
+
+            if isinstance(d,dict):
+                result.append(TimelineEntry(
+                    date=d.get("date",""),
+                    title=d.get("title","")
+                ))
+            else:
+                result.append(TimelineEntry(
+                    date=getattr(d,"date",""),
+                    title=getattr(d,"title","")
+                ))
+
+        return sorted(result,key=lambda x:x.date)
+
+__all__=["TimelineEntry","TimelineEngine"]

@@ -28,3 +28,5 @@ class OrganizedKnowledge:
 
 
 __all__ = ["OrganizedKnowledge"]
+
+

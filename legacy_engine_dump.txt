@@ -1,0 +1,249 @@
+
+====================================================
+src\core\knowledge_asset.py
+====================================================
+from dataclasses import dataclass, field
+from datetime import datetime
+from typing import Dict, List
+from uuid import UUID, uuid4
+
+from domain.relationships.relationship import Relationship
+
+
+@dataclass
+class KnowledgeAsset:
+    asset_id: UUID = field(default_factory=uuid4)
+    title: str = ""
+    description: str = ""
+    topic: str = ""
+    language: str = "ar"
+    created_at: datetime = field(default_factory=datetime.utcnow)
+    updated_at: datetime = field(default_factory=datetime.utcnow)
+    status: str = "draft"
+    entities: List["Entity"] = field(default_factory=list)
+    claims: List["Claim"] = field(default_factory=list)
+    sources: List["Source"] = field(default_factory=list)
+    relationships: List[Relationship] = field(default_factory=list)
+    metadata: Dict[str, object] = field(default_factory=dict)
+
+    def to_dict(self) -> Dict[str, object]:
+        return {
+            "asset_id": str(self.asset_id),
+            "title": self.title,
+            "description": self.description,
+            "topic": self.topic,
+            "language": self.language,
+            "created_at": self.created_at.isoformat(),
+            "updated_at": self.updated_at.isoformat(),
+            "status": self.status,
+            "entities": [
+                item.to_dict() if hasattr(item, "to_dict") and callable(item.to_dict) else item
+                for item in self.entities
+            ],
+            "claims": [
+                item.to_dict() if hasattr(item, "to_dict") and callable(item.to_dict) else item
+                for item in self.claims
+            ],
+            "sources": [
+                item.to_dict() if hasattr(item, "to_dict") and callable(item.to_dict) else item
+                for item in self.sources
+            ],
+            "relationships": [
+                item.to_dict() if hasattr(item, "to_dict") and callable(item.to_dict) else item
+                for item in self.relationships
+            ],
+            "metadata": self.metadata,
+        }
+
+    def add_source(self, source: "Source") -> None:
+        self.sources.append(source)
+
+    def add_entity(self, entity: "Entity") -> None:
+        self.entities.append(entity)
+
+    def add_claim(self, claim: "Claim") -> None:
+        self.claims.append(claim)
+
+    def add_relationship(self, relationship: Relationship) -> None:
+        self.relationships.append(relationship)
+
+    def summary(self) -> str:
+        entity_names = ", ".join(
+            entity.name for entity in self.entities if hasattr(entity, "name") and entity.name
+        )
+        source_count = len(self.sources)
+
+        return (
+            "Knowledge Asset\n"
+            f"Title:\n{self.title}\n\n"
+            f"Sources:\n{source_count}\n\n"
+            f"Entities:\n{entity_names or 'None'}\n\n"
+            f"Status:\n{self.status}"
+        )
+
+    def validate(self) -> Dict[str, object]:
+        errors: List[str] = []
+
+        if not self.title.strip():
+            errors.append("Title is required")
+        if not self.sources:
+            errors.append("At least one source is required")
+        if not self.entities:
+            errors.append("At least one entity is required")
+
+        return {"valid": not errors, "errors": errors}
+
+
+__all__ = ["KnowledgeAsset"]
+
+====================================================
+src\core\knowledge_engine.py
+====================================================
+from application.services.knowledge_service import KnowledgeService
+
+
+class KnowledgeEngine(KnowledgeService):
+    pass
+
+====================================================
+src\application\services\siraj_engine.py
+====================================================
+from application.models.outline import Outline
+from core.knowledge_asset import KnowledgeAsset
+
+
+class SirajEngine:
+    def build_outline(self, asset: KnowledgeAsset) -> Outline:
+        entities = []
+        claims = []
+        sources = []
+
+        for entity in asset.entities:
+            if entity.name:
+                entities.append(entity.name)
+
+        for claim in asset.claims:
+            if claim.text:
+                claims.append(claim.text)
+
+        for source in asset.sources:
+            if source.title:
+                sources.append(source.title)
+
+        return Outline(
+            title=asset.title,
+            description=asset.description,
+            entities=entities,
+            claims=claims,
+            sources=sources,
+        )
+
+
+__all__ = ["SirajEngine"]
+
+====================================================
+src\application\services\knowledge_organizer.py
+====================================================
+from typing import Optional
+
+from application.models.knowledge_context import KnowledgeContext
+from application.models.organized_knowledge import OrganizedKnowledge
+from domain.relationships.relationship import Relationship
+
+
+class KnowledgeOrganizer:
+    def build(
+        self,
+        context: KnowledgeContext,
+        relationships: Optional[list[Relationship]] = None,
+    ) -> OrganizedKnowledge:
+        relationship_payloads = [
+            relationship.to_dict() for relationship in (relationships or [])
+        ]
+
+        return OrganizedKnowledge(
+            primary_topic=context.primary_topic,
+            description=context.description,
+            characters=list(context.key_entities),
+            claims=list(context.verified_claims),
+            sources=list(context.supporting_sources),
+            timeline=[],
+            locations=[],
+            relationships=relationship_payloads,
+            metadata={},
+        )
+
+
+__all__ = ["KnowledgeOrganizer"]
+
+====================================================
+src\application\services\narrative_planner.py
+====================================================
+from application.models.organized_knowledge import OrganizedKnowledge
+from application.models.narrative_plan import NarrativePlan
+
+
+class NarrativePlanner:
+    def build(self, knowledge: OrganizedKnowledge) -> NarrativePlan:
+        hook = list(knowledge.claims[:1]) if knowledge.claims else []
+        background = [knowledge.description] if knowledge.description else []
+        main_story = list(knowledge.claims)
+        conclusion = ["Summary and key lessons."]
+
+        return NarrativePlan(
+            title=knowledge.primary_topic,
+            hook=hook,
+            background=background,
+            main_story=main_story,
+            conclusion=conclusion,
+            sources=list(knowledge.sources),
+            metadata={},
+        )
+
+
+__all__ = ["NarrativePlanner"]
+
+====================================================
+src\application\services\prompt_builder.py
+====================================================
+from application.models.content_specification import ContentSpecification
+from application.models.narrative_plan import NarrativePlan
+from application.models.prompt import Prompt
+
+
+class PromptBuilder:
+    def build(
+        self,
+        plan: NarrativePlan,
+        specification: ContentSpecification,
+    ) -> Prompt:
+        user_prompt = (
+            f"Title:\n{plan.title}\n\n"
+            f"Hook:\n{chr(10).join(plan.hook)}\n\n"
+            f"Background:\n{chr(10).join(plan.background)}\n\n"
+            f"Main Story:\n{chr(10).join(plan.main_story)}\n\n"
+            f"Conclusion:\n{chr(10).join(plan.conclusion)}\n\n"
+            f"Sources:\n{chr(10).join(plan.sources)}\n\n"
+            f"Target Platform:\n{specification.platform}\n\n"
+            f"Style:\n{specification.style}\n\n"
+            f"Audience:\n{specification.target_audience}\n\n"
+            f"Tone:\n{specification.tone}\n\n"
+            f"Duration:\n{specification.duration_minutes} minutes\n\n"
+            f"Include Citations:\n{specification.include_citations}"
+        )
+
+        return Prompt(
+            system_prompt="You are an expert educational documentary writer.",
+            user_prompt=user_prompt,
+            language=specification.language,
+            target_model="",
+            metadata={
+                "title": plan.title,
+                "platform": specification.platform,
+                "style": specification.style,
+                "audience": specification.target_audience,
+            },
+        )
+
+
+__all__ = ["PromptBuilder"]

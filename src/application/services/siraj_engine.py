@@ -1,5 +1,6 @@
-from application.models.outline import Outline
-from core.knowledge_asset import KnowledgeAsset
+from src.application.knowledge_v2.pipeline import KnowledgeExtractionPipeline
+from src.application.models.outline import Outline
+from src.core.knowledge_asset import KnowledgeAsset
 
 
 class SirajEngine:
@@ -30,3 +31,5 @@ class SirajEngine:
 
 
 __all__ = ["SirajEngine"]
+
+

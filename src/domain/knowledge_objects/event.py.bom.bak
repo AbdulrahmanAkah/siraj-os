@@ -1,0 +1,12 @@
+﻿from dataclasses import dataclass
+
+from domain.knowledge_objects.knowledge_object import KnowledgeObject
+
+
+@dataclass
+class Event(KnowledgeObject):
+    name: str = ""
+    description: str = ""
+
+
+__all__=["Event"]

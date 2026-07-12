@@ -1,0 +1,50 @@
+﻿from domain.knowledge_objects.person import Person
+from domain.knowledge_objects.event import Event
+from domain.knowledge_objects.location import Location
+from domain.knowledge_objects.claim import Claim
+from domain.knowledge_objects.statistic import Statistic
+from domain.knowledge_objects.timeline_event import TimelineEvent
+from domain.knowledge_objects.source import Source
+
+MODEL_MAP = {
+    "person": Person,
+    "event": Event,
+    "location": Location,
+    "claim": Claim,
+    "statistic": Statistic,
+    "timeline": TimelineEvent,
+    "timeline_event": TimelineEvent,
+    "source": Source,
+}
+
+
+def normalize_payload(model, payload):
+
+    if payload is None:
+        return {}
+
+    if not isinstance(payload, dict):
+        return {}
+
+    annotations = getattr(model, "__annotations__", {})
+
+    result = {}
+
+    for field in annotations:
+        if field in payload:
+            result[field] = payload[field]
+
+    return result
+
+
+def create_model(model_name, payload):
+
+    model = MODEL_MAP.get(model_name.lower())
+
+    if model is None:
+        raise ValueError(f"Unknown model: {model_name}")
+
+    if isinstance(payload, model):
+        return payload
+
+    return model(**normalize_payload(model, payload))

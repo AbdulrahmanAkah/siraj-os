@@ -1,6 +1,6 @@
-from application.models.content_specification import ContentSpecification
-from application.models.narrative_plan import NarrativePlan
-from application.models.prompt import Prompt
+from src.application.models.content_specification import ContentSpecification
+from src.application.models.narrative_plan import NarrativePlan
+from src.application.models.prompt import Prompt
 
 
 class PromptBuilder:
@@ -39,3 +39,5 @@ class PromptBuilder:
 
 
 __all__ = ["PromptBuilder"]
+
+

@@ -1,0 +1,28 @@
+﻿from application.artifacts.artifact import Artifact, ArtifactType
+from application.artifacts.artifact_store import ArtifactStore
+
+store = ArtifactStore()
+
+store.put(
+    Artifact(
+        ArtifactType.OUTLINE,
+        {"title":"Battle of Badr"},
+    )
+)
+
+store.put(
+    Artifact(
+        ArtifactType.SCRIPT,
+        "Script...",
+    )
+)
+
+assert store.has(ArtifactType.OUTLINE)
+assert store.has(ArtifactType.SCRIPT)
+
+assert store.get(ArtifactType.OUTLINE)["title"] == "Battle of Badr"
+assert store.get(ArtifactType.SCRIPT) == "Script..."
+
+print(store.all())
+
+print("ArtifactStore OK")

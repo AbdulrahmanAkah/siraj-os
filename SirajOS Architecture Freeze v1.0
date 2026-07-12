@@ -1,0 +1,323 @@
+# SirajOS Architecture Freeze v1.0
+
+**Status:** Frozen
+**Purpose:** Architectural baseline before refactoring and feature completion.
+
+---
+
+# Goal
+
+The objective of this freeze is to prevent architectural drift while SirajOS is completed.
+
+From this point forward:
+
+* No new architectural patterns.
+* No duplicate models.
+* No duplicate pipelines.
+* No duplicate graph implementations.
+* No parallel object hierarchies.
+
+All future work must move toward a single coherent architecture.
+
+---
+
+# Core Layers
+
+The project shall consist of the following layers only.
+
+```
+src/
+
+application/
+domain/
+infrastructure/
+core/
+cli/
+tests/
+```
+
+No additional architectural layers are allowed.
+
+---
+
+# Domain Layer
+
+The Domain layer is the source of truth.
+
+Only the Domain layer owns:
+
+* Person
+* Location
+* Event
+* Claim
+* Relationship
+* Source
+* Statistic
+* TimelineEvent
+* KnowledgeGraph
+* KnowledgeNode
+* KnowledgeEdge
+
+No copies of these classes may exist elsewhere.
+
+---
+
+# Application Layer
+
+Responsible only for orchestration.
+
+Allowed responsibilities:
+
+* Extraction pipeline
+* Documentary generation
+* Workflow
+* Prompt generation
+* Scene planning
+* Script generation
+* Knowledge organization
+
+The Application layer must never redefine domain objects.
+
+---
+
+# Infrastructure Layer
+
+Responsible for external systems only.
+
+Examples:
+
+* Gemini
+* OpenAI
+* Storage
+* Vector databases
+* JSON
+* Filesystem
+* APIs
+
+Infrastructure must depend on interfaces, never on business logic.
+
+---
+
+# Core Layer
+
+Contains only shared utilities.
+
+Allowed:
+
+* KnowledgeAsset
+* Shared abstractions
+* Generic helpers
+
+Core must not become another business layer.
+
+---
+
+# Single Source of Truth
+
+The following objects must exist exactly once.
+
+* Claim
+* Person
+* Event
+* Relationship
+* Source
+* TimelineEvent
+* DocumentaryOutline
+* Script
+* Prompt
+* KnowledgeGraph
+* EntityResolver
+* MergeRules
+* Canonicalizer
+
+Duplicate implementations must be eliminated.
+
+---
+
+# Knowledge Pipeline
+
+The canonical pipeline becomes:
+
+```
+Document
+        │
+        ▼
+Parser
+        │
+        ▼
+Chunk Builder
+        │
+        ▼
+Extractors
+        │
+        ▼
+Canonicalization
+        │
+        ▼
+Resolution
+        │
+        ▼
+Graph Builder
+        │
+        ▼
+Graph Normalization
+        │
+        ▼
+Quality Engine
+        │
+        ▼
+Knowledge Graph
+```
+
+No alternative pipeline is permitted.
+
+---
+
+# Knowledge Graph
+
+Only one implementation exists.
+
+```
+KnowledgeGraph
+KnowledgeNode
+KnowledgeEdge
+GraphIndex
+GraphResolver
+KnowledgeGraphQuery
+```
+
+Any application-side graph implementation is temporary and must be removed.
+
+---
+
+# LLM Layer
+
+Only one gateway abstraction.
+
+```
+LLMGateway
+```
+
+Providers:
+
+* GeminiGateway
+* OpenAIGateway
+* ManualGateway
+* FakeGateway
+
+No additional gateway hierarchy.
+
+---
+
+# Documentary Pipeline
+
+Canonical flow:
+
+```
+Knowledge Graph
+        │
+        ▼
+Knowledge Organizer
+        │
+        ▼
+Narrative Builder
+        │
+        ▼
+Outline Builder
+        │
+        ▼
+Scene Planner
+        │
+        ▼
+Prompt Builder
+        │
+        ▼
+Image Generator
+        │
+        ▼
+Script Generator
+```
+
+---
+
+# Naming Rules
+
+Every domain object:
+
+* singular
+* descriptive
+* immutable when possible
+
+Avoid names like:
+
+* V2
+* New
+* Final
+* Copy
+* Temp
+
+---
+
+# Dependency Rules
+
+Allowed direction:
+
+```
+Infrastructure
+        ↓
+Application
+        ↓
+Domain
+```
+
+Never:
+
+* Domain → Infrastructure
+* Domain → Application
+
+---
+
+# Testing Rules
+
+Tests must target canonical classes only.
+
+Any test referencing deprecated models must be migrated or removed.
+
+---
+
+# Deprecation Policy
+
+The following folders are considered transitional and must disappear before v1.
+
+* application/models duplication
+* application/knowledge_v2 duplication
+* legacy graph implementations
+* duplicate resolver implementations
+* duplicate normalizers
+
+---
+
+# Refactoring Policy
+
+Every architectural change must satisfy all of the following:
+
+1. Reduce duplication.
+2. Increase cohesion.
+3. Preserve existing behavior.
+4. Keep public APIs stable when possible.
+5. Improve maintainability.
+
+If a change violates any of these, it must not be merged.
+
+---
+
+# Freeze Rule
+
+Until SirajOS v1 is released:
+
+* No new architecture.
+* No parallel implementations.
+* No experimental folders.
+* No additional pipelines.
+
+All effort must converge toward a single production architecture.

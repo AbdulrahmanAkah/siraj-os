@@ -1,0 +1,599 @@
+﻿================ FILE TREE ================
+
+================ DUPLICATE CLASS NAMES ================
+class ArtifactType(str, Enum): ::: C:\SIRAJ\Repositories\siraj-os\src\application\artifacts\artifact.py
+class Artifact: ::: C:\SIRAJ\Repositories\siraj-os\src\application\artifacts\artifact.py
+class ArtifactStore: ::: C:\SIRAJ\Repositories\siraj-os\src\application\artifacts\artifact_store.py
+class Settings: ::: C:\SIRAJ\Repositories\siraj-os\src\application\config\settings.py
+class DocumentaryGenerator: ::: C:\SIRAJ\Repositories\siraj-os\src\application\documentary\documentary_generator.py
+class DocumentaryOutline: ::: C:\SIRAJ\Repositories\siraj-os\src\application\documentary\documentary_outline.py
+class DocumentaryScript: ::: C:\SIRAJ\Repositories\siraj-os\src\application\documentary\documentary_script.py
+class KnowledgeOutlineBuilder: ::: C:\SIRAJ\Repositories\siraj-os\src\application\documentary\knowledge_outline_builder.py
+class ImagePrompt: ::: C:\SIRAJ\Repositories\siraj-os\src\application\image\image_prompt.py
+class ImagePromptGenerator: ::: C:\SIRAJ\Repositories\siraj-os\src\application\image\image_prompt_generator.py
+class CharacterProfile: ::: C:\SIRAJ\Repositories\siraj-os\src\application\knowledge\character_engine.py
+class CharacterEngine: ::: C:\SIRAJ\Repositories\siraj-os\src\application\knowledge\character_engine.py
+class Citation: ::: C:\SIRAJ\Repositories\siraj-os\src\application\knowledge\citation_engine.py
+class CitationEngine: ::: C:\SIRAJ\Repositories\siraj-os\src\application\knowledge\citation_engine.py
+class ExtractionResult: ::: C:\SIRAJ\Repositories\siraj-os\src\application\knowledge\extraction_result.py
+class VerifiedClaim: ::: C:\SIRAJ\Repositories\siraj-os\src\application\knowledge\fact_verification_engine.py
+class FactVerificationEngine: ::: C:\SIRAJ\Repositories\siraj-os\src\application\knowledge\fact_verification_engine.py
+class KnowledgeExtractor: ::: C:\SIRAJ\Repositories\siraj-os\src\application\knowledge\knowledge_extractor.py
+class KnowledgeGraphBuilder: ::: C:\SIRAJ\Repositories\siraj-os\src\application\knowledge\knowledge_graph_builder.py
+class KnowledgeParser: ::: C:\SIRAJ\Repositories\siraj-os\src\application\knowledge\knowledge_parser.py
+class KnowledgeRepository: ::: C:\SIRAJ\Repositories\siraj-os\src\application\knowledge\knowledge_repository.py
+class RelationshipRecord: ::: C:\SIRAJ\Repositories\siraj-os\src\application\knowledge\relationship_engine.py
+class RelationshipEngine: ::: C:\SIRAJ\Repositories\siraj-os\src\application\knowledge\relationship_engine.py
+class RankedSource: ::: C:\SIRAJ\Repositories\siraj-os\src\application\knowledge\source_ranking_engine.py
+class SourceRankingEngine: ::: C:\SIRAJ\Repositories\siraj-os\src\application\knowledge\source_ranking_engine.py
+class TimelineEntry: ::: C:\SIRAJ\Repositories\siraj-os\src\application\knowledge\timeline_engine.py
+class TimelineEngine: ::: C:\SIRAJ\Repositories\siraj-os\src\application\knowledge\timeline_engine.py
+class FakeGateway(LLMGateway): ::: C:\SIRAJ\Repositories\siraj-os\src\application\llm\core\fake_gateway.py
+class LLMGateway(ABC): ::: C:\SIRAJ\Repositories\siraj-os\src\application\llm\core\llm_gateway.py
+class LLMRequest: ::: C:\SIRAJ\Repositories\siraj-os\src\application\llm\core\llm_request.py
+class LLMResponse: ::: C:\SIRAJ\Repositories\siraj-os\src\application\llm\core\llm_response.py
+class GeminiGateway(LLMGateway): ::: C:\SIRAJ\Repositories\siraj-os\src\application\llm\providers\gemini_gateway.py
+class ManualGateway(LLMGateway): ::: C:\SIRAJ\Repositories\siraj-os\src\application\llm\providers\manual_gateway.py
+class OpenAIGateway(LLMGateway): ::: C:\SIRAJ\Repositories\siraj-os\src\application\llm\providers\openai_gateway.py
+class ContentSpecification: ::: C:\SIRAJ\Repositories\siraj-os\src\application\models\content_specification.py
+class ExtractionObject: ::: C:\SIRAJ\Repositories\siraj-os\src\application\models\extraction_object.py
+class KnowledgeContext: ::: C:\SIRAJ\Repositories\siraj-os\src\application\models\knowledge_context.py
+class NarrativePlan: ::: C:\SIRAJ\Repositories\siraj-os\src\application\models\narrative_plan.py
+class OrganizedKnowledge: ::: C:\SIRAJ\Repositories\siraj-os\src\application\models\organized_knowledge.py
+class Outline: ::: C:\SIRAJ\Repositories\siraj-os\src\application\models\outline.py
+class DocumentaryOutline: ::: C:\SIRAJ\Repositories\siraj-os\src\application\models\outline.py
+class Prompt: ::: C:\SIRAJ\Repositories\siraj-os\src\application\models\prompt.py
+class Script: ::: C:\SIRAJ\Repositories\siraj-os\src\application\models\script.py
+class ScriptStructure: ::: C:\SIRAJ\Repositories\siraj-os\src\application\models\script_structure.py
+class Script: ::: C:\SIRAJ\Repositories\siraj-os\src\application\models\documentary\script.py
+class TimelineEvent(KnowledgeObject): ::: C:\SIRAJ\Repositories\siraj-os\src\application\models\documentary\timeline_event.py
+class ImportantTypedClaim: ::: C:\SIRAJ\Repositories\siraj-os\src\application\models\knowledge\important_typed_claim.py
+class PrioritizedKnowledge: ::: C:\SIRAJ\Repositories\siraj-os\src\application\models\knowledge\prioritized_knowledge.py
+class TypedClaim: ::: C:\SIRAJ\Repositories\siraj-os\src\application\models\knowledge\typed_claim.py
+class Prompt: ::: C:\SIRAJ\Repositories\siraj-os\src\application\models\llm\prompt.py
+class Narrative: ::: C:\SIRAJ\Repositories\siraj-os\src\application\narrative\narrative_builder.py
+class NarrativeBuilder: ::: C:\SIRAJ\Repositories\siraj-os\src\application\narrative\narrative_builder.py
+class ProductionPipeline: ::: C:\SIRAJ\Repositories\siraj-os\src\application\pipeline\production_pipeline.py
+class ScenePlan: ::: C:\SIRAJ\Repositories\siraj-os\src\application\planning\scene_plan.py
+class ScenePlan: ::: C:\SIRAJ\Repositories\siraj-os\src\application\planning\scene_planner.py
+class ScenePlanner: ::: C:\SIRAJ\Repositories\siraj-os\src\application\planning\scene_planner.py
+class LLMGateway(ABC): ::: C:\SIRAJ\Repositories\siraj-os\src\application\ports\llm_gateway.py
+class Scene: ::: C:\SIRAJ\Repositories\siraj-os\src\application\scene\scene.py
+class SceneGenerator: ::: C:\SIRAJ\Repositories\siraj-os\src\application\scene_generation\scene_generator.py
+class Script: ::: C:\SIRAJ\Repositories\siraj-os\src\application\script\script_generator.py
+class ScriptGenerator: ::: C:\SIRAJ\Repositories\siraj-os\src\application\script\script_generator.py
+class GenerationService: ::: C:\SIRAJ\Repositories\siraj-os\src\application\services\generation_service.py
+class KnowledgeContextBuilder: ::: C:\SIRAJ\Repositories\siraj-os\src\application\services\knowledge_context_builder.py
+class KnowledgeOrganizer: ::: C:\SIRAJ\Repositories\siraj-os\src\application\services\knowledge_organizer.py
+class KnowledgeService: ::: C:\SIRAJ\Repositories\siraj-os\src\application\services\knowledge_service.py
+class NarrativeBuilder: ::: C:\SIRAJ\Repositories\siraj-os\src\application\services\narrative_builder.py
+class NarrativePlanner: ::: C:\SIRAJ\Repositories\siraj-os\src\application\services\narrative_planner.py
+class PromptBuilder: ::: C:\SIRAJ\Repositories\siraj-os\src\application\services\prompt_builder.py
+class ScriptStructureBuilder: ::: C:\SIRAJ\Repositories\siraj-os\src\application\services\script_structure_builder.py
+class SirajEngine: ::: C:\SIRAJ\Repositories\siraj-os\src\application\services\siraj_engine.py
+class DocumentaryWorkflow: ::: C:\SIRAJ\Repositories\siraj-os\src\application\workflow\documentary_workflow.py
+class WorkflowContext: ::: C:\SIRAJ\Repositories\siraj-os\src\application\workflow\workflow_context.py
+class KnowledgeAsset: ::: C:\SIRAJ\Repositories\siraj-os\src\core\knowledge_asset.py
+class KnowledgeEngine(KnowledgeService): ::: C:\SIRAJ\Repositories\siraj-os\src\core\knowledge_engine.py
+class Claim: ::: C:\SIRAJ\Repositories\siraj-os\src\domain\claims\claim.py
+class Entity: ::: C:\SIRAJ\Repositories\siraj-os\src\domain\entities\entity.py
+class Person(Entity): ::: C:\SIRAJ\Repositories\siraj-os\src\domain\entities\entity.py
+class Place(Entity): ::: C:\SIRAJ\Repositories\siraj-os\src\domain\entities\entity.py
+class Event(Entity): ::: C:\SIRAJ\Repositories\siraj-os\src\domain\entities\entity.py
+class GraphIndex: ::: C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_graph\graph_index.py
+class KnowledgeEdge: ::: C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_graph\knowledge_edge.py
+class KnowledgeGraph: ::: C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_graph\knowledge_graph.py
+class KnowledgeGraphQuery: ::: C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_graph\knowledge_graph_query.py
+class KnowledgeNode: ::: C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_graph\knowledge_node.py
+class Claim(KnowledgeObject): ::: C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_objects\claim.py
+class Event(KnowledgeObject): ::: C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_objects\event.py
+class KnowledgeObject: ::: C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_objects\knowledge_object.py
+class KnowledgeObjectType(str, Enum): ::: C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_objects\knowledge_object_type.py
+class Location(KnowledgeObject): ::: C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_objects\location.py
+class Person(KnowledgeObject): ::: C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_objects\person.py
+class Relationship(KnowledgeObject): ::: C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_objects\relationship.py
+class Source(KnowledgeObject): ::: C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_objects\source.py
+class Statistic(KnowledgeObject): ::: C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_objects\statistic.py
+class TimelineEvent(KnowledgeObject): ::: C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_objects\timeline_event.py
+class Relationship: ::: C:\SIRAJ\Repositories\siraj-os\src\domain\relationships\relationship.py
+class Source: ::: C:\SIRAJ\Repositories\siraj-os\src\domain\sources\source.py
+class MockLLMProvider(LLMGateway): ::: C:\SIRAJ\Repositories\siraj-os\src\infrastructure\llm\mock_llm_provider.py
+
+================ IMPORT GRAPH ================
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\main.py
+from application.services.knowledge_service import KnowledgeService
+from domain.entities.entity import Person, Place, Event
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\test_artifact_store.py
+from application.artifacts.artifact import Artifact, ArtifactType
+from application.artifacts.artifact_store import ArtifactStore
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\test_claim.py
+from domain.claims.claim import Claim
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\test_documentary_generator.py
+from application.documentary.documentary_generator import DocumentaryGenerator
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\test_documentary_outline.py
+from application.documentary.documentary_outline import DocumentaryOutline
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\test_extraction_object.py
+from application.models.extraction_object import ExtractionObject
+from domain.knowledge_objects.knowledge_object_type import KnowledgeObjectType
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\test_gemini_gateway.py
+from application.llm.providers.gemini_gateway import GeminiGateway
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\test_graph_index.py
+from domain.knowledge_graph.graph_index import GraphIndex
+from domain.knowledge_graph.knowledge_graph import KnowledgeGraph
+from domain.knowledge_graph.knowledge_node import KnowledgeNode
+from domain.knowledge_graph.knowledge_edge import KnowledgeEdge
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\test_graph_queries.py
+from domain.knowledge_graph.knowledge_graph import KnowledgeGraph
+from domain.knowledge_graph.knowledge_node import KnowledgeNode
+from domain.knowledge_graph.knowledge_edge import KnowledgeEdge
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\test_knowledge_asset.py
+from core.knowledge_asset import KnowledgeAsset
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\test_knowledge_asset_behavior.py
+from core.knowledge_asset import KnowledgeAsset
+from domain.entities.entity import Person
+from domain.sources.source import Source
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\test_knowledge_asset_validation.py
+from core.knowledge_asset import KnowledgeAsset
+from domain.entities.entity import Person
+from domain.sources.source import Source
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\test_knowledge_edge.py
+from domain.knowledge_graph.knowledge_edge import KnowledgeEdge
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\test_knowledge_graph.py
+from domain.knowledge_graph.knowledge_graph import KnowledgeGraph
+from domain.knowledge_graph.knowledge_node import KnowledgeNode
+from domain.knowledge_graph.knowledge_edge import KnowledgeEdge
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\test_knowledge_graph_query.py
+from domain.knowledge_graph.knowledge_graph import KnowledgeGraph
+from domain.knowledge_graph.knowledge_graph_query import KnowledgeGraphQuery
+from domain.knowledge_graph.knowledge_node import KnowledgeNode
+from domain.knowledge_graph.knowledge_edge import KnowledgeEdge
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\test_knowledge_node.py
+from domain.knowledge_graph.knowledge_node import KnowledgeNode
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\test_llm_gateway.py
+from application.llm.core.fake_gateway import FakeGateway
+from application.llm.core.llm_request import LLMRequest
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\test_openai_gateway.py
+from application.llm.providers.openai_gateway import OpenAIGateway
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\test_person_object.py
+from domain.knowledge_objects.person import Person
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\test_prompt.py
+from application.models.llm.prompt import Prompt
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\test_relationship.py
+from domain.entities.entity import Person
+from domain.relationships.relationship import Relationship
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\test_relationship_object.py
+from domain.knowledge_objects.relationship import Relationship
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\test_scene_planner.py
+from application.documentary.documentary_generator import DocumentaryGenerator
+from application.planning.scene_planner import ScenePlanner
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\test_script_model.py
+from application.models.documentary.script import Script
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\test_settings.py
+from application.config.settings import settings
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\test_source.py
+from domain.sources.source import Source
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\test_statistic_object.py
+from domain.knowledge_objects.statistic import Statistic
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\test_timeline_event.py
+from application.models.documentary.timeline_event import TimelineEvent
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\test_workflow_context.py
+from application.workflow.workflow_context import WorkflowContext
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\__init__.py
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\artifacts\artifact.py
+from dataclasses import dataclass
+from enum import Enum
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\artifacts\artifact_store.py
+from application.artifacts.artifact import Artifact, ArtifactType
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\config\environment_loader.py
+from dotenv import load_dotenv
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\config\settings.py
+import os
+from dataclasses import dataclass
+from application.config.environment_loader import *
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\documentary\documentary_generator.py
+from domain.knowledge_graph.knowledge_graph import KnowledgeGraph
+from application.documentary.documentary_outline import DocumentaryOutline
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\documentary\documentary_outline.py
+from dataclasses import dataclass, field
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\documentary\documentary_script.py
+from dataclasses import dataclass
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\documentary\knowledge_outline_builder.py
+from application.models.outline import DocumentaryOutline
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\image\image_prompt.py
+from dataclasses import dataclass
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\image\image_prompt_generator.py
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\knowledge\character_engine.py
+from dataclasses import dataclass
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\knowledge\citation_engine.py
+from dataclasses import dataclass
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\knowledge\extraction_result.py
+from dataclasses import dataclass, field
+from domain.knowledge_objects.person import Person
+from domain.knowledge_objects.event import Event
+from domain.knowledge_objects.location import Location
+from domain.knowledge_objects.claim import Claim
+from domain.knowledge_objects.source import Source
+from domain.knowledge_objects.statistic import Statistic
+from domain.knowledge_objects.timeline_event import TimelineEvent
+from domain.relationships.relationship import Relationship
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\knowledge\fact_verification_engine.py
+from dataclasses import dataclass
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\knowledge\knowledge_extractor.py
+from application.llm.core.llm_gateway import LLMGateway
+from application.llm.core.llm_request import LLMRequest
+from application.knowledge.knowledge_parser import KnowledgeParser
+from application.knowledge.extraction_result import ExtractionResult
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\knowledge\knowledge_graph_builder.py
+from domain.knowledge_graph.knowledge_graph import KnowledgeGraph
+from domain.knowledge_graph.knowledge_node import KnowledgeNode
+from domain.knowledge_graph.knowledge_edge import KnowledgeEdge
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\knowledge\knowledge_parser.py
+from application.knowledge.utils.model_factory import create_model
+import json
+from application.knowledge.extraction_result import ExtractionResult
+from domain.relationships.relationship import Relationship
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\knowledge\knowledge_repository.py
+from dataclasses import dataclass, field
+from pathlib import Path
+from application.knowledge.extraction_result import ExtractionResult
+from application.knowledge.knowledge_extractor import KnowledgeExtractor
+from application.knowledge.knowledge_graph_builder import KnowledgeGraphBuilder
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\knowledge\relationship_engine.py
+from dataclasses import dataclass
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\knowledge\source_ranking_engine.py
+from dataclasses import dataclass
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\knowledge\timeline_engine.py
+from dataclasses import dataclass
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\knowledge\utils\model_factory.py
+from domain.knowledge_objects.person import Person
+from domain.knowledge_objects.event import Event
+from domain.knowledge_objects.location import Location
+from domain.knowledge_objects.claim import Claim
+from domain.knowledge_objects.statistic import Statistic
+from domain.knowledge_objects.timeline_event import TimelineEvent
+from domain.knowledge_objects.source import Source
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\llm\core\fake_gateway.py
+from application.llm.core.llm_gateway import LLMGateway
+from application.llm.core.llm_request import LLMRequest
+from application.llm.core.llm_response import LLMResponse
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\llm\core\llm_gateway.py
+from abc import ABC, abstractmethod
+from application.llm.core.llm_request import LLMRequest
+from application.llm.core.llm_response import LLMResponse
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\llm\core\llm_request.py
+from dataclasses import dataclass, field
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\llm\core\llm_response.py
+from dataclasses import dataclass, field
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\llm\providers\gemini_gateway.py
+import os
+from google import genai
+from application.llm.core.llm_gateway import LLMGateway
+from application.llm.core.llm_request import LLMRequest
+from application.llm.core.llm_response import LLMResponse
+import application.config.environment_loader
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\llm\providers\manual_gateway.py
+from application.llm.core.llm_gateway import LLMGateway
+from application.llm.core.llm_request import LLMRequest
+from application.llm.core.llm_response import LLMResponse
+import sys
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\llm\providers\openai_gateway.py
+import os
+from openai import OpenAI
+from application.llm.core.llm_gateway import LLMGateway
+from application.llm.core.llm_request import LLMRequest
+from application.llm.core.llm_response import LLMResponse
+import application.config.environment_loader
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\models\content_specification.py
+from dataclasses import dataclass
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\models\extraction_object.py
+from dataclasses import dataclass, field
+from domain.knowledge_objects.knowledge_object_type import KnowledgeObjectType
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\models\knowledge_context.py
+from dataclasses import dataclass, field
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\models\narrative_plan.py
+from dataclasses import dataclass, field
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\models\organized_knowledge.py
+from dataclasses import dataclass, field
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\models\outline.py
+from dataclasses import dataclass, field
+from typing import List
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\models\prompt.py
+from dataclasses import dataclass, field
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\models\script.py
+from dataclasses import dataclass, field
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\models\script_structure.py
+from dataclasses import dataclass, field
+from typing import List
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\models\documentary\script.py
+from dataclasses import dataclass, field
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\models\documentary\timeline_event.py
+from dataclasses import dataclass
+from domain.knowledge_objects.knowledge_object import KnowledgeObject
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\models\knowledge\important_typed_claim.py
+from dataclasses import dataclass, field
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\models\knowledge\prioritized_knowledge.py
+from dataclasses import dataclass, field
+from application.models.knowledge.important_typed_claim import ImportantTypedClaim
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\models\knowledge\typed_claim.py
+from dataclasses import dataclass, field
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\models\llm\prompt.py
+from dataclasses import dataclass, field
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\narrative\narrative_builder.py
+from dataclasses import dataclass
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\pipeline\production_pipeline.py
+import os
+from application.llm.providers.openai_gateway import OpenAIGateway
+from application.llm.providers.gemini_gateway import GeminiGateway
+from application.llm.providers.manual_gateway import ManualGateway
+from application.workflow.documentary_workflow import DocumentaryWorkflow
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\planning\scene_plan.py
+from dataclasses import dataclass, field
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\planning\scene_planner.py
+from dataclasses import dataclass
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\ports\llm_gateway.py
+from abc import ABC, abstractmethod
+from application.models.prompt import Prompt
+from application.models.script import Script
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\scene\scene.py
+from dataclasses import dataclass
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\scene_generation\scene_generator.py
+from application.planning.scene_plan import ScenePlan
+from application.scene.scene import Scene
+from application.llm.core.llm_gateway import LLMGateway
+from application.llm.core.llm_request import LLMRequest
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\script\script_generator.py
+from dataclasses import dataclass
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\services\generation_service.py
+from application.models.prompt import Prompt
+from application.models.script import Script
+from application.ports.llm_gateway import LLMGateway
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\services\knowledge_context_builder.py
+from application.models.knowledge_context import KnowledgeContext
+from application.models.outline import Outline
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\services\knowledge_organizer.py
+from typing import Optional
+from application.models.knowledge_context import KnowledgeContext
+from application.models.organized_knowledge import OrganizedKnowledge
+from domain.relationships.relationship import Relationship
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\services\knowledge_service.py
+from typing import List
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\services\narrative_builder.py
+from typing import Dict, List
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\services\narrative_planner.py
+from application.models.organized_knowledge import OrganizedKnowledge
+from application.models.narrative_plan import NarrativePlan
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\services\prompt_builder.py
+from application.models.content_specification import ContentSpecification
+from application.models.narrative_plan import NarrativePlan
+from application.models.prompt import Prompt
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\services\script_structure_builder.py
+from application.models.outline import Outline
+from application.models.script_structure import ScriptStructure
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\services\siraj_engine.py
+from application.models.outline import Outline
+from core.knowledge_asset import KnowledgeAsset
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\workflow\documentary_workflow.py
+from application.artifacts.artifact import Artifact, ArtifactType
+from application.artifacts.artifact_store import ArtifactStore
+from application.workflow.workflow_context import WorkflowContext
+from application.knowledge.knowledge_repository import KnowledgeRepository
+from application.knowledge.character_engine import CharacterEngine
+from application.knowledge.relationship_engine import RelationshipEngine
+from application.knowledge.timeline_engine import TimelineEngine
+from application.documentary.knowledge_outline_builder import KnowledgeOutlineBuilder
+from application.narrative.narrative_builder import NarrativeBuilder
+from application.script.script_generator import ScriptGenerator
+from application.planning.scene_planner import ScenePlanner
+from application.scene_generation.scene_generator import SceneGenerator
+from application.image.image_prompt_generator import ImagePromptGenerator
+from application.knowledge.citation_engine import CitationEngine
+from application.knowledge.source_ranking_engine import SourceRankingEngine
+from application.knowledge.fact_verification_engine import FactVerificationEngine
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\application\workflow\workflow_context.py
+from dataclasses import dataclass, field
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\cli\generate.py
+import json
+import sys
+from application.pipeline.production_pipeline import ProductionPipeline
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\core\entities.py
+from domain.entities.entity import (
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\core\knowledge_asset.py
+from dataclasses import dataclass, field
+from datetime import datetime
+from typing import Dict, List
+from uuid import UUID, uuid4
+from domain.relationships.relationship import Relationship
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\core\knowledge_engine.py
+from application.services.knowledge_service import KnowledgeService
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\core\repositories\entity_repository.py
+from domain.repositories.entity_repository import EntityRepository
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\core\storage\json_storage.py
+from infrastructure.storage.json_storage import JsonStorage
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\domain\claims\claim.py
+from dataclasses import dataclass, field
+from typing import Dict, List, Optional
+from uuid import uuid4
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\domain\entities\entity.py
+from dataclasses import dataclass, field
+from typing import Dict
+from uuid import uuid4
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\domain\entities\__init__.py
+from .entity import Entity, Person, Place, Event
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_graph\graph_index.py
+from collections import defaultdict
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_graph\knowledge_edge.py
+from dataclasses import dataclass, field
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_graph\knowledge_graph.py
+from dataclasses import dataclass, field
+from domain.knowledge_graph.graph_index import GraphIndex
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_graph\knowledge_graph_query.py
+from domain.knowledge_graph.knowledge_graph import KnowledgeGraph
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_graph\knowledge_node.py
+from dataclasses import dataclass, field
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_objects\claim.py
+from dataclasses import dataclass
+from domain.knowledge_objects.knowledge_object import KnowledgeObject
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_objects\event.py
+from dataclasses import dataclass
+from domain.knowledge_objects.knowledge_object import KnowledgeObject
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_objects\knowledge_object.py
+from dataclasses import asdict, dataclass, field
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_objects\knowledge_object_type.py
+from enum import Enum
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_objects\location.py
+from dataclasses import dataclass
+from domain.knowledge_objects.knowledge_object import KnowledgeObject
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_objects\person.py
+from dataclasses import dataclass, field
+from domain.knowledge_objects.knowledge_object import KnowledgeObject
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_objects\relationship.py
+from dataclasses import dataclass
+from domain.knowledge_objects.knowledge_object import KnowledgeObject
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_objects\source.py
+from dataclasses import dataclass
+from domain.knowledge_objects.knowledge_object import KnowledgeObject
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_objects\statistic.py
+from dataclasses import dataclass
+from domain.knowledge_objects.knowledge_object import KnowledgeObject
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_objects\timeline_event.py
+from dataclasses import dataclass
+from domain.knowledge_objects.knowledge_object import KnowledgeObject
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\domain\relationships\relationship.py
+from dataclasses import dataclass, field
+from uuid import UUID, uuid4
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\domain\sources\source.py
+from dataclasses import dataclass, field
+from typing import Dict, Optional
+from uuid import uuid4
+------------------------------------------
+C:\SIRAJ\Repositories\siraj-os\src\infrastructure\llm\mock_llm_provider.py
+from application.models.prompt import Prompt
+from application.models.script import Script
+from application.ports.llm_gateway import LLMGateway
+
+================ ALL TODO ================
+
+================ ALL DATACLASSES ================
+
+================ ENUMS ================
+
+================ END ================

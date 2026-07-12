@@ -1,0 +1,82 @@
+﻿from dataclasses import dataclass, field
+from pathlib import Path
+
+from application.knowledge.extraction_result import ExtractionResult
+from application.knowledge.knowledge_extractor import KnowledgeExtractor
+from application.knowledge.knowledge_graph_builder import KnowledgeGraphBuilder
+
+
+@dataclass
+class KnowledgeRepository:
+
+    gateway: object | None = None
+    extractions: list[ExtractionResult] = field(default_factory=list)
+
+    def __post_init__(self):
+
+        if self.gateway is not None:
+            self.extractor = KnowledgeExtractor(self.gateway)
+            self.graph_builder = KnowledgeGraphBuilder()
+
+    def add(
+        self,
+        extraction: ExtractionResult,
+    ):
+        self.extractions.append(extraction)
+
+    def ingest_text(
+        self,
+        text: str,
+    ):
+
+        extracted = self.extractor.extract(text)
+
+        self.add(extracted)
+
+        return self.graph_builder.build(extracted)
+
+    def ingest_file(
+        self,
+        path: str,
+    ):
+
+        text = Path(path).read_text(
+            encoding="utf-8"
+        )
+
+        return self.ingest_text(text)
+
+    @property
+    def persons(self):
+        return [p for e in self.extractions for p in e.persons]
+
+    @property
+    def events(self):
+        return [x for e in self.extractions for x in e.events]
+
+    @property
+    def locations(self):
+        return [x for e in self.extractions for x in e.locations]
+
+    @property
+    def claims(self):
+        return [x for e in self.extractions for x in e.claims]
+
+    @property
+    def statistics(self):
+        return [x for e in self.extractions for x in e.statistics]
+
+    @property
+    def timeline(self):
+        return [x for e in self.extractions for x in e.timeline]
+
+    @property
+    def relationships(self):
+        return [x for e in self.extractions for x in e.relationships]
+
+    @property
+    def sources(self):
+        return [x for e in self.extractions for x in e.sources]
+
+
+__all__ = ["KnowledgeRepository"]

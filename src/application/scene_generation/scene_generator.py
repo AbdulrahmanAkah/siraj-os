@@ -1,0 +1,57 @@
+from src.application.planning.scene_plan import ScenePlan
+from src.application.scene.scene import Scene
+
+from src.application.ports.llm_gateway import LLMGateway
+from src.application.llm.core.llm_request import LLMRequest
+
+
+class SceneGenerator:
+
+    def __init__(self, llm: LLMGateway):
+        self.llm = llm
+
+    def generate(
+        self,
+        plans: list[ScenePlan],
+    ) -> list[Scene]:
+
+        scenes = []
+
+        for plan in plans:
+
+            prompt = f"""
+Write ONE documentary scene.
+
+Scene title:
+{plan.title}
+
+Objective:
+{plan.objective}
+
+Key points:
+{chr(10).join("- " + p for p in plan.key_points)}
+
+Return only the narration.
+"""
+
+            response = self.llm.generate(
+                LLMRequest(
+                    prompt=prompt
+                )
+            )
+
+            scenes.append(
+                Scene(
+                    index=plan.index,
+                    title=plan.title,
+                    narration=response.text.strip(),
+                    visual_description=plan.objective,
+                )
+            )
+
+        return scenes
+
+
+__all__ = ["SceneGenerator"]
+
+

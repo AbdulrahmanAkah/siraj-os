@@ -1,0 +1,113 @@
+﻿from dataclasses import dataclass
+
+@dataclass
+class ScenePlan:
+
+    index:int
+
+    title:str
+
+    objective:str
+
+    key_points:list[str]
+
+
+class ScenePlanner:
+
+    def plan(
+
+        self,
+
+        graph,
+
+        outline,
+
+    ):
+
+        node_types=getattr(
+
+            graph.index,
+
+            "nodes_by_type",
+
+            {}
+
+        )
+
+        plans=[]
+
+        i=1
+
+        mapping={
+
+            "الشخصيات":"PERSON",
+
+            "الأحداث":"EVENT",
+
+            "التسلسل الزمني":"TIMELINE_EVENT",
+
+            "الأماكن":"LOCATION",
+
+            "الإحصاءات":"STATISTIC",
+
+            "الحقائق والاستنتاجات":"CLAIM",
+
+        }
+
+        def field(obj,key):
+
+            if isinstance(obj,dict):
+
+                return obj.get(key,"")
+
+            return getattr(obj,key,"")
+
+        for section in outline.sections:
+
+            key_points=[]
+
+            t=mapping.get(section)
+
+            if t:
+
+                for node in node_types.get(t,[]):
+
+                    d=node.data
+
+                    text=(
+
+                        field(d,"name")
+
+                        or field(d,"title")
+
+                        or field(d,"text")
+
+                        or field(d,"value")
+
+                    )
+
+                    if text:
+
+                        key_points.append(text)
+
+            plans.append(
+
+                ScenePlan(
+
+                    index=i,
+
+                    title=section,
+
+                    objective=f"Explain {section}",
+
+                    key_points=key_points,
+
+                )
+
+            )
+
+            i+=1
+
+        return plans
+
+__all__=["ScenePlanner","ScenePlan"]

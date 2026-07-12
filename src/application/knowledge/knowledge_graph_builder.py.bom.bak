@@ -1,0 +1,56 @@
+﻿from domain.knowledge_graph.knowledge_graph import KnowledgeGraph
+from domain.knowledge_graph.knowledge_node import KnowledgeNode
+from domain.knowledge_graph.knowledge_edge import KnowledgeEdge
+
+
+class KnowledgeGraphBuilder:
+
+    def build(self, extraction):
+
+        graph = KnowledgeGraph()
+
+        def add(obj, node_type, node_id):
+
+            graph.add_node(
+                KnowledgeNode(
+                    id=node_id,
+                    type=node_type,
+                    data=obj.to_dict(),
+                )
+            )
+
+        for i, x in enumerate(extraction.persons):
+            add(x, "PERSON", f"person_{i}")
+
+        for i, x in enumerate(extraction.events):
+            add(x, "EVENT", f"event_{i}")
+
+        for i, x in enumerate(extraction.locations):
+            add(x, "LOCATION", f"location_{i}")
+
+        for i, x in enumerate(extraction.claims):
+            add(x, "CLAIM", f"claim_{i}")
+
+        for i, x in enumerate(extraction.statistics):
+            add(x, "STATISTIC", f"statistic_{i}")
+
+        for i, x in enumerate(extraction.timeline):
+            add(x, "TIMELINE_EVENT", f"timeline_{i}")
+
+        for i, x in enumerate(extraction.sources):
+            add(x, "SOURCE", f"source_{i}")
+
+        for r in extraction.relationships:
+
+            graph.add_edge(
+                KnowledgeEdge(
+                    source=r.subject,
+                    target=r.object,
+                    relation=r.predicate,
+                )
+            )
+
+        return graph
+
+
+__all__ = ["KnowledgeGraphBuilder"]

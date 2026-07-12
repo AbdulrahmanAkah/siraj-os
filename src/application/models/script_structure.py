@@ -21,3 +21,5 @@ class ScriptStructure:
 
 
 __all__ = ["ScriptStructure"]
+
+

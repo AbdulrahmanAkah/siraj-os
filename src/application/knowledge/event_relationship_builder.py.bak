@@ -1,0 +1,63 @@
+from src.application.knowledge.extraction_result import ExtractionResult
+from src.domain.knowledge_objects.relationship import Relationship
+
+
+class EventRelationshipBuilder:
+
+    def build(self, extraction: ExtractionResult):
+
+        if not extraction.events:
+            return extraction
+
+        event = extraction.events[0]
+
+        relationships = list(extraction.relationships)
+
+        # --------------------------------------------------
+        # Event -> Person
+        # --------------------------------------------------
+
+        for person in extraction.persons:
+
+            relationships.append(
+                Relationship(
+                    subject=event.name,
+                    predicate="involved_person",
+                    object=person.name,
+                    metadata={"generated": True},
+                )
+            )
+
+        # --------------------------------------------------
+        # Event -> Location
+        # --------------------------------------------------
+
+        for location in extraction.locations:
+
+            relationships.append(
+                Relationship(
+                    subject=event.name,
+                    predicate="occurred_at",
+                    object=location.name,
+                    metadata={"generated": True},
+                )
+            )
+
+        # --------------------------------------------------
+        # Event -> Claim
+        # --------------------------------------------------
+
+        for claim in extraction.claims:
+
+            relationships.append(
+                Relationship(
+                    subject=event.name,
+                    predicate="supports",
+                    object=claim.text,
+                    metadata={"generated": True},
+                )
+            )
+
+        extraction.relationships = relationships
+
+        return extraction

@@ -1,5 +1,5 @@
-from application.models.outline import Outline
-from application.models.script_structure import ScriptStructure
+from src.application.models.outline import Outline
+from src.application.models.script_structure import ScriptStructure
 
 
 class ScriptStructureBuilder:
@@ -18,3 +18,5 @@ class ScriptStructureBuilder:
 
 
 __all__ = ["ScriptStructureBuilder"]
+
+

@@ -1,4 +1,4 @@
-from domain.sources.source import Source
+from src.domain.knowledge_objects.source import Source
 
 source = Source(
     title="Sahih al-Bukhari",
@@ -7,3 +7,4 @@ source = Source(
 )
 
 print(source.to_dict())
+

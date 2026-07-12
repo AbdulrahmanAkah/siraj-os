@@ -1,0 +1,2394 @@
+{
+  "src\\main.py": {
+    "imports": [
+      "src.application.services.knowledge_service.KnowledgeService",
+      "src.domain.entities.entity.Event",
+      "src.domain.entities.entity.Person",
+      "src.domain.entities.entity.Place"
+    ],
+    "classes": [],
+    "functions": [
+      "main"
+    ]
+  },
+  "src\\test_artifact_store.py": {
+    "imports": [
+      "src.application.artifacts.artifact.Artifact",
+      "src.application.artifacts.artifact.ArtifactType",
+      "src.application.artifacts.artifact_store.ArtifactStore"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\test_claim.py": {
+    "imports": [
+      "src.domain.claims.claim.Claim"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\test_documentary_generator.py": {
+    "imports": [
+      "src.application.documentary.documentary_generator.DocumentaryGenerator"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\test_documentary_outline.py": {
+    "imports": [
+      "src.application.documentary.documentary_outline.DocumentaryOutline"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\test_document_parser_v2.py": {
+    "imports": [
+      "src.application.knowledge.chunk_builder.ChunkBuilder",
+      "src.application.knowledge.document_parser.DocumentParser"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\test_extraction_object.py": {
+    "imports": [
+      "src.application.models.extraction_object.ExtractionObject",
+      "src.domain.knowledge_objects.knowledge_object_type.KnowledgeObjectType"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\test_extraction_pipeline_v2.py": {
+    "imports": [
+      "src.application.knowledge.chunk_builder.ChunkBuilder",
+      "src.application.knowledge.document_parser.DocumentParser",
+      "src.application.knowledge.extraction_pipeline.ExtractionPipeline"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\test_extraction_pipeline_v3.py": {
+    "imports": [
+      "pathlib.Path",
+      "src.application.knowledge.extraction_pipeline.ExtractionPipeline",
+      "sys"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\test_gemini_gateway.py": {
+    "imports": [
+      "src.application.llm.providers.gemini_gateway.GeminiGateway"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\test_graph_index.py": {
+    "imports": [
+      "src.domain.knowledge_graph.graph_index.GraphIndex",
+      "src.domain.knowledge_graph.knowledge_edge.KnowledgeEdge",
+      "src.domain.knowledge_graph.knowledge_graph.KnowledgeGraph",
+      "src.domain.knowledge_graph.knowledge_node.KnowledgeNode"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\test_graph_queries.py": {
+    "imports": [
+      "src.domain.knowledge_graph.knowledge_edge.KnowledgeEdge",
+      "src.domain.knowledge_graph.knowledge_graph.KnowledgeGraph",
+      "src.domain.knowledge_graph.knowledge_node.KnowledgeNode"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\test_graph_query.py": {
+    "imports": [
+      "src.application.knowledge.extraction_pipeline.ExtractionPipeline",
+      "src.application.knowledge.graph_query.GraphQuery"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\test_knowledge_asset.py": {
+    "imports": [
+      "src.core.knowledge_asset.KnowledgeAsset"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\test_knowledge_asset_behavior.py": {
+    "imports": [
+      "src.core.knowledge_asset.KnowledgeAsset",
+      "src.domain.entities.entity.Person",
+      "src.domain.sources.source.Source"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\test_knowledge_asset_validation.py": {
+    "imports": [
+      "src.core.knowledge_asset.KnowledgeAsset",
+      "src.domain.entities.entity.Person",
+      "src.domain.sources.source.Source"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\test_knowledge_edge.py": {
+    "imports": [
+      "src.domain.knowledge_graph.knowledge_edge.KnowledgeEdge"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\test_knowledge_extraction_v2.py": {
+    "imports": [
+      "src.application.knowledge_extraction_v2.pipeline.KnowledgeExtractionPipeline"
+    ],
+    "classes": [],
+    "functions": [
+      "test_pipeline"
+    ]
+  },
+  "src\\test_knowledge_graph.py": {
+    "imports": [
+      "src.domain.knowledge_graph.knowledge_edge.KnowledgeEdge",
+      "src.domain.knowledge_graph.knowledge_graph.KnowledgeGraph",
+      "src.domain.knowledge_graph.knowledge_node.KnowledgeNode"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\test_knowledge_graph_query.py": {
+    "imports": [
+      "src.domain.knowledge_graph.knowledge_edge.KnowledgeEdge",
+      "src.domain.knowledge_graph.knowledge_graph.KnowledgeGraph",
+      "src.domain.knowledge_graph.knowledge_graph_query.KnowledgeGraphQuery",
+      "src.domain.knowledge_graph.knowledge_node.KnowledgeNode"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\test_knowledge_node.py": {
+    "imports": [
+      "src.domain.knowledge_graph.knowledge_node.KnowledgeNode"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\test_llm_gateway.py": {
+    "imports": [
+      "src.application.llm.core.fake_gateway.FakeGateway",
+      "src.application.llm.core.llm_request.LLMRequest"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\test_object_mapper_v2.py": {
+    "imports": [
+      "pathlib.Path",
+      "src.application.knowledge.object_mapper.ObjectMapper",
+      "sys"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\test_openai_gateway.py": {
+    "imports": [
+      "src.application.llm.providers.openai_gateway.OpenAIGateway"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\test_person_object.py": {
+    "imports": [
+      "src.domain.knowledge_objects.person.Person"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\test_pipeline_objects_v2.py": {
+    "imports": [
+      "src.application.knowledge.extraction_pipeline.ExtractionPipeline"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\test_prompt.py": {
+    "imports": [
+      "src.application.models.llm.prompt.Prompt"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\test_quality_metadata_v2.py": {
+    "imports": [
+      "pathlib.Path",
+      "src.application.knowledge.extraction_pipeline.ExtractionPipeline",
+      "sys"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\test_quality_pipeline_v2.py": {
+    "imports": [
+      "pathlib.Path",
+      "src.application.knowledge.extraction_pipeline.ExtractionPipeline",
+      "sys"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\test_relationship.py": {
+    "imports": [
+      "src.domain.entities.entity.Person",
+      "src.domain.knowledge_objects.relationship.Relationship"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\test_relationship_object.py": {
+    "imports": [
+      "src.domain.knowledge_objects.relationship.Relationship"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\test_rule_engine_v2.py": {
+    "imports": [
+      "src.application.knowledge.chunk_builder.ChunkBuilder",
+      "src.application.knowledge.document_parser.DocumentParser",
+      "src.application.knowledge.extraction_pipeline.ExtractionPipeline"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\test_scene_planner.py": {
+    "imports": [
+      "src.application.documentary.documentary_generator.DocumentaryGenerator",
+      "src.application.planning.scene_planner.ScenePlanner"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\test_script_model.py": {
+    "imports": [
+      "src.application.models.documentary.script.Script"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\test_settings.py": {
+    "imports": [
+      "src.application.config.settings.settings"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\test_source.py": {
+    "imports": [
+      "src.domain.sources.source.Source"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\test_statistic_object.py": {
+    "imports": [
+      "src.domain.knowledge_objects.statistic.Statistic"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\test_timeline_event.py": {
+    "imports": [
+      "src.application.models.documentary.timeline_event.TimelineEvent"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\test_workflow_context.py": {
+    "imports": [
+      "src.application.workflow.workflow_context.WorkflowContext"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\__init__.py": {
+    "imports": [],
+    "classes": [],
+    "functions": []
+  },
+  "src\\cli\\generate.py": {
+    "imports": [
+      "json",
+      "src.application.pipeline.production_pipeline.ProductionPipeline",
+      "sys"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\core\\entities.py": {
+    "imports": [
+      "src.domain.entities.entity.Entity",
+      "src.domain.entities.entity.Event",
+      "src.domain.entities.entity.Person",
+      "src.domain.entities.entity.Place"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\core\\knowledge_asset.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "datetime.datetime",
+      "src.domain.knowledge_objects.relationship.Relationship",
+      "typing.Dict",
+      "typing.List",
+      "uuid.UUID",
+      "uuid.uuid4"
+    ],
+    "classes": [
+      "KnowledgeAsset"
+    ],
+    "functions": [
+      "to_dict",
+      "add_source",
+      "add_entity",
+      "add_claim",
+      "add_relationship",
+      "summary",
+      "validate"
+    ]
+  },
+  "src\\core\\knowledge_engine.py": {
+    "imports": [
+      "src.application.services.knowledge_service.KnowledgeService"
+    ],
+    "classes": [
+      "KnowledgeEngine"
+    ],
+    "functions": []
+  },
+  "src\\infrastructure\\llm\\mock_llm_provider.py": {
+    "imports": [
+      "src.application.models.prompt.Prompt",
+      "src.application.models.script.Script",
+      "src.application.ports.llm_gateway.LLMGateway"
+    ],
+    "classes": [
+      "MockLLMProvider"
+    ],
+    "functions": [
+      "generate"
+    ]
+  },
+  "src\\domain\\claims\\claim.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "typing.Dict",
+      "typing.List",
+      "typing.Optional",
+      "uuid.uuid4"
+    ],
+    "classes": [
+      "Claim"
+    ],
+    "functions": [
+      "to_dict"
+    ]
+  },
+  "src\\domain\\entities\\entity.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "typing.Dict",
+      "uuid.uuid4"
+    ],
+    "classes": [
+      "Entity",
+      "Person",
+      "Place",
+      "Event"
+    ],
+    "functions": [
+      "to_dict"
+    ]
+  },
+  "src\\domain\\entities\\__init__.py": {
+    "imports": [
+      "entity.Entity",
+      "entity.Event",
+      "entity.Person",
+      "entity.Place"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\domain\\knowledge_graph\\graph_index.py": {
+    "imports": [
+      "collections.defaultdict"
+    ],
+    "classes": [
+      "GraphIndex"
+    ],
+    "functions": [
+      "__init__",
+      "build",
+      "add_node",
+      "add_edge",
+      "add_relationship",
+      "get_node",
+      "find_by_type",
+      "get_nodes_by_type",
+      "get_outgoing",
+      "get_incoming"
+    ]
+  },
+  "src\\domain\\knowledge_graph\\graph_resolver.py": {
+    "imports": [
+      "src.domain.knowledge_graph.knowledge_node.KnowledgeNode"
+    ],
+    "classes": [
+      "GraphResolver"
+    ],
+    "functions": [
+      "resolve"
+    ]
+  },
+  "src\\domain\\knowledge_graph\\knowledge_edge.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field"
+    ],
+    "classes": [
+      "KnowledgeEdge"
+    ],
+    "functions": [
+      "to_dict"
+    ]
+  },
+  "src\\domain\\knowledge_graph\\knowledge_graph.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "graph_index.GraphIndex"
+    ],
+    "classes": [
+      "KnowledgeGraph"
+    ],
+    "functions": [
+      "__post_init__",
+      "rebuild_index",
+      "add_node",
+      "add_edge",
+      "add_relationship",
+      "refresh",
+      "get_node",
+      "find_by_type",
+      "get_nodes_by_type",
+      "outgoing",
+      "to_dict"
+    ]
+  },
+  "src\\domain\\knowledge_graph\\knowledge_graph_query.py": {
+    "imports": [
+      "src.domain.knowledge_graph.knowledge_graph.KnowledgeGraph"
+    ],
+    "classes": [
+      "KnowledgeGraphQuery"
+    ],
+    "functions": [
+      "__init__",
+      "node",
+      "people",
+      "events",
+      "timeline",
+      "statistics",
+      "relationships",
+      "outgoing",
+      "incoming"
+    ]
+  },
+  "src\\domain\\knowledge_graph\\knowledge_node.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field"
+    ],
+    "classes": [
+      "KnowledgeNode"
+    ],
+    "functions": [
+      "to_dict"
+    ]
+  },
+  "src\\domain\\knowledge_objects\\claim.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "src.domain.knowledge_objects.knowledge_object.KnowledgeObject",
+      "src.domain.knowledge_objects.source_reference.SourceReference"
+    ],
+    "classes": [
+      "Claim"
+    ],
+    "functions": []
+  },
+  "src\\domain\\knowledge_objects\\document.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field"
+    ],
+    "classes": [
+      "Document"
+    ],
+    "functions": []
+  },
+  "src\\domain\\knowledge_objects\\document_context.py": {
+    "imports": [
+      "dataclasses.dataclass"
+    ],
+    "classes": [
+      "DocumentContext"
+    ],
+    "functions": []
+  },
+  "src\\domain\\knowledge_objects\\event.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "src.domain.knowledge_objects.knowledge_object.KnowledgeObject",
+      "src.domain.knowledge_objects.source_reference.SourceReference"
+    ],
+    "classes": [
+      "Event"
+    ],
+    "functions": []
+  },
+  "src\\domain\\knowledge_objects\\knowledge_object.py": {
+    "imports": [
+      "dataclasses.asdict",
+      "dataclasses.dataclass",
+      "dataclasses.field"
+    ],
+    "classes": [
+      "KnowledgeObject"
+    ],
+    "functions": [
+      "to_dict"
+    ]
+  },
+  "src\\domain\\knowledge_objects\\knowledge_object_type.py": {
+    "imports": [
+      "enum.Enum"
+    ],
+    "classes": [
+      "KnowledgeObjectType"
+    ],
+    "functions": []
+  },
+  "src\\domain\\knowledge_objects\\location.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "src.domain.knowledge_objects.knowledge_object.KnowledgeObject",
+      "src.domain.knowledge_objects.source_reference.SourceReference"
+    ],
+    "classes": [
+      "Location"
+    ],
+    "functions": []
+  },
+  "src\\domain\\knowledge_objects\\paragraph.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "src.domain.knowledge_objects.sentence.Sentence"
+    ],
+    "classes": [
+      "Paragraph"
+    ],
+    "functions": []
+  },
+  "src\\domain\\knowledge_objects\\person.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "src.domain.knowledge_objects.knowledge_object.KnowledgeObject",
+      "src.domain.knowledge_objects.source_reference.SourceReference"
+    ],
+    "classes": [
+      "Person"
+    ],
+    "functions": []
+  },
+  "src\\domain\\knowledge_objects\\relationship.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "src.domain.knowledge_objects.knowledge_object.KnowledgeObject",
+      "src.domain.knowledge_objects.source_reference.SourceReference"
+    ],
+    "classes": [
+      "Relationship"
+    ],
+    "functions": []
+  },
+  "src\\domain\\knowledge_objects\\sentence.py": {
+    "imports": [
+      "dataclasses.dataclass"
+    ],
+    "classes": [
+      "Sentence"
+    ],
+    "functions": []
+  },
+  "src\\domain\\knowledge_objects\\source.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "src.domain.knowledge_objects.knowledge_object.KnowledgeObject"
+    ],
+    "classes": [
+      "Source"
+    ],
+    "functions": []
+  },
+  "src\\domain\\knowledge_objects\\source_reference.py": {
+    "imports": [
+      "dataclasses.dataclass"
+    ],
+    "classes": [
+      "SourceReference"
+    ],
+    "functions": []
+  },
+  "src\\domain\\knowledge_objects\\statistic.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "src.domain.knowledge_objects.knowledge_object.KnowledgeObject"
+    ],
+    "classes": [
+      "Statistic"
+    ],
+    "functions": []
+  },
+  "src\\domain\\knowledge_objects\\timeline_event.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "src.domain.knowledge_objects.knowledge_object.KnowledgeObject"
+    ],
+    "classes": [
+      "TimelineEvent"
+    ],
+    "functions": []
+  },
+  "src\\domain\\relationships\\relationship.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "uuid.UUID",
+      "uuid.uuid4"
+    ],
+    "classes": [
+      "Relationship"
+    ],
+    "functions": [
+      "to_dict"
+    ]
+  },
+  "src\\domain\\services\\entity_resolver.py": {
+    "imports": [
+      "re"
+    ],
+    "classes": [
+      "EntityResolver"
+    ],
+    "functions": [
+      "normalize",
+      "same"
+    ]
+  },
+  "src\\domain\\services\\merge_rules.py": {
+    "imports": [
+      "entity_resolver.EntityResolver"
+    ],
+    "classes": [
+      "MergeRules"
+    ],
+    "functions": [
+      "same_person",
+      "same_location",
+      "same_event",
+      "same_claim",
+      "same_relationship"
+    ]
+  },
+  "src\\domain\\sources\\source.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "typing.Dict",
+      "typing.Optional",
+      "uuid.uuid4"
+    ],
+    "classes": [
+      "Source"
+    ],
+    "functions": [
+      "to_dict"
+    ]
+  },
+  "src\\core\\repositories\\entity_repository.py": {
+    "imports": [
+      "src.domain.repositories.entity_repository.EntityRepository"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\core\\storage\\json_storage.py": {
+    "imports": [
+      "src.infrastructure.storage.json_storage.JsonStorage"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\application\\artifacts\\artifact.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "enum.Enum"
+    ],
+    "classes": [
+      "ArtifactType",
+      "Artifact"
+    ],
+    "functions": []
+  },
+  "src\\application\\artifacts\\artifact_store.py": {
+    "imports": [
+      "src.application.artifacts.artifact.Artifact",
+      "src.application.artifacts.artifact.ArtifactType"
+    ],
+    "classes": [
+      "ArtifactStore"
+    ],
+    "functions": [
+      "__init__",
+      "put",
+      "get",
+      "has",
+      "all"
+    ]
+  },
+  "src\\application\\config\\environment_loader.py": {
+    "imports": [
+      "dotenv.load_dotenv"
+    ],
+    "classes": [],
+    "functions": []
+  },
+  "src\\application\\config\\settings.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "os",
+      "src.application.config.environment_loader.*"
+    ],
+    "classes": [
+      "Settings"
+    ],
+    "functions": []
+  },
+  "src\\application\\documentary\\documentary_generator.py": {
+    "imports": [
+      "src.application.documentary.documentary_outline.DocumentaryOutline",
+      "src.domain.knowledge_graph.knowledge_graph.KnowledgeGraph"
+    ],
+    "classes": [
+      "DocumentaryGenerator"
+    ],
+    "functions": [
+      "generate"
+    ]
+  },
+  "src\\application\\documentary\\documentary_outline.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field"
+    ],
+    "classes": [
+      "DocumentaryOutline"
+    ],
+    "functions": [
+      "to_dict"
+    ]
+  },
+  "src\\application\\documentary\\documentary_script.py": {
+    "imports": [
+      "dataclasses.dataclass"
+    ],
+    "classes": [
+      "DocumentaryScript"
+    ],
+    "functions": [
+      "to_dict"
+    ]
+  },
+  "src\\application\\documentary\\knowledge_outline_builder.py": {
+    "imports": [
+      "src.application.models.outline.DocumentaryOutline"
+    ],
+    "classes": [
+      "KnowledgeOutlineBuilder"
+    ],
+    "functions": [
+      "build"
+    ]
+  },
+  "src\\application\\image\\image_prompt.py": {
+    "imports": [
+      "dataclasses.dataclass"
+    ],
+    "classes": [
+      "ImagePrompt"
+    ],
+    "functions": [
+      "to_dict"
+    ]
+  },
+  "src\\application\\image\\image_prompt_generator.py": {
+    "imports": [],
+    "classes": [
+      "ImagePromptGenerator"
+    ],
+    "functions": [
+      "generate"
+    ]
+  },
+  "src\\application\\knowledge\\alias_dictionary.py": {
+    "imports": [
+      "canonicalizer.Canonicalizer"
+    ],
+    "classes": [
+      "AliasDictionary"
+    ],
+    "functions": [
+      "__init__",
+      "resolve"
+    ]
+  },
+  "src\\application\\knowledge\\base_extractor.py": {
+    "imports": [
+      "src.application.models.knowledge.source_reference.SourceReference"
+    ],
+    "classes": [
+      "BaseExtractor"
+    ],
+    "functions": [
+      "extract"
+    ]
+  },
+  "src\\application\\knowledge\\candidate_models.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "typing.Any"
+    ],
+    "classes": [
+      "Candidate"
+    ],
+    "functions": []
+  },
+  "src\\application\\knowledge\\canonicalizer.py": {
+    "imports": [
+      "re"
+    ],
+    "classes": [
+      "Canonicalizer"
+    ],
+    "functions": [
+      "normalize",
+      "canonical_entity"
+    ]
+  },
+  "src\\application\\knowledge\\canonical_aliases.py": {
+    "imports": [],
+    "classes": [],
+    "functions": []
+  },
+  "src\\application\\knowledge\\character_engine.py": {
+    "imports": [
+      "dataclasses.dataclass"
+    ],
+    "classes": [
+      "CharacterProfile",
+      "CharacterEngine"
+    ],
+    "functions": [
+      "build"
+    ]
+  },
+  "src\\application\\knowledge\\chunk_builder.py": {
+    "imports": [
+      "src.application.models.chunk.Chunk",
+      "src.application.models.document.Document"
+    ],
+    "classes": [
+      "ChunkBuilder"
+    ],
+    "functions": [
+      "__init__",
+      "build"
+    ]
+  },
+  "src\\application\\knowledge\\citation_engine.py": {
+    "imports": [
+      "dataclasses.dataclass"
+    ],
+    "classes": [
+      "Citation",
+      "CitationEngine"
+    ],
+    "functions": [
+      "build"
+    ]
+  },
+  "src\\application\\knowledge\\claim_extractor.py": {
+    "imports": [
+      "base_extractor.BaseExtractor",
+      "candidate_models.Candidate",
+      "re",
+      "src.application.models.knowledge.source_reference.SourceReference"
+    ],
+    "classes": [
+      "ClaimExtractor"
+    ],
+    "functions": [
+      "extract"
+    ]
+  },
+  "src\\application\\knowledge\\claim_filter.py": {
+    "imports": [],
+    "classes": [
+      "ClaimFilter"
+    ],
+    "functions": [
+      "apply"
+    ]
+  },
+  "src\\application\\knowledge\\confidence_engine.py": {
+    "imports": [],
+    "classes": [
+      "ConfidenceEngine"
+    ],
+    "functions": [
+      "score"
+    ]
+  },
+  "src\\application\\knowledge\\context_builder.py": {
+    "imports": [
+      "src.domain.knowledge_objects.document.Document",
+      "src.domain.knowledge_objects.document_context.DocumentContext"
+    ],
+    "classes": [
+      "ContextBuilder"
+    ],
+    "functions": [
+      "build"
+    ]
+  },
+  "src\\application\\knowledge\\document_parser.py": {
+    "imports": [
+      "re",
+      "src.domain.knowledge_objects.document.Document",
+      "src.domain.knowledge_objects.paragraph.Paragraph",
+      "src.domain.knowledge_objects.sentence.Sentence",
+      "uuid"
+    ],
+    "classes": [
+      "DocumentParser"
+    ],
+    "functions": [
+      "parse"
+    ]
+  },
+  "src\\application\\knowledge\\entity_canonicalizer.py": {
+    "error": "invalid non-printable character U+FEFF (<unknown>, line 1)"
+  },
+  "src\\application\\knowledge\\entity_extractor.py": {
+    "imports": [
+      "base_extractor.BaseExtractor",
+      "candidate_models.Candidate",
+      "rule_engine.RuleEngine",
+      "src.domain.knowledge_objects.document_context.DocumentContext",
+      "src.domain.knowledge_objects.source_reference.SourceReference"
+    ],
+    "classes": [
+      "EntityExtractor"
+    ],
+    "functions": [
+      "__init__",
+      "extract"
+    ]
+  },
+  "src\\application\\knowledge\\entity_filter.py": {
+    "imports": [],
+    "classes": [
+      "EntityFilter"
+    ],
+    "functions": [
+      "apply"
+    ]
+  },
+  "src\\application\\knowledge\\entity_normalizer.py": {
+    "imports": [
+      "name_normalizer.NameNormalizer",
+      "text_normalizer.TextNormalizer"
+    ],
+    "classes": [
+      "EntityNormalizer"
+    ],
+    "functions": [
+      "__init__",
+      "normalize"
+    ]
+  },
+  "src\\application\\knowledge\\entity_resolver.py": {
+    "imports": [
+      "canonical_aliases.CANONICAL_ALIASES",
+      "re"
+    ],
+    "classes": [
+      "EntityResolver"
+    ],
+    "functions": [
+      "__init__",
+      "build_alias_map",
+      "normalize_name",
+      "resolve",
+      "same"
+    ]
+  },
+  "src\\application\\knowledge\\event_canonicalizer.py": {
+    "error": "invalid non-printable character U+FEFF (<unknown>, line 1)"
+  },
+  "src\\application\\knowledge\\event_extractor.py": {
+    "imports": [
+      "base_extractor.BaseExtractor",
+      "candidate_models.Candidate",
+      "re",
+      "src.application.models.knowledge.source_reference.SourceReference"
+    ],
+    "classes": [
+      "EventExtractor"
+    ],
+    "functions": [
+      "extract_event_name",
+      "extract"
+    ]
+  },
+  "src\\application\\knowledge\\event_filter.py": {
+    "imports": [],
+    "classes": [
+      "EventFilter"
+    ],
+    "functions": [
+      "apply"
+    ]
+  },
+  "src\\application\\knowledge\\evidence_extractor.py": {
+    "imports": [
+      "base_extractor.BaseExtractor",
+      "candidate_models.Candidate",
+      "src.application.models.knowledge.source_reference.SourceReference"
+    ],
+    "classes": [
+      "EvidenceExtractor"
+    ],
+    "functions": [
+      "extract"
+    ]
+  },
+  "src\\application\\knowledge\\extraction_pipeline.py": {
+    "imports": [
+      "claim_extractor.ClaimExtractor",
+      "context_builder.ContextBuilder",
+      "document_parser.DocumentParser",
+      "entity_canonicalizer.EntityCanonicalizer",
+      "entity_extractor.EntityExtractor",
+      "entity_resolver.EntityResolver",
+      "event_canonicalizer.EventCanonicalizer",
+      "event_extractor.EventExtractor",
+      "evidence_extractor.EvidenceExtractor",
+      "graph_builder.GraphBuilder",
+      "graph_merger.GraphMerger",
+      "graph_normalizer.GraphNormalizer",
+      "graph_validator.GraphIntegrityValidator",
+      "knowledge_quality_engine.KnowledgeQualityEngine",
+      "location_extractor.LocationExtractor",
+      "object_collector.ObjectCollector",
+      "object_mapper.ObjectMapper",
+      "object_merger.ObjectMerger",
+      "quality_engine.QualityEngine",
+      "relationship_extractor.RelationshipExtractor",
+      "relationship_resolver.RelationshipResolver",
+      "source_extractor.SourceExtractor"
+    ],
+    "classes": [
+      "ExtractionPipeline"
+    ],
+    "functions": [
+      "__init__",
+      "run"
+    ]
+  },
+  "src\\application\\knowledge\\extraction_result.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "src.domain.knowledge_objects.claim.Claim",
+      "src.domain.knowledge_objects.event.Event",
+      "src.domain.knowledge_objects.location.Location",
+      "src.domain.knowledge_objects.person.Person",
+      "src.domain.knowledge_objects.relationship.Relationship",
+      "src.domain.knowledge_objects.source.Source",
+      "src.domain.knowledge_objects.statistic.Statistic",
+      "src.domain.knowledge_objects.timeline_event.TimelineEvent"
+    ],
+    "classes": [
+      "ExtractionResult"
+    ],
+    "functions": []
+  },
+  "src\\application\\knowledge\\fact_verification_engine.py": {
+    "imports": [
+      "dataclasses.dataclass"
+    ],
+    "classes": [
+      "VerifiedClaim",
+      "FactVerificationEngine"
+    ],
+    "functions": [
+      "verify"
+    ]
+  },
+  "src\\application\\knowledge\\graph_builder.py": {
+    "imports": [
+      "canonicalizer.Canonicalizer",
+      "src.domain.knowledge_graph.knowledge_edge.KnowledgeEdge",
+      "src.domain.knowledge_graph.knowledge_graph.KnowledgeGraph",
+      "src.domain.knowledge_graph.knowledge_node.KnowledgeNode"
+    ],
+    "classes": [
+      "GraphBuilder"
+    ],
+    "functions": [
+      "build",
+      "add"
+    ]
+  },
+  "src\\application\\knowledge\\graph_merger.py": {
+    "imports": [],
+    "classes": [
+      "GraphMerger"
+    ],
+    "functions": [
+      "merge"
+    ]
+  },
+  "src\\application\\knowledge\\graph_normalizer.py": {
+    "imports": [
+      "entity_normalizer.EntityNormalizer",
+      "relationship_normalizer.RelationshipNormalizer"
+    ],
+    "classes": [
+      "GraphNormalizer"
+    ],
+    "functions": [
+      "__init__",
+      "normalize"
+    ]
+  },
+  "src\\application\\knowledge\\graph_query.py": {
+    "imports": [],
+    "classes": [
+      "GraphQuery"
+    ],
+    "functions": [
+      "__init__",
+      "node",
+      "nodes_of_type",
+      "outgoing",
+      "incoming",
+      "neighbors"
+    ]
+  },
+  "src\\application\\knowledge\\graph_validator.py": {
+    "error": "invalid non-printable character U+FEFF (<unknown>, line 1)"
+  },
+  "src\\application\\knowledge\\knowledge_extractor.py": {
+    "imports": [
+      "src.application.knowledge.extraction_result.ExtractionResult",
+      "src.application.knowledge.knowledge_parser.KnowledgeParser",
+      "src.application.llm.core.llm_gateway.LLMGateway",
+      "src.application.llm.core.llm_request.LLMRequest",
+      "src.application.models.knowledge.source_reference.SourceReference"
+    ],
+    "classes": [
+      "KnowledgeExtractor"
+    ],
+    "functions": [
+      "__init__",
+      "extract"
+    ]
+  },
+  "src\\application\\knowledge\\knowledge_graph.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "typing.Any"
+    ],
+    "classes": [
+      "KnowledgeGraph"
+    ],
+    "functions": [
+      "add_node",
+      "add_edge",
+      "find_node",
+      "neighbors",
+      "export_dict"
+    ]
+  },
+  "src\\application\\knowledge\\knowledge_graph_builder.py": {
+    "imports": [
+      "src.application.knowledge.canonicalizer.Canonicalizer",
+      "src.domain.knowledge_graph.graph_resolver.GraphResolver",
+      "src.domain.knowledge_graph.knowledge_edge.KnowledgeEdge",
+      "src.domain.knowledge_graph.knowledge_graph.KnowledgeGraph",
+      "src.domain.knowledge_graph.knowledge_node.KnowledgeNode"
+    ],
+    "classes": [
+      "KnowledgeGraphBuilder"
+    ],
+    "functions": [
+      "build",
+      "add"
+    ]
+  },
+  "src\\application\\knowledge\\knowledge_normalizer.py": {
+    "imports": [],
+    "classes": [
+      "KnowledgeNormalizer"
+    ],
+    "functions": [
+      "extract"
+    ]
+  },
+  "src\\application\\knowledge\\knowledge_parser.py": {
+    "imports": [
+      "json",
+      "src.application.knowledge.extraction_result.ExtractionResult",
+      "src.application.knowledge.utils.model_factory.create_model",
+      "src.domain.knowledge_objects.relationship.Relationship"
+    ],
+    "classes": [
+      "KnowledgeParser"
+    ],
+    "functions": [
+      "parse"
+    ]
+  },
+  "src\\application\\knowledge\\knowledge_quality_engine.py": {
+    "imports": [],
+    "classes": [
+      "KnowledgeQualityEngine"
+    ],
+    "functions": [
+      "_process_object",
+      "process"
+    ]
+  },
+  "src\\application\\knowledge\\knowledge_repository.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "pathlib.Path",
+      "src.application.knowledge.extraction_result.ExtractionResult",
+      "src.application.knowledge.graph_builder.GraphBuilder",
+      "src.application.knowledge.knowledge_extraction_v2.pipeline.KnowledgeExtractor"
+    ],
+    "classes": [
+      "KnowledgeRepository"
+    ],
+    "functions": [
+      "__post_init__",
+      "add",
+      "ingest_text",
+      "ingest_file",
+      "persons",
+      "events",
+      "locations",
+      "claims",
+      "statistics",
+      "timeline",
+      "relationships",
+      "sources"
+    ]
+  },
+  "src\\application\\knowledge\\knowledge_validator.py": {
+    "imports": [],
+    "classes": [
+      "KnowledgeValidator"
+    ],
+    "functions": [
+      "extract"
+    ]
+  },
+  "src\\application\\knowledge\\location_extractor.py": {
+    "error": "invalid non-printable character U+FEFF (<unknown>, line 1)"
+  },
+  "src\\application\\knowledge\\merge_rules.py": {
+    "imports": [
+      "entity_resolver.EntityResolver"
+    ],
+    "classes": [
+      "MergeRules"
+    ],
+    "functions": [
+      "same_person",
+      "same_location",
+      "same_event",
+      "same_claim",
+      "same_relationship"
+    ]
+  },
+  "src\\application\\knowledge\\name_normalizer.py": {
+    "imports": [
+      "text_normalizer.TextNormalizer"
+    ],
+    "classes": [
+      "NameNormalizer"
+    ],
+    "functions": [
+      "__init__",
+      "normalize"
+    ]
+  },
+  "src\\application\\knowledge\\normalization_rules.py": {
+    "imports": [],
+    "classes": [],
+    "functions": []
+  },
+  "src\\application\\knowledge\\object_collector.py": {
+    "imports": [
+      "src.application.knowledge.extraction_result.ExtractionResult",
+      "src.domain.knowledge_objects.claim.Claim",
+      "src.domain.knowledge_objects.event.Event",
+      "src.domain.knowledge_objects.location.Location",
+      "src.domain.knowledge_objects.person.Person",
+      "src.domain.knowledge_objects.relationship.Relationship"
+    ],
+    "classes": [
+      "ObjectCollector"
+    ],
+    "functions": [
+      "collect"
+    ]
+  },
+  "src\\application\\knowledge\\object_mapper.py": {
+    "imports": [
+      "src.domain.knowledge_objects.claim.Claim",
+      "src.domain.knowledge_objects.event.Event",
+      "src.domain.knowledge_objects.location.Location",
+      "src.domain.knowledge_objects.person.Person",
+      "src.domain.knowledge_objects.relationship.Relationship"
+    ],
+    "classes": [
+      "ObjectMapper"
+    ],
+    "functions": [
+      "map"
+    ]
+  },
+  "src\\application\\knowledge\\object_merger.py": {
+    "imports": [
+      "extraction_result.ExtractionResult",
+      "merge_rules.MergeRules",
+      "src.domain.knowledge_objects.claim.Claim",
+      "src.domain.knowledge_objects.event.Event",
+      "src.domain.knowledge_objects.location.Location",
+      "src.domain.knowledge_objects.person.Person",
+      "src.domain.knowledge_objects.relationship.Relationship"
+    ],
+    "classes": [
+      "ObjectMerger"
+    ],
+    "functions": [
+      "merge",
+      "merge_list"
+    ]
+  },
+  "src\\application\\knowledge\\quality_engine.py": {
+    "imports": [
+      "confidence_engine.ConfidenceEngine"
+    ],
+    "classes": [
+      "QualityEngine"
+    ],
+    "functions": [
+      "__init__",
+      "process"
+    ]
+  },
+  "src\\application\\knowledge\\relationship_engine.py": {
+    "imports": [
+      "dataclasses.dataclass"
+    ],
+    "classes": [
+      "RelationshipRecord",
+      "RelationshipEngine"
+    ],
+    "functions": [
+      "build"
+    ]
+  },
+  "src\\application\\knowledge\\relationship_extractor.py": {
+    "imports": [
+      "base_extractor.BaseExtractor",
+      "candidate_models.Candidate",
+      "re",
+      "src.application.models.knowledge.source_reference.SourceReference"
+    ],
+    "classes": [
+      "RelationshipExtractor"
+    ],
+    "functions": [
+      "extract"
+    ]
+  },
+  "src\\application\\knowledge\\relationship_filter.py": {
+    "imports": [],
+    "classes": [
+      "RelationshipFilter"
+    ],
+    "functions": [
+      "apply"
+    ]
+  },
+  "src\\application\\knowledge\\relationship_normalizer.py": {
+    "imports": [
+      "text_normalizer.TextNormalizer"
+    ],
+    "classes": [
+      "RelationshipNormalizer"
+    ],
+    "functions": [
+      "__init__",
+      "normalize"
+    ]
+  },
+  "src\\application\\knowledge\\relationship_resolver.py": {
+    "imports": [
+      "alias_dictionary.AliasDictionary"
+    ],
+    "classes": [
+      "RelationshipResolver"
+    ],
+    "functions": [
+      "__init__",
+      "resolve"
+    ]
+  },
+  "src\\application\\knowledge\\rule_engine.py": {
+    "imports": [
+      "re"
+    ],
+    "classes": [
+      "RuleEngine"
+    ],
+    "functions": [
+      "_find",
+      "extract_entities",
+      "extract_locations",
+      "extract_dates",
+      "extract_events",
+      "extract_claims",
+      "extract_relationships",
+      "extract_sources",
+      "extract_evidence"
+    ]
+  },
+  "src\\application\\knowledge\\source_extractor.py": {
+    "imports": [
+      "base_extractor.BaseExtractor",
+      "candidate_models.Candidate",
+      "src.application.models.knowledge.source_reference.SourceReference"
+    ],
+    "classes": [
+      "SourceExtractor"
+    ],
+    "functions": [
+      "extract"
+    ]
+  },
+  "src\\application\\knowledge\\source_filter.py": {
+    "imports": [],
+    "classes": [
+      "SourceFilter"
+    ],
+    "functions": [
+      "apply"
+    ]
+  },
+  "src\\application\\knowledge\\source_ranking_engine.py": {
+    "imports": [
+      "dataclasses.dataclass"
+    ],
+    "classes": [
+      "RankedSource",
+      "SourceRankingEngine"
+    ],
+    "functions": [
+      "rank"
+    ]
+  },
+  "src\\application\\knowledge\\text_normalizer.py": {
+    "imports": [],
+    "classes": [
+      "TextNormalizer"
+    ],
+    "functions": [
+      "normalize"
+    ]
+  },
+  "src\\application\\knowledge\\timeline_engine.py": {
+    "imports": [
+      "dataclasses.dataclass"
+    ],
+    "classes": [
+      "TimelineEntry",
+      "TimelineEngine"
+    ],
+    "functions": [
+      "build"
+    ]
+  },
+  "src\\application\\knowledge_v2\\entity_extractor.py": {
+    "imports": [
+      "base_extractor.BaseExtractor",
+      "candidate_models.Candidate",
+      "rule_engine.RuleEngine",
+      "src.domain.knowledge_objects.document_context.DocumentContext",
+      "src.domain.knowledge_objects.source_reference.SourceReference"
+    ],
+    "classes": [
+      "EntityExtractor"
+    ],
+    "functions": [
+      "__init__",
+      "extract"
+    ]
+  },
+  "src\\application\\knowledge_v2\\event_extractor.py": {
+    "imports": [],
+    "classes": [
+      "EventExtractor"
+    ],
+    "functions": [
+      "extract"
+    ]
+  },
+  "src\\application\\knowledge_v2\\fact_extractor.py": {
+    "imports": [],
+    "classes": [
+      "FactExtractor"
+    ],
+    "functions": [
+      "extract"
+    ]
+  },
+  "src\\application\\knowledge_v2\\knowledge_extraction_engine.py": {
+    "imports": [],
+    "classes": [
+      "KnowledgeExtractionEngine"
+    ],
+    "functions": [
+      "__init__",
+      "extract"
+    ]
+  },
+  "src\\application\\knowledge_v2\\pipeline.py": {
+    "imports": [
+      "entity_extractor.EntityExtractor",
+      "event_extractor.EventExtractor",
+      "fact_extractor.FactExtractor",
+      "relation_extractor.RelationExtractor",
+      "source_extractor.SourceExtractor",
+      "timeline_extractor.TimelineExtractor"
+    ],
+    "classes": [
+      "ExtractionPipeline"
+    ],
+    "functions": [
+      "__init__",
+      "run"
+    ]
+  },
+  "src\\application\\knowledge_v2\\relation_extractor.py": {
+    "imports": [],
+    "classes": [
+      "RelationExtractor"
+    ],
+    "functions": [
+      "extract"
+    ]
+  },
+  "src\\application\\knowledge_v2\\source_extractor.py": {
+    "imports": [],
+    "classes": [
+      "SourceExtractor"
+    ],
+    "functions": [
+      "extract"
+    ]
+  },
+  "src\\application\\knowledge_v2\\timeline_extractor.py": {
+    "imports": [],
+    "classes": [
+      "TimelineExtractor"
+    ],
+    "functions": [
+      "extract"
+    ]
+  },
+  "src\\application\\models\\chunk.py": {
+    "imports": [
+      "dataclasses.dataclass"
+    ],
+    "classes": [
+      "Chunk"
+    ],
+    "functions": []
+  },
+  "src\\application\\models\\content_specification.py": {
+    "imports": [
+      "dataclasses.dataclass"
+    ],
+    "classes": [
+      "ContentSpecification"
+    ],
+    "functions": [
+      "to_dict"
+    ]
+  },
+  "src\\application\\models\\document.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "typing.List"
+    ],
+    "classes": [
+      "Document"
+    ],
+    "functions": []
+  },
+  "src\\application\\models\\extraction_object.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "src.domain.knowledge_objects.knowledge_object_type.KnowledgeObjectType"
+    ],
+    "classes": [
+      "ExtractionObject"
+    ],
+    "functions": [
+      "to_dict"
+    ]
+  },
+  "src\\application\\models\\knowledge_context.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field"
+    ],
+    "classes": [
+      "KnowledgeContext"
+    ],
+    "functions": [
+      "to_dict"
+    ]
+  },
+  "src\\application\\models\\narrative_plan.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field"
+    ],
+    "classes": [
+      "NarrativePlan"
+    ],
+    "functions": [
+      "to_dict"
+    ]
+  },
+  "src\\application\\models\\organized_knowledge.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field"
+    ],
+    "classes": [
+      "OrganizedKnowledge"
+    ],
+    "functions": [
+      "to_dict"
+    ]
+  },
+  "src\\application\\models\\outline.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "typing.List"
+    ],
+    "classes": [
+      "Outline",
+      "DocumentaryOutline"
+    ],
+    "functions": [
+      "to_dict",
+      "to_dict"
+    ]
+  },
+  "src\\application\\models\\prompt.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field"
+    ],
+    "classes": [
+      "Prompt"
+    ],
+    "functions": [
+      "to_dict"
+    ]
+  },
+  "src\\application\\models\\script.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field"
+    ],
+    "classes": [
+      "Script"
+    ],
+    "functions": [
+      "to_dict"
+    ]
+  },
+  "src\\application\\models\\script_structure.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "typing.List"
+    ],
+    "classes": [
+      "ScriptStructure"
+    ],
+    "functions": [
+      "to_dict"
+    ]
+  },
+  "src\\application\\narrative\\narrative_builder.py": {
+    "imports": [
+      "dataclasses.dataclass"
+    ],
+    "classes": [
+      "Narrative",
+      "NarrativeBuilder"
+    ],
+    "functions": [
+      "_field",
+      "build"
+    ]
+  },
+  "src\\application\\pipeline\\production_pipeline.py": {
+    "imports": [
+      "os",
+      "src.application.knowledge_extraction_v2.pipeline.KnowledgeExtractionPipeline",
+      "src.application.llm.providers.gemini_gateway.GeminiGateway",
+      "src.application.llm.providers.manual_gateway.ManualGateway",
+      "src.application.llm.providers.openai_gateway.OpenAIGateway",
+      "src.application.workflow.documentary_workflow.DocumentaryWorkflow"
+    ],
+    "classes": [
+      "ProductionPipeline"
+    ],
+    "functions": [
+      "__init__",
+      "run"
+    ]
+  },
+  "src\\application\\planning\\scene_plan.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field"
+    ],
+    "classes": [
+      "ScenePlan"
+    ],
+    "functions": [
+      "to_dict"
+    ]
+  },
+  "src\\application\\planning\\scene_planner.py": {
+    "imports": [
+      "dataclasses.dataclass"
+    ],
+    "classes": [
+      "ScenePlan",
+      "ScenePlanner"
+    ],
+    "functions": [
+      "plan",
+      "field"
+    ]
+  },
+  "src\\application\\ports\\llm_gateway.py": {
+    "imports": [
+      "abc.ABC",
+      "abc.abstractmethod",
+      "src.application.models.prompt.Prompt",
+      "src.application.models.script.Script"
+    ],
+    "classes": [
+      "LLMGateway"
+    ],
+    "functions": [
+      "generate"
+    ]
+  },
+  "src\\application\\scene\\scene.py": {
+    "imports": [
+      "dataclasses.dataclass"
+    ],
+    "classes": [
+      "Scene"
+    ],
+    "functions": [
+      "to_dict"
+    ]
+  },
+  "src\\application\\scene_generation\\scene_generator.py": {
+    "imports": [
+      "src.application.llm.core.llm_gateway.LLMGateway",
+      "src.application.llm.core.llm_request.LLMRequest",
+      "src.application.planning.scene_plan.ScenePlan",
+      "src.application.scene.scene.Scene"
+    ],
+    "classes": [
+      "SceneGenerator"
+    ],
+    "functions": [
+      "__init__",
+      "generate"
+    ]
+  },
+  "src\\application\\script\\script_generator.py": {
+    "imports": [
+      "dataclasses.dataclass"
+    ],
+    "classes": [
+      "Script",
+      "ScriptGenerator"
+    ],
+    "functions": [
+      "build"
+    ]
+  },
+  "src\\application\\services\\generation_service.py": {
+    "imports": [
+      "src.application.models.prompt.Prompt",
+      "src.application.models.script.Script",
+      "src.application.ports.llm_gateway.LLMGateway"
+    ],
+    "classes": [
+      "GenerationService"
+    ],
+    "functions": [
+      "__init__",
+      "generate"
+    ]
+  },
+  "src\\application\\services\\knowledge_context_builder.py": {
+    "imports": [
+      "src.application.models.knowledge_context.KnowledgeContext",
+      "src.application.models.outline.Outline"
+    ],
+    "classes": [
+      "KnowledgeContextBuilder"
+    ],
+    "functions": [
+      "build"
+    ]
+  },
+  "src\\application\\services\\knowledge_organizer.py": {
+    "imports": [
+      "src.application.models.knowledge_context.KnowledgeContext",
+      "src.application.models.organized_knowledge.OrganizedKnowledge",
+      "src.domain.knowledge_objects.relationship.Relationship",
+      "typing.Optional"
+    ],
+    "classes": [
+      "KnowledgeOrganizer"
+    ],
+    "functions": [
+      "build"
+    ]
+  },
+  "src\\application\\services\\knowledge_service.py": {
+    "imports": [
+      "typing.List"
+    ],
+    "classes": [
+      "KnowledgeService"
+    ],
+    "functions": [
+      "__init__",
+      "register",
+      "all_entities",
+      "stats"
+    ]
+  },
+  "src\\application\\services\\narrative_builder.py": {
+    "imports": [
+      "typing.Dict",
+      "typing.List"
+    ],
+    "classes": [
+      "NarrativeBuilder"
+    ],
+    "functions": [
+      "build"
+    ]
+  },
+  "src\\application\\services\\narrative_planner.py": {
+    "imports": [
+      "src.application.models.narrative_plan.NarrativePlan",
+      "src.application.models.organized_knowledge.OrganizedKnowledge"
+    ],
+    "classes": [
+      "NarrativePlanner"
+    ],
+    "functions": [
+      "build"
+    ]
+  },
+  "src\\application\\services\\prompt_builder.py": {
+    "imports": [
+      "src.application.models.content_specification.ContentSpecification",
+      "src.application.models.narrative_plan.NarrativePlan",
+      "src.application.models.prompt.Prompt"
+    ],
+    "classes": [
+      "PromptBuilder"
+    ],
+    "functions": [
+      "build"
+    ]
+  },
+  "src\\application\\services\\script_structure_builder.py": {
+    "imports": [
+      "src.application.models.outline.Outline",
+      "src.application.models.script_structure.ScriptStructure"
+    ],
+    "classes": [
+      "ScriptStructureBuilder"
+    ],
+    "functions": [
+      "build"
+    ]
+  },
+  "src\\application\\services\\siraj_engine.py": {
+    "imports": [
+      "src.application.knowledge_extraction_v2.pipeline.KnowledgeExtractionPipeline",
+      "src.application.models.outline.Outline",
+      "src.core.knowledge_asset.KnowledgeAsset"
+    ],
+    "classes": [
+      "SirajEngine"
+    ],
+    "functions": [
+      "build_outline"
+    ]
+  },
+  "src\\application\\workflow\\documentary_workflow.py": {
+    "imports": [
+      "src.application.artifacts.artifact.Artifact",
+      "src.application.artifacts.artifact.ArtifactType",
+      "src.application.artifacts.artifact_store.ArtifactStore",
+      "src.application.documentary.knowledge_outline_builder.KnowledgeOutlineBuilder",
+      "src.application.image.image_prompt_generator.ImagePromptGenerator",
+      "src.application.knowledge.character_engine.CharacterEngine",
+      "src.application.knowledge.citation_engine.CitationEngine",
+      "src.application.knowledge.fact_verification_engine.FactVerificationEngine",
+      "src.application.knowledge.knowledge_repository.KnowledgeRepository",
+      "src.application.knowledge.relationship_engine.RelationshipEngine",
+      "src.application.knowledge.source_ranking_engine.SourceRankingEngine",
+      "src.application.knowledge.timeline_engine.TimelineEngine",
+      "src.application.knowledge_extraction_v2.pipeline.KnowledgeExtractionPipeline",
+      "src.application.narrative.narrative_builder.NarrativeBuilder",
+      "src.application.planning.scene_planner.ScenePlanner",
+      "src.application.scene_generation.scene_generator.SceneGenerator",
+      "src.application.script.script_generator.ScriptGenerator",
+      "src.application.workflow.workflow_context.WorkflowContext"
+    ],
+    "classes": [
+      "DocumentaryWorkflow"
+    ],
+    "functions": [
+      "__init__",
+      "run"
+    ]
+  },
+  "src\\application\\workflow\\workflow_context.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field"
+    ],
+    "classes": [
+      "WorkflowContext"
+    ],
+    "functions": [
+      "to_dict"
+    ]
+  },
+  "src\\application\\models\\documentary\\script.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field"
+    ],
+    "classes": [
+      "Script"
+    ],
+    "functions": [
+      "to_dict"
+    ]
+  },
+  "src\\application\\models\\documentary\\timeline_event.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "src.domain.knowledge_objects.knowledge_object.KnowledgeObject"
+    ],
+    "classes": [
+      "TimelineEvent"
+    ],
+    "functions": []
+  },
+  "src\\application\\models\\knowledge\\claim_candidate.py": {
+    "imports": [
+      "__future__.annotations",
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "typing.Any"
+    ],
+    "classes": [
+      "ClaimCandidate"
+    ],
+    "functions": []
+  },
+  "src\\application\\models\\knowledge\\entity_candidate.py": {
+    "imports": [
+      "__future__.annotations",
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "typing.Any"
+    ],
+    "classes": [
+      "EntityCandidate"
+    ],
+    "functions": []
+  },
+  "src\\application\\models\\knowledge\\event_candidate.py": {
+    "imports": [
+      "__future__.annotations",
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "typing.Any"
+    ],
+    "classes": [
+      "EventCandidate"
+    ],
+    "functions": []
+  },
+  "src\\application\\models\\knowledge\\evidence_candidate.py": {
+    "imports": [
+      "__future__.annotations",
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "typing.Any"
+    ],
+    "classes": [
+      "EvidenceCandidate"
+    ],
+    "functions": []
+  },
+  "src\\application\\models\\knowledge\\extraction_context.py": {
+    "imports": [
+      "__future__.annotations",
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "typing.Any"
+    ],
+    "classes": [
+      "ExtractionContext"
+    ],
+    "functions": []
+  },
+  "src\\application\\models\\knowledge\\extraction_statistics.py": {
+    "imports": [
+      "__future__.annotations",
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "typing.Any"
+    ],
+    "classes": [
+      "ExtractionStatistics"
+    ],
+    "functions": []
+  },
+  "src\\application\\models\\knowledge\\important_typed_claim.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field"
+    ],
+    "classes": [
+      "ImportantTypedClaim"
+    ],
+    "functions": [
+      "to_dict"
+    ]
+  },
+  "src\\application\\models\\knowledge\\knowledge_chunk.py": {
+    "imports": [
+      "__future__.annotations",
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "typing.Any"
+    ],
+    "classes": [
+      "KnowledgeChunk"
+    ],
+    "functions": []
+  },
+  "src\\application\\models\\knowledge\\location_candidate.py": {
+    "imports": [
+      "__future__.annotations",
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "typing.Any"
+    ],
+    "classes": [
+      "LocationCandidate"
+    ],
+    "functions": []
+  },
+  "src\\application\\models\\knowledge\\normalized_knowledge.py": {
+    "imports": [
+      "__future__.annotations",
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "typing.Any"
+    ],
+    "classes": [
+      "NormalizedKnowledge"
+    ],
+    "functions": []
+  },
+  "src\\application\\models\\knowledge\\prioritized_knowledge.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "src.application.models.knowledge.important_typed_claim.ImportantTypedClaim"
+    ],
+    "classes": [
+      "PrioritizedKnowledge"
+    ],
+    "functions": [
+      "to_dict"
+    ]
+  },
+  "src\\application\\models\\knowledge\\relationship_candidate.py": {
+    "imports": [
+      "__future__.annotations",
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "typing.Any"
+    ],
+    "classes": [
+      "RelationshipCandidate"
+    ],
+    "functions": []
+  },
+  "src\\application\\models\\knowledge\\source_candidate.py": {
+    "imports": [
+      "__future__.annotations",
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "typing.Any"
+    ],
+    "classes": [
+      "SourceCandidate"
+    ],
+    "functions": []
+  },
+  "src\\application\\models\\knowledge\\source_reference.py": {
+    "imports": [
+      "dataclasses.dataclass"
+    ],
+    "classes": [
+      "SourceReference"
+    ],
+    "functions": []
+  },
+  "src\\application\\models\\knowledge\\typed_claim.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field"
+    ],
+    "classes": [
+      "TypedClaim"
+    ],
+    "functions": [
+      "to_dict"
+    ]
+  },
+  "src\\application\\models\\knowledge\\validated_knowledge.py": {
+    "imports": [
+      "__future__.annotations",
+      "dataclasses.dataclass",
+      "dataclasses.field",
+      "typing.Any"
+    ],
+    "classes": [
+      "ValidatedKnowledge"
+    ],
+    "functions": []
+  },
+  "src\\application\\models\\llm\\prompt.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field"
+    ],
+    "classes": [
+      "Prompt"
+    ],
+    "functions": [
+      "to_dict"
+    ]
+  },
+  "src\\application\\llm\\core\\fake_gateway.py": {
+    "imports": [
+      "src.application.llm.core.llm_gateway.LLMGateway",
+      "src.application.llm.core.llm_request.LLMRequest",
+      "src.application.llm.core.llm_response.LLMResponse"
+    ],
+    "classes": [
+      "FakeGateway"
+    ],
+    "functions": [
+      "generate"
+    ]
+  },
+  "src\\application\\llm\\core\\llm_gateway.py": {
+    "imports": [
+      "abc.ABC",
+      "abc.abstractmethod",
+      "src.application.llm.core.llm_request.LLMRequest",
+      "src.application.llm.core.llm_response.LLMResponse"
+    ],
+    "classes": [
+      "LLMGateway"
+    ],
+    "functions": [
+      "generate"
+    ]
+  },
+  "src\\application\\llm\\core\\llm_request.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field"
+    ],
+    "classes": [
+      "LLMRequest"
+    ],
+    "functions": []
+  },
+  "src\\application\\llm\\core\\llm_response.py": {
+    "imports": [
+      "dataclasses.dataclass",
+      "dataclasses.field"
+    ],
+    "classes": [
+      "LLMResponse"
+    ],
+    "functions": []
+  },
+  "src\\application\\llm\\providers\\gemini_gateway.py": {
+    "imports": [
+      "google.genai",
+      "os",
+      "src.application.config.environment_loader",
+      "src.application.llm.core.llm_gateway.LLMGateway",
+      "src.application.llm.core.llm_request.LLMRequest",
+      "src.application.llm.core.llm_response.LLMResponse"
+    ],
+    "classes": [
+      "GeminiGateway"
+    ],
+    "functions": [
+      "__init__",
+      "generate"
+    ]
+  },
+  "src\\application\\llm\\providers\\manual_gateway.py": {
+    "imports": [
+      "src.application.llm.core.llm_gateway.LLMGateway",
+      "src.application.llm.core.llm_request.LLMRequest",
+      "src.application.llm.core.llm_response.LLMResponse",
+      "sys"
+    ],
+    "classes": [
+      "ManualGateway"
+    ],
+    "functions": [
+      "generate"
+    ]
+  },
+  "src\\application\\llm\\providers\\openai_gateway.py": {
+    "imports": [
+      "openai.OpenAI",
+      "os",
+      "src.application.config.environment_loader",
+      "src.application.llm.core.llm_gateway.LLMGateway",
+      "src.application.llm.core.llm_request.LLMRequest",
+      "src.application.llm.core.llm_response.LLMResponse"
+    ],
+    "classes": [
+      "OpenAIGateway"
+    ],
+    "functions": [
+      "__init__",
+      "generate"
+    ]
+  },
+  "src\\application\\knowledge\\utils\\model_factory.py": {
+    "imports": [
+      "src.domain.knowledge_objects.claim.Claim",
+      "src.domain.knowledge_objects.event.Event",
+      "src.domain.knowledge_objects.location.Location",
+      "src.domain.knowledge_objects.person.Person",
+      "src.domain.knowledge_objects.source.Source",
+      "src.domain.knowledge_objects.statistic.Statistic",
+      "src.domain.knowledge_objects.timeline_event.TimelineEvent"
+    ],
+    "classes": [],
+    "functions": [
+      "normalize_payload",
+      "create_model"
+    ]
+  }
+}

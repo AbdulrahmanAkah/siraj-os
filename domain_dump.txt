@@ -1,0 +1,270 @@
+
+====================================================
+src\domain\knowledge_objects
+====================================================
+
+---------------- knowledge_object.py ----------------
+from dataclasses import asdict, dataclass, field
+
+
+@dataclass
+class KnowledgeObject:
+    metadata: dict[str, object] = field(default_factory=dict)
+
+    def to_dict(self) -> dict[str, object]:
+        return asdict(self)
+
+
+__all__ = ["KnowledgeObject"]
+
+---------------- knowledge_object_type.py ----------------
+from enum import Enum
+
+
+class KnowledgeObjectType(str, Enum):
+    PERSON = "PERSON"
+    EVENT = "EVENT"
+    RELATIONSHIP = "RELATIONSHIP"
+    STATISTIC = "STATISTIC"
+    TIMELINE_EVENT = "TIMELINE_EVENT"
+
+
+__all__ = ["KnowledgeObjectType"]
+
+---------------- person.py ----------------
+from dataclasses import dataclass, field
+
+from domain.knowledge_objects.knowledge_object import KnowledgeObject
+
+
+@dataclass
+class Person(KnowledgeObject):
+    name: str = ""
+    aliases: list[str] = field(default_factory=list)
+    description: str = ""
+
+
+__all__ = ["Person"]
+
+---------------- relationship.py ----------------
+from dataclasses import dataclass
+
+from domain.knowledge_objects.knowledge_object import KnowledgeObject
+
+
+@dataclass
+class Relationship(KnowledgeObject):
+    subject: str = ""
+    predicate: str = ""
+    object: str = ""
+
+
+__all__ = ["Relationship"]
+
+---------------- statistic.py ----------------
+from dataclasses import dataclass
+
+from domain.knowledge_objects.knowledge_object import KnowledgeObject
+
+
+@dataclass
+class Statistic(KnowledgeObject):
+    value: str = ""
+    unit: str = ""
+
+
+__all__ = ["Statistic"]
+
+====================================================
+src\domain\knowledge_graph
+====================================================
+
+---------------- graph_index.py ----------------
+from collections import defaultdict
+
+class GraphIndex:
+    def __init__(self):
+        self.node_by_id = {}
+        self.nodes_by_type = defaultdict(list)
+        self.edges_by_source = defaultdict(list)
+        self.edges_by_target = defaultdict(list)
+
+    def build(self, graph):
+        self.node_by_id.clear()
+        self.nodes_by_type.clear()
+        self.edges_by_source.clear()
+        self.edges_by_target.clear()
+
+        for node in graph.nodes:
+            self.node_by_id[node.id] = node
+            self.nodes_by_type[node.type].append(node)
+
+        for edge in graph.edges:
+            self.edges_by_source[edge.source].append(edge)
+            self.edges_by_target[edge.target].append(edge)
+
+    def get_node(self, node_id):
+        return self.node_by_id.get(node_id)
+
+    def get_nodes_by_type(self, node_type):
+        return list(self.nodes_by_type.get(node_type, []))
+
+    def outgoing(self, node_id):
+        return list(self.edges_by_source.get(node_id, []))
+
+    def incoming(self, node_id):
+        return list(self.edges_by_target.get(node_id, []))
+
+---------------- knowledge_edge.py ----------------
+from dataclasses import dataclass, field
+
+
+@dataclass
+class KnowledgeEdge:
+    source: str
+    target: str
+    relation: str
+    metadata: dict[str, object] = field(default_factory=dict)
+
+    def to_dict(self) -> dict[str, object]:
+        return {
+            "source": self.source,
+            "target": self.target,
+            "relation": self.relation,
+            "metadata": self.metadata,
+        }
+
+
+__all__ = ["KnowledgeEdge"]
+
+---------------- knowledge_graph.py ----------------
+from dataclasses import dataclass, field
+
+from domain.knowledge_graph.graph_index import GraphIndex
+
+
+@dataclass
+class KnowledgeGraph:
+    nodes: list = field(default_factory=list)
+    edges: list = field(default_factory=list)
+
+    def __post_init__(self):
+        self.index = GraphIndex()
+        self.rebuild_index()
+
+    def rebuild_index(self):
+        self.index.build(self)
+
+    def add_node(self, node):
+        self.nodes.append(node)
+        self.rebuild_index()
+
+    def add_edge(self, edge):
+        self.edges.append(edge)
+        self.rebuild_index()
+
+    def get_node(self, node_id):
+        return self.index.get_node(node_id)
+
+    def get_nodes_by_type(self, node_type):
+        return self.index.get_nodes_by_type(node_type)
+
+    def outgoing(self, node_id):
+        return self.index.outgoing(node_id)
+
+    def incoming(self, node_id):
+        return self.index.incoming(node_id)
+
+    def to_dict(self):
+        return {
+            "nodes": [n.to_dict() for n in self.nodes],
+            "edges": [e.to_dict() for e in self.edges],
+        }
+
+
+__all__ = ["KnowledgeGraph"]
+
+---------------- knowledge_graph_query.py ----------------
+from domain.knowledge_graph.knowledge_graph import KnowledgeGraph
+
+
+class KnowledgeGraphQuery:
+    def __init__(self, graph: KnowledgeGraph):
+        self.graph = graph
+
+    def node(self, node_id: str):
+        return self.graph.get_node(node_id)
+
+    def people(self):
+        return self.graph.get_nodes_by_type("PERSON")
+
+    def events(self):
+        return self.graph.get_nodes_by_type("EVENT")
+
+    def timeline(self):
+        return self.graph.get_nodes_by_type("TIMELINE_EVENT")
+
+    def statistics(self):
+        return self.graph.get_nodes_by_type("STATISTIC")
+
+    def relationships(self):
+        return self.graph.get_nodes_by_type("RELATIONSHIP")
+
+    def outgoing(self, node_id: str):
+        return self.graph.outgoing(node_id)
+
+    def incoming(self, node_id: str):
+        return self.graph.incoming(node_id)
+
+---------------- knowledge_node.py ----------------
+from dataclasses import dataclass, field
+
+
+@dataclass
+class KnowledgeNode:
+    id: str
+    type: str
+    data: dict[str, object]
+    metadata: dict[str, object] = field(default_factory=dict)
+
+    def to_dict(self) -> dict[str, object]:
+        return {
+            "id": self.id,
+            "type": self.type,
+            "data": self.data,
+            "metadata": self.metadata,
+        }
+
+
+__all__ = ["KnowledgeNode"]
+
+====================================================
+src\domain\relationships
+====================================================
+
+---------------- relationship.py ----------------
+from dataclasses import dataclass, field
+from uuid import UUID, uuid4
+
+
+@dataclass
+class Relationship:
+    relationship_id: UUID = field(default_factory=uuid4)
+    subject: str = ""
+    predicate: str = ""
+    object: str = ""
+    confidence: float = 1.0
+    metadata: dict[str, object] = field(default_factory=dict)
+
+    def to_dict(self) -> dict[str, object]:
+        return {
+            "relationship_id": str(self.relationship_id),
+            "subject": self.subject,
+            "predicate": self.predicate,
+            "object": self.object,
+            "confidence": self.confidence,
+            "metadata": self.metadata,
+        }
+
+
+__all__ = ["Relationship"]

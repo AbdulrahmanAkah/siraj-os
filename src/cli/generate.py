@@ -1,0 +1,35 @@
+import json
+import sys
+
+from src.application.pipeline.production_pipeline import ProductionPipeline
+
+
+if len(sys.argv) < 3:
+
+    print(
+        "Usage:\npython src/cli/generate.py <topic> <source1> [source2] ..."
+    )
+    raise SystemExit(1)
+
+
+topic = sys.argv[1]
+
+sources = sys.argv[2:]
+
+
+result = ProductionPipeline().run(
+    topic,
+    sources,
+)
+
+
+print(
+    json.dumps(
+        result,
+        default=lambda o: o.__dict__,
+        ensure_ascii=False,
+        indent=2,
+    )
+)
+
+

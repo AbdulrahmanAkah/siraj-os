@@ -1,0 +1,12 @@
+from src.application.config.settings import settings
+
+print(settings)
+
+print("Provider:", settings.provider)
+print("Model:", settings.model)
+print("Temperature:", settings.temperature)
+print("Max tokens:", settings.max_tokens)
+
+print("Settings OK")
+
+

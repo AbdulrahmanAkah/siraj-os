@@ -1,4 +1,4 @@
-from domain.entities.entity import (
+from src.domain.knowledge_objects.entity import (
     Entity,
     Person,
     Place,
@@ -6,3 +6,4 @@ from domain.entities.entity import (
 )
 
 __all__ = ["Entity", "Person", "Place", "Event"]
+

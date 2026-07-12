@@ -1,0 +1,20 @@
+﻿from dataclasses import dataclass, field
+
+
+@dataclass
+class DocumentaryOutline:
+    title: str
+    introduction: str = ""
+    sections: list[str] = field(default_factory=list)
+    conclusion: str = ""
+
+    def to_dict(self):
+        return {
+            "title": self.title,
+            "introduction": self.introduction,
+            "sections": self.sections,
+            "conclusion": self.conclusion,
+        }
+
+
+__all__ = ["DocumentaryOutline"]

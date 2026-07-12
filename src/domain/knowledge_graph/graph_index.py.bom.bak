@@ -1,0 +1,34 @@
+﻿from collections import defaultdict
+
+class GraphIndex:
+    def __init__(self):
+        self.node_by_id = {}
+        self.nodes_by_type = defaultdict(list)
+        self.edges_by_source = defaultdict(list)
+        self.edges_by_target = defaultdict(list)
+
+    def build(self, graph):
+        self.node_by_id.clear()
+        self.nodes_by_type.clear()
+        self.edges_by_source.clear()
+        self.edges_by_target.clear()
+
+        for node in graph.nodes:
+            self.node_by_id[node.id] = node
+            self.nodes_by_type[node.type].append(node)
+
+        for edge in graph.edges:
+            self.edges_by_source[edge.source].append(edge)
+            self.edges_by_target[edge.target].append(edge)
+
+    def get_node(self, node_id):
+        return self.node_by_id.get(node_id)
+
+    def get_nodes_by_type(self, node_type):
+        return list(self.nodes_by_type.get(node_type, []))
+
+    def outgoing(self, node_id):
+        return list(self.edges_by_source.get(node_id, []))
+
+    def incoming(self, node_id):
+        return list(self.edges_by_target.get(node_id, []))

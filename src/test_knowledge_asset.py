@@ -1,4 +1,4 @@
-from core.knowledge_asset import KnowledgeAsset
+from src.core.knowledge_asset import KnowledgeAsset
 
 asset = KnowledgeAsset(
     title="Battle of Badr",
@@ -7,3 +7,4 @@ asset = KnowledgeAsset(
 )
 
 print(asset.to_dict())
+

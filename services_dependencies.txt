@@ -1,0 +1,38 @@
+
+==================== generation_service.py ====================
+from application.models.prompt import Prompt
+from application.models.script import Script
+from application.ports.llm_gateway import LLMGateway
+
+==================== knowledge_context_builder.py ====================
+from application.models.knowledge_context import KnowledgeContext
+from application.models.outline import Outline
+
+==================== knowledge_organizer.py ====================
+from typing import Optional
+from application.models.knowledge_context import KnowledgeContext
+from application.models.organized_knowledge import OrganizedKnowledge
+from domain.relationships.relationship import Relationship
+
+==================== knowledge_service.py ====================
+from typing import List
+
+==================== narrative_builder.py ====================
+from typing import Dict, List
+
+==================== narrative_planner.py ====================
+from application.models.organized_knowledge import OrganizedKnowledge
+from application.models.narrative_plan import NarrativePlan
+
+==================== prompt_builder.py ====================
+from application.models.content_specification import ContentSpecification
+from application.models.narrative_plan import NarrativePlan
+from application.models.prompt import Prompt
+
+==================== script_structure_builder.py ====================
+from application.models.outline import Outline
+from application.models.script_structure import ScriptStructure
+
+==================== siraj_engine.py ====================
+from application.models.outline import Outline
+from core.knowledge_asset import KnowledgeAsset

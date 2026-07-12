@@ -13,3 +13,5 @@ class KnowledgeService:
 
     def stats(self) -> str:
         return f"Registered entities: {len(self._entities)}"
+
+

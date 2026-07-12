@@ -1,0 +1,37 @@
+from dataclasses import dataclass
+from enum import Enum
+
+
+class ArtifactType(str, Enum):
+
+    KNOWLEDGE_GRAPH = "knowledge_graph"
+
+    OUTLINE = "outline"
+
+    SCRIPT = "script"
+
+    SCENE_PLAN = "scene_plan"
+
+    SCENES = "scenes"
+
+    IMAGE_PROMPTS = "image_prompts"
+
+    VOICE = "voice"
+
+    TIMELINE = "timeline"
+
+
+@dataclass
+class Artifact:
+
+    type: ArtifactType
+
+    value: object
+
+
+__all__ = [
+    "Artifact",
+    "ArtifactType",
+]
+
+

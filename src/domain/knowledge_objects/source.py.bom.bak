@@ -1,0 +1,13 @@
+﻿from dataclasses import dataclass
+
+from domain.knowledge_objects.knowledge_object import KnowledgeObject
+
+
+@dataclass
+class Source(KnowledgeObject):
+    title: str = ""
+    type: str = ""
+    url: str = ""
+
+
+__all__=["Source"]
