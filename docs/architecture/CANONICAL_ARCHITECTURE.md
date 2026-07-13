@@ -35,6 +35,7 @@ There is one supported production orchestration path: `ProductionPipeline` creat
 | KnowledgeGraph | `src.domain.knowledge_graph.knowledge_graph.KnowledgeGraph` | Graph container used by workflow and renderers |
 | GraphBuilder | `src.application.knowledge.graph_builder.GraphBuilder` | Canonical graph construction |
 | KnowledgeRepository | `src.application.knowledge.knowledge_repository.KnowledgeRepository` | Canonical ingestion boundary |
+| KnowledgeRetriever | `src.application.retrieval.knowledge_retriever.KnowledgeRetriever` | Canonical read-only query boundary over loaded graphs |
 | KnowledgeExtractionPipeline | `src.application.knowledge_v2.pipeline.KnowledgeExtractionPipeline` | Canonical extraction pipeline |
 | Documentary workflow | `src.application.workflow.documentary_workflow.DocumentaryWorkflow` | Canonical production coordinator |
 
@@ -76,6 +77,7 @@ DocumentaryWorkflow
 | `src.archive.legacy.*` | LEGACY | Compatibility wrappers and archived domain references. |
 | `src.infrastructure.storage.JsonStorage` | DISCONNECTED | Exists but is not wired into the workflow or graph repository. |
 | `src.application.documentary.DocumentaryGenerator` | LEGACY | Not used by the supported orchestration path; stale tests target removed methods. |
+| `src.application.knowledge.graph_query.GraphQuery` and `src.domain.knowledge_graph.knowledge_graph_query.KnowledgeGraphQuery` | LEGACY | Direct-graph query helpers; use `KnowledgeRetriever` for new retrieval consumers. |
 
 ## Rules for contributors
 
@@ -84,6 +86,7 @@ DocumentaryWorkflow
 3. New production knowledge objects import the canonical domain models listed above.
 4. New workflow behavior extends `DocumentaryWorkflow`; do not introduce a second production coordinator.
 5. Do not import a component classified as LEGACY, EXPERIMENTAL, or DISCONNECTED without a superseding ADR and migration test.
+6. New retrieval consumers use `KnowledgeRetriever` rather than traversing `KnowledgeGraph` internals directly.
 
 ## Consolidation boundary
 
