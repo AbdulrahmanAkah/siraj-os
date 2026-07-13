@@ -11,12 +11,9 @@ class EntityExtractor(BaseExtractor):
     def __init__(self):
         self.rules = RuleEngine()
 
-    def extract(self, context):
+    def extract(self, text, context):
 
-        if isinstance(context, str):
-            context = DocumentContext(text=context)
-
-        text = context.text
+        document_context = DocumentContext(text=text)
 
         candidates = []
 
@@ -24,7 +21,7 @@ class EntityExtractor(BaseExtractor):
 
             candidates.append(
                 Candidate(
-                    kind="PERSON",
+                    kind=item.get("kind", "PERSON"),
                     value=item["value"],
                     source="entity_extractor",
                     confidence=item.get("confidence", 0.75),
@@ -33,11 +30,11 @@ class EntityExtractor(BaseExtractor):
                         "rule": "entity"
                     },
                     source_reference=SourceReference(
-                        document_id=context.document_id,
-                        document_name=context.document_name,
-                        page=context.page,
-                        paragraph=context.paragraph,
-                        sentence=context.sentence,
+                        document_id=document_context.document_id,
+                        document_name=document_context.document_name,
+                        page=document_context.page,
+                        paragraph=document_context.paragraph,
+                        sentence=document_context.sentence,
                         start_offset=0,
                         end_offset=0,
                         extractor="entity_extractor"
@@ -45,5 +42,5 @@ class EntityExtractor(BaseExtractor):
                 )
             )
 
-        return candidates
+        return {"entities": candidates}
 

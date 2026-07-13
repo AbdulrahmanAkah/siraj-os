@@ -35,6 +35,10 @@ class KnowledgeExtractionPipeline:
         return context
 
 
+    def run(self, text):
+        return self.extract(text)
+
+
 __all__ = [
     "KnowledgeExtractionPipeline"
 ]

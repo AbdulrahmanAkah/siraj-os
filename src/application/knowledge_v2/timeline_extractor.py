@@ -1,6 +1,13 @@
+from .rule_engine import RuleEngine
+
+
 class TimelineExtractor:
 
+    def __init__(self):
+        self.rules = RuleEngine()
+
     def extract(self,text,context):
-        return {"timeline":[]}
+        result = self.rules.extract_dates(text)
+        return {"timeline": result}
 
 

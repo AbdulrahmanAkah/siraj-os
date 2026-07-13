@@ -1,6 +1,13 @@
+from .rule_engine import RuleEngine
+
+
 class SourceExtractor:
 
+    def __init__(self):
+        self.rules = RuleEngine()
+
     def extract(self,text,context):
-        return {"sources":[]}
+        result = self.rules.extract_sources(text)
+        return {"sources": result}
 
 

@@ -1,4 +1,4 @@
-﻿from application.models.documentary.script import Script
+from src.application.models.documentary.script import Script
 
 
 class ScriptGenerator:
@@ -9,30 +9,26 @@ class ScriptGenerator:
         narrative,
     ) -> Script:
 
-        parts = []
-
-        parts.append(
-            narrative.introduction
-        )
+        parts = [narrative.introduction]
 
         for title, body in zip(
             outline.sections,
             narrative.body,
         ):
-            parts.append(
-                f"# {title}"
-            )
-            parts.append(
-                body
-            )
+            parts.append(f"{title}.\n{body}")
 
         parts.append(
             narrative.conclusion
         )
 
+        narration = "\n\n".join(parts)
+
         return Script(
             title=outline.title,
-            narration="\n\n".join(parts),
+            introduction=narrative.introduction,
+            body="\n\n".join(narrative.body),
+            conclusion=narrative.conclusion,
+            narration=narration,
         )
 
 

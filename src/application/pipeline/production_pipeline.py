@@ -1,4 +1,3 @@
-from src.application.knowledge_v2.pipeline import KnowledgeExtractionPipeline
 import os
 
 from src.application.llm.providers.openai_gateway import OpenAIGateway
@@ -10,7 +9,7 @@ from src.application.workflow.documentary_workflow import DocumentaryWorkflow
 
 class ProductionPipeline:
 
-    def __init__(self):
+    def __init__(self, repository_path=None):
 
         if os.getenv("OPENAI_API_KEY", "").strip():
 
@@ -25,7 +24,8 @@ class ProductionPipeline:
             gateway = ManualGateway()
 
         self.workflow = DocumentaryWorkflow(
-            gateway
+            gateway,
+            repository_path=repository_path,
         )
 
     def run(

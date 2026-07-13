@@ -4,6 +4,7 @@ from src.domain.knowledge_objects.location import Location
 from src.domain.knowledge_objects.event import Event
 from src.domain.knowledge_objects.claim import Claim
 from src.domain.knowledge_objects.relationship import Relationship
+from src.application.knowledge.canonicalizer import Canonicalizer
 
 class ObjectMapper:
 
@@ -41,7 +42,7 @@ class ObjectMapper:
         if c.kind=="LOCATION":
             return Location(
                 name=c.value,
-             description=meta.get("original_text", ""), 
+             description=Canonicalizer.sanitize_text(meta.get("original_text", "")),
                metadata=meta,
                 source_reference=c.source_reference
             )

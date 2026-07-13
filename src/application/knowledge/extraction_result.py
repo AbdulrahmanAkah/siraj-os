@@ -8,6 +8,9 @@ from src.domain.knowledge_objects.source import Source
 from src.domain.knowledge_objects.statistic import Statistic
 from src.domain.knowledge_objects.timeline_event import TimelineEvent
 from src.domain.knowledge_objects.relationship import Relationship
+from src.domain.knowledge_objects.document_reference import DocumentReference
+from src.domain.knowledge_objects.evidence_reference import EvidenceReference
+from src.domain.knowledge_objects.claim_evidence import ClaimEvidence
 
 
 @dataclass
@@ -28,6 +31,12 @@ class ExtractionResult:
     relationships: list[Relationship] = field(default_factory=list)
 
     sources: list[Source] = field(default_factory=list)
+
+    documents: list[DocumentReference] = field(default_factory=list)
+
+    evidence: list[EvidenceReference] = field(default_factory=list)
+
+    claim_evidence: list[ClaimEvidence] = field(default_factory=list)
 
 
 __all__ = ["ExtractionResult"]

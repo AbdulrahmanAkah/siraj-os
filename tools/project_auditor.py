@@ -46,6 +46,7 @@ def main():
     write_report("symbol_index.json", symbols)
     write_report("import_fixes.json", fixes)
 
+
     print("=" * 60)
     print("Project Statistics")
     print("=" * 60)

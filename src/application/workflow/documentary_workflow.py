@@ -1,4 +1,3 @@
-from src.application.knowledge_v2.pipeline import KnowledgeExtractionPipeline
 from src.application.artifacts.artifact import Artifact, ArtifactType
 from src.application.artifacts.artifact_store import ArtifactStore
 
@@ -20,13 +19,19 @@ from src.application.image.image_prompt_generator import ImagePromptGenerator
 from src.application.knowledge.citation_engine import CitationEngine
 from src.application.knowledge.source_ranking_engine import SourceRankingEngine
 from src.application.knowledge.fact_verification_engine import FactVerificationEngine
+from src.application.repository.persistent_knowledge_repository import PersistentKnowledgeRepository
 
 
 class DocumentaryWorkflow:
 
-    def __init__(self, gateway):
+    def __init__(self, gateway, repository_path=None):
 
         self.repository = KnowledgeRepository(gateway)
+        self.persistent_repository = (
+            PersistentKnowledgeRepository(repository_path)
+            if repository_path
+            else None
+        )
 
         self.outline_builder = KnowledgeOutlineBuilder()
 
@@ -58,11 +63,19 @@ class DocumentaryWorkflow:
 
         ctx = WorkflowContext(topic)
 
-        graph = None
+        graph = self.persistent_repository.load() if self.persistent_repository else None
 
         for source in sources:
 
-            graph = self.repository.ingest_file(source)
+            incoming_graph = self.repository.ingest_file(source)
+            graph = (
+                self.persistent_repository.merge(incoming_graph)
+                if self.persistent_repository
+                else incoming_graph
+            )
+
+        if self.persistent_repository:
+            self.persistent_repository.save(graph)
 
         ctx.knowledge_graph = graph
 
