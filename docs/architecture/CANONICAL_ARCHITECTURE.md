@@ -36,6 +36,8 @@ There is one supported production orchestration path: `ProductionPipeline` creat
 | GraphBuilder | `src.application.knowledge.graph_builder.GraphBuilder` | Canonical graph construction |
 | KnowledgeRepository | `src.application.knowledge.knowledge_repository.KnowledgeRepository` | Canonical ingestion boundary |
 | KnowledgeRetriever | `src.application.retrieval.knowledge_retriever.KnowledgeRetriever` | Canonical read-only query boundary over loaded graphs |
+| HistoricalReasoner | `src.application.reasoning.historical_reasoner.HistoricalReasoner` | Canonical deterministic historical analysis over retrieval |
+| ClaimSelector | `src.application.selection.claim_selector.ClaimSelector` | Canonical deterministic and explainable selection over reasoning |
 | KnowledgeExtractionPipeline | `src.application.knowledge_v2.pipeline.KnowledgeExtractionPipeline` | Canonical extraction pipeline |
 | Documentary workflow | `src.application.workflow.documentary_workflow.DocumentaryWorkflow` | Canonical production coordinator |
 
@@ -78,6 +80,7 @@ DocumentaryWorkflow
 | `src.infrastructure.storage.JsonStorage` | DISCONNECTED | Exists but is not wired into the workflow or graph repository. |
 | `src.application.documentary.DocumentaryGenerator` | LEGACY | Not used by the supported orchestration path; stale tests target removed methods. |
 | `src.application.knowledge.graph_query.GraphQuery` and `src.domain.knowledge_graph.knowledge_graph_query.KnowledgeGraphQuery` | LEGACY | Direct-graph query helpers; use `KnowledgeRetriever` for new retrieval consumers. |
+| `src.application.knowledge.fact_verification_engine.FactVerificationEngine` | LEGACY COMPATIBILITY | Active workflow metadata helper; not the canonical historical reasoning API. |
 
 ## Rules for contributors
 
@@ -87,6 +90,8 @@ DocumentaryWorkflow
 4. New workflow behavior extends `DocumentaryWorkflow`; do not introduce a second production coordinator.
 5. Do not import a component classified as LEGACY, EXPERIMENTAL, or DISCONNECTED without a superseding ADR and migration test.
 6. New retrieval consumers use `KnowledgeRetriever` rather than traversing `KnowledgeGraph` internals directly.
+7. New historical analysis uses `HistoricalReasoner` and supplies it with a `KnowledgeRetriever`.
+8. New planning consumers use `ClaimSelector` instead of enumerating all claims directly.
 
 ## Consolidation boundary
 

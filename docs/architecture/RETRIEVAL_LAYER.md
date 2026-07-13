@@ -74,4 +74,4 @@ The retrieval layer is read-only. It does not call repository `save()` or `merge
 
 ## Deferred work
 
-Text search, ranking, semantic retrieval, embeddings, vector stores, RAG, fact validation, and reasoning are deferred to later Spirits.
+Text search, ranking, semantic retrieval, embeddings, vector stores, RAG, and fact validation are deferred to later Spirits. Deterministic historical analysis is provided by `HistoricalReasoner` in the separate reasoning layer.

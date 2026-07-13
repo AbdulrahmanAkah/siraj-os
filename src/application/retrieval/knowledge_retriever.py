@@ -36,6 +36,9 @@ class KnowledgeRetriever:
     def find_claim(self, claim_id):
         return self.index.claims_by_id.get(claim_id)
 
+    def get_claims(self):
+        return list(self.index.claims_by_id.values())
+
     def find_source(self, source_id):
         return self.index.sources_by_id.get(source_id)
 
