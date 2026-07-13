@@ -56,4 +56,4 @@ Claims below `0.35` are returned by `reject_claims()`. Selection does not delete
 
 ## Deferred work
 
-Selection is not narrative planning, event ordering, story construction, scene planning, semantic ranking, embeddings, or LLM scoring. Those capabilities remain separate future concerns.
+Selection is not narrative planning, story construction, scene planning, semantic ranking, embeddings, or LLM scoring. Deterministic event construction and timeline ordering are provided by `EventEngine` in the separate historical event layer.

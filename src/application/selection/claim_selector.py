@@ -67,6 +67,21 @@ class ClaimSelector:
             if score.score < self.REJECTION_THRESHOLD
         ]
 
+    def get_claim(self, claim_id):
+        return self.reasoner.get_claim(claim_id)
+
+    def get_claim_cluster(self, claim_id):
+        return self.reasoner.build_claim_cluster(claim_id)
+
+    def get_support_profile(self, claim_id):
+        return self.reasoner.get_support_profile(claim_id)
+
+    def get_claim_contradictions(self, claim_id):
+        return self.reasoner.find_contradictions(claim_id)
+
+    def get_claim_provenance(self, claim_id):
+        return self.reasoner.get_claim_provenance(claim_id)
+
     def build_selection_profile(self, claim_id):
         score = self.evaluate_claim(claim_id)
         profile = self.reasoner.get_support_profile(claim_id)

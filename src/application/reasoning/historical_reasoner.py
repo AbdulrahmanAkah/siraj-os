@@ -30,6 +30,12 @@ class HistoricalReasoner:
     def get_claims(self):
         return self.retriever.get_claims()
 
+    def get_claim(self, claim_id):
+        return self.retriever.find_claim(claim_id)
+
+    def get_claim_provenance(self, claim_id):
+        return self.retriever.get_claim_provenance(claim_id)
+
     def find_related_claims(self, claim_id):
         claim = self.retriever.find_claim(claim_id)
         if claim is None:

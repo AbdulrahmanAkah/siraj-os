@@ -38,6 +38,7 @@ There is one supported production orchestration path: `ProductionPipeline` creat
 | KnowledgeRetriever | `src.application.retrieval.knowledge_retriever.KnowledgeRetriever` | Canonical read-only query boundary over loaded graphs |
 | HistoricalReasoner | `src.application.reasoning.historical_reasoner.HistoricalReasoner` | Canonical deterministic historical analysis over retrieval |
 | ClaimSelector | `src.application.selection.claim_selector.ClaimSelector` | Canonical deterministic and explainable selection over reasoning |
+| EventEngine | `src.application.events.event_engine.EventEngine` | Canonical deterministic event construction and timeline ordering over selection |
 | KnowledgeExtractionPipeline | `src.application.knowledge_v2.pipeline.KnowledgeExtractionPipeline` | Canonical extraction pipeline |
 | Documentary workflow | `src.application.workflow.documentary_workflow.DocumentaryWorkflow` | Canonical production coordinator |
 
@@ -92,6 +93,7 @@ DocumentaryWorkflow
 6. New retrieval consumers use `KnowledgeRetriever` rather than traversing `KnowledgeGraph` internals directly.
 7. New historical analysis uses `HistoricalReasoner` and supplies it with a `KnowledgeRetriever`.
 8. New planning consumers use `ClaimSelector` instead of enumerating all claims directly.
+9. New historical event and timeline consumers use `EventEngine` rather than assembling events from claims directly.
 
 ## Consolidation boundary
 
