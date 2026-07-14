@@ -11,6 +11,7 @@ from src.application.retrieval.knowledge_retriever import KnowledgeRetriever
 from src.application.selection.claim_selector import ClaimSelector
 from src.application.script_architecture.script_architect import ScriptArchitect
 from src.application.scene_planning.scene_planner import ScenePlanner
+from src.application.storyboard_architecture.storyboard_architect import StoryboardArchitect
 
 
 @pytest.fixture
@@ -63,3 +64,8 @@ def narration_planner(script_architect):
 @pytest.fixture
 def scene_planner(narration_planner):
     return ScenePlanner(narration_planner)
+
+
+@pytest.fixture
+def storyboard_architect(scene_planner):
+    return StoryboardArchitect(scene_planner)
