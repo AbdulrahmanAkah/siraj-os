@@ -21,6 +21,9 @@ from src.application.visual_source_selection.visual_source_selector import (
 from src.application.source_discovery_architecture.source_discovery_architect import (
     SourceDiscoveryArchitect,
 )
+from src.application.source_acquisition_planning.source_acquisition_planner import (
+    SourceAcquisitionPlanner,
+)
 
 
 @pytest.fixture
@@ -117,3 +120,15 @@ def visual_source_plan(visual_source_selector, visual_asset_architecture):
 @pytest.fixture
 def source_discovery_architect(visual_source_selector):
     return SourceDiscoveryArchitect(visual_source_selector)
+
+
+@pytest.fixture
+def source_discovery_plan(source_discovery_architect, visual_source_plan):
+    return source_discovery_architect.build_source_discovery_plan(
+        visual_source_plan
+    )
+
+
+@pytest.fixture
+def source_acquisition_planner(source_discovery_architect):
+    return SourceAcquisitionPlanner(source_discovery_architect)

@@ -927,3 +927,25 @@ graph.add_edge(
 ⬜ Contradiction Engine
 
 ⬜ Confidence Propagation
+
+
+
+
+
+Visual Asset Architecture
+
+Source Selection
+
+Shot Planning
+
+Image Generation
+
+Narration Generation
+
+Video Assembly
+
+Quality Evaluation
+
+Automatic Refinement
+
+Publishing Pipeline
