@@ -47,6 +47,7 @@ There is one supported production orchestration path: `ProductionPipeline` creat
 | StoryboardArchitect | `src.application.storyboard_architecture.storyboard_architect.StoryboardArchitect` | Canonical deterministic storyboard composition over scene plans |
 | VisualAssetArchitect | `src.application.visual_asset_architecture.visual_asset_architect.VisualAssetArchitect` | Canonical deterministic visual asset requirements over storyboard architecture |
 | VisualSourceSelector | `src.application.visual_source_selection.visual_source_selector.VisualSourceSelector` | Canonical deterministic visual source-category selection over visual assets |
+| SourceDiscoveryArchitect | `src.application.source_discovery_architecture.source_discovery_architect.SourceDiscoveryArchitect` | Canonical deterministic discovery planning over visual source plans |
 | KnowledgeExtractionPipeline | `src.application.knowledge_v2.pipeline.KnowledgeExtractionPipeline` | Canonical extraction pipeline |
 | Documentary workflow | `src.application.workflow.documentary_workflow.DocumentaryWorkflow` | Canonical production coordinator |
 
@@ -110,6 +111,7 @@ DocumentaryWorkflow
 15. New storyboard-planning consumers use `StoryboardArchitect` rather than deriving frame structure from scenes or lower layers.
 16. New visual-asset consumers use `VisualAssetArchitect` rather than deriving asset requirements from frames or lower layers.
 17. New visual-source consumers use `VisualSourceSelector` rather than discovering source categories from lower layers or external systems.
+18. New source-discovery consumers use `SourceDiscoveryArchitect` rather than performing discovery or external access during architecture planning.
 
 ## Consolidation boundary
 
