@@ -12,6 +12,9 @@ from src.application.selection.claim_selector import ClaimSelector
 from src.application.script_architecture.script_architect import ScriptArchitect
 from src.application.scene_planning.scene_planner import ScenePlanner
 from src.application.storyboard_architecture.storyboard_architect import StoryboardArchitect
+from src.application.visual_asset_architecture.visual_asset_architect import (
+    VisualAssetArchitect,
+)
 
 
 @pytest.fixture
@@ -67,5 +70,17 @@ def scene_planner(narration_planner):
 
 
 @pytest.fixture
+def scene_plan(scene_planner, narration_planner, script_structure):
+    return scene_planner.build_scene_plan(
+        narration_planner.build_narration_plan(script_structure)
+    )
+
+
+@pytest.fixture
 def storyboard_architect(scene_planner):
     return StoryboardArchitect(scene_planner)
+
+
+@pytest.fixture
+def visual_asset_architect(storyboard_architect):
+    return VisualAssetArchitect(storyboard_architect)
