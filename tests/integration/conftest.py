@@ -24,6 +24,9 @@ from src.application.source_discovery_architecture.source_discovery_architect im
 from src.application.source_acquisition_planning.source_acquisition_planner import (
     SourceAcquisitionPlanner,
 )
+from src.application.source_ingestion_architecture.source_ingestion_architect import (
+    SourceIngestionArchitect,
+)
 
 
 @pytest.fixture
@@ -132,3 +135,15 @@ def source_discovery_plan(source_discovery_architect, visual_source_plan):
 @pytest.fixture
 def source_acquisition_planner(source_discovery_architect):
     return SourceAcquisitionPlanner(source_discovery_architect)
+
+
+@pytest.fixture
+def source_acquisition_plan(source_acquisition_planner, source_discovery_plan):
+    return source_acquisition_planner.build_source_acquisition_plan(
+        source_discovery_plan
+    )
+
+
+@pytest.fixture
+def source_ingestion_architect(source_acquisition_planner):
+    return SourceIngestionArchitect(source_acquisition_planner)

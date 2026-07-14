@@ -49,6 +49,7 @@ There is one supported production orchestration path: `ProductionPipeline` creat
 | VisualSourceSelector | `src.application.visual_source_selection.visual_source_selector.VisualSourceSelector` | Canonical deterministic visual source-category selection over visual assets |
 | SourceDiscoveryArchitect | `src.application.source_discovery_architecture.source_discovery_architect.SourceDiscoveryArchitect` | Canonical deterministic discovery planning over visual source plans |
 | SourceAcquisitionPlanner | `src.application.source_acquisition_planning.source_acquisition_planner.SourceAcquisitionPlanner` | Canonical deterministic acquisition planning over discovery plans |
+| SourceIngestionArchitect | `src.application.source_ingestion_architecture.source_ingestion_architect.SourceIngestionArchitect` | Canonical deterministic ingestion preparation over acquisition plans |
 | KnowledgeExtractionPipeline | `src.application.knowledge_v2.pipeline.KnowledgeExtractionPipeline` | Canonical extraction pipeline |
 | Documentary workflow | `src.application.workflow.documentary_workflow.DocumentaryWorkflow` | Canonical production coordinator |
 
@@ -114,6 +115,7 @@ DocumentaryWorkflow
 17. New visual-source consumers use `VisualSourceSelector` rather than discovering source categories from lower layers or external systems.
 18. New source-discovery consumers use `SourceDiscoveryArchitect` rather than performing discovery or external access during architecture planning.
 19. New source-acquisition consumers use `SourceAcquisitionPlanner` rather than performing retrieval or external access during planning.
+20. New source-ingestion consumers use `SourceIngestionArchitect` rather than parsing, ingesting, or mutating repository data during architecture planning.
 
 ## Consolidation boundary
 
