@@ -10,6 +10,7 @@ from src.application.reasoning.historical_reasoner import HistoricalReasoner
 from src.application.retrieval.knowledge_retriever import KnowledgeRetriever
 from src.application.selection.claim_selector import ClaimSelector
 from src.application.script_architecture.script_architect import ScriptArchitect
+from src.application.scene_planning.scene_planner import ScenePlanner
 
 
 @pytest.fixture
@@ -57,3 +58,8 @@ def script_structure(script_architect, narrative_architecture):
 @pytest.fixture
 def narration_planner(script_architect):
     return NarrationPlanner(script_architect)
+
+
+@pytest.fixture
+def scene_planner(narration_planner):
+    return ScenePlanner(narration_planner)
