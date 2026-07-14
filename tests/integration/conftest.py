@@ -5,6 +5,7 @@ from src.application.documentary_planning.models import DocumentaryPlan, Documen
 from src.application.events.event_engine import EventEngine
 from src.application.knowledge.knowledge_repository import KnowledgeRepository
 from src.application.narrative_architecture.narrative_architect import NarrativeArchitect
+from src.application.narration_planning.narration_planner import NarrationPlanner
 from src.application.reasoning.historical_reasoner import HistoricalReasoner
 from src.application.retrieval.knowledge_retriever import KnowledgeRetriever
 from src.application.selection.claim_selector import ClaimSelector
@@ -46,3 +47,13 @@ def narrative_architecture(narrative_architect, documentary_plan):
 @pytest.fixture
 def script_architect(narrative_architect):
     return ScriptArchitect(narrative_architect)
+
+
+@pytest.fixture
+def script_structure(script_architect, narrative_architecture):
+    return script_architect.build_script_structure(narrative_architecture)
+
+
+@pytest.fixture
+def narration_planner(script_architect):
+    return NarrationPlanner(script_architect)

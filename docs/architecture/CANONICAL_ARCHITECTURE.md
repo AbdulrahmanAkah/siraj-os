@@ -42,6 +42,7 @@ There is one supported production orchestration path: `ProductionPipeline` creat
 | DocumentaryPlanner | `src.application.documentary_planning.documentary_planner.DocumentaryPlanner` | Canonical deterministic documentary planning over historical timelines |
 | NarrativeArchitect | `src.application.narrative_architecture.narrative_architect.NarrativeArchitect` | Canonical deterministic narrative structure over documentary plans |
 | ScriptArchitect | `src.application.script_architecture.script_architect.ScriptArchitect` | Canonical deterministic script structure over narrative architecture |
+| NarrationPlanner | `src.application.narration_planning.narration_planner.NarrationPlanner` | Canonical deterministic narration planning over script structure |
 | KnowledgeExtractionPipeline | `src.application.knowledge_v2.pipeline.KnowledgeExtractionPipeline` | Canonical extraction pipeline |
 | Documentary workflow | `src.application.workflow.documentary_workflow.DocumentaryWorkflow` | Canonical production coordinator |
 
@@ -100,6 +101,7 @@ DocumentaryWorkflow
 10. New documentary-structure consumers use `DocumentaryPlanner` rather than assigning events directly to outline sections.
 11. New narrative-structure consumers use `NarrativeArchitect` rather than deriving beat roles from events or claims.
 12. New script-structure consumers use `ScriptArchitect` rather than deriving segment roles from documentary plans or lower layers.
+13. New narration-planning consumers use `NarrationPlanner` rather than deriving narration roles from narrative or documentary structures.
 
 ## Consolidation boundary
 

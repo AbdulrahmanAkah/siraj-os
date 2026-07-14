@@ -109,6 +109,13 @@ class ScriptArchitect:
         )
         return round(sum(segment.estimated_duration for segment in segments), 2)
 
+    def get_narrative_complexity(self, script_structure):
+        architecture_id = getattr(script_structure, "narrative_architecture_id", "")
+        architecture = self._architectures_by_id.get(architecture_id)
+        if architecture is None:
+            architecture = self._architecture(None)
+        return architecture.estimated_complexity
+
     def validate_structure(self, script_structure, narrative_architecture=None):
         if script_structure is None or not script_structure.segments:
             return False
