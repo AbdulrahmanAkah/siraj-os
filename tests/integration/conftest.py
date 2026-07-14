@@ -1,0 +1,37 @@
+import pytest
+
+from src.application.documentary_planning.documentary_planner import DocumentaryPlanner
+from src.application.documentary_planning.models import DocumentaryPlan, DocumentarySection
+from src.application.events.event_engine import EventEngine
+from src.application.knowledge.knowledge_repository import KnowledgeRepository
+from src.application.narrative_architecture.narrative_architect import NarrativeArchitect
+from src.application.reasoning.historical_reasoner import HistoricalReasoner
+from src.application.retrieval.knowledge_retriever import KnowledgeRetriever
+from src.application.selection.claim_selector import ClaimSelector
+
+
+@pytest.fixture
+def narrative_architect():
+    graph = KnowledgeRepository().ingest_text("Muhammad traveled to Makkah in 610.")
+    planner = DocumentaryPlanner(
+        EventEngine(ClaimSelector(HistoricalReasoner(KnowledgeRetriever(graph))))
+    )
+    return NarrativeArchitect(planner)
+
+
+@pytest.fixture
+def documentary_plan():
+    sections = [
+        DocumentarySection("introduction", "Introduction", ["event_1"], 0.7, 1.75),
+        DocumentarySection("chapter_1", "Chapter 1", ["event_2"], 0.4, 1.75),
+        DocumentarySection("chapter_2", "Chapter 2", ["event_3"], 0.9, 1.75),
+        DocumentarySection("chapter_3", "Chapter 3", ["event_4"], 0.5, 1.75),
+        DocumentarySection("conclusion", "Conclusion", ["event_5"], 0.6, 1.75),
+    ]
+    return DocumentaryPlan(
+        plan_id="plan_test",
+        title="Test Documentary",
+        sections=sections,
+        selected_event_ids=[f"event_{index}" for index in range(1, 6)],
+        estimated_runtime=8.75,
+    )
