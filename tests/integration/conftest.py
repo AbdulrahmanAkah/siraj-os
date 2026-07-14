@@ -15,6 +15,9 @@ from src.application.storyboard_architecture.storyboard_architect import Storybo
 from src.application.visual_asset_architecture.visual_asset_architect import (
     VisualAssetArchitect,
 )
+from src.application.visual_source_selection.visual_source_selector import (
+    VisualSourceSelector,
+)
 
 
 @pytest.fixture
@@ -84,3 +87,18 @@ def storyboard_architect(scene_planner):
 @pytest.fixture
 def visual_asset_architect(storyboard_architect):
     return VisualAssetArchitect(storyboard_architect)
+
+
+@pytest.fixture
+def visual_asset_architecture(
+    visual_asset_architect,
+    storyboard_architect,
+    scene_plan,
+):
+    storyboard = storyboard_architect.build_storyboard_architecture(scene_plan)
+    return visual_asset_architect.build_visual_asset_architecture(storyboard)
+
+
+@pytest.fixture
+def visual_source_selector(visual_asset_architect):
+    return VisualSourceSelector(visual_asset_architect)
