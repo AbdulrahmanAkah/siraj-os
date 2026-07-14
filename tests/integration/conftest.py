@@ -8,6 +8,7 @@ from src.application.narrative_architecture.narrative_architect import Narrative
 from src.application.reasoning.historical_reasoner import HistoricalReasoner
 from src.application.retrieval.knowledge_retriever import KnowledgeRetriever
 from src.application.selection.claim_selector import ClaimSelector
+from src.application.script_architecture.script_architect import ScriptArchitect
 
 
 @pytest.fixture
@@ -35,3 +36,13 @@ def documentary_plan():
         selected_event_ids=[f"event_{index}" for index in range(1, 6)],
         estimated_runtime=8.75,
     )
+
+
+@pytest.fixture
+def narrative_architecture(narrative_architect, documentary_plan):
+    return narrative_architect.build_narrative_architecture(documentary_plan)
+
+
+@pytest.fixture
+def script_architect(narrative_architect):
+    return ScriptArchitect(narrative_architect)
