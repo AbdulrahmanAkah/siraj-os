@@ -54,6 +54,8 @@ There is one supported production orchestration path: `ProductionPipeline` creat
 | RepositoryIngestionEngine | `src.application.repository_ingestion.repository_ingestion_engine.RepositoryIngestionEngine` | Canonical repository-ready document population over runtime results |
 | KnowledgeRepository | `src.application.knowledge_repository.knowledge_repository.KnowledgeRepository` | Canonical deterministic in-memory knowledge repository over repository documents |
 | RepositoryQueryEngine | `src.application.repository_query.repository_query_engine.RepositoryQueryEngine` | Canonical deterministic exact query layer over knowledge records |
+| RetrievalIndexBuilder | `src.application.retrieval.retrieval_index_builder.RetrievalIndexBuilder` | Canonical deterministic retrieval-index construction over query results |
+| RetrievalRuntimeEngine | `src.application.retrieval.retrieval_runtime_engine.RetrievalRuntimeEngine` | Canonical deterministic indexed retrieval runtime |
 | KnowledgeExtractionPipeline | `src.application.knowledge_v2.pipeline.KnowledgeExtractionPipeline` | Canonical extraction pipeline |
 | Documentary workflow | `src.application.workflow.documentary_workflow.DocumentaryWorkflow` | Canonical production coordinator |
 
@@ -79,6 +81,14 @@ KnowledgeRepository (Spirit 22 repository core)
 RepositoryQueryEngine
   → KnowledgeRepository
   → KnowledgeRecord / RepositorySnapshot
+
+RetrievalIndexBuilder
+  → RepositoryQueryEngine
+  → RetrievalIndex / IndexEntry
+
+RetrievalRuntimeEngine
+  → RetrievalIndexBuilder
+  → RetrievalRequest / RetrievalResult
 
 GraphBuilder
   → canonical domain knowledge objects
@@ -133,6 +143,7 @@ DocumentaryWorkflow
 22. New repository-population consumers use `RepositoryIngestionEngine` only with `IngestionExecutionResult`; repository ingestion must not perform reasoning, extraction, event creation, or external access.
 23. New knowledge consumers use the canonical `KnowledgeRepository` over `RepositoryDocument` values; repository-core code must not perform claims, reasoning, timeline, documentary, narrative, or LLM operations.
 24. New query consumers use `RepositoryQueryEngine` for exact deterministic access over `KnowledgeRepository`; query code must not perform semantic, vector, ranking, embedding, AI, or external search operations.
+25. New retrieval consumers use `RetrievalRuntimeEngine` over a validated `RetrievalIndex`; runtime retrieval must not scan repositories directly or perform semantic, vector, ranking, embedding, AI, or external search operations.
 
 ## Consolidation boundary
 

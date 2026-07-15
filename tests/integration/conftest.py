@@ -44,6 +44,8 @@ from src.application.knowledge_repository.knowledge_repository import (
 from src.application.repository_query.repository_query_engine import (
     RepositoryQueryEngine,
 )
+from src.application.retrieval.retrieval_index_builder import RetrievalIndexBuilder
+from src.application.retrieval.retrieval_runtime_engine import RetrievalRuntimeEngine
 
 
 @pytest.fixture
@@ -222,3 +224,18 @@ def repository_query_engine(knowledge_repository, repository_ingestion_result):
         repository_ingestion_result.created_documents
     )
     return RepositoryQueryEngine(knowledge_repository)
+
+
+@pytest.fixture
+def retrieval_index_builder(repository_query_engine):
+    return RetrievalIndexBuilder(repository_query_engine)
+
+
+@pytest.fixture
+def retrieval_index(retrieval_index_builder):
+    return retrieval_index_builder.build_retrieval_index()
+
+
+@pytest.fixture
+def retrieval_runtime_engine(retrieval_index_builder):
+    return RetrievalRuntimeEngine(retrieval_index_builder)
