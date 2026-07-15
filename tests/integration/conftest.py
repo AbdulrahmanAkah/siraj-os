@@ -41,6 +41,9 @@ from src.application.repository_ingestion.repository_ingestion_engine import (
 from src.application.knowledge_repository.knowledge_repository import (
     KnowledgeRepository as KnowledgeRepositoryCore,
 )
+from src.application.repository_query.repository_query_engine import (
+    RepositoryQueryEngine,
+)
 
 
 @pytest.fixture
@@ -211,3 +214,11 @@ def repository_ingestion_result(
 @pytest.fixture
 def knowledge_repository(repository_ingestion_engine):
     return KnowledgeRepositoryCore(repository_ingestion_engine)
+
+
+@pytest.fixture
+def repository_query_engine(knowledge_repository, repository_ingestion_result):
+    knowledge_repository.load_repository_documents(
+        repository_ingestion_result.created_documents
+    )
+    return RepositoryQueryEngine(knowledge_repository)
