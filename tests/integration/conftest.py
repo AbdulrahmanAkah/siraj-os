@@ -31,6 +31,13 @@ from src.application.source_ingestion_runtime.models import IngestionPayload
 from src.application.source_ingestion_runtime.source_ingestion_executor import (
     SourceIngestionExecutor,
 )
+from src.application.repository_ingestion.models import (
+    RepositoryDocument,
+    RepositoryIngestionResult,
+)
+from src.application.repository_ingestion.repository_ingestion_engine import (
+    RepositoryIngestionEngine,
+)
 
 
 @pytest.fixture
@@ -177,3 +184,22 @@ def ingestion_payloads(source_ingestion_plan):
         for batch in source_ingestion_plan.batches
         for unit in batch.units
     }
+
+
+@pytest.fixture
+def repository_ingestion_engine(source_ingestion_executor):
+    return RepositoryIngestionEngine(source_ingestion_executor)
+
+
+@pytest.fixture
+def repository_ingestion_result(
+    repository_ingestion_engine,
+    source_ingestion_executor,
+    source_ingestion_plan,
+    ingestion_payloads,
+):
+    execution = source_ingestion_executor.execute_ingestion(
+        source_ingestion_plan,
+        ingestion_payloads,
+    )
+    return repository_ingestion_engine.ingest_execution_result(execution)
