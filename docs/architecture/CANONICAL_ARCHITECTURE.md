@@ -106,6 +106,7 @@ There is one supported production orchestration path: `ProductionPipeline` creat
 | OperationalArchitect / Runtime | `src.application.operational_runtime` | Final deterministic operational state aggregate |
 | Bundle E Scale & Performance layers | `src.application.index_optimization` through `src.application.performance_verification` | Deterministic local index, query, graph, timeline, cache, incremental, parallel, memory, benchmark, and verification contracts |
 | Bundle G Historical Intelligence | `src.application.historical_intelligence` | Traceable comparative, structural, strategic, trend, theory, synthesis, and validation intelligence contracts |
+| Bundle F Documentary Production | `src.application.production_contracts` through `src.application.production_verification_engine` | Deterministic, integer-time, externally renderable documentary production specification |
 | KnowledgeExtractionPipeline | `src.application.knowledge_v2.pipeline.KnowledgeExtractionPipeline` | Canonical extraction pipeline |
 | Documentary workflow | `src.application.workflow.documentary_workflow.DocumentaryWorkflow` | Canonical production coordinator |
 
