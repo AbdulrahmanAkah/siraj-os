@@ -1,0 +1,37 @@
+{
+  "release_id": "siraj-0.1.0-rc.1",
+  "selected_version": "0.1.0-rc.1",
+  "package_version_pep440": "0.1.0rc1",
+  "decision": "READY",
+  "artifacts": [
+    {
+      "name": "siraj_os-0.1.0rc1-py3-none-any.whl",
+      "type": "WHEEL",
+      "size_bytes": 306511,
+      "sha256": "a94a116e7134f5576643874eb596b60b322429288e86f4423e69544c987a05b5",
+      "inspection_status": "PASS",
+      "clean_install_status": "PASS"
+    },
+    {
+      "name": "siraj_os-0.1.0rc1.tar.gz",
+      "type": "SOURCE_DISTRIBUTION",
+      "size_bytes": 161159,
+      "sha256": "1d4b82f23ed700cbfb4eb498988c8409706ee60d64b1181ba67829a968a68755",
+      "inspection_status": "PASS",
+      "clean_install_status": "PASS"
+    }
+  ],
+  "gates": {
+    "wheel_build": "PASS",
+    "source_distribution_build": "PASS",
+    "artifact_inspection": "PASS",
+    "checksum_verification": "PASS",
+    "wheel_clean_install": "PASS",
+    "source_distribution_clean_install": "PASS",
+    "focused_bundle_i_tests": "PASS: 3 passed",
+    "full_pytest_suite": "PASS: 268 passed",
+    "cli_smoke_test": "PASS",
+    "git_diff_check": "PASS"
+  },
+  "blockers": []
+}

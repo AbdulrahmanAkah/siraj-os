@@ -1,0 +1,14 @@
+from dataclasses import asdict, dataclass, field
+
+
+@dataclass
+class KnowledgeObject:
+    metadata: dict[str, object] = field(default_factory=dict)
+
+    def to_dict(self) -> dict[str, object]:
+        return asdict(self)
+
+
+__all__ = ["KnowledgeObject"]
+
+

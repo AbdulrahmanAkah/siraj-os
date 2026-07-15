@@ -1,0 +1,51 @@
+from src.application.ports.llm_gateway import LLMGateway
+from src.application.llm.core.llm_request import LLMRequest
+from src.application.llm.core.llm_response import LLMResponse
+
+import sys
+
+
+class ManualGateway(LLMGateway):
+
+    def generate(
+        self,
+        request: LLMRequest,
+    ) -> LLMResponse:
+
+        # Enable UTF-8 output on Windows
+        if hasattr(sys.stdout, "reconfigure"):
+            sys.stdout.reconfigure(encoding="utf-8")
+
+        print()
+        print("=" * 80)
+        print("COPY THE PROMPT BELOW TO CHATGPT")
+        print("=" * 80)
+        print()
+        print(request.prompt)
+        print()
+        print("=" * 80)
+        print("PASTE CHATGPT JSON BELOW")
+        print("Finish with a line containing only:")
+        print("END")
+        print("=" * 80)
+
+        lines = []
+
+        while True:
+            line = input()
+
+            if line.strip() == "END":
+                break
+
+            lines.append(line)
+
+        return LLMResponse(
+            text="\n".join(lines),
+            provider="manual",
+            model="manual",
+            metadata={},
+        )
+
+
+__all__ = ["ManualGateway"]
+

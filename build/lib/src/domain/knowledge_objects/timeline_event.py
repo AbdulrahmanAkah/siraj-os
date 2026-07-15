@@ -1,0 +1,14 @@
+from dataclasses import dataclass
+
+from src.domain.knowledge_objects.knowledge_object import KnowledgeObject
+
+
+@dataclass
+class TimelineEvent(KnowledgeObject):
+    title: str = ""
+    date: str = ""
+
+
+__all__=["TimelineEvent"]
+
+

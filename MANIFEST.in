@@ -1,0 +1,16 @@
+exclude .env
+exclude .env.*
+exclude src/test_*.py
+prune .release-build-venv-rc1-20260715
+prune .release-wheel-venv-rc1-20260715
+prune .release-sdist-venv-rc1-20260715
+prune build
+prune dist
+prune dist-release-rc1-20260715
+prune data
+global-exclude __pycache__
+global-exclude *.py[cod]
+global-exclude *.db
+global-exclude *.sqlite
+global-exclude *.tmp
+global-exclude *.bak
