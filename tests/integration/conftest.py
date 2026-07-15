@@ -89,6 +89,12 @@ from src.application.historical_timeline.historical_timeline_architect import (
 from src.application.historical_timeline.historical_timeline_runtime import (
     HistoricalTimelineRuntime,
 )
+from src.application.evidence_resolution.evidence_resolution_architect import (
+    EvidenceResolutionArchitect,
+)
+from src.application.evidence_resolution.evidence_resolution_runtime import (
+    EvidenceResolutionRuntime,
+)
 
 
 @pytest.fixture
@@ -616,3 +622,42 @@ def historical_timeline_inputs(
         event_entity_extraction_result,
     )
     return event_result, relationship_graph_result
+
+
+@pytest.fixture
+def evidence_resolution_architect():
+    return EvidenceResolutionArchitect()
+
+
+@pytest.fixture
+def evidence_resolution_runtime():
+    return EvidenceResolutionRuntime()
+
+
+@pytest.fixture
+def evidence_resolution_plan(evidence_resolution_architect):
+    return evidence_resolution_architect.build_resolution_plan()
+
+
+@pytest.fixture
+def evidence_resolution_inputs(
+    event_claim_extraction_result,
+    event_entity_extraction_result,
+    relationship_graph_inputs,
+    relationship_graph_result,
+    historical_timeline_runtime,
+    historical_timeline_plan,
+):
+    event_result = relationship_graph_inputs[2]
+    timeline_result = historical_timeline_runtime.build_timeline(
+        historical_timeline_plan,
+        event_result,
+        relationship_graph_result,
+    )
+    return (
+        event_claim_extraction_result,
+        event_entity_extraction_result,
+        event_result,
+        relationship_graph_result.graph,
+        timeline_result.timeline,
+    )
