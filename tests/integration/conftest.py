@@ -77,6 +77,12 @@ from src.application.event_extraction.event_extraction_architect import (
 from src.application.event_extraction.event_extraction_runtime import (
     EventExtractionRuntime,
 )
+from src.application.relationship_graph.relationship_graph_architect import (
+    RelationshipGraphArchitect,
+)
+from src.application.relationship_graph.relationship_graph_runtime import (
+    RelationshipGraphRuntime,
+)
 
 
 @pytest.fixture
@@ -487,4 +493,65 @@ def event_extraction_runtime(
     return EventExtractionRuntime(
         claim_extraction_runtime,
         entity_extraction_runtime,
+    )
+
+
+@pytest.fixture
+def relationship_graph_architect(
+    entity_extraction_runtime,
+    event_extraction_runtime,
+):
+    return RelationshipGraphArchitect(
+        entity_extraction_runtime,
+        event_extraction_runtime,
+    )
+
+
+@pytest.fixture
+def relationship_graph_plan(
+    relationship_graph_architect,
+    event_claim_extraction_result,
+    event_entity_extraction_result,
+    event_extraction_plan,
+    event_extraction_runtime,
+):
+    event_result = event_extraction_runtime.extract_events(
+        event_extraction_plan,
+        event_claim_extraction_result,
+        event_entity_extraction_result,
+    )
+    return relationship_graph_architect.build_relationship_graph_plan(
+        event_claim_extraction_result,
+        event_entity_extraction_result,
+        event_result,
+    )
+
+
+@pytest.fixture
+def relationship_graph_runtime(
+    entity_extraction_runtime,
+    event_extraction_runtime,
+):
+    return RelationshipGraphRuntime(
+        entity_extraction_runtime,
+        event_extraction_runtime,
+    )
+
+
+@pytest.fixture
+def relationship_graph_inputs(
+    event_claim_extraction_result,
+    event_entity_extraction_result,
+    event_extraction_plan,
+    event_extraction_runtime,
+):
+    event_result = event_extraction_runtime.extract_events(
+        event_extraction_plan,
+        event_claim_extraction_result,
+        event_entity_extraction_result,
+    )
+    return (
+        event_claim_extraction_result,
+        event_entity_extraction_result,
+        event_result,
     )
