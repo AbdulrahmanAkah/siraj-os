@@ -68,6 +68,42 @@ There is one supported production orchestration path: `ProductionPipeline` creat
 | HistoricalTimelineRuntime | `src.application.historical_timeline.historical_timeline_runtime.HistoricalTimelineRuntime` | Canonical deterministic chronological timeline construction over events and relationship graphs |
 | EvidenceResolutionArchitect | `src.application.evidence_resolution.evidence_resolution_architect.EvidenceResolutionArchitect` | Canonical deterministic evidence-resolution policy architecture |
 | EvidenceResolutionRuntime | `src.application.evidence_resolution.evidence_resolution_runtime.EvidenceResolutionRuntime` | Canonical deterministic exact evidence collection and resolution over claims, entities, events, graphs, and timelines |
+| MultiSourceCorrelationArchitect / Runtime | `src.application.multi_source_correlation` | Deterministic exact-source correlation |
+| HistoricalConsistencyArchitect / Runtime | `src.application.historical_consistency` | Deterministic structural consistency checks |
+| ContradictionArchitect / Runtime | `src.application.contradiction_detection` | Deterministic explicit-value contradiction checks |
+| SourceReliabilityArchitect / Runtime | `src.application.source_reliability` | Deterministic source reliability scoring |
+| EvidenceWeightArchitect / Runtime | `src.application.evidence_weighting` | Deterministic evidence weighting |
+| KnowledgeConfidenceArchitect / Runtime | `src.application.knowledge_confidence` | Deterministic knowledge confidence scoring |
+| HistoricalReasoningArchitect / Runtime | `src.application.historical_reasoning_foundation` | Deterministic traceable historical reasoning foundation |
+| CausalReasoningArchitect / Runtime | `src.application.causal_reasoning` | Explicit-evidence causal reasoning |
+| TemporalReasoningArchitect / Runtime | `src.application.temporal_reasoning` | Timeline-only temporal reasoning |
+| NarrativeReasoningArchitect / Runtime | `src.application.narrative_reasoning` | Ordered-event narrative reasoning |
+| HistoricalInterpretationArchitect / Runtime | `src.application.historical_interpretation` | Evidence-traceable historical interpretation |
+| ReasoningValidationArchitect / Runtime | `src.application.reasoning_validation` | Deterministic reasoning validation |
+| DocumentaryPlanningArchitectV2 / RuntimeV2 | `src.application.documentary_planning_v2` | Validated, traceable Documentary Planning v2 |
+| NarrativeArchitectureArchitectV2 / RuntimeV2 | `src.application.narrative_architecture_v2` | Deterministic narrative beats from plan chapters |
+| DocumentaryScriptArchitect / Runtime | `src.application.documentary_script_runtime` | Evidence-referenced script structure |
+| SceneGenerationArchitect / Runtime | `src.application.scene_generation_runtime` | Deterministic scenes from script sections |
+| StoryboardArchitectRuntime / Runtime | `src.application.storyboard_runtime` | Evidence-linked frames from scenes |
+| DocumentaryAssemblyArchitect / Runtime | `src.application.documentary_assembly` | Traceable documentary package assembly |
+| VisualEvidenceArchitect / Runtime | `src.application.visual_evidence` | Visual evidence mapping |
+| SourceAttributionArchitect / Runtime | `src.application.source_attribution` | Deterministic artifact attribution |
+| DocumentaryVerificationArchitect / Runtime | `src.application.documentary_verification` | Documentary coverage and integrity validation |
+| PublicationPackagingArchitect / Runtime | `src.application.publication_packaging` | Verified publication package construction |
+| ExportArchitect / Runtime | `src.application.export_architecture` | Architecture-only export manifest and job bundle |
+| ProductionArchitect / Runtime | `src.application.production_runtime` | Final production-ready documentary aggregate |
+| PersistenceArchitect / Runtime | `src.application.persistence_architecture` | Database-agnostic persistence manifest architecture |
+| RepositoryPersistenceArchitect / Runtime | `src.application.repository_persistence` | Deterministic in-memory save and restore runtime |
+| SnapshotArchitect / Runtime | `src.application.snapshot_engine` | Manifest-integrity snapshot creation |
+| VersioningArchitect / Runtime | `src.application.versioning_engine` | Deterministic repository and artifact version records |
+| AuditTrailArchitect / Runtime | `src.application.audit_trail` | Deterministic who/what/when/why audit records |
+| ReproducibilityArchitect / Runtime | `src.application.reproducibility` | Exact input/configuration/version reproduction manifests |
+| WorkflowArchitect / Runtime | `src.application.workflow_runtime` | Local deterministic workflow definitions and executions |
+| JobOrchestrationArchitect / Runtime | `src.application.job_orchestration` | In-memory FIFO job orchestration |
+| ExecutionMonitoringArchitect / Runtime | `src.application.execution_monitoring` | Deterministic execution metrics and reports |
+| DiagnosticsArchitect / Runtime | `src.application.diagnostics` | Integrity and execution diagnostic reports |
+| RecoveryArchitect / Runtime | `src.application.recovery_architecture` | Snapshot-based recovery planning |
+| OperationalArchitect / Runtime | `src.application.operational_runtime` | Final deterministic operational state aggregate |
 | KnowledgeExtractionPipeline | `src.application.knowledge_v2.pipeline.KnowledgeExtractionPipeline` | Canonical extraction pipeline |
 | Documentary workflow | `src.application.workflow.documentary_workflow.DocumentaryWorkflow` | Canonical production coordinator |
 
@@ -150,6 +186,72 @@ EvidenceResolutionRuntime
   → RelationshipGraph / HistoricalTimeline
   → ResolvedEvidence / EvidenceBundle / EvidenceResolutionResult
 
+MultiSourceCorrelationRuntime
+  → ClaimExtractionResult / EntityExtractionResult / EventExtractionResult
+  → CorrelationGroup / CorrelationResult
+
+HistoricalConsistencyRuntime
+  → EventExtractionResult / RelationshipGraph / HistoricalTimeline
+  → ConsistencyReport / ConsistencyResult
+
+ContradictionRuntime
+  → ClaimExtractionResult
+  → ContradictionRecord / ContradictionResult
+
+SourceReliabilityRuntime
+  → EvidenceResolutionResult / ContradictionResult
+  → SourceReliabilityScore / ReliabilityResult
+
+EvidenceWeightRuntime
+  → EvidenceResolutionResult / ReliabilityResult / CorrelationResult
+  → EvidenceWeight / EvidenceWeightResult
+
+KnowledgeConfidenceRuntime
+  → EvidenceWeightResult / ReliabilityResult / ContradictionResult
+  → ConfidenceRecord / KnowledgeConfidenceResult
+
+HistoricalReasoningArchitect / HistoricalReasoningRuntime
+  → HistoricalTimeline / RelationshipGraph
+  → EvidenceResolutionResult / KnowledgeConfidenceResult
+  → HistoricalReasoningPlan / ReasoningChain / ReasoningResult
+
+CausalReasoningArchitect / CausalReasoningRuntime
+  → ClaimExtractionResult / ReasoningResult
+  → CausalReasoningPlan / CausalRelation / CausalReasoningResult
+
+TemporalReasoningArchitect / TemporalReasoningRuntime
+  → HistoricalTimeline
+  → TemporalReasoningPlan / TemporalRelation / TemporalReasoningResult
+
+NarrativeReasoningArchitect / NarrativeReasoningRuntime
+  → HistoricalTimeline / ReasoningResult
+  → NarrativeReasoningPlan / NarrativeReasoningResult
+
+HistoricalInterpretationArchitect / HistoricalInterpretationRuntime
+  → ReasoningResult / CausalReasoningResult / TemporalReasoningResult
+  → NarrativeReasoningResult / EvidenceResolutionResult
+  → HistoricalInterpretationPlan / HistoricalInterpretationResult
+
+ReasoningValidationArchitect / ReasoningValidationRuntime
+  → ReasoningResult / HistoricalInterpretationResult
+  → HistoricalTimeline / RelationshipGraph / EvidenceResolutionResult
+  → ContradictionResult / ValidatedReasoningResult
+
+DocumentaryPlanningArchitectV2 / DocumentaryPlanningRuntimeV2
+  → ValidatedReasoningResult / HistoricalTimeline / RelationshipGraph
+  → HistoricalInterpretationResult
+  → DocumentaryPlanningPolicy / DocumentaryPlan
+
+Bundle C Documentary Intelligence
+  → DocumentaryPlan → NarrativeArchitecture → DocumentaryScript → ScenePlanRuntime → Storyboard
+  → DocumentaryPackage → VisualEvidenceMap / AttributionResult → VerificationReport
+  → PublicationPackage → ExportBundle → ProductionReadyDocumentary
+
+Bundle D Persistence & Operations
+  → PersistenceManifest → RepositoryPersistenceResult → SnapshotResult → VersionResult
+  → AuditTrail / ReproducibilityResult → WorkflowExecution → JobQueue / JobResult
+  → ExecutionReport → DiagnosticsReport → RecoveryManifest → OperationalState
+
 GraphBuilder
   → canonical domain knowledge objects
   → KnowledgeGraph / KnowledgeNode / KnowledgeEdge
@@ -210,6 +312,12 @@ DocumentaryWorkflow
 29. New graph consumers use `RelationshipGraphRuntime` with claim, entity, and event extraction results; graph construction must not perform timeline, reasoning, narrative, NLP, LLM, or external API operations.
 30. New timeline consumers use `HistoricalTimelineRuntime` with event extraction results and relationship graphs; timeline construction must preserve explicit dates only and must not perform inference, estimation, reasoning, narrative, NLP, LLM, documentary, or external API operations.
 31. New evidence consumers use `EvidenceResolutionRuntime` with extraction results, relationship graphs, and historical timelines; resolution must use exact evidence text and source-content equality only and must not perform correlation, consistency or contradiction analysis, reasoning, narrative, NLP, LLM, or external API operations.
+32. Knowledge-quality consumers use Bundle A runtime layers in dependency order. They must use exact equality and deterministic rule checks only; they must not perform semantic matching, inference, NLP, LLM, external access, or probabilistic scoring.
+33. Historical reasoning consumers use Bundle B layers in canonical order. Foundation reasoning requires explicit timeline, graph, and resolved-evidence links; causal and temporal relations may use only exact claim patterns and explicit dates.
+34. Historical interpretations must preserve complete chain-to-source traces, and reasoning output must pass all five canonical `ReasoningValidationRuntime` checks before downstream documentary intelligence can consume it.
+35. Bundle C models use deterministic IDs, canonical timestamps, stable positions, and trace metadata. Documentary Planning v2 accepts only valid reasoning and must copy documentary structure from explicit supported records without creative generation.
+36. Bundle C downstream layers may consume only the immediately preceding canonical documentary artifact and its explicit traces. They must not generate media, prompts, narration prose, semantic interpretations, or external side effects.
+37. Bundle D persistence and operations use canonical in-memory contracts only. They must remain database-, queue-, API-, and network-independent; all operational identities, timestamps, versions, hashes, ordering, and recovery actions must be deterministic.
 
 ## Consolidation boundary
 
