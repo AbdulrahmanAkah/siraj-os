@@ -46,6 +46,13 @@ from src.application.repository_query.repository_query_engine import (
 )
 from src.application.retrieval.retrieval_index_builder import RetrievalIndexBuilder
 from src.application.retrieval.retrieval_runtime_engine import RetrievalRuntimeEngine
+from src.application.retrieval.models import RetrievalRequest
+from src.application.claim_extraction.claim_extraction_architect import (
+    ClaimExtractionArchitect,
+)
+from src.application.claim_extraction.claim_extraction_runtime import (
+    ClaimExtractionRuntime,
+)
 
 
 @pytest.fixture
@@ -239,3 +246,28 @@ def retrieval_index(retrieval_index_builder):
 @pytest.fixture
 def retrieval_runtime_engine(retrieval_index_builder):
     return RetrievalRuntimeEngine(retrieval_index_builder)
+
+
+@pytest.fixture
+def claim_retrieval_result(retrieval_runtime_engine, retrieval_index):
+    return retrieval_runtime_engine.execute_retrieval(
+        RetrievalRequest(request_id="claim-retrieval"),
+        retrieval_index,
+    )
+
+
+@pytest.fixture
+def claim_extraction_architect(retrieval_runtime_engine):
+    return ClaimExtractionArchitect(retrieval_runtime_engine)
+
+
+@pytest.fixture
+def claim_extraction_plan(claim_extraction_architect, claim_retrieval_result):
+    return claim_extraction_architect.build_claim_extraction_plan(
+        claim_retrieval_result
+    )
+
+
+@pytest.fixture
+def claim_extraction_runtime(retrieval_runtime_engine):
+    return ClaimExtractionRuntime(retrieval_runtime_engine)

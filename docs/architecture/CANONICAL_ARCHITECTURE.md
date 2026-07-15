@@ -56,6 +56,8 @@ There is one supported production orchestration path: `ProductionPipeline` creat
 | RepositoryQueryEngine | `src.application.repository_query.repository_query_engine.RepositoryQueryEngine` | Canonical deterministic exact query layer over knowledge records |
 | RetrievalIndexBuilder | `src.application.retrieval.retrieval_index_builder.RetrievalIndexBuilder` | Canonical deterministic retrieval-index construction over query results |
 | RetrievalRuntimeEngine | `src.application.retrieval.retrieval_runtime_engine.RetrievalRuntimeEngine` | Canonical deterministic indexed retrieval runtime |
+| ClaimExtractionArchitect | `src.application.claim_extraction.claim_extraction_architect.ClaimExtractionArchitect` | Canonical deterministic claim-extraction policy architecture |
+| ClaimExtractionRuntime | `src.application.claim_extraction.claim_extraction_runtime.ClaimExtractionRuntime` | Canonical deterministic claim extraction over retrieval results |
 | KnowledgeExtractionPipeline | `src.application.knowledge_v2.pipeline.KnowledgeExtractionPipeline` | Canonical extraction pipeline |
 | Documentary workflow | `src.application.workflow.documentary_workflow.DocumentaryWorkflow` | Canonical production coordinator |
 
@@ -89,6 +91,14 @@ RetrievalIndexBuilder
 RetrievalRuntimeEngine
   → RetrievalIndexBuilder
   → RetrievalRequest / RetrievalResult
+
+ClaimExtractionArchitect
+  → RetrievalRuntimeEngine
+  → ClaimExtractionPlan
+
+ClaimExtractionRuntime
+  → RetrievalRuntimeEngine
+  → ClaimExtractionPlan / ClaimRecord / ClaimEvidence
 
 GraphBuilder
   → canonical domain knowledge objects
@@ -144,6 +154,7 @@ DocumentaryWorkflow
 23. New knowledge consumers use the canonical `KnowledgeRepository` over `RepositoryDocument` values; repository-core code must not perform claims, reasoning, timeline, documentary, narrative, or LLM operations.
 24. New query consumers use `RepositoryQueryEngine` for exact deterministic access over `KnowledgeRepository`; query code must not perform semantic, vector, ranking, embedding, AI, or external search operations.
 25. New retrieval consumers use `RetrievalRuntimeEngine` over a validated `RetrievalIndex`; runtime retrieval must not scan repositories directly or perform semantic, vector, ranking, embedding, AI, or external search operations.
+26. New claim consumers use `ClaimExtractionRuntime` with `ClaimExtractionArchitect` plans and retrieval results; claim extraction must not perform entity, event, relationship, reasoning, narrative, LLM, or external API operations.
 
 ## Consolidation boundary
 
