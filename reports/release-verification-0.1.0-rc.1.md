@@ -143,3 +143,40 @@ Known limitations: only the OpenAI-compatible adapter is implemented; a live
 test requires separately approved credentials and explicit policy setup; live
 usage/request IDs and response text are excluded from deterministic replay.
 The version remains `0.1.0-rc.1`; `1.0.0` is not declared.
+
+## RC Hardening Phase 3 final readiness
+
+`READY_WITH_LIMITATIONS` — all tested Windows-native mandatory local gates
+pass, but this verification does not claim Linux, macOS, minimum-Python, or a
+separately packaged historical pre-Phase-1 upgrade image.
+
+| Artifact | Size (bytes) | SHA-256 |
+| --- | ---: | --- |
+| `siraj_os-0.1.0rc1-py3-none-any.whl` | 319585 | `f7e0bd1bd69d04f27c66153e0256d5a87c05a9435cf1fd81c14c9b370a7e514f` |
+| `siraj_os-0.1.0rc1.tar.gz` | 171568 | `e5a1d45b53431bd34fe398b5ec693315cd73d5dca9e168e6f5945353729772c6` |
+
+- Matrix tested: Windows native, Python `3.13.14`, clean wheel and sdist
+  installation, local Unicode/UTF-8 paths and SQLite behavior. Linux, macOS,
+  network filesystems, and other Python versions are unsupported/unverified.
+- Phase 3 focused tests: `5 passed`; full suite: `280 passed, 1 skipped`.
+  The skip is the explicit opt-in live-provider test. Default tests remained
+  offline.
+- Upgrade/recovery drill passed for explicit schema fixture
+  `rc-hardening-v1 → rc-hardening-v2`: persist, snapshot, dry-run/apply
+  migration, close/reopen, hash validation, and deterministic restore/export.
+- Failure injection passed for corrupt payload, read-only SQLite, path escape,
+  oversized export, missing/invalid renderer input, provider timeout, and
+  restricted-data egress denial. Failures returned controlled statuses.
+- Deterministic soak passed: 100 small golden-workflow iterations had one
+  stable record ID, one stable export hash, no temporary-file accumulation,
+  and no open adapter after context exit.
+- Fresh wheel and sdist clean installs passed from `site-packages`; installed
+  version, health, persistence, export, renderer, AI configuration, dataset,
+  and release CLI checks passed. Artifact scan found no secrets, databases,
+  caches, local paths, or temporary outputs. `git diff --check` passed.
+
+Residual risks: no real live-provider execution, no Linux/macOS or multi-Python
+matrix, no historical separately packaged pre-Phase-1 upgrade package, and no
+full penetration-test or crash-recovery claim. Recommendation: retain
+`0.1.0-rc.1` and create a new RC only after those matrix and historical-upgrade
+gates are explicitly completed. `1.0.0` is not declared.

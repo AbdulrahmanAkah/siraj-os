@@ -2,21 +2,21 @@
   "release_id": "siraj-0.1.0-rc.1",
   "selected_version": "0.1.0-rc.1",
   "package_version_pep440": "0.1.0rc1",
-  "decision": "READY",
+  "decision": "READY_WITH_LIMITATIONS",
   "artifacts": [
     {
       "name": "siraj_os-0.1.0rc1-py3-none-any.whl",
       "type": "WHEEL",
       "size_bytes": 319585,
-      "sha256": "960479a337903555f18e1481c330e241aec15184e5e246de04db8ca065603d31",
+      "sha256": "f7e0bd1bd69d04f27c66153e0256d5a87c05a9435cf1fd81c14c9b370a7e514f",
       "inspection_status": "PASS",
       "clean_install_status": "PASS"
     },
     {
       "name": "siraj_os-0.1.0rc1.tar.gz",
       "type": "SOURCE_DISTRIBUTION",
-      "size_bytes": 171269,
-      "sha256": "96dd16923ec786f1e5e1a33b6fdf84d34000ef3427820bfd41ca2b5a525ed21a",
+      "size_bytes": 171568,
+      "sha256": "e5a1d45b53431bd34fe398b5ec693315cd73d5dca9e168e6f5945353729772c6",
       "inspection_status": "PASS",
       "clean_install_status": "PASS"
     }
@@ -28,8 +28,8 @@
     "checksum_verification": "PASS",
     "wheel_clean_install": "PASS",
     "source_distribution_clean_install": "PASS",
-    "focused_rc_hardening_phase2_tests": "PASS: 3 passed, 1 external test deselected",
-    "full_pytest_suite": "PASS: 275 passed, 1 external test skipped",
+    "focused_rc_hardening_phase3_tests": "PASS: 5 passed",
+    "full_pytest_suite": "PASS: 280 passed, 1 external test skipped",
     "cli_smoke_test": "PASS",
     "git_diff_check": "PASS",
     "sqlite_lifecycle": "PASS",
@@ -39,7 +39,15 @@
     "adapter_boundary_scan": "PASS",
     "recorded_provider_harness": "PASS",
     "golden_dataset_validation": "PASS",
-    "external_network_default_tests": "PASS: no provider network execution"
+    "external_network_default_tests": "PASS: no provider network execution",
+    "upgrade_migration_recovery": "PASS: rc-hardening-v1 to rc-hardening-v2 fixture",
+    "deterministic_soak": "PASS: 100 small workflow iterations",
+    "windows_clean_install": "PASS",
+    "cross_platform_matrix": "LIMITED: Windows/Python 3.13 only"
   },
-  "blockers": []
+  "blockers": [],
+  "limitations": [
+    "Linux, macOS, minimum supported Python, and a separately packaged historical pre-Phase-1 upgrade image were not available for verification.",
+    "Live provider execution remains opt-in and was not performed."
+  ]
 }
