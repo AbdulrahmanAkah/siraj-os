@@ -7,16 +7,16 @@
     {
       "name": "siraj_os-0.1.0rc1-py3-none-any.whl",
       "type": "WHEEL",
-      "size_bytes": 306511,
-      "sha256": "a94a116e7134f5576643874eb596b60b322429288e86f4423e69544c987a05b5",
+      "size_bytes": 315519,
+      "sha256": "3869c44a43f7e1b8618fffc09137489ee3b5bfc542dd54af8dafa809fe28e146",
       "inspection_status": "PASS",
       "clean_install_status": "PASS"
     },
     {
       "name": "siraj_os-0.1.0rc1.tar.gz",
       "type": "SOURCE_DISTRIBUTION",
-      "size_bytes": 161159,
-      "sha256": "1d4b82f23ed700cbfb4eb498988c8409706ee60d64b1181ba67829a968a68755",
+      "size_bytes": 168349,
+      "sha256": "50143146d602092007688eb0ca9c38c560e5f9e133133d90be7b26de4feaea9f",
       "inspection_status": "PASS",
       "clean_install_status": "PASS"
     }
@@ -28,10 +28,15 @@
     "checksum_verification": "PASS",
     "wheel_clean_install": "PASS",
     "source_distribution_clean_install": "PASS",
-    "focused_bundle_i_tests": "PASS: 3 passed",
-    "full_pytest_suite": "PASS: 268 passed",
+    "focused_rc_hardening_tests": "PASS: 4 passed",
+    "full_pytest_suite": "PASS: 272 passed",
     "cli_smoke_test": "PASS",
-    "git_diff_check": "PASS"
+    "git_diff_check": "PASS",
+    "sqlite_lifecycle": "PASS",
+    "migration_recovery_drill": "PASS",
+    "export_lifecycle": "PASS",
+    "renderer_dry_run": "PASS",
+    "adapter_boundary_scan": "PASS"
   },
   "blockers": []
 }

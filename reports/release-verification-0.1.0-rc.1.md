@@ -72,3 +72,35 @@ There are no failed or unverified release gates for this release candidate.
 
 RC Hardening Phase 1 does not change the selected version, add a real AI
 provider, add cloud infrastructure, or declare `1.0.0`.
+
+## RC Hardening Phase 1 re-verification
+
+`READY` — all mandatory RC gates passed.
+
+| Artifact | Size (bytes) | SHA-256 |
+| --- | ---: | --- |
+| `siraj_os-0.1.0rc1-py3-none-any.whl` | 315519 | `3869c44a43f7e1b8618fffc09137489ee3b5bfc542dd54af8dafa809fe28e146` |
+| `siraj_os-0.1.0rc1.tar.gz` | 168349 | `50143146d602092007688eb0ca9c38c560e5f9e133133d90be7b26de4feaea9f` |
+
+- Focused hardening tests: `4 passed`; full pytest suite: `272 passed`.
+- Fresh wheel and sdist builds passed. Both artifacts contain `siraj-os`,
+  `0.1.0rc1`, and `Requires-Python: >=3.11` metadata.
+- Both artifact inventories and content scans found zero unintended files,
+  SQLite databases, temporary outputs, local user paths, caches, or common
+  credential/secret signatures.
+- Wheel and sdist clean installs passed outside the repository. Installed
+  import, version, health, configuration, persistence verification, export,
+  renderer dry-run, and release verification CLI checks passed.
+- Installed-wheel drills passed: SQLite save/snapshot/close/reopen/restore,
+  dry-run and applied supported schema migration, deterministic re-export,
+  and `VALID` renderer dry-run planning. Temporary test outputs were cleaned.
+- Static checks found no environment reads in local adapters and no domain
+  imports of SQLite, export, renderer, or CLI adapter implementations. The
+  sole `subprocess` match is explanatory documentation; no executable
+  subprocess, network client, cloud service, or real AI provider is invoked.
+- `git diff --check`: pass (line-ending notices only).
+
+Known limitations: SQLite is the sole real persistence backend; renderer
+planning is dry-run only; no crash-safety claim is made beyond the tested
+SQLite transaction and reopen/recovery paths. The selected release remains
+`0.1.0-rc.1`; this verification does not declare `1.0.0`.
