@@ -17,6 +17,8 @@ src/application/ai_integration/runtime.py
 src/application/ai_integration_gateway/__init__.py
 src/application/ai_output_validation/__init__.py
 src/application/ai_provider_abstraction/__init__.py
+src/application/ai_provider_openai_compatible/__init__.py
+src/application/ai_provider_openai_compatible/provider.py
 src/application/ai_workflow_orchestration/__init__.py
 src/application/artifacts/artifact.py
 src/application/artifacts/artifact_store.py
@@ -47,6 +49,7 @@ src/application/comparative_historical_analysis/models.py
 src/application/config/environment_loader.py
 src/application/config/settings.py
 src/application/configuration/__init__.py
+src/application/configuration/credentials.py
 src/application/contradiction_detection/__init__.py
 src/application/contradiction_detection/contradiction_architect.py
 src/application/contradiction_detection/contradiction_runtime.py

@@ -15,3 +15,12 @@ Run `siraj persistence init`, `siraj export build`, and `siraj render dry-run`
 only through the policy-aware application boundary. Local exports are UTF-8,
 deterministic, root-contained, and non-overwriting by default. Renderer output
 is a dry-run plan; it does not render media.
+
+## AI provider hardening
+
+The only real adapter is the OpenAI-compatible HTTP adapter. It is disabled by
+default. Use `siraj ai providers`, `siraj ai models`, and `siraj ai
+validate-config` to inspect the thin application surface without exposing a
+credential. External execution requires an explicit credential reference,
+allowlisted model, and egress policy; `RESTRICTED` data is denied. Default
+tests use recorded fixtures and never contact a provider.

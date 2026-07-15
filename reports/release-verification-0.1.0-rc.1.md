@@ -104,3 +104,42 @@ Known limitations: SQLite is the sole real persistence backend; renderer
 planning is dry-run only; no crash-safety claim is made beyond the tested
 SQLite transaction and reopen/recovery paths. The selected release remains
 `0.1.0-rc.1`; this verification does not declare `1.0.0`.
+
+## RC Hardening Phase 2
+
+`READY` — the selected provider is the single `OPENAI_COMPATIBLE` Responses
+HTTP adapter. It supports declared text generation, structured output,
+citation-aware output, and multilingual capability for `gpt-4.1-mini`.
+
+| Artifact | Size (bytes) | SHA-256 |
+| --- | ---: | --- |
+| `siraj_os-0.1.0rc1-py3-none-any.whl` | 319585 | `960479a337903555f18e1481c330e241aec15184e5e246de04db8ca065603d31` |
+| `siraj_os-0.1.0rc1.tar.gz` | 171269 | `96dd16923ec786f1e5e1a33b6fdf84d34000ef3427820bfd41ca2b5a525ed21a` |
+
+- Focused Phase 2 verification: `3 passed`, with one explicit live-provider
+  test deselected; complete offline suite: `275 passed, 1 skipped`.
+- Recorded fixtures cover success, structured output, citation-bearing output,
+  missing/fabricated citations, malformed response, refusal, timeout/rate
+  limit/authentication error representations. They contain no credential or
+  restricted data and execute without network access.
+- Golden offline dataset descriptors cover small historical, medium
+  documentary, and cross-era intelligence scenarios, including contradiction,
+  false-pattern rejection, trend, theory, and counterfactual expectations.
+- The gateway rejects fabricated references and contradicted critical claims;
+  it records unsupported claims and injection signals for validation. Source
+  text remains untrusted data and injection prevention is bounded, not claimed
+  complete.
+- Credential values are resolved only through central configuration, never by
+  the provider adapter. `RESTRICTED` transmission is denied; no raw provider
+  response is retained by default. No provider fallback or silent retry exists.
+- Fresh wheel and sdist clean installs passed from `site-packages`; installed
+  AI/dataset/release CLI smoke checks passed. Artifact scans found no secrets,
+  absolute development paths, databases, caches, or temporary outputs.
+- Static dependency scan confirms no domain layer calls the provider directly.
+  Default tests execute no network request, subprocess, cloud service, or real
+  provider call. `external_ai` remains explicit opt-in and skips safely.
+
+Known limitations: only the OpenAI-compatible adapter is implemented; a live
+test requires separately approved credentials and explicit policy setup; live
+usage/request IDs and response text are excluded from deterministic replay.
+The version remains `0.1.0-rc.1`; `1.0.0` is not declared.

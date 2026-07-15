@@ -1,5 +1,6 @@
 from dataclasses import dataclass,field,asdict
 from src.application.operations_common import deterministic_id,integrity_hash
+from .credentials import EnvironmentCredentialResolver
 @dataclass
 class SecretReference: reference:str
 @dataclass

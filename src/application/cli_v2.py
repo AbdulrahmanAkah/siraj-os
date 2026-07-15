@@ -9,8 +9,8 @@ def execute(command, as_json=False):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(prog="siraj")
-    parser.add_argument("command", nargs="?", default="health", choices=["version", "health", "config-validate", "config-show", "operations-status", "diagnostics-run", "release-verify", "persistence", "export", "render", "migration"])
-    parser.add_argument("action", nargs="?", choices=["init", "verify", "snapshot", "restore", "build", "dry-run", "plan", "apply"])
+    parser.add_argument("command", nargs="?", default="health", choices=["version", "health", "config-validate", "config-show", "operations-status", "diagnostics-run", "release-verify", "persistence", "export", "render", "migration", "ai", "dataset"])
+    parser.add_argument("action", nargs="?", choices=["init", "verify", "snapshot", "restore", "build", "dry-run", "plan", "apply", "providers", "models", "validate-config", "run", "audit", "test-connection", "validate", "replay"])
     parser.add_argument("--json", action="store_true")
     args = parser.parse_args(argv)
     command = args.command if not args.action else f"{args.command}-{args.action}"
