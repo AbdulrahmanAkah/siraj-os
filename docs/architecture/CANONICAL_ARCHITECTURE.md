@@ -64,6 +64,8 @@ There is one supported production orchestration path: `ProductionPipeline` creat
 | EventExtractionRuntime | `src.application.event_extraction.event_extraction_runtime.EventExtractionRuntime` | Canonical deterministic event extraction over claims and entities |
 | RelationshipGraphArchitect | `src.application.relationship_graph.relationship_graph_architect.RelationshipGraphArchitect` | Canonical deterministic relationship-graph policy architecture |
 | RelationshipGraphRuntime | `src.application.relationship_graph.relationship_graph_runtime.RelationshipGraphRuntime` | Canonical deterministic graph construction over claims, entities, and events |
+| HistoricalTimelineArchitect | `src.application.historical_timeline.historical_timeline_architect.HistoricalTimelineArchitect` | Canonical deterministic historical-timeline policy architecture |
+| HistoricalTimelineRuntime | `src.application.historical_timeline.historical_timeline_runtime.HistoricalTimelineRuntime` | Canonical deterministic chronological timeline construction over events and relationship graphs |
 | KnowledgeExtractionPipeline | `src.application.knowledge_v2.pipeline.KnowledgeExtractionPipeline` | Canonical extraction pipeline |
 | Documentary workflow | `src.application.workflow.documentary_workflow.DocumentaryWorkflow` | Canonical production coordinator |
 
@@ -130,6 +132,14 @@ RelationshipGraphRuntime
   → EntityExtractionRuntime / EventExtractionRuntime
   → GraphNode / GraphEdge / RelationshipGraphResult
 
+HistoricalTimelineArchitect
+  → EventExtractionRuntime / RelationshipGraphRuntime
+  → TimelinePlan
+
+HistoricalTimelineRuntime
+  → EventExtractionRuntime / RelationshipGraphRuntime
+  → TimelineEntry / HistoricalTimeline / TimelineBuildResult
+
 GraphBuilder
   → canonical domain knowledge objects
   → KnowledgeGraph / KnowledgeNode / KnowledgeEdge
@@ -188,6 +198,7 @@ DocumentaryWorkflow
 27. New entity consumers use `EntityExtractionRuntime` with claim extraction results; entity extraction must use only canonical deterministic strategies and must not perform event, relationship, timeline, reasoning, narrative, NLP, LLM, or external API operations.
 28. New event consumers use `EventExtractionRuntime` with claim and entity extraction results; event extraction must not perform relationship, timeline, reasoning, narrative, NLP, LLM, or external API operations.
 29. New graph consumers use `RelationshipGraphRuntime` with claim, entity, and event extraction results; graph construction must not perform timeline, reasoning, narrative, NLP, LLM, or external API operations.
+30. New timeline consumers use `HistoricalTimelineRuntime` with event extraction results and relationship graphs; timeline construction must preserve explicit dates only and must not perform inference, estimation, reasoning, narrative, NLP, LLM, documentary, or external API operations.
 
 ## Consolidation boundary
 

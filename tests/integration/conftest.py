@@ -83,6 +83,12 @@ from src.application.relationship_graph.relationship_graph_architect import (
 from src.application.relationship_graph.relationship_graph_runtime import (
     RelationshipGraphRuntime,
 )
+from src.application.historical_timeline.historical_timeline_architect import (
+    HistoricalTimelineArchitect,
+)
+from src.application.historical_timeline.historical_timeline_runtime import (
+    HistoricalTimelineRuntime,
+)
 
 
 @pytest.fixture
@@ -555,3 +561,58 @@ def relationship_graph_inputs(
         event_entity_extraction_result,
         event_result,
     )
+
+
+@pytest.fixture
+def relationship_graph_result(
+    relationship_graph_runtime,
+    relationship_graph_plan,
+    relationship_graph_inputs,
+):
+    return relationship_graph_runtime.execute_relationship_graph(
+        relationship_graph_plan,
+        *relationship_graph_inputs,
+    )
+
+
+@pytest.fixture
+def historical_timeline_architect(
+    event_extraction_runtime,
+    relationship_graph_runtime,
+):
+    return HistoricalTimelineArchitect(
+        event_extraction_runtime,
+        relationship_graph_runtime,
+    )
+
+
+@pytest.fixture
+def historical_timeline_runtime(
+    event_extraction_runtime,
+    relationship_graph_runtime,
+):
+    return HistoricalTimelineRuntime(
+        event_extraction_runtime,
+        relationship_graph_runtime,
+    )
+
+
+@pytest.fixture
+def historical_timeline_plan(historical_timeline_architect):
+    return historical_timeline_architect.build_timeline_plan()
+
+
+@pytest.fixture
+def historical_timeline_inputs(
+    event_claim_extraction_result,
+    event_entity_extraction_result,
+    event_extraction_plan,
+    event_extraction_runtime,
+    relationship_graph_result,
+):
+    event_result = event_extraction_runtime.extract_events(
+        event_extraction_plan,
+        event_claim_extraction_result,
+        event_entity_extraction_result,
+    )
+    return event_result, relationship_graph_result
