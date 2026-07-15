@@ -1,0 +1,2 @@
+from src.application.historical_intelligence.models import AnalyticalFinding as CrossEraFinding,AnalysisResult as CrossEraAnalysisResult,TemporalScope as EraDefinition,ComparisonSubjectRef as CrossEraSubject
+CrossEraMapping = dict

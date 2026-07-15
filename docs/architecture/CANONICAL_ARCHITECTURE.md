@@ -105,6 +105,7 @@ There is one supported production orchestration path: `ProductionPipeline` creat
 | RecoveryArchitect / Runtime | `src.application.recovery_architecture` | Snapshot-based recovery planning |
 | OperationalArchitect / Runtime | `src.application.operational_runtime` | Final deterministic operational state aggregate |
 | Bundle E Scale & Performance layers | `src.application.index_optimization` through `src.application.performance_verification` | Deterministic local index, query, graph, timeline, cache, incremental, parallel, memory, benchmark, and verification contracts |
+| Bundle G Historical Intelligence | `src.application.historical_intelligence` | Traceable comparative, structural, strategic, trend, theory, synthesis, and validation intelligence contracts |
 | KnowledgeExtractionPipeline | `src.application.knowledge_v2.pipeline.KnowledgeExtractionPipeline` | Canonical extraction pipeline |
 | Documentary workflow | `src.application.workflow.documentary_workflow.DocumentaryWorkflow` | Canonical production coordinator |
 
@@ -257,6 +258,10 @@ Bundle E Scale & Performance
   → OptimizedIndex → QueryPlan / QueryResultProfile → GraphOptimizationResult / TimelineOptimizationResult
   → CacheManifest / IncrementalResult / ParallelPlan / MemoryOptimizationResult
   → BenchmarkReport → PerformanceVerificationReport
+
+Bundle G Historical Intelligence
+  → Comparative / Cross-Era / Pattern / Civilization / Institution / Strategic / Trend
+  → Counterfactual Constraints / Theory Evaluation → HistoricalIntelligencePackage → ValidatedHistoricalIntelligence
 
 GraphBuilder
   → canonical domain knowledge objects
