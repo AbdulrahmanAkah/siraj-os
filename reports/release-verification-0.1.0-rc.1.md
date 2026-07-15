@@ -58,3 +58,17 @@ Each installed CLI command reports the selected public version
   for the declared setuptools backend; no runtime dependency was added.
 
 There are no failed or unverified release gates for this release candidate.
+
+## RC Hardening Phase 1
+
+- Local SQLite persistence adapter: focused lifecycle, rollback, corruption,
+  read-only, redaction, close/reopen, and snapshot tests passed.
+- Deterministic file export adapter: UTF-8 JSON, Markdown, SRT, WebVTT,
+  manifest, checksum, overwrite, traversal, and Unicode tests passed.
+- Renderer dry-run adapter: stable operation planning and distinct `VALID`,
+  `BLOCKED`, and `INVALID` tests passed; no subprocess is used.
+- Focused RC hardening tests: `4 passed`; complete suite: `272 passed`.
+- CLI thin-operation smoke: `siraj persistence init --json` passed.
+
+RC Hardening Phase 1 does not change the selected version, add a real AI
+provider, add cloud infrastructure, or declare `1.0.0`.
