@@ -38,6 +38,9 @@ from src.application.repository_ingestion.models import (
 from src.application.repository_ingestion.repository_ingestion_engine import (
     RepositoryIngestionEngine,
 )
+from src.application.knowledge_repository.knowledge_repository import (
+    KnowledgeRepository as KnowledgeRepositoryCore,
+)
 
 
 @pytest.fixture
@@ -203,3 +206,8 @@ def repository_ingestion_result(
         ingestion_payloads,
     )
     return repository_ingestion_engine.ingest_execution_result(execution)
+
+
+@pytest.fixture
+def knowledge_repository(repository_ingestion_engine):
+    return KnowledgeRepositoryCore(repository_ingestion_engine)

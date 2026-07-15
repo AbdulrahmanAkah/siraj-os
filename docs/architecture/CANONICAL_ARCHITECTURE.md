@@ -18,7 +18,7 @@ CLI: src.cli.generate
 → documentary artifacts
 ```
 
-There is one supported production orchestration path: `ProductionPipeline` creates `DocumentaryWorkflow`; the workflow uses `KnowledgeRepository`; the repository owns the canonical extraction pipeline and graph builder.
+There is one supported production orchestration path: `ProductionPipeline` creates `DocumentaryWorkflow`; the workflow uses the existing `src.application.knowledge.knowledge_repository.KnowledgeRepository` compatibility boundary. Spirit 22 adds the separate `src.application.knowledge_repository.KnowledgeRepository` repository-core path for `RepositoryDocument` values without changing CLI behavior.
 
 ## Canonical models
 
@@ -34,7 +34,7 @@ There is one supported production orchestration path: `ProductionPipeline` creat
 | ExtractionResult | `src.application.knowledge.extraction_result.ExtractionResult` | Repository-to-graph contract |
 | KnowledgeGraph | `src.domain.knowledge_graph.knowledge_graph.KnowledgeGraph` | Graph container used by workflow and renderers |
 | GraphBuilder | `src.application.knowledge.graph_builder.GraphBuilder` | Canonical graph construction |
-| KnowledgeRepository | `src.application.knowledge.knowledge_repository.KnowledgeRepository` | Canonical ingestion boundary |
+| Workflow KnowledgeRepository | `src.application.knowledge.knowledge_repository.KnowledgeRepository` | Existing CLI workflow ingestion compatibility boundary |
 | KnowledgeRetriever | `src.application.retrieval.knowledge_retriever.KnowledgeRetriever` | Canonical read-only query boundary over loaded graphs |
 | HistoricalReasoner | `src.application.reasoning.historical_reasoner.HistoricalReasoner` | Canonical deterministic historical analysis over retrieval |
 | ClaimSelector | `src.application.selection.claim_selector.ClaimSelector` | Canonical deterministic and explainable selection over reasoning |
@@ -52,6 +52,7 @@ There is one supported production orchestration path: `ProductionPipeline` creat
 | SourceIngestionArchitect | `src.application.source_ingestion_architecture.source_ingestion_architect.SourceIngestionArchitect` | Canonical deterministic ingestion preparation over acquisition plans |
 | SourceIngestionExecutor | `src.application.source_ingestion_runtime.source_ingestion_executor.SourceIngestionExecutor` | Canonical deterministic local ingestion runtime over ingestion plans |
 | RepositoryIngestionEngine | `src.application.repository_ingestion.repository_ingestion_engine.RepositoryIngestionEngine` | Canonical repository-ready document population over runtime results |
+| KnowledgeRepository | `src.application.knowledge_repository.knowledge_repository.KnowledgeRepository` | Canonical deterministic in-memory knowledge repository over repository documents |
 | KnowledgeExtractionPipeline | `src.application.knowledge_v2.pipeline.KnowledgeExtractionPipeline` | Canonical extraction pipeline |
 | Documentary workflow | `src.application.workflow.documentary_workflow.DocumentaryWorkflow` | Canonical production coordinator |
 
@@ -68,6 +69,11 @@ KnowledgeRepository
   → canonical domain knowledge objects
   → ExtractionResult
   → GraphBuilder
+
+KnowledgeRepository (Spirit 22 repository core)
+  → RepositoryIngestionEngine
+  → RepositoryDocument
+  → KnowledgeRecord / RepositorySnapshot
 
 GraphBuilder
   → canonical domain knowledge objects
@@ -120,6 +126,7 @@ DocumentaryWorkflow
 20. New source-ingestion consumers use `SourceIngestionArchitect` rather than parsing, ingesting, or mutating repository data during architecture planning.
 21. New ingestion-runtime consumers use `SourceIngestionExecutor` only with explicit local in-memory payloads; runtime code must not perform external access or repository mutation.
 22. New repository-population consumers use `RepositoryIngestionEngine` only with `IngestionExecutionResult`; repository ingestion must not perform reasoning, extraction, event creation, or external access.
+23. New knowledge consumers use the canonical `KnowledgeRepository` over `RepositoryDocument` values; repository-core code must not perform claims, reasoning, timeline, documentary, narrative, or LLM operations.
 
 ## Consolidation boundary
 
