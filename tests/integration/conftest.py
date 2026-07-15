@@ -27,6 +27,10 @@ from src.application.source_acquisition_planning.source_acquisition_planner impo
 from src.application.source_ingestion_architecture.source_ingestion_architect import (
     SourceIngestionArchitect,
 )
+from src.application.source_ingestion_runtime.models import IngestionPayload
+from src.application.source_ingestion_runtime.source_ingestion_executor import (
+    SourceIngestionExecutor,
+)
 
 
 @pytest.fixture
@@ -147,3 +151,29 @@ def source_acquisition_plan(source_acquisition_planner, source_discovery_plan):
 @pytest.fixture
 def source_ingestion_architect(source_acquisition_planner):
     return SourceIngestionArchitect(source_acquisition_planner)
+
+
+@pytest.fixture
+def source_ingestion_executor(source_ingestion_architect):
+    return SourceIngestionExecutor(source_ingestion_architect)
+
+
+@pytest.fixture
+def source_ingestion_plan(source_ingestion_architect, source_acquisition_plan):
+    return source_ingestion_architect.build_source_ingestion_plan(
+        source_acquisition_plan
+    )
+
+
+@pytest.fixture
+def ingestion_payloads(source_ingestion_plan):
+    return {
+        unit.acquisition_target_id: IngestionPayload(
+            target_id=unit.acquisition_target_id,
+            content_bytes=f"payload-{unit.acquisition_target_id}".encode("utf-8"),
+            media_type=" Image/JPEG ",
+            metadata={" Title ": " Example "},
+        )
+        for batch in source_ingestion_plan.batches
+        for unit in batch.units
+    }
