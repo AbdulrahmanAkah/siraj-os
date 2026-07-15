@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "siraj-os"
+version = "0.1.0rc1"
+description = "Deterministic historical intelligence and documentary production system"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+siraj = "src.application.cli_v2:main"
+
+[tool.setuptools]
+packages = ["src"]
