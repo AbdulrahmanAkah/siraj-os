@@ -65,6 +65,18 @@ from src.application.entity_extraction.entity_extraction_architect import (
 from src.application.entity_extraction.entity_extraction_runtime import (
     EntityExtractionRuntime,
 )
+from src.application.entity_extraction.models import (
+    EntityCandidate,
+    EntityEvidence,
+    EntityExtractionResult,
+    EntityRecord,
+)
+from src.application.event_extraction.event_extraction_architect import (
+    EventExtractionArchitect,
+)
+from src.application.event_extraction.event_extraction_runtime import (
+    EventExtractionRuntime,
+)
 
 
 @pytest.fixture
@@ -346,3 +358,133 @@ def entity_extraction_plan(
 @pytest.fixture
 def entity_extraction_runtime(claim_extraction_runtime):
     return EntityExtractionRuntime(claim_extraction_runtime)
+
+
+@pytest.fixture
+def event_claim_extraction_result(claim_retrieval_result):
+    record = claim_retrieval_result.matches[0].record
+    claims_data = [
+        (
+            "claim-publication-metadata",
+            "Publication Date is 2024-01-01",
+            "STRUCTURED_METADATA",
+        ),
+        (
+            "claim-publication-pattern",
+            "Published on 2024-01-01",
+            "EXPLICIT_STATEMENT",
+        ),
+        ("claim-organization", "Organization is NASA", "STRUCTURED_METADATA"),
+        ("claim-location", "Location is Cairo", "STRUCTURED_METADATA"),
+    ]
+    claims = [
+        ClaimRecord(
+            claim_id=claim_id,
+            claim_text=claim_text,
+            evidence=[
+                ClaimEvidence(
+                    evidence_id=f"event-evidence-{claim_id}",
+                    record_id=record.record_id,
+                    fingerprint=record.fingerprint,
+                    supporting_text=claim_text,
+                )
+            ],
+            source_record_ids=[record.record_id],
+        )
+        for claim_id, claim_text, _ in claims_data
+    ]
+    candidates = [
+        ClaimCandidate(
+            candidate_id=f"event-candidate-{claim_id}",
+            source_record_id=record.record_id,
+            claim_text=claim_text,
+            extraction_strategy=strategy,
+        )
+        for claim_id, claim_text, strategy in claims_data
+    ]
+    return ClaimExtractionResult(
+        result_id="event-claim-result",
+        plan_id="event-claim-plan",
+        claims=claims,
+        candidates=candidates,
+        claim_count=len(claims),
+        candidate_count=len(candidates),
+    )
+
+
+@pytest.fixture
+def event_entity_extraction_result(claim_retrieval_result):
+    record = claim_retrieval_result.matches[0].record
+    entities_data = [
+        ("entity-date", "2024-01-01", "DATE", ["claim-publication-metadata"]),
+        ("entity-organization", "NASA", "ORGANIZATION", ["claim-organization"]),
+        ("entity-location", "Cairo", "LOCATION", ["claim-location"]),
+    ]
+    entities = [
+        EntityRecord(
+            entity_id=entity_id,
+            entity_name=entity_name,
+            entity_type=entity_type,
+            source_claim_ids=source_claim_ids,
+            evidence=[
+                EntityEvidence(
+                    evidence_id=f"event-entity-evidence-{entity_id}",
+                    claim_id=source_claim_ids[0],
+                    supporting_text=entity_name,
+                )
+            ],
+        )
+        for entity_id, entity_name, entity_type, source_claim_ids in entities_data
+    ]
+    candidates = [
+        EntityCandidate(
+            candidate_id=f"event-entity-candidate-{entity_id}",
+            source_claim_id=source_claim_ids[0],
+            entity_name=entity_name,
+            entity_type=entity_type,
+            extraction_strategy="STRUCTURED_METADATA_ENTITY",
+        )
+        for entity_id, entity_name, entity_type, source_claim_ids in entities_data
+    ]
+    return EntityExtractionResult(
+        result_id="event-entity-result",
+        plan_id="event-entity-plan",
+        candidates=candidates,
+        entities=entities,
+        candidate_count=len(candidates),
+        entity_count=len(entities),
+    )
+
+
+@pytest.fixture
+def event_extraction_architect(
+    claim_extraction_runtime,
+    entity_extraction_runtime,
+):
+    return EventExtractionArchitect(
+        claim_extraction_runtime,
+        entity_extraction_runtime,
+    )
+
+
+@pytest.fixture
+def event_extraction_plan(
+    event_extraction_architect,
+    event_claim_extraction_result,
+    event_entity_extraction_result,
+):
+    return event_extraction_architect.build_event_extraction_plan(
+        event_claim_extraction_result,
+        event_entity_extraction_result,
+    )
+
+
+@pytest.fixture
+def event_extraction_runtime(
+    claim_extraction_runtime,
+    entity_extraction_runtime,
+):
+    return EventExtractionRuntime(
+        claim_extraction_runtime,
+        entity_extraction_runtime,
+    )
