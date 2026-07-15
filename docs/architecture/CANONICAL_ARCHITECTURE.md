@@ -104,6 +104,7 @@ There is one supported production orchestration path: `ProductionPipeline` creat
 | DiagnosticsArchitect / Runtime | `src.application.diagnostics` | Integrity and execution diagnostic reports |
 | RecoveryArchitect / Runtime | `src.application.recovery_architecture` | Snapshot-based recovery planning |
 | OperationalArchitect / Runtime | `src.application.operational_runtime` | Final deterministic operational state aggregate |
+| Bundle E Scale & Performance layers | `src.application.index_optimization` through `src.application.performance_verification` | Deterministic local index, query, graph, timeline, cache, incremental, parallel, memory, benchmark, and verification contracts |
 | KnowledgeExtractionPipeline | `src.application.knowledge_v2.pipeline.KnowledgeExtractionPipeline` | Canonical extraction pipeline |
 | Documentary workflow | `src.application.workflow.documentary_workflow.DocumentaryWorkflow` | Canonical production coordinator |
 
@@ -252,6 +253,11 @@ Bundle D Persistence & Operations
   → AuditTrail / ReproducibilityResult → WorkflowExecution → JobQueue / JobResult
   → ExecutionReport → DiagnosticsReport → RecoveryManifest → OperationalState
 
+Bundle E Scale & Performance
+  → OptimizedIndex → QueryPlan / QueryResultProfile → GraphOptimizationResult / TimelineOptimizationResult
+  → CacheManifest / IncrementalResult / ParallelPlan / MemoryOptimizationResult
+  → BenchmarkReport → PerformanceVerificationReport
+
 GraphBuilder
   → canonical domain knowledge objects
   → KnowledgeGraph / KnowledgeNode / KnowledgeEdge
@@ -318,6 +324,7 @@ DocumentaryWorkflow
 35. Bundle C models use deterministic IDs, canonical timestamps, stable positions, and trace metadata. Documentary Planning v2 accepts only valid reasoning and must copy documentary structure from explicit supported records without creative generation.
 36. Bundle C downstream layers may consume only the immediately preceding canonical documentary artifact and its explicit traces. They must not generate media, prompts, narration prose, semantic interpretations, or external side effects.
 37. Bundle D persistence and operations use canonical in-memory contracts only. They must remain database-, queue-, API-, and network-independent; all operational identities, timestamps, versions, hashes, ordering, and recovery actions must be deterministic.
+38. Bundle E performance layers are local deterministic contracts. They must not introduce external infrastructure or wall-clock-dependent pass/fail behavior; partitioning, plans, profiles, benchmarks, and verification must use stable content-derived metadata.
 
 ## Consolidation boundary
 
