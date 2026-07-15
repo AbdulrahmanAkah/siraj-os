@@ -53,6 +53,18 @@ from src.application.claim_extraction.claim_extraction_architect import (
 from src.application.claim_extraction.claim_extraction_runtime import (
     ClaimExtractionRuntime,
 )
+from src.application.claim_extraction.models import (
+    ClaimCandidate,
+    ClaimEvidence,
+    ClaimExtractionResult,
+    ClaimRecord,
+)
+from src.application.entity_extraction.entity_extraction_architect import (
+    EntityExtractionArchitect,
+)
+from src.application.entity_extraction.entity_extraction_runtime import (
+    EntityExtractionRuntime,
+)
 
 
 @pytest.fixture
@@ -271,3 +283,66 @@ def claim_extraction_plan(claim_extraction_architect, claim_retrieval_result):
 @pytest.fixture
 def claim_extraction_runtime(retrieval_runtime_engine):
     return ClaimExtractionRuntime(retrieval_runtime_engine)
+
+
+@pytest.fixture
+def entity_claim_extraction_result(claim_retrieval_result):
+    record = claim_retrieval_result.matches[0].record
+    claims_data = [
+        ("claim-author", "Author is John Smith", "STRUCTURED_METADATA"),
+        ("claim-publisher", "Publisher is NASA", "STRUCTURED_METADATA"),
+        ("claim-title", "The Odyssey", "TITLE_DERIVED"),
+    ]
+    claims = [
+        ClaimRecord(
+            claim_id=claim_id,
+            claim_text=claim_text,
+            evidence=[
+                ClaimEvidence(
+                    evidence_id=f"evidence-{claim_id}",
+                    record_id=record.record_id,
+                    fingerprint=record.fingerprint,
+                    supporting_text=claim_text,
+                )
+            ],
+            source_record_ids=[record.record_id],
+        )
+        for claim_id, claim_text, _ in claims_data
+    ]
+    candidates = [
+        ClaimCandidate(
+            candidate_id=f"candidate-{claim_id}",
+            source_record_id=record.record_id,
+            claim_text=claim_text,
+            extraction_strategy=strategy,
+        )
+        for claim_id, claim_text, strategy in claims_data
+    ]
+    return ClaimExtractionResult(
+        result_id="claim-fixture-result",
+        plan_id="claim-fixture-plan",
+        claims=claims,
+        candidates=candidates,
+        claim_count=len(claims),
+        candidate_count=len(candidates),
+    )
+
+
+@pytest.fixture
+def entity_extraction_architect(claim_extraction_runtime):
+    return EntityExtractionArchitect(claim_extraction_runtime)
+
+
+@pytest.fixture
+def entity_extraction_plan(
+    entity_extraction_architect,
+    entity_claim_extraction_result,
+):
+    return entity_extraction_architect.build_entity_extraction_plan(
+        entity_claim_extraction_result
+    )
+
+
+@pytest.fixture
+def entity_extraction_runtime(claim_extraction_runtime):
+    return EntityExtractionRuntime(claim_extraction_runtime)
