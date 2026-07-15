@@ -2,21 +2,21 @@
   "release_id": "siraj-0.1.0-rc.1",
   "selected_version": "0.1.0-rc.1",
   "package_version_pep440": "0.1.0rc1",
-  "decision": "READY_WITH_LIMITATIONS",
+  "decision": "READY",
   "artifacts": [
     {
       "name": "siraj_os-0.1.0rc1-py3-none-any.whl",
       "type": "WHEEL",
-      "size_bytes": 319585,
-      "sha256": "f7e0bd1bd69d04f27c66153e0256d5a87c05a9435cf1fd81c14c9b370a7e514f",
+      "size_bytes": 319586,
+      "sha256": "c13c03165f0842f4033f588cb3ceb85870de8496e563de8e7ffdd6b9f2454cb4",
       "inspection_status": "PASS",
       "clean_install_status": "PASS"
     },
     {
       "name": "siraj_os-0.1.0rc1.tar.gz",
       "type": "SOURCE_DISTRIBUTION",
-      "size_bytes": 171568,
-      "sha256": "e5a1d45b53431bd34fe398b5ec693315cd73d5dca9e168e6f5945353729772c6",
+      "size_bytes": 171136,
+      "sha256": "77b6350dec59ce10b5556144658603bcd5e17f0282fe3f316977e3cc68784064",
       "inspection_status": "PASS",
       "clean_install_status": "PASS"
     }
@@ -43,11 +43,24 @@
     "upgrade_migration_recovery": "PASS: rc-hardening-v1 to rc-hardening-v2 fixture",
     "deterministic_soak": "PASS: 100 small workflow iterations",
     "windows_clean_install": "PASS",
-    "cross_platform_matrix": "LIMITED: Windows/Python 3.13 only"
+    "support_policy": "READY: Windows only / Python 3.13",
+    "historical_packaged_upgrade": "PASS: v0.1.0-rc.1-hardened.1 commit 863ef50",
+    "minimum_python_boundary": "PASS: Python 3.13.14",
+    "linux_validation": "NOT_APPLICABLE: Linux is not claimed",
+    "cross_platform_matrix": "NOT_APPLICABLE: Windows-only support policy"
   },
   "blockers": [],
   "limitations": [
-    "Linux, macOS, minimum supported Python, and a separately packaged historical pre-Phase-1 upgrade image were not available for verification.",
-    "Live provider execution remains opt-in and was not performed."
-  ]
+    "Linux support is deferred.",
+    "macOS is not supported.",
+    "Live provider execution remains opt-in and was not performed.",
+    "No full penetration-test or general crash-recovery guarantee is claimed."
+  ],
+  "support_policy": {
+    "operating_system": "Windows only",
+    "python": "3.13",
+    "tested_python": "3.13.14",
+    "linux": "deferred_not_supported",
+    "macos": "not_supported"
+  }
 }
