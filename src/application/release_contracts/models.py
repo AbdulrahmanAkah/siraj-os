@@ -1,7 +1,7 @@
 from dataclasses import dataclass,field
 from src.application.operations_common import CANONICAL_TIMESTAMP
 @dataclass
-class ApplicationVersion: version:str="0.1.0-rc.1"; schema_version:str="v1"
+class ApplicationVersion: version:str="0.1.0-rc.2"; schema_version:str="v1"
 @dataclass
 class ApplicationIdentity: application_id:str="siraj"; version:ApplicationVersion=field(default_factory=ApplicationVersion)
 @dataclass

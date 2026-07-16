@@ -56,7 +56,7 @@ from src.application.rc_hardening import (
     SQLiteSchemaIdentity,
 )
 
-VERSION = "0.1.0-rc.1"
+VERSION = "0.1.0-rc.2"
 
 EXIT_CODES = {
     "SUCCESS": 0,

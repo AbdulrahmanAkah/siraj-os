@@ -8,7 +8,7 @@ currently supported. SQLite is local-only and rendering remains dry-run.
 
 ## Release candidate
 
-The current release candidate is `0.1.0-rc.1`. Use `python -m src.application.cli_v2 health` for a local health command. Configuration is loaded only through the typed release configuration boundary; sensitive values use references and are redacted from public views.
+The current release candidate is `0.1.0-rc.2`. Use `python -m src.application.cli_v2 health` for a local health command. Configuration is loaded only through the typed release configuration boundary; sensitive values use references and are redacted from public views.
 
 ## Supported platform
 

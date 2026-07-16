@@ -1,0 +1,28 @@
+{
+  "branch": "feature/release-hardening-phase7",
+  "display_version": "0.1.0-rc.2",
+  "package_version": "0.1.0rc2",
+  "product": "siraj-os",
+  "schema_version": "siraj-release-manifest-v1",
+  "smoke_tests": {
+    "clean_install": "PASS",
+    "installed_display_version": "0.1.0-rc.2",
+    "installed_health": "PASS",
+    "installed_help": "PASS",
+    "repository_independent_import": "PASS"
+  },
+  "tag": "v0.1.0-rc.2",
+  "tests": {
+    "passed": 346,
+    "skipped": 1,
+    "status": "PASS"
+  },
+  "wheel": {
+    "filename": "siraj_os-0.1.0rc2-py3-none-any.whl",
+    "first_build_sha256": "08716aef6e1470543d753ec63d1808b38b658e8f3dbe4a02e47934f2f856c4a3",
+    "reproducible": true,
+    "second_build_sha256": "08716aef6e1470543d753ec63d1808b38b658e8f3dbe4a02e47934f2f856c4a3",
+    "sha256": "08716aef6e1470543d753ec63d1808b38b658e8f3dbe4a02e47934f2f856c4a3",
+    "size_bytes": 356393
+  }
+}

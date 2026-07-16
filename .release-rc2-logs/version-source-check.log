@@ -1,0 +1,9 @@
+COMMAND: ['C:\\Users\\abdul\\AppData\\Local\\Programs\\Python\\Python313\\python.exe', '-c', "import pathlib,tomllib;p=pathlib.Path('pyproject.toml');d=tomllib.loads(p.read_text(encoding='utf-8'));v=d['project']['version'];assert v=='0.1.0rc2',v;print(v)"]
+CWD: C:\SIRAJ\Repositories\siraj-os
+EXIT_CODE: 0
+
+STDOUT:
+0.1.0rc2
+
+
+STDERR:

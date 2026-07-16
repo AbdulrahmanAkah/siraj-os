@@ -1,4 +1,4 @@
-﻿import json
+import json
 from pathlib import Path
 import sqlite3
 
@@ -9,7 +9,7 @@ def test_compatibility_execute_still_returns_stable_json():
     payload = json.loads(execute("health", True))
 
     assert payload["status"] == "SUCCESS"
-    assert payload["version"] == "0.1.0-rc.1"
+    assert payload["version"] == "0.1.0-rc.2"
     assert payload["exit_code"] == EXIT_CODES["SUCCESS"]
 
 
