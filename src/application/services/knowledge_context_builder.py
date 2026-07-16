@@ -1,5 +1,5 @@
-from application.models.knowledge_context import KnowledgeContext
-from application.models.outline import Outline
+from src.application.models.knowledge_context import KnowledgeContext
+from src.application.models.outline import Outline
 
 
 class KnowledgeContextBuilder:
@@ -15,3 +15,5 @@ class KnowledgeContextBuilder:
 
 
 __all__ = ["KnowledgeContextBuilder"]
+
+

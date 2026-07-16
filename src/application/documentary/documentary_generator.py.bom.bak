@@ -1,0 +1,56 @@
+﻿from domain.knowledge_graph.knowledge_graph import KnowledgeGraph
+
+from application.documentary.documentary_outline import DocumentaryOutline
+
+
+class DocumentaryGenerator:
+
+    def generate(
+        self,
+        graph: KnowledgeGraph,
+        topic: str,
+    ) -> DocumentaryOutline:
+
+        people = [
+            n.data.get("name","")
+            for n in graph.get_nodes_by_type("PERSON")
+        ]
+
+        events = [
+            n.data.get("name","")
+            for n in graph.get_nodes_by_type("EVENT")
+        ]
+
+        timeline = [
+            n.data.get("title","")
+            for n in graph.get_nodes_by_type("TIMELINE_EVENT")
+        ]
+
+        claims = [
+            n.data.get("text","")
+            for n in graph.get_nodes_by_type("CLAIM")
+        ]
+
+        sections=[]
+
+        if people:
+            sections.append("الشخصيات")
+
+        if events:
+            sections.append("الأحداث")
+
+        if timeline:
+            sections.append("التسلسل الزمني")
+
+        if claims:
+            sections.append("الحقائق والاستنتاجات")
+
+        return DocumentaryOutline(
+            title=topic,
+            introduction=f"مقدمة عن {topic}",
+            sections=sections,
+            conclusion=f"خاتمة عن {topic}",
+        )
+
+
+__all__=["DocumentaryGenerator"]

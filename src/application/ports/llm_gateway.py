@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
-from application.models.prompt import Prompt
-from application.models.script import Script
+from src.application.models.prompt import Prompt
+from src.application.models.script import Script
 
 
 class LLMGateway(ABC):
@@ -14,3 +14,5 @@ class LLMGateway(ABC):
 
 
 __all__ = ["LLMGateway"]
+
+

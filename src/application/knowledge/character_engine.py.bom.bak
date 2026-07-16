@@ -1,0 +1,37 @@
+﻿from dataclasses import dataclass
+
+@dataclass
+class CharacterProfile:
+
+    name:str
+    aliases:list[str]
+    description:str
+
+class CharacterEngine:
+
+    def build(self,graph):
+
+        node_types=getattr(graph.index,"nodes_by_type",{})
+
+        chars=[]
+
+        for node in node_types.get("PERSON",[]):
+
+            d=node.data
+
+            if isinstance(d,dict):
+                chars.append(CharacterProfile(
+                    name=d.get("name",""),
+                    aliases=d.get("aliases",[]),
+                    description=d.get("description","")
+                ))
+            else:
+                chars.append(CharacterProfile(
+                    name=getattr(d,"name",""),
+                    aliases=getattr(d,"aliases",[]),
+                    description=getattr(d,"description","")
+                ))
+
+        return chars
+
+__all__=["CharacterProfile","CharacterEngine"]

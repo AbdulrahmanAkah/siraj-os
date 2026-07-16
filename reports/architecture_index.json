@@ -1,0 +1,806 @@
+{
+    "src.__init__": {
+        "layer": "unknown",
+        "path": "src/__init__.py"
+    },
+    "src.application.artifacts.artifact": {
+        "layer": "application",
+        "path": "src/application/artifacts/artifact.py"
+    },
+    "src.application.artifacts.artifact_store": {
+        "layer": "application",
+        "path": "src/application/artifacts/artifact_store.py"
+    },
+    "src.application.config.environment_loader": {
+        "layer": "application",
+        "path": "src/application/config/environment_loader.py"
+    },
+    "src.application.config.settings": {
+        "layer": "application",
+        "path": "src/application/config/settings.py"
+    },
+    "src.application.documentary.documentary_generator": {
+        "layer": "application",
+        "path": "src/application/documentary/documentary_generator.py"
+    },
+    "src.application.documentary.documentary_script": {
+        "layer": "application",
+        "path": "src/application/documentary/documentary_script.py"
+    },
+    "src.application.documentary.knowledge_outline_builder": {
+        "layer": "application",
+        "path": "src/application/documentary/knowledge_outline_builder.py"
+    },
+    "src.application.image.image_prompt": {
+        "layer": "application",
+        "path": "src/application/image/image_prompt.py"
+    },
+    "src.application.image.image_prompt_generator": {
+        "layer": "application",
+        "path": "src/application/image/image_prompt_generator.py"
+    },
+    "src.application.knowledge.alias_dictionary": {
+        "layer": "application",
+        "path": "src/application/knowledge/alias_dictionary.py"
+    },
+    "src.application.knowledge.base_extractor": {
+        "layer": "application",
+        "path": "src/application/knowledge/base_extractor.py"
+    },
+    "src.application.knowledge.candidate_models": {
+        "layer": "application",
+        "path": "src/application/knowledge/candidate_models.py"
+    },
+    "src.application.knowledge.canonical_aliases": {
+        "layer": "application",
+        "path": "src/application/knowledge/canonical_aliases.py"
+    },
+    "src.application.knowledge.canonicalizer": {
+        "layer": "application",
+        "path": "src/application/knowledge/canonicalizer.py"
+    },
+    "src.application.knowledge.character_engine": {
+        "layer": "application",
+        "path": "src/application/knowledge/character_engine.py"
+    },
+    "src.application.knowledge.chunk_builder": {
+        "layer": "application",
+        "path": "src/application/knowledge/chunk_builder.py"
+    },
+    "src.application.knowledge.citation_engine": {
+        "layer": "application",
+        "path": "src/application/knowledge/citation_engine.py"
+    },
+    "src.application.knowledge.claim_extractor": {
+        "layer": "application",
+        "path": "src/application/knowledge/claim_extractor.py"
+    },
+    "src.application.knowledge.claim_filter": {
+        "layer": "application",
+        "path": "src/application/knowledge/claim_filter.py"
+    },
+    "src.application.knowledge.confidence_engine": {
+        "layer": "application",
+        "path": "src/application/knowledge/confidence_engine.py"
+    },
+    "src.application.knowledge.context_builder": {
+        "layer": "application",
+        "path": "src/application/knowledge/context_builder.py"
+    },
+    "src.application.knowledge.document_parser": {
+        "layer": "application",
+        "path": "src/application/knowledge/document_parser.py"
+    },
+    "src.application.knowledge.entity_canonicalizer": {
+        "layer": "application",
+        "path": "src/application/knowledge/entity_canonicalizer.py"
+    },
+    "src.application.knowledge.entity_filter": {
+        "layer": "application",
+        "path": "src/application/knowledge/entity_filter.py"
+    },
+    "src.application.knowledge.entity_normalizer": {
+        "layer": "application",
+        "path": "src/application/knowledge/entity_normalizer.py"
+    },
+    "src.application.knowledge.entity_resolver": {
+        "layer": "application",
+        "path": "src/application/knowledge/entity_resolver.py"
+    },
+    "src.application.knowledge.event_canonicalizer": {
+        "layer": "application",
+        "path": "src/application/knowledge/event_canonicalizer.py"
+    },
+    "src.application.knowledge.event_filter": {
+        "layer": "application",
+        "path": "src/application/knowledge/event_filter.py"
+    },
+    "src.application.knowledge.evidence_extractor": {
+        "layer": "application",
+        "path": "src/application/knowledge/evidence_extractor.py"
+    },
+    "src.application.knowledge.extraction_pipeline": {
+        "layer": "application",
+        "path": "src/application/knowledge/extraction_pipeline.py"
+    },
+    "src.application.knowledge.extraction_result": {
+        "layer": "application",
+        "path": "src/application/knowledge/extraction_result.py"
+    },
+    "src.application.knowledge.fact_verification_engine": {
+        "layer": "application",
+        "path": "src/application/knowledge/fact_verification_engine.py"
+    },
+    "src.application.knowledge.graph_builder": {
+        "layer": "application",
+        "path": "src/application/knowledge/graph_builder.py"
+    },
+    "src.application.knowledge.graph_merger": {
+        "layer": "application",
+        "path": "src/application/knowledge/graph_merger.py"
+    },
+    "src.application.knowledge.graph_normalizer": {
+        "layer": "application",
+        "path": "src/application/knowledge/graph_normalizer.py"
+    },
+    "src.application.knowledge.graph_query": {
+        "layer": "application",
+        "path": "src/application/knowledge/graph_query.py"
+    },
+    "src.application.knowledge.graph_validator": {
+        "layer": "application",
+        "path": "src/application/knowledge/graph_validator.py"
+    },
+    "src.application.knowledge.knowledge_extractor": {
+        "layer": "application",
+        "path": "src/application/knowledge/knowledge_extractor.py"
+    },
+    "src.application.knowledge.knowledge_graph_builder": {
+        "layer": "application",
+        "path": "src/application/knowledge/knowledge_graph_builder.py"
+    },
+    "src.application.knowledge.knowledge_normalizer": {
+        "layer": "application",
+        "path": "src/application/knowledge/knowledge_normalizer.py"
+    },
+    "src.application.knowledge.knowledge_parser": {
+        "layer": "application",
+        "path": "src/application/knowledge/knowledge_parser.py"
+    },
+    "src.application.knowledge.knowledge_quality_engine": {
+        "layer": "application",
+        "path": "src/application/knowledge/knowledge_quality_engine.py"
+    },
+    "src.application.knowledge.knowledge_repository": {
+        "layer": "application",
+        "path": "src/application/knowledge/knowledge_repository.py"
+    },
+    "src.application.knowledge.knowledge_validator": {
+        "layer": "application",
+        "path": "src/application/knowledge/knowledge_validator.py"
+    },
+    "src.application.knowledge.location_extractor": {
+        "layer": "application",
+        "path": "src/application/knowledge/location_extractor.py"
+    },
+    "src.application.knowledge.name_normalizer": {
+        "layer": "application",
+        "path": "src/application/knowledge/name_normalizer.py"
+    },
+    "src.application.knowledge.normalization_rules": {
+        "layer": "application",
+        "path": "src/application/knowledge/normalization_rules.py"
+    },
+    "src.application.knowledge.object_collector": {
+        "layer": "application",
+        "path": "src/application/knowledge/object_collector.py"
+    },
+    "src.application.knowledge.object_mapper": {
+        "layer": "application",
+        "path": "src/application/knowledge/object_mapper.py"
+    },
+    "src.application.knowledge.object_merger": {
+        "layer": "application",
+        "path": "src/application/knowledge/object_merger.py"
+    },
+    "src.application.knowledge.quality_engine": {
+        "layer": "application",
+        "path": "src/application/knowledge/quality_engine.py"
+    },
+    "src.application.knowledge.relationship_engine": {
+        "layer": "application",
+        "path": "src/application/knowledge/relationship_engine.py"
+    },
+    "src.application.knowledge.relationship_extractor": {
+        "layer": "application",
+        "path": "src/application/knowledge/relationship_extractor.py"
+    },
+    "src.application.knowledge.relationship_filter": {
+        "layer": "application",
+        "path": "src/application/knowledge/relationship_filter.py"
+    },
+    "src.application.knowledge.relationship_normalizer": {
+        "layer": "application",
+        "path": "src/application/knowledge/relationship_normalizer.py"
+    },
+    "src.application.knowledge.relationship_resolver": {
+        "layer": "application",
+        "path": "src/application/knowledge/relationship_resolver.py"
+    },
+    "src.application.knowledge.rule_engine": {
+        "layer": "application",
+        "path": "src/application/knowledge/rule_engine.py"
+    },
+    "src.application.knowledge.source_filter": {
+        "layer": "application",
+        "path": "src/application/knowledge/source_filter.py"
+    },
+    "src.application.knowledge.source_ranking_engine": {
+        "layer": "application",
+        "path": "src/application/knowledge/source_ranking_engine.py"
+    },
+    "src.application.knowledge.text_normalizer": {
+        "layer": "application",
+        "path": "src/application/knowledge/text_normalizer.py"
+    },
+    "src.application.knowledge.timeline_engine": {
+        "layer": "application",
+        "path": "src/application/knowledge/timeline_engine.py"
+    },
+    "src.application.knowledge.utils.model_factory": {
+        "layer": "application",
+        "path": "src/application/knowledge/utils/model_factory.py"
+    },
+    "src.application.knowledge_v2.entity_extractor": {
+        "layer": "application",
+        "path": "src/application/knowledge_v2/entity_extractor.py"
+    },
+    "src.application.knowledge_v2.event_extractor": {
+        "layer": "application",
+        "path": "src/application/knowledge_v2/event_extractor.py"
+    },
+    "src.application.knowledge_v2.fact_extractor": {
+        "layer": "application",
+        "path": "src/application/knowledge_v2/fact_extractor.py"
+    },
+    "src.application.knowledge_v2.knowledge_extraction_engine": {
+        "layer": "application",
+        "path": "src/application/knowledge_v2/knowledge_extraction_engine.py"
+    },
+    "src.application.knowledge_v2.pipeline": {
+        "layer": "application",
+        "path": "src/application/knowledge_v2/pipeline.py"
+    },
+    "src.application.knowledge_v2.relation_extractor": {
+        "layer": "application",
+        "path": "src/application/knowledge_v2/relation_extractor.py"
+    },
+    "src.application.knowledge_v2.source_extractor": {
+        "layer": "application",
+        "path": "src/application/knowledge_v2/source_extractor.py"
+    },
+    "src.application.knowledge_v2.timeline_extractor": {
+        "layer": "application",
+        "path": "src/application/knowledge_v2/timeline_extractor.py"
+    },
+    "src.application.llm.core.fake_gateway": {
+        "layer": "application",
+        "path": "src/application/llm/core/fake_gateway.py"
+    },
+    "src.application.llm.core.llm_request": {
+        "layer": "application",
+        "path": "src/application/llm/core/llm_request.py"
+    },
+    "src.application.llm.core.llm_response": {
+        "layer": "application",
+        "path": "src/application/llm/core/llm_response.py"
+    },
+    "src.application.llm.providers.gemini_gateway": {
+        "layer": "application",
+        "path": "src/application/llm/providers/gemini_gateway.py"
+    },
+    "src.application.llm.providers.manual_gateway": {
+        "layer": "application",
+        "path": "src/application/llm/providers/manual_gateway.py"
+    },
+    "src.application.llm.providers.openai_gateway": {
+        "layer": "application",
+        "path": "src/application/llm/providers/openai_gateway.py"
+    },
+    "src.application.models.chunk": {
+        "layer": "application",
+        "path": "src/application/models/chunk.py"
+    },
+    "src.application.models.content_specification": {
+        "layer": "application",
+        "path": "src/application/models/content_specification.py"
+    },
+    "src.application.models.document": {
+        "layer": "application",
+        "path": "src/application/models/document.py"
+    },
+    "src.application.models.documentary.outline": {
+        "layer": "application",
+        "path": "src/application/models/documentary/outline.py"
+    },
+    "src.application.models.documentary.script": {
+        "layer": "application",
+        "path": "src/application/models/documentary/script.py"
+    },
+    "src.application.models.extraction_object": {
+        "layer": "application",
+        "path": "src/application/models/extraction_object.py"
+    },
+    "src.application.models.knowledge.claim_candidate": {
+        "layer": "application",
+        "path": "src/application/models/knowledge/claim_candidate.py"
+    },
+    "src.application.models.knowledge.entity_candidate": {
+        "layer": "application",
+        "path": "src/application/models/knowledge/entity_candidate.py"
+    },
+    "src.application.models.knowledge.event_candidate": {
+        "layer": "application",
+        "path": "src/application/models/knowledge/event_candidate.py"
+    },
+    "src.application.models.knowledge.evidence_candidate": {
+        "layer": "application",
+        "path": "src/application/models/knowledge/evidence_candidate.py"
+    },
+    "src.application.models.knowledge.extraction_context": {
+        "layer": "application",
+        "path": "src/application/models/knowledge/extraction_context.py"
+    },
+    "src.application.models.knowledge.extraction_statistics": {
+        "layer": "application",
+        "path": "src/application/models/knowledge/extraction_statistics.py"
+    },
+    "src.application.models.knowledge.important_typed_claim": {
+        "layer": "application",
+        "path": "src/application/models/knowledge/important_typed_claim.py"
+    },
+    "src.application.models.knowledge.knowledge_chunk": {
+        "layer": "application",
+        "path": "src/application/models/knowledge/knowledge_chunk.py"
+    },
+    "src.application.models.knowledge.location_candidate": {
+        "layer": "application",
+        "path": "src/application/models/knowledge/location_candidate.py"
+    },
+    "src.application.models.knowledge.normalized_knowledge": {
+        "layer": "application",
+        "path": "src/application/models/knowledge/normalized_knowledge.py"
+    },
+    "src.application.models.knowledge.prioritized_knowledge": {
+        "layer": "application",
+        "path": "src/application/models/knowledge/prioritized_knowledge.py"
+    },
+    "src.application.models.knowledge.relationship_candidate": {
+        "layer": "application",
+        "path": "src/application/models/knowledge/relationship_candidate.py"
+    },
+    "src.application.models.knowledge.source_candidate": {
+        "layer": "application",
+        "path": "src/application/models/knowledge/source_candidate.py"
+    },
+    "src.application.models.knowledge.source_reference": {
+        "layer": "application",
+        "path": "src/application/models/knowledge/source_reference.py"
+    },
+    "src.application.models.knowledge.typed_claim": {
+        "layer": "application",
+        "path": "src/application/models/knowledge/typed_claim.py"
+    },
+    "src.application.models.knowledge.validated_knowledge": {
+        "layer": "application",
+        "path": "src/application/models/knowledge/validated_knowledge.py"
+    },
+    "src.application.models.knowledge_context": {
+        "layer": "application",
+        "path": "src/application/models/knowledge_context.py"
+    },
+    "src.application.models.narrative_plan": {
+        "layer": "application",
+        "path": "src/application/models/narrative_plan.py"
+    },
+    "src.application.models.organized_knowledge": {
+        "layer": "application",
+        "path": "src/application/models/organized_knowledge.py"
+    },
+    "src.application.models.outline": {
+        "layer": "application",
+        "path": "src/application/models/outline.py"
+    },
+    "src.application.models.prompt": {
+        "layer": "application",
+        "path": "src/application/models/prompt.py"
+    },
+    "src.application.models.script": {
+        "layer": "application",
+        "path": "src/application/models/script.py"
+    },
+    "src.application.models.script_structure": {
+        "layer": "application",
+        "path": "src/application/models/script_structure.py"
+    },
+    "src.application.narrative.narrative_builder": {
+        "layer": "application",
+        "path": "src/application/narrative/narrative_builder.py"
+    },
+    "src.application.pipeline.production_pipeline": {
+        "layer": "application",
+        "path": "src/application/pipeline/production_pipeline.py"
+    },
+    "src.application.planning.scene_plan": {
+        "layer": "application",
+        "path": "src/application/planning/scene_plan.py"
+    },
+    "src.application.ports.llm_gateway": {
+        "layer": "application",
+        "path": "src/application/ports/llm_gateway.py"
+    },
+    "src.application.scene.scene": {
+        "layer": "application",
+        "path": "src/application/scene/scene.py"
+    },
+    "src.application.scene_generation.scene_generator": {
+        "layer": "application",
+        "path": "src/application/scene_generation/scene_generator.py"
+    },
+    "src.application.script.script_generator": {
+        "layer": "application",
+        "path": "src/application/script/script_generator.py"
+    },
+    "src.application.services.generation_service": {
+        "layer": "application",
+        "path": "src/application/services/generation_service.py"
+    },
+    "src.application.services.knowledge_context_builder": {
+        "layer": "application",
+        "path": "src/application/services/knowledge_context_builder.py"
+    },
+    "src.application.services.knowledge_organizer": {
+        "layer": "application",
+        "path": "src/application/services/knowledge_organizer.py"
+    },
+    "src.application.services.knowledge_service": {
+        "layer": "application",
+        "path": "src/application/services/knowledge_service.py"
+    },
+    "src.application.services.narrative_formatter": {
+        "layer": "application",
+        "path": "src/application/services/narrative_formatter.py"
+    },
+    "src.application.services.narrative_planner": {
+        "layer": "application",
+        "path": "src/application/services/narrative_planner.py"
+    },
+    "src.application.services.prompt_builder": {
+        "layer": "application",
+        "path": "src/application/services/prompt_builder.py"
+    },
+    "src.application.services.script_structure_builder": {
+        "layer": "application",
+        "path": "src/application/services/script_structure_builder.py"
+    },
+    "src.application.services.siraj_engine": {
+        "layer": "application",
+        "path": "src/application/services/siraj_engine.py"
+    },
+    "src.application.workflow.documentary_workflow": {
+        "layer": "application",
+        "path": "src/application/workflow/documentary_workflow.py"
+    },
+    "src.application.workflow.workflow_context": {
+        "layer": "application",
+        "path": "src/application/workflow/workflow_context.py"
+    },
+    "src.archive.legacy.domain.claims.claim": {
+        "layer": "unknown",
+        "path": "src/archive/legacy/domain/claims/claim.py"
+    },
+    "src.archive.legacy.domain.entities.__init__": {
+        "layer": "unknown",
+        "path": "src/archive/legacy/domain/entities/__init__.py"
+    },
+    "src.archive.legacy.domain.entities.entity": {
+        "layer": "unknown",
+        "path": "src/archive/legacy/domain/entities/entity.py"
+    },
+    "src.archive.legacy.domain.relationships.relationship": {
+        "layer": "unknown",
+        "path": "src/archive/legacy/domain/relationships/relationship.py"
+    },
+    "src.archive.legacy.domain.sources.source": {
+        "layer": "unknown",
+        "path": "src/archive/legacy/domain/sources/source.py"
+    },
+    "src.cli.generate": {
+        "layer": "cli",
+        "path": "src/cli/generate.py"
+    },
+    "src.core.entities": {
+        "layer": "core",
+        "path": "src/core/entities.py"
+    },
+    "src.core.knowledge_asset": {
+        "layer": "core",
+        "path": "src/core/knowledge_asset.py"
+    },
+    "src.core.knowledge_engine": {
+        "layer": "core",
+        "path": "src/core/knowledge_engine.py"
+    },
+    "src.core.repositories.entity_repository": {
+        "layer": "core",
+        "path": "src/core/repositories/entity_repository.py"
+    },
+    "src.core.storage.json_storage": {
+        "layer": "core",
+        "path": "src/core/storage/json_storage.py"
+    },
+    "src.domain.knowledge_graph.graph_index": {
+        "layer": "domain",
+        "path": "src/domain/knowledge_graph/graph_index.py"
+    },
+    "src.domain.knowledge_graph.graph_resolver": {
+        "layer": "domain",
+        "path": "src/domain/knowledge_graph/graph_resolver.py"
+    },
+    "src.domain.knowledge_graph.knowledge_edge": {
+        "layer": "domain",
+        "path": "src/domain/knowledge_graph/knowledge_edge.py"
+    },
+    "src.domain.knowledge_graph.knowledge_graph": {
+        "layer": "domain",
+        "path": "src/domain/knowledge_graph/knowledge_graph.py"
+    },
+    "src.domain.knowledge_graph.knowledge_graph_query": {
+        "layer": "domain",
+        "path": "src/domain/knowledge_graph/knowledge_graph_query.py"
+    },
+    "src.domain.knowledge_graph.knowledge_node": {
+        "layer": "domain",
+        "path": "src/domain/knowledge_graph/knowledge_node.py"
+    },
+    "src.domain.knowledge_objects.claim": {
+        "layer": "domain",
+        "path": "src/domain/knowledge_objects/claim.py"
+    },
+    "src.domain.knowledge_objects.document": {
+        "layer": "domain",
+        "path": "src/domain/knowledge_objects/document.py"
+    },
+    "src.domain.knowledge_objects.document_context": {
+        "layer": "domain",
+        "path": "src/domain/knowledge_objects/document_context.py"
+    },
+    "src.domain.knowledge_objects.entity": {
+        "layer": "domain",
+        "path": "src/domain/knowledge_objects/entity.py"
+    },
+    "src.domain.knowledge_objects.event": {
+        "layer": "domain",
+        "path": "src/domain/knowledge_objects/event.py"
+    },
+    "src.domain.knowledge_objects.knowledge_object": {
+        "layer": "domain",
+        "path": "src/domain/knowledge_objects/knowledge_object.py"
+    },
+    "src.domain.knowledge_objects.knowledge_object_type": {
+        "layer": "domain",
+        "path": "src/domain/knowledge_objects/knowledge_object_type.py"
+    },
+    "src.domain.knowledge_objects.location": {
+        "layer": "domain",
+        "path": "src/domain/knowledge_objects/location.py"
+    },
+    "src.domain.knowledge_objects.paragraph": {
+        "layer": "domain",
+        "path": "src/domain/knowledge_objects/paragraph.py"
+    },
+    "src.domain.knowledge_objects.person": {
+        "layer": "domain",
+        "path": "src/domain/knowledge_objects/person.py"
+    },
+    "src.domain.knowledge_objects.relationship": {
+        "layer": "domain",
+        "path": "src/domain/knowledge_objects/relationship.py"
+    },
+    "src.domain.knowledge_objects.sentence": {
+        "layer": "domain",
+        "path": "src/domain/knowledge_objects/sentence.py"
+    },
+    "src.domain.knowledge_objects.source": {
+        "layer": "domain",
+        "path": "src/domain/knowledge_objects/source.py"
+    },
+    "src.domain.knowledge_objects.source_reference": {
+        "layer": "domain",
+        "path": "src/domain/knowledge_objects/source_reference.py"
+    },
+    "src.domain.knowledge_objects.statistic": {
+        "layer": "domain",
+        "path": "src/domain/knowledge_objects/statistic.py"
+    },
+    "src.domain.knowledge_objects.timeline_event": {
+        "layer": "domain",
+        "path": "src/domain/knowledge_objects/timeline_event.py"
+    },
+    "src.domain.repositories.entity_repository": {
+        "layer": "domain",
+        "path": "src/domain/repositories/entity_repository.py"
+    },
+    "src.domain.services.entity_resolver": {
+        "layer": "domain",
+        "path": "src/domain/services/entity_resolver.py"
+    },
+    "src.domain.services.merge_rules": {
+        "layer": "domain",
+        "path": "src/domain/services/merge_rules.py"
+    },
+    "src.infrastructure.llm.mock_llm_provider": {
+        "layer": "infrastructure",
+        "path": "src/infrastructure/llm/mock_llm_provider.py"
+    },
+    "src.infrastructure.storage.json_storage": {
+        "layer": "infrastructure",
+        "path": "src/infrastructure/storage/json_storage.py"
+    },
+    "src.main": {
+        "layer": "unknown",
+        "path": "src/main.py"
+    },
+    "src.test_artifact_store": {
+        "layer": "unknown",
+        "path": "src/test_artifact_store.py"
+    },
+    "src.test_claim": {
+        "layer": "unknown",
+        "path": "src/test_claim.py"
+    },
+    "src.test_document_parser_v2": {
+        "layer": "unknown",
+        "path": "src/test_document_parser_v2.py"
+    },
+    "src.test_documentary_generator": {
+        "layer": "unknown",
+        "path": "src/test_documentary_generator.py"
+    },
+    "src.test_documentary_outline": {
+        "layer": "unknown",
+        "path": "src/test_documentary_outline.py"
+    },
+    "src.test_extraction_object": {
+        "layer": "unknown",
+        "path": "src/test_extraction_object.py"
+    },
+    "src.test_extraction_pipeline_v2": {
+        "layer": "unknown",
+        "path": "src/test_extraction_pipeline_v2.py"
+    },
+    "src.test_extraction_pipeline_v3": {
+        "layer": "unknown",
+        "path": "src/test_extraction_pipeline_v3.py"
+    },
+    "src.test_gemini_gateway": {
+        "layer": "unknown",
+        "path": "src/test_gemini_gateway.py"
+    },
+    "src.test_graph_index": {
+        "layer": "unknown",
+        "path": "src/test_graph_index.py"
+    },
+    "src.test_graph_queries": {
+        "layer": "unknown",
+        "path": "src/test_graph_queries.py"
+    },
+    "src.test_graph_query": {
+        "layer": "unknown",
+        "path": "src/test_graph_query.py"
+    },
+    "src.test_knowledge_asset": {
+        "layer": "unknown",
+        "path": "src/test_knowledge_asset.py"
+    },
+    "src.test_knowledge_asset_behavior": {
+        "layer": "unknown",
+        "path": "src/test_knowledge_asset_behavior.py"
+    },
+    "src.test_knowledge_asset_validation": {
+        "layer": "unknown",
+        "path": "src/test_knowledge_asset_validation.py"
+    },
+    "src.test_knowledge_edge": {
+        "layer": "unknown",
+        "path": "src/test_knowledge_edge.py"
+    },
+    "src.test_knowledge_extraction_v2": {
+        "layer": "unknown",
+        "path": "src/test_knowledge_extraction_v2.py"
+    },
+    "src.test_knowledge_graph": {
+        "layer": "unknown",
+        "path": "src/test_knowledge_graph.py"
+    },
+    "src.test_knowledge_graph_query": {
+        "layer": "unknown",
+        "path": "src/test_knowledge_graph_query.py"
+    },
+    "src.test_knowledge_node": {
+        "layer": "unknown",
+        "path": "src/test_knowledge_node.py"
+    },
+    "src.test_llm_gateway": {
+        "layer": "unknown",
+        "path": "src/test_llm_gateway.py"
+    },
+    "src.test_object_mapper_v2": {
+        "layer": "unknown",
+        "path": "src/test_object_mapper_v2.py"
+    },
+    "src.test_openai_gateway": {
+        "layer": "unknown",
+        "path": "src/test_openai_gateway.py"
+    },
+    "src.test_person_object": {
+        "layer": "unknown",
+        "path": "src/test_person_object.py"
+    },
+    "src.test_pipeline_objects_v2": {
+        "layer": "unknown",
+        "path": "src/test_pipeline_objects_v2.py"
+    },
+    "src.test_prompt": {
+        "layer": "unknown",
+        "path": "src/test_prompt.py"
+    },
+    "src.test_quality_metadata_v2": {
+        "layer": "unknown",
+        "path": "src/test_quality_metadata_v2.py"
+    },
+    "src.test_quality_pipeline_v2": {
+        "layer": "unknown",
+        "path": "src/test_quality_pipeline_v2.py"
+    },
+    "src.test_relationship": {
+        "layer": "unknown",
+        "path": "src/test_relationship.py"
+    },
+    "src.test_relationship_object": {
+        "layer": "unknown",
+        "path": "src/test_relationship_object.py"
+    },
+    "src.test_rule_engine_v2": {
+        "layer": "unknown",
+        "path": "src/test_rule_engine_v2.py"
+    },
+    "src.test_scene_planner": {
+        "layer": "unknown",
+        "path": "src/test_scene_planner.py"
+    },
+    "src.test_script_model": {
+        "layer": "unknown",
+        "path": "src/test_script_model.py"
+    },
+    "src.test_settings": {
+        "layer": "unknown",
+        "path": "src/test_settings.py"
+    },
+    "src.test_source": {
+        "layer": "unknown",
+        "path": "src/test_source.py"
+    },
+    "src.test_statistic_object": {
+        "layer": "unknown",
+        "path": "src/test_statistic_object.py"
+    },
+    "src.test_timeline_event": {
+        "layer": "unknown",
+        "path": "src/test_timeline_event.py"
+    },
+    "src.test_workflow_context": {
+        "layer": "unknown",
+        "path": "src/test_workflow_context.py"
+    }
+}

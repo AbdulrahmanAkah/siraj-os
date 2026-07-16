@@ -1,4 +1,4 @@
-from application.models.prompt import Prompt
+from src.application.models.prompt import Prompt
 
 prompt = Prompt(
     system_prompt="You are an expert documentary writer.",
@@ -8,3 +8,5 @@ prompt = Prompt(
 )
 
 print(prompt.to_dict())
+
+

@@ -1,5 +1,5 @@
-from application.models.organized_knowledge import OrganizedKnowledge
-from application.models.narrative_plan import NarrativePlan
+from src.application.models.organized_knowledge import OrganizedKnowledge
+from src.application.models.narrative_plan import NarrativePlan
 
 
 class NarrativePlanner:
@@ -21,3 +21,5 @@ class NarrativePlanner:
 
 
 __all__ = ["NarrativePlanner"]
+
+

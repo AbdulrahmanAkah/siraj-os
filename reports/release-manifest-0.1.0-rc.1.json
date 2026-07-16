@@ -1,0 +1,66 @@
+{
+  "release_id": "siraj-0.1.0-rc.1",
+  "selected_version": "0.1.0-rc.1",
+  "package_version_pep440": "0.1.0rc1",
+  "decision": "READY",
+  "artifacts": [
+    {
+      "name": "siraj_os-0.1.0rc1-py3-none-any.whl",
+      "type": "WHEEL",
+      "size_bytes": 319586,
+      "sha256": "c13c03165f0842f4033f588cb3ceb85870de8496e563de8e7ffdd6b9f2454cb4",
+      "inspection_status": "PASS",
+      "clean_install_status": "PASS"
+    },
+    {
+      "name": "siraj_os-0.1.0rc1.tar.gz",
+      "type": "SOURCE_DISTRIBUTION",
+      "size_bytes": 171136,
+      "sha256": "77b6350dec59ce10b5556144658603bcd5e17f0282fe3f316977e3cc68784064",
+      "inspection_status": "PASS",
+      "clean_install_status": "PASS"
+    }
+  ],
+  "gates": {
+    "wheel_build": "PASS",
+    "source_distribution_build": "PASS",
+    "artifact_inspection": "PASS",
+    "checksum_verification": "PASS",
+    "wheel_clean_install": "PASS",
+    "source_distribution_clean_install": "PASS",
+    "focused_rc_hardening_phase3_tests": "PASS: 5 passed",
+    "full_pytest_suite": "PASS: 280 passed, 1 external test skipped",
+    "cli_smoke_test": "PASS",
+    "git_diff_check": "PASS",
+    "sqlite_lifecycle": "PASS",
+    "migration_recovery_drill": "PASS",
+    "export_lifecycle": "PASS",
+    "renderer_dry_run": "PASS",
+    "adapter_boundary_scan": "PASS",
+    "recorded_provider_harness": "PASS",
+    "golden_dataset_validation": "PASS",
+    "external_network_default_tests": "PASS: no provider network execution",
+    "upgrade_migration_recovery": "PASS: rc-hardening-v1 to rc-hardening-v2 fixture",
+    "deterministic_soak": "PASS: 100 small workflow iterations",
+    "windows_clean_install": "PASS",
+    "support_policy": "READY: Windows only / Python 3.13",
+    "historical_packaged_upgrade": "PASS: v0.1.0-rc.1-hardened.1 commit 863ef50",
+    "minimum_python_boundary": "PASS: Python 3.13.14",
+    "linux_validation": "NOT_APPLICABLE: Linux is not claimed",
+    "cross_platform_matrix": "NOT_APPLICABLE: Windows-only support policy"
+  },
+  "blockers": [],
+  "limitations": [
+    "Linux support is deferred.",
+    "macOS is not supported.",
+    "Live provider execution remains opt-in and was not performed.",
+    "No full penetration-test or general crash-recovery guarantee is claimed."
+  ],
+  "support_policy": {
+    "operating_system": "Windows only",
+    "python": "3.13",
+    "tested_python": "3.13.14",
+    "linux": "deferred_not_supported",
+    "macos": "not_supported"
+  }
+}

@@ -1,0 +1,1316 @@
+{
+  "main": {
+    "reachable": true,
+    "root": true,
+    "imports": [
+      "application.services.knowledge_service",
+      "domain.entities.entity"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "test_artifact_store": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "application.artifacts.artifact",
+      "application.artifacts.artifact_store"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "test_claim": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "domain.claims.claim"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "test_documentary_generator": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "application.documentary.documentary_generator"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "test_documentary_outline": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "application.documentary.documentary_outline"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "test_extraction_object": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "application.models.extraction_object",
+      "domain.knowledge_objects.knowledge_object_type"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "test_gemini_gateway": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "application.llm.providers.gemini_gateway"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "test_graph_index": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "domain.knowledge_graph.graph_index",
+      "domain.knowledge_graph.knowledge_edge",
+      "domain.knowledge_graph.knowledge_graph",
+      "domain.knowledge_graph.knowledge_node"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "test_graph_queries": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "domain.knowledge_graph.knowledge_edge",
+      "domain.knowledge_graph.knowledge_graph",
+      "domain.knowledge_graph.knowledge_node"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "test_knowledge_asset": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "core.knowledge_asset"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "test_knowledge_asset_behavior": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "core.knowledge_asset",
+      "domain.entities.entity",
+      "domain.sources.source"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "test_knowledge_asset_validation": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "core.knowledge_asset",
+      "domain.entities.entity",
+      "domain.sources.source"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "test_knowledge_edge": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "domain.knowledge_graph.knowledge_edge"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "test_knowledge_graph": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "domain.knowledge_graph.knowledge_edge",
+      "domain.knowledge_graph.knowledge_graph",
+      "domain.knowledge_graph.knowledge_node"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "test_knowledge_graph_query": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "domain.knowledge_graph.knowledge_edge",
+      "domain.knowledge_graph.knowledge_graph",
+      "domain.knowledge_graph.knowledge_graph_query",
+      "domain.knowledge_graph.knowledge_node"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "test_knowledge_node": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "domain.knowledge_graph.knowledge_node"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "test_llm_gateway": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "application.llm.core.fake_gateway",
+      "application.llm.core.llm_request"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "test_openai_gateway": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "application.llm.providers.openai_gateway"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "test_person_object": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "domain.knowledge_objects.person"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "test_prompt": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "application.models.llm.prompt"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "test_relationship": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "domain.entities.entity",
+      "domain.relationships.relationship"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "test_relationship_object": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "domain.knowledge_objects.relationship"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "test_scene_planner": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "application.documentary.documentary_generator",
+      "application.planning.scene_planner"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "test_script_model": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "application.models.documentary.script"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "test_settings": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "application.config.settings"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "test_source": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "domain.sources.source"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "test_statistic_object": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "domain.knowledge_objects.statistic"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "test_timeline_event": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "application.models.documentary.timeline_event"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "test_workflow_context": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "application.workflow.workflow_context"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "__init__": {
+    "reachable": false,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "cli.generate": {
+    "reachable": true,
+    "root": true,
+    "imports": [
+      "application.pipeline.production_pipeline"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "core.entities": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "domain.entities.entity"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "core.knowledge_asset": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "domain.relationships.relationship"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "core.knowledge_engine": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "application.services.knowledge_service"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "infrastructure.llm.mock_llm_provider": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "application.models.prompt",
+      "application.models.script",
+      "application.ports.llm_gateway"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "domain.claims.claim": {
+    "reachable": false,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "domain.entities.entity": {
+    "reachable": true,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "domain.entities.__init__": {
+    "reachable": false,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "domain.knowledge_graph.graph_index": {
+    "reachable": true,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "domain.knowledge_graph.knowledge_edge": {
+    "reachable": true,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "domain.knowledge_graph.knowledge_graph": {
+    "reachable": true,
+    "root": false,
+    "imports": [
+      "domain.knowledge_graph.graph_index"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "domain.knowledge_graph.knowledge_graph_query": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "domain.knowledge_graph.knowledge_graph"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "domain.knowledge_graph.knowledge_node": {
+    "reachable": true,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "domain.knowledge_objects.claim": {
+    "reachable": true,
+    "root": false,
+    "imports": [
+      "domain.knowledge_objects.knowledge_object"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "domain.knowledge_objects.event": {
+    "reachable": true,
+    "root": false,
+    "imports": [
+      "domain.knowledge_objects.knowledge_object"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "domain.knowledge_objects.knowledge_object": {
+    "reachable": true,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "domain.knowledge_objects.knowledge_object_type": {
+    "reachable": false,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "domain.knowledge_objects.location": {
+    "reachable": true,
+    "root": false,
+    "imports": [
+      "domain.knowledge_objects.knowledge_object"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "domain.knowledge_objects.person": {
+    "reachable": true,
+    "root": false,
+    "imports": [
+      "domain.knowledge_objects.knowledge_object"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "domain.knowledge_objects.relationship": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "domain.knowledge_objects.knowledge_object"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "domain.knowledge_objects.source": {
+    "reachable": true,
+    "root": false,
+    "imports": [
+      "domain.knowledge_objects.knowledge_object"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "domain.knowledge_objects.statistic": {
+    "reachable": true,
+    "root": false,
+    "imports": [
+      "domain.knowledge_objects.knowledge_object"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "domain.knowledge_objects.timeline_event": {
+    "reachable": true,
+    "root": false,
+    "imports": [
+      "domain.knowledge_objects.knowledge_object"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "domain.relationships.relationship": {
+    "reachable": true,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "domain.sources.source": {
+    "reachable": false,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "core.repositories.entity_repository": {
+    "reachable": false,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "core.storage.json_storage": {
+    "reachable": false,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.artifacts.artifact": {
+    "reachable": true,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.artifacts.artifact_store": {
+    "reachable": true,
+    "root": false,
+    "imports": [
+      "application.artifacts.artifact"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.config.environment_loader": {
+    "reachable": true,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.config.settings": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "application.config.environment_loader"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.documentary.documentary_generator": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "application.documentary.documentary_outline",
+      "domain.knowledge_graph.knowledge_graph"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.documentary.documentary_outline": {
+    "reachable": false,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.documentary.documentary_script": {
+    "reachable": false,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.documentary.knowledge_outline_builder": {
+    "reachable": true,
+    "root": false,
+    "imports": [
+      "application.models.outline"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.image.image_prompt": {
+    "reachable": false,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.image.image_prompt_generator": {
+    "reachable": true,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.knowledge.character_engine": {
+    "reachable": true,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.knowledge.citation_engine": {
+    "reachable": true,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.knowledge.extraction_result": {
+    "reachable": true,
+    "root": false,
+    "imports": [
+      "domain.knowledge_objects.claim",
+      "domain.knowledge_objects.event",
+      "domain.knowledge_objects.location",
+      "domain.knowledge_objects.person",
+      "domain.knowledge_objects.source",
+      "domain.knowledge_objects.statistic",
+      "domain.knowledge_objects.timeline_event",
+      "domain.relationships.relationship"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.knowledge.fact_verification_engine": {
+    "reachable": true,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.knowledge.knowledge_extractor": {
+    "reachable": true,
+    "root": false,
+    "imports": [
+      "application.knowledge.extraction_result",
+      "application.knowledge.knowledge_parser",
+      "application.llm.core.llm_gateway",
+      "application.llm.core.llm_request"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.knowledge.knowledge_graph_builder": {
+    "reachable": true,
+    "root": false,
+    "imports": [
+      "domain.knowledge_graph.knowledge_edge",
+      "domain.knowledge_graph.knowledge_graph",
+      "domain.knowledge_graph.knowledge_node"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.knowledge.knowledge_parser": {
+    "reachable": true,
+    "root": false,
+    "imports": [
+      "application.knowledge.extraction_result",
+      "application.knowledge.utils.model_factory",
+      "domain.relationships.relationship"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.knowledge.knowledge_repository": {
+    "reachable": true,
+    "root": false,
+    "imports": [
+      "application.knowledge.extraction_result",
+      "application.knowledge.knowledge_extractor",
+      "application.knowledge.knowledge_graph_builder"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.knowledge.relationship_engine": {
+    "reachable": true,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.knowledge.source_ranking_engine": {
+    "reachable": true,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.knowledge.timeline_engine": {
+    "reachable": true,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.models.content_specification": {
+    "reachable": false,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.models.extraction_object": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "domain.knowledge_objects.knowledge_object_type"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.models.knowledge_context": {
+    "reachable": false,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.models.narrative_plan": {
+    "reachable": false,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.models.organized_knowledge": {
+    "reachable": false,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.models.outline": {
+    "reachable": true,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.models.prompt": {
+    "reachable": false,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.models.script": {
+    "reachable": false,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.models.script_structure": {
+    "reachable": false,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.narrative.narrative_builder": {
+    "reachable": true,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.pipeline.production_pipeline": {
+    "reachable": true,
+    "root": false,
+    "imports": [
+      "application.llm.providers.gemini_gateway",
+      "application.llm.providers.manual_gateway",
+      "application.llm.providers.openai_gateway",
+      "application.workflow.documentary_workflow"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.planning.scene_plan": {
+    "reachable": true,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.planning.scene_planner": {
+    "reachable": true,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.ports.llm_gateway": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "application.models.prompt",
+      "application.models.script"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.scene.scene": {
+    "reachable": true,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.scene_generation.scene_generator": {
+    "reachable": true,
+    "root": false,
+    "imports": [
+      "application.llm.core.llm_gateway",
+      "application.llm.core.llm_request",
+      "application.planning.scene_plan",
+      "application.scene.scene"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.script.script_generator": {
+    "reachable": true,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.services.generation_service": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "application.models.prompt",
+      "application.models.script",
+      "application.ports.llm_gateway"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.services.knowledge_context_builder": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "application.models.knowledge_context",
+      "application.models.outline"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.services.knowledge_organizer": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "application.models.knowledge_context",
+      "application.models.organized_knowledge",
+      "domain.relationships.relationship"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.services.knowledge_service": {
+    "reachable": true,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.services.narrative_builder": {
+    "reachable": false,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.services.narrative_planner": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "application.models.narrative_plan",
+      "application.models.organized_knowledge"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.services.prompt_builder": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "application.models.content_specification",
+      "application.models.narrative_plan",
+      "application.models.prompt"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.services.script_structure_builder": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "application.models.outline",
+      "application.models.script_structure"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.services.siraj_engine": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "application.models.outline",
+      "core.knowledge_asset"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.workflow.documentary_workflow": {
+    "reachable": true,
+    "root": true,
+    "imports": [
+      "application.artifacts.artifact",
+      "application.artifacts.artifact_store",
+      "application.documentary.knowledge_outline_builder",
+      "application.image.image_prompt_generator",
+      "application.knowledge.character_engine",
+      "application.knowledge.citation_engine",
+      "application.knowledge.fact_verification_engine",
+      "application.knowledge.knowledge_repository",
+      "application.knowledge.relationship_engine",
+      "application.knowledge.source_ranking_engine",
+      "application.knowledge.timeline_engine",
+      "application.narrative.narrative_builder",
+      "application.planning.scene_planner",
+      "application.scene_generation.scene_generator",
+      "application.script.script_generator",
+      "application.workflow.workflow_context"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.workflow.workflow_context": {
+    "reachable": true,
+    "root": true,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.models.documentary.script": {
+    "reachable": false,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.models.documentary.timeline_event": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "domain.knowledge_objects.knowledge_object"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.models.knowledge.important_typed_claim": {
+    "reachable": false,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.models.knowledge.prioritized_knowledge": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "application.models.knowledge.important_typed_claim"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.models.knowledge.typed_claim": {
+    "reachable": false,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.models.llm.prompt": {
+    "reachable": false,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.llm.core.fake_gateway": {
+    "reachable": false,
+    "root": false,
+    "imports": [
+      "application.llm.core.llm_gateway",
+      "application.llm.core.llm_request",
+      "application.llm.core.llm_response"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.llm.core.llm_gateway": {
+    "reachable": true,
+    "root": false,
+    "imports": [
+      "application.llm.core.llm_request",
+      "application.llm.core.llm_response"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.llm.core.llm_request": {
+    "reachable": true,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.llm.core.llm_response": {
+    "reachable": true,
+    "root": false,
+    "imports": [],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.llm.providers.gemini_gateway": {
+    "reachable": true,
+    "root": false,
+    "imports": [
+      "application.config.environment_loader",
+      "application.llm.core.llm_gateway",
+      "application.llm.core.llm_request",
+      "application.llm.core.llm_response"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.llm.providers.manual_gateway": {
+    "reachable": true,
+    "root": false,
+    "imports": [
+      "application.llm.core.llm_gateway",
+      "application.llm.core.llm_request",
+      "application.llm.core.llm_response"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.llm.providers.openai_gateway": {
+    "reachable": true,
+    "root": false,
+    "imports": [
+      "application.config.environment_loader",
+      "application.llm.core.llm_gateway",
+      "application.llm.core.llm_request",
+      "application.llm.core.llm_response"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  },
+  "application.knowledge.utils.model_factory": {
+    "reachable": true,
+    "root": false,
+    "imports": [
+      "domain.knowledge_objects.claim",
+      "domain.knowledge_objects.event",
+      "domain.knowledge_objects.location",
+      "domain.knowledge_objects.person",
+      "domain.knowledge_objects.source",
+      "domain.knowledge_objects.statistic",
+      "domain.knowledge_objects.timeline_event"
+    ],
+    "calls": [],
+    "called_by": [],
+    "fan_out": 0,
+    "fan_in": 0
+  }
+}

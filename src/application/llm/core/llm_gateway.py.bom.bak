@@ -1,0 +1,17 @@
+﻿from abc import ABC, abstractmethod
+
+from application.llm.core.llm_request import LLMRequest
+from application.llm.core.llm_response import LLMResponse
+
+
+class LLMGateway(ABC):
+
+    @abstractmethod
+    def generate(
+        self,
+        request: LLMRequest,
+    ) -> LLMResponse:
+        pass
+
+
+__all__ = ["LLMGateway"]

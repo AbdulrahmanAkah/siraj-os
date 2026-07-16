@@ -1,0 +1,37 @@
+﻿from domain.knowledge_graph.knowledge_graph import KnowledgeGraph
+from domain.knowledge_graph.knowledge_node import KnowledgeNode
+from domain.knowledge_graph.knowledge_edge import KnowledgeEdge
+
+graph = KnowledgeGraph()
+
+graph.add_node(
+    KnowledgeNode(
+        id="person:muhammad",
+        type="PERSON",
+        data={"name":"Muhammad"}
+    )
+)
+
+graph.add_node(
+    KnowledgeNode(
+        id="event:badr",
+        type="EVENT",
+        data={"title":"Battle of Badr"}
+    )
+)
+
+graph.add_edge(
+    KnowledgeEdge(
+        source="person:muhammad",
+        target="event:badr",
+        relation="participated_in"
+    )
+)
+
+assert graph.get_node("person:muhammad").data["name"] == "Muhammad"
+assert len(graph.get_nodes_by_type("PERSON")) == 1
+assert len(graph.outgoing("person:muhammad")) == 1
+assert len(graph.incoming("event:badr")) == 1
+
+print(graph.to_dict())
+print("KnowledgeGraph OK")

@@ -24,3 +24,5 @@ class NarrativePlan:
 
 
 __all__ = ["NarrativePlan"]
+
+

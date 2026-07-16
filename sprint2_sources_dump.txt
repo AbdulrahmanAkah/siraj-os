@@ -1,0 +1,444 @@
+========================================================================================================================
+src\application\knowledge\extractors\entity_extractor.py
+========================================================================================================================
+NOT FOUND
+========================================================================================================================
+src\application\knowledge\extractors\event_extractor.py
+========================================================================================================================
+NOT FOUND
+========================================================================================================================
+src\application\knowledge\extractors\location_extractor.py
+========================================================================================================================
+NOT FOUND
+========================================================================================================================
+src\application\knowledge\extractors\relationship_extractor.py
+========================================================================================================================
+NOT FOUND
+========================================================================================================================
+src\application\knowledge\extractors\claim_extractor.py
+========================================================================================================================
+NOT FOUND
+========================================================================================================================
+src\application\knowledge\extractors\source_extractor.py
+========================================================================================================================
+NOT FOUND
+========================================================================================================================
+src\application\knowledge\extractors\evidence_extractor.py
+========================================================================================================================
+NOT FOUND
+========================================================================================================================
+src\application\knowledge\entity_resolver.py
+========================================================================================================================
+import re
+
+from .canonical_aliases import CANONICAL_ALIASES
+
+
+class EntityResolver:
+
+    def __init__(self):
+        self.alias_map = {}
+
+    def build_alias_map(self):
+
+        self.alias_map = {}
+
+        for canonical, aliases in CANONICAL_ALIASES.items():
+
+            for alias in aliases:
+
+                key = re.sub(r"\s+", " ", alias.lower()).strip()
+
+                self.alias_map[key] = canonical
+
+    def normalize_name(self, text: str):
+
+        key = re.sub(r"\s+", " ", text.lower()).strip()
+
+        return self.alias_map.get(key, text)
+
+    def resolve(self, extraction):
+
+        self.build_alias_map()
+
+        for person in extraction.persons:
+            person.name = self.normalize_name(person.name)
+
+        for rel in extraction.relationships:
+            rel.subject = self.normalize_name(rel.subject)
+            rel.object = self.normalize_name(rel.object)
+
+        for claim in extraction.claims:
+
+            text = claim.text
+
+            for alias, canonical in sorted(
+                self.alias_map.items(),
+                key=lambda x: len(x[0]),
+                reverse=True,
+            ):
+                text = re.sub(
+                    r"\b" + re.escape(alias) + r"\b",
+                    canonical,
+                    text,
+                    flags=re.IGNORECASE,
+                )
+
+            claim.text = text
+
+        for event in extraction.events:
+
+            text = event.name
+
+            for alias, canonical in sorted(
+                self.alias_map.items(),
+                key=lambda x: len(x[0]),
+                reverse=True,
+            ):
+                text = re.sub(
+                    r"\b" + re.escape(alias) + r"\b",
+                    canonical,
+                    text,
+                    flags=re.IGNORECASE,
+                )
+
+            event.name = text
+
+        return extraction
+
+    def same(self, a: str, b: str) -> bool:
+        self.build_alias_map()
+        return self.normalize_name(a) == self.normalize_name(b)
+
+
+========================================================================================================================
+src\application\knowledge\relationship_resolver.py
+========================================================================================================================
+
+from .alias_dictionary import AliasDictionary
+
+
+class RelationshipResolver:
+
+    def __init__(self):
+
+        self.aliases = AliasDictionary()
+
+
+    def resolve(self, graph):
+
+        for relation in graph.relationships:
+            print("BEFORE:", repr(relation.subject), repr(relation.object))
+
+            relation.subject = self.aliases.resolve(relation.subject)
+            relation.object = self.aliases.resolve(relation.object)
+            print("AFTER :", repr(relation.subject), repr(relation.object))
+
+        return graph
+
+========================================================================================================================
+src\application\knowledge\object_merger.py
+========================================================================================================================
+from .extraction_result import ExtractionResult
+from src.domain.knowledge_objects.person import Person
+from src.domain.knowledge_objects.location import Location
+from src.domain.knowledge_objects.event import Event
+from src.domain.knowledge_objects.claim import Claim
+from src.domain.knowledge_objects.relationship import Relationship
+
+from .merge_rules import MergeRules
+from .extraction_result import ExtractionResult
+
+class ObjectMerger:
+
+    def merge(self, extraction: ExtractionResult):
+
+        def merge_list(items, checker):
+            merged=[]
+            for obj in items:
+                duplicate=False
+                for existing in merged:
+                    if checker(obj, existing):
+                        duplicate=True
+                        break
+                if not duplicate:
+                    merged.append(obj)
+            return merged
+
+        extraction.persons = merge_list(extraction.persons, MergeRules.same_person)
+        extraction.locations = merge_list(extraction.locations, MergeRules.same_location)
+        extraction.events = merge_list(extraction.events, MergeRules.same_event)
+        extraction.claims = merge_list(extraction.claims, MergeRules.same_claim)
+        extraction.relationships = merge_list(extraction.relationships, MergeRules.same_relationship)
+
+        return extraction
+
+========================================================================================================================
+src\application\knowledge\knowledge_quality_engine.py
+========================================================================================================================
+
+class KnowledgeQualityEngine:
+
+    TRUSTED_SOURCES = {
+
+        "quran": 1.00,
+        "sahih bukhari": 1.00,
+        "sahih muslim": 1.00,
+        "bukhari": 1.00,
+        "muslim": 1.00,
+        "ibn kathir": 0.94,
+        "wikipedia": 0.50,
+
+    }
+
+    def _process_object(self, obj):
+
+        md = getattr(obj, "metadata", {}) or {}
+
+        score = float(md.get("confidence", 0.50))
+
+        source = str(md.get("source", "")).lower()
+
+        for trusted_source, trusted_score in self.TRUSTED_SOURCES.items():
+
+            if trusted_source in source:
+
+                score = (score + trusted_score) / 2
+
+                md["trusted_source"] = True
+
+                break
+
+        md["knowledge_score"] = round(score, 3)
+
+        if score >= 0.90:
+            md["quality"] = "HIGH"
+
+        elif score >= 0.75:
+            md["quality"] = "MEDIUM"
+
+        else:
+            md["quality"] = "LOW"
+
+        obj.metadata = md
+
+        return obj
+
+    def process(self, extraction):
+
+        collections = [
+
+            extraction.persons,
+            extraction.locations,
+            extraction.events,
+            extraction.claims,
+            extraction.relationships,
+            extraction.statistics,
+            extraction.timeline,
+            extraction.sources,
+
+        ]
+
+        for collection in collections:
+
+            for obj in collection:
+
+                self._process_object(obj)
+
+        return extraction
+
+========================================================================================================================
+src\application\knowledge\quality_engine.py
+========================================================================================================================
+
+from .confidence_engine import ConfidenceEngine
+
+class QualityEngine:
+
+    def __init__(self):
+        self.engine=ConfidenceEngine()
+
+    def process(self,candidates):
+
+        accepted=[]
+        seen=set()
+
+        for c in candidates:
+
+            c=self.engine.score(c)
+
+            if c.confidence<0.60:
+                continue
+
+            key=(
+                c.kind,
+                str(c.value).strip().lower()
+            )
+
+            if key in seen:
+                continue
+
+            seen.add(key)
+            accepted.append(c)
+
+        return accepted
+
+========================================================================================================================
+src\application\knowledge\context_builder.py
+========================================================================================================================
+from src.domain.knowledge_objects.document import Document
+from src.domain.knowledge_objects.document_context import DocumentContext
+
+
+class ContextBuilder:
+
+    def build(self, document: Document):
+
+        contexts = []
+
+        paragraphs = document.metadata.get("paragraphs", [])
+
+        for paragraph in paragraphs:
+
+            for sentence in paragraph.sentences:
+
+                contexts.append(
+                    DocumentContext(
+                        text=sentence.text,
+                        document_id=document.document_id,
+                        document_name=document.document_name,
+                        page=0,
+                        paragraph=paragraph.index,
+                        sentence=sentence.index,
+                    )
+                )
+
+        return contexts
+
+========================================================================================================================
+src\application\knowledge\document_parser.py
+========================================================================================================================
+import re
+import uuid
+
+from src.domain.knowledge_objects.document import Document
+from src.domain.knowledge_objects.paragraph import Paragraph
+from src.domain.knowledge_objects.sentence import Sentence
+
+
+class DocumentParser:
+
+    _sentence_pattern = re.compile(r'(?<=[.!??])\s+')
+
+    def parse(
+        self,
+        text: str,
+        document_name: str = "",
+        source: str = "",
+        language: str = ""
+    ) -> Document:
+
+        document = Document(
+            document_id=str(uuid.uuid4()),
+            document_name=document_name,
+            source=source,
+            text=text,
+            language=language,
+        )
+
+        paragraphs = []
+
+        offset = 0
+
+        for paragraph_index, paragraph_text in enumerate(
+            [p.strip() for p in text.split("\n\n") if p.strip()]
+        ):
+
+            paragraph = Paragraph(
+                index=paragraph_index,
+                text=paragraph_text,
+            )
+
+            sentence_offset = offset
+
+            raw_sentences = [
+                s.strip()
+                for s in self._sentence_pattern.split(paragraph_text)
+                if s.strip()
+            ]
+
+            for sentence_index, sentence_text in enumerate(raw_sentences):
+
+                start = text.find(sentence_text, sentence_offset)
+
+                end = start + len(sentence_text)
+
+                paragraph.sentences.append(
+                    Sentence(
+                        index=sentence_index,
+                        text=sentence_text,
+                        start_offset=start,
+                        end_offset=end,
+                    )
+                )
+
+                sentence_offset = end
+
+            paragraphs.append(paragraph)
+
+            offset += len(paragraph_text)
+
+        document.metadata["paragraphs"] = paragraphs
+
+        return document
+
+========================================================================================================================
+src\application\knowledge\canonicalizer.py
+========================================================================================================================
+import re
+
+class Canonicalizer:
+
+    TITLES = {
+        "prophet",
+        "messenger",
+        "imam",
+        "caliph",
+        "king",
+        "queen",
+        "dr",
+        "mr",
+        "mrs",
+        "ms",
+        "sheikh",
+        "shaykh",
+    }
+
+    ARTICLES = {
+        "the",
+        "a",
+        "an",
+    }
+
+    @staticmethod
+    def normalize_text(text: str) -> str:
+        if text is None:
+            return ""
+
+        text = text.strip().lower()
+        text = re.sub(r"[.,;:!?]", "", text)
+        text = re.sub(r"\s+", " ", text)
+
+        return text
+
+    @staticmethod
+    def canonical_name(name: str) -> str:
+        text = Canonicalizer.normalize_text(name)
+
+        words = [
+            w for w in text.split()
+            if w not in Canonicalizer.TITLES
+            and w not in Canonicalizer.ARTICLES
+        ]
+
+        return " ".join(words)

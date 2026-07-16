@@ -1,0 +1,15 @@
+﻿from application.documentary.documentary_generator import DocumentaryGenerator
+
+generator = DocumentaryGenerator()
+
+outline = generator.generate_outline("Battle of Badr")
+
+print(outline.to_dict())
+
+assert outline.title == "Battle of Badr"
+assert outline.introduction.startswith("Introduction")
+assert len(outline.sections) == 3
+assert outline.sections[0] == "Background"
+assert outline.conclusion.startswith("Conclusion")
+
+print("DocumentaryGenerator OK")

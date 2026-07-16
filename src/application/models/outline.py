@@ -10,7 +10,7 @@ class Outline:
     claims: List[str] = field(default_factory=list)
     sources: List[str] = field(default_factory=list)
 
-    def to_dict(self) -> dict[str, object]:
+    def to_dict(self):
         return {
             "title": self.title,
             "description": self.description,
@@ -20,4 +20,25 @@ class Outline:
         }
 
 
-__all__ = ["Outline"]
+@dataclass
+class DocumentaryOutline:
+    title: str
+    introduction: str
+    sections: list[str]
+    conclusion: str
+
+    def to_dict(self):
+        return {
+            "title": self.title,
+            "introduction": self.introduction,
+            "sections": self.sections,
+            "conclusion": self.conclusion,
+        }
+
+
+__all__ = [
+    "Outline",
+    "DocumentaryOutline",
+]
+
+

@@ -1,0 +1,230 @@
+[
+  {
+    "module": "core.knowledge_asset",
+    "class": "KnowledgeAsset"
+  },
+  {
+    "module": "domain.claims.claim",
+    "class": "Claim"
+  },
+  {
+    "module": "domain.entities.entity",
+    "class": "Entity"
+  },
+  {
+    "module": "domain.entities.entity",
+    "class": "Person"
+  },
+  {
+    "module": "domain.entities.entity",
+    "class": "Place"
+  },
+  {
+    "module": "domain.entities.entity",
+    "class": "Event"
+  },
+  {
+    "module": "domain.knowledge_graph.knowledge_edge",
+    "class": "KnowledgeEdge"
+  },
+  {
+    "module": "domain.knowledge_graph.knowledge_graph",
+    "class": "KnowledgeGraph"
+  },
+  {
+    "module": "domain.knowledge_graph.knowledge_node",
+    "class": "KnowledgeNode"
+  },
+  {
+    "module": "domain.knowledge_objects.claim",
+    "class": "Claim"
+  },
+  {
+    "module": "domain.knowledge_objects.event",
+    "class": "Event"
+  },
+  {
+    "module": "domain.knowledge_objects.knowledge_object",
+    "class": "KnowledgeObject"
+  },
+  {
+    "module": "domain.knowledge_objects.location",
+    "class": "Location"
+  },
+  {
+    "module": "domain.knowledge_objects.person",
+    "class": "Person"
+  },
+  {
+    "module": "domain.knowledge_objects.relationship",
+    "class": "Relationship"
+  },
+  {
+    "module": "domain.knowledge_objects.source",
+    "class": "Source"
+  },
+  {
+    "module": "domain.knowledge_objects.statistic",
+    "class": "Statistic"
+  },
+  {
+    "module": "domain.knowledge_objects.timeline_event",
+    "class": "TimelineEvent"
+  },
+  {
+    "module": "domain.relationships.relationship",
+    "class": "Relationship"
+  },
+  {
+    "module": "domain.sources.source",
+    "class": "Source"
+  },
+  {
+    "module": "application.artifacts.artifact",
+    "class": "Artifact"
+  },
+  {
+    "module": "application.config.settings",
+    "class": "Settings"
+  },
+  {
+    "module": "application.documentary.documentary_outline",
+    "class": "DocumentaryOutline"
+  },
+  {
+    "module": "application.documentary.documentary_script",
+    "class": "DocumentaryScript"
+  },
+  {
+    "module": "application.image.image_prompt",
+    "class": "ImagePrompt"
+  },
+  {
+    "module": "application.knowledge.character_engine",
+    "class": "CharacterProfile"
+  },
+  {
+    "module": "application.knowledge.citation_engine",
+    "class": "Citation"
+  },
+  {
+    "module": "application.knowledge.extraction_result",
+    "class": "ExtractionResult"
+  },
+  {
+    "module": "application.knowledge.fact_verification_engine",
+    "class": "VerifiedClaim"
+  },
+  {
+    "module": "application.knowledge.knowledge_repository",
+    "class": "KnowledgeRepository"
+  },
+  {
+    "module": "application.knowledge.relationship_engine",
+    "class": "RelationshipRecord"
+  },
+  {
+    "module": "application.knowledge.source_ranking_engine",
+    "class": "RankedSource"
+  },
+  {
+    "module": "application.knowledge.timeline_engine",
+    "class": "TimelineEntry"
+  },
+  {
+    "module": "application.models.content_specification",
+    "class": "ContentSpecification"
+  },
+  {
+    "module": "application.models.extraction_object",
+    "class": "ExtractionObject"
+  },
+  {
+    "module": "application.models.knowledge_context",
+    "class": "KnowledgeContext"
+  },
+  {
+    "module": "application.models.narrative_plan",
+    "class": "NarrativePlan"
+  },
+  {
+    "module": "application.models.organized_knowledge",
+    "class": "OrganizedKnowledge"
+  },
+  {
+    "module": "application.models.outline",
+    "class": "Outline"
+  },
+  {
+    "module": "application.models.outline",
+    "class": "DocumentaryOutline"
+  },
+  {
+    "module": "application.models.prompt",
+    "class": "Prompt"
+  },
+  {
+    "module": "application.models.script",
+    "class": "Script"
+  },
+  {
+    "module": "application.models.script_structure",
+    "class": "ScriptStructure"
+  },
+  {
+    "module": "application.narrative.narrative_builder",
+    "class": "Narrative"
+  },
+  {
+    "module": "application.planning.scene_plan",
+    "class": "ScenePlan"
+  },
+  {
+    "module": "application.planning.scene_planner",
+    "class": "ScenePlan"
+  },
+  {
+    "module": "application.scene.scene",
+    "class": "Scene"
+  },
+  {
+    "module": "application.script.script_generator",
+    "class": "Script"
+  },
+  {
+    "module": "application.workflow.workflow_context",
+    "class": "WorkflowContext"
+  },
+  {
+    "module": "application.models.documentary.script",
+    "class": "Script"
+  },
+  {
+    "module": "application.models.documentary.timeline_event",
+    "class": "TimelineEvent"
+  },
+  {
+    "module": "application.models.knowledge.important_typed_claim",
+    "class": "ImportantTypedClaim"
+  },
+  {
+    "module": "application.models.knowledge.prioritized_knowledge",
+    "class": "PrioritizedKnowledge"
+  },
+  {
+    "module": "application.models.knowledge.typed_claim",
+    "class": "TypedClaim"
+  },
+  {
+    "module": "application.models.llm.prompt",
+    "class": "Prompt"
+  },
+  {
+    "module": "application.llm.core.llm_request",
+    "class": "LLMRequest"
+  },
+  {
+    "module": "application.llm.core.llm_response",
+    "class": "LLMResponse"
+  }
+]

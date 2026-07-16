@@ -1,0 +1,26 @@
+from src.domain.knowledge_objects.relationship import Relationship
+
+relation = Relationship()
+
+assert relation.subject == ""
+assert relation.predicate == ""
+assert relation.object == ""
+assert relation.metadata == {}
+
+print(relation.to_dict())
+
+relation = Relationship(
+    subject="Muhammad",
+    predicate="participated_in",
+    object="Battle of Badr",
+    metadata={"source": "test"},
+)
+
+print(relation.to_dict())
+
+assert relation.to_dict()["subject"] == "Muhammad"
+assert relation.to_dict()["predicate"] == "participated_in"
+assert relation.to_dict()["object"] == "Battle of Badr"
+assert relation.to_dict()["metadata"]["source"] == "test"
+
+

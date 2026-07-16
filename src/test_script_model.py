@@ -1,4 +1,4 @@
-from application.models.script import Script
+from src.application.models.documentary.script import Script
 
 script = Script(
     title="Battle of Badr",
@@ -11,3 +11,5 @@ script = Script(
 )
 
 print(script.to_dict())
+
+

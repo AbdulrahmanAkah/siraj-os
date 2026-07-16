@@ -1,0 +1,14 @@
+from dataclasses import dataclass
+
+from src.domain.knowledge_objects.knowledge_object import KnowledgeObject
+
+
+@dataclass
+class Statistic(KnowledgeObject):
+    value: str = ""
+    unit: str = ""
+
+
+__all__=["Statistic"]
+
+

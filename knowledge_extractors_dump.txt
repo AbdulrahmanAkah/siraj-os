@@ -1,0 +1,1150 @@
+
+======================================================
+FILE: C:\SIRAJ\Repositories\siraj-os\src\application\knowledge\base_extractor.py
+======================================================
+
+from src.application.models.knowledge.source_reference import SourceReference
+
+class BaseExtractor:
+
+    name="base"
+
+    def extract(self,chunk):
+
+        return []
+
+======================================================
+FILE: C:\SIRAJ\Repositories\siraj-os\src\application\knowledge\canonicalizer.py
+======================================================
+
+import re
+
+class Canonicalizer:
+
+    TITLES = {
+        "prophet",
+        "messenger",
+        "imam",
+        "caliph",
+        "king",
+        "queen",
+        "dr",
+        "mr",
+        "mrs",
+        "ms",
+        "sheikh",
+        "shaykh",
+    }
+
+    ARTICLES = {
+        "the",
+        "a",
+        "an",
+    }
+
+    @staticmethod
+    def normalize_text(text: str) -> str:
+        if text is None:
+            return ""
+
+        text = text.strip().lower()
+        text = re.sub(r"[.,;:!?]", "", text)
+        text = re.sub(r"\s+", " ", text)
+
+        return text
+
+    @staticmethod
+    def canonical_name(name: str) -> str:
+        text = Canonicalizer.normalize_text(name)
+
+        words = [
+            w for w in text.split()
+            if w not in Canonicalizer.TITLES
+            and w not in Canonicalizer.ARTICLES
+        ]
+
+        return " ".join(words)
+
+======================================================
+FILE: C:\SIRAJ\Repositories\siraj-os\src\application\knowledge\claim_extractor.py
+======================================================
+
+from src.application.models.knowledge.source_reference import SourceReference
+
+import re
+
+from .base_extractor import BaseExtractor
+from .candidate_models import Candidate
+
+DATE = re.compile(r"\b(5\d{2}|6\d{2}|7\d{2}|8\d{2}|9\d{2}|1\d{3}|2\d{3})\b")
+
+VERBS = {
+    "is","was","were","are",
+    "became","ruled","led","defeated","won","lost",
+    "built","created","founded","signed","captured",
+    "married","born","died","commanded","discovered"
+}
+
+IGNORE_PREFIXES = {
+    "wikipedia",
+    "according to",
+    "historians",
+    "many historians",
+    "researchers",
+    "scholars",
+    "it is believed",
+    "it is said"
+}
+
+
+class ClaimExtractor(BaseExtractor):
+
+    def extract(self, context):
+
+        text = context.text
+
+        out = []
+
+        for raw in text.splitlines():
+
+            line = raw.strip()
+
+            if not line:
+                continue
+
+            lower = line.lower()
+
+            if any(lower.startswith(x) for x in IGNORE_PREFIXES):
+                continue
+
+            score = 0.0
+
+            if DATE.search(line):
+                score += 0.30
+
+            words = lower.split()
+
+            if any(v in words for v in VERBS):
+                score += 0.40
+
+            if len(words) >= 4:
+                score += 0.20
+
+            if score < 0.60:
+                continue
+
+            out.append(
+                Candidate(
+                    kind="CLAIM",
+                    value=line,
+                    source="claim_extractor",
+                    confidence=min(score,1.0),
+                    source_reference=SourceReference(
+                        document_id=context.document_id,
+                        document_name=context.document_name,
+                        page=context.page,
+                        paragraph=context.paragraph,
+                        sentence=context.sentence,
+                        extractor="claim_extractor",
+                    ),
+                    metadata={
+                        "extractor":"claim_extractor",
+                        "has_date":bool(DATE.search(line)),
+                        "has_subject":False,
+                        "has_verb":any(v in words for v in VERBS),
+                    },
+                )
+            )
+
+        return out
+
+======================================================
+FILE: C:\SIRAJ\Repositories\siraj-os\src\application\knowledge\context_builder.py
+======================================================
+
+from src.domain.knowledge_objects.document import Document
+from src.domain.knowledge_objects.document_context import DocumentContext
+
+
+class ContextBuilder:
+
+    def build(self, document: Document):
+
+        contexts = []
+
+        paragraphs = document.metadata.get("paragraphs", [])
+
+        for paragraph in paragraphs:
+
+            for sentence in paragraph.sentences:
+
+                contexts.append(
+                    DocumentContext(
+                        text=sentence.text,
+                        document_id=document.document_id,
+                        document_name=document.document_name,
+                        page=0,
+                        paragraph=paragraph.index,
+                        sentence=sentence.index,
+                    )
+                )
+
+        return contexts
+
+======================================================
+FILE: C:\SIRAJ\Repositories\siraj-os\src\application\knowledge\entity_extractor.py
+======================================================
+
+from src.domain.knowledge_objects.document_context import DocumentContext
+from src.domain.knowledge_objects.source_reference import SourceReference
+
+from .base_extractor import BaseExtractor
+from .candidate_models import Candidate
+from .rule_engine import RuleEngine
+
+
+class EntityExtractor(BaseExtractor):
+
+    def __init__(self):
+        self.rules = RuleEngine()
+
+    def extract(self, context):
+
+        if isinstance(context, str):
+            context = DocumentContext(text=context)
+
+        text = context.text
+
+        candidates = []
+
+        for item in self.rules.extract_entities(text):
+
+            candidates.append(
+                Candidate(
+                    kind="PERSON",
+                    value=item["value"],
+                    source="entity_extractor",
+                    confidence=item.get("confidence", 0.75),
+                    metadata={
+                        "extractor": "entity_extractor",
+                        "rule": "entity"
+                    },
+                    source_reference=SourceReference(
+                        document_id=context.document_id,
+                        document_name=context.document_name,
+                        page=context.page,
+                        paragraph=context.paragraph,
+                        sentence=context.sentence,
+                        start_offset=0,
+                        end_offset=0,
+                        extractor="entity_extractor"
+                    )
+                )
+            )
+
+        return candidates
+
+======================================================
+FILE: C:\SIRAJ\Repositories\siraj-os\src\application\knowledge\event_extractor.py
+======================================================
+
+from src.application.models.knowledge.source_reference import SourceReference
+
+import re
+
+from .base_extractor import BaseExtractor
+from .candidate_models import Candidate
+
+YEAR = re.compile(r"\b(5\d{2}|6\d{2}|7\d{2}|8\d{2}|9\d{2}|1\d{3}|2\d{3})\b")
+
+EVENT_KEYWORDS = {
+    "battle",
+    "war",
+    "expedition",
+    "siege",
+    "migration",
+    "treaty",
+    "campaign",
+    "conquest",
+    "revolt",
+    "invasion",
+    "conference",
+    "summit",
+    "agreement",
+    "election",
+}
+
+IGNORE_PREFIXES = {
+    "wikipedia",
+    "according to",
+    "historians",
+    "many historians",
+    "researchers",
+    "scholars",
+    "it is believed",
+    "it is said",
+}
+
+
+class EventExtractor(BaseExtractor):
+
+    def extract(self, context):
+
+        text = context.text
+
+        out = []
+
+        for raw in text.splitlines():
+
+            line = raw.strip()
+
+            if not line:
+                continue
+
+            lower = line.lower()
+
+            if any(lower.startswith(x) for x in IGNORE_PREFIXES):
+                continue
+
+            score = 0.0
+
+            if any(k in lower for k in EVENT_KEYWORDS):
+                score += 0.45
+
+            if YEAR.search(line):
+                score += 0.30
+
+            if len(line.split()) >= 4:
+                score += 0.15
+
+            if score < 0.60:
+                continue
+
+            out.append(
+                Candidate(
+                    kind="EVENT",
+                    value=line,
+                    source="event_extractor",
+                    confidence=min(score, 1.0),
+                    source_reference=SourceReference(
+                        document_id=context.document_id,
+                        document_name=context.document_name,
+                        page=context.page,
+                        paragraph=context.paragraph,
+                        sentence=context.sentence,
+                        extractor="event_extractor",
+                    ),
+                    metadata={
+                        "extractor": "event_extractor",
+                        "has_date": bool(YEAR.search(line)),
+                        "has_subject": False,
+                        "has_verb": False,
+                    },
+                )
+            )
+
+        return out
+
+======================================================
+FILE: C:\SIRAJ\Repositories\siraj-os\src\application\knowledge\evidence_extractor.py
+======================================================
+
+from src.application.models.knowledge.source_reference import SourceReference
+
+from .base_extractor import BaseExtractor
+from .candidate_models import Candidate
+
+EVIDENCE_PREFIXES = {
+    "according to",
+    "reported by",
+    "documented by",
+    "stated by",
+    "recorded by",
+    "cited by",
+    "source:",
+    "reference:"
+}
+
+
+class EvidenceExtractor(BaseExtractor):
+
+    def extract(self, context):
+
+        text = context.text
+
+        out = []
+
+        for raw in text.splitlines():
+
+            line = raw.strip()
+
+            if not line:
+                continue
+
+            lower = line.lower()
+
+            if not any(lower.startswith(x) for x in EVIDENCE_PREFIXES):
+                continue
+
+            out.append(
+
+                Candidate(
+
+                    kind="EVIDENCE",
+
+                    value=line,
+
+                    source="evidence_extractor",
+
+                    confidence=0.95,
+
+                    source_reference=SourceReference(
+                        document_id=context.document_id,
+                        document_name=context.document_name,
+                        page=context.page,
+                        paragraph=context.paragraph,
+                        sentence=context.sentence,
+                        extractor="evidence_extractor",
+                    ),
+
+                    metadata={
+                        "extractor":"evidence_extractor"
+                    }
+
+                )
+
+            )
+
+        return out
+
+======================================================
+FILE: C:\SIRAJ\Repositories\siraj-os\src\application\knowledge\knowledge_extractor.py
+======================================================
+
+from src.application.models.knowledge.source_reference import SourceReference
+from application.llm.core.llm_gateway import LLMGateway
+from application.llm.core.llm_request import LLMRequest
+
+from application.knowledge.knowledge_parser import KnowledgeParser
+from application.knowledge.extraction_result import ExtractionResult
+
+
+class KnowledgeExtractor:
+
+    def __init__(self, gateway: LLMGateway):
+        self.gateway = gateway
+        self.parser = KnowledgeParser()
+
+    def extract(
+        self,
+        text: str,
+    ) -> ExtractionResult:
+
+        prompt = f"""
+Extract every piece of knowledge from the following text.
+
+Return ONLY valid JSON.
+
+Schema:
+
+{{
+  "persons": [],
+  "events": [],
+  "locations": [],
+  "claims": [],
+  "statistics": [],
+  "timeline": [],
+  "relationships": [],
+  "sources": []
+}}
+
+TEXT:
+
+{text}
+"""
+
+        response = self.gateway.generate(
+            LLMRequest(
+                prompt=prompt
+            )
+        )
+
+        return self.parser.parse(
+            response.text
+        )
+
+
+__all__ = ["KnowledgeExtractor"]
+
+======================================================
+FILE: C:\SIRAJ\Repositories\siraj-os\src\application\knowledge\location_extractor.py
+======================================================
+
+from src.application.models.knowledge.source_reference import SourceReference
+
+from .base_extractor import BaseExtractor
+from .candidate_models import Candidate
+from .rule_engine import RuleEngine
+
+
+class LocationExtractor(BaseExtractor):
+
+    def __init__(self):
+        self.rules = RuleEngine()
+
+    def extract(self, context):
+
+        text = context.text
+
+        out = []
+
+        for item in self.rules.extract_locations(text):
+
+            out.append(
+
+                Candidate(
+
+                    kind="PLACE",
+
+                    value=item["value"],
+
+                    source="location_extractor",
+
+                    confidence=item.get("confidence",0.95),
+
+                    source_reference=SourceReference(
+                        document_id=context.document_id,
+                        document_name=context.document_name,
+                        page=context.page,
+                        paragraph=context.paragraph,
+                        sentence=context.sentence,
+                        extractor="location_extractor",
+                    ),
+
+                    metadata={
+                        "extractor":"location_extractor",
+                        "rule":"location"
+                    }
+
+                )
+
+            )
+
+        return out
+
+======================================================
+FILE: C:\SIRAJ\Repositories\siraj-os\src\application\knowledge\relationship_extractor.py
+======================================================
+
+from src.application.models.knowledge.source_reference import SourceReference
+
+import re
+
+from .base_extractor import BaseExtractor
+from .candidate_models import Candidate
+
+PATTERNS = [
+
+    (re.compile(r"(.+?)\s+commanded\s+(.+)", re.I), "commanded"),
+    (re.compile(r"(.+?)\s+defeated\s+(.+)", re.I), "defeated"),
+    (re.compile(r"(.+?)\s+founded\s+(.+)", re.I), "founded"),
+    (re.compile(r"(.+?)\s+built\s+(.+)", re.I), "built"),
+    (re.compile(r"(.+?)\s+captured\s+(.+)", re.I), "captured"),
+    (re.compile(r"(.+?)\s+signed\s+(.+)", re.I), "signed"),
+    (re.compile(r"(.+?)\s+married\s+(.+)", re.I), "married"),
+    (re.compile(r"(.+?)\s+ruled\s+(.+)", re.I), "ruled"),
+
+    (re.compile(r"(.+?)\s+is\s+southwest\s+of\s+(.+)", re.I), "southwest_of"),
+    (re.compile(r"(.+?)\s+is\s+northeast\s+of\s+(.+)", re.I), "northeast_of"),
+    (re.compile(r"(.+?)\s+is\s+north\s+of\s+(.+)", re.I), "north_of"),
+    (re.compile(r"(.+?)\s+is\s+south\s+of\s+(.+)", re.I), "south_of"),
+    (re.compile(r"(.+?)\s+is\s+east\s+of\s+(.+)", re.I), "east_of"),
+    (re.compile(r"(.+?)\s+is\s+west\s+of\s+(.+)", re.I), "west_of"),
+
+]
+
+
+class RelationshipExtractor(BaseExtractor):
+
+    def extract(self, context):
+
+        text = context.text
+
+        out = []
+
+        for raw in text.splitlines():
+
+            line = raw.strip()
+
+            if not line:
+                continue
+
+            for regex, predicate in PATTERNS:
+
+                m = regex.match(line)
+
+                if not m:
+                    continue
+
+                subject = m.group(1).strip()
+
+                obj = m.group(2).strip()
+
+                out.append(
+
+                    Candidate(
+
+                        kind="RELATIONSHIP",
+
+                        value={
+                            "subject":subject,
+                            "predicate":predicate,
+                            "object":obj
+                        },
+
+                        source="relationship_extractor",
+
+                        confidence=1.0,
+
+                        source_reference=SourceReference(
+                            document_id=context.document_id,
+                            document_name=context.document_name,
+                            page=context.page,
+                            paragraph=context.paragraph,
+                            sentence=context.sentence,
+                            extractor="relationship_extractor",
+                        ),
+
+                        metadata={
+                            "extractor":"relationship_extractor",
+                            "has_subject":True,
+                            "has_verb":True
+                        }
+
+                    )
+
+                )
+
+        return out
+
+======================================================
+FILE: C:\SIRAJ\Repositories\siraj-os\src\application\knowledge\source_extractor.py
+======================================================
+
+from src.application.models.knowledge.source_reference import SourceReference
+
+from .base_extractor import BaseExtractor
+from .candidate_models import Candidate
+
+
+SOURCE_PREFIXES = {
+    "source:",
+    "sources:",
+    "reference:",
+    "references:",
+    "bibliography:",
+    "citation:"
+}
+
+
+class SourceExtractor(BaseExtractor):
+
+    def extract(self, context):
+
+        text = context.text
+
+        out = []
+
+        for raw in text.splitlines():
+
+            line = raw.strip()
+
+            if not line:
+                continue
+
+            lower = line.lower()
+
+            if not any(lower.startswith(x) for x in SOURCE_PREFIXES):
+                continue
+
+            out.append(
+
+                Candidate(
+
+                    kind="SOURCE",
+
+                    value=line,
+
+                    source="source_extractor",
+
+                    confidence=0.95,
+
+                    source_reference=SourceReference(
+                        document_id=context.document_id,
+                        document_name=context.document_name,
+                        page=context.page,
+                        paragraph=context.paragraph,
+                        sentence=context.sentence,
+                        extractor="source_extractor",
+                    ),
+
+                    metadata={
+                        "extractor":"source_extractor"
+                    }
+
+                )
+
+            )
+
+        return out
+
+======================================================
+FILE: C:\SIRAJ\Repositories\siraj-os\src\application\knowledge_v2\entity_extractor.py
+======================================================
+
+class EntityExtractor:
+
+    def extract(self,text,context):
+        return {"entities":[]}
+
+======================================================
+FILE: C:\SIRAJ\Repositories\siraj-os\src\application\knowledge_v2\event_extractor.py
+======================================================
+
+class EventExtractor:
+
+    def extract(self,text,context):
+        return {"events":[]}
+
+======================================================
+FILE: C:\SIRAJ\Repositories\siraj-os\src\application\knowledge_v2\fact_extractor.py
+======================================================
+
+class FactExtractor:
+
+    def extract(self,text,context):
+        return {"facts":[]}
+
+======================================================
+FILE: C:\SIRAJ\Repositories\siraj-os\src\application\knowledge_v2\relation_extractor.py
+======================================================
+
+class RelationExtractor:
+
+    def extract(self,text,context):
+        return {"relations":[]}
+
+======================================================
+FILE: C:\SIRAJ\Repositories\siraj-os\src\application\knowledge_v2\source_extractor.py
+======================================================
+
+class SourceExtractor:
+
+    def extract(self,text,context):
+        return {"sources":[]}
+
+======================================================
+FILE: C:\SIRAJ\Repositories\siraj-os\src\application\knowledge_v2\timeline_extractor.py
+======================================================
+
+class TimelineExtractor:
+
+    def extract(self,text,context):
+        return {"timeline":[]}
+
+======================================================
+FILE: C:\SIRAJ\Repositories\siraj-os\src\application\models\knowledge\extraction_context.py
+======================================================
+
+
+from __future__ import annotations
+
+from dataclasses import dataclass, field
+from typing import Any
+
+@dataclass(slots=True)
+class ExtractionContext:
+    metadata: dict[str, Any] = field(default_factory=dict)
+
+======================================================
+FILE: C:\SIRAJ\Repositories\siraj-os\src\application\models\knowledge_context.py
+======================================================
+
+from dataclasses import dataclass, field
+
+
+@dataclass
+class KnowledgeContext:
+    primary_topic: str = ""
+    description: str = ""
+    key_entities: list[str] = field(default_factory=list)
+    verified_claims: list[str] = field(default_factory=list)
+    supporting_sources: list[str] = field(default_factory=list)
+    metadata: dict[str, object] = field(default_factory=dict)
+
+    def to_dict(self) -> dict[str, object]:
+        return {
+            "primary_topic": self.primary_topic,
+            "description": self.description,
+            "key_entities": self.key_entities,
+            "verified_claims": self.verified_claims,
+            "supporting_sources": self.supporting_sources,
+            "metadata": self.metadata,
+        }
+
+
+__all__ = ["KnowledgeContext"]
+
+======================================================
+FILE: C:\SIRAJ\Repositories\siraj-os\src\application\services\knowledge_context_builder.py
+======================================================
+
+from application.models.knowledge_context import KnowledgeContext
+from application.models.outline import Outline
+
+
+class KnowledgeContextBuilder:
+    def build(self, outline: Outline) -> KnowledgeContext:
+        return KnowledgeContext(
+            primary_topic=outline.title,
+            description=outline.description,
+            key_entities=list(outline.entities),
+            verified_claims=list(outline.claims),
+            supporting_sources=list(outline.sources),
+            metadata={},
+        )
+
+
+__all__ = ["KnowledgeContextBuilder"]
+
+======================================================
+FILE: C:\SIRAJ\Repositories\siraj-os\src\application\workflow\workflow_context.py
+======================================================
+
+from dataclasses import dataclass, field
+
+
+@dataclass
+class WorkflowContext:
+
+    topic: str
+
+    knowledge_graph: object | None = None
+
+    outline: object | None = None
+
+    narrative: object | None = None
+
+    script: object | None = None
+
+    scene_plan: object | None = None
+
+    scenes: object | None = None
+
+    image_prompts: object | None = None
+
+    voice_segments: object | None = None
+
+    timeline: object | None = None
+
+    metadata: dict[str, object] = field(default_factory=dict)
+
+    def to_dict(self):
+
+        return {
+
+            "topic": self.topic,
+
+            "knowledge_graph": self.knowledge_graph,
+
+            "outline": self.outline,
+
+            "narrative": self.narrative,
+
+            "script": self.script,
+
+            "scene_plan": self.scene_plan,
+
+            "scenes": self.scenes,
+
+            "image_prompts": self.image_prompts,
+
+            "voice_segments": self.voice_segments,
+
+            "timeline": self.timeline,
+
+            "metadata": self.metadata,
+        }
+
+
+__all__ = ["WorkflowContext"]
+
+
+======================================================
+FILE: C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_objects\claim.py
+======================================================
+
+from dataclasses import dataclass, field
+from src.domain.knowledge_objects.source_reference import SourceReference
+from src.domain.knowledge_objects.knowledge_object import KnowledgeObject
+
+@dataclass
+class Claim(KnowledgeObject):
+    text:str=""
+    source_reference:SourceReference|None=None
+
+======================================================
+FILE: C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_objects\document.py
+======================================================
+
+from dataclasses import dataclass, field
+
+
+@dataclass
+class Document:
+
+    document_id: str = ""
+
+    document_name: str = ""
+
+    source: str = ""
+
+    text: str = ""
+
+    language: str = ""
+
+    metadata: dict = field(default_factory=dict)
+
+======================================================
+FILE: C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_objects\document_context.py
+======================================================
+
+from dataclasses import dataclass
+
+@dataclass(slots=True)
+class DocumentContext:
+    text: str
+    document_id: str = ""
+    document_name: str = ""
+    source_type: str = ""
+    page: int = 0
+    paragraph: int = 0
+    sentence: int = 0
+
+======================================================
+FILE: C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_objects\event.py
+======================================================
+
+from dataclasses import dataclass, field
+from src.domain.knowledge_objects.source_reference import SourceReference
+from src.domain.knowledge_objects.knowledge_object import KnowledgeObject
+
+@dataclass
+class Event(KnowledgeObject):
+    name:str=""
+    description:str=""
+    source_reference:SourceReference|None=None
+
+======================================================
+FILE: C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_objects\knowledge_object.py
+======================================================
+
+from dataclasses import asdict, dataclass, field
+
+
+@dataclass
+class KnowledgeObject:
+    metadata: dict[str, object] = field(default_factory=dict)
+
+    def to_dict(self) -> dict[str, object]:
+        return asdict(self)
+
+
+__all__ = ["KnowledgeObject"]
+
+======================================================
+FILE: C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_objects\knowledge_object_type.py
+======================================================
+
+from enum import Enum
+
+
+class KnowledgeObjectType(str, Enum):
+    PERSON = "PERSON"
+    EVENT = "EVENT"
+    RELATIONSHIP = "RELATIONSHIP"
+    STATISTIC = "STATISTIC"
+    TIMELINE_EVENT = "TIMELINE_EVENT"
+
+
+__all__ = ["KnowledgeObjectType"]
+
+======================================================
+FILE: C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_objects\location.py
+======================================================
+
+from dataclasses import dataclass, field
+from src.domain.knowledge_objects.source_reference import SourceReference
+from src.domain.knowledge_objects.knowledge_object import KnowledgeObject
+
+@dataclass
+class Location(KnowledgeObject):
+    name:str=""
+    description:str=""
+    source_reference:SourceReference|None=None
+
+======================================================
+FILE: C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_objects\paragraph.py
+======================================================
+
+from dataclasses import dataclass, field
+
+from src.domain.knowledge_objects.sentence import Sentence
+
+
+@dataclass
+class Paragraph:
+
+    index: int = 0
+
+    text: str = ""
+
+    sentences: list[Sentence] = field(default_factory=list)
+
+======================================================
+FILE: C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_objects\person.py
+======================================================
+
+from dataclasses import dataclass,field
+from src.domain.knowledge_objects.source_reference import SourceReference
+from src.domain.knowledge_objects.knowledge_object import KnowledgeObject
+
+@dataclass
+class Person(KnowledgeObject):
+    name:str=""
+    aliases:list[str]=field(default_factory=list)
+    description:str=""
+    source_reference:SourceReference|None=None
+
+======================================================
+FILE: C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_objects\relationship.py
+======================================================
+
+from dataclasses import dataclass, field
+from src.domain.knowledge_objects.source_reference import SourceReference
+from src.domain.knowledge_objects.knowledge_object import KnowledgeObject
+
+@dataclass
+class Relationship(KnowledgeObject):
+    subject:str=""
+    predicate:str=""
+    object:str=""
+    source_reference:SourceReference|None=None
+
+======================================================
+FILE: C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_objects\sentence.py
+======================================================
+
+from dataclasses import dataclass
+
+
+@dataclass
+class Sentence:
+
+    index: int = 0
+
+    text: str = ""
+
+    start_offset: int = 0
+
+    end_offset: int = 0
+
+======================================================
+FILE: C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_objects\source.py
+======================================================
+
+from dataclasses import dataclass
+
+from src.domain.knowledge_objects.knowledge_object import KnowledgeObject
+
+
+@dataclass
+class Source(KnowledgeObject):
+    title: str = ""
+    type: str = ""
+    url: str = ""
+
+
+__all__=["Source"]
+
+======================================================
+FILE: C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_objects\source_reference.py
+======================================================
+
+from dataclasses import dataclass
+
+@dataclass
+class SourceReference:
+    document_id:str=""
+    document_name:str=""
+    page:int=0
+    paragraph:int=0
+    sentence:int=0
+    start_offset:int=0
+    end_offset:int=0
+    extractor:str=""
+
+======================================================
+FILE: C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_objects\statistic.py
+======================================================
+
+from dataclasses import dataclass
+
+from src.domain.knowledge_objects.knowledge_object import KnowledgeObject
+
+
+@dataclass
+class Statistic(KnowledgeObject):
+    value: str = ""
+    unit: str = ""
+
+
+__all__=["Statistic"]
+
+======================================================
+FILE: C:\SIRAJ\Repositories\siraj-os\src\domain\knowledge_objects\timeline_event.py
+======================================================
+
+from dataclasses import dataclass
+
+from src.domain.knowledge_objects.knowledge_object import KnowledgeObject
+
+
+@dataclass
+class TimelineEvent(KnowledgeObject):
+    title: str = ""
+    date: str = ""
+
+
+__all__=["TimelineEvent"]
+
+======================================================
+FILE: C:\SIRAJ\Repositories\siraj-os\src\test_workflow_context.py
+======================================================
+
+from application.workflow.workflow_context import WorkflowContext
+
+ctx = WorkflowContext("Battle of Badr")
+
+print(ctx.to_dict())
+
+assert ctx.topic == "Battle of Badr"
+assert ctx.outline is None
+assert ctx.script is None
+assert ctx.scenes is None
+
+ctx.metadata["version"] = 1
+
+assert ctx.metadata["version"] == 1
+
+print("WorkflowContext OK")

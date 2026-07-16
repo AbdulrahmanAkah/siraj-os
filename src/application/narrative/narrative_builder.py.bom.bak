@@ -1,0 +1,101 @@
+﻿from dataclasses import dataclass
+
+
+@dataclass
+class Narrative:
+
+    introduction: str
+
+    body: list[str]
+
+    conclusion: str
+
+
+def _field(obj, key, default=""):
+    if isinstance(obj, dict):
+        return obj.get(key, default)
+    return getattr(obj, key, default)
+
+
+class NarrativeBuilder:
+
+    def build(
+        self,
+        graph,
+        outline,
+    ) -> Narrative:
+
+        body = []
+
+        node_types = getattr(
+            graph.index,
+            "nodes_by_type",
+            {},
+        )
+
+        for section in outline.sections:
+
+            lines = []
+
+            if section == "الشخصيات":
+
+                for p in node_types.get("PERSON", []):
+
+                    lines.append(
+                        f"{_field(p.data,'name')}: {_field(p.data,'description')}"
+                    )
+
+            elif section == "الأحداث":
+
+                for e in node_types.get("EVENT", []):
+
+                    lines.append(
+                        f"{_field(e.data,'name')}: {_field(e.data,'description')}"
+                    )
+
+            elif section == "التسلسل الزمني":
+
+                for t in node_types.get("TIMELINE_EVENT", []):
+
+                    lines.append(
+                        f"{_field(t.data,'date')}: {_field(t.data,'title')}"
+                    )
+
+            elif section == "الأماكن":
+
+                for l in node_types.get("LOCATION", []):
+
+                    lines.append(
+                        f"{_field(l.data,'name')}: {_field(l.data,'description')}"
+                    )
+
+            elif section == "الإحصاءات":
+
+                for s in node_types.get("STATISTIC", []):
+
+                    lines.append(
+                        f"{_field(s.data,'value')} {_field(s.data,'unit')}"
+                    )
+
+            elif section == "الحقائق والاستنتاجات":
+
+                for c in node_types.get("CLAIM", []):
+
+                    lines.append(
+                        _field(c.data, "text")
+                    )
+
+            body.append("\n".join(lines))
+
+        return Narrative(
+            introduction=outline.introduction,
+            body=body,
+            conclusion=outline.conclusion,
+        )
+
+
+__all__ = [
+    "Narrative",
+    "NarrativeBuilder",
+]
+

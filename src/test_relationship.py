@@ -1,5 +1,5 @@
-from domain.entities.entity import Person
-from domain.relationships.relationship import Relationship
+from src.domain.knowledge_objects.entity import Person
+from src.domain.knowledge_objects.relationship import Relationship
 
 relationship = Relationship(
     subject="Muhammad",
@@ -7,3 +7,5 @@ relationship = Relationship(
     object="Battle of Badr",
 )
 print(relationship.to_dict())
+
+

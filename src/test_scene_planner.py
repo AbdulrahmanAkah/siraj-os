@@ -1,0 +1,18 @@
+from src.application.documentary.documentary_generator import DocumentaryGenerator
+from src.application.planning.scene_plan import ScenePlanner
+
+outline = DocumentaryGenerator().generate_outline("Battle of Badr")
+
+planner = ScenePlanner()
+
+plans = planner.plan(outline)
+
+for plan in plans:
+    print(plan.to_dict())
+
+assert len(plans) == 3
+assert plans[0].title == "Background"
+
+print("ScenePlanner OK")
+
+

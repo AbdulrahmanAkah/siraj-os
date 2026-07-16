@@ -1,6 +1,6 @@
-from application.models.prompt import Prompt
-from application.models.script import Script
-from application.ports.llm_gateway import LLMGateway
+from src.application.models.prompt import Prompt
+from src.application.models.script import Script
+from src.application.ports.llm_gateway import LLMGateway
 
 
 class MockLLMProvider(LLMGateway):
@@ -25,3 +25,5 @@ class MockLLMProvider(LLMGateway):
 
 
 __all__ = ["MockLLMProvider"]
+
+

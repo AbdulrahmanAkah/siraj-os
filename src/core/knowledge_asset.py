@@ -3,7 +3,7 @@ from datetime import datetime
 from typing import Dict, List
 from uuid import UUID, uuid4
 
-from domain.relationships.relationship import Relationship
+from src.domain.knowledge_objects.relationship import Relationship
 
 
 @dataclass
@@ -91,3 +91,5 @@ class KnowledgeAsset:
 
 
 __all__ = ["KnowledgeAsset"]
+
+

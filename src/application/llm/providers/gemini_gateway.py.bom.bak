@@ -1,0 +1,45 @@
+﻿import os
+
+from google import genai
+
+from application.llm.core.llm_gateway import LLMGateway
+from application.llm.core.llm_request import LLMRequest
+from application.llm.core.llm_response import LLMResponse
+
+import application.config.environment_loader
+
+
+class GeminiGateway(LLMGateway):
+
+    def __init__(self):
+
+        api_key = os.getenv("GEMINI_API_KEY")
+
+        if not api_key:
+            raise ValueError(
+                "GEMINI_API_KEY is not set."
+            )
+
+        self.client = genai.Client(
+            api_key=api_key
+        )
+
+    def generate(
+        self,
+        request: LLMRequest,
+    ) -> LLMResponse:
+
+        response = self.client.models.generate_content(
+            model=request.model or "gemini-2.5-pro",
+            contents=request.prompt,
+        )
+
+        return LLMResponse(
+            text=response.text,
+            provider="gemini",
+            model=request.model or "gemini-2.5-pro",
+            metadata={},
+        )
+
+
+__all__ = ["GeminiGateway"]

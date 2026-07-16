@@ -1,0 +1,2856 @@
+{
+  "call_graph": {
+    "src.application.artifacts.artifact_store.ArtifactStore.all": [
+      "self._items.items"
+    ],
+    "src.application.artifacts.artifact_store.ArtifactStore.get": [
+      "self._items.get"
+    ],
+    "src.application.config.environment_loader": [
+      "load_dotenv"
+    ],
+    "src.application.config.settings": [
+      "Settings"
+    ],
+    "src.application.config.settings.Settings": [
+      "float",
+      "int",
+      "os.getenv"
+    ],
+    "src.application.documentary.documentary_generator.DocumentaryGenerator.generate": [
+      "DocumentaryOutline",
+      "graph.get_nodes_by_type",
+      "n.data.get",
+      "sections.append"
+    ],
+    "src.application.documentary.documentary_outline.DocumentaryOutline": [
+      "field"
+    ],
+    "src.application.documentary.knowledge_outline_builder.KnowledgeOutlineBuilder.build": [
+      "DocumentaryOutline",
+      "getattr",
+      "node_types.get",
+      "sections.append"
+    ],
+    "src.application.image.image_prompt_generator.ImagePromptGenerator.generate": [
+      "join",
+      "len",
+      "prompt.split",
+      "prompts.append",
+      "scene.narration.replace"
+    ],
+    "src.application.knowledge.character_engine.CharacterEngine.build": [
+      "CharacterProfile",
+      "chars.append",
+      "d.get",
+      "getattr",
+      "isinstance",
+      "node_types.get"
+    ],
+    "src.application.knowledge.citation_engine.CitationEngine.build": [
+      "Citation",
+      "citations.append",
+      "getattr",
+      "isinstance",
+      "node_types.get"
+    ],
+    "src.application.knowledge.extraction_result.ExtractionResult": [
+      "field"
+    ],
+    "src.application.knowledge.fact_verification_engine.FactVerificationEngine.verify": [
+      "VerifiedClaim",
+      "getattr",
+      "isinstance",
+      "len",
+      "node_types.get",
+      "results.append"
+    ],
+    "src.application.knowledge.knowledge_extractor.KnowledgeExtractor.__init__": [
+      "KnowledgeParser"
+    ],
+    "src.application.knowledge.knowledge_extractor.KnowledgeExtractor.extract": [
+      "LLMRequest",
+      "self.gateway.generate",
+      "self.parser.parse"
+    ],
+    "src.application.knowledge.knowledge_graph_builder.KnowledgeGraphBuilder.add": [
+      "KnowledgeNode",
+      "graph.add_node",
+      "obj.to_dict"
+    ],
+    "src.application.knowledge.knowledge_graph_builder.KnowledgeGraphBuilder.build": [
+      "KnowledgeEdge",
+      "KnowledgeGraph",
+      "add",
+      "enumerate",
+      "graph.add_edge"
+    ],
+    "src.application.knowledge.knowledge_parser.KnowledgeParser.parse": [
+      "ExtractionResult",
+      "Relationship",
+      "create_model",
+      "data.get",
+      "json.loads",
+      "x.get"
+    ],
+    "src.application.knowledge.knowledge_repository.KnowledgeRepository": [
+      "field"
+    ],
+    "src.application.knowledge.knowledge_repository.KnowledgeRepository.__post_init__": [
+      "KnowledgeExtractor",
+      "KnowledgeGraphBuilder"
+    ],
+    "src.application.knowledge.knowledge_repository.KnowledgeRepository.add": [
+      "self.extractions.append"
+    ],
+    "src.application.knowledge.knowledge_repository.KnowledgeRepository.ingest_file": [
+      "Path",
+      "read_text",
+      "self.ingest_text"
+    ],
+    "src.application.knowledge.knowledge_repository.KnowledgeRepository.ingest_text": [
+      "self.add",
+      "self.extractor.extract",
+      "self.graph_builder.build"
+    ],
+    "src.application.knowledge.relationship_engine.RelationshipEngine.build": [
+      "RelationshipRecord",
+      "edge.get",
+      "getattr",
+      "isinstance",
+      "records.append"
+    ],
+    "src.application.knowledge.source_ranking_engine.SourceRankingEngine.rank": [
+      "RankedSource",
+      "getattr",
+      "isinstance",
+      "len",
+      "node_types.get",
+      "ranked.append",
+      "ranked.sort",
+      "round"
+    ],
+    "src.application.knowledge.timeline_engine.TimelineEngine.build": [
+      "TimelineEntry",
+      "d.get",
+      "getattr",
+      "isinstance",
+      "node_types.get",
+      "result.append",
+      "sorted"
+    ],
+    "src.application.knowledge.utils.model_factory.create_model": [
+      "MODEL_MAP.get",
+      "ValueError",
+      "isinstance",
+      "model",
+      "model_name.lower",
+      "normalize_payload"
+    ],
+    "src.application.knowledge.utils.model_factory.normalize_payload": [
+      "getattr",
+      "isinstance"
+    ],
+    "src.application.llm.core.fake_gateway.FakeGateway.generate": [
+      "LLMResponse"
+    ],
+    "src.application.llm.core.llm_request.LLMRequest": [
+      "field"
+    ],
+    "src.application.llm.core.llm_response.LLMResponse": [
+      "field"
+    ],
+    "src.application.llm.providers.gemini_gateway.GeminiGateway.__init__": [
+      "ValueError",
+      "genai.Client",
+      "os.getenv"
+    ],
+    "src.application.llm.providers.gemini_gateway.GeminiGateway.generate": [
+      "LLMResponse",
+      "self.client.models.generate_content"
+    ],
+    "src.application.llm.providers.manual_gateway.ManualGateway.generate": [
+      "LLMResponse",
+      "hasattr",
+      "input",
+      "join",
+      "line.strip",
+      "lines.append",
+      "print",
+      "sys.stdout.reconfigure"
+    ],
+    "src.application.llm.providers.openai_gateway.OpenAIGateway.__init__": [
+      "OpenAI",
+      "ValueError",
+      "os.getenv"
+    ],
+    "src.application.llm.providers.openai_gateway.OpenAIGateway.generate": [
+      "LLMResponse",
+      "self.client.responses.create"
+    ],
+    "src.application.models.documentary.script.Script": [
+      "field"
+    ],
+    "src.application.models.extraction_object.ExtractionObject": [
+      "field"
+    ],
+    "src.application.models.knowledge.important_typed_claim.ImportantTypedClaim": [
+      "field"
+    ],
+    "src.application.models.knowledge.prioritized_knowledge.PrioritizedKnowledge": [
+      "field"
+    ],
+    "src.application.models.knowledge.prioritized_knowledge.PrioritizedKnowledge.to_dict": [
+      "claim.to_dict"
+    ],
+    "src.application.models.knowledge.typed_claim.TypedClaim": [
+      "field"
+    ],
+    "src.application.models.knowledge_context.KnowledgeContext": [
+      "field"
+    ],
+    "src.application.models.llm.prompt.Prompt": [
+      "field"
+    ],
+    "src.application.models.narrative_plan.NarrativePlan": [
+      "field"
+    ],
+    "src.application.models.organized_knowledge.OrganizedKnowledge": [
+      "field"
+    ],
+    "src.application.models.outline.Outline": [
+      "field"
+    ],
+    "src.application.models.prompt.Prompt": [
+      "field"
+    ],
+    "src.application.models.script.Script": [
+      "field"
+    ],
+    "src.application.models.script_structure.ScriptStructure": [
+      "field"
+    ],
+    "src.application.narrative.narrative_builder.NarrativeBuilder.build": [
+      "Narrative",
+      "_field",
+      "body.append",
+      "getattr",
+      "join",
+      "lines.append",
+      "node_types.get"
+    ],
+    "src.application.narrative.narrative_builder._field": [
+      "getattr",
+      "isinstance",
+      "obj.get"
+    ],
+    "src.application.pipeline.production_pipeline.ProductionPipeline.__init__": [
+      "DocumentaryWorkflow",
+      "GeminiGateway",
+      "ManualGateway",
+      "OpenAIGateway",
+      "os.getenv",
+      "strip"
+    ],
+    "src.application.pipeline.production_pipeline.ProductionPipeline.run": [
+      "self.workflow.run"
+    ],
+    "src.application.planning.scene_plan.ScenePlan": [
+      "field"
+    ],
+    "src.application.planning.scene_planner.ScenePlanner.field": [
+      "getattr",
+      "isinstance",
+      "obj.get"
+    ],
+    "src.application.planning.scene_planner.ScenePlanner.plan": [
+      "ScenePlan",
+      "field",
+      "getattr",
+      "key_points.append",
+      "mapping.get",
+      "node_types.get",
+      "plans.append"
+    ],
+    "src.application.scene_generation.scene_generator.SceneGenerator.generate": [
+      "LLMRequest",
+      "Scene",
+      "chr",
+      "join",
+      "response.text.strip",
+      "scenes.append",
+      "self.llm.generate"
+    ],
+    "src.application.script.script_generator.ScriptGenerator.build": [
+      "Script",
+      "join",
+      "parts.append",
+      "zip"
+    ],
+    "src.application.services.generation_service.GenerationService.generate": [
+      "self.gateway.generate"
+    ],
+    "src.application.services.knowledge_context_builder.KnowledgeContextBuilder.build": [
+      "KnowledgeContext",
+      "list"
+    ],
+    "src.application.services.knowledge_organizer.KnowledgeOrganizer.build": [
+      "OrganizedKnowledge",
+      "list",
+      "relationship.to_dict"
+    ],
+    "src.application.services.knowledge_service.KnowledgeService.all_entities": [
+      "list"
+    ],
+    "src.application.services.knowledge_service.KnowledgeService.register": [
+      "self._entities.append"
+    ],
+    "src.application.services.knowledge_service.KnowledgeService.stats": [
+      "len"
+    ],
+    "src.application.services.narrative_builder.NarrativeBuilder.build": [
+      "isinstance",
+      "outline.get",
+      "str"
+    ],
+    "src.application.services.narrative_planner.NarrativePlanner.build": [
+      "NarrativePlan",
+      "list"
+    ],
+    "src.application.services.prompt_builder.PromptBuilder.build": [
+      "Prompt",
+      "chr",
+      "join"
+    ],
+    "src.application.services.script_structure_builder.ScriptStructureBuilder.build": [
+      "ScriptStructure",
+      "str"
+    ],
+    "src.application.services.siraj_engine.SirajEngine.build_outline": [
+      "Outline",
+      "claims.append",
+      "entities.append",
+      "sources.append"
+    ],
+    "src.application.workflow.documentary_workflow.DocumentaryWorkflow.__init__": [
+      "ArtifactStore",
+      "CharacterEngine",
+      "CitationEngine",
+      "FactVerificationEngine",
+      "ImagePromptGenerator",
+      "KnowledgeOutlineBuilder",
+      "KnowledgeRepository",
+      "NarrativeBuilder",
+      "RelationshipEngine",
+      "SceneGenerator",
+      "ScenePlanner",
+      "ScriptGenerator",
+      "SourceRankingEngine",
+      "TimelineEngine"
+    ],
+    "src.application.workflow.documentary_workflow.DocumentaryWorkflow.run": [
+      "Artifact",
+      "WorkflowContext",
+      "self.character_engine.build",
+      "self.citation_engine.build",
+      "self.fact_verification_engine.verify",
+      "self.image_generator.generate",
+      "self.narrative_builder.build",
+      "self.outline_builder.build",
+      "self.relationship_engine.build",
+      "self.repository.ingest_file",
+      "self.scene_generator.generate",
+      "self.scene_planner.plan",
+      "self.script_generator.build",
+      "self.source_ranking_engine.rank",
+      "self.store.put",
+      "self.timeline_engine.build"
+    ],
+    "src.application.workflow.workflow_context.WorkflowContext": [
+      "field"
+    ],
+    "src.domain.claims.claim.Claim": [
+      "field",
+      "str",
+      "uuid4"
+    ],
+    "src.domain.claims.claim.Claim.to_dict": [
+      "callable",
+      "hasattr",
+      "item.to_dict"
+    ],
+    "src.domain.entities.entity.Entity": [
+      "field",
+      "str",
+      "uuid4"
+    ],
+    "src.domain.knowledge_graph.graph_index.GraphIndex.__init__": [
+      "defaultdict"
+    ],
+    "src.domain.knowledge_graph.graph_index.GraphIndex.build": [
+      "append",
+      "self.edges_by_source.clear",
+      "self.edges_by_target.clear",
+      "self.node_by_id.clear",
+      "self.nodes_by_type.clear"
+    ],
+    "src.domain.knowledge_graph.graph_index.GraphIndex.get_node": [
+      "self.node_by_id.get"
+    ],
+    "src.domain.knowledge_graph.graph_index.GraphIndex.get_nodes_by_type": [
+      "list",
+      "self.nodes_by_type.get"
+    ],
+    "src.domain.knowledge_graph.graph_index.GraphIndex.incoming": [
+      "list",
+      "self.edges_by_target.get"
+    ],
+    "src.domain.knowledge_graph.graph_index.GraphIndex.outgoing": [
+      "list",
+      "self.edges_by_source.get"
+    ],
+    "src.domain.knowledge_graph.knowledge_edge.KnowledgeEdge": [
+      "field"
+    ],
+    "src.domain.knowledge_graph.knowledge_graph.KnowledgeGraph": [
+      "field"
+    ],
+    "src.domain.knowledge_graph.knowledge_graph.KnowledgeGraph.__post_init__": [
+      "GraphIndex",
+      "self.rebuild_index"
+    ],
+    "src.domain.knowledge_graph.knowledge_graph.KnowledgeGraph.add_edge": [
+      "self.edges.append",
+      "self.rebuild_index"
+    ],
+    "src.domain.knowledge_graph.knowledge_graph.KnowledgeGraph.add_node": [
+      "self.nodes.append",
+      "self.rebuild_index"
+    ],
+    "src.domain.knowledge_graph.knowledge_graph.KnowledgeGraph.get_node": [
+      "self.index.get_node"
+    ],
+    "src.domain.knowledge_graph.knowledge_graph.KnowledgeGraph.get_nodes_by_type": [
+      "self.index.get_nodes_by_type"
+    ],
+    "src.domain.knowledge_graph.knowledge_graph.KnowledgeGraph.incoming": [
+      "self.index.incoming"
+    ],
+    "src.domain.knowledge_graph.knowledge_graph.KnowledgeGraph.outgoing": [
+      "self.index.outgoing"
+    ],
+    "src.domain.knowledge_graph.knowledge_graph.KnowledgeGraph.rebuild_index": [
+      "self.index.build"
+    ],
+    "src.domain.knowledge_graph.knowledge_graph.KnowledgeGraph.to_dict": [
+      "e.to_dict",
+      "n.to_dict"
+    ],
+    "src.domain.knowledge_graph.knowledge_graph_query.KnowledgeGraphQuery.events": [
+      "self.graph.get_nodes_by_type"
+    ],
+    "src.domain.knowledge_graph.knowledge_graph_query.KnowledgeGraphQuery.incoming": [
+      "self.graph.incoming"
+    ],
+    "src.domain.knowledge_graph.knowledge_graph_query.KnowledgeGraphQuery.node": [
+      "self.graph.get_node"
+    ],
+    "src.domain.knowledge_graph.knowledge_graph_query.KnowledgeGraphQuery.outgoing": [
+      "self.graph.outgoing"
+    ],
+    "src.domain.knowledge_graph.knowledge_graph_query.KnowledgeGraphQuery.people": [
+      "self.graph.get_nodes_by_type"
+    ],
+    "src.domain.knowledge_graph.knowledge_graph_query.KnowledgeGraphQuery.relationships": [
+      "self.graph.get_nodes_by_type"
+    ],
+    "src.domain.knowledge_graph.knowledge_graph_query.KnowledgeGraphQuery.statistics": [
+      "self.graph.get_nodes_by_type"
+    ],
+    "src.domain.knowledge_graph.knowledge_graph_query.KnowledgeGraphQuery.timeline": [
+      "self.graph.get_nodes_by_type"
+    ],
+    "src.domain.knowledge_graph.knowledge_node.KnowledgeNode": [
+      "field"
+    ],
+    "src.domain.knowledge_objects.knowledge_object.KnowledgeObject": [
+      "field"
+    ],
+    "src.domain.knowledge_objects.knowledge_object.KnowledgeObject.to_dict": [
+      "asdict"
+    ],
+    "src.domain.knowledge_objects.person.Person": [
+      "field"
+    ],
+    "src.domain.relationships.relationship.Relationship": [
+      "field"
+    ],
+    "src.domain.relationships.relationship.Relationship.to_dict": [
+      "str"
+    ],
+    "src.domain.sources.source.Source": [
+      "field",
+      "str",
+      "uuid4"
+    ],
+    "src.infrastructure.llm.mock_llm_provider.MockLLMProvider.generate": [
+      "Script",
+      "isinstance",
+      "str"
+    ]
+  },
+  "class_references": {
+    "src.application.artifacts.artifact": [
+      "ArtifactType",
+      "Enum",
+      "dataclass",
+      "dataclasses",
+      "enum",
+      "object"
+    ],
+    "src.application.artifacts.artifact_store": [
+      "Artifact",
+      "ArtifactType",
+      "application.artifacts.artifact",
+      "dict",
+      "get",
+      "items"
+    ],
+    "src.application.config.environment_loader": [
+      "dotenv",
+      "load_dotenv"
+    ],
+    "src.application.config.settings": [
+      "*",
+      "Settings",
+      "application.config.environment_loader",
+      "dataclass",
+      "dataclasses",
+      "float",
+      "getenv",
+      "int",
+      "os",
+      "str"
+    ],
+    "src.application.documentary.documentary_generator": [
+      "DocumentaryOutline",
+      "KnowledgeGraph",
+      "append",
+      "application.documentary.documentary_outline",
+      "domain.knowledge_graph.knowledge_graph",
+      "get",
+      "get_nodes_by_type",
+      "str"
+    ],
+    "src.application.documentary.documentary_outline": [
+      "dataclass",
+      "dataclasses",
+      "field",
+      "list",
+      "str"
+    ],
+    "src.application.documentary.documentary_script": [
+      "dataclass",
+      "dataclasses",
+      "str"
+    ],
+    "src.application.documentary.knowledge_outline_builder": [
+      "DocumentaryOutline",
+      "append",
+      "application.models.outline",
+      "get",
+      "getattr",
+      "str"
+    ],
+    "src.application.image.image_prompt": [
+      "dataclass",
+      "dataclasses",
+      "int",
+      "str"
+    ],
+    "src.application.image.image_prompt_generator": [
+      "append",
+      "join",
+      "len",
+      "replace",
+      "split"
+    ],
+    "src.application.knowledge.character_engine": [
+      "CharacterProfile",
+      "append",
+      "dataclass",
+      "dataclasses",
+      "get",
+      "getattr",
+      "isinstance",
+      "list",
+      "str"
+    ],
+    "src.application.knowledge.citation_engine": [
+      "Citation",
+      "append",
+      "dataclass",
+      "dataclasses",
+      "float",
+      "get",
+      "getattr",
+      "isinstance",
+      "str"
+    ],
+    "src.application.knowledge.extraction_result": [
+      "Claim",
+      "Event",
+      "Location",
+      "Person",
+      "Relationship",
+      "Source",
+      "Statistic",
+      "TimelineEvent",
+      "dataclass",
+      "dataclasses",
+      "domain.knowledge_objects.claim",
+      "domain.knowledge_objects.event",
+      "domain.knowledge_objects.location",
+      "domain.knowledge_objects.person",
+      "domain.knowledge_objects.source",
+      "domain.knowledge_objects.statistic",
+      "domain.knowledge_objects.timeline_event",
+      "domain.relationships.relationship",
+      "field",
+      "list"
+    ],
+    "src.application.knowledge.fact_verification_engine": [
+      "VerifiedClaim",
+      "append",
+      "bool",
+      "dataclass",
+      "dataclasses",
+      "float",
+      "get",
+      "getattr",
+      "isinstance",
+      "len",
+      "str"
+    ],
+    "src.application.knowledge.knowledge_extractor": [
+      "ExtractionResult",
+      "KnowledgeParser",
+      "LLMGateway",
+      "LLMRequest",
+      "application.knowledge.extraction_result",
+      "application.knowledge.knowledge_parser",
+      "application.llm.core.llm_gateway",
+      "application.llm.core.llm_request",
+      "generate",
+      "parse",
+      "str"
+    ],
+    "src.application.knowledge.knowledge_graph_builder": [
+      "KnowledgeEdge",
+      "KnowledgeGraph",
+      "KnowledgeNode",
+      "add",
+      "add_edge",
+      "add_node",
+      "domain.knowledge_graph.knowledge_edge",
+      "domain.knowledge_graph.knowledge_graph",
+      "domain.knowledge_graph.knowledge_node",
+      "enumerate",
+      "to_dict"
+    ],
+    "src.application.knowledge.knowledge_parser": [
+      "ExtractionResult",
+      "Relationship",
+      "application.knowledge.extraction_result",
+      "application.knowledge.utils.model_factory",
+      "create_model",
+      "domain.relationships.relationship",
+      "get",
+      "json",
+      "loads",
+      "str"
+    ],
+    "src.application.knowledge.knowledge_repository": [
+      "ExtractionResult",
+      "KnowledgeExtractor",
+      "KnowledgeGraphBuilder",
+      "Path",
+      "add",
+      "append",
+      "application.knowledge.extraction_result",
+      "application.knowledge.knowledge_extractor",
+      "application.knowledge.knowledge_graph_builder",
+      "build",
+      "dataclass",
+      "dataclasses",
+      "extract",
+      "field",
+      "ingest_text",
+      "list",
+      "pathlib",
+      "read_text",
+      "str"
+    ],
+    "src.application.knowledge.relationship_engine": [
+      "RelationshipRecord",
+      "append",
+      "dataclass",
+      "dataclasses",
+      "get",
+      "getattr",
+      "isinstance",
+      "str"
+    ],
+    "src.application.knowledge.source_ranking_engine": [
+      "RankedSource",
+      "append",
+      "dataclass",
+      "dataclasses",
+      "float",
+      "get",
+      "getattr",
+      "isinstance",
+      "len",
+      "round",
+      "sort",
+      "str"
+    ],
+    "src.application.knowledge.timeline_engine": [
+      "TimelineEntry",
+      "append",
+      "dataclass",
+      "dataclasses",
+      "get",
+      "getattr",
+      "isinstance",
+      "sorted",
+      "str"
+    ],
+    "src.application.knowledge.utils.model_factory": [
+      "Claim",
+      "Event",
+      "Location",
+      "Person",
+      "Source",
+      "Statistic",
+      "TimelineEvent",
+      "ValueError",
+      "domain.knowledge_objects.claim",
+      "domain.knowledge_objects.event",
+      "domain.knowledge_objects.location",
+      "domain.knowledge_objects.person",
+      "domain.knowledge_objects.source",
+      "domain.knowledge_objects.statistic",
+      "domain.knowledge_objects.timeline_event",
+      "get",
+      "getattr",
+      "isinstance",
+      "lower",
+      "model",
+      "normalize_payload"
+    ],
+    "src.application.llm.core.fake_gateway": [
+      "LLMGateway",
+      "LLMRequest",
+      "LLMResponse",
+      "application.llm.core.llm_gateway",
+      "application.llm.core.llm_request",
+      "application.llm.core.llm_response"
+    ],
+    "src.application.llm.core.llm_gateway": [
+      "ABC",
+      "LLMRequest",
+      "LLMResponse",
+      "abc",
+      "abstractmethod",
+      "application.llm.core.llm_request",
+      "application.llm.core.llm_response"
+    ],
+    "src.application.llm.core.llm_request": [
+      "dataclass",
+      "dataclasses",
+      "dict",
+      "field",
+      "float",
+      "int",
+      "object",
+      "str"
+    ],
+    "src.application.llm.core.llm_response": [
+      "dataclass",
+      "dataclasses",
+      "dict",
+      "field",
+      "object",
+      "str"
+    ],
+    "src.application.llm.providers.gemini_gateway": [
+      "Client",
+      "LLMGateway",
+      "LLMRequest",
+      "LLMResponse",
+      "ValueError",
+      "application.config.environment_loader",
+      "application.llm.core.llm_gateway",
+      "application.llm.core.llm_request",
+      "application.llm.core.llm_response",
+      "genai",
+      "generate_content",
+      "getenv",
+      "google",
+      "os"
+    ],
+    "src.application.llm.providers.manual_gateway": [
+      "LLMGateway",
+      "LLMRequest",
+      "LLMResponse",
+      "append",
+      "application.llm.core.llm_gateway",
+      "application.llm.core.llm_request",
+      "application.llm.core.llm_response",
+      "hasattr",
+      "input",
+      "join",
+      "print",
+      "reconfigure",
+      "strip",
+      "sys"
+    ],
+    "src.application.llm.providers.openai_gateway": [
+      "LLMGateway",
+      "LLMRequest",
+      "LLMResponse",
+      "OpenAI",
+      "ValueError",
+      "application.config.environment_loader",
+      "application.llm.core.llm_gateway",
+      "application.llm.core.llm_request",
+      "application.llm.core.llm_response",
+      "create",
+      "getenv",
+      "openai",
+      "os"
+    ],
+    "src.application.models.content_specification": [
+      "bool",
+      "dataclass",
+      "dataclasses",
+      "int",
+      "str"
+    ],
+    "src.application.models.documentary.script": [
+      "dataclass",
+      "dataclasses",
+      "dict",
+      "field",
+      "list",
+      "object",
+      "str"
+    ],
+    "src.application.models.documentary.timeline_event": [
+      "KnowledgeObject",
+      "dataclass",
+      "dataclasses",
+      "domain.knowledge_objects.knowledge_object",
+      "float",
+      "str"
+    ],
+    "src.application.models.extraction_object": [
+      "KnowledgeObjectType",
+      "dataclass",
+      "dataclasses",
+      "dict",
+      "domain.knowledge_objects.knowledge_object_type",
+      "field",
+      "float",
+      "object",
+      "str"
+    ],
+    "src.application.models.knowledge.important_typed_claim": [
+      "dataclass",
+      "dataclasses",
+      "dict",
+      "field",
+      "object",
+      "str"
+    ],
+    "src.application.models.knowledge.prioritized_knowledge": [
+      "ImportantTypedClaim",
+      "application.models.knowledge.important_typed_claim",
+      "dataclass",
+      "dataclasses",
+      "dict",
+      "field",
+      "list",
+      "object",
+      "str",
+      "to_dict"
+    ],
+    "src.application.models.knowledge.typed_claim": [
+      "dataclass",
+      "dataclasses",
+      "dict",
+      "field",
+      "object",
+      "str"
+    ],
+    "src.application.models.knowledge_context": [
+      "dataclass",
+      "dataclasses",
+      "dict",
+      "field",
+      "list",
+      "object",
+      "str"
+    ],
+    "src.application.models.llm.prompt": [
+      "dataclass",
+      "dataclasses",
+      "dict",
+      "field",
+      "object",
+      "str"
+    ],
+    "src.application.models.narrative_plan": [
+      "dataclass",
+      "dataclasses",
+      "dict",
+      "field",
+      "list",
+      "object",
+      "str"
+    ],
+    "src.application.models.organized_knowledge": [
+      "dataclass",
+      "dataclasses",
+      "dict",
+      "field",
+      "list",
+      "object",
+      "str"
+    ],
+    "src.application.models.outline": [
+      "List",
+      "dataclass",
+      "dataclasses",
+      "field",
+      "list",
+      "str",
+      "typing"
+    ],
+    "src.application.models.prompt": [
+      "dataclass",
+      "dataclasses",
+      "dict",
+      "field",
+      "object",
+      "str"
+    ],
+    "src.application.models.script": [
+      "dataclass",
+      "dataclasses",
+      "dict",
+      "field",
+      "list",
+      "object",
+      "str"
+    ],
+    "src.application.models.script_structure": [
+      "List",
+      "dataclass",
+      "dataclasses",
+      "field",
+      "str",
+      "typing"
+    ],
+    "src.application.narrative.narrative_builder": [
+      "Narrative",
+      "_field",
+      "append",
+      "dataclass",
+      "dataclasses",
+      "get",
+      "getattr",
+      "isinstance",
+      "join",
+      "list",
+      "str"
+    ],
+    "src.application.pipeline.production_pipeline": [
+      "DocumentaryWorkflow",
+      "GeminiGateway",
+      "ManualGateway",
+      "OpenAIGateway",
+      "application.llm.providers.gemini_gateway",
+      "application.llm.providers.manual_gateway",
+      "application.llm.providers.openai_gateway",
+      "application.workflow.documentary_workflow",
+      "getenv",
+      "list",
+      "os",
+      "run",
+      "str",
+      "strip"
+    ],
+    "src.application.planning.scene_plan": [
+      "dataclass",
+      "dataclasses",
+      "field",
+      "int",
+      "list",
+      "str"
+    ],
+    "src.application.planning.scene_planner": [
+      "ScenePlan",
+      "append",
+      "dataclass",
+      "dataclasses",
+      "field",
+      "get",
+      "getattr",
+      "int",
+      "isinstance",
+      "list",
+      "str"
+    ],
+    "src.application.ports.llm_gateway": [
+      "ABC",
+      "Prompt",
+      "Script",
+      "abc",
+      "abstractmethod",
+      "application.models.prompt",
+      "application.models.script"
+    ],
+    "src.application.scene.scene": [
+      "dataclass",
+      "dataclasses",
+      "int",
+      "str"
+    ],
+    "src.application.scene_generation.scene_generator": [
+      "LLMGateway",
+      "LLMRequest",
+      "Scene",
+      "ScenePlan",
+      "append",
+      "application.llm.core.llm_gateway",
+      "application.llm.core.llm_request",
+      "application.planning.scene_plan",
+      "application.scene.scene",
+      "chr",
+      "generate",
+      "join",
+      "list",
+      "strip"
+    ],
+    "src.application.script.script_generator": [
+      "Script",
+      "append",
+      "dataclass",
+      "dataclasses",
+      "join",
+      "str",
+      "zip"
+    ],
+    "src.application.services.generation_service": [
+      "LLMGateway",
+      "Prompt",
+      "Script",
+      "application.models.prompt",
+      "application.models.script",
+      "application.ports.llm_gateway",
+      "generate"
+    ],
+    "src.application.services.knowledge_context_builder": [
+      "KnowledgeContext",
+      "Outline",
+      "application.models.knowledge_context",
+      "application.models.outline",
+      "list"
+    ],
+    "src.application.services.knowledge_organizer": [
+      "KnowledgeContext",
+      "Optional",
+      "OrganizedKnowledge",
+      "Relationship",
+      "application.models.knowledge_context",
+      "application.models.organized_knowledge",
+      "domain.relationships.relationship",
+      "list",
+      "to_dict",
+      "typing"
+    ],
+    "src.application.services.knowledge_service": [
+      "List",
+      "append",
+      "len",
+      "list",
+      "object",
+      "typing"
+    ],
+    "src.application.services.narrative_builder": [
+      "Dict",
+      "List",
+      "get",
+      "isinstance",
+      "object",
+      "str",
+      "typing"
+    ],
+    "src.application.services.narrative_planner": [
+      "NarrativePlan",
+      "OrganizedKnowledge",
+      "application.models.narrative_plan",
+      "application.models.organized_knowledge",
+      "list"
+    ],
+    "src.application.services.prompt_builder": [
+      "ContentSpecification",
+      "NarrativePlan",
+      "Prompt",
+      "application.models.content_specification",
+      "application.models.narrative_plan",
+      "application.models.prompt",
+      "chr",
+      "join"
+    ],
+    "src.application.services.script_structure_builder": [
+      "Outline",
+      "ScriptStructure",
+      "application.models.outline",
+      "application.models.script_structure",
+      "str"
+    ],
+    "src.application.services.siraj_engine": [
+      "KnowledgeAsset",
+      "Outline",
+      "append",
+      "application.models.outline",
+      "core.knowledge_asset"
+    ],
+    "src.application.workflow.documentary_workflow": [
+      "Artifact",
+      "ArtifactStore",
+      "ArtifactType",
+      "CharacterEngine",
+      "CitationEngine",
+      "FactVerificationEngine",
+      "ImagePromptGenerator",
+      "KnowledgeOutlineBuilder",
+      "KnowledgeRepository",
+      "NarrativeBuilder",
+      "RelationshipEngine",
+      "SceneGenerator",
+      "ScenePlanner",
+      "ScriptGenerator",
+      "SourceRankingEngine",
+      "TimelineEngine",
+      "WorkflowContext",
+      "application.artifacts.artifact",
+      "application.artifacts.artifact_store",
+      "application.documentary.knowledge_outline_builder",
+      "application.image.image_prompt_generator",
+      "application.knowledge.character_engine",
+      "application.knowledge.citation_engine",
+      "application.knowledge.fact_verification_engine",
+      "application.knowledge.knowledge_repository",
+      "application.knowledge.relationship_engine",
+      "application.knowledge.source_ranking_engine",
+      "application.knowledge.timeline_engine",
+      "application.narrative.narrative_builder",
+      "application.planning.scene_planner",
+      "application.scene_generation.scene_generator",
+      "application.script.script_generator",
+      "application.workflow.workflow_context",
+      "build",
+      "generate",
+      "ingest_file",
+      "list",
+      "plan",
+      "put",
+      "rank",
+      "str",
+      "verify"
+    ],
+    "src.application.workflow.workflow_context": [
+      "dataclass",
+      "dataclasses",
+      "dict",
+      "field",
+      "object",
+      "str"
+    ],
+    "src.domain.claims.claim": [
+      "Dict",
+      "List",
+      "Optional",
+      "callable",
+      "dataclass",
+      "dataclasses",
+      "field",
+      "float",
+      "hasattr",
+      "object",
+      "str",
+      "to_dict",
+      "typing",
+      "uuid",
+      "uuid4"
+    ],
+    "src.domain.entities": [
+      "Entity",
+      "Event",
+      "Person",
+      "Place",
+      "entity"
+    ],
+    "src.domain.entities.entity": [
+      "Dict",
+      "dataclass",
+      "dataclasses",
+      "field",
+      "str",
+      "typing",
+      "uuid",
+      "uuid4"
+    ],
+    "src.domain.knowledge_graph.graph_index": [
+      "append",
+      "clear",
+      "collections",
+      "defaultdict",
+      "get",
+      "list"
+    ],
+    "src.domain.knowledge_graph.knowledge_edge": [
+      "dataclass",
+      "dataclasses",
+      "dict",
+      "field",
+      "object",
+      "str"
+    ],
+    "src.domain.knowledge_graph.knowledge_graph": [
+      "GraphIndex",
+      "append",
+      "build",
+      "dataclass",
+      "dataclasses",
+      "domain.knowledge_graph.graph_index",
+      "field",
+      "get_node",
+      "get_nodes_by_type",
+      "incoming",
+      "list",
+      "outgoing",
+      "rebuild_index",
+      "to_dict"
+    ],
+    "src.domain.knowledge_graph.knowledge_graph_query": [
+      "KnowledgeGraph",
+      "domain.knowledge_graph.knowledge_graph",
+      "get_node",
+      "get_nodes_by_type",
+      "incoming",
+      "outgoing",
+      "str"
+    ],
+    "src.domain.knowledge_graph.knowledge_node": [
+      "dataclass",
+      "dataclasses",
+      "dict",
+      "field",
+      "object",
+      "str"
+    ],
+    "src.domain.knowledge_objects.claim": [
+      "KnowledgeObject",
+      "dataclass",
+      "dataclasses",
+      "domain.knowledge_objects.knowledge_object",
+      "str"
+    ],
+    "src.domain.knowledge_objects.event": [
+      "KnowledgeObject",
+      "dataclass",
+      "dataclasses",
+      "domain.knowledge_objects.knowledge_object",
+      "str"
+    ],
+    "src.domain.knowledge_objects.knowledge_object": [
+      "asdict",
+      "dataclass",
+      "dataclasses",
+      "dict",
+      "field",
+      "object",
+      "str"
+    ],
+    "src.domain.knowledge_objects.knowledge_object_type": [
+      "Enum",
+      "enum"
+    ],
+    "src.domain.knowledge_objects.location": [
+      "KnowledgeObject",
+      "dataclass",
+      "dataclasses",
+      "domain.knowledge_objects.knowledge_object",
+      "str"
+    ],
+    "src.domain.knowledge_objects.person": [
+      "KnowledgeObject",
+      "dataclass",
+      "dataclasses",
+      "domain.knowledge_objects.knowledge_object",
+      "field",
+      "list",
+      "str"
+    ],
+    "src.domain.knowledge_objects.relationship": [
+      "KnowledgeObject",
+      "dataclass",
+      "dataclasses",
+      "domain.knowledge_objects.knowledge_object",
+      "str"
+    ],
+    "src.domain.knowledge_objects.source": [
+      "KnowledgeObject",
+      "dataclass",
+      "dataclasses",
+      "domain.knowledge_objects.knowledge_object",
+      "str"
+    ],
+    "src.domain.knowledge_objects.statistic": [
+      "KnowledgeObject",
+      "dataclass",
+      "dataclasses",
+      "domain.knowledge_objects.knowledge_object",
+      "str"
+    ],
+    "src.domain.knowledge_objects.timeline_event": [
+      "KnowledgeObject",
+      "dataclass",
+      "dataclasses",
+      "domain.knowledge_objects.knowledge_object",
+      "str"
+    ],
+    "src.domain.relationships.relationship": [
+      "UUID",
+      "dataclass",
+      "dataclasses",
+      "dict",
+      "field",
+      "float",
+      "object",
+      "str",
+      "uuid",
+      "uuid4"
+    ],
+    "src.domain.sources.source": [
+      "Dict",
+      "Optional",
+      "dataclass",
+      "dataclasses",
+      "field",
+      "int",
+      "object",
+      "str",
+      "typing",
+      "uuid",
+      "uuid4"
+    ],
+    "src.infrastructure.llm.mock_llm_provider": [
+      "LLMGateway",
+      "Prompt",
+      "Script",
+      "application.models.prompt",
+      "application.models.script",
+      "application.ports.llm_gateway",
+      "isinstance",
+      "str"
+    ]
+  },
+  "constructor_calls": {
+    "src.application.config.settings": [
+      "Settings"
+    ],
+    "src.application.documentary.documentary_generator.DocumentaryGenerator.generate": [
+      "DocumentaryOutline"
+    ],
+    "src.application.documentary.knowledge_outline_builder.KnowledgeOutlineBuilder.build": [
+      "DocumentaryOutline"
+    ],
+    "src.application.knowledge.character_engine.CharacterEngine.build": [
+      "CharacterProfile"
+    ],
+    "src.application.knowledge.citation_engine.CitationEngine.build": [
+      "Citation"
+    ],
+    "src.application.knowledge.fact_verification_engine.FactVerificationEngine.verify": [
+      "VerifiedClaim"
+    ],
+    "src.application.knowledge.knowledge_extractor.KnowledgeExtractor.__init__": [
+      "KnowledgeParser"
+    ],
+    "src.application.knowledge.knowledge_extractor.KnowledgeExtractor.extract": [
+      "LLMRequest"
+    ],
+    "src.application.knowledge.knowledge_graph_builder.KnowledgeGraphBuilder.add": [
+      "KnowledgeNode"
+    ],
+    "src.application.knowledge.knowledge_graph_builder.KnowledgeGraphBuilder.build": [
+      "KnowledgeEdge",
+      "KnowledgeGraph"
+    ],
+    "src.application.knowledge.knowledge_parser.KnowledgeParser.parse": [
+      "ExtractionResult",
+      "Relationship"
+    ],
+    "src.application.knowledge.knowledge_repository.KnowledgeRepository.__post_init__": [
+      "KnowledgeExtractor",
+      "KnowledgeGraphBuilder"
+    ],
+    "src.application.knowledge.knowledge_repository.KnowledgeRepository.ingest_file": [
+      "Path"
+    ],
+    "src.application.knowledge.relationship_engine.RelationshipEngine.build": [
+      "RelationshipRecord"
+    ],
+    "src.application.knowledge.source_ranking_engine.SourceRankingEngine.rank": [
+      "RankedSource"
+    ],
+    "src.application.knowledge.timeline_engine.TimelineEngine.build": [
+      "TimelineEntry"
+    ],
+    "src.application.knowledge.utils.model_factory.create_model": [
+      "ValueError"
+    ],
+    "src.application.llm.core.fake_gateway.FakeGateway.generate": [
+      "LLMResponse"
+    ],
+    "src.application.llm.providers.gemini_gateway.GeminiGateway.__init__": [
+      "ValueError",
+      "genai.Client"
+    ],
+    "src.application.llm.providers.gemini_gateway.GeminiGateway.generate": [
+      "LLMResponse"
+    ],
+    "src.application.llm.providers.manual_gateway.ManualGateway.generate": [
+      "LLMResponse"
+    ],
+    "src.application.llm.providers.openai_gateway.OpenAIGateway.__init__": [
+      "OpenAI",
+      "ValueError"
+    ],
+    "src.application.llm.providers.openai_gateway.OpenAIGateway.generate": [
+      "LLMResponse"
+    ],
+    "src.application.narrative.narrative_builder.NarrativeBuilder.build": [
+      "Narrative"
+    ],
+    "src.application.pipeline.production_pipeline.ProductionPipeline.__init__": [
+      "DocumentaryWorkflow",
+      "GeminiGateway",
+      "ManualGateway",
+      "OpenAIGateway"
+    ],
+    "src.application.planning.scene_planner.ScenePlanner.plan": [
+      "ScenePlan"
+    ],
+    "src.application.scene_generation.scene_generator.SceneGenerator.generate": [
+      "LLMRequest",
+      "Scene"
+    ],
+    "src.application.script.script_generator.ScriptGenerator.build": [
+      "Script"
+    ],
+    "src.application.services.knowledge_context_builder.KnowledgeContextBuilder.build": [
+      "KnowledgeContext"
+    ],
+    "src.application.services.knowledge_organizer.KnowledgeOrganizer.build": [
+      "OrganizedKnowledge"
+    ],
+    "src.application.services.narrative_planner.NarrativePlanner.build": [
+      "NarrativePlan"
+    ],
+    "src.application.services.prompt_builder.PromptBuilder.build": [
+      "Prompt"
+    ],
+    "src.application.services.script_structure_builder.ScriptStructureBuilder.build": [
+      "ScriptStructure"
+    ],
+    "src.application.services.siraj_engine.SirajEngine.build_outline": [
+      "Outline"
+    ],
+    "src.application.workflow.documentary_workflow.DocumentaryWorkflow.__init__": [
+      "ArtifactStore",
+      "CharacterEngine",
+      "CitationEngine",
+      "FactVerificationEngine",
+      "ImagePromptGenerator",
+      "KnowledgeOutlineBuilder",
+      "KnowledgeRepository",
+      "NarrativeBuilder",
+      "RelationshipEngine",
+      "SceneGenerator",
+      "ScenePlanner",
+      "ScriptGenerator",
+      "SourceRankingEngine",
+      "TimelineEngine"
+    ],
+    "src.application.workflow.documentary_workflow.DocumentaryWorkflow.run": [
+      "Artifact",
+      "WorkflowContext"
+    ],
+    "src.domain.knowledge_graph.knowledge_graph.KnowledgeGraph.__post_init__": [
+      "GraphIndex"
+    ],
+    "src.infrastructure.llm.mock_llm_provider.MockLLMProvider.generate": [
+      "Script"
+    ]
+  },
+  "inheritance": {
+    "ArtifactType": [
+      "Enum",
+      "str"
+    ],
+    "Claim": [
+      "KnowledgeObject"
+    ],
+    "Event": [
+      "Entity",
+      "KnowledgeObject"
+    ],
+    "FakeGateway": [
+      "LLMGateway"
+    ],
+    "GeminiGateway": [
+      "LLMGateway"
+    ],
+    "KnowledgeObjectType": [
+      "Enum",
+      "str"
+    ],
+    "LLMGateway": [
+      "ABC"
+    ],
+    "Location": [
+      "KnowledgeObject"
+    ],
+    "ManualGateway": [
+      "LLMGateway"
+    ],
+    "MockLLMProvider": [
+      "LLMGateway"
+    ],
+    "OpenAIGateway": [
+      "LLMGateway"
+    ],
+    "Person": [
+      "Entity",
+      "KnowledgeObject"
+    ],
+    "Place": [
+      "Entity"
+    ],
+    "Relationship": [
+      "KnowledgeObject"
+    ],
+    "Source": [
+      "KnowledgeObject"
+    ],
+    "Statistic": [
+      "KnowledgeObject"
+    ],
+    "TimelineEvent": [
+      "KnowledgeObject"
+    ]
+  },
+  "symbols": [
+    {
+      "module": "src.application.artifacts.artifact",
+      "name": "ArtifactType",
+      "kind": "class",
+      "line": 5
+    },
+    {
+      "module": "src.application.artifacts.artifact",
+      "name": "Artifact",
+      "kind": "class",
+      "line": 25
+    },
+    {
+      "module": "src.application.artifacts.artifact_store",
+      "name": "ArtifactStore",
+      "kind": "class",
+      "line": 4
+    },
+    {
+      "module": "src.application.artifacts.artifact_store",
+      "name": "__init__",
+      "kind": "function",
+      "line": 6
+    },
+    {
+      "module": "src.application.artifacts.artifact_store",
+      "name": "put",
+      "kind": "function",
+      "line": 9
+    },
+    {
+      "module": "src.application.artifacts.artifact_store",
+      "name": "get",
+      "kind": "function",
+      "line": 12
+    },
+    {
+      "module": "src.application.artifacts.artifact_store",
+      "name": "has",
+      "kind": "function",
+      "line": 16
+    },
+    {
+      "module": "src.application.artifacts.artifact_store",
+      "name": "all",
+      "kind": "function",
+      "line": 19
+    },
+    {
+      "module": "src.application.config.settings",
+      "name": "Settings",
+      "kind": "class",
+      "line": 8
+    },
+    {
+      "module": "src.application.documentary.documentary_generator",
+      "name": "DocumentaryGenerator",
+      "kind": "class",
+      "line": 6
+    },
+    {
+      "module": "src.application.documentary.documentary_generator",
+      "name": "generate",
+      "kind": "function",
+      "line": 8
+    },
+    {
+      "module": "src.application.documentary.documentary_outline",
+      "name": "DocumentaryOutline",
+      "kind": "class",
+      "line": 5
+    },
+    {
+      "module": "src.application.documentary.documentary_outline",
+      "name": "to_dict",
+      "kind": "function",
+      "line": 11
+    },
+    {
+      "module": "src.application.documentary.documentary_script",
+      "name": "DocumentaryScript",
+      "kind": "class",
+      "line": 5
+    },
+    {
+      "module": "src.application.documentary.documentary_script",
+      "name": "to_dict",
+      "kind": "function",
+      "line": 9
+    },
+    {
+      "module": "src.application.documentary.knowledge_outline_builder",
+      "name": "KnowledgeOutlineBuilder",
+      "kind": "class",
+      "line": 4
+    },
+    {
+      "module": "src.application.documentary.knowledge_outline_builder",
+      "name": "build",
+      "kind": "function",
+      "line": 6
+    },
+    {
+      "module": "src.application.image.image_prompt",
+      "name": "ImagePrompt",
+      "kind": "class",
+      "line": 5
+    },
+    {
+      "module": "src.application.image.image_prompt",
+      "name": "to_dict",
+      "kind": "function",
+      "line": 10
+    },
+    {
+      "module": "src.application.image.image_prompt_generator",
+      "name": "ImagePromptGenerator",
+      "kind": "class",
+      "line": 1
+    },
+    {
+      "module": "src.application.image.image_prompt_generator",
+      "name": "generate",
+      "kind": "function",
+      "line": 3
+    },
+    {
+      "module": "src.application.knowledge.character_engine",
+      "name": "CharacterProfile",
+      "kind": "class",
+      "line": 4
+    },
+    {
+      "module": "src.application.knowledge.character_engine",
+      "name": "CharacterEngine",
+      "kind": "class",
+      "line": 10
+    },
+    {
+      "module": "src.application.knowledge.character_engine",
+      "name": "build",
+      "kind": "function",
+      "line": 12
+    },
+    {
+      "module": "src.application.knowledge.citation_engine",
+      "name": "Citation",
+      "kind": "class",
+      "line": 5
+    },
+    {
+      "module": "src.application.knowledge.citation_engine",
+      "name": "CitationEngine",
+      "kind": "class",
+      "line": 15
+    },
+    {
+      "module": "src.application.knowledge.citation_engine",
+      "name": "build",
+      "kind": "function",
+      "line": 17
+    },
+    {
+      "module": "src.application.knowledge.extraction_result",
+      "name": "ExtractionResult",
+      "kind": "class",
+      "line": 14
+    },
+    {
+      "module": "src.application.knowledge.fact_verification_engine",
+      "name": "VerifiedClaim",
+      "kind": "class",
+      "line": 5
+    },
+    {
+      "module": "src.application.knowledge.fact_verification_engine",
+      "name": "FactVerificationEngine",
+      "kind": "class",
+      "line": 16
+    },
+    {
+      "module": "src.application.knowledge.fact_verification_engine",
+      "name": "verify",
+      "kind": "function",
+      "line": 18
+    },
+    {
+      "module": "src.application.knowledge.knowledge_extractor",
+      "name": "KnowledgeExtractor",
+      "kind": "class",
+      "line": 8
+    },
+    {
+      "module": "src.application.knowledge.knowledge_extractor",
+      "name": "__init__",
+      "kind": "function",
+      "line": 10
+    },
+    {
+      "module": "src.application.knowledge.knowledge_extractor",
+      "name": "extract",
+      "kind": "function",
+      "line": 14
+    },
+    {
+      "module": "src.application.knowledge.knowledge_graph_builder",
+      "name": "KnowledgeGraphBuilder",
+      "kind": "class",
+      "line": 6
+    },
+    {
+      "module": "src.application.knowledge.knowledge_graph_builder",
+      "name": "build",
+      "kind": "function",
+      "line": 8
+    },
+    {
+      "module": "src.application.knowledge.knowledge_graph_builder",
+      "name": "add",
+      "kind": "function",
+      "line": 12
+    },
+    {
+      "module": "src.application.knowledge.knowledge_parser",
+      "name": "KnowledgeParser",
+      "kind": "class",
+      "line": 11
+    },
+    {
+      "module": "src.application.knowledge.knowledge_parser",
+      "name": "parse",
+      "kind": "function",
+      "line": 13
+    },
+    {
+      "module": "src.application.knowledge.knowledge_repository",
+      "name": "KnowledgeRepository",
+      "kind": "class",
+      "line": 10
+    },
+    {
+      "module": "src.application.knowledge.knowledge_repository",
+      "name": "__post_init__",
+      "kind": "function",
+      "line": 15
+    },
+    {
+      "module": "src.application.knowledge.knowledge_repository",
+      "name": "add",
+      "kind": "function",
+      "line": 21
+    },
+    {
+      "module": "src.application.knowledge.knowledge_repository",
+      "name": "ingest_text",
+      "kind": "function",
+      "line": 27
+    },
+    {
+      "module": "src.application.knowledge.knowledge_repository",
+      "name": "ingest_file",
+      "kind": "function",
+      "line": 38
+    },
+    {
+      "module": "src.application.knowledge.knowledge_repository",
+      "name": "persons",
+      "kind": "function",
+      "line": 50
+    },
+    {
+      "module": "src.application.knowledge.knowledge_repository",
+      "name": "events",
+      "kind": "function",
+      "line": 54
+    },
+    {
+      "module": "src.application.knowledge.knowledge_repository",
+      "name": "locations",
+      "kind": "function",
+      "line": 58
+    },
+    {
+      "module": "src.application.knowledge.knowledge_repository",
+      "name": "claims",
+      "kind": "function",
+      "line": 62
+    },
+    {
+      "module": "src.application.knowledge.knowledge_repository",
+      "name": "statistics",
+      "kind": "function",
+      "line": 66
+    },
+    {
+      "module": "src.application.knowledge.knowledge_repository",
+      "name": "timeline",
+      "kind": "function",
+      "line": 70
+    },
+    {
+      "module": "src.application.knowledge.knowledge_repository",
+      "name": "relationships",
+      "kind": "function",
+      "line": 74
+    },
+    {
+      "module": "src.application.knowledge.knowledge_repository",
+      "name": "sources",
+      "kind": "function",
+      "line": 78
+    },
+    {
+      "module": "src.application.knowledge.relationship_engine",
+      "name": "RelationshipRecord",
+      "kind": "class",
+      "line": 4
+    },
+    {
+      "module": "src.application.knowledge.relationship_engine",
+      "name": "RelationshipEngine",
+      "kind": "class",
+      "line": 10
+    },
+    {
+      "module": "src.application.knowledge.relationship_engine",
+      "name": "build",
+      "kind": "function",
+      "line": 12
+    },
+    {
+      "module": "src.application.knowledge.source_ranking_engine",
+      "name": "RankedSource",
+      "kind": "class",
+      "line": 5
+    },
+    {
+      "module": "src.application.knowledge.source_ranking_engine",
+      "name": "SourceRankingEngine",
+      "kind": "class",
+      "line": 14
+    },
+    {
+      "module": "src.application.knowledge.source_ranking_engine",
+      "name": "rank",
+      "kind": "function",
+      "line": 16
+    },
+    {
+      "module": "src.application.knowledge.timeline_engine",
+      "name": "TimelineEntry",
+      "kind": "class",
+      "line": 4
+    },
+    {
+      "module": "src.application.knowledge.timeline_engine",
+      "name": "TimelineEngine",
+      "kind": "class",
+      "line": 9
+    },
+    {
+      "module": "src.application.knowledge.timeline_engine",
+      "name": "build",
+      "kind": "function",
+      "line": 11
+    },
+    {
+      "module": "src.application.knowledge.utils.model_factory",
+      "name": "normalize_payload",
+      "kind": "function",
+      "line": 21
+    },
+    {
+      "module": "src.application.knowledge.utils.model_factory",
+      "name": "create_model",
+      "kind": "function",
+      "line": 40
+    },
+    {
+      "module": "src.application.llm.core.fake_gateway",
+      "name": "FakeGateway",
+      "kind": "class",
+      "line": 6
+    },
+    {
+      "module": "src.application.llm.core.fake_gateway",
+      "name": "generate",
+      "kind": "function",
+      "line": 8
+    },
+    {
+      "module": "src.application.llm.core.llm_gateway",
+      "name": "LLMGateway",
+      "kind": "class",
+      "line": 7
+    },
+    {
+      "module": "src.application.llm.core.llm_gateway",
+      "name": "generate",
+      "kind": "function",
+      "line": 10
+    },
+    {
+      "module": "src.application.llm.core.llm_request",
+      "name": "LLMRequest",
+      "kind": "class",
+      "line": 5
+    },
+    {
+      "module": "src.application.llm.core.llm_response",
+      "name": "LLMResponse",
+      "kind": "class",
+      "line": 5
+    },
+    {
+      "module": "src.application.llm.providers.gemini_gateway",
+      "name": "GeminiGateway",
+      "kind": "class",
+      "line": 12
+    },
+    {
+      "module": "src.application.llm.providers.gemini_gateway",
+      "name": "__init__",
+      "kind": "function",
+      "line": 14
+    },
+    {
+      "module": "src.application.llm.providers.gemini_gateway",
+      "name": "generate",
+      "kind": "function",
+      "line": 27
+    },
+    {
+      "module": "src.application.llm.providers.manual_gateway",
+      "name": "ManualGateway",
+      "kind": "class",
+      "line": 8
+    },
+    {
+      "module": "src.application.llm.providers.manual_gateway",
+      "name": "generate",
+      "kind": "function",
+      "line": 10
+    },
+    {
+      "module": "src.application.llm.providers.openai_gateway",
+      "name": "OpenAIGateway",
+      "kind": "class",
+      "line": 12
+    },
+    {
+      "module": "src.application.llm.providers.openai_gateway",
+      "name": "__init__",
+      "kind": "function",
+      "line": 14
+    },
+    {
+      "module": "src.application.llm.providers.openai_gateway",
+      "name": "generate",
+      "kind": "function",
+      "line": 27
+    },
+    {
+      "module": "src.application.models.content_specification",
+      "name": "ContentSpecification",
+      "kind": "class",
+      "line": 5
+    },
+    {
+      "module": "src.application.models.content_specification",
+      "name": "to_dict",
+      "kind": "function",
+      "line": 14
+    },
+    {
+      "module": "src.application.models.documentary.script",
+      "name": "Script",
+      "kind": "class",
+      "line": 5
+    },
+    {
+      "module": "src.application.models.documentary.script",
+      "name": "to_dict",
+      "kind": "function",
+      "line": 14
+    },
+    {
+      "module": "src.application.models.documentary.timeline_event",
+      "name": "TimelineEvent",
+      "kind": "class",
+      "line": 7
+    },
+    {
+      "module": "src.application.models.extraction_object",
+      "name": "ExtractionObject",
+      "kind": "class",
+      "line": 6
+    },
+    {
+      "module": "src.application.models.extraction_object",
+      "name": "to_dict",
+      "kind": "function",
+      "line": 12
+    },
+    {
+      "module": "src.application.models.knowledge.important_typed_claim",
+      "name": "ImportantTypedClaim",
+      "kind": "class",
+      "line": 5
+    },
+    {
+      "module": "src.application.models.knowledge.important_typed_claim",
+      "name": "to_dict",
+      "kind": "function",
+      "line": 11
+    },
+    {
+      "module": "src.application.models.knowledge.prioritized_knowledge",
+      "name": "PrioritizedKnowledge",
+      "kind": "class",
+      "line": 7
+    },
+    {
+      "module": "src.application.models.knowledge.prioritized_knowledge",
+      "name": "to_dict",
+      "kind": "function",
+      "line": 16
+    },
+    {
+      "module": "src.application.models.knowledge.typed_claim",
+      "name": "TypedClaim",
+      "kind": "class",
+      "line": 5
+    },
+    {
+      "module": "src.application.models.knowledge.typed_claim",
+      "name": "to_dict",
+      "kind": "function",
+      "line": 10
+    },
+    {
+      "module": "src.application.models.knowledge_context",
+      "name": "KnowledgeContext",
+      "kind": "class",
+      "line": 5
+    },
+    {
+      "module": "src.application.models.knowledge_context",
+      "name": "to_dict",
+      "kind": "function",
+      "line": 13
+    },
+    {
+      "module": "src.application.models.llm.prompt",
+      "name": "Prompt",
+      "kind": "class",
+      "line": 5
+    },
+    {
+      "module": "src.application.models.llm.prompt",
+      "name": "to_dict",
+      "kind": "function",
+      "line": 12
+    },
+    {
+      "module": "src.application.models.narrative_plan",
+      "name": "NarrativePlan",
+      "kind": "class",
+      "line": 5
+    },
+    {
+      "module": "src.application.models.narrative_plan",
+      "name": "to_dict",
+      "kind": "function",
+      "line": 14
+    },
+    {
+      "module": "src.application.models.organized_knowledge",
+      "name": "OrganizedKnowledge",
+      "kind": "class",
+      "line": 5
+    },
+    {
+      "module": "src.application.models.organized_knowledge",
+      "name": "to_dict",
+      "kind": "function",
+      "line": 16
+    },
+    {
+      "module": "src.application.models.outline",
+      "name": "Outline",
+      "kind": "class",
+      "line": 6
+    },
+    {
+      "module": "src.application.models.outline",
+      "name": "to_dict",
+      "kind": "function",
+      "line": 13
+    },
+    {
+      "module": "src.application.models.outline",
+      "name": "DocumentaryOutline",
+      "kind": "class",
+      "line": 24
+    },
+    {
+      "module": "src.application.models.outline",
+      "name": "to_dict",
+      "kind": "function",
+      "line": 30
+    },
+    {
+      "module": "src.application.models.prompt",
+      "name": "Prompt",
+      "kind": "class",
+      "line": 5
+    },
+    {
+      "module": "src.application.models.prompt",
+      "name": "to_dict",
+      "kind": "function",
+      "line": 12
+    },
+    {
+      "module": "src.application.models.script",
+      "name": "Script",
+      "kind": "class",
+      "line": 5
+    },
+    {
+      "module": "src.application.models.script",
+      "name": "to_dict",
+      "kind": "function",
+      "line": 14
+    },
+    {
+      "module": "src.application.models.script_structure",
+      "name": "ScriptStructure",
+      "kind": "class",
+      "line": 6
+    },
+    {
+      "module": "src.application.models.script_structure",
+      "name": "to_dict",
+      "kind": "function",
+      "line": 13
+    },
+    {
+      "module": "src.application.narrative.narrative_builder",
+      "name": "Narrative",
+      "kind": "class",
+      "line": 5
+    },
+    {
+      "module": "src.application.narrative.narrative_builder",
+      "name": "_field",
+      "kind": "function",
+      "line": 14
+    },
+    {
+      "module": "src.application.narrative.narrative_builder",
+      "name": "NarrativeBuilder",
+      "kind": "class",
+      "line": 20
+    },
+    {
+      "module": "src.application.narrative.narrative_builder",
+      "name": "build",
+      "kind": "function",
+      "line": 22
+    },
+    {
+      "module": "src.application.pipeline.production_pipeline",
+      "name": "ProductionPipeline",
+      "kind": "class",
+      "line": 10
+    },
+    {
+      "module": "src.application.pipeline.production_pipeline",
+      "name": "__init__",
+      "kind": "function",
+      "line": 12
+    },
+    {
+      "module": "src.application.pipeline.production_pipeline",
+      "name": "run",
+      "kind": "function",
+      "line": 30
+    },
+    {
+      "module": "src.application.planning.scene_plan",
+      "name": "ScenePlan",
+      "kind": "class",
+      "line": 5
+    },
+    {
+      "module": "src.application.planning.scene_plan",
+      "name": "to_dict",
+      "kind": "function",
+      "line": 11
+    },
+    {
+      "module": "src.application.planning.scene_planner",
+      "name": "ScenePlan",
+      "kind": "class",
+      "line": 4
+    },
+    {
+      "module": "src.application.planning.scene_planner",
+      "name": "ScenePlanner",
+      "kind": "class",
+      "line": 15
+    },
+    {
+      "module": "src.application.planning.scene_planner",
+      "name": "plan",
+      "kind": "function",
+      "line": 17
+    },
+    {
+      "module": "src.application.planning.scene_planner",
+      "name": "field",
+      "kind": "function",
+      "line": 57
+    },
+    {
+      "module": "src.application.ports.llm_gateway",
+      "name": "LLMGateway",
+      "kind": "class",
+      "line": 7
+    },
+    {
+      "module": "src.application.ports.llm_gateway",
+      "name": "generate",
+      "kind": "function",
+      "line": 9
+    },
+    {
+      "module": "src.application.scene.scene",
+      "name": "Scene",
+      "kind": "class",
+      "line": 5
+    },
+    {
+      "module": "src.application.scene.scene",
+      "name": "to_dict",
+      "kind": "function",
+      "line": 11
+    },
+    {
+      "module": "src.application.scene_generation.scene_generator",
+      "name": "SceneGenerator",
+      "kind": "class",
+      "line": 8
+    },
+    {
+      "module": "src.application.scene_generation.scene_generator",
+      "name": "__init__",
+      "kind": "function",
+      "line": 10
+    },
+    {
+      "module": "src.application.scene_generation.scene_generator",
+      "name": "generate",
+      "kind": "function",
+      "line": 13
+    },
+    {
+      "module": "src.application.script.script_generator",
+      "name": "Script",
+      "kind": "class",
+      "line": 5
+    },
+    {
+      "module": "src.application.script.script_generator",
+      "name": "ScriptGenerator",
+      "kind": "class",
+      "line": 12
+    },
+    {
+      "module": "src.application.script.script_generator",
+      "name": "build",
+      "kind": "function",
+      "line": 14
+    },
+    {
+      "module": "src.application.services.generation_service",
+      "name": "GenerationService",
+      "kind": "class",
+      "line": 6
+    },
+    {
+      "module": "src.application.services.generation_service",
+      "name": "__init__",
+      "kind": "function",
+      "line": 7
+    },
+    {
+      "module": "src.application.services.generation_service",
+      "name": "generate",
+      "kind": "function",
+      "line": 10
+    },
+    {
+      "module": "src.application.services.knowledge_context_builder",
+      "name": "KnowledgeContextBuilder",
+      "kind": "class",
+      "line": 5
+    },
+    {
+      "module": "src.application.services.knowledge_context_builder",
+      "name": "build",
+      "kind": "function",
+      "line": 6
+    },
+    {
+      "module": "src.application.services.knowledge_organizer",
+      "name": "KnowledgeOrganizer",
+      "kind": "class",
+      "line": 8
+    },
+    {
+      "module": "src.application.services.knowledge_organizer",
+      "name": "build",
+      "kind": "function",
+      "line": 9
+    },
+    {
+      "module": "src.application.services.knowledge_service",
+      "name": "KnowledgeService",
+      "kind": "class",
+      "line": 4
+    },
+    {
+      "module": "src.application.services.knowledge_service",
+      "name": "__init__",
+      "kind": "function",
+      "line": 5
+    },
+    {
+      "module": "src.application.services.knowledge_service",
+      "name": "register",
+      "kind": "function",
+      "line": 8
+    },
+    {
+      "module": "src.application.services.knowledge_service",
+      "name": "all_entities",
+      "kind": "function",
+      "line": 11
+    },
+    {
+      "module": "src.application.services.knowledge_service",
+      "name": "stats",
+      "kind": "function",
+      "line": 14
+    },
+    {
+      "module": "src.application.services.narrative_builder",
+      "name": "NarrativeBuilder",
+      "kind": "class",
+      "line": 4
+    },
+    {
+      "module": "src.application.services.narrative_builder",
+      "name": "build",
+      "kind": "function",
+      "line": 5
+    },
+    {
+      "module": "src.application.services.narrative_planner",
+      "name": "NarrativePlanner",
+      "kind": "class",
+      "line": 5
+    },
+    {
+      "module": "src.application.services.narrative_planner",
+      "name": "build",
+      "kind": "function",
+      "line": 6
+    },
+    {
+      "module": "src.application.services.prompt_builder",
+      "name": "PromptBuilder",
+      "kind": "class",
+      "line": 6
+    },
+    {
+      "module": "src.application.services.prompt_builder",
+      "name": "build",
+      "kind": "function",
+      "line": 7
+    },
+    {
+      "module": "src.application.services.script_structure_builder",
+      "name": "ScriptStructureBuilder",
+      "kind": "class",
+      "line": 5
+    },
+    {
+      "module": "src.application.services.script_structure_builder",
+      "name": "build",
+      "kind": "function",
+      "line": 6
+    },
+    {
+      "module": "src.application.services.siraj_engine",
+      "name": "SirajEngine",
+      "kind": "class",
+      "line": 5
+    },
+    {
+      "module": "src.application.services.siraj_engine",
+      "name": "build_outline",
+      "kind": "function",
+      "line": 6
+    },
+    {
+      "module": "src.application.workflow.documentary_workflow",
+      "name": "DocumentaryWorkflow",
+      "kind": "class",
+      "line": 24
+    },
+    {
+      "module": "src.application.workflow.documentary_workflow",
+      "name": "__init__",
+      "kind": "function",
+      "line": 26
+    },
+    {
+      "module": "src.application.workflow.documentary_workflow",
+      "name": "run",
+      "kind": "function",
+      "line": 52
+    },
+    {
+      "module": "src.application.workflow.workflow_context",
+      "name": "WorkflowContext",
+      "kind": "class",
+      "line": 5
+    },
+    {
+      "module": "src.application.workflow.workflow_context",
+      "name": "to_dict",
+      "kind": "function",
+      "line": 29
+    },
+    {
+      "module": "src.domain.claims.claim",
+      "name": "Claim",
+      "kind": "class",
+      "line": 7
+    },
+    {
+      "module": "src.domain.claims.claim",
+      "name": "to_dict",
+      "kind": "function",
+      "line": 17
+    },
+    {
+      "module": "src.domain.entities.entity",
+      "name": "Entity",
+      "kind": "class",
+      "line": 7
+    },
+    {
+      "module": "src.domain.entities.entity",
+      "name": "to_dict",
+      "kind": "function",
+      "line": 13
+    },
+    {
+      "module": "src.domain.entities.entity",
+      "name": "Person",
+      "kind": "class",
+      "line": 23
+    },
+    {
+      "module": "src.domain.entities.entity",
+      "name": "Place",
+      "kind": "class",
+      "line": 28
+    },
+    {
+      "module": "src.domain.entities.entity",
+      "name": "Event",
+      "kind": "class",
+      "line": 33
+    },
+    {
+      "module": "src.domain.knowledge_graph.graph_index",
+      "name": "GraphIndex",
+      "kind": "class",
+      "line": 3
+    },
+    {
+      "module": "src.domain.knowledge_graph.graph_index",
+      "name": "__init__",
+      "kind": "function",
+      "line": 4
+    },
+    {
+      "module": "src.domain.knowledge_graph.graph_index",
+      "name": "build",
+      "kind": "function",
+      "line": 10
+    },
+    {
+      "module": "src.domain.knowledge_graph.graph_index",
+      "name": "get_node",
+      "kind": "function",
+      "line": 24
+    },
+    {
+      "module": "src.domain.knowledge_graph.graph_index",
+      "name": "get_nodes_by_type",
+      "kind": "function",
+      "line": 27
+    },
+    {
+      "module": "src.domain.knowledge_graph.graph_index",
+      "name": "outgoing",
+      "kind": "function",
+      "line": 30
+    },
+    {
+      "module": "src.domain.knowledge_graph.graph_index",
+      "name": "incoming",
+      "kind": "function",
+      "line": 33
+    },
+    {
+      "module": "src.domain.knowledge_graph.knowledge_edge",
+      "name": "KnowledgeEdge",
+      "kind": "class",
+      "line": 5
+    },
+    {
+      "module": "src.domain.knowledge_graph.knowledge_edge",
+      "name": "to_dict",
+      "kind": "function",
+      "line": 11
+    },
+    {
+      "module": "src.domain.knowledge_graph.knowledge_graph",
+      "name": "KnowledgeGraph",
+      "kind": "class",
+      "line": 7
+    },
+    {
+      "module": "src.domain.knowledge_graph.knowledge_graph",
+      "name": "__post_init__",
+      "kind": "function",
+      "line": 11
+    },
+    {
+      "module": "src.domain.knowledge_graph.knowledge_graph",
+      "name": "rebuild_index",
+      "kind": "function",
+      "line": 15
+    },
+    {
+      "module": "src.domain.knowledge_graph.knowledge_graph",
+      "name": "add_node",
+      "kind": "function",
+      "line": 18
+    },
+    {
+      "module": "src.domain.knowledge_graph.knowledge_graph",
+      "name": "add_edge",
+      "kind": "function",
+      "line": 22
+    },
+    {
+      "module": "src.domain.knowledge_graph.knowledge_graph",
+      "name": "get_node",
+      "kind": "function",
+      "line": 26
+    },
+    {
+      "module": "src.domain.knowledge_graph.knowledge_graph",
+      "name": "get_nodes_by_type",
+      "kind": "function",
+      "line": 29
+    },
+    {
+      "module": "src.domain.knowledge_graph.knowledge_graph",
+      "name": "outgoing",
+      "kind": "function",
+      "line": 32
+    },
+    {
+      "module": "src.domain.knowledge_graph.knowledge_graph",
+      "name": "incoming",
+      "kind": "function",
+      "line": 35
+    },
+    {
+      "module": "src.domain.knowledge_graph.knowledge_graph",
+      "name": "to_dict",
+      "kind": "function",
+      "line": 38
+    },
+    {
+      "module": "src.domain.knowledge_graph.knowledge_graph_query",
+      "name": "KnowledgeGraphQuery",
+      "kind": "class",
+      "line": 4
+    },
+    {
+      "module": "src.domain.knowledge_graph.knowledge_graph_query",
+      "name": "__init__",
+      "kind": "function",
+      "line": 5
+    },
+    {
+      "module": "src.domain.knowledge_graph.knowledge_graph_query",
+      "name": "node",
+      "kind": "function",
+      "line": 8
+    },
+    {
+      "module": "src.domain.knowledge_graph.knowledge_graph_query",
+      "name": "people",
+      "kind": "function",
+      "line": 11
+    },
+    {
+      "module": "src.domain.knowledge_graph.knowledge_graph_query",
+      "name": "events",
+      "kind": "function",
+      "line": 14
+    },
+    {
+      "module": "src.domain.knowledge_graph.knowledge_graph_query",
+      "name": "timeline",
+      "kind": "function",
+      "line": 17
+    },
+    {
+      "module": "src.domain.knowledge_graph.knowledge_graph_query",
+      "name": "statistics",
+      "kind": "function",
+      "line": 20
+    },
+    {
+      "module": "src.domain.knowledge_graph.knowledge_graph_query",
+      "name": "relationships",
+      "kind": "function",
+      "line": 23
+    },
+    {
+      "module": "src.domain.knowledge_graph.knowledge_graph_query",
+      "name": "outgoing",
+      "kind": "function",
+      "line": 26
+    },
+    {
+      "module": "src.domain.knowledge_graph.knowledge_graph_query",
+      "name": "incoming",
+      "kind": "function",
+      "line": 29
+    },
+    {
+      "module": "src.domain.knowledge_graph.knowledge_node",
+      "name": "KnowledgeNode",
+      "kind": "class",
+      "line": 5
+    },
+    {
+      "module": "src.domain.knowledge_graph.knowledge_node",
+      "name": "to_dict",
+      "kind": "function",
+      "line": 11
+    },
+    {
+      "module": "src.domain.knowledge_objects.claim",
+      "name": "Claim",
+      "kind": "class",
+      "line": 7
+    },
+    {
+      "module": "src.domain.knowledge_objects.event",
+      "name": "Event",
+      "kind": "class",
+      "line": 7
+    },
+    {
+      "module": "src.domain.knowledge_objects.knowledge_object",
+      "name": "KnowledgeObject",
+      "kind": "class",
+      "line": 5
+    },
+    {
+      "module": "src.domain.knowledge_objects.knowledge_object",
+      "name": "to_dict",
+      "kind": "function",
+      "line": 8
+    },
+    {
+      "module": "src.domain.knowledge_objects.knowledge_object_type",
+      "name": "KnowledgeObjectType",
+      "kind": "class",
+      "line": 4
+    },
+    {
+      "module": "src.domain.knowledge_objects.location",
+      "name": "Location",
+      "kind": "class",
+      "line": 7
+    },
+    {
+      "module": "src.domain.knowledge_objects.person",
+      "name": "Person",
+      "kind": "class",
+      "line": 7
+    },
+    {
+      "module": "src.domain.knowledge_objects.relationship",
+      "name": "Relationship",
+      "kind": "class",
+      "line": 7
+    },
+    {
+      "module": "src.domain.knowledge_objects.source",
+      "name": "Source",
+      "kind": "class",
+      "line": 7
+    },
+    {
+      "module": "src.domain.knowledge_objects.statistic",
+      "name": "Statistic",
+      "kind": "class",
+      "line": 7
+    },
+    {
+      "module": "src.domain.knowledge_objects.timeline_event",
+      "name": "TimelineEvent",
+      "kind": "class",
+      "line": 7
+    },
+    {
+      "module": "src.domain.relationships.relationship",
+      "name": "Relationship",
+      "kind": "class",
+      "line": 6
+    },
+    {
+      "module": "src.domain.relationships.relationship",
+      "name": "to_dict",
+      "kind": "function",
+      "line": 14
+    },
+    {
+      "module": "src.domain.sources.source",
+      "name": "Source",
+      "kind": "class",
+      "line": 7
+    },
+    {
+      "module": "src.domain.sources.source",
+      "name": "to_dict",
+      "kind": "function",
+      "line": 19
+    },
+    {
+      "module": "src.infrastructure.llm.mock_llm_provider",
+      "name": "MockLLMProvider",
+      "kind": "class",
+      "line": 6
+    },
+    {
+      "module": "src.infrastructure.llm.mock_llm_provider",
+      "name": "generate",
+      "kind": "function",
+      "line": 7
+    }
+  ],
+  "summary": {
+    "symbols": 213,
+    "call_edges": 280,
+    "constructors": 61,
+    "inheritance": 21
+  }
+}

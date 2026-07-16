@@ -1,0 +1,830 @@
+[
+  {
+    "module": "application.artifacts.artifact",
+    "path": "src\\application\\artifacts\\artifact.py",
+    "dead_candidate": false,
+    "incoming": 3,
+    "outgoing": 0,
+    "classes": 2,
+    "functions": 0,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "application.artifacts.artifact_store",
+    "path": "src\\application\\artifacts\\artifact_store.py",
+    "dead_candidate": false,
+    "incoming": 2,
+    "outgoing": 1,
+    "classes": 1,
+    "functions": 5,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "application.config.environment_loader",
+    "path": "src\\application\\config\\environment_loader.py",
+    "dead_candidate": false,
+    "incoming": 3,
+    "outgoing": 0,
+    "classes": 0,
+    "functions": 0,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "application.config.settings",
+    "path": "src\\application\\config\\settings.py",
+    "dead_candidate": false,
+    "incoming": 1,
+    "outgoing": 1,
+    "classes": 1,
+    "functions": 0,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "application.documentary.documentary_generator",
+    "path": "src\\application\\documentary\\documentary_generator.py",
+    "dead_candidate": false,
+    "incoming": 2,
+    "outgoing": 2,
+    "classes": 1,
+    "functions": 1,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "application.documentary.documentary_outline",
+    "path": "src\\application\\documentary\\documentary_outline.py",
+    "dead_candidate": false,
+    "incoming": 2,
+    "outgoing": 0,
+    "classes": 1,
+    "functions": 1,
+    "duplicates": [
+      "DocumentaryOutline"
+    ],
+    "risk_score": 5
+  },
+  {
+    "module": "application.documentary.knowledge_outline_builder",
+    "path": "src\\application\\documentary\\knowledge_outline_builder.py",
+    "dead_candidate": false,
+    "incoming": 1,
+    "outgoing": 1,
+    "classes": 1,
+    "functions": 1,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "application.image.image_prompt_generator",
+    "path": "src\\application\\image\\image_prompt_generator.py",
+    "dead_candidate": false,
+    "incoming": 1,
+    "outgoing": 0,
+    "classes": 1,
+    "functions": 1,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "application.knowledge.character_engine",
+    "path": "src\\application\\knowledge\\character_engine.py",
+    "dead_candidate": false,
+    "incoming": 1,
+    "outgoing": 0,
+    "classes": 2,
+    "functions": 1,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "application.knowledge.citation_engine",
+    "path": "src\\application\\knowledge\\citation_engine.py",
+    "dead_candidate": false,
+    "incoming": 1,
+    "outgoing": 0,
+    "classes": 2,
+    "functions": 1,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "application.knowledge.extraction_result",
+    "path": "src\\application\\knowledge\\extraction_result.py",
+    "dead_candidate": false,
+    "incoming": 3,
+    "outgoing": 8,
+    "classes": 1,
+    "functions": 0,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "application.knowledge.fact_verification_engine",
+    "path": "src\\application\\knowledge\\fact_verification_engine.py",
+    "dead_candidate": false,
+    "incoming": 1,
+    "outgoing": 0,
+    "classes": 2,
+    "functions": 1,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "application.knowledge.knowledge_extractor",
+    "path": "src\\application\\knowledge\\knowledge_extractor.py",
+    "dead_candidate": false,
+    "incoming": 1,
+    "outgoing": 4,
+    "classes": 1,
+    "functions": 2,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "application.knowledge.knowledge_graph_builder",
+    "path": "src\\application\\knowledge\\knowledge_graph_builder.py",
+    "dead_candidate": false,
+    "incoming": 1,
+    "outgoing": 3,
+    "classes": 1,
+    "functions": 2,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "application.knowledge.knowledge_parser",
+    "path": "src\\application\\knowledge\\knowledge_parser.py",
+    "dead_candidate": false,
+    "incoming": 1,
+    "outgoing": 3,
+    "classes": 1,
+    "functions": 1,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "application.knowledge.knowledge_repository",
+    "path": "src\\application\\knowledge\\knowledge_repository.py",
+    "dead_candidate": false,
+    "incoming": 1,
+    "outgoing": 3,
+    "classes": 1,
+    "functions": 12,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "application.knowledge.relationship_engine",
+    "path": "src\\application\\knowledge\\relationship_engine.py",
+    "dead_candidate": false,
+    "incoming": 1,
+    "outgoing": 0,
+    "classes": 2,
+    "functions": 1,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "application.knowledge.source_ranking_engine",
+    "path": "src\\application\\knowledge\\source_ranking_engine.py",
+    "dead_candidate": false,
+    "incoming": 1,
+    "outgoing": 0,
+    "classes": 2,
+    "functions": 1,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "application.knowledge.timeline_engine",
+    "path": "src\\application\\knowledge\\timeline_engine.py",
+    "dead_candidate": false,
+    "incoming": 1,
+    "outgoing": 0,
+    "classes": 2,
+    "functions": 1,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "application.knowledge.utils.model_factory",
+    "path": "src\\application\\knowledge\\utils\\model_factory.py",
+    "dead_candidate": false,
+    "incoming": 1,
+    "outgoing": 7,
+    "classes": 0,
+    "functions": 2,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "application.llm.core.fake_gateway",
+    "path": "src\\application\\llm\\core\\fake_gateway.py",
+    "dead_candidate": false,
+    "incoming": 1,
+    "outgoing": 3,
+    "classes": 1,
+    "functions": 1,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "application.llm.core.llm_gateway",
+    "path": "src\\application\\llm\\core\\llm_gateway.py",
+    "dead_candidate": false,
+    "incoming": 6,
+    "outgoing": 2,
+    "classes": 1,
+    "functions": 1,
+    "duplicates": [
+      "LLMGateway"
+    ],
+    "risk_score": 5
+  },
+  {
+    "module": "application.llm.core.llm_request",
+    "path": "src\\application\\llm\\core\\llm_request.py",
+    "dead_candidate": false,
+    "incoming": 8,
+    "outgoing": 0,
+    "classes": 1,
+    "functions": 0,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "application.llm.core.llm_response",
+    "path": "src\\application\\llm\\core\\llm_response.py",
+    "dead_candidate": false,
+    "incoming": 5,
+    "outgoing": 0,
+    "classes": 1,
+    "functions": 0,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "application.llm.providers.gemini_gateway",
+    "path": "src\\application\\llm\\providers\\gemini_gateway.py",
+    "dead_candidate": false,
+    "incoming": 2,
+    "outgoing": 4,
+    "classes": 1,
+    "functions": 2,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "application.llm.providers.manual_gateway",
+    "path": "src\\application\\llm\\providers\\manual_gateway.py",
+    "dead_candidate": false,
+    "incoming": 1,
+    "outgoing": 3,
+    "classes": 1,
+    "functions": 1,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "application.llm.providers.openai_gateway",
+    "path": "src\\application\\llm\\providers\\openai_gateway.py",
+    "dead_candidate": false,
+    "incoming": 2,
+    "outgoing": 4,
+    "classes": 1,
+    "functions": 2,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "application.models.content_specification",
+    "path": "src\\application\\models\\content_specification.py",
+    "dead_candidate": false,
+    "incoming": 1,
+    "outgoing": 0,
+    "classes": 1,
+    "functions": 1,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "application.models.documentary.script",
+    "path": "src\\application\\models\\documentary\\script.py",
+    "dead_candidate": false,
+    "incoming": 1,
+    "outgoing": 0,
+    "classes": 1,
+    "functions": 1,
+    "duplicates": [
+      "Script"
+    ],
+    "risk_score": 5
+  },
+  {
+    "module": "application.models.documentary.timeline_event",
+    "path": "src\\application\\models\\documentary\\timeline_event.py",
+    "dead_candidate": false,
+    "incoming": 1,
+    "outgoing": 1,
+    "classes": 1,
+    "functions": 0,
+    "duplicates": [
+      "TimelineEvent"
+    ],
+    "risk_score": 5
+  },
+  {
+    "module": "application.models.extraction_object",
+    "path": "src\\application\\models\\extraction_object.py",
+    "dead_candidate": false,
+    "incoming": 1,
+    "outgoing": 1,
+    "classes": 1,
+    "functions": 1,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "application.models.knowledge.important_typed_claim",
+    "path": "src\\application\\models\\knowledge\\important_typed_claim.py",
+    "dead_candidate": false,
+    "incoming": 1,
+    "outgoing": 0,
+    "classes": 1,
+    "functions": 1,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "application.models.knowledge_context",
+    "path": "src\\application\\models\\knowledge_context.py",
+    "dead_candidate": false,
+    "incoming": 2,
+    "outgoing": 0,
+    "classes": 1,
+    "functions": 1,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "application.models.llm.prompt",
+    "path": "src\\application\\models\\llm\\prompt.py",
+    "dead_candidate": false,
+    "incoming": 1,
+    "outgoing": 0,
+    "classes": 1,
+    "functions": 1,
+    "duplicates": [
+      "Prompt"
+    ],
+    "risk_score": 5
+  },
+  {
+    "module": "application.models.narrative_plan",
+    "path": "src\\application\\models\\narrative_plan.py",
+    "dead_candidate": false,
+    "incoming": 2,
+    "outgoing": 0,
+    "classes": 1,
+    "functions": 1,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "application.models.organized_knowledge",
+    "path": "src\\application\\models\\organized_knowledge.py",
+    "dead_candidate": false,
+    "incoming": 2,
+    "outgoing": 0,
+    "classes": 1,
+    "functions": 1,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "application.models.outline",
+    "path": "src\\application\\models\\outline.py",
+    "dead_candidate": false,
+    "incoming": 4,
+    "outgoing": 0,
+    "classes": 2,
+    "functions": 2,
+    "duplicates": [
+      "DocumentaryOutline"
+    ],
+    "risk_score": 5
+  },
+  {
+    "module": "application.models.prompt",
+    "path": "src\\application\\models\\prompt.py",
+    "dead_candidate": false,
+    "incoming": 4,
+    "outgoing": 0,
+    "classes": 1,
+    "functions": 1,
+    "duplicates": [
+      "Prompt"
+    ],
+    "risk_score": 5
+  },
+  {
+    "module": "application.models.script",
+    "path": "src\\application\\models\\script.py",
+    "dead_candidate": false,
+    "incoming": 3,
+    "outgoing": 0,
+    "classes": 1,
+    "functions": 1,
+    "duplicates": [
+      "Script"
+    ],
+    "risk_score": 5
+  },
+  {
+    "module": "application.models.script_structure",
+    "path": "src\\application\\models\\script_structure.py",
+    "dead_candidate": false,
+    "incoming": 1,
+    "outgoing": 0,
+    "classes": 1,
+    "functions": 1,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "application.narrative.narrative_builder",
+    "path": "src\\application\\narrative\\narrative_builder.py",
+    "dead_candidate": false,
+    "incoming": 1,
+    "outgoing": 0,
+    "classes": 2,
+    "functions": 2,
+    "duplicates": [
+      "NarrativeBuilder"
+    ],
+    "risk_score": 5
+  },
+  {
+    "module": "application.pipeline.production_pipeline",
+    "path": "src\\application\\pipeline\\production_pipeline.py",
+    "dead_candidate": false,
+    "incoming": 1,
+    "outgoing": 4,
+    "classes": 1,
+    "functions": 2,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "application.planning.scene_plan",
+    "path": "src\\application\\planning\\scene_plan.py",
+    "dead_candidate": false,
+    "incoming": 1,
+    "outgoing": 0,
+    "classes": 1,
+    "functions": 1,
+    "duplicates": [
+      "ScenePlan"
+    ],
+    "risk_score": 5
+  },
+  {
+    "module": "application.planning.scene_planner",
+    "path": "src\\application\\planning\\scene_planner.py",
+    "dead_candidate": false,
+    "incoming": 2,
+    "outgoing": 0,
+    "classes": 2,
+    "functions": 2,
+    "duplicates": [
+      "ScenePlan"
+    ],
+    "risk_score": 5
+  },
+  {
+    "module": "application.ports.llm_gateway",
+    "path": "src\\application\\ports\\llm_gateway.py",
+    "dead_candidate": false,
+    "incoming": 2,
+    "outgoing": 2,
+    "classes": 1,
+    "functions": 1,
+    "duplicates": [
+      "LLMGateway"
+    ],
+    "risk_score": 5
+  },
+  {
+    "module": "application.scene.scene",
+    "path": "src\\application\\scene\\scene.py",
+    "dead_candidate": false,
+    "incoming": 1,
+    "outgoing": 0,
+    "classes": 1,
+    "functions": 1,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "application.scene_generation.scene_generator",
+    "path": "src\\application\\scene_generation\\scene_generator.py",
+    "dead_candidate": false,
+    "incoming": 1,
+    "outgoing": 4,
+    "classes": 1,
+    "functions": 2,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "application.script.script_generator",
+    "path": "src\\application\\script\\script_generator.py",
+    "dead_candidate": false,
+    "incoming": 1,
+    "outgoing": 0,
+    "classes": 2,
+    "functions": 1,
+    "duplicates": [
+      "Script"
+    ],
+    "risk_score": 5
+  },
+  {
+    "module": "application.services.knowledge_service",
+    "path": "src\\application\\services\\knowledge_service.py",
+    "dead_candidate": false,
+    "incoming": 2,
+    "outgoing": 0,
+    "classes": 1,
+    "functions": 4,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "application.workflow.documentary_workflow",
+    "path": "src\\application\\workflow\\documentary_workflow.py",
+    "dead_candidate": false,
+    "incoming": 1,
+    "outgoing": 16,
+    "classes": 1,
+    "functions": 2,
+    "duplicates": [],
+    "risk_score": 7
+  },
+  {
+    "module": "application.workflow.workflow_context",
+    "path": "src\\application\\workflow\\workflow_context.py",
+    "dead_candidate": false,
+    "incoming": 2,
+    "outgoing": 0,
+    "classes": 1,
+    "functions": 1,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "core.knowledge_asset",
+    "path": "src\\core\\knowledge_asset.py",
+    "dead_candidate": false,
+    "incoming": 4,
+    "outgoing": 1,
+    "classes": 1,
+    "functions": 7,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "domain.claims.claim",
+    "path": "src\\domain\\claims\\claim.py",
+    "dead_candidate": false,
+    "incoming": 1,
+    "outgoing": 0,
+    "classes": 1,
+    "functions": 1,
+    "duplicates": [
+      "Claim"
+    ],
+    "risk_score": 5
+  },
+  {
+    "module": "domain.entities.entity",
+    "path": "src\\domain\\entities\\entity.py",
+    "dead_candidate": false,
+    "incoming": 5,
+    "outgoing": 0,
+    "classes": 4,
+    "functions": 1,
+    "duplicates": [
+      "Person",
+      "Event"
+    ],
+    "risk_score": 5
+  },
+  {
+    "module": "domain.knowledge_graph.graph_index",
+    "path": "src\\domain\\knowledge_graph\\graph_index.py",
+    "dead_candidate": false,
+    "incoming": 2,
+    "outgoing": 0,
+    "classes": 1,
+    "functions": 6,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "domain.knowledge_graph.knowledge_edge",
+    "path": "src\\domain\\knowledge_graph\\knowledge_edge.py",
+    "dead_candidate": false,
+    "incoming": 6,
+    "outgoing": 0,
+    "classes": 1,
+    "functions": 1,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "domain.knowledge_graph.knowledge_graph",
+    "path": "src\\domain\\knowledge_graph\\knowledge_graph.py",
+    "dead_candidate": false,
+    "incoming": 7,
+    "outgoing": 1,
+    "classes": 1,
+    "functions": 9,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "domain.knowledge_graph.knowledge_graph_query",
+    "path": "src\\domain\\knowledge_graph\\knowledge_graph_query.py",
+    "dead_candidate": false,
+    "incoming": 1,
+    "outgoing": 1,
+    "classes": 1,
+    "functions": 9,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "domain.knowledge_graph.knowledge_node",
+    "path": "src\\domain\\knowledge_graph\\knowledge_node.py",
+    "dead_candidate": false,
+    "incoming": 6,
+    "outgoing": 0,
+    "classes": 1,
+    "functions": 1,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "domain.knowledge_objects.claim",
+    "path": "src\\domain\\knowledge_objects\\claim.py",
+    "dead_candidate": false,
+    "incoming": 2,
+    "outgoing": 1,
+    "classes": 1,
+    "functions": 0,
+    "duplicates": [
+      "Claim"
+    ],
+    "risk_score": 5
+  },
+  {
+    "module": "domain.knowledge_objects.event",
+    "path": "src\\domain\\knowledge_objects\\event.py",
+    "dead_candidate": false,
+    "incoming": 2,
+    "outgoing": 1,
+    "classes": 1,
+    "functions": 0,
+    "duplicates": [
+      "Event"
+    ],
+    "risk_score": 5
+  },
+  {
+    "module": "domain.knowledge_objects.knowledge_object",
+    "path": "src\\domain\\knowledge_objects\\knowledge_object.py",
+    "dead_candidate": false,
+    "incoming": 9,
+    "outgoing": 0,
+    "classes": 1,
+    "functions": 1,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "domain.knowledge_objects.knowledge_object_type",
+    "path": "src\\domain\\knowledge_objects\\knowledge_object_type.py",
+    "dead_candidate": false,
+    "incoming": 2,
+    "outgoing": 0,
+    "classes": 1,
+    "functions": 0,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "domain.knowledge_objects.location",
+    "path": "src\\domain\\knowledge_objects\\location.py",
+    "dead_candidate": false,
+    "incoming": 2,
+    "outgoing": 1,
+    "classes": 1,
+    "functions": 0,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "domain.knowledge_objects.person",
+    "path": "src\\domain\\knowledge_objects\\person.py",
+    "dead_candidate": false,
+    "incoming": 3,
+    "outgoing": 1,
+    "classes": 1,
+    "functions": 0,
+    "duplicates": [
+      "Person"
+    ],
+    "risk_score": 5
+  },
+  {
+    "module": "domain.knowledge_objects.relationship",
+    "path": "src\\domain\\knowledge_objects\\relationship.py",
+    "dead_candidate": false,
+    "incoming": 1,
+    "outgoing": 1,
+    "classes": 1,
+    "functions": 0,
+    "duplicates": [
+      "Relationship"
+    ],
+    "risk_score": 5
+  },
+  {
+    "module": "domain.knowledge_objects.source",
+    "path": "src\\domain\\knowledge_objects\\source.py",
+    "dead_candidate": false,
+    "incoming": 2,
+    "outgoing": 1,
+    "classes": 1,
+    "functions": 0,
+    "duplicates": [
+      "Source"
+    ],
+    "risk_score": 5
+  },
+  {
+    "module": "domain.knowledge_objects.statistic",
+    "path": "src\\domain\\knowledge_objects\\statistic.py",
+    "dead_candidate": false,
+    "incoming": 3,
+    "outgoing": 1,
+    "classes": 1,
+    "functions": 0,
+    "duplicates": [],
+    "risk_score": 5
+  },
+  {
+    "module": "domain.knowledge_objects.timeline_event",
+    "path": "src\\domain\\knowledge_objects\\timeline_event.py",
+    "dead_candidate": false,
+    "incoming": 2,
+    "outgoing": 1,
+    "classes": 1,
+    "functions": 0,
+    "duplicates": [
+      "TimelineEvent"
+    ],
+    "risk_score": 5
+  },
+  {
+    "module": "domain.relationships.relationship",
+    "path": "src\\domain\\relationships\\relationship.py",
+    "dead_candidate": false,
+    "incoming": 5,
+    "outgoing": 0,
+    "classes": 1,
+    "functions": 1,
+    "duplicates": [
+      "Relationship"
+    ],
+    "risk_score": 5
+  },
+  {
+    "module": "domain.sources.source",
+    "path": "src\\domain\\sources\\source.py",
+    "dead_candidate": false,
+    "incoming": 3,
+    "outgoing": 0,
+    "classes": 1,
+    "functions": 1,
+    "duplicates": [
+      "Source"
+    ],
+    "risk_score": 5
+  }
+]

@@ -1,0 +1,13 @@
+﻿from domain.knowledge_graph.knowledge_edge import KnowledgeEdge
+
+edge = KnowledgeEdge(
+    source="person:muhammad",
+    target="event:badr",
+    relation="participated_in",
+)
+
+print(edge.to_dict())
+
+assert edge.source == "person:muhammad"
+assert edge.target == "event:badr"
+assert edge.relation == "participated_in"

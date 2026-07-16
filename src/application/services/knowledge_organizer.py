@@ -1,8 +1,8 @@
 from typing import Optional
 
-from application.models.knowledge_context import KnowledgeContext
-from application.models.organized_knowledge import OrganizedKnowledge
-from domain.relationships.relationship import Relationship
+from src.application.models.knowledge_context import KnowledgeContext
+from src.application.models.organized_knowledge import OrganizedKnowledge
+from src.domain.knowledge_objects.relationship import Relationship
 
 
 class KnowledgeOrganizer:
@@ -29,3 +29,5 @@ class KnowledgeOrganizer:
 
 
 __all__ = ["KnowledgeOrganizer"]
+
+

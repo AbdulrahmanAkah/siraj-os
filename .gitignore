@@ -1,2 +1,18 @@
+
 __pycache__/
 *.pyc
+.env
+.siraj/
+dist-*/
+
+# Python build artifacts
+build/
+*.egg-info/
+
+# Release verification logs
+.release-*-logs/
+.phase*-logs/
+
+# Local release workspaces
+.release-*-work/
+.github-release-automation-logs/

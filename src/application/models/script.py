@@ -10,6 +10,7 @@ class Script:
     citations: list[str] = field(default_factory=list)
     language: str = "ar"
     metadata: dict[str, object] = field(default_factory=dict)
+    narration: str = ""
 
     def to_dict(self) -> dict[str, object]:
         return {
@@ -20,6 +21,7 @@ class Script:
             "citations": self.citations,
             "language": self.language,
             "metadata": self.metadata,
+            "narration": self.narration,
         }
 
 

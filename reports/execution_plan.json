@@ -1,0 +1,1127 @@
+{
+  "DELETE": [
+    {
+      "module": "test_artifact_store",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_artifact_store"
+    },
+    {
+      "module": "test_claim",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_claim"
+    },
+    {
+      "module": "test_documentary_generator",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_documentary_generator"
+    },
+    {
+      "module": "test_documentary_outline",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_documentary_outline"
+    },
+    {
+      "module": "test_extraction_object",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_extraction_object"
+    },
+    {
+      "module": "test_gemini_gateway",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_gemini_gateway"
+    },
+    {
+      "module": "test_graph_index",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_graph_index"
+    },
+    {
+      "module": "test_graph_queries",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_graph_queries"
+    },
+    {
+      "module": "test_knowledge_asset",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_knowledge_asset"
+    },
+    {
+      "module": "test_knowledge_asset_behavior",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_knowledge_asset_behavior"
+    },
+    {
+      "module": "test_knowledge_asset_validation",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_knowledge_asset_validation"
+    },
+    {
+      "module": "test_knowledge_edge",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_knowledge_edge"
+    },
+    {
+      "module": "test_knowledge_graph",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_knowledge_graph"
+    },
+    {
+      "module": "test_knowledge_graph_query",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_knowledge_graph_query"
+    },
+    {
+      "module": "test_knowledge_node",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_knowledge_node"
+    },
+    {
+      "module": "test_llm_gateway",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_llm_gateway"
+    },
+    {
+      "module": "test_openai_gateway",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_openai_gateway"
+    },
+    {
+      "module": "test_person_object",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_person_object"
+    },
+    {
+      "module": "test_prompt",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_prompt"
+    },
+    {
+      "module": "test_relationship",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_relationship"
+    },
+    {
+      "module": "test_relationship_object",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_relationship_object"
+    },
+    {
+      "module": "test_scene_planner",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_scene_planner"
+    },
+    {
+      "module": "test_script_model",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_script_model"
+    },
+    {
+      "module": "test_settings",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_settings"
+    },
+    {
+      "module": "test_source",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_source"
+    },
+    {
+      "module": "test_statistic_object",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_statistic_object"
+    },
+    {
+      "module": "test_timeline_event",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_timeline_event"
+    },
+    {
+      "module": "test_workflow_context",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "test_workflow_context"
+    },
+    {
+      "module": "__init__",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "__init__"
+    },
+    {
+      "module": "core.entities",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "core.entities"
+    },
+    {
+      "module": "core.knowledge_engine",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "core.knowledge_engine"
+    },
+    {
+      "module": "infrastructure.llm.mock_llm_provider",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "infrastructure.llm"
+    },
+    {
+      "module": "domain.entities.__init__",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "domain.entities"
+    },
+    {
+      "module": "core.repositories.entity_repository",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "core.repositories"
+    },
+    {
+      "module": "core.storage.json_storage",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "core.storage"
+    },
+    {
+      "module": "application.documentary.documentary_script",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "application.documentary"
+    },
+    {
+      "module": "application.image.image_prompt",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "application.image"
+    },
+    {
+      "module": "application.services.generation_service",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "application.services"
+    },
+    {
+      "module": "application.services.knowledge_context_builder",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "application.services"
+    },
+    {
+      "module": "application.services.knowledge_organizer",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "application.services"
+    },
+    {
+      "module": "application.services.narrative_builder",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "duplicate",
+        "dead_candidate"
+      ],
+      "cluster": "application.services"
+    },
+    {
+      "module": "application.services.narrative_planner",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "application.services"
+    },
+    {
+      "module": "application.services.prompt_builder",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "application.services"
+    },
+    {
+      "module": "application.services.script_structure_builder",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "application.services"
+    },
+    {
+      "module": "application.services.siraj_engine",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "application.services"
+    },
+    {
+      "module": "application.models.knowledge.prioritized_knowledge",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "application.models"
+    },
+    {
+      "module": "application.models.knowledge.typed_claim",
+      "decision": "DELETE",
+      "confidence": 99,
+      "reasons": [
+        "orphan",
+        "unreachable",
+        "dead_candidate"
+      ],
+      "cluster": "application.models"
+    }
+  ],
+  "MERGE": [
+    {
+      "module": "domain.claims.claim",
+      "decision": "MERGE",
+      "confidence": 95,
+      "reasons": [
+        "unreachable",
+        "duplicate"
+      ],
+      "cluster": "domain.claims"
+    },
+    {
+      "module": "domain.knowledge_objects.relationship",
+      "decision": "MERGE",
+      "confidence": 95,
+      "reasons": [
+        "unreachable",
+        "duplicate"
+      ],
+      "cluster": "domain.knowledge_objects"
+    },
+    {
+      "module": "domain.sources.source",
+      "decision": "MERGE",
+      "confidence": 95,
+      "reasons": [
+        "unreachable",
+        "duplicate"
+      ],
+      "cluster": "domain.sources"
+    },
+    {
+      "module": "application.documentary.documentary_outline",
+      "decision": "MERGE",
+      "confidence": 95,
+      "reasons": [
+        "unreachable",
+        "duplicate"
+      ],
+      "cluster": "application.documentary"
+    },
+    {
+      "module": "application.models.prompt",
+      "decision": "MERGE",
+      "confidence": 95,
+      "reasons": [
+        "unreachable",
+        "duplicate"
+      ],
+      "cluster": "application.models"
+    },
+    {
+      "module": "application.models.script",
+      "decision": "MERGE",
+      "confidence": 95,
+      "reasons": [
+        "unreachable",
+        "duplicate"
+      ],
+      "cluster": "application.models"
+    },
+    {
+      "module": "application.ports.llm_gateway",
+      "decision": "MERGE",
+      "confidence": 95,
+      "reasons": [
+        "unreachable",
+        "duplicate"
+      ],
+      "cluster": "application.ports"
+    },
+    {
+      "module": "application.models.documentary.script",
+      "decision": "MERGE",
+      "confidence": 95,
+      "reasons": [
+        "unreachable",
+        "duplicate"
+      ],
+      "cluster": "application.models"
+    },
+    {
+      "module": "application.models.documentary.timeline_event",
+      "decision": "MERGE",
+      "confidence": 95,
+      "reasons": [
+        "unreachable",
+        "duplicate"
+      ],
+      "cluster": "application.models"
+    },
+    {
+      "module": "application.models.llm.prompt",
+      "decision": "MERGE",
+      "confidence": 95,
+      "reasons": [
+        "unreachable",
+        "duplicate"
+      ],
+      "cluster": "application.models"
+    }
+  ],
+  "RENAME": [
+    {
+      "module": "domain.entities.entity",
+      "decision": "RENAME",
+      "confidence": 80,
+      "reasons": [
+        "duplicate"
+      ],
+      "cluster": "domain.entities"
+    },
+    {
+      "module": "domain.knowledge_objects.claim",
+      "decision": "RENAME",
+      "confidence": 80,
+      "reasons": [
+        "duplicate"
+      ],
+      "cluster": "domain.knowledge_objects"
+    },
+    {
+      "module": "domain.knowledge_objects.event",
+      "decision": "RENAME",
+      "confidence": 80,
+      "reasons": [
+        "duplicate"
+      ],
+      "cluster": "domain.knowledge_objects"
+    },
+    {
+      "module": "domain.knowledge_objects.person",
+      "decision": "RENAME",
+      "confidence": 80,
+      "reasons": [
+        "duplicate"
+      ],
+      "cluster": "domain.knowledge_objects"
+    },
+    {
+      "module": "domain.knowledge_objects.source",
+      "decision": "RENAME",
+      "confidence": 80,
+      "reasons": [
+        "duplicate"
+      ],
+      "cluster": "domain.knowledge_objects"
+    },
+    {
+      "module": "domain.knowledge_objects.timeline_event",
+      "decision": "RENAME",
+      "confidence": 80,
+      "reasons": [
+        "duplicate"
+      ],
+      "cluster": "domain.knowledge_objects"
+    },
+    {
+      "module": "domain.relationships.relationship",
+      "decision": "RENAME",
+      "confidence": 80,
+      "reasons": [
+        "duplicate"
+      ],
+      "cluster": "domain.relationships"
+    },
+    {
+      "module": "application.models.outline",
+      "decision": "RENAME",
+      "confidence": 80,
+      "reasons": [
+        "duplicate"
+      ],
+      "cluster": "application.models"
+    },
+    {
+      "module": "application.narrative.narrative_builder",
+      "decision": "RENAME",
+      "confidence": 80,
+      "reasons": [
+        "duplicate"
+      ],
+      "cluster": "application.narrative"
+    },
+    {
+      "module": "application.planning.scene_plan",
+      "decision": "RENAME",
+      "confidence": 80,
+      "reasons": [
+        "duplicate"
+      ],
+      "cluster": "application.planning"
+    },
+    {
+      "module": "application.planning.scene_planner",
+      "decision": "RENAME",
+      "confidence": 80,
+      "reasons": [
+        "duplicate"
+      ],
+      "cluster": "application.planning"
+    },
+    {
+      "module": "application.script.script_generator",
+      "decision": "RENAME",
+      "confidence": 80,
+      "reasons": [
+        "duplicate"
+      ],
+      "cluster": "application.script"
+    },
+    {
+      "module": "application.llm.core.llm_gateway",
+      "decision": "RENAME",
+      "confidence": 80,
+      "reasons": [
+        "duplicate"
+      ],
+      "cluster": "application.llm"
+    }
+  ],
+  "KEEP": [
+    {
+      "module": "core.knowledge_asset",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [
+        "unreachable"
+      ],
+      "cluster": "core.knowledge_asset"
+    },
+    {
+      "module": "domain.knowledge_graph.graph_index",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [],
+      "cluster": "domain.knowledge_graph"
+    },
+    {
+      "module": "domain.knowledge_graph.knowledge_edge",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [],
+      "cluster": "domain.knowledge_graph"
+    },
+    {
+      "module": "domain.knowledge_graph.knowledge_graph",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [],
+      "cluster": "domain.knowledge_graph"
+    },
+    {
+      "module": "domain.knowledge_graph.knowledge_graph_query",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [
+        "unreachable"
+      ],
+      "cluster": "domain.knowledge_graph"
+    },
+    {
+      "module": "domain.knowledge_graph.knowledge_node",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [],
+      "cluster": "domain.knowledge_graph"
+    },
+    {
+      "module": "domain.knowledge_objects.knowledge_object",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [],
+      "cluster": "domain.knowledge_objects"
+    },
+    {
+      "module": "domain.knowledge_objects.knowledge_object_type",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [
+        "unreachable"
+      ],
+      "cluster": "domain.knowledge_objects"
+    },
+    {
+      "module": "domain.knowledge_objects.location",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [],
+      "cluster": "domain.knowledge_objects"
+    },
+    {
+      "module": "domain.knowledge_objects.statistic",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [],
+      "cluster": "domain.knowledge_objects"
+    },
+    {
+      "module": "application.artifacts.artifact",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [],
+      "cluster": "application.artifacts"
+    },
+    {
+      "module": "application.artifacts.artifact_store",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [],
+      "cluster": "application.artifacts"
+    },
+    {
+      "module": "application.config.environment_loader",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [],
+      "cluster": "application.config"
+    },
+    {
+      "module": "application.config.settings",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [
+        "unreachable"
+      ],
+      "cluster": "application.config"
+    },
+    {
+      "module": "application.documentary.documentary_generator",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [
+        "unreachable"
+      ],
+      "cluster": "application.documentary"
+    },
+    {
+      "module": "application.documentary.knowledge_outline_builder",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [],
+      "cluster": "application.documentary"
+    },
+    {
+      "module": "application.image.image_prompt_generator",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [],
+      "cluster": "application.image"
+    },
+    {
+      "module": "application.knowledge.character_engine",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [],
+      "cluster": "application.knowledge"
+    },
+    {
+      "module": "application.knowledge.citation_engine",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [],
+      "cluster": "application.knowledge"
+    },
+    {
+      "module": "application.knowledge.extraction_result",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [],
+      "cluster": "application.knowledge"
+    },
+    {
+      "module": "application.knowledge.fact_verification_engine",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [],
+      "cluster": "application.knowledge"
+    },
+    {
+      "module": "application.knowledge.knowledge_extractor",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [],
+      "cluster": "application.knowledge"
+    },
+    {
+      "module": "application.knowledge.knowledge_graph_builder",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [],
+      "cluster": "application.knowledge"
+    },
+    {
+      "module": "application.knowledge.knowledge_parser",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [],
+      "cluster": "application.knowledge"
+    },
+    {
+      "module": "application.knowledge.knowledge_repository",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [],
+      "cluster": "application.knowledge"
+    },
+    {
+      "module": "application.knowledge.relationship_engine",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [],
+      "cluster": "application.knowledge"
+    },
+    {
+      "module": "application.knowledge.source_ranking_engine",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [],
+      "cluster": "application.knowledge"
+    },
+    {
+      "module": "application.knowledge.timeline_engine",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [],
+      "cluster": "application.knowledge"
+    },
+    {
+      "module": "application.models.content_specification",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [
+        "unreachable"
+      ],
+      "cluster": "application.models"
+    },
+    {
+      "module": "application.models.extraction_object",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [
+        "unreachable"
+      ],
+      "cluster": "application.models"
+    },
+    {
+      "module": "application.models.knowledge_context",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [
+        "unreachable"
+      ],
+      "cluster": "application.models"
+    },
+    {
+      "module": "application.models.narrative_plan",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [
+        "unreachable"
+      ],
+      "cluster": "application.models"
+    },
+    {
+      "module": "application.models.organized_knowledge",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [
+        "unreachable"
+      ],
+      "cluster": "application.models"
+    },
+    {
+      "module": "application.models.script_structure",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [
+        "unreachable"
+      ],
+      "cluster": "application.models"
+    },
+    {
+      "module": "application.pipeline.production_pipeline",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [],
+      "cluster": "application.pipeline"
+    },
+    {
+      "module": "application.scene.scene",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [],
+      "cluster": "application.scene"
+    },
+    {
+      "module": "application.scene_generation.scene_generator",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [],
+      "cluster": "application.scene_generation"
+    },
+    {
+      "module": "application.services.knowledge_service",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [],
+      "cluster": "application.services"
+    },
+    {
+      "module": "application.workflow.workflow_context",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [],
+      "cluster": "application.workflow"
+    },
+    {
+      "module": "application.models.knowledge.important_typed_claim",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [
+        "unreachable"
+      ],
+      "cluster": "application.models"
+    },
+    {
+      "module": "application.llm.core.fake_gateway",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [
+        "unreachable"
+      ],
+      "cluster": "application.llm"
+    },
+    {
+      "module": "application.llm.core.llm_request",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [],
+      "cluster": "application.llm"
+    },
+    {
+      "module": "application.llm.core.llm_response",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [],
+      "cluster": "application.llm"
+    },
+    {
+      "module": "application.llm.providers.gemini_gateway",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [],
+      "cluster": "application.llm"
+    },
+    {
+      "module": "application.llm.providers.manual_gateway",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [],
+      "cluster": "application.llm"
+    },
+    {
+      "module": "application.llm.providers.openai_gateway",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [],
+      "cluster": "application.llm"
+    },
+    {
+      "module": "application.knowledge.utils.model_factory",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [],
+      "cluster": "application.knowledge"
+    },
+    {
+      "module": "application.workflow.documentary_workflow",
+      "decision": "KEEP",
+      "confidence": 100,
+      "reasons": [],
+      "cluster": "application.workflow"
+    }
+  ],
+  "REVIEW": [
+    {
+      "module": "cli.generate",
+      "decision": "REVIEW",
+      "confidence": 60,
+      "reasons": [
+        "dead_candidate"
+      ],
+      "cluster": "cli.generate"
+    },
+    {
+      "module": "main",
+      "decision": "REVIEW",
+      "confidence": 60,
+      "reasons": [
+        "dead_candidate"
+      ],
+      "cluster": "main"
+    }
+  ]
+}

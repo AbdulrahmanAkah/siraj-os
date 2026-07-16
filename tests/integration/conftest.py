@@ -1,0 +1,663 @@
+import pytest
+
+from src.application.documentary_planning.documentary_planner import DocumentaryPlanner
+from src.application.documentary_planning.models import DocumentaryPlan, DocumentarySection
+from src.application.events.event_engine import EventEngine
+from src.application.knowledge.knowledge_repository import KnowledgeRepository
+from src.application.narrative_architecture.narrative_architect import NarrativeArchitect
+from src.application.narration_planning.narration_planner import NarrationPlanner
+from src.application.reasoning.historical_reasoner import HistoricalReasoner
+from src.application.retrieval.knowledge_retriever import KnowledgeRetriever
+from src.application.selection.claim_selector import ClaimSelector
+from src.application.script_architecture.script_architect import ScriptArchitect
+from src.application.scene_planning.scene_planner import ScenePlanner
+from src.application.storyboard_architecture.storyboard_architect import StoryboardArchitect
+from src.application.visual_asset_architecture.visual_asset_architect import (
+    VisualAssetArchitect,
+)
+from src.application.visual_source_selection.visual_source_selector import (
+    VisualSourceSelector,
+)
+from src.application.source_discovery_architecture.source_discovery_architect import (
+    SourceDiscoveryArchitect,
+)
+from src.application.source_acquisition_planning.source_acquisition_planner import (
+    SourceAcquisitionPlanner,
+)
+from src.application.source_ingestion_architecture.source_ingestion_architect import (
+    SourceIngestionArchitect,
+)
+from src.application.source_ingestion_runtime.models import IngestionPayload
+from src.application.source_ingestion_runtime.source_ingestion_executor import (
+    SourceIngestionExecutor,
+)
+from src.application.repository_ingestion.models import (
+    RepositoryDocument,
+    RepositoryIngestionResult,
+)
+from src.application.repository_ingestion.repository_ingestion_engine import (
+    RepositoryIngestionEngine,
+)
+from src.application.knowledge_repository.knowledge_repository import (
+    KnowledgeRepository as KnowledgeRepositoryCore,
+)
+from src.application.repository_query.repository_query_engine import (
+    RepositoryQueryEngine,
+)
+from src.application.retrieval.retrieval_index_builder import RetrievalIndexBuilder
+from src.application.retrieval.retrieval_runtime_engine import RetrievalRuntimeEngine
+from src.application.retrieval.models import RetrievalRequest
+from src.application.claim_extraction.claim_extraction_architect import (
+    ClaimExtractionArchitect,
+)
+from src.application.claim_extraction.claim_extraction_runtime import (
+    ClaimExtractionRuntime,
+)
+from src.application.claim_extraction.models import (
+    ClaimCandidate,
+    ClaimEvidence,
+    ClaimExtractionResult,
+    ClaimRecord,
+)
+from src.application.entity_extraction.entity_extraction_architect import (
+    EntityExtractionArchitect,
+)
+from src.application.entity_extraction.entity_extraction_runtime import (
+    EntityExtractionRuntime,
+)
+from src.application.entity_extraction.models import (
+    EntityCandidate,
+    EntityEvidence,
+    EntityExtractionResult,
+    EntityRecord,
+)
+from src.application.event_extraction.event_extraction_architect import (
+    EventExtractionArchitect,
+)
+from src.application.event_extraction.event_extraction_runtime import (
+    EventExtractionRuntime,
+)
+from src.application.relationship_graph.relationship_graph_architect import (
+    RelationshipGraphArchitect,
+)
+from src.application.relationship_graph.relationship_graph_runtime import (
+    RelationshipGraphRuntime,
+)
+from src.application.historical_timeline.historical_timeline_architect import (
+    HistoricalTimelineArchitect,
+)
+from src.application.historical_timeline.historical_timeline_runtime import (
+    HistoricalTimelineRuntime,
+)
+from src.application.evidence_resolution.evidence_resolution_architect import (
+    EvidenceResolutionArchitect,
+)
+from src.application.evidence_resolution.evidence_resolution_runtime import (
+    EvidenceResolutionRuntime,
+)
+
+
+@pytest.fixture
+def narrative_architect():
+    graph = KnowledgeRepository().ingest_text("Muhammad traveled to Makkah in 610.")
+    planner = DocumentaryPlanner(
+        EventEngine(ClaimSelector(HistoricalReasoner(KnowledgeRetriever(graph))))
+    )
+    return NarrativeArchitect(planner)
+
+
+@pytest.fixture
+def documentary_plan():
+    sections = [
+        DocumentarySection("introduction", "Introduction", ["event_1"], 0.7, 1.75),
+        DocumentarySection("chapter_1", "Chapter 1", ["event_2"], 0.4, 1.75),
+        DocumentarySection("chapter_2", "Chapter 2", ["event_3"], 0.9, 1.75),
+        DocumentarySection("chapter_3", "Chapter 3", ["event_4"], 0.5, 1.75),
+        DocumentarySection("conclusion", "Conclusion", ["event_5"], 0.6, 1.75),
+    ]
+    return DocumentaryPlan(
+        plan_id="plan_test",
+        title="Test Documentary",
+        sections=sections,
+        selected_event_ids=[f"event_{index}" for index in range(1, 6)],
+        estimated_runtime=8.75,
+    )
+
+
+@pytest.fixture
+def narrative_architecture(narrative_architect, documentary_plan):
+    return narrative_architect.build_narrative_architecture(documentary_plan)
+
+
+@pytest.fixture
+def script_architect(narrative_architect):
+    return ScriptArchitect(narrative_architect)
+
+
+@pytest.fixture
+def script_structure(script_architect, narrative_architecture):
+    return script_architect.build_script_structure(narrative_architecture)
+
+
+@pytest.fixture
+def narration_planner(script_architect):
+    return NarrationPlanner(script_architect)
+
+
+@pytest.fixture
+def scene_planner(narration_planner):
+    return ScenePlanner(narration_planner)
+
+
+@pytest.fixture
+def scene_plan(scene_planner, narration_planner, script_structure):
+    return scene_planner.build_scene_plan(
+        narration_planner.build_narration_plan(script_structure)
+    )
+
+
+@pytest.fixture
+def storyboard_architect(scene_planner):
+    return StoryboardArchitect(scene_planner)
+
+
+@pytest.fixture
+def visual_asset_architect(storyboard_architect):
+    return VisualAssetArchitect(storyboard_architect)
+
+
+@pytest.fixture
+def visual_asset_architecture(
+    visual_asset_architect,
+    storyboard_architect,
+    scene_plan,
+):
+    storyboard = storyboard_architect.build_storyboard_architecture(scene_plan)
+    return visual_asset_architect.build_visual_asset_architecture(storyboard)
+
+
+@pytest.fixture
+def visual_source_selector(visual_asset_architect):
+    return VisualSourceSelector(visual_asset_architect)
+
+
+@pytest.fixture
+def visual_source_plan(visual_source_selector, visual_asset_architecture):
+    return visual_source_selector.build_visual_source_plan(
+        visual_asset_architecture
+    )
+
+
+@pytest.fixture
+def source_discovery_architect(visual_source_selector):
+    return SourceDiscoveryArchitect(visual_source_selector)
+
+
+@pytest.fixture
+def source_discovery_plan(source_discovery_architect, visual_source_plan):
+    return source_discovery_architect.build_source_discovery_plan(
+        visual_source_plan
+    )
+
+
+@pytest.fixture
+def source_acquisition_planner(source_discovery_architect):
+    return SourceAcquisitionPlanner(source_discovery_architect)
+
+
+@pytest.fixture
+def source_acquisition_plan(source_acquisition_planner, source_discovery_plan):
+    return source_acquisition_planner.build_source_acquisition_plan(
+        source_discovery_plan
+    )
+
+
+@pytest.fixture
+def source_ingestion_architect(source_acquisition_planner):
+    return SourceIngestionArchitect(source_acquisition_planner)
+
+
+@pytest.fixture
+def source_ingestion_executor(source_ingestion_architect):
+    return SourceIngestionExecutor(source_ingestion_architect)
+
+
+@pytest.fixture
+def source_ingestion_plan(source_ingestion_architect, source_acquisition_plan):
+    return source_ingestion_architect.build_source_ingestion_plan(
+        source_acquisition_plan
+    )
+
+
+@pytest.fixture
+def ingestion_payloads(source_ingestion_plan):
+    return {
+        unit.acquisition_target_id: IngestionPayload(
+            target_id=unit.acquisition_target_id,
+            content_bytes=f"payload-{unit.acquisition_target_id}".encode("utf-8"),
+            media_type=" Image/JPEG ",
+            metadata={" Title ": " Example "},
+        )
+        for batch in source_ingestion_plan.batches
+        for unit in batch.units
+    }
+
+
+@pytest.fixture
+def repository_ingestion_engine(source_ingestion_executor):
+    return RepositoryIngestionEngine(source_ingestion_executor)
+
+
+@pytest.fixture
+def repository_ingestion_result(
+    repository_ingestion_engine,
+    source_ingestion_executor,
+    source_ingestion_plan,
+    ingestion_payloads,
+):
+    execution = source_ingestion_executor.execute_ingestion(
+        source_ingestion_plan,
+        ingestion_payloads,
+    )
+    return repository_ingestion_engine.ingest_execution_result(execution)
+
+
+@pytest.fixture
+def knowledge_repository(repository_ingestion_engine):
+    return KnowledgeRepositoryCore(repository_ingestion_engine)
+
+
+@pytest.fixture
+def repository_query_engine(knowledge_repository, repository_ingestion_result):
+    knowledge_repository.load_repository_documents(
+        repository_ingestion_result.created_documents
+    )
+    return RepositoryQueryEngine(knowledge_repository)
+
+
+@pytest.fixture
+def retrieval_index_builder(repository_query_engine):
+    return RetrievalIndexBuilder(repository_query_engine)
+
+
+@pytest.fixture
+def retrieval_index(retrieval_index_builder):
+    return retrieval_index_builder.build_retrieval_index()
+
+
+@pytest.fixture
+def retrieval_runtime_engine(retrieval_index_builder):
+    return RetrievalRuntimeEngine(retrieval_index_builder)
+
+
+@pytest.fixture
+def claim_retrieval_result(retrieval_runtime_engine, retrieval_index):
+    return retrieval_runtime_engine.execute_retrieval(
+        RetrievalRequest(request_id="claim-retrieval"),
+        retrieval_index,
+    )
+
+
+@pytest.fixture
+def claim_extraction_architect(retrieval_runtime_engine):
+    return ClaimExtractionArchitect(retrieval_runtime_engine)
+
+
+@pytest.fixture
+def claim_extraction_plan(claim_extraction_architect, claim_retrieval_result):
+    return claim_extraction_architect.build_claim_extraction_plan(
+        claim_retrieval_result
+    )
+
+
+@pytest.fixture
+def claim_extraction_runtime(retrieval_runtime_engine):
+    return ClaimExtractionRuntime(retrieval_runtime_engine)
+
+
+@pytest.fixture
+def entity_claim_extraction_result(claim_retrieval_result):
+    record = claim_retrieval_result.matches[0].record
+    claims_data = [
+        ("claim-author", "Author is John Smith", "STRUCTURED_METADATA"),
+        ("claim-publisher", "Publisher is NASA", "STRUCTURED_METADATA"),
+        ("claim-title", "The Odyssey", "TITLE_DERIVED"),
+    ]
+    claims = [
+        ClaimRecord(
+            claim_id=claim_id,
+            claim_text=claim_text,
+            evidence=[
+                ClaimEvidence(
+                    evidence_id=f"evidence-{claim_id}",
+                    record_id=record.record_id,
+                    fingerprint=record.fingerprint,
+                    supporting_text=claim_text,
+                )
+            ],
+            source_record_ids=[record.record_id],
+        )
+        for claim_id, claim_text, _ in claims_data
+    ]
+    candidates = [
+        ClaimCandidate(
+            candidate_id=f"candidate-{claim_id}",
+            source_record_id=record.record_id,
+            claim_text=claim_text,
+            extraction_strategy=strategy,
+        )
+        for claim_id, claim_text, strategy in claims_data
+    ]
+    return ClaimExtractionResult(
+        result_id="claim-fixture-result",
+        plan_id="claim-fixture-plan",
+        claims=claims,
+        candidates=candidates,
+        claim_count=len(claims),
+        candidate_count=len(candidates),
+    )
+
+
+@pytest.fixture
+def entity_extraction_architect(claim_extraction_runtime):
+    return EntityExtractionArchitect(claim_extraction_runtime)
+
+
+@pytest.fixture
+def entity_extraction_plan(
+    entity_extraction_architect,
+    entity_claim_extraction_result,
+):
+    return entity_extraction_architect.build_entity_extraction_plan(
+        entity_claim_extraction_result
+    )
+
+
+@pytest.fixture
+def entity_extraction_runtime(claim_extraction_runtime):
+    return EntityExtractionRuntime(claim_extraction_runtime)
+
+
+@pytest.fixture
+def event_claim_extraction_result(claim_retrieval_result):
+    record = claim_retrieval_result.matches[0].record
+    claims_data = [
+        (
+            "claim-publication-metadata",
+            "Publication Date is 2024-01-01",
+            "STRUCTURED_METADATA",
+        ),
+        (
+            "claim-publication-pattern",
+            "Published on 2024-01-01",
+            "EXPLICIT_STATEMENT",
+        ),
+        ("claim-organization", "Organization is NASA", "STRUCTURED_METADATA"),
+        ("claim-location", "Location is Cairo", "STRUCTURED_METADATA"),
+    ]
+    claims = [
+        ClaimRecord(
+            claim_id=claim_id,
+            claim_text=claim_text,
+            evidence=[
+                ClaimEvidence(
+                    evidence_id=f"event-evidence-{claim_id}",
+                    record_id=record.record_id,
+                    fingerprint=record.fingerprint,
+                    supporting_text=claim_text,
+                )
+            ],
+            source_record_ids=[record.record_id],
+        )
+        for claim_id, claim_text, _ in claims_data
+    ]
+    candidates = [
+        ClaimCandidate(
+            candidate_id=f"event-candidate-{claim_id}",
+            source_record_id=record.record_id,
+            claim_text=claim_text,
+            extraction_strategy=strategy,
+        )
+        for claim_id, claim_text, strategy in claims_data
+    ]
+    return ClaimExtractionResult(
+        result_id="event-claim-result",
+        plan_id="event-claim-plan",
+        claims=claims,
+        candidates=candidates,
+        claim_count=len(claims),
+        candidate_count=len(candidates),
+    )
+
+
+@pytest.fixture
+def event_entity_extraction_result(claim_retrieval_result):
+    record = claim_retrieval_result.matches[0].record
+    entities_data = [
+        ("entity-date", "2024-01-01", "DATE", ["claim-publication-metadata"]),
+        ("entity-organization", "NASA", "ORGANIZATION", ["claim-organization"]),
+        ("entity-location", "Cairo", "LOCATION", ["claim-location"]),
+    ]
+    entities = [
+        EntityRecord(
+            entity_id=entity_id,
+            entity_name=entity_name,
+            entity_type=entity_type,
+            source_claim_ids=source_claim_ids,
+            evidence=[
+                EntityEvidence(
+                    evidence_id=f"event-entity-evidence-{entity_id}",
+                    claim_id=source_claim_ids[0],
+                    supporting_text=entity_name,
+                )
+            ],
+        )
+        for entity_id, entity_name, entity_type, source_claim_ids in entities_data
+    ]
+    candidates = [
+        EntityCandidate(
+            candidate_id=f"event-entity-candidate-{entity_id}",
+            source_claim_id=source_claim_ids[0],
+            entity_name=entity_name,
+            entity_type=entity_type,
+            extraction_strategy="STRUCTURED_METADATA_ENTITY",
+        )
+        for entity_id, entity_name, entity_type, source_claim_ids in entities_data
+    ]
+    return EntityExtractionResult(
+        result_id="event-entity-result",
+        plan_id="event-entity-plan",
+        candidates=candidates,
+        entities=entities,
+        candidate_count=len(candidates),
+        entity_count=len(entities),
+    )
+
+
+@pytest.fixture
+def event_extraction_architect(
+    claim_extraction_runtime,
+    entity_extraction_runtime,
+):
+    return EventExtractionArchitect(
+        claim_extraction_runtime,
+        entity_extraction_runtime,
+    )
+
+
+@pytest.fixture
+def event_extraction_plan(
+    event_extraction_architect,
+    event_claim_extraction_result,
+    event_entity_extraction_result,
+):
+    return event_extraction_architect.build_event_extraction_plan(
+        event_claim_extraction_result,
+        event_entity_extraction_result,
+    )
+
+
+@pytest.fixture
+def event_extraction_runtime(
+    claim_extraction_runtime,
+    entity_extraction_runtime,
+):
+    return EventExtractionRuntime(
+        claim_extraction_runtime,
+        entity_extraction_runtime,
+    )
+
+
+@pytest.fixture
+def relationship_graph_architect(
+    entity_extraction_runtime,
+    event_extraction_runtime,
+):
+    return RelationshipGraphArchitect(
+        entity_extraction_runtime,
+        event_extraction_runtime,
+    )
+
+
+@pytest.fixture
+def relationship_graph_plan(
+    relationship_graph_architect,
+    event_claim_extraction_result,
+    event_entity_extraction_result,
+    event_extraction_plan,
+    event_extraction_runtime,
+):
+    event_result = event_extraction_runtime.extract_events(
+        event_extraction_plan,
+        event_claim_extraction_result,
+        event_entity_extraction_result,
+    )
+    return relationship_graph_architect.build_relationship_graph_plan(
+        event_claim_extraction_result,
+        event_entity_extraction_result,
+        event_result,
+    )
+
+
+@pytest.fixture
+def relationship_graph_runtime(
+    entity_extraction_runtime,
+    event_extraction_runtime,
+):
+    return RelationshipGraphRuntime(
+        entity_extraction_runtime,
+        event_extraction_runtime,
+    )
+
+
+@pytest.fixture
+def relationship_graph_inputs(
+    event_claim_extraction_result,
+    event_entity_extraction_result,
+    event_extraction_plan,
+    event_extraction_runtime,
+):
+    event_result = event_extraction_runtime.extract_events(
+        event_extraction_plan,
+        event_claim_extraction_result,
+        event_entity_extraction_result,
+    )
+    return (
+        event_claim_extraction_result,
+        event_entity_extraction_result,
+        event_result,
+    )
+
+
+@pytest.fixture
+def relationship_graph_result(
+    relationship_graph_runtime,
+    relationship_graph_plan,
+    relationship_graph_inputs,
+):
+    return relationship_graph_runtime.execute_relationship_graph(
+        relationship_graph_plan,
+        *relationship_graph_inputs,
+    )
+
+
+@pytest.fixture
+def historical_timeline_architect(
+    event_extraction_runtime,
+    relationship_graph_runtime,
+):
+    return HistoricalTimelineArchitect(
+        event_extraction_runtime,
+        relationship_graph_runtime,
+    )
+
+
+@pytest.fixture
+def historical_timeline_runtime(
+    event_extraction_runtime,
+    relationship_graph_runtime,
+):
+    return HistoricalTimelineRuntime(
+        event_extraction_runtime,
+        relationship_graph_runtime,
+    )
+
+
+@pytest.fixture
+def historical_timeline_plan(historical_timeline_architect):
+    return historical_timeline_architect.build_timeline_plan()
+
+
+@pytest.fixture
+def historical_timeline_inputs(
+    event_claim_extraction_result,
+    event_entity_extraction_result,
+    event_extraction_plan,
+    event_extraction_runtime,
+    relationship_graph_result,
+):
+    event_result = event_extraction_runtime.extract_events(
+        event_extraction_plan,
+        event_claim_extraction_result,
+        event_entity_extraction_result,
+    )
+    return event_result, relationship_graph_result
+
+
+@pytest.fixture
+def evidence_resolution_architect():
+    return EvidenceResolutionArchitect()
+
+
+@pytest.fixture
+def evidence_resolution_runtime():
+    return EvidenceResolutionRuntime()
+
+
+@pytest.fixture
+def evidence_resolution_plan(evidence_resolution_architect):
+    return evidence_resolution_architect.build_resolution_plan()
+
+
+@pytest.fixture
+def evidence_resolution_inputs(
+    event_claim_extraction_result,
+    event_entity_extraction_result,
+    relationship_graph_inputs,
+    relationship_graph_result,
+    historical_timeline_runtime,
+    historical_timeline_plan,
+):
+    event_result = relationship_graph_inputs[2]
+    timeline_result = historical_timeline_runtime.build_timeline(
+        historical_timeline_plan,
+        event_result,
+        relationship_graph_result,
+    )
+    return (
+        event_claim_extraction_result,
+        event_entity_extraction_result,
+        event_result,
+        relationship_graph_result.graph,
+        timeline_result.timeline,
+    )

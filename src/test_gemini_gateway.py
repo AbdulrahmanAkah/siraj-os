@@ -1,0 +1,15 @@
+from src.application.llm.providers.gemini_gateway import GeminiGateway
+
+try:
+
+    gateway = GeminiGateway()
+
+    print("GeminiGateway initialized.")
+
+except Exception as ex:
+
+    print(ex)
+
+print("GeminiGateway Test Finished")
+
+
