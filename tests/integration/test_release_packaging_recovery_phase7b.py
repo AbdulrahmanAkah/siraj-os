@@ -15,24 +15,22 @@ REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
 
 
 def _active_python() -> Path:
-    raw_value = os.environ.get(
+    explicit_python = os.environ.get(
         "SIRAJ_TEST_HOST_PYTHON",
         "",
     ).strip()
 
-    if not raw_value:
-        raise RuntimeError(
-            "SIRAJ_TEST_HOST_PYTHON_REQUIRED"
-        )
+    if explicit_python:
+        candidate = Path(explicit_python)
 
-    candidate = Path(raw_value)
+        if not candidate.is_file():
+            raise RuntimeError(
+                f"SIRAJ_TEST_HOST_PYTHON_NOT_FOUND:{candidate}"
+            )
 
-    if not candidate.is_file():
-        raise RuntimeError(
-            f"SIRAJ_TEST_HOST_PYTHON_NOT_FOUND:{candidate}"
-        )
+        return candidate
 
-    return candidate
+    return Path(sys.executable).resolve()
 
 
 BUILD_PYTHON = _active_python()
