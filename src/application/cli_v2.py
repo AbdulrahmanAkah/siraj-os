@@ -8,6 +8,13 @@ import platform
 import sys
 from typing import Any
 
+from src.application.project_runtime import (
+    add_source,
+    initialize_project,
+    list_sources,
+    verify_project,
+)
+
 from src.application.rc_hardening import (
     ExportFailure,
     ExportOverwritePolicy,
@@ -481,6 +488,74 @@ def command_render_dry_run(
     )
 
 
+
+def command_project_init(
+    project_root: str,
+    slug: str,
+    topic: str,
+    language: str,
+) -> dict[str, Any]:
+    result = initialize_project(
+        project_root,
+        slug,
+        topic,
+        language=language,
+    )
+
+    return _result(
+        "project-init",
+        "SUCCESS",
+        data=result,
+    )
+
+
+def command_source_add(
+    project_root: str,
+    source_path: str,
+    title: str | None,
+    language: str,
+    classification: str,
+) -> dict[str, Any]:
+    result = add_source(
+        project_root,
+        source_path,
+        title=title,
+        language=language,
+        classification=classification,
+    )
+
+    return _result(
+        "source-add",
+        "SUCCESS",
+        data=result,
+    )
+
+
+def command_source_list(project_root: str) -> dict[str, Any]:
+    return _result(
+        "source-list",
+        "SUCCESS",
+        data=list_sources(project_root),
+    )
+
+
+def command_project_verify(project_root: str) -> dict[str, Any]:
+    report = verify_project(project_root)
+
+    status = (
+        "SUCCESS"
+        if report.status == "VALID"
+        else "VALIDATION_FAILURE"
+    )
+
+    return _result(
+        "project-verify",
+        status,
+        data=report,
+        error=None if status == "SUCCESS" else "PROJECT_INVALID",
+    )
+
+
 def command_release_verify() -> dict[str, Any]:
     health = command_health()
     config = command_config_validate()
@@ -593,6 +668,41 @@ def build_parser() -> argparse.ArgumentParser:
     export_build.add_argument("--output", required=True)
     export_build.add_argument("--replace", action="store_true")
 
+    project = subparsers.add_parser("project")
+    project_sub = project.add_subparsers(
+        dest="action",
+        required=True,
+    )
+
+    project_init = project_sub.add_parser("init")
+    project_init.add_argument("--root", required=True)
+    project_init.add_argument("--slug", required=True)
+    project_init.add_argument("--topic", required=True)
+    project_init.add_argument("--language", default="ar")
+
+    project_verify = project_sub.add_parser("verify")
+    project_verify.add_argument("--root", required=True)
+
+    source = subparsers.add_parser("source")
+    source_sub = source.add_subparsers(
+        dest="action",
+        required=True,
+    )
+
+    source_add = source_sub.add_parser("add")
+    source_add.add_argument("--project-root", required=True)
+    source_add.add_argument("--file", required=True)
+    source_add.add_argument("--title")
+    source_add.add_argument("--language", default="und")
+    source_add.add_argument(
+        "--classification",
+        default="INTERNAL",
+        choices=["PUBLIC", "INTERNAL", "SENSITIVE", "RESTRICTED"],
+    )
+
+    source_list = source_sub.add_parser("list")
+    source_list.add_argument("--project-root", required=True)
+
     render = subparsers.add_parser("render")
     render_sub = render.add_subparsers(dest="action", required=True)
     render_dry = render_sub.add_parser("dry-run")
@@ -615,6 +725,29 @@ def dispatch(args: argparse.Namespace) -> dict[str, Any]:
         return command_config_validate()
     if command == "release-verify":
         return command_release_verify()
+
+    if command == "project":
+        if args.action == "init":
+            return command_project_init(
+                args.root,
+                args.slug,
+                args.topic,
+                args.language,
+            )
+        if args.action == "verify":
+            return command_project_verify(args.root)
+
+    if command == "source":
+        if args.action == "add":
+            return command_source_add(
+                args.project_root,
+                args.file,
+                args.title,
+                args.language,
+                args.classification,
+            )
+        if args.action == "list":
+            return command_source_list(args.project_root)
 
     if command == "persistence":
         if args.action == "init":
