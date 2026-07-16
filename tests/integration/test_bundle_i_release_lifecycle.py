@@ -13,5 +13,5 @@ def test_bundle_i_release_candidate_lifecycle():
  assert config.runtime.mode=="OVERRIDE" and SecurityPolicyEngine().decide("USE_NETWORK").decision=="DENY"
  assert HealthArchitecture().check(bootstrap).status=="HEALTHY" and PublicAPI().handle("/v1/health","health").status==200
  assert MigrationRuntime().migrate({},"v1","v2",True).dry_run
- manifest=ReleasePackagingRuntime().manifest("0.1.0-rc.2",[("siraj","WHEEL")]);report=ReleaseGovernance().verify({"architecture":True,"tests":True,"packaging":bool(manifest.artifacts)})
+ manifest=ReleasePackagingRuntime().manifest("0.1.0-rc.3",[("siraj","WHEEL")]);report=ReleaseGovernance().verify({"architecture":True,"tests":True,"packaging":bool(manifest.artifacts)})
  assert report.status=="READY" and ApplicationBootstrap().shutdown().state=="STOPPED"
