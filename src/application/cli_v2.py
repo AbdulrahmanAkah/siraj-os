@@ -8,6 +8,14 @@ import platform
 import sys
 from typing import Any
 
+from src.application.project_assessment_runtime import (
+    assess_project_claims,
+    assessment_status,
+    list_contradictions,
+    list_gaps,
+    verify_assessment,
+)
+
 from src.application.project_knowledge_runtime import (
     extract_project_knowledge,
     knowledge_status,
@@ -505,6 +513,79 @@ def command_render_dry_run(
 
 
 
+
+def command_project_assess(
+    project_root: str,
+) -> dict[str, Any]:
+    result = assess_project_claims(project_root)
+
+    return _result(
+        "project-assess",
+        "SUCCESS",
+        data=result,
+    )
+
+
+def command_assessment_status(
+    project_root: str,
+) -> dict[str, Any]:
+    result = assessment_status(project_root)
+
+    status = (
+        "SUCCESS"
+        if result["status"] == "ASSESSED"
+        else "BLOCKED"
+        if result["status"] == "NOT_RUN"
+        else "VALIDATION_FAILURE"
+    )
+
+    return _result(
+        "assessment-status",
+        status,
+        data=result,
+        error=None if status == "SUCCESS" else result["status"],
+    )
+
+
+def command_contradictions_list(
+    project_root: str,
+) -> dict[str, Any]:
+    return _result(
+        "contradictions-list",
+        "SUCCESS",
+        data=list_contradictions(project_root),
+    )
+
+
+def command_gaps_list(
+    project_root: str,
+) -> dict[str, Any]:
+    return _result(
+        "gaps-list",
+        "SUCCESS",
+        data=list_gaps(project_root),
+    )
+
+
+def command_assessment_verify(
+    project_root: str,
+) -> dict[str, Any]:
+    report = verify_assessment(project_root)
+
+    status = (
+        "SUCCESS"
+        if report.status == "VALID"
+        else "VALIDATION_FAILURE"
+    )
+
+    return _result(
+        "assessment-verify",
+        status,
+        data=report,
+        error=None if status == "SUCCESS" else "ASSESSMENT_INVALID",
+    )
+
+
 def command_project_extract(
     project_root: str,
 ) -> dict[str, Any]:
@@ -835,6 +916,9 @@ def build_parser() -> argparse.ArgumentParser:
     project_extract = project_sub.add_parser("extract")
     project_extract.add_argument("--root", required=True)
 
+    project_assess = project_sub.add_parser("assess")
+    project_assess.add_argument("--root", required=True)
+
     source = subparsers.add_parser("source")
     source_sub = source.add_subparsers(
         dest="action",
@@ -911,6 +995,46 @@ def build_parser() -> argparse.ArgumentParser:
         required=True,
     )
 
+    assessment = subparsers.add_parser("assessment")
+    assessment_sub = assessment.add_subparsers(
+        dest="action",
+        required=True,
+    )
+
+    assessment_status_parser = assessment_sub.add_parser("status")
+    assessment_status_parser.add_argument(
+        "--project-root",
+        required=True,
+    )
+
+    assessment_verify_parser = assessment_sub.add_parser("verify")
+    assessment_verify_parser.add_argument(
+        "--project-root",
+        required=True,
+    )
+
+    contradictions = subparsers.add_parser("contradictions")
+    contradictions_sub = contradictions.add_subparsers(
+        dest="action",
+        required=True,
+    )
+    contradictions_list_parser = contradictions_sub.add_parser("list")
+    contradictions_list_parser.add_argument(
+        "--project-root",
+        required=True,
+    )
+
+    gaps = subparsers.add_parser("gaps")
+    gaps_sub = gaps.add_subparsers(
+        dest="action",
+        required=True,
+    )
+    gaps_list_parser = gaps_sub.add_parser("list")
+    gaps_list_parser.add_argument(
+        "--project-root",
+        required=True,
+    )
+
     render = subparsers.add_parser("render")
     render_sub = render.add_subparsers(dest="action", required=True)
     render_dry = render_sub.add_parser("dry-run")
@@ -948,6 +1072,8 @@ def dispatch(args: argparse.Namespace) -> dict[str, Any]:
             return command_project_ingest(args.root)
         if args.action == "extract":
             return command_project_extract(args.root)
+        if args.action == "assess":
+            return command_project_assess(args.root)
 
     if command == "source":
         if args.action == "add":
@@ -983,6 +1109,20 @@ def dispatch(args: argparse.Namespace) -> dict[str, Any]:
             return command_knowledge_status(args.project_root)
         if args.action == "verify":
             return command_knowledge_verify(args.project_root)
+
+    if command == "assessment":
+        if args.action == "status":
+            return command_assessment_status(args.project_root)
+        if args.action == "verify":
+            return command_assessment_verify(args.project_root)
+
+    if command == "contradictions":
+        if args.action == "list":
+            return command_contradictions_list(args.project_root)
+
+    if command == "gaps":
+        if args.action == "list":
+            return command_gaps_list(args.project_root)
 
     if command == "persistence":
         if args.action == "init":
