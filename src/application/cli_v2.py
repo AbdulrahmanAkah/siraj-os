@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import argparse
 from dataclasses import asdict, is_dataclass
@@ -1309,7 +1309,38 @@ def dispatch(args: argparse.Namespace) -> dict[str, Any]:
     )
 
 
+
+def _configure_console_encoding() -> None:
+    """Configure CLI streams for deterministic UTF-8 output."""
+
+    import sys
+
+    for stream_name in ("stdout", "stderr"):
+        stream = getattr(sys, stream_name, None)
+
+        if stream is None:
+            continue
+
+        reconfigure = getattr(stream, "reconfigure", None)
+
+        if not callable(reconfigure):
+            continue
+
+        try:
+            reconfigure(
+                encoding="utf-8",
+                errors=(
+                    "strict"
+                    if stream_name == "stdout"
+                    else "replace"
+                ),
+            )
+        except (AttributeError, ValueError, OSError):
+            pass
+
+
 def main(argv: list[str] | None = None) -> int:
+    _configure_console_encoding()
     parser = build_parser()
 
     # Preserve compatibility with both:
