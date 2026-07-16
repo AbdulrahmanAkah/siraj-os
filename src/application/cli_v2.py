@@ -8,6 +8,14 @@ import platform
 import sys
 from typing import Any
 
+from src.application.project_knowledge_runtime import (
+    extract_project_knowledge,
+    knowledge_status,
+    list_claims,
+    list_evidence,
+    verify_knowledge,
+)
+
 from src.application.project_ingestion_runtime import (
     ingest_project,
     ingestion_status,
@@ -496,6 +504,79 @@ def command_render_dry_run(
 
 
 
+
+def command_project_extract(
+    project_root: str,
+) -> dict[str, Any]:
+    result = extract_project_knowledge(project_root)
+
+    return _result(
+        "project-extract",
+        "SUCCESS",
+        data=result,
+    )
+
+
+def command_evidence_list(
+    project_root: str,
+) -> dict[str, Any]:
+    return _result(
+        "evidence-list",
+        "SUCCESS",
+        data=list_evidence(project_root),
+    )
+
+
+def command_claims_list(
+    project_root: str,
+) -> dict[str, Any]:
+    return _result(
+        "claims-list",
+        "SUCCESS",
+        data=list_claims(project_root),
+    )
+
+
+def command_knowledge_status(
+    project_root: str,
+) -> dict[str, Any]:
+    result = knowledge_status(project_root)
+
+    status = (
+        "SUCCESS"
+        if result["status"] == "EXTRACTED"
+        else "BLOCKED"
+        if result["status"] == "NOT_RUN"
+        else "VALIDATION_FAILURE"
+    )
+
+    return _result(
+        "knowledge-status",
+        status,
+        data=result,
+        error=None if status == "SUCCESS" else result["status"],
+    )
+
+
+def command_knowledge_verify(
+    project_root: str,
+) -> dict[str, Any]:
+    report = verify_knowledge(project_root)
+
+    status = (
+        "SUCCESS"
+        if report.status == "VALID"
+        else "VALIDATION_FAILURE"
+    )
+
+    return _result(
+        "knowledge-verify",
+        status,
+        data=report,
+        error=None if status == "SUCCESS" else "KNOWLEDGE_INVALID",
+    )
+
+
 def command_source_inspect(
     project_root: str,
     source_id: str,
@@ -751,6 +832,9 @@ def build_parser() -> argparse.ArgumentParser:
     project_ingest = project_sub.add_parser("ingest")
     project_ingest.add_argument("--root", required=True)
 
+    project_extract = project_sub.add_parser("extract")
+    project_extract.add_argument("--root", required=True)
+
     source = subparsers.add_parser("source")
     source_sub = source.add_subparsers(
         dest="action",
@@ -783,6 +867,46 @@ def build_parser() -> argparse.ArgumentParser:
 
     ingestion_status_parser = ingestion_sub.add_parser("status")
     ingestion_status_parser.add_argument(
+        "--project-root",
+        required=True,
+    )
+
+    evidence = subparsers.add_parser("evidence")
+    evidence_sub = evidence.add_subparsers(
+        dest="action",
+        required=True,
+    )
+    evidence_list_parser = evidence_sub.add_parser("list")
+    evidence_list_parser.add_argument(
+        "--project-root",
+        required=True,
+    )
+
+    claims = subparsers.add_parser("claims")
+    claims_sub = claims.add_subparsers(
+        dest="action",
+        required=True,
+    )
+    claims_list_parser = claims_sub.add_parser("list")
+    claims_list_parser.add_argument(
+        "--project-root",
+        required=True,
+    )
+
+    knowledge = subparsers.add_parser("knowledge")
+    knowledge_sub = knowledge.add_subparsers(
+        dest="action",
+        required=True,
+    )
+
+    knowledge_status_parser = knowledge_sub.add_parser("status")
+    knowledge_status_parser.add_argument(
+        "--project-root",
+        required=True,
+    )
+
+    knowledge_verify_parser = knowledge_sub.add_parser("verify")
+    knowledge_verify_parser.add_argument(
         "--project-root",
         required=True,
     )
@@ -822,6 +946,8 @@ def dispatch(args: argparse.Namespace) -> dict[str, Any]:
             return command_project_verify(args.root)
         if args.action == "ingest":
             return command_project_ingest(args.root)
+        if args.action == "extract":
+            return command_project_extract(args.root)
 
     if command == "source":
         if args.action == "add":
@@ -843,6 +969,20 @@ def dispatch(args: argparse.Namespace) -> dict[str, Any]:
     if command == "ingestion":
         if args.action == "status":
             return command_ingestion_status(args.project_root)
+
+    if command == "evidence":
+        if args.action == "list":
+            return command_evidence_list(args.project_root)
+
+    if command == "claims":
+        if args.action == "list":
+            return command_claims_list(args.project_root)
+
+    if command == "knowledge":
+        if args.action == "status":
+            return command_knowledge_status(args.project_root)
+        if args.action == "verify":
+            return command_knowledge_verify(args.project_root)
 
     if command == "persistence":
         if args.action == "init":
