@@ -8,6 +8,12 @@ import platform
 import sys
 from typing import Any
 
+from src.application.project_ingestion_runtime import (
+    ingest_project,
+    ingestion_status,
+    inspect_source,
+)
+
 from src.application.project_runtime import (
     add_source,
     initialize_project,
@@ -489,6 +495,65 @@ def command_render_dry_run(
 
 
 
+
+def command_source_inspect(
+    project_root: str,
+    source_id: str,
+) -> dict[str, Any]:
+    report = inspect_source(project_root, source_id)
+
+    status = (
+        "SUCCESS"
+        if report["hash_valid"]
+        and report["supported_for_ingestion"]
+        and not report.get("empty", False)
+        else "VALIDATION_FAILURE"
+    )
+
+    return _result(
+        "source-inspect",
+        status,
+        data=report,
+        error=None if status == "SUCCESS" else "SOURCE_NOT_INGESTIBLE",
+    )
+
+
+def command_project_ingest(project_root: str) -> dict[str, Any]:
+    result = ingest_project(project_root)
+
+    status = (
+        "SUCCESS"
+        if result["status"] == "VALID"
+        else "VALIDATION_FAILURE"
+    )
+
+    return _result(
+        "project-ingest",
+        status,
+        data=result,
+        error=None if status == "SUCCESS" else "INGESTION_INVALID",
+    )
+
+
+def command_ingestion_status(project_root: str) -> dict[str, Any]:
+    result = ingestion_status(project_root)
+
+    status = (
+        "SUCCESS"
+        if result["status"] == "VALID"
+        else "BLOCKED"
+        if result["status"] == "NOT_RUN"
+        else "VALIDATION_FAILURE"
+    )
+
+    return _result(
+        "ingestion-status",
+        status,
+        data=result,
+        error=None if status == "SUCCESS" else result["status"],
+    )
+
+
 def command_project_init(
     project_root: str,
     slug: str,
@@ -683,6 +748,9 @@ def build_parser() -> argparse.ArgumentParser:
     project_verify = project_sub.add_parser("verify")
     project_verify.add_argument("--root", required=True)
 
+    project_ingest = project_sub.add_parser("ingest")
+    project_ingest.add_argument("--root", required=True)
+
     source = subparsers.add_parser("source")
     source_sub = source.add_subparsers(
         dest="action",
@@ -702,6 +770,22 @@ def build_parser() -> argparse.ArgumentParser:
 
     source_list = source_sub.add_parser("list")
     source_list.add_argument("--project-root", required=True)
+
+    source_inspect = source_sub.add_parser("inspect")
+    source_inspect.add_argument("--project-root", required=True)
+    source_inspect.add_argument("--source-id", required=True)
+
+    ingestion = subparsers.add_parser("ingestion")
+    ingestion_sub = ingestion.add_subparsers(
+        dest="action",
+        required=True,
+    )
+
+    ingestion_status_parser = ingestion_sub.add_parser("status")
+    ingestion_status_parser.add_argument(
+        "--project-root",
+        required=True,
+    )
 
     render = subparsers.add_parser("render")
     render_sub = render.add_subparsers(dest="action", required=True)
@@ -736,6 +820,8 @@ def dispatch(args: argparse.Namespace) -> dict[str, Any]:
             )
         if args.action == "verify":
             return command_project_verify(args.root)
+        if args.action == "ingest":
+            return command_project_ingest(args.root)
 
     if command == "source":
         if args.action == "add":
@@ -748,6 +834,15 @@ def dispatch(args: argparse.Namespace) -> dict[str, Any]:
             )
         if args.action == "list":
             return command_source_list(args.project_root)
+        if args.action == "inspect":
+            return command_source_inspect(
+                args.project_root,
+                args.source_id,
+            )
+
+    if command == "ingestion":
+        if args.action == "status":
+            return command_ingestion_status(args.project_root)
 
     if command == "persistence":
         if args.action == "init":
