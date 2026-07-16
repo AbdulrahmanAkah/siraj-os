@@ -1,33 +1,47 @@
 {
-  "branch": "feature/release-hardening-phase7",
-  "display_version": "0.1.0-rc.3",
-  "package_version": "0.1.0rc3",
+  "acceptance": {
+    "claim_assessment": "PASS",
+    "claim_count": 6,
+    "clean_install": "PASS",
+    "installed_health": "PASS",
+    "installed_help": "PASS",
+    "installed_version": "0.1.0",
+    "knowledge_extraction": "PASS",
+    "project_initialization": "PASS",
+    "query_count": 12,
+    "repository_independent_import": "PASS",
+    "research_plan_build": "PASS",
+    "research_status": "PASS",
+    "research_tasks": "PASS",
+    "research_verification": "PASS",
+    "source_ingestion": "PASS",
+    "task_count": 6
+  },
+  "branch": "main",
+  "display_version": "0.1.0",
+  "package_version": "0.1.0",
   "product": "siraj-os",
+  "release_channel": "stable",
   "repository": {
     "egg_info_tracked": false,
     "generated_build_files_tracked": false,
     "release_logs_tracked": false
   },
   "schema_version": "siraj-release-manifest-v1",
-  "smoke_tests": {
-    "clean_install": "PASS",
-    "installed_health": "PASS",
-    "installed_help": "PASS",
-    "installed_version": "0.1.0-rc.3",
-    "repository_independent_import": "PASS"
-  },
-  "tag": "v0.1.0-rc.3",
+  "source_release_candidate": "v0.1.0-rc.3",
+  "tag": "v0.1.0",
   "tests": {
     "passed": 346,
+    "phase7b_packaging_passed": 9,
     "skipped": 1,
     "status": "PASS"
   },
   "wheel": {
-    "filename": "siraj_os-0.1.0rc3-py3-none-any.whl",
-    "first_build_sha256": "813eb65f2b88140930552a54abfed548493e49b2f47b6ab620b4521febf0a008",
+    "filename": "siraj_os-0.1.0-py3-none-any.whl",
+    "first_build_sha256": "b58518e012a7ab03c98066b9917e31646bd86f37e7fbb7136a4929227b2db99d",
     "reproducible": true,
-    "second_build_sha256": "813eb65f2b88140930552a54abfed548493e49b2f47b6ab620b4521febf0a008",
-    "sha256": "813eb65f2b88140930552a54abfed548493e49b2f47b6ab620b4521febf0a008",
-    "size_bytes": 356393
+    "second_build_sha256": "b58518e012a7ab03c98066b9917e31646bd86f37e7fbb7136a4929227b2db99d",
+    "sha256": "b58518e012a7ab03c98066b9917e31646bd86f37e7fbb7136a4929227b2db99d",
+    "size_bytes": 356351
   }
 }
