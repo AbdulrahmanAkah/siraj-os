@@ -8,6 +8,14 @@ import platform
 import sys
 from typing import Any
 
+from src.application.project_research_planning_runtime import (
+    build_research_plan,
+    get_research_task,
+    list_research_tasks,
+    research_status,
+    verify_research_plan,
+)
+
 from src.application.project_assessment_runtime import (
     assess_project_claims,
     assessment_status,
@@ -514,6 +522,83 @@ def command_render_dry_run(
 
 
 
+
+def command_project_plan_research(
+    project_root: str,
+) -> dict[str, Any]:
+    result = build_research_plan(project_root)
+
+    return _result(
+        "project-plan-research",
+        "SUCCESS",
+        data=result,
+    )
+
+
+def command_research_status(
+    project_root: str,
+) -> dict[str, Any]:
+    result = research_status(project_root)
+
+    status = (
+        "SUCCESS"
+        if result["status"] == "PLANNED"
+        else "BLOCKED"
+        if result["status"] == "NOT_RUN"
+        else "VALIDATION_FAILURE"
+    )
+
+    return _result(
+        "research-status",
+        status,
+        data=result,
+        error=None if status == "SUCCESS" else result["status"],
+    )
+
+
+def command_research_tasks(
+    project_root: str,
+) -> dict[str, Any]:
+    return _result(
+        "research-tasks",
+        "SUCCESS",
+        data=list_research_tasks(project_root),
+    )
+
+
+def command_research_task_show(
+    project_root: str,
+    task_id: str,
+) -> dict[str, Any]:
+    return _result(
+        "research-task-show",
+        "SUCCESS",
+        data=get_research_task(
+            project_root,
+            task_id,
+        ),
+    )
+
+
+def command_research_verify(
+    project_root: str,
+) -> dict[str, Any]:
+    report = verify_research_plan(project_root)
+
+    status = (
+        "SUCCESS"
+        if report.status == "VALID"
+        else "VALIDATION_FAILURE"
+    )
+
+    return _result(
+        "research-verify",
+        status,
+        data=report,
+        error=None if status == "SUCCESS" else "RESEARCH_PLAN_INVALID",
+    )
+
+
 def command_project_assess(
     project_root: str,
 ) -> dict[str, Any]:
@@ -919,6 +1004,9 @@ def build_parser() -> argparse.ArgumentParser:
     project_assess = project_sub.add_parser("assess")
     project_assess.add_argument("--root", required=True)
 
+    project_plan_research = project_sub.add_parser("plan-research")
+    project_plan_research.add_argument("--root", required=True)
+
     source = subparsers.add_parser("source")
     source_sub = source.add_subparsers(
         dest="action",
@@ -1035,6 +1123,40 @@ def build_parser() -> argparse.ArgumentParser:
         required=True,
     )
 
+    research = subparsers.add_parser("research")
+    research_sub = research.add_subparsers(
+        dest="action",
+        required=True,
+    )
+
+    research_status_parser = research_sub.add_parser("status")
+    research_status_parser.add_argument(
+        "--project-root",
+        required=True,
+    )
+
+    research_tasks_parser = research_sub.add_parser("tasks")
+    research_tasks_parser.add_argument(
+        "--project-root",
+        required=True,
+    )
+
+    research_task_show_parser = research_sub.add_parser("task-show")
+    research_task_show_parser.add_argument(
+        "--project-root",
+        required=True,
+    )
+    research_task_show_parser.add_argument(
+        "--task-id",
+        required=True,
+    )
+
+    research_verify_parser = research_sub.add_parser("verify")
+    research_verify_parser.add_argument(
+        "--project-root",
+        required=True,
+    )
+
     render = subparsers.add_parser("render")
     render_sub = render.add_subparsers(dest="action", required=True)
     render_dry = render_sub.add_parser("dry-run")
@@ -1074,6 +1196,8 @@ def dispatch(args: argparse.Namespace) -> dict[str, Any]:
             return command_project_extract(args.root)
         if args.action == "assess":
             return command_project_assess(args.root)
+        if args.action == "plan-research":
+            return command_project_plan_research(args.root)
 
     if command == "source":
         if args.action == "add":
@@ -1123,6 +1247,19 @@ def dispatch(args: argparse.Namespace) -> dict[str, Any]:
     if command == "gaps":
         if args.action == "list":
             return command_gaps_list(args.project_root)
+
+    if command == "research":
+        if args.action == "status":
+            return command_research_status(args.project_root)
+        if args.action == "tasks":
+            return command_research_tasks(args.project_root)
+        if args.action == "task-show":
+            return command_research_task_show(
+                args.project_root,
+                args.task_id,
+            )
+        if args.action == "verify":
+            return command_research_verify(args.project_root)
 
     if command == "persistence":
         if args.action == "init":
