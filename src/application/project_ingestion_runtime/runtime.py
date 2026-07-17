@@ -254,17 +254,26 @@ def inspect_source(
 
 def build_project_ingestion_plan(
     project_root: str,
+    source_ids: set[str] | None = None,
 ) -> SourceIngestionPlan:
     project = load_project(project_root)
     registry = load_sources(project_root)
 
     units: list[IngestionUnit] = []
 
+    selected_sources = [
+        source
+        for source in registry["sources"]
+        if source_ids is None or source["source_id"] in source_ids
+    ]
+
+    if source_ids is not None:
+        missing = sorted(source_ids - {item["source_id"] for item in selected_sources})
+        if missing:
+            raise ValueError("SOURCE_IDS_NOT_REGISTERED:" + ",".join(missing))
+
     for position, source in enumerate(
-        sorted(
-            registry["sources"],
-            key=lambda item: item["source_id"],
-        )
+        sorted(selected_sources, key=lambda item: item["source_id"])
     ):
         source_id = source["source_id"]
 
@@ -327,11 +336,16 @@ def build_project_ingestion_plan(
 def _build_payloads(
     project_root: Path,
     registry: dict[str, Any],
+    source_ids: set[str] | None = None,
 ) -> dict[str, IngestionPayload]:
     payloads: dict[str, IngestionPayload] = {}
 
     for source in sorted(
-        registry["sources"],
+        (
+            item
+            for item in registry["sources"]
+            if source_ids is None or item["source_id"] in source_ids
+        ),
         key=lambda item: item["source_id"],
     ):
         source_id = source["source_id"]
@@ -381,6 +395,12 @@ def _build_payloads(
                 "stored_path": str(source.get("stored_path", "")),
                 "source_encoding": encoding,
                 "source_sha256": str(source.get("sha256", "")),
+                "source_type": str(source.get("source_type", "LOCAL_FILE")),
+                "rights_status": str(source.get("rights_status", "UNVERIFIED")),
+                "source_locator": str(source.get("source_locator", "")),
+                "provenance_json": _canonical_json(
+                    source.get("provenance", {})
+                ).strip(),
             },
         )
 
@@ -427,7 +447,12 @@ def _serialise_execution(
     }
 
 
-def ingest_project(project_root: str) -> dict[str, Any]:
+def ingest_project(
+    project_root: str,
+    *,
+    source_ids: set[str] | None = None,
+    working_name: str = "ingestion",
+) -> dict[str, Any]:
     root = _absolute_path(project_root, "PROJECT_ROOT")
 
     verification = verify_project(root)
@@ -438,13 +463,13 @@ def ingest_project(project_root: str) -> dict[str, Any]:
     registry = load_sources(root)
     paths = project_paths(root)
 
-    plan = build_project_ingestion_plan(root)
+    plan = build_project_ingestion_plan(root, source_ids)
     architect = ProjectSourceIngestionArchitect()
 
     if not architect.validate_ingestion_plan(plan):
         raise ValueError("INVALID_PROJECT_INGESTION_PLAN")
 
-    payloads = _build_payloads(root, registry)
+    payloads = _build_payloads(root, registry, source_ids)
     executor = SourceIngestionExecutor(architect)
     result = executor.execute_ingestion(plan, payloads)
 
@@ -454,7 +479,10 @@ def ingest_project(project_root: str) -> dict[str, Any]:
         for unit in batch.units
     }
 
-    working_root = Path(paths.working_root) / "ingestion"
+    if not working_name or Path(working_name).name != working_name:
+        raise ValueError("INVALID_INGESTION_WORKING_NAME")
+
+    working_root = Path(paths.working_root) / working_name
     normalized_root = working_root / "normalized"
     normalized_root.mkdir(parents=True, exist_ok=True)
 
@@ -565,6 +593,22 @@ def ingest_project(project_root: str) -> dict[str, Any]:
         if result.rejected_count == 0
         else "INVALID"
     )
+    invalid_unit_ids = {
+        item.unit_id
+        for item in result.validation_results
+        if not item.is_valid
+    }
+    duplicate_unit_ids = {
+        item.unit_id
+        for item in result.deduplication_results
+        if item.is_duplicate
+    }
+    accepted_source_ids = sorted(
+        source_id
+        for unit_id, source_id in source_ids_by_unit.items()
+        if unit_id not in invalid_unit_ids
+        and unit_id not in duplicate_unit_ids
+    )
 
     return {
         "project_id": project["project_id"],
@@ -575,6 +619,7 @@ def ingest_project(project_root: str) -> dict[str, Any]:
         "accepted_count": result.accepted_count,
         "rejected_count": result.rejected_count,
         "duplicate_count": result.duplicate_count,
+        "accepted_source_ids": accepted_source_ids,
         "working_root": str(working_root),
         "persistence_record_ids": transaction.record_ids,
     }

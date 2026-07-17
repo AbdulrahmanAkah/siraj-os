@@ -251,6 +251,10 @@ def add_source(
     title: str | None = None,
     language: str = "und",
     classification: str = "INTERNAL",
+    source_type: str = "LOCAL_FILE",
+    rights_status: str = "UNVERIFIED",
+    source_locator: str | None = None,
+    provenance: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     root = _absolute_path(project_root, "PROJECT_ROOT")
     source = _absolute_path(source_path, "SOURCE_PATH")
@@ -290,6 +294,7 @@ def add_source(
 
     source_record = {
         "source_id": source_id,
+        "source_type": source_type.strip().upper() or "LOCAL_FILE",
         "title": (title or source.stem).strip(),
         "language": language.strip().lower() or "und",
         "classification": classification.strip().upper() or "INTERNAL",
@@ -298,8 +303,18 @@ def add_source(
         "media_type": suffix.removeprefix(".") or "unknown",
         "size_bytes": len(data),
         "sha256": digest,
+        "content_hash": digest,
+        "rights_status": rights_status.strip().upper() or "UNVERIFIED",
         "created_at": CANONICAL_TIMESTAMP,
     }
+
+    if source_locator:
+        source_record["source_locator"] = source_locator
+
+    if provenance:
+        source_record["provenance"] = json.loads(
+            _canonical_json(provenance)
+        )
 
     with SQLitePersistenceAdapter(
         SQLiteConnectionConfig(paths.database)

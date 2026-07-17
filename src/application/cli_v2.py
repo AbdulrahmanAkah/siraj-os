@@ -44,6 +44,10 @@ from src.application.project_runtime import (
     list_sources,
     verify_project,
 )
+from src.application.shamela_local_adapter import (
+    ShamelaLocalSourceAdapter,
+    build_pilot_corpus,
+)
 
 from src.application.rc_hardening import (
     ExportFailure,
@@ -819,6 +823,100 @@ def command_ingestion_status(project_root: str) -> dict[str, Any]:
     )
 
 
+def _shamela_adapter(installation_root: str, discovery_root: str) -> ShamelaLocalSourceAdapter:
+    return ShamelaLocalSourceAdapter(installation_root, discovery_root)
+
+
+def command_shamela_status(installation_root: str, discovery_root: str) -> dict[str, Any]:
+    adapter = _shamela_adapter(installation_root, discovery_root)
+    return _result(
+        "shamela-status",
+        "SUCCESS",
+        data={
+            "adapter_version": "shamela-local-adapter-v1",
+            "installation_root": str(adapter.installation_root),
+            "master_database": str(adapter.master_path),
+            "page_index": str(adapter.page_index),
+            "title_index": str(adapter.title_index),
+            "installation_fingerprint": adapter.locator_proposal["installation_fingerprint"],
+            "access_mode": "READ_ONLY",
+        },
+    )
+
+
+def command_shamela_list(
+    installation_root: str,
+    discovery_root: str,
+    category: str | None,
+    title: str | None,
+    author: str | None,
+    book_id: int | None,
+    limit: int,
+) -> dict[str, Any]:
+    adapter = _shamela_adapter(installation_root, discovery_root)
+    return _result(
+        "shamela-list",
+        "SUCCESS",
+        data={"books": adapter.list_books(category=category, title=title, author=author, book_id=book_id, limit=limit)},
+    )
+
+
+def command_shamela_inspect(installation_root: str, discovery_root: str, book_id: int) -> dict[str, Any]:
+    return _result(
+        "shamela-inspect",
+        "SUCCESS",
+        data=_shamela_adapter(installation_root, discovery_root).inspect_book(book_id),
+    )
+
+
+def command_shamela_import(
+    installation_root: str,
+    discovery_root: str,
+    staging_root: str,
+    project_root: str,
+    book_id: int,
+) -> dict[str, Any]:
+    adapter = _shamela_adapter(installation_root, discovery_root)
+    staged = adapter.stage_book(book_id, staging_root)
+    metadata = adapter.read_metadata(book_id)
+    registration = add_source(
+        project_root,
+        str(Path(staging_root) / staged["body_artifact"]),
+        title=metadata["title"],
+        language="ar",
+        classification="INTERNAL",
+        source_type="SHAMELA_LOCAL_BOOK",
+        rights_status="RIGHTS_UNVERIFIED",
+        source_locator=staged["source_locator"],
+        provenance={
+            "adapter_version": "shamela-local-adapter-v1",
+            "installation_fingerprint": metadata["installation_fingerprint"],
+            "database_sha256": metadata["database_sha256"],
+            "book_id": book_id,
+        },
+    )
+    ingestion = ingest_project(
+        project_root,
+        source_ids={registration["source"]["source_id"]},
+        working_name="shamela-single-book-ingestion",
+    )
+    return _result("shamela-import", "SUCCESS" if ingestion["status"] == "VALID" else "VALIDATION_FAILURE", data={"staged": staged, "source": registration["source"], "ingestion": ingestion})
+
+
+def command_shamela_import_pilot(
+    installation_root: str,
+    discovery_root: str,
+    staging_root: str,
+    project_root: str,
+) -> dict[str, Any]:
+    result = build_pilot_corpus(
+        _shamela_adapter(installation_root, discovery_root),
+        staging_root,
+        project_root=project_root,
+    )
+    return _result("shamela-import-pilot", "SUCCESS" if result["status"] == "VALID" else "VALIDATION_FAILURE", data=result)
+
+
 def command_project_init(
     project_root: str,
     slug: str,
@@ -1239,6 +1337,35 @@ def build_parser() -> argparse.ArgumentParser:
         required=True,
     )
 
+    shamela = subparsers.add_parser("shamela")
+    shamela_sub = shamela.add_subparsers(dest="action", required=True)
+
+    def shamela_paths(item: argparse.ArgumentParser) -> None:
+        item.add_argument("--installation-root", required=True)
+        item.add_argument("--discovery-root", required=True)
+
+    shamela_status = shamela_sub.add_parser("status")
+    shamela_paths(shamela_status)
+    shamela_list = shamela_sub.add_parser("list")
+    shamela_paths(shamela_list)
+    shamela_list.add_argument("--category")
+    shamela_list.add_argument("--title")
+    shamela_list.add_argument("--author")
+    shamela_list.add_argument("--book-id", type=int)
+    shamela_list.add_argument("--limit", type=int, default=100)
+    shamela_inspect = shamela_sub.add_parser("inspect")
+    shamela_paths(shamela_inspect)
+    shamela_inspect.add_argument("--book-id", type=int, required=True)
+    shamela_import = shamela_sub.add_parser("import")
+    shamela_paths(shamela_import)
+    shamela_import.add_argument("--staging-root", required=True)
+    shamela_import.add_argument("--project-root", required=True)
+    shamela_import.add_argument("--book-id", type=int, required=True)
+    shamela_import_pilot = shamela_sub.add_parser("import-pilot")
+    shamela_paths(shamela_import_pilot)
+    shamela_import_pilot.add_argument("--staging-root", required=True)
+    shamela_import_pilot.add_argument("--project-root", required=True)
+
     evidence = subparsers.add_parser("evidence")
     evidence_sub = evidence.add_subparsers(
         dest="action",
@@ -1483,6 +1610,37 @@ def dispatch(args: argparse.Namespace) -> dict[str, Any]:
     if command == "ingestion":
         if args.action == "status":
             return command_ingestion_status(args.project_root)
+
+    if command == "shamela":
+        if args.action == "status":
+            return command_shamela_status(args.installation_root, args.discovery_root)
+        if args.action == "list":
+            return command_shamela_list(
+                args.installation_root,
+                args.discovery_root,
+                args.category,
+                args.title,
+                args.author,
+                args.book_id,
+                args.limit,
+            )
+        if args.action == "inspect":
+            return command_shamela_inspect(args.installation_root, args.discovery_root, args.book_id)
+        if args.action == "import":
+            return command_shamela_import(
+                args.installation_root,
+                args.discovery_root,
+                args.staging_root,
+                args.project_root,
+                args.book_id,
+            )
+        if args.action == "import-pilot":
+            return command_shamela_import_pilot(
+                args.installation_root,
+                args.discovery_root,
+                args.staging_root,
+                args.project_root,
+            )
 
     if command == "evidence":
         if args.action == "list":

@@ -54,6 +54,13 @@ ARABIC_SOURCE = (
 
 def _utf8_environment() -> dict[str, str]:
     env = os.environ.copy()
+    # A test runner may inject the source checkout through PYTHONPATH.  That
+    # makes pip treat the adjacent ``siraj_os.egg-info`` as an already
+    # installed distribution, bypassing wheel installation and launcher
+    # generation.  Packaging subprocesses must exercise the wheel in the
+    # isolated environment instead of inheriting source-tree imports.
+    env.pop("PYTHONPATH", None)
+    env.pop("PYTHONHOME", None)
     env.update(
         {
             "PYTHONUTF8": "1",
