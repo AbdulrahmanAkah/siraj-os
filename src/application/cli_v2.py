@@ -42,6 +42,7 @@ from src.application.project_runtime import (
     add_source,
     initialize_project,
     list_sources,
+    project_paths,
     verify_project,
 )
 from src.application.shamela_local_adapter import (
@@ -50,6 +51,11 @@ from src.application.shamela_local_adapter import (
 )
 from src.application.shamela_historical_extraction import (
     run_shamela_historical_extraction,
+)
+from src.application.shamela_extraction_quality_audit import (
+    GoldAnnotationStore,
+    GoldAnnotationValidationError,
+    build_local_workbench_server,
 )
 
 from src.application.rc_hardening import (
@@ -949,6 +955,94 @@ def command_shamela_extract_pilot(
     )
 
 
+def _shamela_audit_root(
+    project_root: str,
+    audit_root: str | None,
+) -> Path:
+    working_root = Path(project_paths(project_root).working_root).resolve()
+    root = (
+        Path(audit_root).resolve()
+        if audit_root
+        else working_root / "shamela-extraction-quality-audit"
+    )
+    try:
+        root.relative_to(working_root)
+    except ValueError as error:
+        raise ValueError("AUDIT_ROOT_OUTSIDE_PROJECT_WORKING_ROOT") from error
+    return root
+
+
+def command_shamela_audit_review_status(
+    project_root: str,
+    audit_root: str | None,
+) -> dict[str, Any]:
+    root = _shamela_audit_root(project_root, audit_root)
+    store = GoldAnnotationStore(root)
+    progress = store.progress()
+    return _result(
+        "shamela-audit-review-status",
+        "SUCCESS",
+        data={
+            "audit_root": str(root),
+            "progress": progress,
+            "backup_count": len(list(store.backup_root.glob("*.json"))),
+            "localhost_only": True,
+        },
+    )
+
+
+def command_shamela_audit_review_evaluate(
+    project_root: str,
+    audit_root: str | None,
+) -> dict[str, Any]:
+    root = _shamela_audit_root(project_root, audit_root)
+    try:
+        result = GoldAnnotationStore(root).evaluate()
+    except GoldAnnotationValidationError as error:
+        status = (
+            "BLOCKED"
+            if str(error) == "EVALUATION_REQUIRES_ALL_COMPLETED"
+            else "VALIDATION_FAILURE"
+        )
+        return _result(
+            "shamela-audit-review-evaluate",
+            status,
+            error=str(error),
+        )
+    return _result(
+        "shamela-audit-review-evaluate",
+        "SUCCESS" if result["status"] == "READY" else "BLOCKED",
+        data=result,
+        error=None if result["status"] == "READY" else "KNOWLEDGE_GRAPH_GATE_BLOCKED",
+    )
+
+
+def command_shamela_audit_review_serve(
+    project_root: str,
+    audit_root: str | None,
+    host: str,
+    port: int,
+) -> dict[str, Any]:
+    root = _shamela_audit_root(project_root, audit_root)
+    server = build_local_workbench_server(root, host=host, port=port)
+    print(
+        f"Siraj Gold Workbench: http://{host}:{server.server_port}/ "
+        "(localhost only; use Ctrl+C to stop)",
+        flush=True,
+    )
+    try:
+        server.serve_forever()
+    except KeyboardInterrupt:
+        pass
+    finally:
+        server.server_close()
+    return _result(
+        "shamela-audit-review-serve",
+        "SUCCESS",
+        data={"audit_root": str(root), "host": host, "port": port},
+    )
+
+
 def command_project_init(
     project_root: str,
     slug: str,
@@ -1405,6 +1499,33 @@ def build_parser() -> argparse.ArgumentParser:
         "--segment-limit-per-book",
         type=int,
     )
+    shamela_audit_review = shamela_sub.add_parser("audit-review")
+    shamela_audit_review_sub = shamela_audit_review.add_subparsers(
+        dest="audit_review_action",
+        required=True,
+    )
+
+    def shamela_audit_review_paths(
+        item: argparse.ArgumentParser,
+    ) -> None:
+        item.add_argument("--project-root", required=True)
+        item.add_argument("--audit-root")
+
+    shamela_audit_review_serve = shamela_audit_review_sub.add_parser("serve")
+    shamela_audit_review_paths(shamela_audit_review_serve)
+    shamela_audit_review_serve.add_argument(
+        "--host",
+        default="127.0.0.1",
+    )
+    shamela_audit_review_serve.add_argument(
+        "--port",
+        type=int,
+        default=8765,
+    )
+    shamela_audit_review_status = shamela_audit_review_sub.add_parser("status")
+    shamela_audit_review_paths(shamela_audit_review_status)
+    shamela_audit_review_evaluate = shamela_audit_review_sub.add_parser("evaluate")
+    shamela_audit_review_paths(shamela_audit_review_evaluate)
 
     evidence = subparsers.add_parser("evidence")
     evidence_sub = evidence.add_subparsers(
@@ -1688,6 +1809,24 @@ def dispatch(args: argparse.Namespace) -> dict[str, Any]:
                 args.output_root,
                 args.segment_limit_per_book,
             )
+        if args.action == "audit-review":
+            if args.audit_review_action == "serve":
+                return command_shamela_audit_review_serve(
+                    args.project_root,
+                    args.audit_root,
+                    args.host,
+                    args.port,
+                )
+            if args.audit_review_action == "status":
+                return command_shamela_audit_review_status(
+                    args.project_root,
+                    args.audit_root,
+                )
+            if args.audit_review_action == "evaluate":
+                return command_shamela_audit_review_evaluate(
+                    args.project_root,
+                    args.audit_root,
+                )
 
     if command == "evidence":
         if args.action == "list":
