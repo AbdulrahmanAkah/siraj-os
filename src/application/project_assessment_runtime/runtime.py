@@ -178,9 +178,22 @@ def _read_json(path: Path) -> Any:
 def _knowledge_artifact(
     project_root: Path,
     filename: str,
+    knowledge_root: Path | None = None,
 ) -> dict[str, Any]:
     paths = project_paths(project_root)
-    path = Path(paths.working_root) / "knowledge" / filename
+    root = (
+        Path(paths.working_root) / "knowledge"
+        if knowledge_root is None
+        else knowledge_root.resolve(strict=False)
+    )
+    working_root = Path(paths.working_root).resolve(strict=False)
+
+    try:
+        root.relative_to(working_root)
+    except ValueError as error:
+        raise ValueError("KNOWLEDGE_ROOT_ESCAPE") from error
+
+    path = root / filename
     payload = _read_json(path)
 
     if payload.get("schema_version") != "siraj-knowledge-evidence-v1":
@@ -378,15 +391,35 @@ def _confidence_level(
 
 def assess_project_claims(
     project_root: str,
+    *,
+    knowledge_root: str | Path | None = None,
+    assessment_root: str | Path | None = None,
 ) -> dict[str, Any]:
     root = _absolute_path(project_root, "PROJECT_ROOT")
     project = load_project(root)
     source_registry = load_sources(root)
     paths = project_paths(root)
 
-    claims_payload = _knowledge_artifact(root, "claims.json")
-    evidence_payload = _knowledge_artifact(root, "evidence.json")
-    provenance_payload = _knowledge_artifact(root, "provenance.json")
+    selected_knowledge_root = (
+        None
+        if knowledge_root is None
+        else _absolute_path(knowledge_root, "KNOWLEDGE_ROOT")
+    )
+    claims_payload = _knowledge_artifact(
+        root,
+        "claims.json",
+        selected_knowledge_root,
+    )
+    evidence_payload = _knowledge_artifact(
+        root,
+        "evidence.json",
+        selected_knowledge_root,
+    )
+    provenance_payload = _knowledge_artifact(
+        root,
+        "provenance.json",
+        selected_knowledge_root,
+    )
 
     claims = claims_payload.get("claims", [])
     evidence = evidence_payload.get("evidence", [])
@@ -782,8 +815,19 @@ def assess_project_claims(
         ],
     }
 
-    assessment_root = Path(paths.working_root) / "assessment"
-    assessment_root.mkdir(parents=True, exist_ok=True)
+    selected_assessment_root = (
+        Path(paths.working_root) / "assessment"
+        if assessment_root is None
+        else _absolute_path(assessment_root, "ASSESSMENT_ROOT")
+    )
+    working_root = Path(paths.working_root).resolve(strict=False)
+
+    try:
+        selected_assessment_root.relative_to(working_root)
+    except ValueError as error:
+        raise ValueError("ASSESSMENT_ROOT_ESCAPE") from error
+
+    selected_assessment_root.mkdir(parents=True, exist_ok=True)
 
     files = {
         "claim-assessments.json": assessments_payload,
@@ -794,7 +838,7 @@ def assess_project_claims(
     }
 
     for filename, payload in files.items():
-        _write_json(assessment_root / filename, payload)
+        _write_json(selected_assessment_root / filename, payload)
 
     with SQLitePersistenceAdapter(
         SQLiteConnectionConfig(paths.database)
@@ -838,7 +882,7 @@ def assess_project_claims(
 
     return {
         **result_payload,
-        "assessment_root": str(assessment_root),
+        "assessment_root": str(selected_assessment_root),
         "persistence_record_ids": transaction.record_ids,
     }
 

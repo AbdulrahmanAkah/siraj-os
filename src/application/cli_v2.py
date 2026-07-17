@@ -48,6 +48,9 @@ from src.application.shamela_local_adapter import (
     ShamelaLocalSourceAdapter,
     build_pilot_corpus,
 )
+from src.application.shamela_historical_extraction import (
+    run_shamela_historical_extraction,
+)
 
 from src.application.rc_hardening import (
     ExportFailure,
@@ -917,6 +920,35 @@ def command_shamela_import_pilot(
     return _result("shamela-import-pilot", "SUCCESS" if result["status"] == "VALID" else "VALIDATION_FAILURE", data=result)
 
 
+def command_shamela_extract_pilot(
+    project_root: str,
+    pilot_root: str,
+    output_root: str,
+    segment_limit_per_book: int | None,
+) -> dict[str, Any]:
+    result = run_shamela_historical_extraction(
+        project_root,
+        pilot_root,
+        output_root,
+        segment_limit_per_book=segment_limit_per_book,
+    )
+    status = (
+        "SUCCESS"
+        if result["status"] == "VALID"
+        else "VALIDATION_FAILURE"
+    )
+    return _result(
+        "shamela-extract-pilot",
+        status,
+        data=result,
+        error=(
+            None
+            if status == "SUCCESS"
+            else "SHAMELA_EXTRACTION_INVALID"
+        ),
+    )
+
+
 def command_project_init(
     project_root: str,
     slug: str,
@@ -1365,6 +1397,14 @@ def build_parser() -> argparse.ArgumentParser:
     shamela_paths(shamela_import_pilot)
     shamela_import_pilot.add_argument("--staging-root", required=True)
     shamela_import_pilot.add_argument("--project-root", required=True)
+    shamela_extract_pilot = shamela_sub.add_parser("extract-pilot")
+    shamela_extract_pilot.add_argument("--project-root", required=True)
+    shamela_extract_pilot.add_argument("--pilot-root", required=True)
+    shamela_extract_pilot.add_argument("--output-root", required=True)
+    shamela_extract_pilot.add_argument(
+        "--segment-limit-per-book",
+        type=int,
+    )
 
     evidence = subparsers.add_parser("evidence")
     evidence_sub = evidence.add_subparsers(
@@ -1640,6 +1680,13 @@ def dispatch(args: argparse.Namespace) -> dict[str, Any]:
                 args.discovery_root,
                 args.staging_root,
                 args.project_root,
+            )
+        if args.action == "extract-pilot":
+            return command_shamela_extract_pilot(
+                args.project_root,
+                args.pilot_root,
+                args.output_root,
+                args.segment_limit_per_book,
             )
 
     if command == "evidence":
