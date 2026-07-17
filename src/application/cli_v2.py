@@ -55,6 +55,24 @@ from src.application.rc_hardening import (
     SQLitePersistenceAdapter,
     SQLiteSchemaIdentity,
 )
+from src.application.local_video_production import (
+    build_render as build_local_render,
+    build_storyboard as build_local_storyboard,
+    build_subtitles as build_local_subtitles,
+    initialize_production as initialize_local_production,
+    verify_render as verify_local_render,
+    build_documentary_v2_render,
+    build_documentary_v2_storyboard,
+    build_documentary_v2_subtitles,
+    initialize_documentary_v2,
+    verify_documentary_v2_render,
+    DocumentaryV3Config,
+    build_documentary_v3_assets,
+    build_documentary_v3_render,
+    build_documentary_v3_subtitles,
+    initialize_documentary_v3,
+    verify_documentary_v3_render,
+)
 
 VERSION = "0.1.0"
 
@@ -889,6 +907,184 @@ def command_release_verify() -> dict[str, Any]:
     )
 
 
+def command_production_init(project_root: str, replace: bool) -> dict[str, Any]:
+    return _result(
+        "production-init",
+        "SUCCESS",
+        data=initialize_local_production(project_root, replace=replace),
+    )
+
+
+def command_storyboard_build(
+    project_root: str,
+    ffmpeg: str,
+    replace: bool,
+) -> dict[str, Any]:
+    return _result(
+        "storyboard-build",
+        "SUCCESS",
+        data=build_local_storyboard(
+            project_root,
+            ffmpeg=ffmpeg,
+            replace=replace,
+        ),
+    )
+
+
+def command_subtitles_build(
+    project_root: str,
+    replace: bool,
+) -> dict[str, Any]:
+    return _result(
+        "subtitles-build",
+        "SUCCESS",
+        data=build_local_subtitles(project_root, replace=replace),
+    )
+
+
+def command_render_build(
+    project_root: str,
+    ffmpeg: str,
+    replace: bool,
+) -> dict[str, Any]:
+    return _result(
+        "render-build",
+        "SUCCESS",
+        data=build_local_render(
+            project_root,
+            ffmpeg=ffmpeg,
+            replace=replace,
+        ),
+    )
+
+
+def command_render_verify(
+    project_root: str,
+    ffprobe: str,
+    replace: bool,
+) -> dict[str, Any]:
+    result = verify_local_render(
+        project_root,
+        ffprobe=ffprobe,
+        replace=replace,
+    )
+    return _result(
+        "render-verify",
+        "SUCCESS" if result["status"] == "VALID" else "VALIDATION_FAILURE",
+        data=result,
+        error=None if result["status"] == "VALID" else "RENDER_INVALID",
+    )
+
+
+def command_documentary_v2_init(
+    project_root: str,
+    powershell: str,
+    replace: bool,
+) -> dict[str, Any]:
+    return _result(
+        "documentary-v2-init",
+        "SUCCESS",
+        data=initialize_documentary_v2(
+            project_root,
+            powershell=powershell,
+            replace=replace,
+        ),
+    )
+
+
+def command_documentary_v2_storyboard(
+    project_root: str,
+    ffmpeg: str | None,
+    font: str | None,
+    replace: bool,
+) -> dict[str, Any]:
+    return _result(
+        "documentary-v2-storyboard",
+        "SUCCESS",
+        data=build_documentary_v2_storyboard(
+            project_root,
+            ffmpeg=ffmpeg,
+            font_path=font,
+            replace=replace,
+        ),
+    )
+
+
+def command_documentary_v2_subtitles(
+    project_root: str,
+    replace: bool,
+) -> dict[str, Any]:
+    return _result(
+        "documentary-v2-subtitles",
+        "SUCCESS",
+        data=build_documentary_v2_subtitles(project_root, replace=replace),
+    )
+
+
+def command_documentary_v2_render(
+    project_root: str,
+    ffmpeg: str | None,
+    replace: bool,
+) -> dict[str, Any]:
+    return _result(
+        "documentary-v2-render",
+        "SUCCESS",
+        data=build_documentary_v2_render(
+            project_root,
+            ffmpeg=ffmpeg,
+            replace=replace,
+        ),
+    )
+
+
+def command_documentary_v2_verify(
+    project_root: str,
+    ffmpeg: str | None,
+    ffprobe: str | None,
+    replace: bool,
+) -> dict[str, Any]:
+    result = verify_documentary_v2_render(
+        project_root,
+        ffmpeg=ffmpeg,
+        ffprobe=ffprobe,
+        replace=replace,
+    )
+    return _result(
+        "documentary-v2-verify",
+        "SUCCESS" if result["status"] == "VALID" else "VALIDATION_FAILURE",
+        data=result,
+        error=None if result["status"] == "VALID" else "DOCUMENTARY_V2_INVALID",
+    )
+
+
+def _documentary_v3_config(
+    ffmpeg: str | None = None,
+    ffprobe: str | None = None,
+) -> DocumentaryV3Config:
+    return DocumentaryV3Config(ffmpeg=ffmpeg, ffprobe=ffprobe)
+
+
+def command_documentary_v3_init(project_root: str, ffmpeg: str | None, replace: bool) -> dict[str, Any]:
+    return _result("documentary-v3-init", "SUCCESS", data=initialize_documentary_v3(project_root, config=_documentary_v3_config(ffmpeg=ffmpeg), replace=replace))
+
+
+def command_documentary_v3_assets(project_root: str, ffmpeg: str | None, replace: bool) -> dict[str, Any]:
+    return _result("documentary-v3-assets", "SUCCESS", data=build_documentary_v3_assets(project_root, config=_documentary_v3_config(ffmpeg=ffmpeg), replace=replace))
+
+
+def command_documentary_v3_subtitles(project_root: str, replace: bool) -> dict[str, Any]:
+    return _result("documentary-v3-subtitles", "SUCCESS", data=build_documentary_v3_subtitles(project_root, replace=replace))
+
+
+def command_documentary_v3_render(project_root: str, ffmpeg: str | None, replace: bool) -> dict[str, Any]:
+    return _result("documentary-v3-render", "SUCCESS", data=build_documentary_v3_render(project_root, config=_documentary_v3_config(ffmpeg=ffmpeg), replace=replace))
+
+
+def command_documentary_v3_verify(project_root: str, ffmpeg: str | None, ffprobe: str | None, replace: bool) -> dict[str, Any]:
+    result = verify_documentary_v3_render(project_root, config=_documentary_v3_config(ffmpeg=ffmpeg, ffprobe=ffprobe), replace=replace)
+    return _result("documentary-v3-verify", "SUCCESS" if result["status"] == "VALID" else "VALIDATION_FAILURE", data=result, error=None if result["status"] == "VALID" else "DOCUMENTARY_V3_INVALID")
+
+
 def execute(
     command: str,
     as_json: bool = False,
@@ -1157,11 +1353,79 @@ def build_parser() -> argparse.ArgumentParser:
         required=True,
     )
 
+    production = subparsers.add_parser("production")
+    production_sub = production.add_subparsers(dest="action", required=True)
+    production_init = production_sub.add_parser("init")
+    production_init.add_argument("--project-root", required=True)
+    production_init.add_argument("--replace", action="store_true")
+    production_v2 = production_sub.add_parser("documentary-v2-init")
+    production_v2.add_argument("--project-root", required=True)
+    production_v2.add_argument("--powershell", default="powershell.exe")
+    production_v2.add_argument("--replace", action="store_true")
+    production_v3 = production_sub.add_parser("documentary-v3-init")
+    production_v3.add_argument("--project-root", required=True)
+    production_v3.add_argument("--ffmpeg")
+    production_v3.add_argument("--replace", action="store_true")
+
+    storyboard = subparsers.add_parser("storyboard")
+    storyboard_sub = storyboard.add_subparsers(dest="action", required=True)
+    storyboard_build = storyboard_sub.add_parser("build")
+    storyboard_build.add_argument("--project-root", required=True)
+    storyboard_build.add_argument("--ffmpeg", default="ffmpeg")
+    storyboard_build.add_argument("--replace", action="store_true")
+    storyboard_v2 = storyboard_sub.add_parser("documentary-v2-build")
+    storyboard_v2.add_argument("--project-root", required=True)
+    storyboard_v2.add_argument("--ffmpeg")
+    storyboard_v2.add_argument("--font")
+    storyboard_v2.add_argument("--replace", action="store_true")
+    storyboard_v3 = storyboard_sub.add_parser("documentary-v3-assets")
+    storyboard_v3.add_argument("--project-root", required=True)
+    storyboard_v3.add_argument("--ffmpeg")
+    storyboard_v3.add_argument("--replace", action="store_true")
+
+    subtitles = subparsers.add_parser("subtitles")
+    subtitles_sub = subtitles.add_subparsers(dest="action", required=True)
+    subtitles_build = subtitles_sub.add_parser("build")
+    subtitles_build.add_argument("--project-root", required=True)
+    subtitles_build.add_argument("--replace", action="store_true")
+    subtitles_v2 = subtitles_sub.add_parser("documentary-v2-build")
+    subtitles_v2.add_argument("--project-root", required=True)
+    subtitles_v2.add_argument("--replace", action="store_true")
+    subtitles_v3 = subtitles_sub.add_parser("documentary-v3-build")
+    subtitles_v3.add_argument("--project-root", required=True)
+    subtitles_v3.add_argument("--replace", action="store_true")
+
     render = subparsers.add_parser("render")
     render_sub = render.add_subparsers(dest="action", required=True)
     render_dry = render_sub.add_parser("dry-run")
     render_dry.add_argument("--manifest", required=True)
     render_dry.add_argument("--asset-root", required=True)
+    render_build = render_sub.add_parser("build")
+    render_build.add_argument("--project-root", required=True)
+    render_build.add_argument("--ffmpeg", default="ffmpeg")
+    render_build.add_argument("--replace", action="store_true")
+    render_verify = render_sub.add_parser("verify")
+    render_verify.add_argument("--project-root", required=True)
+    render_verify.add_argument("--ffprobe", default="ffprobe")
+    render_verify.add_argument("--replace", action="store_true")
+    render_v2_build = render_sub.add_parser("documentary-v2-build")
+    render_v2_build.add_argument("--project-root", required=True)
+    render_v2_build.add_argument("--ffmpeg")
+    render_v2_build.add_argument("--replace", action="store_true")
+    render_v2_verify = render_sub.add_parser("documentary-v2-verify")
+    render_v2_verify.add_argument("--project-root", required=True)
+    render_v2_verify.add_argument("--ffmpeg")
+    render_v2_verify.add_argument("--ffprobe")
+    render_v2_verify.add_argument("--replace", action="store_true")
+    render_v3_build = render_sub.add_parser("documentary-v3-build")
+    render_v3_build.add_argument("--project-root", required=True)
+    render_v3_build.add_argument("--ffmpeg")
+    render_v3_build.add_argument("--replace", action="store_true")
+    render_v3_verify = render_sub.add_parser("documentary-v3-verify")
+    render_v3_verify.add_argument("--project-root", required=True)
+    render_v3_verify.add_argument("--ffmpeg")
+    render_v3_verify.add_argument("--ffprobe")
+    render_v3_verify.add_argument("--replace", action="store_true")
 
     return parser
 
@@ -1261,6 +1525,51 @@ def dispatch(args: argparse.Namespace) -> dict[str, Any]:
         if args.action == "verify":
             return command_research_verify(args.project_root)
 
+    if command == "production":
+        if args.action == "init":
+            return command_production_init(args.project_root, args.replace)
+        if args.action == "documentary-v2-init":
+            return command_documentary_v2_init(
+                args.project_root,
+                args.powershell,
+                args.replace,
+            )
+        if args.action == "documentary-v3-init":
+            return command_documentary_v3_init(
+                args.project_root,
+                args.ffmpeg,
+                args.replace,
+            )
+
+    if command == "storyboard":
+        if args.action == "build":
+            return command_storyboard_build(
+                args.project_root,
+                args.ffmpeg,
+                args.replace,
+            )
+        if args.action == "documentary-v2-build":
+            return command_documentary_v2_storyboard(
+                args.project_root,
+                args.ffmpeg,
+                args.font,
+                args.replace,
+            )
+        if args.action == "documentary-v3-assets":
+            return command_documentary_v3_assets(
+                args.project_root,
+                args.ffmpeg,
+                args.replace,
+            )
+
+    if command == "subtitles":
+        if args.action == "build":
+            return command_subtitles_build(args.project_root, args.replace)
+        if args.action == "documentary-v2-build":
+            return command_documentary_v2_subtitles(args.project_root, args.replace)
+        if args.action == "documentary-v3-build":
+            return command_documentary_v3_subtitles(args.project_root, args.replace)
+
     if command == "persistence":
         if args.action == "init":
             return command_persistence_init(args.database)
@@ -1296,11 +1605,50 @@ def dispatch(args: argparse.Namespace) -> dict[str, Any]:
             args.replace,
         )
 
-    if command == "render" and args.action == "dry-run":
-        return command_render_dry_run(
-            args.manifest,
-            args.asset_root,
-        )
+    if command == "render":
+        if args.action == "dry-run":
+            return command_render_dry_run(
+                args.manifest,
+                args.asset_root,
+            )
+        if args.action == "build":
+            return command_render_build(
+                args.project_root,
+                args.ffmpeg,
+                args.replace,
+            )
+        if args.action == "verify":
+            return command_render_verify(
+                args.project_root,
+                args.ffprobe,
+                args.replace,
+            )
+        if args.action == "documentary-v2-build":
+            return command_documentary_v2_render(
+                args.project_root,
+                args.ffmpeg,
+                args.replace,
+            )
+        if args.action == "documentary-v2-verify":
+            return command_documentary_v2_verify(
+                args.project_root,
+                args.ffmpeg,
+                args.ffprobe,
+                args.replace,
+            )
+        if args.action == "documentary-v3-build":
+            return command_documentary_v3_render(
+                args.project_root,
+                args.ffmpeg,
+                args.replace,
+            )
+        if args.action == "documentary-v3-verify":
+            return command_documentary_v3_verify(
+                args.project_root,
+                args.ffmpeg,
+                args.ffprobe,
+                args.replace,
+            )
 
     return _result(
         command,
