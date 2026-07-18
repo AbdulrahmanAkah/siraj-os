@@ -57,6 +57,14 @@ from src.application.shamela_extraction_quality_audit import (
     GoldAnnotationValidationError,
     build_local_workbench_server,
 )
+from src.application.local_semantic_intelligence import (
+    SemanticProviderError,
+    benchmark_pilot,
+    build_ollama_provider,
+    compare_semantic_runs,
+    run_semantic_segment,
+    semantic_status,
+)
 
 from src.application.rc_hardening import (
     ExportFailure,
@@ -1043,6 +1051,126 @@ def command_shamela_audit_review_serve(
     )
 
 
+def _semantic_paths(
+    semantic_root: str,
+    config: str | None,
+) -> tuple[Path, Path]:
+    root = _absolute_path(semantic_root, "SEMANTIC_ROOT")
+    config_path = (
+        _absolute_path(config, "SEMANTIC_CONFIG")
+        if config
+        else root / "provider-config.example.json"
+    )
+    return root, config_path
+
+
+def command_semantic_local_status(
+    semantic_root: str,
+    config: str | None,
+) -> dict[str, Any]:
+    root, config_path = _semantic_paths(semantic_root, config)
+    provider = build_ollama_provider(config_path)
+    data = semantic_status(root, provider)
+    return _result(
+        "semantic-local-status",
+        "SUCCESS" if data["status"] == "AVAILABLE" else "DEPENDENCY_FAILURE",
+        data=data,
+        error=(
+            None
+            if data["status"] == "AVAILABLE"
+            else data["reason_code"]
+        ),
+    )
+
+
+def command_semantic_local_run(
+    semantic_root: str,
+    config: str,
+    segment_id: str,
+) -> dict[str, Any]:
+    root, config_path = _semantic_paths(semantic_root, config)
+    try:
+        result = run_semantic_segment(
+            root,
+            build_ollama_provider(config_path),
+            segment_id,
+        )
+    except SemanticProviderError as error:
+        return _result(
+            "semantic-local-run",
+            "DEPENDENCY_FAILURE",
+            error=error.code,
+        )
+    except RuntimeError as error:
+        message = str(error)
+        if message.startswith("SEMANTIC_STAGE_FAILED:"):
+            return _result(
+                "semantic-local-run",
+                "DEPENDENCY_FAILURE",
+                error=message,
+            )
+        raise
+    return _result("semantic-local-run", "SUCCESS", data=result)
+
+
+def command_semantic_local_benchmark(
+    semantic_root: str,
+    config: str,
+    sample: str,
+) -> dict[str, Any]:
+    root, config_path = _semantic_paths(semantic_root, config)
+    try:
+        result = benchmark_pilot(
+            root,
+            build_ollama_provider(config_path),
+            sample=sample,
+        )
+    except SemanticProviderError as error:
+        return _result(
+            "semantic-local-benchmark",
+            "DEPENDENCY_FAILURE",
+            error=error.code,
+        )
+    return _result("semantic-local-benchmark", "SUCCESS", data=result)
+
+
+def command_semantic_local_compare(
+    semantic_root: str,
+) -> dict[str, Any]:
+    root = _absolute_path(semantic_root, "SEMANTIC_ROOT")
+    result = compare_semantic_runs(root)
+    return _result(
+        "semantic-local-compare",
+        (
+            "SUCCESS"
+            if result["status"] == "COMPLETED"
+            else "BLOCKED"
+        ),
+        data=result,
+        error=(
+            None
+            if result["status"] == "COMPLETED"
+            else "PILOT_EXECUTION_NOT_COMPLETE"
+        ),
+    )
+
+
+def command_semantic_local_unload(
+    semantic_root: str,
+    config: str,
+) -> dict[str, Any]:
+    _, config_path = _semantic_paths(semantic_root, config)
+    try:
+        result = build_ollama_provider(config_path).unload()
+    except SemanticProviderError as error:
+        return _result(
+            "semantic-local-unload",
+            "DEPENDENCY_FAILURE",
+            error=error.code,
+        )
+    return _result("semantic-local-unload", "SUCCESS", data=result)
+
+
 def command_project_init(
     project_root: str,
     slug: str,
@@ -1527,6 +1655,45 @@ def build_parser() -> argparse.ArgumentParser:
     shamela_audit_review_evaluate = shamela_audit_review_sub.add_parser("evaluate")
     shamela_audit_review_paths(shamela_audit_review_evaluate)
 
+    semantic = subparsers.add_parser("semantic")
+    semantic_sub = semantic.add_subparsers(
+        dest="semantic_scope",
+        required=True,
+    )
+    semantic_local = semantic_sub.add_parser("local")
+    semantic_local_sub = semantic_local.add_subparsers(
+        dest="semantic_action",
+        required=True,
+    )
+
+    def semantic_root(item: argparse.ArgumentParser) -> None:
+        item.add_argument("--semantic-root", required=True)
+
+    semantic_status_parser = semantic_local_sub.add_parser("status")
+    semantic_root(semantic_status_parser)
+    semantic_status_parser.add_argument("--config")
+
+    semantic_benchmark = semantic_local_sub.add_parser("benchmark")
+    semantic_root(semantic_benchmark)
+    semantic_benchmark.add_argument("--config", required=True)
+    semantic_benchmark.add_argument(
+        "--sample",
+        default="pilot-12",
+        choices=["pilot-12"],
+    )
+
+    semantic_run = semantic_local_sub.add_parser("run")
+    semantic_root(semantic_run)
+    semantic_run.add_argument("--config", required=True)
+    semantic_run.add_argument("--segment-id", required=True)
+
+    semantic_compare = semantic_local_sub.add_parser("compare")
+    semantic_root(semantic_compare)
+
+    semantic_unload = semantic_local_sub.add_parser("unload")
+    semantic_root(semantic_unload)
+    semantic_unload.add_argument("--config", required=True)
+
     evidence = subparsers.add_parser("evidence")
     evidence_sub = evidence.add_subparsers(
         dest="action",
@@ -1827,6 +1994,34 @@ def dispatch(args: argparse.Namespace) -> dict[str, Any]:
                     args.project_root,
                     args.audit_root,
                 )
+
+    if command == "semantic" and args.semantic_scope == "local":
+        if args.semantic_action == "status":
+            return command_semantic_local_status(
+                args.semantic_root,
+                args.config,
+            )
+        if args.semantic_action == "benchmark":
+            return command_semantic_local_benchmark(
+                args.semantic_root,
+                args.config,
+                args.sample,
+            )
+        if args.semantic_action == "run":
+            return command_semantic_local_run(
+                args.semantic_root,
+                args.config,
+                args.segment_id,
+            )
+        if args.semantic_action == "compare":
+            return command_semantic_local_compare(
+                args.semantic_root,
+            )
+        if args.semantic_action == "unload":
+            return command_semantic_local_unload(
+                args.semantic_root,
+                args.config,
+            )
 
     if command == "evidence":
         if args.action == "list":
