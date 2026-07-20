@@ -486,6 +486,195 @@ def _deterministic_status_coreference(
 
 
 
+
+def _deterministic_predicative_status_coreference(
+    text: str,
+    item: dict[str, Any],
+    entity_surfaces: dict[str, str],
+    accepted_entities: list[dict[str, Any]],
+) -> dict[str, Any] | None:
+    """
+    Resolve bounded local forms such as:
+
+        PERSON وقال هو STATUS
+        PERSON وقال إنه STATUS
+        PERSON ثم قال هو STATUS
+        PERSON ثم قال إنه STATUS
+
+    The antecedent must be the unique nearest preceding person.
+    """
+    import re
+
+    evidence = item.get("evidence", {})
+
+    if not isinstance(evidence, dict):
+        return None
+
+    quote = str(evidence.get("text", ""))
+    quote_start = evidence.get("start")
+    quote_end = evidence.get("end")
+
+    if (
+        not quote
+        or not isinstance(quote_start, int)
+        or not isinstance(quote_end, int)
+        or text[quote_start:quote_end] != quote
+    ):
+        return None
+
+    person = _resolved_reference(
+        item.get("person"),
+        entity_surfaces,
+    ).strip()
+
+    status = str(
+        item.get("status", "")
+    ).strip()
+
+    if (
+        not person
+        or not status
+        or person in quote
+    ):
+        return None
+
+    normalized = " ".join(quote.split())
+
+    pattern = re.compile(
+        r"^(?:و|ثم\s+)?قال\s+"
+        r"(هو|إنه|انه)\s+"
+        + re.escape(status)
+        + r"(?:$|[\s،؛,.])"
+    )
+
+    match = pattern.search(normalized)
+
+    if match is None:
+        return None
+
+    candidates = []
+
+    for entity in accepted_entities:
+        if not isinstance(entity, dict):
+            continue
+
+        if "person" not in {
+            str(value)
+            for value in entity.get("types", [])
+        }:
+            continue
+
+        entity_evidence = entity.get("evidence", {})
+
+        if not isinstance(entity_evidence, dict):
+            continue
+
+        surface = str(
+            entity.get("surface", "")
+        ).strip()
+
+        start = entity_evidence.get("start")
+        end = entity_evidence.get("end")
+
+        if (
+            not surface
+            or not isinstance(start, int)
+            or not isinstance(end, int)
+            or end > quote_start
+        ):
+            continue
+
+        candidates.append(
+            {
+                "id": str(entity.get("id", "")),
+                "surface": surface,
+                "start": start,
+                "end": end,
+            }
+        )
+
+    if not candidates:
+        return None
+
+    nearest_end = max(
+        candidate["end"]
+        for candidate in candidates
+    )
+
+    nearest = [
+        candidate
+        for candidate in candidates
+        if candidate["end"] == nearest_end
+    ]
+
+    if len(nearest) != 1:
+        return None
+
+    antecedent = nearest[0]
+
+    if antecedent["surface"] != person:
+        return None
+
+    gap = text[
+        antecedent["end"]:quote_start
+    ]
+
+    if not re.fullmatch(
+        r"[\s،؛,:.\-]*",
+        gap,
+    ):
+        return None
+
+    expanded_start = antecedent["start"]
+    expanded_end = quote_end
+    expanded_text = text[
+        expanded_start:expanded_end
+    ]
+
+    item["evidence"] = {
+        "start": expanded_start,
+        "end": expanded_end,
+        "text": expanded_text,
+    }
+
+    return {
+        "resolution": (
+            "DETERMINISTIC_PREDICATIVE_"
+            "COREFERENCE_RESOLVED"
+        ),
+        "antecedent": antecedent,
+        "matched_pronoun": match.group(1),
+        "status": status,
+        "expanded_evidence_text": expanded_text,
+        "expanded_evidence_start": expanded_start,
+        "expanded_evidence_end": expanded_end,
+    }
+
+
+def _resolve_status_coreference(
+    text: str,
+    item: dict[str, Any],
+    entity_surfaces: dict[str, str],
+    accepted_entities: list[dict[str, Any]],
+) -> dict[str, Any] | None:
+    result = _deterministic_status_coreference(
+        text,
+        item,
+        entity_surfaces,
+        accepted_entities,
+    )
+
+    if result is not None:
+        return result
+
+    return _deterministic_predicative_status_coreference(
+        text,
+        item,
+        entity_surfaces,
+        accepted_entities,
+    )
+
+
 def _deterministic_relation_object_coreference(
     text: str,
     item: dict[str, Any],
@@ -721,7 +910,8 @@ def resolve_route_evidence(case: dict[str, Any], output: dict[str, Any], attempt
                 }
             ):
                 coreference = (
-                    _deterministic_status_coreference(
+                    _resolve_status_coreference(
+
                         text,
                         item,
                         entity_surfaces,
@@ -1154,7 +1344,10 @@ def resolve_route_evidence(case: dict[str, Any], output: dict[str, Any], attempt
         "route": case["route"], "accepted_items": sum(accepted.values()),
         "accepted_by_collection": dict(sorted(accepted.items())), "rejected_items": len(rejected),
         "rejections": rejected,
-        "repaired_offsets_count": sum(item["resolution"] == "OFFSET_REPAIRED_DETERMINISTICALLY" for item in diagnostics),
+        "repaired_offsets_count": sum(
+            item.get("resolution") == "OFFSET_REPAIRED_DETERMINISTICALLY"
+            for item in diagnostics
+        ),
         "ambiguous_evidence_rejections": sum(item.get("reason_code") == "EVIDENCE_AMBIGUOUS" for item in rejected),
         "non_verbatim_evidence_rejections": sum(item.get("reason_code") == "EVIDENCE_TEXT_NOT_VERBATIM" for item in rejected),
         "validation_hash": integrity_hash(resolved),
