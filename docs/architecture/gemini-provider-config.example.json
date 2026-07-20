@@ -1,0 +1,25 @@
+{
+  "provider": {
+    "provider_id": "GEMINI_SEMANTIC",
+    "model_reference": "gemini-3.5-flash",
+    "timeout_seconds": 90,
+    "retries": 1,
+    "temperature": 0,
+    "maximum_output_tokens": 128,
+    "thinking_level": "low",
+    "structured_output_enabled": true,
+    "external_network_allowed": true,
+    "batch_mode": false,
+    "data_policy_acknowledged": true
+  },
+  "hardware": {
+    "concurrency": 1,
+    "context_tokens": 1536
+  },
+  "budget_limits": {
+    "maximum_requests_per_run": 8,
+    "maximum_input_tokens_per_run": 12000,
+    "maximum_output_tokens_per_run": 1024,
+    "abort_on_budget_exceeded": true
+  }
+}

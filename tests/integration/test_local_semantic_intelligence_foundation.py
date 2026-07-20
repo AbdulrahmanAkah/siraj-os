@@ -245,6 +245,7 @@ def test_ollama_request_is_structured_local_and_unload_is_explicit() -> None:
     assert "authorization" not in result["safe_raw_provider_response"]
     assert calls[0][1].endswith("/api/chat")
     assert calls[0][2]["stream"] is False
+    assert calls[0][2]["think"] is False
     assert isinstance(calls[0][2]["format"], dict)
     assert calls[0][2]["messages"][0]["role"] == "system"
     assert "untrusted_source_data" in calls[0][2]["messages"][1]["content"]
