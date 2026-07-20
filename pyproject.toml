@@ -9,6 +9,9 @@ description = "Deterministic historical intelligence and documentary production 
 requires-python = ">=3.13"
 dependencies = []
 
+[project.optional-dependencies]
+gemini = ["google-genai>=1.0.0"]
+
 [project.scripts]
 siraj = "src.application.cli_v2:main"
 

@@ -1,7 +1,5 @@
 import os
 
-from src.application.llm.providers.openai_gateway import OpenAIGateway
-from src.application.llm.providers.gemini_gateway import GeminiGateway
 from src.application.llm.providers.manual_gateway import ManualGateway
 
 from src.application.workflow.documentary_workflow import DocumentaryWorkflow
@@ -13,9 +11,13 @@ class ProductionPipeline:
 
         if os.getenv("OPENAI_API_KEY", "").strip():
 
+            from src.application.llm.providers.openai_gateway import OpenAIGateway
+
             gateway = OpenAIGateway()
 
         elif os.getenv("GEMINI_API_KEY", "").strip():
+
+            from src.application.llm.providers.gemini_gateway import GeminiGateway
 
             gateway = GeminiGateway()
 

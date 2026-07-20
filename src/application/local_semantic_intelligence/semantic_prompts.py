@@ -21,6 +21,16 @@ _SPAN_SCHEMA = {
     },
 }
 
+_STRUCTURAL_RANGE_SCHEMA = {
+    "type": "object",
+    "additionalProperties": False,
+    "required": ["start", "end"],
+    "properties": {
+        "start": {"type": "integer", "minimum": 0},
+        "end": {"type": "integer", "minimum": 1},
+    },
+}
+
 _ENTITY_SCHEMA = {
     "type": "object",
     "additionalProperties": False,
@@ -188,6 +198,67 @@ _INSTITUTION_SCHEMA = {
     },
 }
 
+
+def _compact_model_item_schema(
+    schema: dict[str, Any],
+    *,
+    omitted: tuple[str, ...],
+    compact_ranges: tuple[str, ...] = (),
+) -> dict[str, Any]:
+    """Remove fields that Siraj can derive deterministically after inference."""
+
+    compact = deepcopy(schema)
+    compact["required"] = [
+        item for item in compact["required"] if item not in omitted
+    ]
+    for item in omitted:
+        compact["properties"].pop(item, None)
+    for item in compact_ranges:
+        compact["properties"][item] = deepcopy(_STRUCTURAL_RANGE_SCHEMA)
+    return compact
+
+
+_MODEL_ENTITY_SCHEMA = _compact_model_item_schema(
+    _ENTITY_SCHEMA,
+    omitted=(
+        "mention_id",
+        "normalized_surface",
+        "evidence",
+        "source_id",
+        "locator",
+    ),
+)
+_MODEL_EVENT_SCHEMA = _compact_model_item_schema(
+    _EVENT_SCHEMA,
+    omitted=("event_id", "source_id", "locator"),
+    compact_ranges=("trigger", "evidence"),
+)
+_MODEL_RELATION_SCHEMA = _compact_model_item_schema(
+    _RELATION_SCHEMA,
+    omitted=("relation_id", "source_id", "locator"),
+    compact_ranges=("evidence",),
+)
+_MODEL_CLAIM_SCHEMA = _compact_model_item_schema(
+    _CLAIM_SCHEMA,
+    omitted=("claim_id", "source_id", "locator"),
+    compact_ranges=("evidence",),
+)
+_MODEL_ISNAD_SCHEMA = _compact_model_item_schema(
+    _ISNAD_SCHEMA,
+    omitted=("isnad_id", "source_id", "locator"),
+    compact_ranges=("exact_chain_range",),
+)
+_MODEL_TEMPORAL_SCHEMA = _compact_model_item_schema(
+    _TEMPORAL_SCHEMA,
+    omitted=("temporal_id", "source_id", "locator"),
+    compact_ranges=("evidence",),
+)
+_MODEL_INSTITUTION_SCHEMA = _compact_model_item_schema(
+    _INSTITUTION_SCHEMA,
+    omitted=("record_id", "source_id", "locator"),
+    compact_ranges=("evidence",),
+)
+
 _STRUCTURE_SCHEMA = {
     "type": "object",
     "additionalProperties": False,
@@ -204,18 +275,54 @@ _STRUCTURE_SCHEMA = {
             ],
             "properties": {
                 "segment_type": {"type": "string"},
-                "subtypes": {"type": "array", "items": {"type": "string"}},
-                "heading_ranges": {"type": "array", "items": _SPAN_SCHEMA},
-                "prose_ranges": {"type": "array", "items": _SPAN_SCHEMA},
-                "poetry_ranges": {"type": "array", "items": _SPAN_SCHEMA},
-                "isnad_ranges": {"type": "array", "items": _SPAN_SCHEMA},
-                "matn_ranges": {"type": "array", "items": _SPAN_SCHEMA},
-                "footnote_ranges": {"type": "array", "items": _SPAN_SCHEMA},
-                "quoted_source_ranges": {"type": "array", "items": _SPAN_SCHEMA},
+                "subtypes": {
+                    "type": "array",
+                    "maxItems": 8,
+                    "items": {"type": "string"},
+                },
+                "heading_ranges": {
+                    "type": "array",
+                    "maxItems": 8,
+                    "items": _STRUCTURAL_RANGE_SCHEMA,
+                },
+                "prose_ranges": {
+                    "type": "array",
+                    "maxItems": 8,
+                    "items": _STRUCTURAL_RANGE_SCHEMA,
+                },
+                "poetry_ranges": {
+                    "type": "array",
+                    "maxItems": 8,
+                    "items": _STRUCTURAL_RANGE_SCHEMA,
+                },
+                "isnad_ranges": {
+                    "type": "array",
+                    "maxItems": 8,
+                    "items": _STRUCTURAL_RANGE_SCHEMA,
+                },
+                "matn_ranges": {
+                    "type": "array",
+                    "maxItems": 8,
+                    "items": _STRUCTURAL_RANGE_SCHEMA,
+                },
+                "footnote_ranges": {
+                    "type": "array",
+                    "maxItems": 8,
+                    "items": _STRUCTURAL_RANGE_SCHEMA,
+                },
+                "quoted_source_ranges": {
+                    "type": "array",
+                    "maxItems": 8,
+                    "items": _STRUCTURAL_RANGE_SCHEMA,
+                },
                 "requires_previous_context": {"type": "boolean"},
                 "requires_next_context": {"type": "boolean"},
                 "confidence": {"type": "number"},
-                "rationale_codes": {"type": "array", "items": {"type": "string"}},
+                "rationale_codes": {
+                    "type": "array",
+                    "maxItems": 8,
+                    "items": {"type": "string"},
+                },
             },
         }
     },
@@ -231,34 +338,48 @@ def _object_schema(properties: dict[str, Any], required: list[str]) -> dict[str,
     }
 
 
+def _bounded_array(
+    item_schema: dict[str, Any],
+    maximum_items: int,
+) -> dict[str, Any]:
+    return {
+        "type": "array",
+        "maxItems": maximum_items,
+        "items": item_schema,
+    }
+
+
 _COMBINED_SCHEMA = _object_schema(
     {
         "structure": _STRUCTURE_SCHEMA["properties"]["structure"],
-        "entities": {"type": "array", "items": _ENTITY_SCHEMA},
-        "events": {"type": "array", "items": _EVENT_SCHEMA},
-        "relations": {"type": "array", "items": _RELATION_SCHEMA},
-        "claims": {"type": "array", "items": _CLAIM_SCHEMA},
-        "isnads": {"type": "array", "items": _ISNAD_SCHEMA},
-        "temporals": {"type": "array", "items": _TEMPORAL_SCHEMA},
-        "institutions": {"type": "array", "items": _INSTITUTION_SCHEMA},
+        "entities": _bounded_array(_MODEL_ENTITY_SCHEMA, 12),
+        "events": _bounded_array(_MODEL_EVENT_SCHEMA, 2),
+        "relations": _bounded_array(_MODEL_RELATION_SCHEMA, 3),
+        "claims": _bounded_array(_MODEL_CLAIM_SCHEMA, 2),
+        "isnads": _bounded_array(_MODEL_ISNAD_SCHEMA, 2),
+        "temporals": _bounded_array(_MODEL_TEMPORAL_SCHEMA, 3),
+        "institutions": _bounded_array(_MODEL_INSTITUTION_SCHEMA, 2),
     },
     ["structure", "entities", "events", "relations", "claims", "isnads", "temporals", "institutions"],
 )
 
-_MENTION_SCHEMA = _object_schema({"entities": {"type": "array", "items": _ENTITY_SCHEMA}}, ["entities"])
+_MENTION_SCHEMA = _object_schema(
+    {"entities": _bounded_array(_MODEL_ENTITY_SCHEMA, 12)},
+    ["entities"],
+)
 _EVENT_RELATION_SCHEMA = _object_schema(
     {
-        "events": {"type": "array", "items": _EVENT_SCHEMA},
-        "relations": {"type": "array", "items": _RELATION_SCHEMA},
-        "institutions": {"type": "array", "items": _INSTITUTION_SCHEMA},
+        "events": _bounded_array(_MODEL_EVENT_SCHEMA, 2),
+        "relations": _bounded_array(_MODEL_RELATION_SCHEMA, 3),
+        "institutions": _bounded_array(_MODEL_INSTITUTION_SCHEMA, 2),
     },
     ["events", "relations", "institutions"],
 )
 _CLAIM_ATTRIBUTION_SCHEMA = _object_schema(
     {
-        "claims": {"type": "array", "items": _CLAIM_SCHEMA},
-        "isnads": {"type": "array", "items": _ISNAD_SCHEMA},
-        "temporals": {"type": "array", "items": _TEMPORAL_SCHEMA},
+        "claims": _bounded_array(_MODEL_CLAIM_SCHEMA, 2),
+        "isnads": _bounded_array(_MODEL_ISNAD_SCHEMA, 2),
+        "temporals": _bounded_array(_MODEL_TEMPORAL_SCHEMA, 3),
     },
     ["claims", "isnads", "temporals"],
 )
@@ -272,10 +393,48 @@ _CRITIC_ISSUE_SCHEMA = _object_schema(
 )
 _CRITIC_SCHEMA = _object_schema(
     {
-        "issues": {"type": "array", "items": _CRITIC_ISSUE_SCHEMA},
-        "reason_codes": {"type": "array", "items": {"type": "string"}},
+        "issues": _bounded_array(_CRITIC_ISSUE_SCHEMA, 12),
+        "reason_codes": {
+            "type": "array",
+            "maxItems": 12,
+            "items": {"type": "string"},
+        },
     },
     ["issues", "reason_codes"],
+)
+
+# Deliberately small schemas for the four human-diagnosed regression cases.
+_CRITICAL_ENTITY = _object_schema(
+    {
+        "id": {"type": "string", "maxLength": 16},
+        "surface": {"type": "string", "minLength": 1},
+        "types": _bounded_array({"type": "string"}, 3),
+        "roles": _bounded_array({"type": "string"}, 3),
+        "evidence": _SPAN_SCHEMA,
+        "name_boundary_complete": {"type": "boolean"},
+        "explicit_proper_name": {"type": "boolean"},
+    },
+    ["id", "surface", "types", "roles", "evidence", "name_boundary_complete", "explicit_proper_name"],
+)
+_CRITICAL_BASE = {
+    "route": {"type": "string"},
+    "entities": _bounded_array(_CRITICAL_ENTITY, 12),
+}
+_CRITICAL_PERSON_SCHEMA = _object_schema(
+    {**_CRITICAL_BASE, "statuses": _bounded_array(_object_schema({"person": {"type": "string"}, "status": {"type": "string"}, "evidence": _SPAN_SCHEMA}, ["person", "status", "evidence"]), 6), "relations": _bounded_array(_object_schema({"subject": {"type": "string"}, "predicate": {"type": "string"}, "object": {"type": "string"}, "evidence": _SPAN_SCHEMA}, ["subject", "predicate", "object", "evidence"]), 6)},
+    ["route", "entities", "statuses", "relations"],
+)
+_CRITICAL_APPOINTMENT_SCHEMA = _object_schema(
+    {**_CRITICAL_BASE, "appointments": _bounded_array(_object_schema({"kind": {"type": "string"}, "appointee": {"type": "string"}, "appointing_authority": {"type": "string"}, "office": {"type": "string"}, "jurisdiction": {"type": "string"}, "generic_object": {"type": "string"}, "evidence": _SPAN_SCHEMA}, ["kind", "appointee", "appointing_authority", "office", "jurisdiction", "generic_object", "evidence"]), 8)},
+    ["route", "entities", "appointments"],
+)
+_CRITICAL_ISNAD_SCHEMA = _object_schema(
+    {**_CRITICAL_BASE, "isnads": _bounded_array(_object_schema({"narrators": _bounded_array({"type": "string"}, 12), "evidence": _SPAN_SCHEMA, "matn_boundary": {"type": ["integer", "null"]}}, ["narrators", "evidence", "matn_boundary"]), 4)},
+    ["route", "entities", "isnads"],
+)
+_CRITICAL_SIRA_SCHEMA = _object_schema(
+    {**_CRITICAL_BASE, "events": _bounded_array(_object_schema({"type": {"type": "string"}, "explicit": {"type": "boolean"}, "evidence": _SPAN_SCHEMA}, ["type", "explicit", "evidence"]), 6)},
+    ["route", "entities", "events"],
 )
 
 
@@ -293,7 +452,12 @@ PROMPT_CONTRACTS: dict[str, dict[str, Any]] = {
     "STRUCTURAL_ANALYSIS": {
         "purpose": "Classify heading, prose, poetry, isnad, matn, and non-historical ranges.",
         "schema": _STRUCTURE_SCHEMA,
-        "extra": "Do not extract entities or events in this stage.",
+        "extra": (
+            "Do not extract entities or events in this stage. Merge adjacent "
+            "ranges of the same kind. Use the smallest sufficient set of "
+            "non-overlapping ranges and never emit more than eight ranges "
+            "for one range category."
+        ),
     },
     "SIMPLE_HISTORICAL_COMBINED": {
         "purpose": "Extract structure, literal mentions, explicit events, relations, claims, isnad, and temporal expressions in one bounded call.",
@@ -330,11 +494,99 @@ PROMPT_CONTRACTS: dict[str, dict[str, Any]] = {
         "schema": _CRITIC_SCHEMA,
         "extra": "Return reason codes and do not introduce new facts.",
     },
+    "CRITICAL_PERSON_AND_STATUS": {
+        "purpose": "Extract literal persons, connected Arabic compound names, explicit narrator statuses, and explicit descriptive relations only.",
+        "schema": _CRITICAL_PERSON_SCHEMA,
+        "extra": (
+            "Keep بن, ابن, and أبي names as one source span. "
+            "A bare literal name may be retained as written; never expand it "
+            "from knowledge. Extract explicit narrator criticism even when "
+            "expressed by a verbal noun: بالتدليس or التدليس supports the "
+            "normalized status مدلس; بالكذب or الكذب supports كذاب; "
+            "بالضعف or الضعف supports ضعيف. evidence.text must remain an "
+            "exact literal source quote and may contain a local pronoun. "
+            "For a clause such as وصفه أحمد بالتدليس, أحمد is the explicit "
+            "critic and the object pronoun may refer only to the single "
+            "unambiguous nearest preceding person. Do not synthesize a quote "
+            "by joining separated source spans."
+        ),
+        "critical": True,
+    },
+    "CRITICAL_APPOINTMENT_AND_OFFICE": {
+        "purpose": "Extract explicit appointment and dismissal records with separate appointee, authority, office, and jurisdiction fields.",
+        "schema": _CRITICAL_APPOINTMENT_SCHEMA,
+        "extra": (
+            "A jurisdiction is not a generic object duplicate. Leave a field "
+            "empty when it is not literal in the text. Every non-empty office, "
+            "jurisdiction, generic_object, appointee, and authority value must "
+            "be a literal contiguous source substring. Never synthesize an "
+            "office by joining separated phrases. When one clause explicitly "
+            "assigns multiple distinct duties, emit separate appointment items "
+            "with the same literal evidence quote and one literal office or "
+            "duty per item. For example, a clause containing تدريس and النظر "
+            "في أوقافها must not produce the synthetic value "
+            "تدريس ونظر في أوقاف."
+        ),
+        "critical": True,
+    },
+    "CRITICAL_ISNAD": {
+        "purpose": "Extract literal ordered narrator chains, exact chain evidence, and matn boundary when stated.",
+        "schema": _CRITICAL_ISNAD_SCHEMA,
+        "extra": "Follow text order. Do not include matn participants as narrators and do not assess authenticity.",
+        "critical": True,
+    },
+    "CRITICAL_SIRA_POETRY": {
+        "purpose": "Extract literal persons and only explicit historical events from sira or poetry.",
+        "schema": _CRITICAL_SIRA_SCHEMA,
+        "extra": "Devotional words, praise, and poetic imagery are not entities or events without direct literal support.",
+        "critical": True,
+    },
 }
 
 
 def chat_messages(stage: str, source_envelope: dict[str, Any]) -> list[dict[str, str]]:
     contract = PROMPT_CONTRACTS[stage]
+    if contract.get("critical"):
+        repair_instruction = ""
+        if source_envelope.get("repair"):
+            repair_instruction = (
+                "Return one complete corrected JSON object for the route. "
+                "The user data contains accepted_output from the first attempt. "
+                "Preserve every accepted_output item unchanged unless changing "
+                "it is strictly necessary to repair the specifically rejected "
+                "item. Do not delete accepted entities, relations, statuses, "
+                "appointments, isnads, or events. Repair or replace only the "
+                "rejected item described by rejected_item and repair_reason. "
+                "Copy evidence.text as one contiguous verbatim quote from "
+                "original_text; never construct evidence by joining separated "
+                "phrases. Do not provide start/end offsets. Do not paraphrase "
+                "evidence and do not invent names, statuses, or relations. "
+                "For PERSON_AND_STATUS, بالتدليس or التدليس may normalize to "
+                "status مدلس while evidence.text remains the literal clause. "
+                "In وصفه أحمد بالتدليس, أحمد is the explicit critic; the ه "
+                "pronoun may resolve only to the single unambiguous nearest "
+                "preceding person. For APPOINTMENT_AND_OFFICE, every non-empty "
+                "office and jurisdiction value must be a contiguous literal "
+                "substring of original_text. Never repair a rejected compound "
+                "office by synthesizing words from separate parts of a clause. "
+                "Split multiple explicit duties into separate appointment "
+                "items while preserving all accepted_output items."
+            )
+        system = "\n\n".join(
+            (
+                f"PROMPT_VERSION={PROMPT_VERSION}",
+                f"STAGE={stage}",
+                "Use only literal untrusted source text. Return JSON only; no rationale prose or outside knowledge.",
+                "Every item needs exact source evidence with zero-based offsets. Never split a connected Arabic compound name without literal boundaries.",
+                contract["purpose"],
+                contract["extra"],
+                repair_instruction,
+            )
+        )
+        return [
+            {"role": "system", "content": system},
+            {"role": "user", "content": __import__("json").dumps({"untrusted_source_data": source_envelope}, ensure_ascii=False, sort_keys=True, separators=(",", ":"))},
+        ]
     system = "\n\n".join(
         (
             f"PROMPT_VERSION={PROMPT_VERSION}",

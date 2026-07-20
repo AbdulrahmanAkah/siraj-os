@@ -13,6 +13,8 @@ from .models import SEMANTIC_SCHEMA_VERSION
 def canonicalize_literal_spans(
     payload: dict[str, Any],
     original_text: str,
+    source_id: str = "",
+    locator: str = "",
 ) -> tuple[dict[str, Any], list[str]]:
     """Derive invalid offsets only from a unique literal evidence string.
 
@@ -32,6 +34,15 @@ def canonicalize_literal_spans(
             return
         if not isinstance(value, dict):
             return
+        if (
+            {"start", "end"}.issubset(value)
+            and "text" not in value
+            and isinstance(value.get("start"), int)
+            and isinstance(value.get("end"), int)
+            and 0 <= value["start"] < value["end"] <= len(original_text)
+        ):
+            value["text"] = original_text[value["start"]:value["end"]]
+            repairs.append("STRUCTURAL_RANGE_TEXT_DERIVED")
         if {"start", "end", "text"}.issubset(value):
             evidence = value.get("text")
             if isinstance(evidence, str) and evidence:
@@ -55,6 +66,60 @@ def canonicalize_literal_spans(
                         repairs.append("LITERAL_EVIDENCE_OFFSET_DERIVED")
         for child in value.values():
             locate(child)
+
+    identifiers = {
+        "entities": ("mention_id", "semantic_entity"),
+        "events": ("event_id", "semantic_event"),
+        "relations": ("relation_id", "semantic_relation"),
+        "claims": ("claim_id", "semantic_claim"),
+        "isnads": ("isnad_id", "semantic_isnad"),
+        "temporals": ("temporal_id", "semantic_temporal"),
+        "institutions": ("record_id", "semantic_institution"),
+    }
+    for collection, (identifier, prefix) in identifiers.items():
+        items = normalized.get(collection, [])
+        if not isinstance(items, list):
+            continue
+        for item in items:
+            if not isinstance(item, dict):
+                continue
+            if source_id:
+                item.setdefault("source_id", source_id)
+            if locator:
+                item.setdefault("locator", locator)
+            if collection == "entities":
+                item.setdefault(
+                    "normalized_surface",
+                    str(item.get("exact_surface", "")),
+                )
+                if (
+                    "evidence" not in item
+                    and isinstance(item.get("start"), int)
+                    and isinstance(item.get("end"), int)
+                ):
+                    start = item["start"]
+                    end = item["end"]
+                    item["evidence"] = {
+                        "start": start,
+                        "end": end,
+                    }
+            if identifier not in item:
+                material = {
+                    key: value
+                    for key, value in item.items()
+                    if key not in {
+                        identifier,
+                        "source_id",
+                        "locator",
+                    }
+                }
+                item[identifier] = deterministic_id(
+                    prefix,
+                    [source_id, locator, collection, material],
+                )
+                repairs.append(
+                    f"{identifier.upper()}_DETERMINISTICALLY_DERIVED"
+                )
 
     locate(normalized)
     return normalized, sorted(set(repairs))

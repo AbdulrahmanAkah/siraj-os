@@ -16,7 +16,12 @@ from src.application.operations_common import (
     integrity_hash,
 )
 
-from .models import SEMANTIC_SCHEMA_VERSION, STAGES, SemanticSegmentInput
+from .models import (
+    SEMANTIC_SCHEMA_VERSION,
+    STAGES,
+    SemanticProviderError,
+    SemanticSegmentInput,
+)
 from .provider import SemanticExtractionProvider
 from .validation import canonicalize_literal_spans, validate_semantic_outputs
 
@@ -88,9 +93,12 @@ class LocalSemanticOrchestrator:
         self,
         provider: SemanticExtractionProvider,
         output_root: str | Path,
+        *,
+        force: bool = False,
     ):
         self.provider = provider
         self.output_root = Path(output_root).resolve()
+        self.force = bool(force)
 
     def _segment_root(self, segment: SemanticSegmentInput) -> Path:
         return self.output_root / "segments" / segment.audit_segment_id
@@ -114,13 +122,35 @@ class LocalSemanticOrchestrator:
                 "input": input_payload,
             }
         )
-        if path.is_file():
+        if path.is_file() and not self.force:
             cached = json.loads(path.read_text(encoding="utf-8-sig"))
             if (
                 cached.get("status") in {"COMPLETED", "SKIPPED"}
                 and cached.get("input_hash") == input_hash
             ):
-                return {**cached, "cache_hit": True}
+                return {
+                    **cached,
+                    "cache_hit": True,
+                    "original_execution_status": cached.get(
+                        "execution_status",
+                        "LLM_CALL_EXECUTED",
+                    ),
+                    "execution_status": "RESUMED_FROM_CHECKPOINT",
+                }
+            if (
+                cached.get("status") == "FAILED"
+                and cached.get("input_hash") == input_hash
+            ):
+                failed_root = path.parent / "failed-attempts"
+                archived = (
+                    failed_root
+                    / (
+                        f"{path.stem}-"
+                        f"{integrity_hash(cached)[:16]}.json"
+                    )
+                )
+                if not archived.exists():
+                    atomic_write_json(archived, cached)
         started = time.perf_counter_ns()
         try:
             payload = execute()
@@ -130,7 +160,12 @@ class LocalSemanticOrchestrator:
                 payload, derived_codes = normalise_payload(payload)
                 reason_codes.extend(derived_codes)
         except BaseException as error:
-            payload = {}
+            payload = (
+                {"provider_error": error.details}
+                if isinstance(error, SemanticProviderError)
+                and error.details
+                else {}
+            )
             status = "FAILED"
             reason_codes = [str(error).splitlines()[0][:160]]
         elapsed_ms = round(
@@ -247,12 +282,18 @@ class LocalSemanticOrchestrator:
             return "ISNAD"
         if "POETRY_OR_SIRA" in reasons or "POETRY_OR_SHORT_LINE_STRUCTURE" in reasons:
             return "POETRY_SIRA"
+        if "BIOGRAPHICAL" in reasons:
+            return "BIOGRAPHICAL"
         signal_count = sum(
             bool(current.get(key))
             for key in ("entities", "events", "relations", "claims", "temporal_mentions")
         )
-        if signal_count >= 4 or len(segment.original_text) > 3000:
-            return "COMPLEX"
+        if (
+            "COMPLEX_HISTORICAL" in reasons
+            or signal_count >= 4
+            or len(segment.original_text) > 3000
+        ):
+            return "COMPLEX_HISTORICAL"
         return "SIMPLE_HISTORICAL"
 
     def run_segment(
@@ -292,6 +333,8 @@ class LocalSemanticOrchestrator:
                 normalise_payload=lambda value: canonicalize_literal_spans(
                     value,
                     segment.original_text,
+                    segment.source_id,
+                    segment.locator,
                 ),
             )
             stage_results.append(combined_result)
@@ -343,6 +386,8 @@ class LocalSemanticOrchestrator:
                 normalise_payload=lambda value: canonicalize_literal_spans(
                     value,
                     segment.original_text,
+                    segment.source_id,
+                    segment.locator,
                 ),
             )
             stage_results.append(structure_result)
@@ -392,6 +437,8 @@ class LocalSemanticOrchestrator:
                 normalise_payload=lambda value: canonicalize_literal_spans(
                     value,
                     segment.original_text,
+                    segment.source_id,
+                    segment.locator,
                 ),
             )
             mentions = self._skip(segment, "MENTION_EXTRACTION", "ISNAD_SPECIALIZED_EXTRACTION", integrity_hash(prior))
@@ -414,6 +461,8 @@ class LocalSemanticOrchestrator:
                 normalise_payload=lambda value: canonicalize_literal_spans(
                     value,
                     segment.original_text,
+                    segment.source_id,
+                    segment.locator,
                 ),
             )
             payload = poetry["payload"]
@@ -431,6 +480,8 @@ class LocalSemanticOrchestrator:
                 normalise_payload=lambda value: canonicalize_literal_spans(
                     value,
                     segment.original_text,
+                    segment.source_id,
+                    segment.locator,
                 ),
             )
             stage_results.append(mentions)
@@ -444,6 +495,8 @@ class LocalSemanticOrchestrator:
                 normalise_payload=lambda value: canonicalize_literal_spans(
                     value,
                     segment.original_text,
+                    segment.source_id,
+                    segment.locator,
                 ),
             )
             stage_results.append(events)
@@ -457,6 +510,8 @@ class LocalSemanticOrchestrator:
                 normalise_payload=lambda value: canonicalize_literal_spans(
                     value,
                     segment.original_text,
+                    segment.source_id,
+                    segment.locator,
                 ),
             )
             stage_results.append(claims)
@@ -563,6 +618,23 @@ class LocalSemanticOrchestrator:
                     }
                 )
             },
+            "model_call_count": sum(
+                item.get("execution_status") == "LLM_CALL_EXECUTED"
+                and not item.get("cache_hit", False)
+                for item in stage_results
+            ),
+            "stage_execution": [
+                {
+                    "stage": item["stage"],
+                    "status": item["status"],
+                    "execution_status": item.get(
+                        "execution_status",
+                        "LLM_CALL_EXECUTED",
+                    ),
+                    "cache_hit": bool(item.get("cache_hit", False)),
+                }
+                for item in stage_results
+            ],
             "model_load_time_ms": round(
                 sum(
                     int(item.get("provider_timings_ns", {}).get("load", 0))

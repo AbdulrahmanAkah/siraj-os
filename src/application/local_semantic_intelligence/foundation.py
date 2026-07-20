@@ -392,6 +392,7 @@ def initialize_semantic_foundation(
             "retries": 1,
             "stream": False,
             "temperature": 0,
+            "thinking": False,
             "raw_response_retention": "SAFE_LOCAL_ARTIFACT",
         },
         "hardware": asdict(SemanticHardwareProfile()),
@@ -584,6 +585,7 @@ def load_provider_config(path: str | Path) -> OllamaLocalSemanticConfig:
         retries=int(provider.get("retries", 1)),
         stream=False,
         temperature=0.0,
+        thinking=bool(provider.get("thinking", False)),
         raw_response_retention=str(provider.get("raw_response_retention", "SAFE_LOCAL_ARTIFACT")),
         hardware=SemanticHardwareProfile(
             concurrency=int(hardware.get("concurrency", 1)),

@@ -70,12 +70,177 @@ def _has_corrupt_question_marks(value: Any) -> bool:
     return False
 
 
+def _compact_prior_stage_outputs(value: Any) -> Any:
+    """Keep semantic references while removing repeated audit/output payloads."""
+
+    if isinstance(value, list):
+        return [_compact_prior_stage_outputs(item) for item in value]
+    if not isinstance(value, dict):
+        return value
+    omitted = {
+        "provider_metadata",
+        "safe_raw_provider_response",
+        "source_id",
+        "locator",
+    }
+    compact: dict[str, Any] = {}
+    is_span = (
+        isinstance(value.get("start"), int)
+        and isinstance(value.get("end"), int)
+    )
+    for key, child in value.items():
+        if key in omitted or (is_span and key == "text"):
+            continue
+        compact[key] = _compact_prior_stage_outputs(child)
+    return compact
+
+
+def _critic_prior_summary(value: dict[str, Any]) -> dict[str, Any]:
+    """Bound critic context to identities, roles, types, and literal offsets."""
+
+    compact = _compact_prior_stage_outputs(value)
+    keep = {
+        "entities": {
+            "mention_id", "exact_surface", "start", "end",
+            "entity_types", "contextual_roles",
+        },
+        "events": {
+            "event_id", "event_type", "trigger", "evidence",
+            "participants", "places", "institutions_offices",
+            "modality", "uncertainty",
+        },
+        "relations": {
+            "relation_id", "subject_mention", "predicate",
+            "object_reference", "evidence", "explicit_or_inferred",
+        },
+        "institutions": {
+            "record_id", "exact_surface", "role", "evidence",
+        },
+        "claims": {
+            "claim_id", "assertion_status", "quoted_or_authorial",
+            "evidence", "speaker_or_source",
+        },
+        "isnads": {
+            "isnad_id", "ordered_narrators", "exact_chain_range",
+            "matn_boundary", "ambiguous_transitions",
+        },
+        "temporals": {
+            "temporal_id", "exact_expression", "evidence", "precision",
+            "relative_reference", "unresolved_reference",
+        },
+    }
+
+    full_validation = compact.get("validation", {})
+    validation = {
+        key: full_validation.get(key)
+        for key in (
+            "status",
+            "issue_count",
+            "error_count",
+            "warning_count",
+            "validated_item_count",
+        )
+        if key in full_validation
+    }
+    validation["issues"] = [
+        {
+            key: issue.get(key)
+            for key in ("code", "severity", "subject_id")
+        }
+        for issue in full_validation.get("issues", [])[:12]
+        if isinstance(issue, dict)
+    ]
+    subject_text = "|".join(
+        str(issue.get("subject_id", ""))
+        for issue in validation.get("issues", [])
+        if isinstance(issue, dict)
+    )
+
+    def collection(name: str, items: Any) -> list[dict[str, Any]]:
+        if not isinstance(items, list):
+            return []
+        allowed = keep[name]
+        identifier_keys = {
+            "entities": "mention_id",
+            "events": "event_id",
+            "relations": "relation_id",
+            "institutions": "record_id",
+            "claims": "claim_id",
+            "isnads": "isnad_id",
+            "temporals": "temporal_id",
+        }
+        relevant = [
+            item
+            for item in items
+            if isinstance(item, dict)
+            and str(item.get(identifier_keys[name], "")) in subject_text
+        ]
+        return [
+            {
+                key: item[key]
+                for key in sorted(item)
+                if key in allowed
+            }
+            for item in relevant[:4]
+        ]
+
+    summary: dict[str, Any] = {
+        "validation": validation,
+    }
+    mappings = (
+        ("mentions", "entities"),
+        ("events_relations", "events"),
+        ("events_relations", "relations"),
+        ("events_relations", "institutions"),
+        ("claims_attribution", "claims"),
+        ("claims_attribution", "isnads"),
+        ("claims_attribution", "temporals"),
+    )
+    for stage, name in mappings:
+        items = compact.get(stage, {}).get(name, {})
+        summary.setdefault(stage, {})[name] = collection(name, items)
+    return summary
+
+
 def _safe_headers(headers: Any) -> dict[str, str]:
     return {
         key.lower(): str(value)
         for key, value in headers.items()
         if key.lower() in _SAFE_RESPONSE_HEADERS
     }
+
+
+def _ollama_http_error_code(status: int, raw: bytes) -> str:
+    """Map Ollama's local error envelope without retaining request data."""
+
+    message = ""
+    error_type = ""
+    try:
+        outer = json.loads(raw.decode("utf-8"))
+        detail = outer.get("error", "")
+        if isinstance(detail, str):
+            try:
+                nested = json.loads(detail)
+            except json.JSONDecodeError:
+                message = detail
+            else:
+                nested_error = nested.get("error", nested)
+                if isinstance(nested_error, dict):
+                    message = str(nested_error.get("message", ""))
+                    error_type = str(nested_error.get("type", ""))
+        elif isinstance(detail, dict):
+            message = str(detail.get("message", ""))
+            error_type = str(detail.get("type", ""))
+    except (UnicodeDecodeError, json.JSONDecodeError, AttributeError):
+        pass
+    normalized = f"{error_type} {message}".casefold()
+    if "exceed_context_size" in normalized or "exceeds the available context" in normalized:
+        return "OLLAMA_CONTEXT_LIMIT_EXCEEDED"
+    if "out of memory" in normalized or "insufficient memory" in normalized:
+        return "OLLAMA_INSUFFICIENT_MEMORY"
+    if "invalid format" in normalized or "json schema" in normalized:
+        return "OLLAMA_INVALID_JSON_SCHEMA"
+    return "OLLAMA_HTTP_" + str(status)
 
 
 @dataclass(frozen=True)
@@ -92,6 +257,7 @@ class OllamaLocalSemanticConfig:
     retries: int = 1
     stream: bool = False
     temperature: float = 0.0
+    thinking: bool = False
     raw_response_retention: str = "SAFE_LOCAL_ARTIFACT"
     hardware: SemanticHardwareProfile = SemanticHardwareProfile()
 
@@ -109,6 +275,8 @@ class OllamaLocalSemanticConfig:
             raise ValueError("LOCAL_LOW_MEMORY_REQUIRES_CONCURRENCY_ONE")
         if self.stream or self.temperature != 0:
             raise ValueError("OLLAMA_PILOT_REQUIRES_DETERMINISTIC_NON_STREAMING")
+        if self.thinking:
+            raise ValueError("OLLAMA_PILOT_REQUIRES_THINKING_DISABLED")
         if min(
             self.connect_timeout_seconds,
             self.model_load_timeout_seconds,
@@ -184,7 +352,7 @@ class OllamaLocalSemanticProvider(SemanticExtractionProvider):
             raw = response.read()
             if response.status >= 400:
                 raise SemanticProviderError(
-                    "OLLAMA_HTTP_" + str(response.status),
+                    _ollama_http_error_code(response.status, raw),
                     retryable=response.status >= 500,
                 )
             decoded = json.loads(raw.decode("utf-8"))
@@ -318,12 +486,19 @@ class OllamaLocalSemanticProvider(SemanticExtractionProvider):
     def _chat(self, stage: str, request: dict[str, Any]) -> dict[str, Any]:
         if not self.config.model_reference:
             raise SemanticProviderError("MODEL_REFERENCE_NOT_CONFIGURED")
+        prior_stage_outputs = _compact_prior_stage_outputs(
+            request.get("prior_stage_outputs", {})
+        )
+        if stage == "CRITICAL_REVIEW":
+            prior_stage_outputs = _critic_prior_summary(
+                request.get("prior_stage_outputs", {})
+            )
         source_envelope = {
             "source_data_is_untrusted": True,
             "source_id": request.get("source_id", ""),
             "locator": request.get("locator", ""),
             "original_text": request.get("original_text", ""),
-            "prior_stage_outputs": request.get("prior_stage_outputs", {}),
+            "prior_stage_outputs": prior_stage_outputs,
             "execution_plan": request.get("execution_plan", ""),
         }
         messages = chat_messages(stage, source_envelope)
@@ -334,6 +509,7 @@ class OllamaLocalSemanticProvider(SemanticExtractionProvider):
                 "model": self.config.model_reference,
                 "messages": messages,
                 "stream": False,
+                "think": self.config.thinking,
                 "format": schema_for_stage(stage),
                 "keep_alive": self.config.hardware.keep_alive,
                 "options": {
@@ -351,9 +527,28 @@ class OllamaLocalSemanticProvider(SemanticExtractionProvider):
         try:
             structured = json.loads(content)
         except json.JSONDecodeError as error:
-            raise SemanticProviderError("OLLAMA_INVALID_STRUCTURED_OUTPUT") from error
+            raise SemanticProviderError(
+                "OLLAMA_INVALID_STRUCTURED_OUTPUT",
+                details={
+                    "parse_error": {
+                        "line": error.lineno,
+                        "column": error.colno,
+                        "position": error.pos,
+                    },
+                    "safe_raw_provider_response": self._safe_raw_response(
+                        payload
+                    ),
+                },
+            ) from error
         if not isinstance(structured, dict):
-            raise SemanticProviderError("OLLAMA_STRUCTURED_OUTPUT_NOT_OBJECT")
+            raise SemanticProviderError(
+                "OLLAMA_STRUCTURED_OUTPUT_NOT_OBJECT",
+                details={
+                    "safe_raw_provider_response": self._safe_raw_response(
+                        payload
+                    ),
+                },
+            )
         if _has_arabic(source_envelope["original_text"]) and _has_corrupt_question_marks(structured):
             raise SemanticProviderError("OLLAMA_CORRUPT_UTF8_OUTPUT")
         load_duration = int(payload.get("load_duration", 0) or 0)
@@ -413,6 +608,21 @@ class OllamaLocalSemanticProvider(SemanticExtractionProvider):
 
     def extract_poetry_sira(self, request: dict[str, Any]) -> dict[str, Any]:
         return self._chat("POETRY_SIRA_EXTRACTION", request)
+
+    def extract_critical_route(
+        self,
+        route: str,
+        request: dict[str, Any],
+    ) -> dict[str, Any]:
+        stages = {
+            "PERSON_AND_STATUS": "CRITICAL_PERSON_AND_STATUS",
+            "APPOINTMENT_AND_OFFICE": "CRITICAL_APPOINTMENT_AND_OFFICE",
+            "ISNAD": "CRITICAL_ISNAD",
+            "SIRA_POETRY": "CRITICAL_SIRA_POETRY",
+        }
+        if route not in stages:
+            raise SemanticProviderError("UNKNOWN_CRITICAL_REGRESSION_ROUTE")
+        return self._chat(stages[route], {**request, "route": route})
 
     def verify_evidence(self, request: dict[str, Any]) -> dict[str, Any]:
         return {"status": "DETERMINISTIC_ONLY", "issues": []}

@@ -54,6 +54,9 @@ ARABIC_SOURCE = (
 
 def _utf8_environment() -> dict[str, str]:
     env = os.environ.copy()
+    # Clean-wheel tests must not inherit optional provider credentials.
+    env.pop("OPENAI_API_KEY", None)
+    env.pop("GEMINI_API_KEY", None)
     # A test runner may inject the source checkout through PYTHONPATH.  That
     # makes pip treat the adjacent ``siraj_os.egg-info`` as an already
     # installed distribution, bypassing wheel installation and launcher

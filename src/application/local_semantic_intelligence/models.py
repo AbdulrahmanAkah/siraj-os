@@ -7,7 +7,7 @@ from typing import Any
 
 
 SEMANTIC_SCHEMA_VERSION = "siraj-local-semantic-v2"
-PROMPT_VERSION = "local-semantic-prompts-v2"
+PROMPT_VERSION = "local-semantic-prompts-v8"
 STAGES = (
     "STRUCTURAL_ANALYSIS",
     "MENTION_EXTRACTION",
@@ -234,10 +234,17 @@ class ReconciliationItem:
 class SemanticProviderError(RuntimeError):
     """A normalized local semantic-provider failure."""
 
-    def __init__(self, code: str, *, retryable: bool = False):
+    def __init__(
+        self,
+        code: str,
+        *,
+        retryable: bool = False,
+        details: dict[str, Any] | None = None,
+    ):
         super().__init__(code)
         self.code = code
         self.retryable = retryable
+        self.details = dict(details or {})
 
 
 __all__ = [

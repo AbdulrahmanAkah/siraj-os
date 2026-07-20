@@ -54,6 +54,16 @@ class SemanticExtractionProvider(ABC):
     def extract_poetry_sira(self, request: dict[str, Any]) -> dict[str, Any]:
         return self.extract_events_relations(request)
 
+    def extract_critical_route(
+        self,
+        route: str,
+        request: dict[str, Any],
+    ) -> dict[str, Any]:
+        """One bounded extraction call for a targeted regression route."""
+        payload = dict(request)
+        payload["route"] = route
+        return self.extract_combined(payload)
+
     @abstractmethod
     def verify_evidence(self, request: dict[str, Any]) -> dict[str, Any]: ...
 
@@ -109,7 +119,11 @@ class DeterministicSemanticTestProvider(SemanticExtractionProvider):
             raise RuntimeError(f"FAKE_PROVIDER_FAILURE:{stage}")
         if stage in self.responses:
             return deepcopy(self.responses[stage])
-        text = str(request.get("original_text", ""))
+        safe_request = {
+            key: value for key, value in request.items()
+            if not callable(value)
+        }
+        text = str(safe_request.get("original_text", ""))
         structure = {
             "segment_type": "NON_HISTORICAL"
             if not text.strip()
@@ -136,7 +150,7 @@ class DeterministicSemanticTestProvider(SemanticExtractionProvider):
             "stage": stage,
             "request_id": deterministic_id(
                 "semantic_test_request",
-                [stage, integrity_hash(request)],
+                [stage, integrity_hash(safe_request)],
             ),
             "items": [],
             "usage": {"input_tokens": 0, "output_tokens": 0},
@@ -177,6 +191,13 @@ class DeterministicSemanticTestProvider(SemanticExtractionProvider):
 
     def extract_poetry_sira(self, request: dict[str, Any]) -> dict[str, Any]:
         return self._result("POETRY_SIRA_EXTRACTION", request)
+
+    def extract_critical_route(
+        self,
+        route: str,
+        request: dict[str, Any],
+    ) -> dict[str, Any]:
+        return self._result(f"CRITICAL_{route}", request)
 
     def verify_evidence(self, request: dict[str, Any]) -> dict[str, Any]:
         return self._result("MODEL_EVIDENCE_REVIEW", request)

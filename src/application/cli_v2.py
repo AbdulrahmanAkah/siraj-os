@@ -58,12 +58,28 @@ from src.application.shamela_extraction_quality_audit import (
     build_local_workbench_server,
 )
 from src.application.local_semantic_intelligence import (
+    PilotAdjudicationError,
+    PilotAdjudicationStore,
+    PilotEvaluationError,
+    PilotQuickReviewStore,
+    QuickReviewError,
+    CriticalRegressionError,
     SemanticProviderError,
     benchmark_pilot,
+    build_pilot_workbench_server,
     build_ollama_provider,
+    compare_pilot_12,
     compare_semantic_runs,
+    prepare_critical_4,
+    run_critical_4,
+    evaluate_pilot_12,
+    pilot_12_status,
+    prepare_pilot_12_evaluation,
+    run_real_model_pilot_12,
     run_semantic_segment,
     semantic_status,
+    prepare_quick_review,
+    quick_evaluate,
 )
 
 from src.application.rc_hardening import (
@@ -1117,21 +1133,38 @@ def command_semantic_local_benchmark(
     semantic_root: str,
     config: str,
     sample: str,
+    audit_root: str | None = None,
+    force: bool = False,
 ) -> dict[str, Any]:
     root, config_path = _semantic_paths(semantic_root, config)
     try:
-        result = benchmark_pilot(
+        result = run_real_model_pilot_12(
             root,
             build_ollama_provider(config_path),
-            sample=sample,
+            audit_root=audit_root,
+            force=force,
         )
-    except SemanticProviderError as error:
+    except (SemanticProviderError, PilotEvaluationError) as error:
+        code = getattr(error, "code", str(error))
         return _result(
             "semantic-local-benchmark",
             "DEPENDENCY_FAILURE",
-            error=error.code,
+            error=code,
         )
-    return _result("semantic-local-benchmark", "SUCCESS", data=result)
+    return _result(
+        "semantic-local-benchmark",
+        (
+            "SUCCESS"
+            if result["status"].startswith("VALID_REAL_MODEL_PILOT_12")
+            else "BLOCKED"
+        ),
+        data=result,
+        error=(
+            None
+            if result["status"].startswith("VALID_REAL_MODEL_PILOT_12")
+            else "PILOT_12_EXECUTION_INCOMPLETE"
+        ),
+    )
 
 
 def command_semantic_local_compare(
@@ -1169,6 +1202,317 @@ def command_semantic_local_unload(
             error=error.code,
         )
     return _result("semantic-local-unload", "SUCCESS", data=result)
+
+
+def command_semantic_local_pilot_status(
+    semantic_root: str,
+    sample: str,
+    audit_root: str | None = None,
+) -> dict[str, Any]:
+    if sample != "pilot-12":
+        return _result(
+            "semantic-local-pilot-status",
+            "INVALID_INPUT",
+            error="ONLY_PILOT_12_IS_ALLOWED",
+        )
+    root = _absolute_path(semantic_root, "SEMANTIC_ROOT")
+    try:
+        prepare_pilot_12_evaluation(root, audit_root=audit_root)
+        result = pilot_12_status(root)
+    except (PilotEvaluationError, FileNotFoundError) as error:
+        return _result(
+            "semantic-local-pilot-status",
+            "BLOCKED",
+            error=str(error),
+        )
+    return _result("semantic-local-pilot-status", "SUCCESS", data=result)
+
+
+def command_semantic_local_pilot_review_status(
+    semantic_root: str,
+    sample: str,
+) -> dict[str, Any]:
+    if sample != "pilot-12":
+        return _result(
+            "semantic-local-pilot-review-status",
+            "INVALID_INPUT",
+            error="ONLY_PILOT_12_IS_ALLOWED",
+        )
+    try:
+        result = PilotAdjudicationStore(semantic_root).progress()
+    except (PilotEvaluationError, PilotAdjudicationError, FileNotFoundError) as error:
+        return _result(
+            "semantic-local-pilot-review-status",
+            "BLOCKED",
+            error=str(error),
+        )
+    return _result(
+        "semantic-local-pilot-review-status",
+        "SUCCESS",
+        data=result,
+    )
+
+
+def command_semantic_local_pilot_review_serve(
+    semantic_root: str,
+    sample: str,
+    host: str,
+    port: int,
+    mode: str = "quick",
+) -> dict[str, Any]:
+    if sample != "pilot-12":
+        return _result(
+            "semantic-local-pilot-review-serve",
+            "INVALID_INPUT",
+            error="ONLY_PILOT_12_IS_ALLOWED",
+        )
+    try:
+        server = build_pilot_workbench_server(
+            semantic_root,
+            host=host,
+            port=port,
+            mode=mode,
+        )
+    except (PilotEvaluationError, PilotAdjudicationError, FileNotFoundError) as error:
+        return _result(
+            "semantic-local-pilot-review-serve",
+            "BLOCKED",
+            error=str(error),
+        )
+    print(
+        f"Siraj Pilot-12 Workbench: "
+        f"http://{host}:{server.server_port}/ "
+        "(Ctrl+C to stop)",
+        file=sys.stderr,
+    )
+
+    try:
+        server.serve_forever()
+    except KeyboardInterrupt:
+        pass
+    finally:
+        server.server_close()
+    return _result(
+        "semantic-local-pilot-review-serve",
+        "SUCCESS",
+        data={"status": "STOPPED", "host": host, "port": port},
+    )
+
+
+def command_semantic_local_pilot_review_quick_status(
+    semantic_root: str,
+    sample: str,
+) -> dict[str, Any]:
+    if sample != "pilot-12":
+        return _result("semantic-local-pilot-review-quick-status", "INVALID_INPUT", error="ONLY_PILOT_12_IS_ALLOWED")
+    try:
+        prepare_quick_review(semantic_root)
+        result = PilotQuickReviewStore(semantic_root).progress()
+    except (QuickReviewError, PilotEvaluationError, FileNotFoundError) as error:
+        return _result("semantic-local-pilot-review-quick-status", "BLOCKED", error=str(error))
+    return _result("semantic-local-pilot-review-quick-status", "SUCCESS", data=result)
+
+
+def command_semantic_local_pilot_review_quick_evaluate(
+    semantic_root: str,
+    sample: str,
+) -> dict[str, Any]:
+    if sample != "pilot-12":
+        return _result("semantic-local-pilot-review-quick-evaluate", "INVALID_INPUT", error="ONLY_PILOT_12_IS_ALLOWED")
+    try:
+        result = quick_evaluate(semantic_root)
+    except (QuickReviewError, PilotEvaluationError, FileNotFoundError) as error:
+        return _result("semantic-local-pilot-review-quick-evaluate", "BLOCKED", error=str(error))
+    return _result("semantic-local-pilot-review-quick-evaluate", "SUCCESS", data=result)
+
+
+def command_semantic_local_pilot_evaluate(
+    semantic_root: str,
+    sample: str,
+) -> dict[str, Any]:
+    if sample != "pilot-12":
+        return _result(
+            "semantic-local-pilot-evaluate",
+            "INVALID_INPUT",
+            error="ONLY_PILOT_12_IS_ALLOWED",
+        )
+    try:
+        result = evaluate_pilot_12(semantic_root)
+    except (PilotEvaluationError, FileNotFoundError) as error:
+        return _result(
+            "semantic-local-pilot-evaluate",
+            "BLOCKED",
+            error=str(error),
+        )
+    return _result("semantic-local-pilot-evaluate", "SUCCESS", data=result)
+
+
+def command_semantic_local_pilot_compare(
+    semantic_root: str,
+    sample: str,
+) -> dict[str, Any]:
+    if sample != "pilot-12":
+        return _result(
+            "semantic-local-pilot-compare",
+            "INVALID_INPUT",
+            error="ONLY_PILOT_12_IS_ALLOWED",
+        )
+    try:
+        result = compare_pilot_12(semantic_root)
+    except (PilotEvaluationError, FileNotFoundError) as error:
+        return _result(
+            "semantic-local-pilot-compare",
+            "BLOCKED",
+            error=str(error),
+        )
+    return _result("semantic-local-pilot-compare", "SUCCESS", data=result)
+
+
+def command_semantic_local_critical_regression_run(
+    semantic_root: str,
+    sample: str,
+    config: str | None = None,
+    force: bool = False,
+) -> dict[str, Any]:
+    if sample != "critical-4":
+        return _result(
+            "semantic-local-critical-regression-run",
+            "INVALID_INPUT",
+            error="ONLY_CRITICAL_4_IS_ALLOWED",
+        )
+    root, config_path = _semantic_paths(semantic_root, config)
+    provider = build_ollama_provider(config_path)
+    try:
+        prepared = prepare_critical_4(root)
+        result = run_critical_4(root, provider, force=force)
+    except (SemanticProviderError, CriticalRegressionError, FileNotFoundError) as error:
+        code = getattr(error, "code", str(error))
+        return _result(
+            "semantic-local-critical-regression-run",
+            "DEPENDENCY_FAILURE",
+            error=code,
+        )
+    finally:
+        try:
+            provider.unload()
+        except SemanticProviderError:
+            pass
+    return _result(
+        "semantic-local-critical-regression-run",
+        "SUCCESS",
+        data={"prepared": prepared["status"], "run": result},
+    )
+
+
+def command_semantic_cloud_gemini_status(config: str) -> dict[str, Any]:
+    from src.application.local_semantic_intelligence.gemini_provider import (
+        GeminiSemanticProvider,
+        load_gemini_config,
+    )
+
+    try:
+        provider = GeminiSemanticProvider(load_gemini_config(config))
+        health = provider.health_check()
+        return _result(
+            "semantic-cloud-gemini-status",
+            "SUCCESS" if health.status == "CONFIGURED" else "DEPENDENCY_FAILURE",
+            data={
+                "status": (
+                    "VALID_GEMINI_PROVIDER_PENDING_MANUAL_CRITICAL_4_RUN"
+                    if health.status == "CONFIGURED"
+                    else health.status
+                ),
+                "provider_health": health.status,
+                "reason_code": health.reason_code,
+                "provider": provider.inspect_model(),
+            },
+            error=None if health.status == "CONFIGURED" else health.reason_code,
+        )
+    except (SemanticProviderError, FileNotFoundError, ValueError) as error:
+        return _result(
+            "semantic-cloud-gemini-status",
+            "DEPENDENCY_FAILURE",
+            error=getattr(error, "code", str(error)),
+        )
+
+
+def command_semantic_cloud_gemini_schema_check(config: str, sample: str) -> dict[str, Any]:
+    from src.application.local_semantic_intelligence.gemini_provider import (
+        load_gemini_config,
+        run_gemini_schema_check,
+    )
+
+    if sample != "critical-4":
+        return _result("semantic-cloud-gemini-schema-check", "INVALID_INPUT", error="ONLY_CRITICAL_4_IS_ALLOWED")
+    try:
+        load_gemini_config(config)
+        report = run_gemini_schema_check(Path(config).resolve().parent)
+        return _result("semantic-cloud-gemini-schema-check", "SUCCESS", data=report)
+    except (SemanticProviderError, FileNotFoundError, ValueError) as error:
+        return _result(
+            "semantic-cloud-gemini-schema-check", "VALIDATION_FAILURE",
+            error=getattr(error, "code", str(error)),
+        )
+
+
+def command_semantic_cloud_gemini_probe(config: str, route: str) -> dict[str, Any]:
+    from src.application.local_semantic_intelligence.gemini_provider import (
+        GeminiSemanticProvider,
+        load_gemini_config,
+        probe_gemini_route,
+    )
+
+    provider: GeminiSemanticProvider | None = None
+    try:
+        provider = GeminiSemanticProvider(load_gemini_config(config))
+        return _result("semantic-cloud-gemini-probe", "SUCCESS", data=probe_gemini_route(provider, route))
+    except (SemanticProviderError, FileNotFoundError, ValueError) as error:
+        return _result(
+            "semantic-cloud-gemini-probe", "DEPENDENCY_FAILURE",
+            error=getattr(error, "code", str(error)),
+        )
+    finally:
+        if provider is not None:
+            provider.unload()
+
+
+def command_semantic_cloud_critical_regression_run(
+    semantic_root: str,
+    sample: str,
+    provider_name: str,
+    config: str,
+    force: bool = False,
+) -> dict[str, Any]:
+    from src.application.local_semantic_intelligence.gemini_provider import (
+        GeminiSemanticProvider,
+        load_gemini_config,
+        run_gemini_critical_4,
+    )
+
+    if sample != "critical-4" or provider_name != "gemini":
+        return _result(
+            "semantic-cloud-critical-regression-run",
+            "INVALID_INPUT",
+            error="ONLY_GEMINI_CRITICAL_4_IS_ALLOWED",
+        )
+    provider: GeminiSemanticProvider | None = None
+    try:
+        provider = GeminiSemanticProvider(load_gemini_config(config))
+        result = run_gemini_critical_4(
+            _absolute_path(semantic_root, "SEMANTIC_ROOT"),
+            provider,
+            force=force,
+        )
+    except (SemanticProviderError, CriticalRegressionError, FileNotFoundError, ValueError) as error:
+        return _result(
+            "semantic-cloud-critical-regression-run",
+            "DEPENDENCY_FAILURE",
+            error=getattr(error, "code", str(error)),
+        )
+    finally:
+        if provider is not None:
+            provider.unload()
+    return _result("semantic-cloud-critical-regression-run", "SUCCESS", data=result)
 
 
 def command_project_init(
@@ -1681,6 +2025,12 @@ def build_parser() -> argparse.ArgumentParser:
         default="pilot-12",
         choices=["pilot-12"],
     )
+    semantic_benchmark.add_argument("--audit-root")
+    semantic_benchmark.add_argument(
+        "--force",
+        action="store_true",
+        help="rerun completed checkpoints explicitly",
+    )
 
     semantic_run = semantic_local_sub.add_parser("run")
     semantic_root(semantic_run)
@@ -1690,9 +2040,138 @@ def build_parser() -> argparse.ArgumentParser:
     semantic_compare = semantic_local_sub.add_parser("compare")
     semantic_root(semantic_compare)
 
+    semantic_pilot_status = semantic_local_sub.add_parser("pilot-status")
+    semantic_root(semantic_pilot_status)
+    semantic_pilot_status.add_argument(
+        "--sample",
+        default="pilot-12",
+        choices=["pilot-12"],
+    )
+    semantic_pilot_status.add_argument("--audit-root")
+
+    semantic_pilot_review = semantic_local_sub.add_parser("pilot-review")
+    semantic_pilot_review_sub = semantic_pilot_review.add_subparsers(
+        dest="pilot_review_action",
+        required=True,
+    )
+    semantic_pilot_review_serve = semantic_pilot_review_sub.add_parser(
+        "serve"
+    )
+    semantic_root(semantic_pilot_review_serve)
+    semantic_pilot_review_serve.add_argument(
+        "--sample",
+        default="pilot-12",
+        choices=["pilot-12"],
+    )
+    semantic_pilot_review_serve.add_argument(
+        "--host",
+        default="127.0.0.1",
+        choices=["127.0.0.1"],
+    )
+    semantic_pilot_review_serve.add_argument(
+        "--port",
+        type=int,
+        default=8775,
+    )
+    semantic_pilot_review_serve.add_argument(
+        "--mode",
+        choices=["quick", "detailed"],
+        default="quick",
+    )
+    semantic_pilot_review_status = semantic_pilot_review_sub.add_parser(
+        "status"
+    )
+    semantic_root(semantic_pilot_review_status)
+    semantic_pilot_review_status.add_argument(
+        "--sample",
+        default="pilot-12",
+        choices=["pilot-12"],
+    )
+    semantic_pilot_review_quick_status = semantic_pilot_review_sub.add_parser(
+        "quick-status"
+    )
+    semantic_root(semantic_pilot_review_quick_status)
+    semantic_pilot_review_quick_status.add_argument(
+        "--sample", default="pilot-12", choices=["pilot-12"]
+    )
+    semantic_pilot_review_quick_evaluate = semantic_pilot_review_sub.add_parser(
+        "quick-evaluate"
+    )
+    semantic_root(semantic_pilot_review_quick_evaluate)
+    semantic_pilot_review_quick_evaluate.add_argument(
+        "--sample", default="pilot-12", choices=["pilot-12"]
+    )
+
+    semantic_pilot_evaluate = semantic_local_sub.add_parser(
+        "pilot-evaluate"
+    )
+    semantic_root(semantic_pilot_evaluate)
+    semantic_pilot_evaluate.add_argument(
+        "--sample",
+        default="pilot-12",
+        choices=["pilot-12"],
+    )
+
+    semantic_pilot_compare = semantic_local_sub.add_parser(
+        "pilot-compare"
+    )
+    semantic_root(semantic_pilot_compare)
+    semantic_pilot_compare.add_argument(
+        "--sample",
+        default="pilot-12",
+        choices=["pilot-12"],
+    )
+
+    semantic_critical = semantic_local_sub.add_parser("critical-regression")
+    semantic_critical_sub = semantic_critical.add_subparsers(
+        dest="critical_regression_action", required=True
+    )
+    semantic_critical_run = semantic_critical_sub.add_parser("run")
+    semantic_root(semantic_critical_run)
+    semantic_critical_run.add_argument(
+        "--sample", default="critical-4", choices=["critical-4"]
+    )
+    semantic_critical_run.add_argument("--config")
+    semantic_critical_run.add_argument("--force", action="store_true")
+
     semantic_unload = semantic_local_sub.add_parser("unload")
     semantic_root(semantic_unload)
     semantic_unload.add_argument("--config", required=True)
+
+    semantic_cloud = semantic_sub.add_parser("cloud")
+    semantic_cloud_sub = semantic_cloud.add_subparsers(
+        dest="semantic_cloud_action", required=True
+    )
+    semantic_cloud_gemini = semantic_cloud_sub.add_parser("gemini")
+    semantic_cloud_gemini_sub = semantic_cloud_gemini.add_subparsers(
+        dest="gemini_action", required=True
+    )
+    semantic_cloud_gemini_status = semantic_cloud_gemini_sub.add_parser("status")
+    semantic_cloud_gemini_status.add_argument("--config", required=True)
+    semantic_cloud_gemini_schema_check = semantic_cloud_gemini_sub.add_parser("schema-check")
+    semantic_cloud_gemini_schema_check.add_argument("--config", required=True)
+    semantic_cloud_gemini_schema_check.add_argument(
+        "--sample", default="critical-4", choices=["critical-4"]
+    )
+    semantic_cloud_gemini_probe = semantic_cloud_gemini_sub.add_parser("probe")
+    semantic_cloud_gemini_probe.add_argument("--config", required=True)
+    semantic_cloud_gemini_probe.add_argument(
+        "--route", required=True, choices=["PERSON_AND_STATUS"]
+    )
+    semantic_cloud_critical = semantic_cloud_sub.add_parser("critical-regression")
+    semantic_cloud_critical_sub = semantic_cloud_critical.add_subparsers(
+        dest="cloud_critical_action", required=True
+    )
+    semantic_cloud_critical_run = semantic_cloud_critical_sub.add_parser("run")
+    semantic_root(semantic_cloud_critical_run)
+    semantic_cloud_critical_run.add_argument(
+        "--sample", default="critical-4", choices=["critical-4"]
+    )
+    semantic_cloud_critical_run.add_argument(
+        "--provider", required=True, choices=["gemini"]
+    )
+    semantic_cloud_critical_run.add_argument("--config", required=True)
+    semantic_cloud_critical_run.add_argument("--force", action="store_true")
 
     evidence = subparsers.add_parser("evidence")
     evidence_sub = evidence.add_subparsers(
@@ -2006,6 +2485,8 @@ def dispatch(args: argparse.Namespace) -> dict[str, Any]:
                 args.semantic_root,
                 args.config,
                 args.sample,
+                args.audit_root,
+                args.force,
             )
         if args.semantic_action == "run":
             return command_semantic_local_run(
@@ -2017,10 +2498,74 @@ def dispatch(args: argparse.Namespace) -> dict[str, Any]:
             return command_semantic_local_compare(
                 args.semantic_root,
             )
+        if args.semantic_action == "pilot-status":
+            return command_semantic_local_pilot_status(
+                args.semantic_root,
+                args.sample,
+                args.audit_root,
+            )
+        if args.semantic_action == "pilot-review":
+            if args.pilot_review_action == "serve":
+                return command_semantic_local_pilot_review_serve(
+                    args.semantic_root,
+                    args.sample,
+                    args.host,
+                    args.port,
+                    args.mode,
+                )
+            if args.pilot_review_action == "status":
+                return command_semantic_local_pilot_review_status(
+                    args.semantic_root,
+                    args.sample,
+                )
+            if args.pilot_review_action == "quick-status":
+                return command_semantic_local_pilot_review_quick_status(
+                    args.semantic_root,
+                    args.sample,
+                )
+            if args.pilot_review_action == "quick-evaluate":
+                return command_semantic_local_pilot_review_quick_evaluate(
+                    args.semantic_root,
+                    args.sample,
+                )
+        if args.semantic_action == "pilot-evaluate":
+            return command_semantic_local_pilot_evaluate(
+                args.semantic_root,
+                args.sample,
+            )
+        if args.semantic_action == "pilot-compare":
+            return command_semantic_local_pilot_compare(
+                args.semantic_root,
+                args.sample,
+            )
+        if args.semantic_action == "critical-regression":
+            if args.critical_regression_action == "run":
+                return command_semantic_local_critical_regression_run(
+                    args.semantic_root,
+                    args.sample,
+                    args.config,
+                    args.force,
+                )
         if args.semantic_action == "unload":
             return command_semantic_local_unload(
                 args.semantic_root,
                 args.config,
+            )
+
+    if command == "semantic" and args.semantic_scope == "cloud":
+        if args.semantic_cloud_action == "gemini" and args.gemini_action == "status":
+            return command_semantic_cloud_gemini_status(args.config)
+        if args.semantic_cloud_action == "gemini" and args.gemini_action == "schema-check":
+            return command_semantic_cloud_gemini_schema_check(args.config, args.sample)
+        if args.semantic_cloud_action == "gemini" and args.gemini_action == "probe":
+            return command_semantic_cloud_gemini_probe(args.config, args.route)
+        if args.semantic_cloud_action == "critical-regression" and args.cloud_critical_action == "run":
+            return command_semantic_cloud_critical_regression_run(
+                args.semantic_root,
+                args.sample,
+                args.provider,
+                args.config,
+                args.force,
             )
 
     if command == "evidence":
