@@ -51,6 +51,12 @@ from .render_adapter_v1 import (
     render_local_video_manifest,
 )
 from .episode_preproduction_v4 import build_episode_01_preproduction
+from .episode_render_v2 import (
+    EPISODE_RENDER_MANIFEST_V2,
+    TimedScene,
+    build_timed_scene_plan,
+    validate_episode_render_manifest_v2,
+)
 
 __all__ = [
     "PRODUCTION_SLICE_SCHEMA_VERSION",
@@ -92,4 +98,8 @@ __all__ = [
     "LocalVideoRenderResult",
     "render_local_video_manifest",
     "build_episode_01_preproduction",
+    "EPISODE_RENDER_MANIFEST_V2",
+    "TimedScene",
+    "build_timed_scene_plan",
+    "validate_episode_render_manifest_v2",
 ]

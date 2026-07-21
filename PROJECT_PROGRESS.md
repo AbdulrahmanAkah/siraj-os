@@ -4,7 +4,7 @@
 <!-- SIRAJ_AUTO_PROGRESS_BEGIN -->
 ## الحالة التنفيذية الآلية للمشروع
 
-**آخر مزامنة:** 2026-07-21T12:37:47.902203+00:00
+**آخر مزامنة:** 2026-07-21T13:39:57.111050+00:00
 
 ### الهدف المرجعي
 
@@ -19,14 +19,15 @@
 
 ### أحدث خطوة كبيرة
 
-- **المعرّف:** `2026-07-21-render-adapter-v1-replay`
-- **العنوان:** إنتاج فيديو ثانٍ من Render Manifest عام
+- **المعرّف:** `2026-07-21-episode-render-manifest-v2`
+- **العنوان:** إنشاء Episode Render Manifest v2 ومخطط المشاهد الموقّتة
 - **الحالة:** `COMPLETED`
-- **الملخص:** تم فصل بيانات الفيديو عن منطق FFmpeg، وإنتاج render-adapter-v1-replay.mp4 من manifest مستقل باستخدام LocalVideoRenderAdapter. اجتاز الفيديو فحوص الترميز والدقة والصوت والإطارات السوداء.
-- **الخطوة التالية:** ربط Render Manifest بمخرجات الحلقة الأولى بدل بيانات quality-gate، ثم توسيع الـadapter لدعم توقيت المشاهد والترجمة المحروقة اختياريًا.
+- **الملخص:** تم تثبيت المرجع الاستراتيجي للوصول إلى أعلى مستوى إنتاجي داخل PROJECT_PROGRESS.md، وإنشاء خطة Production Excellence، وعقد Episode Render Manifest v2 الذي يدعم توقيتًا مستقلًا لكل مشهد، انتقالات وحركات لكل مشهد، طبقات صوت متعددة، ترجمة جانبية أو محروقة، وربط المشاهد بالادعاءات والمصادر والسياسة البصرية.
+- **الخطوة التالية:** تطوير Render Adapter v2 ليستهلك توقيت المشاهد وطبقات الصوت والترجمة من Episode Render Manifest v2، ثم إنتاج فيديو فعلي مختلف التوقيت.
 
 ### أحدث Milestones
 
+- `COMPLETED` — إنشاء Episode Render Manifest v2 ومخطط المشاهد الموقّتة (`2026-07-21-episode-render-manifest-v2`)
 - `COMPLETED` — إنتاج فيديو ثانٍ من Render Manifest عام (`2026-07-21-render-adapter-v1-replay`)
 - `COMPLETED` — تنظيف حالة Source Control وتصنيف ملفات العمل (`2026-07-21-repository-source-control-cleanup`)
 - `COMPLETED` — تشغيل تدقيق جاهزية خط الوثائقي (`fast-track-readiness-audit-v1`)
@@ -994,3 +995,152 @@ Quality Evaluation
 Automatic Refinement
 
 Publishing Pipeline
+
+<!-- SIRAJ_PRODUCTION_EXCELLENCE_BEGIN -->
+## المرجع الاستراتيجي للوصول إلى أعلى مستوى إنتاجي
+
+### الحكم الحالي
+
+- البنية الهندسية للإنتاج أصبحت قابلة لإعادة التشغيل وتعتمد على Manifests.
+- المستوى البصري والتحريري الحالي ما يزال أوليًا مقارنة بالمستوى النهائي المطلوب.
+- SIRAJ يجب أن يبقى نظام الأوركسترا والتوثيق والتحقق والإخراج النهائي.
+- نماذج الذكاء الاصطناعي الخارجية هي مزودو قدرات قابلون للاستبدال، وليست بديلًا عن النظام.
+
+### البنية المستهدفة
+
+SIRAJ مسؤول عن:
+
+- المصادر والمعرفة الموثقة.
+- Claim and Evidence Ledger.
+- Timeline and Topic Graph.
+- كتابة النص وتخطيط الحلقة.
+- Editorial Director.
+- Timed Scene Planner.
+- Visual Policy.
+- اختيار مزودي الوسائط.
+- Media Asset Registry.
+- Quality Gates.
+- Final Render and Publication.
+
+يمكن أن يستعين SIRAJ بالمزودين التاليين:
+
+- Language Model Provider.
+- Image Provider.
+- Video Provider.
+- Voice Provider.
+- Sound Effect Provider.
+- أدوات FFmpeg وProcedural Tools المحلية.
+
+### Hybrid Documentary Engine
+
+لا يجب إنتاج جميع اللقطات بالطريقة نفسها. يختار SIRAJ التقنية الأنسب لكل لقطة:
+
+1. مصادر وصور ثابتة موثقة للمخطوطات والآثار والوثائق.
+2. إعادة بناء ثابتة عالية الجودة تتحرك محليًا.
+3. خرائط وخطوط زمنية ورسومات Procedural قابلة لإعادة الإنتاج.
+4. فيديو مولد للقطات السينمائية المهمة فقط.
+5. بطاقات مصادر وادعاءات مرتبطة بالمشهد.
+6. مونتاج وصوت نهائي تحت سيطرة SIRAJ.
+
+### ما يبقى داخل SIRAJ
+
+- Historical Knowledge Engine.
+- Claim and Evidence Ledger.
+- Timeline consistency.
+- Script and scene contracts.
+- Editorial decisions.
+- Provider abstraction.
+- Episode Render Manifest.
+- Media Asset Registry.
+- Islamic visual policy.
+- Historical, editorial and technical quality gates.
+- Final assembly and publication state.
+
+### ما يسند إلى مزودي الذكاء الاصطناعي
+
+- إعداد مسودات النص ونقدها.
+- توليد الصور وإعادة البناء.
+- توليد لقطات فيديو قصيرة.
+- تحويل النص إلى صوت.
+- تنظيف الصوت وتوليد المؤثرات.
+- تحليل الوسائط واكتشاف العيوب.
+- ترتيب المرشحين وإعادة التوليد.
+
+### سلسلة الإنتاج النهائية
+
+Sources
+→ Claims
+→ Evidence Review
+→ Script
+→ Editorial Plan
+→ Timed Scenes
+→ Voice
+→ Visual Assets
+→ Audio Layers
+→ Episode Render Manifest
+→ Local Render Adapter
+→ Automated Quality Gates
+→ Human Review
+→ Publication
+
+### معايير الاحتراف
+
+- صحة الادعاءات واكتمال المصادر.
+- اتساق الخط الزمني.
+- اتساق العمارة والملابس والبيئة.
+- منع العناصر الحديثة أو المختلقة.
+- احترام السياسة الشرعية.
+- صحة نطق العربية والأسماء.
+- جودة الصوت وعدم Clipping.
+- تنوع اللقطات وسلامة الإيقاع.
+- تطابق الصورة مع النص.
+- حقوق الاستخدام والتراخيص.
+- إمكانية إعادة إنتاج الحلقة من العقود والأصول المحفوظة.
+
+### قاعدة مزودي الذكاء الاصطناعي
+
+- لا يرتبط النظام بمزود واحد.
+- كل مزود يعلن قدراته وتكلفته وزمنه وحدوده.
+- يجب توفير Fallback.
+- لا يقرر مولد الوسائط الحقائق التاريخية.
+- لا تدخل الوسائط المولدة إلى الإنتاج دون Metadata ومراجعة.
+- يحفظ النظام Provider وModel وPrompt وSeed وChecksum والترخيص.
+
+### ترتيب التنفيذ الملزم
+
+1. Episode Render Manifest v2.
+2. Timed Scene Planner.
+3. طبقات الصوت والترجمة.
+4. ربط المشاهد بالادعاءات والمصادر والسياسة البصرية.
+5. Render Adapter v2.
+6. Production VoiceProvider.
+7. ImageProvider.
+8. Selective VideoProvider.
+9. Automated Media Evaluation.
+10. الخرائط والرسومات Procedural.
+11. Automated Editorial Director.
+12. Professional Quality System.
+13. إنتاج الحلقة الأولى القابلة للنشر.
+
+### مراحل الوصول إلى أعلى مستوى
+
+#### المرحلة الأولى — Documentary Core
+
+مشاهد موقّتة، طبقات صوت، ترجمة، Source Cards، خرائط وهوية بصرية ثابتة.
+
+#### المرحلة الثانية — AI Media Providers
+
+مزودو الصور والفيديو والصوت والمؤثرات والتقييم مع قابلية الاستبدال ووجود بدائل احتياطية.
+
+#### المرحلة الثالثة — Automated Editorial Director
+
+تحويل النص والأدلة إلى قرارات إخراجية، واختيار المرشحين وتقييمهم ورفض الضعيف وإعادة التوليد.
+
+#### المرحلة الرابعة — Professional Quality System
+
+بوابات تاريخية وشرعية وتحريرية وبصرية وصوتية وتقنية وحقوقية.
+
+#### المرحلة الخامسة — High-End Production
+
+إعادة بناء سينمائية، Motion Graphics، خرائط متحركة، Sound Design، Color Grading واتساق بصري وصوتي عبر الموسم.
+<!-- SIRAJ_PRODUCTION_EXCELLENCE_END -->
