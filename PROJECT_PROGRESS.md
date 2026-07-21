@@ -4,7 +4,7 @@
 <!-- SIRAJ_AUTO_PROGRESS_BEGIN -->
 ## الحالة التنفيذية الآلية للمشروع
 
-**آخر مزامنة:** 2026-07-21T21:46:18.979173+00:00
+**آخر مزامنة:** 2026-07-21T22:13:17.695962+00:00
 
 ### الهدف المرجعي
 
@@ -19,14 +19,15 @@
 
 ### أحدث خطوة كبيرة
 
-- **المعرّف:** `2026-07-22-production-tts-adapter-v1`
-- **العنوان:** Complete Gemini Production TTS Adapter v1
+- **المعرّف:** `2026-07-22-subtitle-generation-timing-v1`
+- **العنوان:** Complete Subtitle Generation and Timing v1
 - **الحالة:** `COMPLETED`
-- **الملخص:** Gemini TTS is active with primary model fallback, Edge emergency fallback, deterministic cache, WAV validation, mastering integration, offline tests, and one successful live Alnilam validation.
-- **الخطوة التالية:** Select final production voice and use the completed TTS adapter in the first episode production workflow.
+- **الملخص:** Deterministic Arabic subtitle segmentation, mastered-audio timing, SRT/VTT/ASS exports, validation, dialogue metadata, cache, and ASS render readiness completed with a local production artifact.
+- **الخطوة التالية:** Use the subtitle manifest in the first episode render manifest.
 
 ### أحدث Milestones
 
+- `COMPLETED` — Complete Subtitle Generation and Timing v1 (`2026-07-22-subtitle-generation-timing-v1`)
 - `COMPLETED` — Complete Gemini Production TTS Adapter v1 (`2026-07-22-production-tts-adapter-v1`)
 - `COMPLETED` — إنشاء Production Voice Contract وAudio Mastering v1 (`2026-07-21-production-voice-audio-v1`)
 - `COMPLETED` — إنشاء Render Adapter v2 وتشغيل Episode Render Manifest v2 فعليًا (`2026-07-21-render-adapter-v2`)
@@ -34,7 +35,6 @@
 - `COMPLETED` — إنتاج فيديو ثانٍ من Render Manifest عام (`2026-07-21-render-adapter-v1-replay`)
 - `COMPLETED` — تنظيف حالة Source Control وتصنيف ملفات العمل (`2026-07-21-repository-source-control-cleanup`)
 - `COMPLETED` — تشغيل تدقيق جاهزية خط الوثائقي (`fast-track-readiness-audit-v1`)
-- `COMPLETED` — تدقيق مسار إنتاج quality-gate-v4.mp4 (`2026-07-21-quality-gate-v4-lineage-audit`)
 
 السجل المنظم:
 

@@ -303,6 +303,39 @@
       "status": "COMPLETED",
       "summary_ar": "Gemini TTS is active with primary model fallback, Edge emergency fallback, deterministic cache, WAV validation, mastering integration, offline tests, and one successful live Alnilam validation.",
       "title_ar": "Complete Gemini Production TTS Adapter v1"
+    },
+    {
+      "changed_files": [
+        "PROJECT_PROGRESS.md",
+        "docs/execution/project-milestones.json",
+        "scripts/fast_track/record_subtitle_generation_timing_v1.py",
+        "scripts/fast_track/run_production_subtitles_v1.py",
+        "src/application/local_video_production/__init__.py",
+        "src/application/local_video_production/subtitles_v1.py",
+        "tests/integration/test_render_adapter_v2.py",
+        "tests/integration/test_subtitles_v1.py"
+      ],
+      "evidence": [],
+      "metadata": {
+        "exports": [
+          "SRT",
+          "WebVTT",
+          "ASS"
+        ],
+        "local_production_status": "PASS",
+        "render_integration": "READY",
+        "schema_version": "siraj-production-subtitles-v1",
+        "timing_sources": [
+          "TTS_METADATA_EXACT",
+          "MASTERED_AUDIO_ESTIMATED"
+        ]
+      },
+      "milestone_id": "2026-07-22-subtitle-generation-timing-v1",
+      "next_action_ar": "Use the subtitle manifest in the first episode render manifest.",
+      "recorded_at": "2026-07-21T22:13:17.695937+00:00",
+      "status": "COMPLETED",
+      "summary_ar": "Deterministic Arabic subtitle segmentation, mastered-audio timing, SRT/VTT/ASS exports, validation, dialogue metadata, cache, and ASS render readiness completed with a local production artifact.",
+      "title_ar": "Complete Subtitle Generation and Timing v1"
     }
   ],
   "program_state": {
@@ -313,5 +346,5 @@
     "short_term_objective_ar": "إنتاج أول حلقة وثائقية قابلة للنشر من المصدر إلى ملف MP4، ثم تحويل المسار إلى قالب إنتاج متكرر."
   },
   "schema_version": "siraj-project-milestones-v1",
-  "updated_at": "2026-07-21T21:46:18.979173+00:00"
+  "updated_at": "2026-07-21T22:13:17.695962+00:00"
 }

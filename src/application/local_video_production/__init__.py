@@ -94,6 +94,19 @@ from .gemini_speech_provider_v1 import (
     load_gemini_tts_configuration,
 )
 from .production_tts_registry_v1 import build_current_production_tts_registry
+from .subtitles_v1 import (
+    SUBTITLE_SCHEMA_V1,
+    SubtitleCue,
+    SubtitleExportResult,
+    SubtitleRequest,
+    SubtitleStyleConfig,
+    SubtitleTimingConfig,
+    SubtitleTrack,
+    SubtitleValidationResult,
+    TranscriptSegment,
+    generate_subtitles,
+    render_subtitle_configuration,
+)
 
 __all__ = [
     "PRODUCTION_SLICE_SCHEMA_VERSION",
@@ -166,4 +179,15 @@ __all__ = [
     "gemini_tts_manifest",
     "load_gemini_tts_configuration",
     "build_current_production_tts_registry",
+    "SUBTITLE_SCHEMA_V1",
+    "SubtitleCue",
+    "SubtitleExportResult",
+    "SubtitleRequest",
+    "SubtitleStyleConfig",
+    "SubtitleTimingConfig",
+    "SubtitleTrack",
+    "SubtitleValidationResult",
+    "TranscriptSegment",
+    "generate_subtitles",
+    "render_subtitle_configuration",
 ]

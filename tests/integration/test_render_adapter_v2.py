@@ -10,6 +10,10 @@ from src.application.local_video_production.render_adapter_v2 import (
     _subtitle_filter,
     _transition_filters,
 )
+from src.application.local_video_production.subtitles_v1 import (
+    SubtitleExportResult,
+    render_subtitle_configuration,
+)
 
 
 def test_motion_filter_uses_scene_duration() -> None:
@@ -131,3 +135,24 @@ def test_burned_subtitles_create_ffmpeg_filter() -> None:
     assert result is not None
     assert result.startswith("subtitles=")
     assert "charenc=UTF-8" in result
+
+
+def test_generated_ass_is_the_preferred_burned_subtitle_input(
+    tmp_path: Path,
+) -> None:
+    result = SubtitleExportResult(
+        "PASS",
+        tmp_path / "track.srt",
+        tmp_path / "track.vtt",
+        tmp_path / "track.ass",
+        tmp_path / "manifest.json",
+        tmp_path / "validation.json",
+        False,
+    )
+    subtitle = render_subtitle_configuration(result)
+    expression = _subtitle_filter(
+        subtitle_mode=subtitle["mode"],
+        subtitle_path=Path(subtitle["path"]),
+    )
+    assert subtitle["path"].endswith(".ass")
+    assert expression is not None and "subtitles=" in expression
