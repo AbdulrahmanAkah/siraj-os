@@ -87,6 +87,13 @@ from .episode_render_v2 import (
     build_timed_scene_plan,
     validate_episode_render_manifest_v2,
 )
+from .gemini_speech_provider_v1 import (
+    GeminiTTSConfiguration,
+    GeminiTTSSpeechProvider,
+    gemini_tts_manifest,
+    load_gemini_tts_configuration,
+)
+from .production_tts_registry_v1 import build_current_production_tts_registry
 
 __all__ = [
     "PRODUCTION_SLICE_SCHEMA_VERSION",
@@ -154,4 +161,9 @@ __all__ = [
     "TimedScene",
     "build_timed_scene_plan",
     "validate_episode_render_manifest_v2",
+    "GeminiTTSConfiguration",
+    "GeminiTTSSpeechProvider",
+    "gemini_tts_manifest",
+    "load_gemini_tts_configuration",
+    "build_current_production_tts_registry",
 ]

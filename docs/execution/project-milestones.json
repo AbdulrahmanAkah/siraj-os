@@ -286,6 +286,23 @@
       "status": "COMPLETED",
       "summary_ar": "تم إنشاء عقد VoiceProvider مستقل عن المزود، وتطبيع النص العربي، وقاموس النطق، وتقسيم التعليق إلى مقاطع، ومزود WAV تشخيصي حتمي. كما تم إنشاء Audio Mastering v1 باستخدام loudnorm ثنائي المرور، وربط الصوت المعالج بـEpisode Render Manifest v2. بلغ مستوى الصوت النهائي في الفيديو ناقص 18.7 LUFS مقابل هدف ناقص 19 LUFS، مع True Peak ناقص 14.5 dBTP.",
       "title_ar": "إنشاء Production Voice Contract وAudio Mastering v1"
+    },
+    {
+      "changed_files": [
+        "scripts/fast_track/run_gemini_production_tts_live_guarded_v1.py",
+        "src/application/local_video_production/gemini_speech_provider_v1.py",
+        "src/application/local_video_production/production_tts_v1.py",
+        "src/application/local_video_production/voice_cast_v2.py",
+        "tests/integration/test_gemini_speech_provider_v1.py"
+      ],
+      "evidence": [],
+      "metadata": {},
+      "milestone_id": "2026-07-22-production-tts-adapter-v1",
+      "next_action_ar": "Select final production voice and use the completed TTS adapter in the first episode production workflow.",
+      "recorded_at": "2026-07-21T21:46:18.979147+00:00",
+      "status": "COMPLETED",
+      "summary_ar": "Gemini TTS is active with primary model fallback, Edge emergency fallback, deterministic cache, WAV validation, mastering integration, offline tests, and one successful live Alnilam validation.",
+      "title_ar": "Complete Gemini Production TTS Adapter v1"
     }
   ],
   "program_state": {
@@ -296,5 +313,5 @@
     "short_term_objective_ar": "إنتاج أول حلقة وثائقية قابلة للنشر من المصدر إلى ملف MP4، ثم تحويل المسار إلى قالب إنتاج متكرر."
   },
   "schema_version": "siraj-project-milestones-v1",
-  "updated_at": "2026-07-21T15:09:37.860007+00:00"
+  "updated_at": "2026-07-21T21:46:18.979173+00:00"
 }

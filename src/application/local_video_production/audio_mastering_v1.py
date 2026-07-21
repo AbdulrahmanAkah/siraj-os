@@ -10,6 +10,8 @@ import shutil
 import subprocess
 from typing import Any
 
+from .voice_provider_v1 import file_sha256
+
 
 AUDIO_MASTERING_REPORT_SCHEMA_V1 = (
     "siraj-audio-mastering-report-v1"
@@ -334,6 +336,8 @@ def master_audio(
         "status": status,
         "input": str(input_path),
         "output": str(output_path),
+        "input_sha256": file_sha256(input_path),
+        "output_sha256": file_sha256(output_path),
         "target_integrated_lufs": (
             target_lufs
         ),
