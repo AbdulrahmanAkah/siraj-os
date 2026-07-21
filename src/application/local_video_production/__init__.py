@@ -44,6 +44,12 @@ from .quality_gate_v4 import (
     create_quality_gate_voice_selection,
 )
 from .quality_gate_render_v4 import build_quality_gate_v4
+from .render_adapter_v2 import (
+    EpisodeRenderAdapterV2,
+    EpisodeRenderV2Result,
+    RENDER_ADAPTER_V2_REPORT_SCHEMA,
+    render_episode_manifest_v2,
+)
 from .render_adapter_v1 import (
     RENDER_ADAPTER_SCHEMA_VERSION,
     LocalVideoRenderAdapter,
@@ -94,6 +100,10 @@ __all__ = [
     "create_quality_gate_voice_selection",
     "build_quality_gate_v4",
     "RENDER_ADAPTER_SCHEMA_VERSION",
+    "EpisodeRenderAdapterV2",
+    "EpisodeRenderV2Result",
+    "RENDER_ADAPTER_V2_REPORT_SCHEMA",
+    "render_episode_manifest_v2",
     "LocalVideoRenderAdapter",
     "LocalVideoRenderResult",
     "render_local_video_manifest",

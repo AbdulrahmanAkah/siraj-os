@@ -219,6 +219,35 @@
       "status": "COMPLETED",
       "summary_ar": "تم تثبيت المرجع الاستراتيجي للوصول إلى أعلى مستوى إنتاجي داخل PROJECT_PROGRESS.md، وإنشاء خطة Production Excellence، وعقد Episode Render Manifest v2 الذي يدعم توقيتًا مستقلًا لكل مشهد، انتقالات وحركات لكل مشهد، طبقات صوت متعددة، ترجمة جانبية أو محروقة، وربط المشاهد بالادعاءات والمصادر والسياسة البصرية.",
       "title_ar": "إنشاء Episode Render Manifest v2 ومخطط المشاهد الموقّتة"
+    },
+    {
+      "changed_files": [
+        "PROJECT_PROGRESS.md",
+        "docs/execution/project-milestones.json",
+        "scripts/fast_track/run_render_adapter_v2_prototype.py",
+        "src/application/local_video_production/__init__.py",
+        "src/application/local_video_production/render_adapter_v2.py",
+        "tests/integration/test_render_adapter_v2.py"
+      ],
+      "evidence": [],
+      "metadata": {
+        "actual_duration_seconds": 19.402,
+        "audio_codec": "aac",
+        "audio_layer_count": 3,
+        "live_render_status": "VALID",
+        "output_sha256": "7eb28683381926c1f1f44fd20b5f237bd3c3c71d0b2832d1c25d697733b7eed0",
+        "planned_duration_seconds": 19.402,
+        "report_schema": "siraj-local-video-render-report-v2",
+        "scene_count": 3,
+        "subtitle_mode": "SIDECAR",
+        "video_codec": "h264"
+      },
+      "milestone_id": "2026-07-21-render-adapter-v2",
+      "next_action_ar": "تطوير Production Voice Layer بواجهة VoiceProvider مستقلة عن المزود، وقاموس نطق عربي، وتقسيم صوتي على مستوى الجمل، وتطبيع مستوى الصوت، مع مزود محلي تجريبي قبل ربط المزودات الخارجية.",
+      "recorded_at": "2026-07-21T14:10:17.399478+00:00",
+      "status": "COMPLETED",
+      "summary_ar": "تم إنشاء Render Adapter v2 ليستهلك التوقيت المستقل للمشاهد، والحركات والانتقالات لكل مشهد، وطبقات الصوت المتعددة، والترجمة الجانبية أو المحروقة. نجح التشغيل الحي في إنتاج فيديو H.264 مع صوت AAC، وثلاثة مشاهد وثلاث طبقات صوت، وبمدة فعلية مطابقة للمدة المخططة 19.402 ثانية.",
+      "title_ar": "إنشاء Render Adapter v2 وتشغيل Episode Render Manifest v2 فعليًا"
     }
   ],
   "program_state": {
@@ -229,5 +258,5 @@
     "short_term_objective_ar": "إنتاج أول حلقة وثائقية قابلة للنشر من المصدر إلى ملف MP4، ثم تحويل المسار إلى قالب إنتاج متكرر."
   },
   "schema_version": "siraj-project-milestones-v1",
-  "updated_at": "2026-07-21T13:39:57.111050+00:00"
+  "updated_at": "2026-07-21T14:10:17.399504+00:00"
 }
