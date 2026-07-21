@@ -272,7 +272,7 @@ def _cues_for_segment(segment: TranscriptSegment, config: SubtitleTimingConfig, 
 def _build_fingerprint(audio_sha: str, segments: Iterable[TranscriptSegment], request: SubtitleRequest) -> str:
     payload = {
         "schema_version": SUBTITLE_SCHEMA_V1,
-        "generator_revision": "1",
+        "generator_revision": "2",
         "audio_sha256": audio_sha,
         "segments": [asdict(item) for item in segments],
         "language": request.language,
@@ -457,6 +457,12 @@ def _manifest(track: SubtitleTrack, validation: SubtitleValidationResult, reques
         "source_transcript": request.transcript if request.transcript is not None else "SEGMENTED_TRANSCRIPT",
         "timing_source": track.timing_source, "timing_mode": track.timing_mode,
         "cue_count": len(track.cues), "speaker_count": len(speakers), "language": request.language, "direction": "RTL",
+        "cue_metadata": [{
+            "cue_id": f"cue-{cue.index:03}", "start_ms": cue.start_ms,
+            "end_ms": cue.end_ms, "speaker_id": cue.speaker_id,
+            "speaker_name": cue.speaker_name, "role": cue.role,
+            "voice_id": cue.voice_id, "scene_id": cue.scene_id,
+        } for cue in track.cues],
         "exports": {key: str(value) for key, value in paths.items()}, "validation": asdict(validation),
         "drift_ms": validation.drift_ms, "reading_speed_summary": validation.reading_speed_summary,
         "line_length_summary": validation.line_length_summary, "overlaps": validation.overlaps,

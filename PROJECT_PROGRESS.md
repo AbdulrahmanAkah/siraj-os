@@ -4,7 +4,7 @@
 <!-- SIRAJ_AUTO_PROGRESS_BEGIN -->
 ## الحالة التنفيذية الآلية للمشروع
 
-**آخر مزامنة:** 2026-07-21T22:13:17.695962+00:00
+**آخر مزامنة:** 2026-07-21T22:44:33.096301+00:00
 
 ### الهدف المرجعي
 
@@ -19,14 +19,15 @@
 
 ### أحدث خطوة كبيرة
 
-- **المعرّف:** `2026-07-22-subtitle-generation-timing-v1`
-- **العنوان:** Complete Subtitle Generation and Timing v1
+- **المعرّف:** `2026-07-22-storyboard-generator-v1`
+- **العنوان:** Complete Cinematic Storyboard Generator v1
 - **الحالة:** `COMPLETED`
-- **الملخص:** Deterministic Arabic subtitle segmentation, mastered-audio timing, SRT/VTT/ASS exports, validation, dialogue metadata, cache, and ASS render readiness completed with a local production artifact.
-- **الخطوة التالية:** Use the subtitle manifest in the first episode render manifest.
+- **الملخص:** Deterministic narrative, scene, beat, shot, prompt, continuity, asset, subtitle-safe, and render-ready storyboard planning completed without media generation.
+- **الخطوة التالية:** Resolve planned visual asset requirements before a final episode render.
 
 ### أحدث Milestones
 
+- `COMPLETED` — Complete Cinematic Storyboard Generator v1 (`2026-07-22-storyboard-generator-v1`)
 - `COMPLETED` — Complete Subtitle Generation and Timing v1 (`2026-07-22-subtitle-generation-timing-v1`)
 - `COMPLETED` — Complete Gemini Production TTS Adapter v1 (`2026-07-22-production-tts-adapter-v1`)
 - `COMPLETED` — إنشاء Production Voice Contract وAudio Mastering v1 (`2026-07-21-production-voice-audio-v1`)
@@ -34,7 +35,6 @@
 - `COMPLETED` — إنشاء Episode Render Manifest v2 ومخطط المشاهد الموقّتة (`2026-07-21-episode-render-manifest-v2`)
 - `COMPLETED` — إنتاج فيديو ثانٍ من Render Manifest عام (`2026-07-21-render-adapter-v1-replay`)
 - `COMPLETED` — تنظيف حالة Source Control وتصنيف ملفات العمل (`2026-07-21-repository-source-control-cleanup`)
-- `COMPLETED` — تشغيل تدقيق جاهزية خط الوثائقي (`fast-track-readiness-audit-v1`)
 
 السجل المنظم:
 

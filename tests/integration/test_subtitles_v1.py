@@ -99,6 +99,7 @@ def test_exports_manifest_validation_and_render_readiness(tmp_path: Path) -> Non
     assert "[V4+ Styles]" in result.ass_path.read_text(encoding="utf-8")
     manifest = json.loads(result.manifest_path.read_text(encoding="utf-8"))
     assert manifest["direction"] == "RTL"
+    assert manifest["cue_metadata"][0]["cue_id"] == "cue-001"
     assert render_subtitle_configuration(result) == {"mode": "BURNED_IN", "path": str(result.ass_path)}
     assert render_subtitle_configuration(result, burn_in=False)["path"].endswith(".srt")
 

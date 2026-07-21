@@ -336,6 +336,33 @@
       "status": "COMPLETED",
       "summary_ar": "Deterministic Arabic subtitle segmentation, mastered-audio timing, SRT/VTT/ASS exports, validation, dialogue metadata, cache, and ASS render readiness completed with a local production artifact.",
       "title_ar": "Complete Subtitle Generation and Timing v1"
+    },
+    {
+      "changed_files": [
+        "PROJECT_PROGRESS.md",
+        "docs/execution/project-milestones.json",
+        "scripts/fast_track/record_storyboard_generator_v1.py",
+        "scripts/fast_track/run_production_storyboard_v1.py",
+        "src/application/local_video_production/__init__.py",
+        "src/application/local_video_production/storyboard_generator_v1.py",
+        "src/application/local_video_production/subtitles_v1.py",
+        "tests/integration/test_storyboard_generator_v1.py",
+        "tests/integration/test_subtitles_v1.py"
+      ],
+      "evidence": [],
+      "metadata": {
+        "local_production_status": "PASS",
+        "media_generation": "NOT_EXECUTED",
+        "quality_gate": "STRONG_OR_EXCELLENT_REQUIRED",
+        "render_readiness": "PASS",
+        "schema_version": "siraj-production-storyboard-generator-v1"
+      },
+      "milestone_id": "2026-07-22-storyboard-generator-v1",
+      "next_action_ar": "Resolve planned visual asset requirements before a final episode render.",
+      "recorded_at": "2026-07-21T22:44:33.096272+00:00",
+      "status": "COMPLETED",
+      "summary_ar": "Deterministic narrative, scene, beat, shot, prompt, continuity, asset, subtitle-safe, and render-ready storyboard planning completed without media generation.",
+      "title_ar": "Complete Cinematic Storyboard Generator v1"
     }
   ],
   "program_state": {
@@ -346,5 +373,5 @@
     "short_term_objective_ar": "إنتاج أول حلقة وثائقية قابلة للنشر من المصدر إلى ملف MP4، ثم تحويل المسار إلى قالب إنتاج متكرر."
   },
   "schema_version": "siraj-project-milestones-v1",
-  "updated_at": "2026-07-21T22:13:17.695962+00:00"
+  "updated_at": "2026-07-21T22:44:33.096301+00:00"
 }

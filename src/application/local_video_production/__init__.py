@@ -107,6 +107,15 @@ from .subtitles_v1 import (
     generate_subtitles,
     render_subtitle_configuration,
 )
+from .storyboard_generator_v1 import (
+    STORYBOARD_SCHEMA_V1,
+    StoryboardConfig,
+    StoryboardExportResult,
+    StoryboardRequest,
+    StoryboardValidationResult,
+    generate_storyboard,
+    render_timeline_from_storyboard,
+)
 
 __all__ = [
     "PRODUCTION_SLICE_SCHEMA_VERSION",
@@ -190,4 +199,11 @@ __all__ = [
     "TranscriptSegment",
     "generate_subtitles",
     "render_subtitle_configuration",
+    "STORYBOARD_SCHEMA_V1",
+    "StoryboardConfig",
+    "StoryboardExportResult",
+    "StoryboardRequest",
+    "StoryboardValidationResult",
+    "generate_storyboard",
+    "render_timeline_from_storyboard",
 ]
