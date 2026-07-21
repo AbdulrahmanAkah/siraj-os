@@ -1,0 +1,149 @@
+{
+  "milestones": [
+    {
+      "changed_files": [
+        "artifacts/fast-track/pipeline-readiness.json",
+        "artifacts/fast-track/pipeline-readiness.md"
+      ],
+      "evidence": [],
+      "metadata": {
+        "SIRAJ_FAST_TRACK_PROGRESS_RECORDED": true,
+        "stage_status": {
+          "documentary_logic": "READY",
+          "first_episode": "STARTED",
+          "knowledge_foundation": "READY",
+          "media_execution": "BLOCKED"
+        }
+      },
+      "milestone_id": "fast-track-readiness-audit-v1",
+      "next_action_ar": "Populate the reviewed Episode 001 source pack while implementing the first real media execution adapter.",
+      "recorded_at": "2026-07-21T03:11:43.384334+00:00",
+      "status": "COMPLETED",
+      "summary_ar": "تم تشغيل تدقيق جاهزية المسار الرأسي للحلقة الأولى وتسجيل حالة المعرفة والمنطق الوثائقي والوسائط.",
+      "title_ar": "تشغيل تدقيق جاهزية خط الوثائقي"
+    },
+    {
+      "changed_files": [
+        "PROJECT_PROGRESS.md",
+        "artifacts/fast-track/media-prototype-audit.json",
+        "artifacts/fast-track/pipeline-readiness.json"
+      ],
+      "evidence": [
+        {
+          "path": "C:\\SIRAJ\\Workspace\\first-project\\exports\\quality-gate-v4.mp4",
+          "probe": {
+            "audio_streams": [
+              {
+                "channels": 2,
+                "codec_name": "aac",
+                "codec_type": "audio",
+                "index": 1,
+                "sample_rate": "48000"
+              }
+            ],
+            "duration_seconds": 19.402,
+            "ffprobe_available": true,
+            "has_audio_stream": true,
+            "has_video_stream": true,
+            "probe_status": "PASS",
+            "video_streams": [
+              {
+                "codec_name": "h264",
+                "codec_type": "video",
+                "height": 1080,
+                "index": 0,
+                "width": 1920
+              }
+            ]
+          },
+          "size_bytes": 2881210,
+          "type": "LOCAL_VIDEO_ARTIFACT"
+        }
+      ],
+      "metadata": {
+        "audio_count": 32,
+        "subtitle_count": 5,
+        "video_count": 4
+      },
+      "milestone_id": "2026-07-21-media-video-prototype",
+      "next_action_ar": "تحويل النموذج التجريبي إلى مسار Render قابل لإعادة التشغيل، مع تحسين الصوت والمونتاج وربطه بحزمة مصادر وأدلة الحلقة الأولى.",
+      "recorded_at": "2026-07-21T03:15:28.348154+00:00",
+      "status": "COMPLETED_WITH_LIMITATIONS",
+      "summary_ar": "تم إنتاج مقطع فيديو قصير تجريبي بمونتاج بسيط جدًا وتعليق صوتي مؤقت. هذا يثبت أن مسار إنتاج الفيديو يعمل مبدئيًا، لكنه لم يصل بعد إلى جودة النشر أو التشغيل القابل للتكرار.",
+      "title_ar": "إثبات عمل خط إنتاج الفيديو مبدئيًا"
+    },
+    {
+      "changed_files": [
+        "PROJECT_PROGRESS.md",
+        "docs/execution/project-milestones.json",
+        "scripts/project_progress/recorder.py"
+      ],
+      "evidence": [],
+      "metadata": {},
+      "milestone_id": "2026-07-21-progress-automation-installed",
+      "next_action_ar": "ربط جميع مشغلات الحلقة الأولى ومسار الوسائط بمسجل التقدم، ثم بدء تثبيت مسار الفيديو القابل للتكرار.",
+      "recorded_at": "2026-07-21T03:15:28.352010+00:00",
+      "status": "COMPLETED",
+      "summary_ar": "أصبح PROJECT_PROGRESS.md مرتبطًا بسجل milestones منظم، ويمكن تحديثه آليًا من مشغلات المراحل الكبيرة، مع Git hook يمنع نسيان التحديث عند الـcommit.",
+      "title_ar": "تثبيت التحديث الآلي لسجل تقدم المشروع"
+    },
+    {
+      "changed_files": [
+        "PROJECT_PROGRESS.md",
+        "artifacts/fast-track/pipeline-readiness.json",
+        "scripts/fast_track/audit_first_documentary_path.py"
+      ],
+      "evidence": [],
+      "metadata": {
+        "confirmed_audio_count": 32,
+        "confirmed_subtitle_count": 5,
+        "confirmed_video_count": 4,
+        "latest_audio_codec": "aac",
+        "latest_video": "C:\\SIRAJ\\Workspace\\first-project\\exports\\quality-gate-v4.mp4",
+        "latest_video_codec": "h264",
+        "latest_video_duration_seconds": 19.402,
+        "latest_video_resolution": "1920x1080",
+        "media_execution": "PROTOTYPE_WORKING",
+        "publishable_media_execution": "BLOCKED"
+      },
+      "milestone_id": "2026-07-21-fast-track-media-state-synchronized",
+      "next_action_ar": "تحويل مسار quality-gate-v4.mp4 إلى مشغل إنتاج قابل لإعادة التشغيل، وربطه بالحلقة الأولى.",
+      "recorded_at": "2026-07-21T03:15:31.351974+00:00",
+      "status": "COMPLETED",
+      "summary_ar": "أصبح تدقيق Fast Track يقرأ أثر الفيديو التجريبي الفعلي، ولم يعد يعيد حالة الإنتاج إلى BLOCKED. الحالة الرسمية الآن PROTOTYPE_WORKING، مع بقاء جودة النشر BLOCKED.",
+      "title_ar": "مزامنة حالة الوسائط مع تدقيق Fast Track"
+    },
+    {
+      "changed_files": [
+        "PROJECT_PROGRESS.md",
+        "artifacts/fast-track/quality-gate-v4-lineage.json",
+        "artifacts/fast-track/quality-gate-v4-lineage.md"
+      ],
+      "evidence": [],
+      "metadata": {
+        "exact_reference_count": 25,
+        "ffmpeg_reference_count": 424,
+        "history_match_count": 4,
+        "lineage_confidence": "HIGH",
+        "nearby_file_count": 192,
+        "status": "LINEAGE_REFERENCES_FOUND",
+        "target_sha256": "6dae9d119917d9ca3eac0b717da4ddefeb8153a0ae7bb9ed6edd261cbf1f433d"
+      },
+      "milestone_id": "2026-07-21-quality-gate-v4-lineage-audit",
+      "next_action_ar": "بناء render-adapter-v1 من أعلى المرشحات ثقة، ثم إعادة إنتاج مقطع مطابق من manifest محفوظ.",
+      "recorded_at": "2026-07-21T12:15:08.508958+00:00",
+      "status": "COMPLETED",
+      "summary_ar": "تم فحص الفيديو التجريبي والبحث عن الأوامر والسكربتات والملفات التي أنتجته. درجة الثقة: HIGH.",
+      "title_ar": "تدقيق مسار إنتاج quality-gate-v4.mp4"
+    }
+  ],
+  "program_state": {
+    "gold_20_role_ar": "Gold-20 بوابة معايرة وجودة محدودة داخل مسار المعرفة، وليس الهدف الرئيسي للمشروع.",
+    "long_term_objective_ar": "بناء مصنع محتوى معرفي يعيد استخدام المعرفة الموثقة في الوثائقيات والمقاطع القصيرة والمقالات والبودكاست والدورات.",
+    "north_star_ar": "إنشاء خط إنتاج آلي وموثّق لفيديوهات التاريخ وفق المصادر الإسلامية، من خلق آدم عليه السلام إلى قيام الساعة.",
+    "progress_policy_ar": "يجب تحديث PROJECT_PROGRESS.md وسجل milestones آليًا بعد كل خطوة تنفيذية كبيرة، دون انتظار طلب المستخدم.",
+    "short_term_objective_ar": "إنتاج أول حلقة وثائقية قابلة للنشر من المصدر إلى ملف MP4، ثم تحويل المسار إلى قالب إنتاج متكرر."
+  },
+  "schema_version": "siraj-project-milestones-v1",
+  "updated_at": "2026-07-21T12:15:08.508979+00:00"
+}

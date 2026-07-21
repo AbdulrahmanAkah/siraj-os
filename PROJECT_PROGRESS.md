@@ -1,5 +1,48 @@
-﻿# SIRAJ OS
+# SIRAJ OS
 ## Master Development Roadmap
+
+<!-- SIRAJ_AUTO_PROGRESS_BEGIN -->
+## الحالة التنفيذية الآلية للمشروع
+
+**آخر مزامنة:** 2026-07-21T12:15:08.508979+00:00
+
+### الهدف المرجعي
+
+- **الهدف قصير المدى:** إنتاج أول حلقة وثائقية قابلة للنشر من المصدر إلى ملف MP4، ثم تحويل المسار إلى قالب إنتاج متكرر.
+- **الهدف طويل المدى:** بناء مصنع محتوى معرفي يعيد استخدام المعرفة الموثقة في الوثائقيات والمقاطع القصيرة والمقالات والبودكاست والدورات.
+- **الهدف الأعلى:** إنشاء خط إنتاج آلي وموثّق لفيديوهات التاريخ وفق المصادر الإسلامية، من خلق آدم عليه السلام إلى قيام الساعة.
+- **دور Gold-20:** Gold-20 بوابة معايرة وجودة محدودة داخل مسار المعرفة، وليس الهدف الرئيسي للمشروع.
+
+### قاعدة تحديث المشروع
+
+يجب تحديث PROJECT_PROGRESS.md وسجل milestones آليًا بعد كل خطوة تنفيذية كبيرة، دون انتظار طلب المستخدم.
+
+### أحدث خطوة كبيرة
+
+- **المعرّف:** `2026-07-21-quality-gate-v4-lineage-audit`
+- **العنوان:** تدقيق مسار إنتاج quality-gate-v4.mp4
+- **الحالة:** `COMPLETED`
+- **الملخص:** تم فحص الفيديو التجريبي والبحث عن الأوامر والسكربتات والملفات التي أنتجته. درجة الثقة: HIGH.
+- **الخطوة التالية:** بناء render-adapter-v1 من أعلى المرشحات ثقة، ثم إعادة إنتاج مقطع مطابق من manifest محفوظ.
+
+### أحدث Milestones
+
+- `COMPLETED` — تدقيق مسار إنتاج quality-gate-v4.mp4 (`2026-07-21-quality-gate-v4-lineage-audit`)
+- `COMPLETED` — مزامنة حالة الوسائط مع تدقيق Fast Track (`2026-07-21-fast-track-media-state-synchronized`)
+- `COMPLETED` — تثبيت التحديث الآلي لسجل تقدم المشروع (`2026-07-21-progress-automation-installed`)
+- `COMPLETED_WITH_LIMITATIONS` — إثبات عمل خط إنتاج الفيديو مبدئيًا (`2026-07-21-media-video-prototype`)
+- `COMPLETED` — تشغيل تدقيق جاهزية خط الوثائقي (`fast-track-readiness-audit-v1`)
+
+السجل المنظم:
+
+`docs/execution/project-milestones.json`
+<!-- SIRAJ_AUTO_PROGRESS_END -->
+
+> FAST-TRACK EXECUTION SOURCE OF TRUTH: `docs/execution/FAST_TRACK_EXECUTION_MAP.md`
+>
+> Immediate deliverable: first publishable documentary, Episode 001 - The Creation of Adam.
+>
+> Gold-20 is a bounded knowledge-quality gate, not the program objective.
 
 آخر تحديث:
 2026-07-08
@@ -69,8 +112,8 @@ Narrative ............... 80%
 Scene Planning .......... 60%
 Prompt Generation ....... 70%
 Director ................ 0%
-Voice ................... 0%
-Video ................... 0%
+Voice ................... PROTOTYPE WORKING (temporary narration)
+Video ................... PROTOTYPE WORKING (short experimental clip)
 
 ========================================================
 DEVELOPMENT PHILOSOPHY

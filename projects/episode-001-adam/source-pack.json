@@ -1,0 +1,38 @@
+{
+  "claims": [],
+  "episode_id": "episode-001-adam",
+  "review": {
+    "notes": "",
+    "reviewer": "",
+    "status": "PENDING"
+  },
+  "schema_version": "siraj-reviewed-source-pack-v1",
+  "source_policy": [
+    {
+      "category": "QURAN",
+      "required": true,
+      "review_required": true,
+      "tier": 1
+    },
+    {
+      "category": "AUTHENTICATED_HADITH",
+      "required": true,
+      "review_required": true,
+      "tier": 1
+    },
+    {
+      "category": "CLASSICAL_TAFSIR",
+      "required": true,
+      "review_required": true,
+      "tier": 2
+    },
+    {
+      "category": "CLASSICAL_HISTORY",
+      "required": false,
+      "review_required": true,
+      "tier": 2
+    }
+  ],
+  "sources": [],
+  "status": "AWAITING_SOURCE_IMPORT"
+}

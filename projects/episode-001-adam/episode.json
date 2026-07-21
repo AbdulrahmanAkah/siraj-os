@@ -1,0 +1,40 @@
+{
+  "current_gate": "GATE_0_PROGRAM_RESET",
+  "episode_id": "episode-001-adam",
+  "language": "ar",
+  "next_gate": "GATE_1_EVIDENCE_READY",
+  "quality_requirements": {
+    "all_claims_source_linked": true,
+    "human_final_review_required": true,
+    "human_script_review_required": true,
+    "human_source_review_required": true,
+    "prohibited_sacred_depictions_allowed": false,
+    "unsupported_claims_allowed": false
+  },
+  "required_artifacts": [
+    "source-pack.json",
+    "claim-ledger.json",
+    "knowledge-bundle.json",
+    "episode-plan.json",
+    "script-package.json",
+    "storyboard.json",
+    "asset-manifest.json",
+    "voice.wav",
+    "subtitles.srt",
+    "render-manifest.json",
+    "episode-001-adam.mp4",
+    "verification-report.json",
+    "reproduction-manifest.json"
+  ],
+  "schema_version": "siraj-episode-manifest-v1",
+  "sequence": 1,
+  "series_id": "siraj-islamic-history-chronology",
+  "status": "STARTED",
+  "target": {
+    "duration_minutes_max": 12,
+    "duration_minutes_min": 8,
+    "format": "HORIZONTAL_DOCUMENTARY",
+    "publication_target": "YOUTUBE"
+  },
+  "title": "The Creation of Adam: What the Islamic Sources Establish"
+}
