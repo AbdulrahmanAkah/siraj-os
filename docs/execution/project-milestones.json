@@ -2,28 +2,6 @@
   "milestones": [
     {
       "changed_files": [
-        "artifacts/fast-track/pipeline-readiness.json",
-        "artifacts/fast-track/pipeline-readiness.md"
-      ],
-      "evidence": [],
-      "metadata": {
-        "SIRAJ_FAST_TRACK_PROGRESS_RECORDED": true,
-        "stage_status": {
-          "documentary_logic": "READY",
-          "first_episode": "STARTED",
-          "knowledge_foundation": "READY",
-          "media_execution": "BLOCKED"
-        }
-      },
-      "milestone_id": "fast-track-readiness-audit-v1",
-      "next_action_ar": "Populate the reviewed Episode 001 source pack while implementing the first real media execution adapter.",
-      "recorded_at": "2026-07-21T03:11:43.384334+00:00",
-      "status": "COMPLETED",
-      "summary_ar": "تم تشغيل تدقيق جاهزية المسار الرأسي للحلقة الأولى وتسجيل حالة المعرفة والمنطق الوثائقي والوسائط.",
-      "title_ar": "تشغيل تدقيق جاهزية خط الوثائقي"
-    },
-    {
-      "changed_files": [
         "PROJECT_PROGRESS.md",
         "artifacts/fast-track/media-prototype-audit.json",
         "artifacts/fast-track/pipeline-readiness.json"
@@ -135,6 +113,29 @@
       "status": "COMPLETED",
       "summary_ar": "تم فحص الفيديو التجريبي والبحث عن الأوامر والسكربتات والملفات التي أنتجته. درجة الثقة: HIGH.",
       "title_ar": "تدقيق مسار إنتاج quality-gate-v4.mp4"
+    },
+    {
+      "changed_files": [
+        "artifacts/fast-track/pipeline-readiness.json",
+        "artifacts/fast-track/pipeline-readiness.md"
+      ],
+      "evidence": [],
+      "metadata": {
+        "SIRAJ_FAST_TRACK_PROGRESS_RECORDED": true,
+        "stage_status": {
+          "documentary_logic": "READY",
+          "first_episode": "STARTED",
+          "knowledge_foundation": "READY",
+          "media_execution": "PROTOTYPE_WORKING",
+          "publishable_media_execution": "BLOCKED"
+        }
+      },
+      "milestone_id": "fast-track-readiness-audit-v1",
+      "next_action_ar": "Convert the confirmed quality-gate-v4 video path into a reproducible episode render adapter while populating the reviewed Episode 001 source pack.",
+      "recorded_at": "2026-07-21T12:27:22.227256+00:00",
+      "status": "COMPLETED",
+      "summary_ar": "تم تشغيل تدقيق جاهزية المسار الرأسي للحلقة الأولى وتسجيل حالة المعرفة والمنطق الوثائقي والوسائط.",
+      "title_ar": "تشغيل تدقيق جاهزية خط الوثائقي"
     }
   ],
   "program_state": {
@@ -145,5 +146,5 @@
     "short_term_objective_ar": "إنتاج أول حلقة وثائقية قابلة للنشر من المصدر إلى ملف MP4، ثم تحويل المسار إلى قالب إنتاج متكرر."
   },
   "schema_version": "siraj-project-milestones-v1",
-  "updated_at": "2026-07-21T12:15:08.508979+00:00"
+  "updated_at": "2026-07-21T12:27:22.227277+00:00"
 }

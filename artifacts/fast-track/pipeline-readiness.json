@@ -17,17 +17,17 @@
     "experimental_video_confirmed": true,
     "local_video_artifact_located": true,
     "production_is_specification_only": true,
+    "publishable_quality_validated": false,
     "rendering_is_dry_run": true,
-    "reproducible_render_adapter_validated": false,
-    "reusable_voice_adapter_validated": false,
+    "reusable_render_adapter_validated": false,
     "temporary_voiceover_detected": true
   },
   "first_episode": "episode-001-adam",
-  "generated_at": "2026-07-21T03:11:43.331846+00:00",
+  "generated_at": "2026-07-21T12:27:22.207302+00:00",
   "immediate_blockers": [
-    "The video prototype exists, but the reusable and reproducible render adapter is not yet validated.",
-    "Temporary narration exists, but the production voice adapter and quality profile are not yet validated.",
-    "The visual asset execution path is not yet validated for repeatable episode production.",
+    "The video-production prototype works, but its execution path is not yet standardized as a reproducible production adapter.",
+    "Temporary narration works, but the final voice provider, voice profile, and quality gate are not yet validated.",
+    "The experimental editing path works, but the publishable documentary render profile is not yet complete.",
     "Episode 001 source pack is not populated or reviewed."
   ],
   "media_prototype_audit": {
@@ -384,7 +384,7 @@
       "module": "src.application.storyboard_runtime"
     }
   },
-  "next_action": "Convert the confirmed short-video prototype into a reproducible render path while populating the reviewed Episode 001 source pack.",
+  "next_action": "Convert the confirmed quality-gate-v4 video path into a reproducible episode render adapter while populating the reviewed Episode 001 source pack.",
   "north_star": "Automated evidence-traceable Islamic-history video production from the creation of Adam through the Day of Judgment.",
   "schema_version": "siraj-fast-track-readiness-v1",
   "stage_status": {

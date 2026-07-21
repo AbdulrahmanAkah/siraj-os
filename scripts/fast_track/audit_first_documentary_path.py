@@ -275,8 +275,7 @@ def main() -> int:
         f"- Media execution: {report['stage_status']['media_execution']}",
         (
             "- Publishable media execution: "
-            f"{report['stage_status'].get("
-            "'publishable_media_execution', 'BLOCKED')}"
+            f"{report['stage_status'].get('publishable_media_execution', 'BLOCKED')}"
         ),
         f"- First episode: {report['stage_status']['first_episode']}",
         "",

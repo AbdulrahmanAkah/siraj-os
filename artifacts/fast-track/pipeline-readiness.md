@@ -6,18 +6,13 @@
 - Publishable media execution: BLOCKED
 - First episode: STARTED
 
-## Confirmed progress
-
-- A short experimental video was produced with simple editing and temporary narration.
-- Local video artifacts located: 4
-
 ## Immediate blockers
 
-- The video prototype exists, but the reusable and reproducible render adapter is not yet validated.
-- Temporary narration exists, but the production voice adapter and quality profile are not yet validated.
-- The visual asset execution path is not yet validated for repeatable episode production.
+- The video-production prototype works, but its execution path is not yet standardized as a reproducible production adapter.
+- Temporary narration works, but the final voice provider, voice profile, and quality gate are not yet validated.
+- The experimental editing path works, but the publishable documentary render profile is not yet complete.
 - Episode 001 source pack is not populated or reviewed.
 
 ## Next action
 
-Convert the confirmed short-video prototype into a reproducible render path while populating the reviewed Episode 001 source pack.
+Convert the confirmed quality-gate-v4 video path into a reproducible episode render adapter while populating the reviewed Episode 001 source pack.
