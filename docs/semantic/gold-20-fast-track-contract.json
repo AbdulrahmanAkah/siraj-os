@@ -1,0 +1,177 @@
+{
+  "annotation_policy": {
+    "adjudication_required_for_disagreement": true,
+    "human_review_required": true,
+    "inference_requires_explicit_flag": true,
+    "literal_evidence_only": true,
+    "preannotation_allowed": true,
+    "provider_output_is_not_gold": true,
+    "second_review": "ALL_AMBIGUOUS_AND_TEN_PERCENT_CLEAR"
+  },
+  "annotation_statuses": [
+    "PENDING_PREANNOTATION",
+    "PENDING_HUMAN_REVIEW",
+    "NEEDS_ADJUDICATION",
+    "GOLD_ACCEPTED",
+    "REJECTED_SOURCE"
+  ],
+  "dataset_id": "gold-20-fast-track-v1",
+  "difficulty_quotas": {
+    "ABSTENTION": 2,
+    "AMBIGUOUS": 4,
+    "COREFERENCE": 5,
+    "DIRECT": 6,
+    "MULTI_ITEM": 3
+  },
+  "evaluation_schema_version": "siraj-semantic-evaluation-v1",
+  "failure_taxonomy": [
+    "ROUTE_ERROR",
+    "ENTITY_BOUNDARY_ERROR",
+    "ENTITY_TYPE_ERROR",
+    "RELATION_ERROR",
+    "STATUS_ERROR",
+    "APPOINTMENT_ERROR",
+    "ISNAD_ERROR",
+    "EVENT_ERROR",
+    "EVIDENCE_ERROR",
+    "COREFERENCE_ERROR",
+    "ABSTENTION_ERROR",
+    "HALLUCINATION",
+    "MALFORMED_OUTPUT",
+    "SOURCE_AMBIGUITY",
+    "ANNOTATION_ERROR",
+    "SCHEMA_ERROR",
+    "PROVIDER_ERROR"
+  ],
+  "immutable_annotation_fields": [
+    "annotation_id",
+    "dataset_id",
+    "schema_version",
+    "source_id",
+    "book_id",
+    "locator",
+    "segment_id",
+    "original_text",
+    "source_text_hash"
+  ],
+  "metrics": {
+    "abstention_accuracy": {
+      "kind": "exact",
+      "required": true
+    },
+    "entity_f1": {
+      "kind": "harmonic_mean",
+      "required": true
+    },
+    "entity_precision": {
+      "kind": "set",
+      "required": true
+    },
+    "entity_recall": {
+      "kind": "set",
+      "required": true
+    },
+    "estimated_cost_usd": {
+      "kind": "operational",
+      "required": true
+    },
+    "evidence_exact_match": {
+      "kind": "span_exact",
+      "required": true
+    },
+    "evidence_overlap_f1": {
+      "kind": "span_overlap",
+      "required": true
+    },
+    "hallucination_rate": {
+      "kind": "error_rate",
+      "required": true
+    },
+    "input_tokens": {
+      "kind": "operational",
+      "required": true
+    },
+    "latency_ms": {
+      "kind": "operational",
+      "required": true
+    },
+    "malformed_output_rate": {
+      "kind": "error_rate",
+      "required": true
+    },
+    "output_tokens": {
+      "kind": "operational",
+      "required": true
+    },
+    "route_accuracy": {
+      "kind": "exact",
+      "required": true
+    },
+    "semantic_item_f1": {
+      "kind": "harmonic_mean",
+      "required": true
+    },
+    "semantic_item_precision": {
+      "kind": "set",
+      "required": true
+    },
+    "semantic_item_recall": {
+      "kind": "set",
+      "required": true
+    }
+  },
+  "output_collections": [
+    "entities",
+    "statuses",
+    "relations",
+    "appointments",
+    "isnads",
+    "events"
+  ],
+  "prohibited_gold_fields": [
+    "provider_output",
+    "raw_provider_response",
+    "model_answer",
+    "provider_metadata"
+  ],
+  "quality_gates": {
+    "all_cases_human_reviewed": true,
+    "critical_hallucination_count_max": 0,
+    "dataset_contract_valid": true,
+    "gold_provider_output_separation": true,
+    "literal_evidence_required": true,
+    "malformed_output_rate_max": 0.0,
+    "provenance_complete": true,
+    "sample_count": 20,
+    "unclassified_failure_count_max": 0
+  },
+  "required_provenance_fields": [
+    "source_id",
+    "book_id",
+    "book_title",
+    "locator",
+    "segment_id",
+    "original_text",
+    "source_text_hash"
+  ],
+  "review_decisions": [
+    "ACCEPT",
+    "EDIT",
+    "ABSTAIN",
+    "ESCALATE"
+  ],
+  "route_quotas": {
+    "APPOINTMENT_AND_OFFICE": 5,
+    "ISNAD": 5,
+    "PERSON_AND_STATUS": 5,
+    "SIRA_POETRY": 5
+  },
+  "routes": [
+    "PERSON_AND_STATUS",
+    "APPOINTMENT_AND_OFFICE",
+    "ISNAD",
+    "SIRA_POETRY"
+  ],
+  "sample_count": 20,
+  "schema_version": "siraj-gold-semantic-v1"
+}

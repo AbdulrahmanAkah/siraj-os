@@ -4,7 +4,7 @@
 <!-- SIRAJ_AUTO_PROGRESS_BEGIN -->
 ## الحالة التنفيذية الآلية للمشروع
 
-**آخر مزامنة:** 2026-07-21T12:27:22.227277+00:00
+**آخر مزامنة:** 2026-07-21T12:27:29.197112+00:00
 
 ### الهدف المرجعي
 
@@ -19,14 +19,15 @@
 
 ### أحدث خطوة كبيرة
 
-- **المعرّف:** `fast-track-readiness-audit-v1`
-- **العنوان:** تشغيل تدقيق جاهزية خط الوثائقي
+- **المعرّف:** `2026-07-21-repository-source-control-cleanup`
+- **العنوان:** تنظيف حالة Source Control وتصنيف ملفات العمل
 - **الحالة:** `COMPLETED`
-- **الملخص:** تم تشغيل تدقيق جاهزية المسار الرأسي للحلقة الأولى وتسجيل حالة المعرفة والمنطق الوثائقي والوسائط.
-- **الخطوة التالية:** Convert the confirmed quality-gate-v4 video path into a reproducible episode render adapter while populating the reviewed Episode 001 source pack.
+- **الملخص:** تم فصل ملفات المصدر المفيدة عن المخرجات المولدة والملفات الثنائية والتجارب غير المعتمدة. تم حفظ تجربة Prompt v3 خارجيًا، وتثبيت أدوات Shamela وGold-20، واستبعاد artifacts المولدة وملفات Java bytecode.
+- **الخطوة التالية:** البدء بتحويل quality_gate_render_v4 إلى Render Adapter عام يقرأ manifest قابلًا لإعادة الاستخدام.
 
 ### أحدث Milestones
 
+- `COMPLETED` — تنظيف حالة Source Control وتصنيف ملفات العمل (`2026-07-21-repository-source-control-cleanup`)
 - `COMPLETED` — تشغيل تدقيق جاهزية خط الوثائقي (`fast-track-readiness-audit-v1`)
 - `COMPLETED` — تدقيق مسار إنتاج quality-gate-v4.mp4 (`2026-07-21-quality-gate-v4-lineage-audit`)
 - `COMPLETED` — مزامنة حالة الوسائط مع تدقيق Fast Track (`2026-07-21-fast-track-media-state-synchronized`)

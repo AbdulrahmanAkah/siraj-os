@@ -136,6 +136,29 @@
       "status": "COMPLETED",
       "summary_ar": "تم تشغيل تدقيق جاهزية المسار الرأسي للحلقة الأولى وتسجيل حالة المعرفة والمنطق الوثائقي والوسائط.",
       "title_ar": "تشغيل تدقيق جاهزية خط الوثائقي"
+    },
+    {
+      "changed_files": [
+        ".gitignore",
+        "PROJECT_PROGRESS.md",
+        "docs/semantic/gold-20-fast-track-contract.json",
+        "docs/semantic/gold-20-fast-track-spec.md",
+        "scripts/shamela/",
+        "src/application/local_semantic_intelligence/gold_20_contract.py"
+      ],
+      "evidence": [],
+      "metadata": {
+        "generated_shamela_artifacts_ignored": true,
+        "java_class_files_removed": true,
+        "prompt_v3_experiment_archived": true,
+        "working_tree_target": "CLEAN"
+      },
+      "milestone_id": "2026-07-21-repository-source-control-cleanup",
+      "next_action_ar": "البدء بتحويل quality_gate_render_v4 إلى Render Adapter عام يقرأ manifest قابلًا لإعادة الاستخدام.",
+      "recorded_at": "2026-07-21T12:27:29.197088+00:00",
+      "status": "COMPLETED",
+      "summary_ar": "تم فصل ملفات المصدر المفيدة عن المخرجات المولدة والملفات الثنائية والتجارب غير المعتمدة. تم حفظ تجربة Prompt v3 خارجيًا، وتثبيت أدوات Shamela وGold-20، واستبعاد artifacts المولدة وملفات Java bytecode.",
+      "title_ar": "تنظيف حالة Source Control وتصنيف ملفات العمل"
     }
   ],
   "program_state": {
@@ -146,5 +169,5 @@
     "short_term_objective_ar": "إنتاج أول حلقة وثائقية قابلة للنشر من المصدر إلى ملف MP4، ثم تحويل المسار إلى قالب إنتاج متكرر."
   },
   "schema_version": "siraj-project-milestones-v1",
-  "updated_at": "2026-07-21T12:27:22.227277+00:00"
+  "updated_at": "2026-07-21T12:27:29.197112+00:00"
 }
