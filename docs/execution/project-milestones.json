@@ -248,6 +248,44 @@
       "status": "COMPLETED",
       "summary_ar": "تم إنشاء Render Adapter v2 ليستهلك التوقيت المستقل للمشاهد، والحركات والانتقالات لكل مشهد، وطبقات الصوت المتعددة، والترجمة الجانبية أو المحروقة. نجح التشغيل الحي في إنتاج فيديو H.264 مع صوت AAC، وثلاثة مشاهد وثلاث طبقات صوت، وبمدة فعلية مطابقة للمدة المخططة 19.402 ثانية.",
       "title_ar": "إنشاء Render Adapter v2 وتشغيل Episode Render Manifest v2 فعليًا"
+    },
+    {
+      "changed_files": [
+        "PROJECT_PROGRESS.md",
+        "docs/execution/project-milestones.json",
+        "scripts/fast_track/run_audio_mastering_v1.py",
+        "scripts/fast_track/run_diagnostic_voice_v1.py",
+        "scripts/fast_track/run_mastered_voice_render_v2.py",
+        "scripts/fast_track/run_voice_linked_render_v2.py",
+        "src/application/local_video_production/__init__.py",
+        "src/application/local_video_production/audio_mastering_v1.py",
+        "src/application/local_video_production/diagnostic_voice_provider_v1.py",
+        "src/application/local_video_production/render_adapter_v2.py",
+        "src/application/local_video_production/voice_provider_v1.py",
+        "tests/integration/test_audio_mastering_v1.py",
+        "tests/integration/test_diagnostic_voice_provider_v1.py",
+        "tests/integration/test_render_adapter_v2.py",
+        "tests/integration/test_voice_provider_v1.py"
+      ],
+      "evidence": [],
+      "metadata": {
+        "amix_normalize": false,
+        "audio_mastering_report": "siraj-audio-mastering-report-v1",
+        "final_mix_integrated_lufs": -18.7,
+        "final_mix_true_peak_dbtp": -14.5,
+        "final_video_sha256": "95798cf52ac6bc7e63c504223aae9ed06d45bb6da664e3dfa8d66d6c95b16c84",
+        "input_integrated_lufs": -22.48,
+        "live_render_status": "VALID",
+        "mastered_integrated_lufs": -19.03,
+        "voice_contract": "siraj-production-voice-request-v1",
+        "voice_report": "siraj-production-voice-report-v1"
+      },
+      "milestone_id": "2026-07-21-production-voice-audio-v1",
+      "next_action_ar": "إنشاء Production TTS Adapter حقيقي خلف VoiceProvider، مع اختيار المزود، وإدارة المفاتيح، وإعادة المحاولة، والتخزين المؤقت، وتقارير جودة النطق والمزامنة.",
+      "recorded_at": "2026-07-21T15:09:37.859961+00:00",
+      "status": "COMPLETED",
+      "summary_ar": "تم إنشاء عقد VoiceProvider مستقل عن المزود، وتطبيع النص العربي، وقاموس النطق، وتقسيم التعليق إلى مقاطع، ومزود WAV تشخيصي حتمي. كما تم إنشاء Audio Mastering v1 باستخدام loudnorm ثنائي المرور، وربط الصوت المعالج بـEpisode Render Manifest v2. بلغ مستوى الصوت النهائي في الفيديو ناقص 18.7 LUFS مقابل هدف ناقص 19 LUFS، مع True Peak ناقص 14.5 dBTP.",
+      "title_ar": "إنشاء Production Voice Contract وAudio Mastering v1"
     }
   ],
   "program_state": {
@@ -258,5 +296,5 @@
     "short_term_objective_ar": "إنتاج أول حلقة وثائقية قابلة للنشر من المصدر إلى ملف MP4، ثم تحويل المسار إلى قالب إنتاج متكرر."
   },
   "schema_version": "siraj-project-milestones-v1",
-  "updated_at": "2026-07-21T14:10:17.399504+00:00"
+  "updated_at": "2026-07-21T15:09:37.860007+00:00"
 }

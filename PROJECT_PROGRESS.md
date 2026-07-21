@@ -4,7 +4,7 @@
 <!-- SIRAJ_AUTO_PROGRESS_BEGIN -->
 ## الحالة التنفيذية الآلية للمشروع
 
-**آخر مزامنة:** 2026-07-21T14:10:17.399504+00:00
+**آخر مزامنة:** 2026-07-21T15:09:37.860007+00:00
 
 ### الهدف المرجعي
 
@@ -19,14 +19,15 @@
 
 ### أحدث خطوة كبيرة
 
-- **المعرّف:** `2026-07-21-render-adapter-v2`
-- **العنوان:** إنشاء Render Adapter v2 وتشغيل Episode Render Manifest v2 فعليًا
+- **المعرّف:** `2026-07-21-production-voice-audio-v1`
+- **العنوان:** إنشاء Production Voice Contract وAudio Mastering v1
 - **الحالة:** `COMPLETED`
-- **الملخص:** تم إنشاء Render Adapter v2 ليستهلك التوقيت المستقل للمشاهد، والحركات والانتقالات لكل مشهد، وطبقات الصوت المتعددة، والترجمة الجانبية أو المحروقة. نجح التشغيل الحي في إنتاج فيديو H.264 مع صوت AAC، وثلاثة مشاهد وثلاث طبقات صوت، وبمدة فعلية مطابقة للمدة المخططة 19.402 ثانية.
-- **الخطوة التالية:** تطوير Production Voice Layer بواجهة VoiceProvider مستقلة عن المزود، وقاموس نطق عربي، وتقسيم صوتي على مستوى الجمل، وتطبيع مستوى الصوت، مع مزود محلي تجريبي قبل ربط المزودات الخارجية.
+- **الملخص:** تم إنشاء عقد VoiceProvider مستقل عن المزود، وتطبيع النص العربي، وقاموس النطق، وتقسيم التعليق إلى مقاطع، ومزود WAV تشخيصي حتمي. كما تم إنشاء Audio Mastering v1 باستخدام loudnorm ثنائي المرور، وربط الصوت المعالج بـEpisode Render Manifest v2. بلغ مستوى الصوت النهائي في الفيديو ناقص 18.7 LUFS مقابل هدف ناقص 19 LUFS، مع True Peak ناقص 14.5 dBTP.
+- **الخطوة التالية:** إنشاء Production TTS Adapter حقيقي خلف VoiceProvider، مع اختيار المزود، وإدارة المفاتيح، وإعادة المحاولة، والتخزين المؤقت، وتقارير جودة النطق والمزامنة.
 
 ### أحدث Milestones
 
+- `COMPLETED` — إنشاء Production Voice Contract وAudio Mastering v1 (`2026-07-21-production-voice-audio-v1`)
 - `COMPLETED` — إنشاء Render Adapter v2 وتشغيل Episode Render Manifest v2 فعليًا (`2026-07-21-render-adapter-v2`)
 - `COMPLETED` — إنشاء Episode Render Manifest v2 ومخطط المشاهد الموقّتة (`2026-07-21-episode-render-manifest-v2`)
 - `COMPLETED` — إنتاج فيديو ثانٍ من Render Manifest عام (`2026-07-21-render-adapter-v1-replay`)
@@ -34,7 +35,6 @@
 - `COMPLETED` — تشغيل تدقيق جاهزية خط الوثائقي (`fast-track-readiness-audit-v1`)
 - `COMPLETED` — تدقيق مسار إنتاج quality-gate-v4.mp4 (`2026-07-21-quality-gate-v4-lineage-audit`)
 - `COMPLETED` — مزامنة حالة الوسائط مع تدقيق Fast Track (`2026-07-21-fast-track-media-state-synchronized`)
-- `COMPLETED` — تثبيت التحديث الآلي لسجل تقدم المشروع (`2026-07-21-progress-automation-installed`)
 
 السجل المنظم:
 

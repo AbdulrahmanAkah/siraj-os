@@ -368,7 +368,8 @@ def _build_audio_filters(
         "".join(output_labels)
         + f"amix=inputs={len(output_labels)}:"
         + "duration=longest:"
-        + "dropout_transition=0,"
+        + "dropout_transition=0:"
+        + "normalize=0,"
         + "alimiter=limit=0.95"
         + "[finalaudio]"
     )

@@ -95,6 +95,8 @@ def test_audio_filters_support_multiple_layers() -> None:
     assert "adelay=250|250" in joined
     assert "volume=-30.0dB" in joined
     assert "amix=inputs=2" in joined
+    assert "normalize=0" in joined
+    assert "alimiter=limit=0.95" in joined
     assert output == "finalaudio"
 
 

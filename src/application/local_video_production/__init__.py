@@ -44,6 +44,30 @@ from .quality_gate_v4 import (
     create_quality_gate_voice_selection,
 )
 from .quality_gate_render_v4 import build_quality_gate_v4
+from .audio_mastering_v1 import (
+    AUDIO_MASTERING_REPORT_SCHEMA_V1,
+    AudioMasteringResult,
+    analyze_loudness,
+    master_audio,
+    verify_loudness,
+)
+from .diagnostic_voice_provider_v1 import (
+    DIAGNOSTIC_VOICE_PROVIDER_ID,
+    DiagnosticToneVoiceProvider,
+    write_diagnostic_wav,
+)
+from .voice_provider_v1 import (
+    VOICE_REPORT_SCHEMA_V1,
+    VOICE_REQUEST_SCHEMA_V1,
+    VoiceProvider,
+    VoiceSegment,
+    VoiceSynthesisResult,
+    build_voice_segments,
+    estimate_arabic_duration_ms,
+    normalize_arabic_text,
+    split_arabic_narration,
+    validate_voice_request,
+)
 from .render_adapter_v2 import (
     EpisodeRenderAdapterV2,
     EpisodeRenderV2Result,
@@ -100,6 +124,24 @@ __all__ = [
     "create_quality_gate_voice_selection",
     "build_quality_gate_v4",
     "RENDER_ADAPTER_SCHEMA_VERSION",
+    "AUDIO_MASTERING_REPORT_SCHEMA_V1",
+    "AudioMasteringResult",
+    "analyze_loudness",
+    "master_audio",
+    "verify_loudness",
+    "DIAGNOSTIC_VOICE_PROVIDER_ID",
+    "DiagnosticToneVoiceProvider",
+    "write_diagnostic_wav",
+    "VOICE_REPORT_SCHEMA_V1",
+    "VOICE_REQUEST_SCHEMA_V1",
+    "VoiceProvider",
+    "VoiceSegment",
+    "VoiceSynthesisResult",
+    "build_voice_segments",
+    "estimate_arabic_duration_ms",
+    "normalize_arabic_text",
+    "split_arabic_narration",
+    "validate_voice_request",
     "EpisodeRenderAdapterV2",
     "EpisodeRenderV2Result",
     "RENDER_ADAPTER_V2_REPORT_SCHEMA",
