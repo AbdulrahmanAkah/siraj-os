@@ -4,7 +4,7 @@
 <!-- SIRAJ_AUTO_PROGRESS_BEGIN -->
 ## الحالة التنفيذية الآلية للمشروع
 
-**آخر مزامنة:** 2026-07-21T12:27:29.197112+00:00
+**آخر مزامنة:** 2026-07-21T12:37:47.902203+00:00
 
 ### الهدف المرجعي
 
@@ -19,14 +19,15 @@
 
 ### أحدث خطوة كبيرة
 
-- **المعرّف:** `2026-07-21-repository-source-control-cleanup`
-- **العنوان:** تنظيف حالة Source Control وتصنيف ملفات العمل
+- **المعرّف:** `2026-07-21-render-adapter-v1-replay`
+- **العنوان:** إنتاج فيديو ثانٍ من Render Manifest عام
 - **الحالة:** `COMPLETED`
-- **الملخص:** تم فصل ملفات المصدر المفيدة عن المخرجات المولدة والملفات الثنائية والتجارب غير المعتمدة. تم حفظ تجربة Prompt v3 خارجيًا، وتثبيت أدوات Shamela وGold-20، واستبعاد artifacts المولدة وملفات Java bytecode.
-- **الخطوة التالية:** البدء بتحويل quality_gate_render_v4 إلى Render Adapter عام يقرأ manifest قابلًا لإعادة الاستخدام.
+- **الملخص:** تم فصل بيانات الفيديو عن منطق FFmpeg، وإنتاج render-adapter-v1-replay.mp4 من manifest مستقل باستخدام LocalVideoRenderAdapter. اجتاز الفيديو فحوص الترميز والدقة والصوت والإطارات السوداء.
+- **الخطوة التالية:** ربط Render Manifest بمخرجات الحلقة الأولى بدل بيانات quality-gate، ثم توسيع الـadapter لدعم توقيت المشاهد والترجمة المحروقة اختياريًا.
 
 ### أحدث Milestones
 
+- `COMPLETED` — إنتاج فيديو ثانٍ من Render Manifest عام (`2026-07-21-render-adapter-v1-replay`)
 - `COMPLETED` — تنظيف حالة Source Control وتصنيف ملفات العمل (`2026-07-21-repository-source-control-cleanup`)
 - `COMPLETED` — تشغيل تدقيق جاهزية خط الوثائقي (`fast-track-readiness-audit-v1`)
 - `COMPLETED` — تدقيق مسار إنتاج quality-gate-v4.mp4 (`2026-07-21-quality-gate-v4-lineage-audit`)

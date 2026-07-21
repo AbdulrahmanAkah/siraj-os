@@ -44,6 +44,12 @@ from .quality_gate_v4 import (
     create_quality_gate_voice_selection,
 )
 from .quality_gate_render_v4 import build_quality_gate_v4
+from .render_adapter_v1 import (
+    RENDER_ADAPTER_SCHEMA_VERSION,
+    LocalVideoRenderAdapter,
+    LocalVideoRenderResult,
+    render_local_video_manifest,
+)
 from .episode_preproduction_v4 import build_episode_01_preproduction
 
 __all__ = [
@@ -81,5 +87,9 @@ __all__ = [
     "build_visual_auditions",
     "create_quality_gate_voice_selection",
     "build_quality_gate_v4",
+    "RENDER_ADAPTER_SCHEMA_VERSION",
+    "LocalVideoRenderAdapter",
+    "LocalVideoRenderResult",
+    "render_local_video_manifest",
     "build_episode_01_preproduction",
 ]

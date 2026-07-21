@@ -159,6 +159,38 @@
       "status": "COMPLETED",
       "summary_ar": "تم فصل ملفات المصدر المفيدة عن المخرجات المولدة والملفات الثنائية والتجارب غير المعتمدة. تم حفظ تجربة Prompt v3 خارجيًا، وتثبيت أدوات Shamela وGold-20، واستبعاد artifacts المولدة وملفات Java bytecode.",
       "title_ar": "تنظيف حالة Source Control وتصنيف ملفات العمل"
+    },
+    {
+      "changed_files": [
+        "PROJECT_PROGRESS.md",
+        "scripts/fast_track/build_render_adapter_v1_replay_manifest.py",
+        "scripts/fast_track/run_render_adapter_v1_replay.py",
+        "src/application/local_video_production/render_adapter_v1.py",
+        "tests/integration/test_render_adapter_v1.py"
+      ],
+      "evidence": [],
+      "metadata": {
+        "checks": {
+          "assets_present": true,
+          "audio_codec": true,
+          "duration": true,
+          "no_black_frames": true,
+          "no_clipping": true,
+          "non_silent_audio": true,
+          "resolution": true,
+          "video_codec": true
+        },
+        "duration_seconds": 19.402,
+        "manifest_driven": true,
+        "output": "C:\\SIRAJ\\Workspace\\first-project\\exports\\render-adapter-v1-replay.mp4",
+        "output_sha256": "0ab95afc437e1d7b4f22049eda96b08213ce8f0bbff9369b888bb37ab5bce58f"
+      },
+      "milestone_id": "2026-07-21-render-adapter-v1-replay",
+      "next_action_ar": "ربط Render Manifest بمخرجات الحلقة الأولى بدل بيانات quality-gate، ثم توسيع الـadapter لدعم توقيت المشاهد والترجمة المحروقة اختياريًا.",
+      "recorded_at": "2026-07-21T12:37:47.902174+00:00",
+      "status": "COMPLETED",
+      "summary_ar": "تم فصل بيانات الفيديو عن منطق FFmpeg، وإنتاج render-adapter-v1-replay.mp4 من manifest مستقل باستخدام LocalVideoRenderAdapter. اجتاز الفيديو فحوص الترميز والدقة والصوت والإطارات السوداء.",
+      "title_ar": "إنتاج فيديو ثانٍ من Render Manifest عام"
     }
   ],
   "program_state": {
@@ -169,5 +201,5 @@
     "short_term_objective_ar": "إنتاج أول حلقة وثائقية قابلة للنشر من المصدر إلى ملف MP4، ثم تحويل المسار إلى قالب إنتاج متكرر."
   },
   "schema_version": "siraj-project-milestones-v1",
-  "updated_at": "2026-07-21T12:27:29.197112+00:00"
+  "updated_at": "2026-07-21T12:37:47.902203+00:00"
 }
