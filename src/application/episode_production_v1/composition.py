@@ -105,7 +105,10 @@ class EpisodeProductionComposition:
             except ValueError:
                 return StageExecutionResult(stage.stage_id, run_id, "PERMANENT_FAILURE", errors=({"code": "EVIDENCE_PATH_OUTSIDE_PROJECT"},))
             artifact = {"artifact_id": f"approved-evidence:{package['evidence_package_id']}", "artifact_type": "approved-evidence-package", "stage_id": stage.stage_id, "path": relative, "schema_version": package["schema_version"], "fingerprint": package["input_fingerprint"], "created_at": "", "status": "COMPLETED", "approval_status": "APPROVED", "source_artifact_ids": [], "supersedes": None, "runtime_only": True, "git_trackable": False}
-            return StageExecutionResult(stage.stage_id, run_id, "COMPLETED", outputs=(artifact,), input_fingerprint=package["input_fingerprint"], output_fingerprint=package["input_fingerprint"], next_action="Generate the evidence-bound narrative script.")
+            # The orchestrator owns the stage-input fingerprint.  Returning the
+            # package fingerprint here would make the completed stage appear stale
+            # on every refresh and can create an unbounded run-through loop.
+            return StageExecutionResult(stage.stage_id, run_id, "COMPLETED", outputs=(artifact,), output_fingerprint=package["input_fingerprint"], next_action="Generate the evidence-bound narrative script.")
         return run
 
     def _writer(self) -> Any | None:
@@ -131,8 +134,9 @@ class EpisodeProductionComposition:
         evidence_path = Path(str(definition.get("evidence_package", {}).get("path", "")))
         narrative = EvidenceToScriptEpisodeAdapter(self.project_root, evidence_path, writer=writer) if writer is not None else None
         runners: dict[str, Any] = {"evidence_knowledge": self._evidence_runner()}
+        if narrative is not None:
+            runners["narrative_script"] = narrative.as_stage_runner()
         runners.update(composed_runners(
-            narrative=narrative,
             tts=ProductionTTSEpisodeAdapter(self.tts_synthesizer, self.tts_request_factory) if self.tts_synthesizer and self.tts_request_factory else None,
             subtitles=SubtitleEpisodeAdapter(self.subtitle_generator) if self.subtitle_generator is not None else (SubtitleEpisodeAdapter() if self.config.get("subtitles", {}).get("enabled") is True else None),
             storyboard=StoryboardEpisodeAdapter(self.storyboard_generator) if self.storyboard_generator is not None else (StoryboardEpisodeAdapter() if self.config.get("storyboard", {}).get("enabled") is True else None),

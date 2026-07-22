@@ -104,3 +104,18 @@ only JSON to stdout.
 5. Review the produced artifact before approving dependents.
 
 Live narrative, TTS, visual, video, and render validation remain deferred.
+
+## Deterministic end-to-end fixture
+
+`tests/integration/test_episode_production_v1.py` includes an in-discovery,
+bounded fake episode.  It passes approved evidence through the production
+composition root, the evidence-bound script adapter, all approval gates, fake
+TTS/subtitles/storyboard/visual/video/render adapters, and the publication
+gate.  It never constructs a provider client or sends a request.
+
+The fixture previously exposed an orchestration defect: the approved-evidence
+runner returned the evidence-package fingerprint as its *stage input*
+fingerprint.  The orchestrator correctly treated that mismatch as stale, then
+made the stage ready again, so `run-through` could repeat it indefinitely.  The
+runner now leaves stage-input fingerprint ownership to the orchestrator and
+uses the package fingerprint only as its output fingerprint.

@@ -197,6 +197,7 @@ class VisualProviderEpisodeAdapter:
         if not isinstance(artifacts, list) or not artifacts:
             return StageExecutionResult(stage.stage_id, run_id, "PERMANENT_FAILURE", errors=({"code": "VISUAL_OUTPUT_INVALID"},))
         outputs = []
+        storyboard_sources = [item["artifact_id"] for item in context.manifest["stage_states"].get("storyboard", {}).get("outputs", []) if item.get("artifact_type") in {"episode-storyboard", "visual-asset-plan"}]
         for item in artifacts:
             if not isinstance(item, dict) or not isinstance(item.get("path"), str):
                 return StageExecutionResult(stage.stage_id, run_id, "PERMANENT_FAILURE", errors=({"code": "VISUAL_OUTPUT_INVALID"},))
@@ -204,7 +205,7 @@ class VisualProviderEpisodeAdapter:
             if not path.is_file() or path.stat().st_size == 0:
                 return StageExecutionResult(stage.stage_id, run_id, "PERMANENT_FAILURE", errors=({"code": "VISUAL_OUTPUT_INVALID"},))
             fp = sha256(path.read_bytes()).hexdigest()
-            outputs.append(_artifact(stage.stage_id, "visual-asset", _relative(context.project_root, path), fp, approval="HUMAN_REVIEW_REQUIRED", metadata={"asset_id": item.get("asset_id"), "model": item.get("model")}))
+            outputs.append(_artifact(stage.stage_id, "visual-asset", _relative(context.project_root, path), fp, approval="HUMAN_REVIEW_REQUIRED", sources=storyboard_sources, metadata={"asset_id": item.get("asset_id"), "model": item.get("model")}))
         return StageExecutionResult(stage.stage_id, run_id, str(value["status"]), outputs=tuple(outputs), output_fingerprint=_fp(outputs), external_calls=int(value.get("external_calls", 1)), next_action="Record master visual approval before rendering.")
 
 
@@ -228,11 +229,12 @@ class VideoProviderEpisodeAdapter:
         if result["status"] != "COMPLETED":
             return StageExecutionResult(stage.stage_id, run_id, result["status"], errors=tuple({"code": item} for item in result.get("errors", [])), blocker={"code": result.get("blocker", "VIDEO_PROVIDER_FAILURE")}, retryable=result["status"] in {"BLOCKED_BY_EXTERNAL_PROVIDER", "RETRYABLE_FAILURE"}, external_calls=int(result.get("external_calls", 0)))
         outputs = []
+        storyboard_sources = [item["artifact_id"] for item in context.manifest["stage_states"].get("storyboard", {}).get("outputs", []) if item.get("artifact_type") in {"episode-storyboard", "visual-asset-plan"}]
         for item in result.get("outputs", []):
             path = context.project_root / str(item["path"])
             if not path.is_file() or sha256(path.read_bytes()).hexdigest() != item["sha256"]:
                 return StageExecutionResult(stage.stage_id, run_id, "PERMANENT_FAILURE", errors=({"code": "VIDEO_OUTPUT_INVALID"},))
-            outputs.append(_artifact(stage.stage_id, "generated-video", _relative(context.project_root, path), str(item["sha256"]), approval="HUMAN_REVIEW_REQUIRED", metadata={"request_id": item["request_id"], "model": item["model"], "duration_seconds": item["duration_seconds"]}))
+            outputs.append(_artifact(stage.stage_id, "generated-video", _relative(context.project_root, path), str(item["sha256"]), approval="HUMAN_REVIEW_REQUIRED", sources=storyboard_sources, metadata={"request_id": item["request_id"], "model": item["model"], "duration_seconds": item["duration_seconds"]}))
         return StageExecutionResult(stage.stage_id, run_id, "COMPLETED", outputs=tuple(outputs), output_fingerprint=_fp(result.get("outputs", [])), external_calls=int(result.get("external_calls", 0)), next_action="Record per-asset video approval before rendering.")
 
 
@@ -254,5 +256,6 @@ class RenderEpisodeAdapter:
             fp = sha256(output.read_bytes()).hexdigest()
         except Exception as error:
             return StageExecutionResult(stage.stage_id, run_id, "PERMANENT_FAILURE", errors=({"code": "OUTPUT_INVALID", "exception_class": type(error).__name__},))
-        outputs = (_artifact(stage.stage_id, "rendered-video", _relative(context.project_root, output), fp), _artifact(stage.stage_id, "render-verification", _relative(context.project_root, report), _fp({"render": fp, "report": report.read_text(encoding="utf-8", errors="replace")[:4000]})))
+        sources = [item["artifact_id"] for dependency in stage.dependencies for item in context.manifest["stage_states"].get(dependency, {}).get("outputs", [])]
+        outputs = (_artifact(stage.stage_id, "rendered-video", _relative(context.project_root, output), fp, sources=sources), _artifact(stage.stage_id, "render-verification", _relative(context.project_root, report), _fp({"render": fp, "report": report.read_text(encoding="utf-8", errors="replace")[:4000]}), sources=sources))
         return StageExecutionResult(stage.stage_id, run_id, "COMPLETED", outputs=outputs, output_fingerprint=fp, next_action="Record final render approval before publication.")
