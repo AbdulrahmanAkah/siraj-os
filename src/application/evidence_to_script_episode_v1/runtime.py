@@ -518,6 +518,12 @@ class EvidenceToScriptEpisodeAdapter:
         def run(context: EpisodeContext, stage: StageSpec, run_id: str) -> StageExecutionResult:
             if stage.stage_id != "narrative_script":
                 raise ValueError("EVIDENCE_TO_SCRIPT_STAGE_MISMATCH")
+            if getattr(self.writer, "requires_external", False) and not (context.allow_external and context.confirm_live):
+                return StageExecutionResult(
+                    "narrative_script", run_id, "BLOCKED_BY_EXTERNAL_PROVIDER",
+                    blocker={"code": "EXTERNAL_CONFIRMATION_REQUIRED"}, retryable=True,
+                    next_action="Use the narrative stage permission and explicit live confirmation.",
+                )
             result = self.execute(context.definition, run_id)
             # The orchestrator owns the stage fingerprint; the adapter keeps its richer
             # evidence/writer fingerprint inside the canonical script artifact and cache.

@@ -9,6 +9,11 @@ from .runtime import (
     validate_episode_script,
     validate_model_policy,
 )
+from .gemini_writer import (
+    GeminiEvidenceBoundScriptWriter,
+    GeminiNarrativeWriterConfig,
+    GoogleGenAINarrativeTransport,
+)
 
 __all__ = [
     "EvidenceToScriptEpisodeAdapter",
@@ -18,4 +23,7 @@ __all__ = [
     "validate_evidence_package",
     "validate_episode_script",
     "validate_model_policy",
+    "GeminiEvidenceBoundScriptWriter",
+    "GeminiNarrativeWriterConfig",
+    "GoogleGenAINarrativeTransport",
 ]

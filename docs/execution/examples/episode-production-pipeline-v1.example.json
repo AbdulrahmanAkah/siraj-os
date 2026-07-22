@@ -1,0 +1,33 @@
+{
+  "schema_version": "siraj-episode-production-pipeline-config-v1",
+  "episode_id": "episode-example",
+  "narrative_writer": {
+    "enabled": false,
+    "provider_id": "gemini",
+    "model_id": "gemini-2.5-flash",
+    "maximum_input_tokens": 24000,
+    "maximum_output_tokens": 30000,
+    "temperature": 0.2,
+    "prompt_version": "evidence-to-script-gemini-v1"
+  },
+  "tts": {"enabled": false},
+  "subtitles": {"enabled": true},
+  "storyboard": {"enabled": true},
+  "visuals": {"enabled": false, "live_validation_status": "IMPLEMENTATION_COMPLETED_LIVE_VALIDATION_DEFERRED"},
+  "video": {"enabled": false, "live_validation_status": "VIDEO_PROVIDER_V1_IMPLEMENTED_LIVE_VALIDATION_DEFERRED"},
+  "render": {"enabled": false},
+  "external_provider_policy": {
+    "default_allowed": false,
+    "explicit_live_confirmation_required": true,
+    "provider_configured": false,
+    "credential_present": false,
+    "disclosure_permitted": false,
+    "request_limit_available": false,
+    "quota_policy_valid": false,
+    "stage_permissions": {}
+  },
+  "approval_policy": {"human_approval_required": true},
+  "runtime_paths": {"root": "working/episode-production-v1"},
+  "request_limits": {},
+  "disclosure_permissions": {}
+}
