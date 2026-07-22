@@ -14,6 +14,12 @@ from src.application.evidence_to_script_episode_v1.gemini_writer import (
     GoogleGenAINarrativeTransport,
 )
 from src.application.evidence_to_script_episode_v1.runtime import EvidenceToScriptEpisodeAdapter
+from src.application.research_verification_episode_v1.runtime import (
+    ResearchVerificationEpisodeAdapter,
+    build_approved_evidence_runner,
+)
+from src.application.episode_quality_v1.runtime import EpisodeQAGate
+from src.application.publication_package_v1.runtime import PublicationPackageBuilder
 from src.application.episode_orchestration_v1.runtime import (
     EpisodeContext, EpisodeOrchestrator, StageExecutionResult, StageSpec,
 )
@@ -45,7 +51,7 @@ def validate_pipeline_config(config: dict[str, Any]) -> list[str]:
     errors: list[str] = []
     if config.get("schema_version") != PIPELINE_CONFIG_SCHEMA:
         errors.append("PIPELINE_CONFIGURATION_SCHEMA_INVALID")
-    for name in ("narrative_writer", "tts", "subtitles", "storyboard", "visuals", "video", "render", "external_provider_policy"):
+    for name in ("narrative_writer", "tts", "subtitles", "storyboard", "visuals", "video", "render", "research", "qa", "publication", "external_provider_policy"):
         if not isinstance(config.get(name, {}), dict):
             errors.append(f"PIPELINE_CONFIGURATION_SECTION_INVALID:{name}")
     if not isinstance(config.get("episode_id"), str) or not config["episode_id"].strip():
@@ -89,6 +95,9 @@ class EpisodeProductionComposition:
     renderer: Callable[[Path, Path], Any] | None = None
     render_manifest_factory: Callable[[EpisodeContext], Path] | None = None
     narrative_writer: Any | None = None
+    research_extractor: Any | None = None
+    qa_gate: EpisodeQAGate | None = None
+    publication_builder: PublicationPackageBuilder | None = None
     subtitle_generator: Callable[[Any], Any] | None = None
     storyboard_generator: Callable[[Any], Any] | None = None
 
@@ -111,6 +120,17 @@ class EpisodeProductionComposition:
             return StageExecutionResult(stage.stage_id, run_id, "COMPLETED", outputs=(artifact,), output_fingerprint=package["input_fingerprint"], next_action="Generate the evidence-bound narrative script.")
         return run
 
+    def _narrative_runner(self, writer: Any) -> Callable[[EpisodeContext, StageSpec, str], StageExecutionResult]:
+        """Read the post-approval evidence artifact, never a stale input path."""
+        def run(context: EpisodeContext, stage: StageSpec, run_id: str) -> StageExecutionResult:
+            outputs = context.manifest["stage_states"].get("evidence_approval", {}).get("outputs", [])
+            artifact = next((item for item in outputs if item.get("artifact_type") == "approved-evidence-package"), None)
+            if not artifact:
+                return StageExecutionResult(stage.stage_id, run_id, "BLOCKED_BY_DEPENDENCY", blocker={"code": "APPROVED_EVIDENCE_PACKAGE_REQUIRED"})
+            adapter = EvidenceToScriptEpisodeAdapter(self.project_root, self.project_root / str(artifact["path"]), writer=writer)
+            return adapter.as_stage_runner()(context, stage, run_id)
+        return run
+
     def _writer(self) -> Any | None:
         if self.narrative_writer is not None:
             return self.narrative_writer
@@ -131,11 +151,14 @@ class EpisodeProductionComposition:
         definition = json.loads(json.dumps(self.definition))
         definition["external_provider_policy"] = self.config.get("external_provider_policy", definition.get("external_provider_policy", {}))
         writer = self._writer()
-        evidence_path = Path(str(definition.get("evidence_package", {}).get("path", "")))
-        narrative = EvidenceToScriptEpisodeAdapter(self.project_root, evidence_path, writer=writer) if writer is not None else None
-        runners: dict[str, Any] = {"evidence_knowledge": self._evidence_runner()}
-        if narrative is not None:
-            runners["narrative_script"] = narrative.as_stage_runner()
+        source_package_path = Path(str(definition.get("source_package", {}).get("path", "")))
+        research_enabled = self.config.get("research", {}).get("enabled") is True
+        runners: dict[str, Any] = {
+            "evidence_knowledge": ResearchVerificationEpisodeAdapter(self.project_root, source_package_path, self.research_extractor).run if research_enabled else self._evidence_runner(),
+            "evidence_approval": build_approved_evidence_runner(),
+        }
+        if writer is not None:
+            runners["narrative_script"] = self._narrative_runner(writer)
         runners.update(composed_runners(
             tts=ProductionTTSEpisodeAdapter(self.tts_synthesizer, self.tts_request_factory) if self.tts_synthesizer and self.tts_request_factory else None,
             subtitles=SubtitleEpisodeAdapter(self.subtitle_generator) if self.subtitle_generator is not None else (SubtitleEpisodeAdapter() if self.config.get("subtitles", {}).get("enabled") is True else None),
@@ -144,10 +167,15 @@ class EpisodeProductionComposition:
             video=VideoProviderEpisodeAdapter(self.video_provider, self.video_allocation_factory) if self.video_provider and self.video_allocation_factory else None,
             render=RenderEpisodeAdapter(self.renderer, self.render_manifest_factory) if self.renderer and self.render_manifest_factory else None,
         ))
+        if self.qa_gate is not None or self.config.get("qa", {}).get("enabled") is True:
+            runners["qa_gate"] = (self.qa_gate or EpisodeQAGate()).run
+        if self.publication_builder is not None or self.config.get("publication", {}).get("enabled") is True:
+            runners["publication_package"] = (self.publication_builder or PublicationPackageBuilder()).run
         registry = list(build_episode_production_registry(runners=runners))
         for index, stage in enumerate(registry):
             if stage.stage_id == "evidence_knowledge":
-                registry[index] = StageSpec(**{**stage.__dict__, "runner": "episode_production_v1:evidence_knowledge", "current_implementation_status": "AVAILABLE_LOCAL_ADAPTER"})
+                status = "AVAILABLE_LOCAL_ADAPTER" if not research_enabled or self.research_extractor is not None else "IMPLEMENTED_EXTRACTOR_DISCONNECTED"
+                registry[index] = StageSpec(**{**stage.__dict__, "runner": "episode_production_v1:evidence_knowledge", "current_implementation_status": status})
             elif stage.stage_id == "visual_provider" and stage.stage_id in runners:
                 registry[index] = StageSpec(**{**stage.__dict__, "current_implementation_status": "IMPLEMENTATION_COMPLETED_LIVE_VALIDATION_DEFERRED"})
             elif stage.stage_id == "video_provider" and stage.stage_id in runners:

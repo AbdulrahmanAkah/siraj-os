@@ -96,6 +96,10 @@ class StageSpec:
     dependencies: tuple[str, ...] = ()
     optional_dependencies: tuple[str, ...] = ()
     human_approval_required: bool = False
+    # Most approval stages are completed directly by an explicit human decision.
+    # A small number of gates must materialize a reviewed, canonical artifact
+    # after that decision (for example the approved evidence package).
+    approval_materialization_required: bool = False
     external_provider_required: bool = False
     retry_policy: str = "NO_AUTOMATIC_RETRY"
     resumable: bool = True
@@ -224,8 +228,9 @@ def load_episode_definition(path: Path) -> dict[str, Any]:
 def build_default_stage_registry() -> tuple[StageSpec, ...]:
     return (
         StageSpec("source_package", "Source package", "1", 10, "source_package_contract", ("episode-definition-v1",), ("source-package",), human_approval_required=True, current_implementation_status="CONTRACT_ONLY"),
-        StageSpec("evidence_knowledge", "Evidence and knowledge", "1", 20, None, ("source-package",), ("evidence-ledger", "assessment"), dependencies=("source_package",), current_implementation_status="DISCONNECTED"),
-        StageSpec("narrative_script", "Narrative script", "1", 30, None, ("approved-evidence-package-v1",), ("episode-script-v1", "script-verification-v1"), dependencies=("evidence_knowledge",), current_implementation_status="DISCONNECTED"),
+        StageSpec("evidence_knowledge", "Evidence and knowledge", "1", 20, None, ("source-package",), ("episode-research-dossier-v1", "episode-research-verification-v1", "evidence-review-package-v1"), dependencies=("source_package",), current_implementation_status="DISCONNECTED"),
+        StageSpec("evidence_approval", "Evidence approval", "1", 25, "evidence_approval_builder", ("episode-research-dossier-v1", "episode-research-verification-v1"), ("approved-evidence-package-v1",), dependencies=("evidence_knowledge",), human_approval_required=True, approval_materialization_required=True, current_implementation_status="ORCHESTRATOR_GATE"),
+        StageSpec("narrative_script", "Narrative script", "1", 30, None, ("approved-evidence-package-v1",), ("episode-script-v1", "script-verification-v1"), dependencies=("evidence_approval",), current_implementation_status="DISCONNECTED"),
         StageSpec("script_approval", "Script approval", "1", 40, "human_approval_gate", ("episode-script-v1", "script-verification-v1"), ("approved-episode-script-v1",), dependencies=("narrative_script",), human_approval_required=True, current_implementation_status="ORCHESTRATOR_GATE"),
         StageSpec("production_tts", "Production TTS", "1", 50, "external_tts_adapter", ("approved-episode-script-v1",), ("mastered-wav",), dependencies=("script_approval",), external_provider_required=True, retry_policy="POLICY_GUARDED", current_implementation_status="DISCONNECTED"),
         StageSpec("subtitles", "Subtitle generation", "1", 60, "subtitles_v1", ("mastered-wav", "approved-script"), ("srt", "vtt", "ass"), dependencies=("production_tts",), current_implementation_status="DISCONNECTED"),
@@ -237,7 +242,9 @@ def build_default_stage_registry() -> tuple[StageSpec, ...]:
         StageSpec("video_approval", "Video asset approval", "1", 106, "human_approval_gate", ("video-assets",), dependencies=("video_provider",), human_approval_required=True, current_implementation_status="ORCHESTRATOR_GATE"),
         StageSpec("render", "Render", "1", 110, "render_adapter_v2", ("episode-render-manifest", "visual-assets", "video-assets", "mastered-wav", "subtitles"), ("rendered-video", "render-verification"), dependencies=("master_visual_approval", "video_approval", "production_tts", "subtitles"), current_implementation_status="DISCONNECTED"),
         StageSpec("final_render_approval", "Final render approval", "1", 120, "human_approval_gate", ("rendered-video", "render-verification"), dependencies=("render",), human_approval_required=True, current_implementation_status="ORCHESTRATOR_GATE"),
-        StageSpec("publication", "Publication approval", "1", 130, "human_approval_gate", ("rendered-video",), dependencies=("final_render_approval",), human_approval_required=True, current_implementation_status="CONTRACT_ONLY"),
+        StageSpec("qa_gate", "Unified episode QA", "1", 125, "episode_qa_gate_v1", ("episode-artifact-index-v1", "stage-reports"), ("episode-qa-report-v1", "episode-qa-readiness-v1"), dependencies=("final_render_approval",), current_implementation_status="DISCONNECTED"),
+        StageSpec("publication_package", "Publication package", "1", 128, "publication_package_builder_v1", ("episode-qa-readiness-v1", "rendered-video"), ("episode-publication-package-v1", "publication-checksums-v1"), dependencies=("qa_gate",), current_implementation_status="DISCONNECTED"),
+        StageSpec("publication", "Publication approval", "1", 130, "human_approval_gate", ("episode-publication-package-v1",), dependencies=("publication_package",), human_approval_required=True, current_implementation_status="CONTRACT_ONLY"),
     )
 
 
@@ -406,6 +413,11 @@ class EpisodeOrchestrator:
                     )
                     if approval.get("input_fingerprint") != expected or not approval_artifacts_match:
                         approval["status"] = "STALE"
+                if approval and approval.get("status") in {"APPROVED", "APPROVED_WITH_NOTES"} and stage.approval_materialization_required:
+                    # The human decision is valid, but a local adapter must now
+                    # turn the reviewed candidate into its canonical artifact.
+                    state.update({"status": "READY", "human_approval": approval["status"], "blocker": None, "next_action": "Materialize the approved artifact.", "input_fingerprint": expected, "cache_status": "MISS"})
+                    continue
                 if approval and approval.get("status") in {"APPROVED", "APPROVED_WITH_NOTES"}:
                     state.update({
                         "status": "COMPLETED",
@@ -432,6 +444,10 @@ class EpisodeOrchestrator:
             if stage.current_implementation_status in {"DISCONNECTED", "CONTRACT_ONLY"} and stage.runner != "source_package_contract":
                 state.update({"status": "NOT_IMPLEMENTED", "blocker": {"code": "NOT_IMPLEMENTED"}, "next_action": "Integrate a canonical episode-level adapter before execution."})
                 continue
+            if (stage.runner and stage.runner != "source_package_contract" and stage.stage_id not in self.runners
+                    and not stage.human_approval_required):
+                state.update({"status": "NOT_IMPLEMENTED", "blocker": {"code": "ADAPTER_DISCONNECTED"}, "next_action": "Inject a callable episode adapter before execution."})
+                continue
             if stage.stage_id == "source_package":
                 source = self.definition.get("source_package", {})
                 source_path = source.get("path") if isinstance(source, dict) else None
@@ -456,7 +472,10 @@ class EpisodeOrchestrator:
             status, readiness = "COMPLETED", "READY_FOR_PUBLICATION"
         elif any(value == "PERMANENT_FAILURE" for value in values):
             status, readiness = "FAILED", "NOT_READY"
-        elif states.get("publication", {}).get("status") == "BLOCKED_BY_HUMAN_APPROVAL" and states.get("final_render_approval", {}).get("status") in COMPLETED_STATUSES:
+        elif states.get("publication", {}).get("status") == "BLOCKED_BY_HUMAN_APPROVAL" and all(
+            states.get(dependency, {}).get("status") in COMPLETED_STATUSES
+            for dependency in self.graph["dependencies"].get("publication", [])
+        ):
             status, readiness = "READY_FOR_PUBLICATION", "READY_FOR_PUBLICATION"
         elif states.get("render", {}).get("status") == "READY" and all(states[dependency].get("status") in COMPLETED_STATUSES for dependency in self.graph["dependencies"].get("render", [])):
             status, readiness = "READY_FOR_RENDER", "READY_FOR_RENDER"
