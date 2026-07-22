@@ -117,6 +117,8 @@ class StageExecutionResult:
     input_fingerprint: str | None = None
     output_fingerprint: str | None = None
     next_action: str | None = None
+    started_at: str | None = None
+    completed_at: str | None = None
 
 
 StageRunner = Callable[["EpisodeContext", StageSpec, str], StageExecutionResult]
@@ -151,6 +153,7 @@ def default_episode_definition(**overrides: Any) -> dict[str, Any]:
         "geographical_scope": {},
         "religious_sensitivity": "HUMAN_REVIEW_REQUIRED",
         "source_package": {"path": "", "approval_status": "NOT_REQUESTED"},
+        "evidence_package": {"path": "", "input_fingerprint": ""},
         "requested_outputs": ["render_manifest", "subtitles", "video"],
         "production_profile": "DOCUMENTARY_STANDARD_V1",
         "human_approval_policy": {"required_gates": ["source_adjudication", "script_approval", "religious_safety_approval", "storyboard_approval", "master_visual_approval", "final_render_approval", "publication_approval"]},
@@ -222,9 +225,9 @@ def build_default_stage_registry() -> tuple[StageSpec, ...]:
     return (
         StageSpec("source_package", "Source package", "1", 10, "source_package_contract", ("episode-definition-v1",), ("source-package",), human_approval_required=True, current_implementation_status="CONTRACT_ONLY"),
         StageSpec("evidence_knowledge", "Evidence and knowledge", "1", 20, None, ("source-package",), ("evidence-ledger", "assessment"), dependencies=("source_package",), current_implementation_status="DISCONNECTED"),
-        StageSpec("narrative_script", "Narrative script", "1", 30, None, ("evidence-ledger", "assessment"), ("approved-script",), dependencies=("evidence_knowledge",), current_implementation_status="DISCONNECTED"),
-        StageSpec("script_approval", "Script approval", "1", 40, "human_approval_gate", ("approved-script",), dependencies=("narrative_script",), human_approval_required=True, current_implementation_status="ORCHESTRATOR_GATE"),
-        StageSpec("production_tts", "Production TTS", "1", 50, "external_tts_adapter", ("approved-script",), ("mastered-wav",), dependencies=("script_approval",), external_provider_required=True, retry_policy="POLICY_GUARDED", current_implementation_status="DISCONNECTED"),
+        StageSpec("narrative_script", "Narrative script", "1", 30, None, ("approved-evidence-package-v1",), ("episode-script-v1", "script-verification-v1"), dependencies=("evidence_knowledge",), current_implementation_status="DISCONNECTED"),
+        StageSpec("script_approval", "Script approval", "1", 40, "human_approval_gate", ("episode-script-v1", "script-verification-v1"), ("approved-episode-script-v1",), dependencies=("narrative_script",), human_approval_required=True, current_implementation_status="ORCHESTRATOR_GATE"),
+        StageSpec("production_tts", "Production TTS", "1", 50, "external_tts_adapter", ("approved-episode-script-v1",), ("mastered-wav",), dependencies=("script_approval",), external_provider_required=True, retry_policy="POLICY_GUARDED", current_implementation_status="DISCONNECTED"),
         StageSpec("subtitles", "Subtitle generation", "1", 60, "subtitles_v1", ("mastered-wav", "approved-script"), ("srt", "vtt", "ass"), dependencies=("production_tts",), current_implementation_status="DISCONNECTED"),
         StageSpec("storyboard", "Storyboard generation", "1", 70, "storyboard_generator_v1", ("subtitles",), ("storyboard", "episode-render-manifest"), dependencies=("subtitles",), current_implementation_status="DISCONNECTED"),
         StageSpec("storyboard_approval", "Storyboard approval", "1", 80, "human_approval_gate", ("storyboard",), dependencies=("storyboard",), human_approval_required=True, current_implementation_status="ORCHESTRATOR_GATE"),
@@ -330,6 +333,7 @@ class EpisodeOrchestrator:
                 key: self.definition.get(key)
                 for key in ("title", "working_title", "subject", "central_question", "intended_audience", "historical_scope", "geographical_scope", "religious_sensitivity")
             }
+            definition_inputs["evidence_package"] = self.definition.get("evidence_package", {})
         if stage.external_provider_required:
             definition_inputs["external_provider_policy"] = self.definition.get("external_provider_policy")
         if stage.stage_id in {"storyboard", "visual_provider"}:
@@ -658,6 +662,12 @@ class EpisodeOrchestrator:
         unknown_artifacts = [artifact_id for artifact_id in artifact_ids if artifact_id not in indexed]
         if unknown_artifacts:
             raise ValueError(f"APPROVAL_ARTIFACT_UNKNOWN:{','.join(unknown_artifacts)}")
+        if stage_id == "script_approval":
+            narrative_artifacts = {item.get("artifact_type"): item.get("artifact_id") for item in indexed.values() if item.get("stage_id") == "narrative_script"}
+            if narrative_artifacts and {"episode-script", "script-verification"} <= set(narrative_artifacts):
+                required_script_artifacts = {narrative_artifacts["episode-script"], narrative_artifacts["script-verification"]}
+                if not required_script_artifacts <= set(artifact_ids):
+                    raise ValueError("SCRIPT_APPROVAL_ARTIFACT_BINDING_REQUIRED")
         approval_input_fingerprint = self._stage_input_fingerprint(stages[stage_id], manifest["stage_states"])
         resolved_at = _utc_now()
         manifest["approvals"].append({"approval_id": str(uuid4()), "stage_id": stage_id, "artifact_ids": list(artifact_ids), "artifact_fingerprints": {artifact_id: indexed[artifact_id]["fingerprint"] for artifact_id in artifact_ids}, "input_fingerprint": approval_input_fingerprint, "status": decision, "reviewer": reviewer.strip(), "notes": notes, "created_at": resolved_at, "resolved_at": resolved_at, "decision": decision})
