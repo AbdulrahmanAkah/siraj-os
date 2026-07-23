@@ -12,6 +12,7 @@ from src.application.episode_production_v1.pipeline import build_episode_product
 from src.application.episode_production_v1.video_provider_v1 import VideoProviderPolicy, VideoProviderV1, validate_video_allocation, validate_video_output
 from src.application.evidence_to_script_episode_v1.gemini_writer import GeminiEvidenceBoundScriptWriter, GeminiNarrativeWriterConfig
 from src.application.evidence_to_script_episode_v1.runtime import EVIDENCE_PACKAGE_SCHEMA, SPEAKING_RATE_POLICY
+from src.application.research_verification_episode_v1.runtime import SOURCE_PACKAGE_SCHEMA
 
 
 def _context(tmp_path: Path) -> EpisodeContext:
@@ -91,14 +92,14 @@ def test_video_policy_boundaries_and_output_contract(tmp_path: Path) -> None:
 
 
 def _e2e_definition_and_config(tmp_path: Path) -> tuple[dict, dict, dict]:
-    source = tmp_path / "source.json"; source.write_text("{}", encoding="utf-8")
+    source = tmp_path / "source.txt"; source.write_text("نص موثق", encoding="utf-8")
     claim = {"claim_id": "claim-1", "normalized_claim": "حدث موثق في بغداد.", "claim_type": "EVENT", "status": "APPROVED", "confidence": 1.0, "source_refs": ["source-1"], "evidence_refs": ["evidence-1"], "chronology_refs": [], "entity_refs": [], "dispute_status": "NONE", "approved_for_narrative": True, "restrictions": [], "notes": ""}
-    evidence = {"schema_version": EVIDENCE_PACKAGE_SCHEMA, "episode_id": "episode-e2e", "source_package_id": "source-package", "evidence_package_id": "evidence-package", "evidence_status": "APPROVED", "approved_at": "2026-07-23T00:00:00Z", "approved_by": "fixture", "source_artifacts": [{"artifact_id": "source-1", "path": str(source), "fingerprint": sha256(source.read_bytes()).hexdigest()}], "claims": [claim], "events": [], "entities": [], "chronology": [{"claim_id": "claim-1"}], "locations": [], "quotations": [], "disputed_points": [], "uncertainty_notes": [], "exclusions": [], "religious_sensitivity": {}, "historical_scope": {}, "geographical_scope": {}, "provenance": {"evidence": [{"evidence_id": "evidence-1"}]}}
-    evidence["input_fingerprint"] = sha256(json.dumps(evidence, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")).hexdigest()
-    evidence_path = tmp_path / "evidence.json"; evidence_path.write_text(json.dumps(evidence, ensure_ascii=False), encoding="utf-8")
+    source_package = {"schema_version": SOURCE_PACKAGE_SCHEMA, "episode_id": "episode-e2e", "source_package_id": "source-package", "title": "اختبار", "central_question": "سؤال", "historical_scope": {}, "geographical_scope": {}, "language": "ar", "source_items": [{"source_id": "source-1", "source_type": "BOOK", "title": "مصدر", "author": "", "publisher": "", "publication_date": "", "edition": "", "language": "ar", "path": source.relative_to(tmp_path).as_posix(), "checksum": sha256(source.read_bytes()).hexdigest(), "page/section availability": "YES", "access_status": "AVAILABLE", "authority_class": "PRIMARY", "primary_or_secondary": "PRIMARY", "notes": "", "allowed_for_extraction": True, "allowed_for_quotation": True, "copyright_or_usage_notes": ""}], "inclusion_policy": {}, "exclusion_policy": {}, "religious_sensitivity": {}, "research_questions": [], "created_at": "", "updated_at": ""}
+    source_package["input_fingerprint"] = sha256(json.dumps(source_package, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")).hexdigest()
+    source_package_path = tmp_path / "source-package.json"; source_package_path.write_text(json.dumps(source_package, ensure_ascii=False), encoding="utf-8")
     policy = {"default_allowed": False, "explicit_live_confirmation_required": True, "provider_configured": True, "credential_present": True, "disclosure_permitted": True, "request_limit_available": True, "quota_policy_valid": True, "stage_permissions": {"narrative_script": True, "production_tts": True, "visual_provider": True, "video_provider": True}}
-    definition = default_episode_definition(episode_id="episode-e2e", source_package={"path": str(source), "approval_status": "APPROVED"}, evidence_package={"path": str(evidence_path), "input_fingerprint": evidence["input_fingerprint"]})
-    config = {"schema_version": PIPELINE_CONFIG_SCHEMA, "episode_id": "episode-e2e", "narrative_writer": {"enabled": True, "model_id": "fixture"}, "tts": {"enabled": False}, "subtitles": {"enabled": False}, "storyboard": {"enabled": False}, "visuals": {"enabled": False}, "video": {"enabled": False}, "render": {"enabled": False}, "external_provider_policy": policy, "approval_policy": {}, "runtime_paths": {}, "request_limits": {}, "disclosure_permissions": {}}
+    definition = default_episode_definition(episode_id="episode-e2e", source_package={"path": str(source_package_path), "approval_status": "APPROVED"}, evidence_package={"path": "", "input_fingerprint": ""})
+    config = {"schema_version": PIPELINE_CONFIG_SCHEMA, "episode_id": "episode-e2e", "narrative_writer": {"enabled": True, "model_id": "fixture"}, "research": {"enabled": True}, "tts": {"enabled": False}, "subtitles": {"enabled": False}, "storyboard": {"enabled": False}, "visuals": {"enabled": False}, "video": {"enabled": False}, "render": {"enabled": False}, "external_provider_policy": policy, "approval_policy": {}, "runtime_paths": {}, "request_limits": {}, "disclosure_permissions": {}}
     return definition, config, claim
 
 
@@ -121,20 +122,32 @@ class FakeNarrativeWriter:
         return {"sections": sections, "quotation_index": {}}
 
 
+class FakeResearchExtractor:
+    def __init__(self, claim):  # type: ignore[no-untyped-def]
+        self.claim = claim
+    def extract(self, *, source_package):  # type: ignore[no-untyped-def]
+        return {"extracted_passages": [{"passage_id": "evidence-1", "source_id": "source-1", "exact_locator": "p.1", "normalized_text": "نص موثق", "verbatim": True, "extraction_method": "FIXTURE", "checksum": "fixture", "context_before_ref": None, "context_after_ref": None, "language": "ar", "confidence": 1.0, "reviewer_status": "PENDING"}], "claims": [self.claim], "events": [], "entities": [], "locations": [], "chronology": [{"claim_id": "claim-1"}], "quotations": [], "disputed_points": [], "source_relationships": [{"source_id": "source-1", "source_relationship_type": "INDEPENDENT", "parent_source_id": None, "independence_status": "INDEPENDENT", "rationale": "fixture", "deterministic_or_human_assessment": "DETERMINISTIC"}], "unresolved_questions": [], "coverage_gaps": [], "warnings": []}
+
+
 def test_e2e_first_boundary_is_stable_and_requires_script_approval(tmp_path: Path) -> None:
-    definition, config, _ = _e2e_definition_and_config(tmp_path)
+    definition, config, claim = _e2e_definition_and_config(tmp_path)
     writer = FakeNarrativeWriter()
-    orchestrator = EpisodeProductionComposition(tmp_path, definition, config, output_root=tmp_path / "working" / "e2e", narrative_writer=writer).build()
+    orchestrator = EpisodeProductionComposition(tmp_path, definition, config, output_root=tmp_path / "working" / "e2e", narrative_writer=writer, research_extractor=FakeResearchExtractor(claim)).build()
     result = orchestrator.execute(mode="run-through", allow_external=True, confirm_live=True)
     states = result["manifest"]["stage_states"]
     assert result["status"] == "WAITING_FOR_HUMAN_APPROVAL", states
+    assert states["evidence_knowledge"]["status"] == "COMPLETED" and states["evidence_approval"]["status"] == "BLOCKED_BY_HUMAN_APPROVAL"
+    evidence_ids = tuple(item["artifact_id"] for item in states["evidence_knowledge"]["outputs"])
+    orchestrator.record_approval(stage_id="evidence_approval", decision="APPROVED", reviewer="fixture", artifact_ids=evidence_ids)
+    resumed = orchestrator.execute(mode="run-through", allow_external=True, confirm_live=True)
+    states = resumed["manifest"]["stage_states"]
     assert states["narrative_script"]["status"] == "COMPLETED" and states["script_approval"]["status"] == "BLOCKED_BY_HUMAN_APPROVAL"
     assert writer.calls == 1 and states["production_tts"]["status"] == "BLOCKED_BY_DEPENDENCY"
 
 
 def test_e2e_fake_pipeline_advances_only_through_human_boundaries(tmp_path: Path) -> None:
-    definition, config, _ = _e2e_definition_and_config(tmp_path)
-    config.update({"tts": {"enabled": True}, "subtitles": {"enabled": True}, "storyboard": {"enabled": True}, "visuals": {"enabled": True}, "video": {"enabled": True}, "render": {"enabled": True}})
+    definition, config, claim = _e2e_definition_and_config(tmp_path)
+    config.update({"tts": {"enabled": True}, "subtitles": {"enabled": True}, "storyboard": {"enabled": True}, "visuals": {"enabled": True}, "video": {"enabled": True}, "render": {"enabled": True}, "qa": {"enabled": True}, "publication": {"enabled": True}})
     calls = {name: 0 for name in ("tts", "subtitles", "storyboard", "visual", "video", "render")}
     def tts(request, root):  # type: ignore[no-untyped-def]
         calls["tts"] += 1; path = root / "working" / "fixture.wav"; path.parent.mkdir(parents=True, exist_ok=True); path.write_bytes(b"wav")
@@ -157,7 +170,7 @@ def test_e2e_fake_pipeline_advances_only_through_human_boundaries(tmp_path: Path
         calls["render"] += 1; output, report = root / "working" / "final.mp4", root / "working" / "render.json"; output.write_bytes(b"video"); report.write_text("{}", encoding="utf-8")
         return SimpleNamespace(output=output.relative_to(root).as_posix(), report=report.relative_to(root).as_posix())
     writer = FakeNarrativeWriter()
-    pipeline = EpisodeProductionComposition(tmp_path, definition, config, output_root=tmp_path / "working" / "e2e", narrative_writer=writer, tts_synthesizer=tts, tts_request_factory=lambda script, context: {}, subtitle_generator=subtitles, storyboard_generator=storyboard, visual_executor=visual, video_provider=VideoProviderV1(VideoProviderPolicy(request_limit=1), VideoClient()), video_allocation_factory=lambda context: {"requests": [{"request_id": "clip", "preferred_model": "VEO_3_1_LITE_1080P", "requested_duration_seconds": 4, "video_required": "REQUIRED", "video_justification": "fixture"}]}, renderer=render, render_manifest_factory=lambda context: tmp_path / "unused.json")
+    pipeline = EpisodeProductionComposition(tmp_path, definition, config, output_root=tmp_path / "working" / "e2e", narrative_writer=writer, research_extractor=FakeResearchExtractor(claim), tts_synthesizer=tts, tts_request_factory=lambda script, context: {}, subtitle_generator=subtitles, storyboard_generator=storyboard, visual_executor=visual, video_provider=VideoProviderV1(VideoProviderPolicy(request_limit=1), VideoClient()), video_allocation_factory=lambda context: {"requests": [{"request_id": "clip", "preferred_model": "VEO_3_1_LITE_1080P", "requested_duration_seconds": 4, "video_required": "REQUIRED", "video_justification": "fixture"}]}, renderer=render, render_manifest_factory=lambda context: tmp_path / "unused.json")
     orchestrator = pipeline.build()
     statuses = {stage.stage_id: stage.current_implementation_status for stage in orchestrator.registry}
     assert statuses["narrative_script"] == "AVAILABLE_EXTERNAL_ADAPTER" and statuses["production_tts"] == "AVAILABLE_EXTERNAL_ADAPTER"
@@ -171,7 +184,9 @@ def test_e2e_fake_pipeline_advances_only_through_human_boundaries(tmp_path: Path
         manifest = orchestrator.execute(mode="status")["manifest"]
         artifacts = tuple(item["artifact_id"] for item in manifest["stage_states"][producer]["outputs"])
         orchestrator.record_approval(stage_id=gate, decision="APPROVED", reviewer="fixture", artifact_ids=artifacts)
-    first = run_boundary(); assert calls == {name: 0 for name in calls} and writer.calls == 1
+    first = run_boundary(); assert calls == {name: 0 for name in calls} and writer.calls == 0
+    approve("evidence_approval", "evidence_knowledge")
+    evidence_boundary = run_boundary(); assert writer.calls == 1 and calls == {name: 0 for name in calls}
     approve("script_approval", "narrative_script")
     second = run_boundary(); assert calls["tts"] == calls["subtitles"] == calls["storyboard"] == 1 and calls["visual"] == calls["video"] == calls["render"] == 0
     approve("storyboard_approval", "storyboard")
@@ -181,11 +196,11 @@ def test_e2e_fake_pipeline_advances_only_through_human_boundaries(tmp_path: Path
     approve("video_approval", "video_provider")
     fifth = run_boundary(); assert calls["render"] == 1 and fifth["status"] == "WAITING_FOR_HUMAN_APPROVAL"
     approve("final_render_approval", "render")
-    ready = orchestrator.execute(mode="status"); assert ready["status"] == "READY_FOR_PUBLICATION"
+    ready = run_boundary(); assert ready["status"] == "READY_FOR_PUBLICATION"
     approve("publication", "publication")
     completed = orchestrator.execute(mode="status"); assert completed["status"] == "COMPLETED"
     manifest = completed["manifest"]; assert writer.calls == 1 and len({entry["run_id"] for entry in manifest["execution_history"]}) == len(manifest["execution_history"])
-    artifacts = {item["artifact_type"]: item for item in manifest["artifact_index"]}; assert {"approved-evidence-package", "episode-script", "mastered-wav", "subtitle-manifest", "episode-storyboard", "visual-asset", "generated-video", "rendered-video"} <= set(artifacts)
+    artifacts = {item["artifact_type"]: item for item in manifest["artifact_index"]}; assert {"approved-evidence-package", "episode-script", "mastered-wav", "subtitle-manifest", "episode-storyboard", "visual-asset", "generated-video", "rendered-video", "episode-qa-report", "episode-publication-package"} <= set(artifacts)
     assert artifacts["mastered-wav"]["source_artifact_ids"] == [artifacts["episode-script"]["artifact_id"]]
     assert artifacts["rendered-video"]["source_artifact_ids"] and sum(state["external_request_count"] for state in manifest["stage_states"].values()) == 2
 
