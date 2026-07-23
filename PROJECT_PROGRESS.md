@@ -4,7 +4,7 @@
 <!-- SIRAJ_AUTO_PROGRESS_BEGIN -->
 ## الحالة التنفيذية الآلية للمشروع
 
-**آخر مزامنة:** 2026-07-21T22:44:33.096301+00:00
+**آخر مزامنة:** 2026-07-23T00:21:53.190000+00:00
 
 ### الهدف المرجعي
 
@@ -19,22 +19,22 @@
 
 ### أحدث خطوة كبيرة
 
-- **المعرّف:** `2026-07-22-storyboard-generator-v1`
-- **العنوان:** Complete Cinematic Storyboard Generator v1
-- **الحالة:** `COMPLETED`
-- **الملخص:** Deterministic narrative, scene, beat, shot, prompt, continuity, asset, subtitle-safe, and render-ready storyboard planning completed without media generation.
-- **الخطوة التالية:** Resolve planned visual asset requirements before a final episode render.
+- **المعرّف:** `auto-commit-8ce83658209363df`
+- **العنوان:** تحديث تنفيذي آلي قبل Commit رئيسي
+- **الحالة:** `AUTO_RECORDED`
+- **الملخص:** اكتشف Git hook تغييرات كبيرة لم يصاحبها تحديث يدوي لسجل المشروع، فأضاف هذا السجل تلقائيًا. الملفات المتأثرة: scripts/fast_track/run_operator_ui_v1.py، src/application/local_operator_ui_v1/__init__.py، src/application/local_operator_ui_v1/runtime.py
+- **الخطوة التالية:** مراجعة وصف milestone وتحديثه بتفاصيل دلالية أدق عند تقييم نتيجة المرحلة.
 
 ### أحدث Milestones
 
+- `AUTO_RECORDED` — تحديث تنفيذي آلي قبل Commit رئيسي (`auto-commit-8ce83658209363df`)
+- `EPISODE_PRODUCTION_PIPELINE_V1_IMPLEMENTED_LIVE_MEDIA_VALIDATION_DEFERRED` — Episode Production Pipeline v1 (`2026-07-23-episode-production-pipeline-v1`)
+- `AUTO_RECORDED` — تحديث تنفيذي آلي قبل Commit رئيسي (`auto-commit-5b39c510efc40210`)
+- `AUTO_RECORDED` — تحديث تنفيذي آلي قبل Commit رئيسي (`auto-commit-0323ad6555d59281`)
+- `IMPLEMENTATION_COMPLETED_LIVE_BLOCKED_BY_QUOTA` — Gemini Visual Provider v1 (`2026-07-22-gemini-visual-provider-v1`)
+- `EVIDENCE_TO_SCRIPT_ADAPTER_V1_IMPLEMENTED_GENERATOR_DISCONNECTED` — Canonical Evidence-to-Script Episode Adapter v1 (`2026-07-22-evidence-to-script-episode-adapter-v1`)
+- `EPISODE_ORCHESTRATOR_V1_COMPLETED` — إكمال ومراجعة Episode Orchestrator v1 (`2026-07-22-episode-orchestrator-v1`)
 - `COMPLETED` — Complete Cinematic Storyboard Generator v1 (`2026-07-22-storyboard-generator-v1`)
-- `COMPLETED` — Complete Subtitle Generation and Timing v1 (`2026-07-22-subtitle-generation-timing-v1`)
-- `COMPLETED` — Complete Gemini Production TTS Adapter v1 (`2026-07-22-production-tts-adapter-v1`)
-- `COMPLETED` — إنشاء Production Voice Contract وAudio Mastering v1 (`2026-07-21-production-voice-audio-v1`)
-- `COMPLETED` — إنشاء Render Adapter v2 وتشغيل Episode Render Manifest v2 فعليًا (`2026-07-21-render-adapter-v2`)
-- `COMPLETED` — إنشاء Episode Render Manifest v2 ومخطط المشاهد الموقّتة (`2026-07-21-episode-render-manifest-v2`)
-- `COMPLETED` — إنتاج فيديو ثانٍ من Render Manifest عام (`2026-07-21-render-adapter-v1-replay`)
-- `COMPLETED` — تنظيف حالة Source Control وتصنيف ملفات العمل (`2026-07-21-repository-source-control-cleanup`)
 
 السجل المنظم:
 
@@ -1144,3 +1144,4 @@ Sources
 
 إعادة بناء سينمائية، Motion Graphics، خرائط متحركة، Sound Design، Color Grading واتساق بصري وصوتي عبر الموسم.
 <!-- SIRAJ_PRODUCTION_EXCELLENCE_END -->
+- `EVIDENCE_TO_SCRIPT_ADAPTER_V1_IMPLEMENTED_GENERATOR_DISCONNECTED` — Canonical Evidence-to-Script Episode Adapter v1 (`2026-07-22-evidence-to-script-episode-adapter-v1`)

@@ -363,6 +363,189 @@
       "status": "COMPLETED",
       "summary_ar": "Deterministic narrative, scene, beat, shot, prompt, continuity, asset, subtitle-safe, and render-ready storyboard planning completed without media generation.",
       "title_ar": "Complete Cinematic Storyboard Generator v1"
+    },
+    {
+      "changed_files": [
+        "PROJECT_PROGRESS.md",
+        "docs/architecture/EPISODE_ORCHESTRATOR_V1.md",
+        "docs/execution/examples/episode-definition-v1.example.json",
+        "docs/execution/project-milestones.json",
+        "scripts/fast_track/run_episode_orchestrator_v1.py",
+        "src/application/episode_orchestration_v1/__init__.py",
+        "src/application/episode_orchestration_v1/runtime.py",
+        "tests/integration/test_episode_orchestration_v1.py"
+      ],
+      "evidence": [
+        "episode-orchestration unit/integration fixtures",
+        "no-provider execution plan"
+      ],
+      "metadata": {
+        "default_duration_minutes": 22,
+        "external_calls": 0,
+        "maximum_final_generated_video_seconds": 300,
+        "orchestrator_schema": "siraj-episode-orchestration-manifest-v1",
+        "visual_provider_status": "IMPLEMENTATION_COMPLETED_LIVE_VALIDATION_DEFERRED"
+      },
+      "milestone_id": "2026-07-22-episode-orchestrator-v1",
+      "next_action_ar": "مراجعة عقد evidence-to-script-to-storyboard وربط runners المعتمدة تدريجيًا، مع إبقاء VisualProvider محجوبًا بالحصة وقابلًا للاستئناف.",
+      "recorded_at": "2026-07-22T00:00:00Z",
+      "status": "EPISODE_ORCHESTRATOR_V1_COMPLETED",
+      "summary_ar": "Episode Orchestrator v1 coordinates episode contracts, state, explicit dependency graph, resume, invalidation, approvals, external-provider blocks, and runtime artifact indexing. Its final review verifies that only Python-callable episode adapters are marked available; it does not generate media or make provider requests.",
+      "title_ar": "إكمال ومراجعة Episode Orchestrator v1"
+    },
+    {
+      "changed_files": [
+        "PROJECT_PROGRESS.md",
+        "docs/architecture/EVIDENCE_TO_SCRIPT_EPISODE_ADAPTER_V1.md",
+        "docs/execution/project-milestones.json",
+        "scripts/fast_track/run_evidence_to_script_episode_v1.py",
+        "src/application/episode_orchestration_v1/runtime.py",
+        "src/application/evidence_to_script_episode_v1/__init__.py",
+        "src/application/evidence_to_script_episode_v1/runtime.py",
+        "tests/integration/test_evidence_to_script_episode_v1.py"
+      ],
+      "evidence": [
+        "deterministic evidence-to-script fixtures",
+        "Episode Orchestrator integration fixture",
+        "no-provider execution"
+      ],
+      "metadata": {
+        "adapter_version": "1.0",
+        "external_calls": 0,
+        "generator_status": "DISCONNECTED",
+        "schema_version": "siraj-episode-script-v1",
+        "script_approval_required": true
+      },
+      "milestone_id": "2026-07-22-evidence-to-script-episode-adapter-v1",
+      "next_action_ar": "ربط writer معتمد بعقد structured evidence-bound وتفعيل narrative_script فقط في تركيب Episode Orchestrator صريح.",
+      "recorded_at": "2026-07-22T00:00:00Z",
+      "status": "EVIDENCE_TO_SCRIPT_ADAPTER_V1_IMPLEMENTED_GENERATOR_DISCONNECTED",
+      "summary_ar": "اكتملت عقود evidence-to-script والتحقق والإصدارات والموافقة البشرية والتكامل الاختباري مع المنسق. لا يوجد writer إنتاجي callable مهيأ، ولم تُرسل طلبات مزود.",
+      "title_ar": "Canonical Evidence-to-Script Episode Adapter v1"
+    },
+    {
+      "changed_files": [
+        "PROJECT_PROGRESS.md",
+        "docs/architecture/gemini-visual-quota-policy.example.json",
+        "docs/architecture/gemini-visual-provider-setup.md",
+        "docs/execution/project-milestones.json",
+        "scripts/fast_track/audit_previous_image_generation_v1.py",
+        "scripts/fast_track/build_visual_generation_manifest_v1.py",
+        "scripts/fast_track/run_gemini_visual_provider_v1.py",
+        "src/application/cli_v2.py",
+        "src/application/local_video_production/__init__.py",
+        "src/application/local_video_production/visual_audit_v1.py",
+        "src/application/local_video_production/visual_execution_v1.py",
+        "src/application/local_video_production/visual_generation_director_v1.py",
+        "src/application/local_video_production/visual_provider_v1.py",
+        "tests/integration/test_visual_provider_v1.py"
+      ],
+      "evidence": [],
+      "metadata": {
+        "active_provider": "GEMINI_IMAGE",
+        "dry_run_status": "PASS",
+        "generated_asset_count": 0,
+        "live_smoke_model": "gemini-3.1-flash-image",
+        "live_smoke_provider_error": "QUOTA_EXHAUSTED",
+        "live_smoke_requests_attempted": 1,
+        "live_smoke_status": "BLOCKED_BY_QUOTA",
+        "local_visual_stack": "DISABLED:LOCAL_HARDWARE_QUALITY_INSUFFICIENT",
+        "schema_version": "siraj-production-visual-provider-v1"
+      },
+      "milestone_id": "2026-07-22-gemini-visual-provider-v1",
+      "next_action_ar": "بعد تجدد حصة Gemini، شغّل smoke test حيًا واحدًا فقط للنموذج gemini-3.1-flash-image ثم راجع master reference بشريًا عند نجاح الصورة.",
+      "recorded_at": "2026-07-22T00:00:00Z",
+      "status": "IMPLEMENTATION_COMPLETED_LIVE_BLOCKED_BY_QUOTA",
+      "summary_ar": "Gemini visual provider contracts, quota guard, model routing, prompt planning, references, continuity, registry, cache, dry run, and render linkage are complete. One approved live Flash request was sent and Gemini returned QUOTA_EXHAUSTED; no image was generated. The implementation remains retryable when quota renews.",
+      "title_ar": "Gemini Visual Provider v1"
+    },
+    {
+      "changed_files": [
+        "docs/execution/examples/episode-definition-v1.example.json",
+        "scripts/fast_track/run_episode_orchestrator_v1.py",
+        "src/application/episode_orchestration_v1/__init__.py",
+        "src/application/episode_orchestration_v1/runtime.py"
+      ],
+      "evidence": [],
+      "metadata": {
+        "automatic_git_hook": true,
+        "staged_file_count": 4
+      },
+      "milestone_id": "auto-commit-0323ad6555d59281",
+      "next_action_ar": "مراجعة وصف milestone وتحديثه بتفاصيل دلالية أدق عند تقييم نتيجة المرحلة.",
+      "recorded_at": "2026-07-22T18:46:53.102106+00:00",
+      "status": "AUTO_RECORDED",
+      "summary_ar": "اكتشف Git hook تغييرات كبيرة لم يصاحبها تحديث يدوي لسجل المشروع، فأضاف هذا السجل تلقائيًا. الملفات المتأثرة: docs/execution/examples/episode-definition-v1.example.json، scripts/fast_track/run_episode_orchestrator_v1.py، src/application/episode_orchestration_v1/__init__.py، src/application/episode_orchestration_v1/runtime.py",
+      "title_ar": "تحديث تنفيذي آلي قبل Commit رئيسي"
+    },
+    {
+      "changed_files": [
+        "docs/execution/examples/episode-production-pipeline-v1.example.json",
+        "scripts/fast_track/run_episode_production_pipeline_v1.py",
+        "src/application/episode_orchestration_v1/runtime.py",
+        "src/application/episode_production_v1/__init__.py",
+        "src/application/episode_production_v1/adapters.py",
+        "src/application/episode_production_v1/composition.py",
+        "src/application/episode_production_v1/pipeline.py",
+        "src/application/episode_production_v1/video_provider_v1.py",
+        "src/application/evidence_to_script_episode_v1/__init__.py",
+        "src/application/evidence_to_script_episode_v1/gemini_writer.py",
+        "src/application/evidence_to_script_episode_v1/runtime.py"
+      ],
+      "evidence": [],
+      "metadata": {
+        "automatic_git_hook": true,
+        "staged_file_count": 11
+      },
+      "milestone_id": "auto-commit-5b39c510efc40210",
+      "next_action_ar": "مراجعة وصف milestone وتحديثه بتفاصيل دلالية أدق عند تقييم نتيجة المرحلة.",
+      "recorded_at": "2026-07-22T21:25:21.155161+00:00",
+      "status": "AUTO_RECORDED",
+      "summary_ar": "اكتشف Git hook تغييرات كبيرة لم يصاحبها تحديث يدوي لسجل المشروع، فأضاف هذا السجل تلقائيًا. الملفات المتأثرة: docs/execution/examples/episode-production-pipeline-v1.example.json، scripts/fast_track/run_episode_production_pipeline_v1.py، src/application/episode_orchestration_v1/runtime.py، src/application/episode_production_v1/__init__.py، src/application/episode_production_v1/adapters.py، src/application/episode_production_v1/composition.py، src/application/episode_production_v1/pipeline.py، src/application/episode_production_v1/video_provider_v1.py، src/application/evidence_to_script_episode_v1/__init__.py، src/application/evidence_to_script_episode_v1/gemini_writer.py، src/application/evidence_to_script_episode_v1/runtime.py",
+      "title_ar": "تحديث تنفيذي آلي قبل Commit رئيسي"
+    },
+    {
+      "changed_files": [
+        "docs/architecture/EPISODE_PRODUCTION_PIPELINE_V1.md",
+        "docs/execution/examples/episode-production-pipeline-v1.example.json",
+        "scripts/fast_track/run_episode_production_pipeline_v1.py",
+        "src/application/episode_production_v1",
+        "tests/integration/test_episode_production_v1.py"
+      ],
+      "evidence": [
+        "offline composition fixture",
+        "full pytest suite: 617 passed, 2 skipped",
+        "no-provider execution"
+      ],
+      "metadata": {
+        "external_calls": 0,
+        "live_media_validation": "DEFERRED",
+        "schema_version": "siraj-episode-production-pipeline-config-v1"
+      },
+      "milestone_id": "2026-07-23-episode-production-pipeline-v1",
+      "next_action_ar": "Execute the first separately approved live stage only after human review and provider policy confirmation.",
+      "recorded_at": "2026-07-23T00:00:00Z",
+      "status": "EPISODE_PRODUCTION_PIPELINE_V1_IMPLEMENTED_LIVE_MEDIA_VALIDATION_DEFERRED",
+      "summary_ar": "Composition root, guarded CLI, configuration contract, adapters, and local regression coverage are implemented. No live narrative, media, or provider request was made.",
+      "title_ar": "Episode Production Pipeline v1"
+    },
+    {
+      "changed_files": [
+        "scripts/fast_track/run_operator_ui_v1.py",
+        "src/application/local_operator_ui_v1/__init__.py",
+        "src/application/local_operator_ui_v1/runtime.py"
+      ],
+      "evidence": [],
+      "metadata": {
+        "automatic_git_hook": true,
+        "staged_file_count": 3
+      },
+      "milestone_id": "auto-commit-8ce83658209363df",
+      "next_action_ar": "مراجعة وصف milestone وتحديثه بتفاصيل دلالية أدق عند تقييم نتيجة المرحلة.",
+      "recorded_at": "2026-07-23T00:21:53.189206+00:00",
+      "status": "AUTO_RECORDED",
+      "summary_ar": "اكتشف Git hook تغييرات كبيرة لم يصاحبها تحديث يدوي لسجل المشروع، فأضاف هذا السجل تلقائيًا. الملفات المتأثرة: scripts/fast_track/run_operator_ui_v1.py، src/application/local_operator_ui_v1/__init__.py، src/application/local_operator_ui_v1/runtime.py",
+      "title_ar": "تحديث تنفيذي آلي قبل Commit رئيسي"
     }
   ],
   "program_state": {
@@ -373,5 +556,5 @@
     "short_term_objective_ar": "إنتاج أول حلقة وثائقية قابلة للنشر من المصدر إلى ملف MP4، ثم تحويل المسار إلى قالب إنتاج متكرر."
   },
   "schema_version": "siraj-project-milestones-v1",
-  "updated_at": "2026-07-21T22:44:33.096301+00:00"
+  "updated_at": "2026-07-23T00:21:53.190000+00:00"
 }
