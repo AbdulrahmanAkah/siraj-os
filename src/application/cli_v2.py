@@ -110,6 +110,10 @@ from src.application.local_video_production import (
     initialize_documentary_v3,
     verify_documentary_v3_render,
 )
+from src.application.local_video_production.visual_audit_v1 import audit_previous_image_generation
+from src.application.local_video_production.visual_execution_v1 import execute_visual_plan, load_gemini_quota_policy
+from src.application.local_video_production.visual_generation_director_v1 import build_visual_generation_plan
+from src.application.local_video_production.visual_provider_v1 import GeminiImageProvider
 
 VERSION = "0.1.0"
 
@@ -1672,6 +1676,55 @@ def command_render_verify(
     )
 
 
+def command_visual_audit(project_root: str) -> dict[str, Any]:
+    root = Path(project_root)
+    return _result(
+        "visual-audit",
+        "SUCCESS",
+        data=audit_previous_image_generation(
+            root,
+            root / "manifests" / "previous-image-generation-audit-v1.json",
+        ),
+    )
+
+
+def command_visual_dry_run(project_root: str, replace: bool) -> dict[str, Any]:
+    root = Path(project_root)
+    return _result(
+        "visual-dry-run",
+        "SUCCESS",
+        data=build_visual_generation_plan(
+            root / "working" / "storyboard-v1" / "production-storyboard-v1.json",
+            root / "working" / "storyboard-v1" / "production-character-bible-v1.json",
+            root / "working" / "storyboard-v1" / "production-location-bible-v1.json",
+            root / "working" / "visual-provider-v1",
+            root / "manifests" / "production-visual-provider-v1.json",
+            replace=replace,
+        ),
+    )
+
+
+def command_visual_run(project_root: str, quota_policy: str, live: bool, confirm_quota_use: bool, maximum_assets: int | None, maximum_requests: int | None, maximum_retries: int | None) -> dict[str, Any]:
+    root = Path(project_root)
+    if not live or not confirm_quota_use:
+        raise ValueError("LIVE_CONFIRMATION_REQUIRED")
+    return _result(
+        "visual-run",
+        "SUCCESS",
+        data=execute_visual_plan(
+            root / "working" / "visual-provider-v1" / "production-visual-generation-plan-v1.json",
+            root,
+            GeminiImageProvider(),
+            quota_policy=load_gemini_quota_policy(Path(quota_policy)),
+            live=live,
+            confirm_quota_use=confirm_quota_use,
+            maximum_assets=maximum_assets,
+            maximum_requests=maximum_requests,
+            maximum_retries=maximum_retries,
+        ),
+    )
+
+
 def command_documentary_v2_init(
     project_root: str,
     powershell: str,
@@ -2361,6 +2414,22 @@ def build_parser() -> argparse.ArgumentParser:
     render_v3_verify.add_argument("--ffprobe")
     render_v3_verify.add_argument("--replace", action="store_true")
 
+    visual = subparsers.add_parser("visual")
+    visual_sub = visual.add_subparsers(dest="action", required=True)
+    visual_audit = visual_sub.add_parser("audit-previous")
+    visual_audit.add_argument("--project-root", required=True)
+    visual_dry = visual_sub.add_parser("dry-run")
+    visual_dry.add_argument("--project-root", required=True)
+    visual_dry.add_argument("--replace", action="store_true")
+    visual_run = visual_sub.add_parser("run")
+    visual_run.add_argument("--project-root", required=True)
+    visual_run.add_argument("--quota-policy", required=True)
+    visual_run.add_argument("--live", action="store_true")
+    visual_run.add_argument("--confirm-quota-use", action="store_true")
+    visual_run.add_argument("--maximum-assets", type=int)
+    visual_run.add_argument("--maximum-requests", type=int)
+    visual_run.add_argument("--maximum-retries", type=int)
+
     return parser
 
 
@@ -2733,6 +2802,14 @@ def dispatch(args: argparse.Namespace) -> dict[str, Any]:
                 args.ffprobe,
                 args.replace,
             )
+
+    if command == "visual":
+        if args.action == "audit-previous":
+            return command_visual_audit(args.project_root)
+        if args.action == "dry-run":
+            return command_visual_dry_run(args.project_root, args.replace)
+        if args.action == "run":
+            return command_visual_run(args.project_root, args.quota_policy, args.live, args.confirm_quota_use, args.maximum_assets, args.maximum_requests, args.maximum_retries)
 
     return _result(
         command,

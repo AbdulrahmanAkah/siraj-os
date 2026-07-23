@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "live_generation_enabled": true,
+  "maximum_requests_per_run": 1,
+  "maximum_assets_per_run": 1,
+  "maximum_retries_per_asset": 0,
+  "maximum_primary_requests_per_run": 1,
+  "maximum_premium_requests_per_run": 0,
+  "maximum_economy_requests_per_run": 0,
+  "maximum_4k_requests_per_run": 0,
+  "allow_model_escalation": false,
+  "allow_cross_model_fallback": false,
+  "stop_on_rate_limit": true,
+  "stop_on_quota_exhaustion": true,
+  "default_model": "gemini-3.1-flash-image",
+  "default_resolution": "1K",
+  "default_aspect_ratio": "16:9"
+}
