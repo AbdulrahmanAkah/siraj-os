@@ -1,0 +1,303 @@
+schema_version: siraj-historical-era-backbone-v1
+timeline_id: prophets-and-major-eras-adam-to-muhammad-v1
+status: provisional_research_backbone
+binding_episode_structure: false
+exact_chronology_verified: false
+human_approval_required: true
+
+classification_legend:
+  revealed_prophet: "ثبتت نبوته بالقرآن أو السنة الصحيحة"
+  historical_prophet: "مشهور في كتب التاريخ وقصص الأنبياء ويحتاج إلى إثبات مستقل"
+  disputed_prophethood: "مختلف في نبوته"
+  major_person: "شخصية مؤثرة لا تثبت نبوتها"
+  group_or_nation: "قوم أو جماعة تاريخية"
+  unidentified_person: "شخصية لم يثبت تعيينها"
+
+eras:
+  - era_id: ERA-001
+    title: "آدم والقرون الأولى"
+    principal_figures:
+      - { name: "آدم", classification: revealed_prophet }
+      - { name: "حواء", classification: major_person }
+      - { name: "إبليس", classification: major_person }
+      - { name: "قابيل", classification: major_person }
+      - { name: "هابيل", classification: major_person }
+      - { name: "شيث", classification: historical_prophet }
+      - { name: "إدريس", classification: revealed_prophet }
+    principal_events:
+      - "حال الكون قبل خلق الإنسان"
+      - "العرش والماء"
+      - "القلم وكتابة المقادير"
+      - "خلق السماوات والأرض"
+      - "خلق الملائكة والجن"
+      - "خلق آدم"
+      - "تعليم الأسماء"
+      - "السجود وامتناع إبليس"
+      - "ميثاق بني آدم"
+      - "استخراج الذرية"
+      - "خلق حواء"
+      - "السكن في الجنة"
+      - "المعصية والتوبة والهبوط"
+      - "بداية الحياة الأرضية"
+      - "قصة ابني آدم"
+      - "وفاة آدم"
+      - "شيث والقرون الأولى"
+      - "إدريس"
+
+  - era_id: ERA-002
+    title: "نوح والطوفان"
+    principal_figures:
+      - { name: "نوح", classification: revealed_prophet }
+      - { name: "زوجة نوح", classification: major_person }
+      - { name: "ابن نوح الغريق", classification: major_person }
+      - { name: "سام", classification: major_person }
+      - { name: "حام", classification: major_person }
+      - { name: "يافث", classification: major_person }
+    principal_events:
+      - "ظهور الشرك"
+      - "ود وسواع ويغوث ويعوق ونسر"
+      - "دعوة نوح"
+      - "صناعة السفينة"
+      - "الطوفان"
+      - "غرق قوم نوح"
+      - "استواء السفينة على الجودي"
+      - "انتشار ذرية نوح"
+
+  - era_id: ERA-003
+    title: "الأمم العربية البائدة"
+    principal_figures:
+      - { name: "هود", classification: revealed_prophet }
+      - { name: "صالح", classification: revealed_prophet }
+      - { name: "شداد بن عاد", classification: major_person }
+      - { name: "قدار بن سالف", classification: major_person }
+    principal_events:
+      - "عاد وإرم"
+      - "دعوة هود"
+      - "هلاك عاد بالريح"
+      - "ثمود والحجر"
+      - "ناقة صالح"
+      - "عقر الناقة"
+      - "هلاك ثمود"
+
+  - era_id: ERA-004
+    title: "إبراهيم والأسرة الإبراهيمية"
+    principal_figures:
+      - { name: "إبراهيم", classification: revealed_prophet }
+      - { name: "لوط", classification: revealed_prophet }
+      - { name: "إسماعيل", classification: revealed_prophet }
+      - { name: "إسحاق", classification: revealed_prophet }
+      - { name: "يعقوب", classification: revealed_prophet }
+      - { name: "يوسف", classification: revealed_prophet }
+      - { name: "سارة", classification: major_person }
+      - { name: "هاجر", classification: major_person }
+      - { name: "النمرود أو الملك المجادل", classification: unidentified_person }
+    principal_events:
+      - "دعوة إبراهيم"
+      - "كسر الأصنام"
+      - "النار"
+      - "الهجرة"
+      - "قوم لوط"
+      - "مولد إسماعيل"
+      - "زمزم"
+      - "الذبح والفداء"
+      - "مولد إسحاق"
+      - "بناء الكعبة"
+      - "يعقوب والأسباط"
+      - "قصة يوسف"
+      - "انتقال آل يعقوب إلى مصر"
+
+  - era_id: ERA-005
+    title: "الفترة السابقة لموسى"
+    principal_figures:
+      - { name: "أيوب", classification: revealed_prophet }
+      - { name: "شعيب", classification: revealed_prophet }
+      - { name: "ذو الكفل", classification: disputed_prophethood }
+    principal_events:
+      - "ابتلاء أيوب وشفاؤه"
+      - "مدين"
+      - "أصحاب الأيكة"
+      - "هلاك قوم شعيب"
+      - "أخبار ذي الكفل"
+
+  - era_id: ERA-006
+    title: "موسى وبنو إسرائيل في مصر والتيه"
+    principal_figures:
+      - { name: "موسى", classification: revealed_prophet }
+      - { name: "هارون", classification: revealed_prophet }
+      - { name: "الخضر", classification: disputed_prophethood }
+      - { name: "فرعون", classification: major_person }
+      - { name: "آسية", classification: major_person }
+      - { name: "هامان", classification: major_person }
+      - { name: "قارون", classification: major_person }
+      - { name: "السامري", classification: major_person }
+      - { name: "يوشع بن نون", classification: historical_prophet }
+    principal_events:
+      - "استعباد بني إسرائيل"
+      - "مولد موسى"
+      - "الخروج إلى مدين"
+      - "التكليم عند الطور"
+      - "مواجهة فرعون"
+      - "السحرة"
+      - "الآيات التسع"
+      - "الخروج وشق البحر"
+      - "غرق فرعون"
+      - "التوراة"
+      - "عبادة العجل"
+      - "قارون"
+      - "لقاء الخضر"
+      - "التيه"
+      - "وفاة هارون وموسى"
+
+  - era_id: ERA-007
+    title: "دخول الأرض المقدسة وعصر القضاة"
+    principal_figures:
+      - { name: "يوشع بن نون", classification: historical_prophet }
+      - { name: "كالب بن يوفنا", classification: major_person }
+      - { name: "شمويل", classification: historical_prophet }
+      - { name: "طالوت", classification: major_person }
+      - { name: "جالوت", classification: major_person }
+    principal_events:
+      - "دخول الأرض المقدسة"
+      - "حبس الشمس"
+      - "عصر القضاة"
+      - "ضياع التابوت"
+      - "طلب الملك"
+      - "اختيار طالوت"
+      - "اختبار النهر"
+      - "مواجهة جالوت"
+
+  - era_id: ERA-008
+    title: "داود وسليمان والمملكة الموحدة"
+    principal_figures:
+      - { name: "داود", classification: revealed_prophet }
+      - { name: "سليمان", classification: revealed_prophet }
+      - { name: "ملكة سبأ", classification: major_person }
+    principal_events:
+      - "قتل جالوت"
+      - "ملك داود"
+      - "الزبور"
+      - "تليين الحديد"
+      - "ملك سليمان"
+      - "تسخير الريح والجن"
+      - "الهدهد"
+      - "ملكة سبأ"
+      - "بناء بيت المقدس"
+      - "وفاة سليمان"
+      - "انقسام المملكة"
+
+  - era_id: ERA-009
+    title: "أنبياء بني إسرائيل والمملكتان"
+    principal_figures:
+      - { name: "إلياس", classification: revealed_prophet }
+      - { name: "اليسع", classification: revealed_prophet }
+      - { name: "يونس", classification: revealed_prophet }
+      - { name: "شعيا", classification: historical_prophet }
+      - { name: "أرميا", classification: historical_prophet }
+      - { name: "حزقيال", classification: historical_prophet }
+      - { name: "دانيال", classification: historical_prophet }
+      - { name: "عزير", classification: disputed_prophethood }
+    principal_events:
+      - "عبادة بعل"
+      - "دعوة إلياس واليسع"
+      - "يونس ونينوى"
+      - "الصراع الآشوري"
+      - "سقوط السامرة"
+      - "غزو بابل"
+      - "خراب بيت المقدس"
+      - "السبي البابلي"
+      - "سقوط بابل"
+      - "العودة من السبي"
+      - "إعادة بناء بيت المقدس"
+
+  - era_id: ERA-010
+    title: "زكريا ويحيى وعيسى"
+    principal_figures:
+      - { name: "زكريا", classification: revealed_prophet }
+      - { name: "يحيى", classification: revealed_prophet }
+      - { name: "عيسى", classification: revealed_prophet }
+      - { name: "مريم", classification: major_person }
+      - { name: "الحواريون", classification: group_or_nation }
+    principal_events:
+      - "كفالة مريم"
+      - "البشارة بيحيى"
+      - "مولد يحيى"
+      - "البشارة بعيسى"
+      - "مولد عيسى"
+      - "كلام عيسى في المهد"
+      - "بعثة عيسى"
+      - "معجزات عيسى"
+      - "الحواريون"
+      - "المائدة"
+      - "المؤامرة على عيسى"
+      - "رفع عيسى"
+
+  - era_id: ERA-011
+    title: "الفترة بين عيسى ومحمد"
+    principal_figures:
+      - { name: "أصحاب الكهف", classification: group_or_nation }
+      - { name: "أصحاب الأخدود", classification: group_or_nation }
+      - { name: "تبع", classification: major_person }
+      - { name: "ذو نواس", classification: major_person }
+      - { name: "أبرهة", classification: major_person }
+      - { name: "قصي بن كلاب", classification: major_person }
+      - { name: "هاشم", classification: major_person }
+      - { name: "عبد المطلب", classification: major_person }
+    principal_events:
+      - "انتشار النصرانية"
+      - "الاضطهادات"
+      - "مجمع نيقية"
+      - "الروم والفرس"
+      - "ممالك اليمن"
+      - "أصحاب الأخدود"
+      - "الحبشة في اليمن"
+      - "عام الفيل"
+      - "نشأة قريش"
+      - "حفر زمزم"
+      - "اقتراب مولد محمد"
+
+  - era_id: ERA-012
+    title: "محمد رسول الله"
+    principal_figures:
+      - { name: "محمد", classification: revealed_prophet }
+      - { name: "خديجة", classification: major_person }
+      - { name: "أبو بكر", classification: major_person }
+      - { name: "علي", classification: major_person }
+      - { name: "حمزة", classification: major_person }
+      - { name: "عمر", classification: major_person }
+      - { name: "عثمان", classification: major_person }
+      - { name: "فاطمة", classification: major_person }
+    principal_events:
+      - "المولد"
+      - "الطفولة والكفالة"
+      - "حلف الفضول"
+      - "الزواج من خديجة"
+      - "نزول الوحي"
+      - "الدعوة المكية"
+      - "الهجرة إلى الحبشة"
+      - "المقاطعة"
+      - "الطائف"
+      - "الإسراء والمعراج"
+      - "بيعتا العقبة"
+      - "الهجرة"
+      - "تأسيس المدينة"
+      - "بدر"
+      - "أحد"
+      - "الأحزاب"
+      - "الحديبية"
+      - "خيبر"
+      - "فتح مكة"
+      - "حنين"
+      - "تبوك"
+      - "حجة الوداع"
+      - "وفاة النبي"
+
+deferred_expansion_register:
+  purpose: "شخصيات وأحداث يجب إضافتها لاحقًا دون تعديل العمود الفقري الحالي"
+  entries:
+    - "لقمان الحكيم"
+    - "هاروت وماروت"
+    - "ذو القرنين"
+    - "أصحاب الرس"
+    - "حبيب النجار"
+    - "أصحاب القرية"
+    - "الشخصيات الكتابية والتاريخية الإضافية"

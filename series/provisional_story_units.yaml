@@ -1,0 +1,49 @@
+schema_version: siraj-provisional-story-units-v1
+story_arc_id: adam-story-arc-v1
+status: provisional
+binding: false
+
+governing_rule: >
+  توزع أحداث قصة آدم على الحلقات بحسب كثافة الأدلة والتماسك السردي
+  ومتطلبات الستوريبورد والمدة النهائية، ولا يعد هذا الملف تقسيمًا إلزاميًا.
+
+duration:
+  standard_range_minutes:
+    min: 18
+    max: 25
+  default_target_minutes: 22
+  special_episodes_may_exceed: true
+
+storyboard_authority:
+  may_move_units_between_episodes: true
+  may_merge_units: true
+  may_split_units: true
+  must_preserve_verified_chronology: true
+  may_use_editorial_order_when_chronology_is_uncertain: true
+  must_label_uncertain_chronology: true
+  requires_human_approval: true
+
+units:
+  - { unit_id: ADAM-U01, title: "حال الكون قبل آدم" }
+  - { unit_id: ADAM-U02, title: "خلق آدم وتكوينه" }
+  - { unit_id: ADAM-U03, title: "تعليم آدم وتكريمه" }
+  - { unit_id: ADAM-U04, title: "سجود الملائكة وامتناع إبليس" }
+  - { unit_id: ADAM-U05, title: "ميثاق بني آدم واستخراج الذرية" }
+  - { unit_id: ADAM-U06, title: "خلق زوج آدم والسكن في الجنة" }
+  - { unit_id: ADAM-U07, title: "الوسوسة والمعصية" }
+  - { unit_id: ADAM-U08, title: "التوبة والهبوط" }
+  - { unit_id: ADAM-U09, title: "بداية حياة آدم على الأرض" }
+  - { unit_id: ADAM-U10, title: "أبناء آدم وأول جريمة" }
+  - { unit_id: ADAM-U11, title: "شيث وانتقال العلم والنبوة" }
+  - { unit_id: ADAM-U12, title: "عمر آدم ووفاته" }
+  - { unit_id: ADAM-U13, title: "القضايا العقدية والعلمية المتعلقة بأصل الإنسان" }
+
+provisional_editorial_scenario:
+  binding: false
+  possible_distribution:
+    - "خلق آدم وتكريمه وميثاق ذريته والسكن في الجنة"
+    - "الوسوسة والمعصية والتوبة والهبوط"
+    - "آدم على الأرض وبداية الحياة الإنسانية"
+    - "أبناء آدم وقصة أول جريمة"
+    - "شيث وذرية آدم ووفاة آدم"
+    - "حلقة خاصة عن آدم وأصل الإنسان"

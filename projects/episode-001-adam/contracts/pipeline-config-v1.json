@@ -1,0 +1,55 @@
+{
+  "approval_policy": {
+    "human_approval_required": true
+  },
+  "disclosure_permissions": {},
+  "episode_id": "episode-001-adam",
+  "external_provider_policy": {
+    "credential_present": false,
+    "default_allowed": false,
+    "disclosure_permitted": false,
+    "explicit_live_confirmation_required": true,
+    "provider_configured": false,
+    "quota_policy_valid": false,
+    "request_limit_available": false,
+    "stage_permissions": {}
+  },
+  "narrative_writer": {
+    "enabled": false
+  },
+  "publication": {
+    "enabled": false
+  },
+  "qa": {
+    "enabled": false
+  },
+  "render": {
+    "enabled": false
+  },
+  "request_limits": {},
+  "research": {
+    "enabled": true,
+    "extractor_status": "IMPLEMENTED_EXTRACTOR_DISCONNECTED"
+  },
+  "runtime_paths": {
+    "root": "working/episode-production-v1"
+  },
+  "schema_version": "siraj-episode-production-pipeline-config-v1",
+  "storyboard": {
+    "enabled": true
+  },
+  "subtitles": {
+    "enabled": true
+  },
+  "tts": {
+    "enabled": false
+  },
+  "video": {
+    "enabled": false,
+    "live_validation_status": "VIDEO_PROVIDER_V1_IMPLEMENTED_LIVE_VALIDATION_DEFERRED"
+  },
+  "visuals": {
+    "enabled": false,
+    "live_validation_status": "IMPLEMENTATION_COMPLETED_LIVE_VALIDATION_DEFERRED"
+  }
+}

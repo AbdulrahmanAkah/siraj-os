@@ -4,7 +4,7 @@
 <!-- SIRAJ_AUTO_PROGRESS_BEGIN -->
 ## الحالة التنفيذية الآلية للمشروع
 
-**آخر مزامنة:** 2026-07-23T00:21:53.190000+00:00
+**آخر مزامنة:** 2026-07-24T11:42:20.406891+00:00
 
 ### الهدف المرجعي
 
@@ -19,14 +19,15 @@
 
 ### أحدث خطوة كبيرة
 
-- **المعرّف:** `auto-commit-8ce83658209363df`
+- **المعرّف:** `auto-commit-e093fba1d9d0218a`
 - **العنوان:** تحديث تنفيذي آلي قبل Commit رئيسي
 - **الحالة:** `AUTO_RECORDED`
-- **الملخص:** اكتشف Git hook تغييرات كبيرة لم يصاحبها تحديث يدوي لسجل المشروع، فأضاف هذا السجل تلقائيًا. الملفات المتأثرة: scripts/fast_track/run_operator_ui_v1.py، src/application/local_operator_ui_v1/__init__.py، src/application/local_operator_ui_v1/runtime.py
+- **الملخص:** اكتشف Git hook تغييرات كبيرة لم يصاحبها تحديث يدوي لسجل المشروع، فأضاف هذا السجل تلقائيًا. الملفات المتأثرة: projects/episode-001-adam/contracts/episode-definition-v1.json، projects/episode-001-adam/contracts/integration-validation-v1.json، projects/episode-001-adam/contracts/pipeline-config-v1.json، projects/episode-001-adam/contracts/source-package-v1.draft.json، projects/episode-001-adam/editorial/README.md، projects/episode-001-adam/editorial/episode-brief.yaml، projects/episode-001-adam/editorial/event-map.json، projects/episode-001-adam/editorial/human-decisions.json، projects/episode-001-adam/editorial/integration-manifest-v1.json، projects/episode-001-adam/editorial/research-questions.json، projects/episode-001-adam/editorial/source-acquisition-register.jsonl، scripts/fast_track/integrate_adam_editorial_v1.py، src/application/episode_production_v1/composition.py
 - **الخطوة التالية:** مراجعة وصف milestone وتحديثه بتفاصيل دلالية أدق عند تقييم نتيجة المرحلة.
 
 ### أحدث Milestones
 
+- `AUTO_RECORDED` — تحديث تنفيذي آلي قبل Commit رئيسي (`auto-commit-e093fba1d9d0218a`)
 - `AUTO_RECORDED` — تحديث تنفيذي آلي قبل Commit رئيسي (`auto-commit-8ce83658209363df`)
 - `EPISODE_PRODUCTION_PIPELINE_V1_IMPLEMENTED_LIVE_MEDIA_VALIDATION_DEFERRED` — Episode Production Pipeline v1 (`2026-07-23-episode-production-pipeline-v1`)
 - `AUTO_RECORDED` — تحديث تنفيذي آلي قبل Commit رئيسي (`auto-commit-5b39c510efc40210`)
@@ -34,7 +35,6 @@
 - `IMPLEMENTATION_COMPLETED_LIVE_BLOCKED_BY_QUOTA` — Gemini Visual Provider v1 (`2026-07-22-gemini-visual-provider-v1`)
 - `EVIDENCE_TO_SCRIPT_ADAPTER_V1_IMPLEMENTED_GENERATOR_DISCONNECTED` — Canonical Evidence-to-Script Episode Adapter v1 (`2026-07-22-evidence-to-script-episode-adapter-v1`)
 - `EPISODE_ORCHESTRATOR_V1_COMPLETED` — إكمال ومراجعة Episode Orchestrator v1 (`2026-07-22-episode-orchestrator-v1`)
-- `COMPLETED` — Complete Cinematic Storyboard Generator v1 (`2026-07-22-storyboard-generator-v1`)
 
 السجل المنظم:
 

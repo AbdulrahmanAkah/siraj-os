@@ -1,0 +1,134 @@
+schema_version: siraj-editorial-policy-v1
+policy_id: sunni-salafi-history-production-v1
+status: approved
+scope: global
+
+editorial_identity:
+  creed: ahl_al_sunnah_wal_jamaah
+  methodology: salafi
+  historical_presentation: sunni_salafi
+  speculative_storytelling: prohibited
+
+excluded_source_traditions:
+  - twelver_shia
+  - rafidi
+  - ismaili
+  - batini
+  - sectarian_sources_conflicting_with_sunni_creed
+
+source_hierarchy:
+  foundational:
+    - quran
+    - authentic_sunnah
+  principal:
+    - athar
+    - tafsir_bil_mathur
+    - sunni_tafsir
+    - sunni_history
+    - sunni_prophetic_histories
+  comparative:
+    - israiliyyat
+    - biblical_and_ancient_texts_for_origin_tracing_only
+
+historical_sources:
+  role: principal
+  automatic_acceptance: false
+  require_individual_report_classification: true
+  preserve_isnad_when_present: true
+  preserve_original_attribution: true
+
+israiliyyat_policy:
+  compatible_with_quran_sunnah_and_sunni_creed:
+    usage: allowed_with_explicit_label
+    certainty_language: non_assertive_unless_independently_supported
+
+  silent_in_revelation:
+    usage: allowed_with_explicit_label
+    belief_posture: neither_confirm_nor_deny
+    may_establish_creed: false
+    may_establish_law: false
+
+  contradicts_quran_sunnah_or_sunni_creed:
+    usage: prohibited
+    classification: rejected_contradictory
+
+hadith_policy:
+  final_grading_authorities: pending_human_definition
+  automatic_hadith_grading: disabled
+  dorar_hadith_grading:
+    allowed: false
+  dorar_other_domains:
+    allowed:
+      - aqidah
+      - fiqh
+      - general_indexing
+  preserve_existing_source_grades: true
+  final_grade_requires_authorized_reference: true
+
+claim_language_policy:
+  quran_explicit:
+    permitted_forms:
+      - ثبت في القرآن
+      - أخبر الله
+      - خلق الله
+  authentic_sunnah:
+    permitted_forms:
+      - ثبت في السنة
+      - صح عن النبي
+  accepted_athar:
+    permitted_forms:
+      - روي بإسناد مقبول
+      - ورد عن بعض السلف
+  scholarly_interpretation:
+    permitted_forms:
+      - قال عدد من المفسرين
+      - رجح بعض أهل العلم
+  disputed_view:
+    permitted_forms:
+      - اختلف أهل العلم
+      - من الأقوال في المسألة
+  historical_report:
+    permitted_forms:
+      - روى أهل التاريخ
+      - ورد في بعض كتب التاريخ
+  israiliyyat:
+    permitted_forms:
+      - ورد في بعض الإسرائيليات
+      - يذكر أهل الأخبار
+  weak_report:
+    permitted_forms:
+      - روي ولا يثبت
+      - ورد بخبر ضعيف
+
+episode_duration:
+  standard_min_minutes: 18
+  default_target_minutes: 22
+  standard_max_minutes: 25
+  segment_timings_are_estimates: true
+  final_timing_authority:
+    - evidence_density
+    - storyboard
+    - production_system
+    - human_approval
+  special_episode:
+    may_exceed_standard_max: true
+    duration: as_reasonably_required
+    requires_justification: true
+    requires_human_approval: true
+
+storyboard_authority:
+  may_split_provisional_units: true
+  may_merge_provisional_units: true
+  may_move_events_between_episodes: true
+  must_preserve_verified_chronology: true
+  uncertain_chronology_must_be_labeled: true
+  requires_human_approval: true
+
+verification:
+  current_status: deferred
+  suggestions_are_not_automatically_approved: true
+  required_flow:
+    - research
+    - verification
+    - human_approval
+    - approved_evidence_package

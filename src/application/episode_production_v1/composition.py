@@ -37,6 +37,12 @@ def _fingerprint(value: Any) -> str:
     return sha256(json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")).hexdigest()
 
 
+def _resolve_project_path(project_root: Path, value: str) -> Path:
+    """Resolve a contract path relative to the episode project root."""
+    candidate = Path(value)
+    return candidate.resolve() if candidate.is_absolute() else (project_root / candidate).resolve()
+
+
 def load_pipeline_config(path: Path) -> dict[str, Any]:
     value = json.loads(path.read_text(encoding="utf-8-sig"))
     if not isinstance(value, dict):
@@ -102,7 +108,7 @@ class EpisodeProductionComposition:
     storyboard_generator: Callable[[Any], Any] | None = None
 
     def _evidence_runner(self) -> Callable[[EpisodeContext, StageSpec, str], StageExecutionResult]:
-        evidence_path = Path(str(self.definition.get("evidence_package", {}).get("path", "")))
+        evidence_path = _resolve_project_path(self.project_root, str(self.definition.get("evidence_package", {}).get("path", "")))
         adapter = EvidenceToScriptEpisodeAdapter(self.project_root, evidence_path)
         def run(context: EpisodeContext, stage: StageSpec, run_id: str) -> StageExecutionResult:
             package, errors = adapter.validate_input(context.definition)
@@ -151,7 +157,7 @@ class EpisodeProductionComposition:
         definition = json.loads(json.dumps(self.definition))
         definition["external_provider_policy"] = self.config.get("external_provider_policy", definition.get("external_provider_policy", {}))
         writer = self._writer()
-        source_package_path = Path(str(definition.get("source_package", {}).get("path", "")))
+        source_package_path = _resolve_project_path(self.project_root, str(definition.get("source_package", {}).get("path", "")))
         research_enabled = self.config.get("research", {}).get("enabled") is True
         runners: dict[str, Any] = {
             "evidence_knowledge": ResearchVerificationEpisodeAdapter(self.project_root, source_package_path, self.research_extractor).run if research_enabled else self._evidence_runner(),

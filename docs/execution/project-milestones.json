@@ -546,6 +546,34 @@
       "status": "AUTO_RECORDED",
       "summary_ar": "اكتشف Git hook تغييرات كبيرة لم يصاحبها تحديث يدوي لسجل المشروع، فأضاف هذا السجل تلقائيًا. الملفات المتأثرة: scripts/fast_track/run_operator_ui_v1.py، src/application/local_operator_ui_v1/__init__.py، src/application/local_operator_ui_v1/runtime.py",
       "title_ar": "تحديث تنفيذي آلي قبل Commit رئيسي"
+    },
+    {
+      "changed_files": [
+        "projects/episode-001-adam/contracts/episode-definition-v1.json",
+        "projects/episode-001-adam/contracts/integration-validation-v1.json",
+        "projects/episode-001-adam/contracts/pipeline-config-v1.json",
+        "projects/episode-001-adam/contracts/source-package-v1.draft.json",
+        "projects/episode-001-adam/editorial/README.md",
+        "projects/episode-001-adam/editorial/episode-brief.yaml",
+        "projects/episode-001-adam/editorial/event-map.json",
+        "projects/episode-001-adam/editorial/human-decisions.json",
+        "projects/episode-001-adam/editorial/integration-manifest-v1.json",
+        "projects/episode-001-adam/editorial/research-questions.json",
+        "projects/episode-001-adam/editorial/source-acquisition-register.jsonl",
+        "scripts/fast_track/integrate_adam_editorial_v1.py",
+        "src/application/episode_production_v1/composition.py"
+      ],
+      "evidence": [],
+      "metadata": {
+        "automatic_git_hook": true,
+        "staged_file_count": 13
+      },
+      "milestone_id": "auto-commit-e093fba1d9d0218a",
+      "next_action_ar": "مراجعة وصف milestone وتحديثه بتفاصيل دلالية أدق عند تقييم نتيجة المرحلة.",
+      "recorded_at": "2026-07-24T11:42:20.405881+00:00",
+      "status": "AUTO_RECORDED",
+      "summary_ar": "اكتشف Git hook تغييرات كبيرة لم يصاحبها تحديث يدوي لسجل المشروع، فأضاف هذا السجل تلقائيًا. الملفات المتأثرة: projects/episode-001-adam/contracts/episode-definition-v1.json، projects/episode-001-adam/contracts/integration-validation-v1.json، projects/episode-001-adam/contracts/pipeline-config-v1.json، projects/episode-001-adam/contracts/source-package-v1.draft.json، projects/episode-001-adam/editorial/README.md، projects/episode-001-adam/editorial/episode-brief.yaml، projects/episode-001-adam/editorial/event-map.json، projects/episode-001-adam/editorial/human-decisions.json، projects/episode-001-adam/editorial/integration-manifest-v1.json، projects/episode-001-adam/editorial/research-questions.json، projects/episode-001-adam/editorial/source-acquisition-register.jsonl، scripts/fast_track/integrate_adam_editorial_v1.py، src/application/episode_production_v1/composition.py",
+      "title_ar": "تحديث تنفيذي آلي قبل Commit رئيسي"
     }
   ],
   "program_state": {
@@ -556,5 +584,5 @@
     "short_term_objective_ar": "إنتاج أول حلقة وثائقية قابلة للنشر من المصدر إلى ملف MP4، ثم تحويل المسار إلى قالب إنتاج متكرر."
   },
   "schema_version": "siraj-project-milestones-v1",
-  "updated_at": "2026-07-23T00:21:53.190000+00:00"
+  "updated_at": "2026-07-24T11:42:20.406891+00:00"
 }

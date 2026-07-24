@@ -1,0 +1,123 @@
+{
+  "central_question": "ماذا ثبت عن حال الكون قبيل خلق آدم، وكيف خلقه الله وكرمه بالعلم، وأمر الملائكة بالسجود له، ثم خلق زوجه وأسكنهما الجنة؟",
+  "created_at": "2026-07-24T11:28:20.764085Z",
+  "editorial_inputs": {
+    "episode_brief": "editorial/episode-brief.yaml",
+    "event_map": "editorial/event-map.json",
+    "global_editorial_policy": "../../config/editorial_policy.yaml",
+    "historical_backbone": "../../series/historical_era_backbone.yaml",
+    "human_decisions": "editorial/human-decisions.json",
+    "research_questions": "editorial/research-questions.json",
+    "source_acquisition_register": "editorial/source-acquisition-register.jsonl",
+    "story_units": "../../series/provisional_story_units.yaml"
+  },
+  "episode_id": "episode-001-adam",
+  "evidence_package": {
+    "input_fingerprint": "",
+    "path": ""
+  },
+  "external_provider_policy": {
+    "credential_present": false,
+    "default_allowed": false,
+    "disclosure_permitted": false,
+    "explicit_live_confirmation_required": true,
+    "provider_configured": false,
+    "quota_policy_valid": false,
+    "request_limit_available": false,
+    "stage_permissions": {}
+  },
+  "generated_video_policy": {
+    "allocation_owner": "STORYBOARD_WRITER",
+    "allowed_models": [
+      "VEO_3_1_LITE_1080P",
+      "VEO_3_1_FAST_1080P"
+    ],
+    "enforcement_owner": "VIDEO_POLICY_GUARD",
+    "final_approval_required": true,
+    "maximum_final_generated_video_seconds": 300
+  },
+  "geographical_scope": {
+    "notes": "لا يجزم بتعيين مواقع أرضية أو غيبية لم يثبت تعيينها.",
+    "status": "TO_BE_APPROVED"
+  },
+  "historical_scope": {
+    "chronology_policy": "VERIFIED_CHRONOLOGY_ONLY; EDITORIAL_ORDER_MUST_BE_LABELED",
+    "ends_with": "النهي عن الشجرة قبل وقوع الوسوسة",
+    "required_event_ids": [
+      "EV-ADAM-001",
+      "EV-ADAM-002",
+      "EV-ADAM-003",
+      "EV-ADAM-004",
+      "EV-ADAM-005",
+      "EV-ADAM-006",
+      "EV-ADAM-007",
+      "EV-ADAM-010",
+      "EV-ADAM-011",
+      "EV-ADAM-020",
+      "EV-ADAM-021",
+      "EV-ADAM-022",
+      "EV-ADAM-023",
+      "EV-ADAM-024",
+      "EV-ADAM-030",
+      "EV-ADAM-031",
+      "EV-ADAM-032",
+      "EV-ADAM-033",
+      "EV-ADAM-040",
+      "EV-ADAM-041",
+      "EV-ADAM-042",
+      "EV-ADAM-050",
+      "EV-ADAM-051",
+      "EV-ADAM-052",
+      "EV-ADAM-053",
+      "EV-ADAM-054",
+      "EV-ADAM-055",
+      "EV-ADAM-060",
+      "EV-ADAM-061",
+      "EV-ADAM-070",
+      "EV-ADAM-071",
+      "EV-ADAM-080",
+      "EV-ADAM-081",
+      "EV-ADAM-082",
+      "EV-ADAM-090",
+      "EV-ADAM-091",
+      "EV-ADAM-099"
+    ],
+    "starts_with": "حال الكون والمخلوقات قبل خلق آدم",
+    "status": "PROVISIONAL"
+  },
+  "human_approval_policy": {
+    "required_gates": [
+      "source_adjudication",
+      "evidence_approval",
+      "script_approval",
+      "religious_safety_approval",
+      "storyboard_approval",
+      "master_visual_approval",
+      "video_approval",
+      "final_render_approval",
+      "publication_approval"
+    ]
+  },
+  "intended_audience": "general_arabic_documentary",
+  "language": "ar",
+  "maximum_duration_minutes": 25,
+  "minimum_duration_minutes": 18,
+  "production_profile": "DOCUMENTARY_STANDARD_V1",
+  "religious_sensitivity": "HUMAN_REVIEW_REQUIRED",
+  "requested_outputs": [
+    "render_manifest",
+    "subtitles",
+    "video"
+  ],
+  "schema_version": "siraj-episode-definition-v1",
+  "series_id": "siraj-islamic-history-chronology",
+  "source_package": {
+    "approval_status": "NOT_REQUESTED",
+    "path": "contracts/source-package-v1.draft.json"
+  },
+  "subject": "خلق آدم عليه السلام وتكريمه وميثاق ذريته والسكن في الجنة",
+  "target_duration_minutes": 22,
+  "title": "آدم عليه السلام: الخلق والتكريم والسكن في الجنة",
+  "updated_at": "2026-07-24T11:28:20.764085Z",
+  "working_title": "آدم عليه السلام: الخلق والتكريم والسكن في الجنة"
+}
