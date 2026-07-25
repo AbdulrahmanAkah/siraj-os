@@ -1,0 +1,40 @@
+{
+  "boundary_excluded_candidate_count": 16,
+  "episode_id": "episode-001-adam",
+  "included_window_count": 18,
+  "isnad_research_count": 1,
+  "outputs": {
+    "boundary_excluded": {
+      "project_path": "sources/secondary/report-level-extraction/SRC-TAFSIR-SAADI-ADAM/boundary-excluded-candidates.jsonl",
+      "rows": 16,
+      "sha256": "60a0936a0b5ae5cdb4cc700bb6a3cfd966329ce7910c75db7114b7423dec7b77"
+    },
+    "internal_isnad_research": {
+      "project_path": "sources/secondary/report-level-extraction/SRC-TAFSIR-SAADI-ADAM/internal-isnad-research-queue.jsonl",
+      "rows": 1,
+      "sha256": "1e1c6d9cba3babc6e20691caf236d6902fbe3a7a2ef508f13653f6adcfe82a69"
+    },
+    "report_candidates": {
+      "project_path": "sources/secondary/report-level-extraction/SRC-TAFSIR-SAADI-ADAM/report-candidates.jsonl",
+      "rows": 62,
+      "sha256": "dfc09a5e327766752bae5bc4c8191b59c1c60a5acaa021527b0cc42b495c2759"
+    }
+  },
+  "permissions": {
+    "candidate_only": true,
+    "evidence_approval_changed": false,
+    "gemini_execution_enabled": false,
+    "hadith_grading_changed": false,
+    "israiliyyat_classification_changed": false,
+    "quotation_approval_changed": false,
+    "source_approval_changed": false
+  },
+  "report_candidate_count": 62,
+  "report_kind_counts": {
+    "EARLY_REPORT_CANDIDATE": 5,
+    "PROPHETIC_HADITH_CANDIDATE": 1,
+    "QURAN_EXEGESIS_CONTEXT_CANDIDATE": 56
+  },
+  "schema_version": "siraj-adam-report-level-source-manifest-v1",
+  "work_source_id": "SRC-TAFSIR-SAADI-ADAM"
+}

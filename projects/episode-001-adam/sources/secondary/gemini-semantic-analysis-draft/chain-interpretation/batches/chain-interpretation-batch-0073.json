@@ -1,0 +1,462 @@
+{
+  "batch_id": "chain-interpretation-batch-0073",
+  "episode_id": "episode-001-adam",
+  "execution_enabled": false,
+  "execution_status": "BLOCKED_NOT_AUTHORIZED",
+  "generation_config": {
+    "response_mime_type": "application/json",
+    "temperature": 0
+  },
+  "model_id": null,
+  "provider_id": "GEMINI",
+  "record_count": 6,
+  "records": [
+    {
+      "book_id": 7798,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/5/page/462?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=3579"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_17d72670de5de90013a3c8ee",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "سلمة",
+          "narrator_surface_raw": "سلمةُ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابن اسحاق",
+          "narrator_surface_raw": "ابن إسحاقَ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "محمد بن جعفر بن الزبير",
+          "narrator_surface_raw": "محمدِ بن جعفرِ بن الزبيرِ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "ثنا سلمةُ، عن ابن إسحاقَ، عن محمدِ بن جعفرِ بن الزبيرِ: ﴿إِنَّ مَثَلَ عِيسَى عِنْدَ اللَّهِ﴾ فاسمَعْ ﴿كَمَثَلِ آدَمَ خَلَقَهُ مِنْ تُرَابٍ ثُمَّ قَالَ لَهُ كُنْ فَيَكُونُ (٥٩) الْحَقُّ مِنْ رَبِّكَ فَلَا تَكُنْ مِنَ الْمُمْتَرِينَ﴾. فإن قالوا: خُلِق عيسى مِن غيرِ ذكَرٍ. فقد خلَقْتُ آدمَ مِن ترابٍ بتلك القُدْرةِ، مِن غيرِ أنثى ولا ذكَرٍ، فكان كما كان عيسى لحمًا ودمًا وشعَرًا وبَشَرًا، فليس خَلْقُ عيسى مِن غيرِ ذَكَرٍ بأعجَبَ مِن هذا (¬٢).\nحدَّثني يونُسُ، قال:",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_ddb412ea7d6ef2b80ceada59",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "report_text": "ثنا سلمةُ، عن ابن إسحاقَ، عن محمدِ بن جعفرِ بن الزبيرِ: ﴿إِنَّ مَثَلَ عِيسَى عِنْدَ اللَّهِ﴾ فاسمَعْ ﴿كَمَثَلِ آدَمَ خَلَقَهُ مِنْ تُرَابٍ ثُمَّ قَالَ لَهُ كُنْ فَيَكُونُ (٥٩) الْحَقُّ مِنْ رَبِّكَ فَلَا تَكُنْ مِنَ الْمُمْتَرِينَ﴾. فإن قالوا: خُلِق عيسى مِن غيرِ ذكَرٍ. فقد خلَقْتُ آدمَ مِن ترابٍ بتلك القُدْرةِ، مِن غيرِ أنثى ولا ذكَرٍ، فكان كما كان عيسى لحمًا ودمًا وشعَرًا وبَشَرًا، فليس خَلْقُ عيسى مِن غيرِ ذَكَرٍ بأعجَبَ مِن هذا (¬٢).\nحدَّثني يونُسُ، قال:",
+      "report_text_sha256": "09ae73550ab87620d9a8a79d46318b9e4bf4e4084c5ed72342f5ebfcae139b90",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "محمدِ بن جعفرِ بن الزبيرِ",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_1635f092be0ac5e85e25d159",
+      "terminal_speaker_surface_candidate": "محمدِ بن جعفرِ بن الزبيرِ",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "book_id": 7798,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/1/page/535?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=715"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_e5d10e3128691ba5e075985e",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابي روق",
+          "narrator_surface_raw": "أبي رَوْقٍ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "الضحاك",
+          "narrator_surface_raw": "الضَّحَّاكِ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابن عباس",
+          "narrator_surface_raw": "ابنِ عباسٍ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "حدَّثنا بشرُ بنُ عُمارةَ، عن أبي رَوْقٍ، عن الضَّحَّاكِ، عن ابنِ عباسٍ، قال: كان إبليسُ مِن حيٍّ مِن أحياءِ الملائكةِ يقال لهم: الجِنُّ. خُلِقوا مِن نارِ السَّمومِ مِن بينِ الملائكةِ. قال: وكان اسمُه الحارثَ. قال: وكان خازنًا مِن خُزَّانِ الجنةِ. قال: وخُلِقَت الملائكةُ مِن نورٍ غيرَ هذا الحيِّ قال: وخُلِقَت الجِنُّ الذين ذُكِروا في القرآنِ مِن مارجٍ مِن نارٍ؛ وهو لسانُ النارِ الذي يَكونُ في طَرَفِها إذا الْتَهَبَت (¬١).",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_de70f8c54701c92179fd4adc",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MAWQUF_OR_TAFSIR_REPORT_CANDIDATE",
+      "report_text": "حدَّثنا بشرُ بنُ عُمارةَ، عن أبي رَوْقٍ، عن الضَّحَّاكِ، عن ابنِ عباسٍ، قال: كان إبليسُ مِن حيٍّ مِن أحياءِ الملائكةِ يقال لهم: الجِنُّ. خُلِقوا مِن نارِ السَّمومِ مِن بينِ الملائكةِ. قال: وكان اسمُه الحارثَ. قال: وكان خازنًا مِن خُزَّانِ الجنةِ. قال: وخُلِقَت الملائكةُ مِن نورٍ غيرَ هذا الحيِّ قال: وخُلِقَت الجِنُّ الذين ذُكِروا في القرآنِ مِن مارجٍ مِن نارٍ؛ وهو لسانُ النارِ الذي يَكونُ في طَرَفِها إذا الْتَهَبَت (¬١).",
+      "report_text_sha256": "8bfb4a38eefc1e1a4cf27b05f0d22c7a3393bac922b7dcb7ec56ae04972eefe6",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "ابنِ عباسٍ",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_4253b3491946f6dd02bb7d42",
+      "terminal_speaker_surface_candidate": "ابنِ عباسٍ",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "book_id": 7798,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/1/page/532?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=712"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_194198075d6d68540e2056e7",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "سمعت الحسن بن دينار قال للحسن ونحن جلوس عنده في منزله",
+          "narrator_surface_raw": "سمِعْتُ الحسنَ بنَ دينارٍ قال للحسنِ ونحن جُلوسٌ عندَه في منزلِه",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "QALA",
+          "transmission_term_raw": "قال"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "حدَّثنا عمرُو بنُ ثابتٍ، عن أبيه، عن سعيدِ بنِ جُبَيْرٍ قولَه: ﴿وَأَعْلَمُ مَا تُبْدُونَ وَمَا كُنْتُمْ تَكْتُمُونَ﴾. قال: ما أسَرَّ إبليسُ في نفسِه (¬١).\nحدَّثنا أحمدُ، قال: حدَّثنا أبو أحمدَ، قال:",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_e4546674527488398191ad51",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MAQTU_OR_TAFSIR_REPORT_CANDIDATE",
+      "report_text": "حدَّثنا مَهْديُّ بنُ مَيْمونٍ، قال سمِعْتُ الحسنَ بنَ دينارٍ قال للحسنِ ونحن جُلوسٌ عندَه في منزلِه: يا أبا سعيدٍ، أرأيْتَ قولَ اللهِ للملائكةِ: ﴿وَأَعْلَمُ مَا تُبْدُونَ وَمَا كُنْتُمْ تَكْتُمُونَ﴾. فما الذى كتَمَت الملائكةُ؟ فقال الحسنُ: إن اللهَ لمَّا خلَق آدمَ، رأَتِ الملائكةُ خلقًا عَجبًا، فكأنهم دخَلَهم مِن ذلك شيءٌ، فأقبَل بعضُهم إلى بعضٍ، وأسرُّوا ذلك بينَهم، فقالوا: ما يُهِمُّكم من هذا المخلوقِ! إن اللهَ لن يَخْلُقَ خلقًا إلا كُنَّا أكرمَ عليه منه (¬٣).\nحدَّثنا الحسنُ بنُ يحيى، قال:\nأخْبَرَنا عبدُ الرزاقِ، قال:",
+      "report_text_sha256": "f72e9e152381865ab577a7d39e555ba3b6ad79902a819b5dd8628bb2df96ae7c",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "سمِعْتُ الحسنَ بنَ دينارٍ قال للحسنِ ونحن جُلوسٌ عندَه في منزلِه",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_5318f2900fba25853f850d33",
+      "terminal_speaker_surface_candidate": "سمِعْتُ الحسنَ بنَ دينارٍ قال للحسنِ ونحن جُلوسٌ عندَه في منزلِه",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "book_id": 7798,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/1/page/546?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=726"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_391d62f3f299f21eb004c809",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابيه",
+          "narrator_surface_raw": "أبيه",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "الربيع بمثله.",
+          "narrator_surface_raw": "الربيعِ بمثلِه.",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "قتادة قوله",
+          "narrator_surface_raw": "قتادةَ قولَه",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "حدَّثنا عبدُ اللهِ بنُ أبى جعفرٍ، عن أبيه، عن الربيعِ بمثلِه.\nوذلك شَبيهٌ بمعنى (¬٣) قولِنا فيه.\nوكان سجودُ الملائكةِ لآدمَ تَكْرِمةً لآدمَ، وطاعةً للهِ، لا عبادةً لآدمَ، كما حدثنا به بشرُ بنُ مُعاذٍ، قال: حدَّثنا يزيدُ بنُ زُريْعٍ، قال: حدَّثنا سعيدٌ، عن قتادةَ قولَه: ﴿وَإِذْ قُلْنَا لِلْمَلَائِكَةِ اسْجُدُوا لِآدَمَ﴾. فكانت الطاعةُ للهِ،",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_e8983ac50f1e5461066f252d",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "report_text": "حدَّثنا عبدُ اللهِ بنُ أبى جعفرٍ، عن أبيه، عن الربيعِ بمثلِه.\nوذلك شَبيهٌ بمعنى (¬٣) قولِنا فيه.\nوكان سجودُ الملائكةِ لآدمَ تَكْرِمةً لآدمَ، وطاعةً للهِ، لا عبادةً لآدمَ، كما حدثنا به بشرُ بنُ مُعاذٍ، قال:\nحدَّثنا يزيدُ بنُ زُريْعٍ، قال:\nحدَّثنا سعيدٌ، عن قتادةَ قولَه: ﴿وَإِذْ قُلْنَا لِلْمَلَائِكَةِ اسْجُدُوا لِآدَمَ﴾. فكانت الطاعةُ للهِ،",
+      "report_text_sha256": "fbdb2ad0f1910542316041e27568739888bb64d37efab395d81bfade2f4ac08e",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "قتادةَ قولَه",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_5ebfa13ae3343c6470909ebb",
+      "terminal_speaker_surface_candidate": "قتادةَ قولَه",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "book_id": 7798,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/1/page/516?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=696"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_47b9031878a35b10f690622a",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "عاصم ابن كليب",
+          "narrator_surface_raw": "عاصمِ ابنِ كُلَيْبٍ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "الحسن بن سعد",
+          "narrator_surface_raw": "الحسنِ بنِ سعدٍ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابن عباس",
+          "narrator_surface_raw": "ابنِ عباسٍ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "حدَّثنا شَريكٌ، عن عاصمِ ابنِ كُلَيْبٍ، عن الحسنِ بنِ سعدٍ، عن ابنِ عباسٍ: ﴿وَعَلَّمَ آدَمَ الْأَسْمَاءَ كُلَّهَا﴾. قال: حتى الفَسْوَةِ والفُسَيَّةِ (¬١).\nحدَّثنا على بنُ الحسنِ، قال: حدَّثنا مسلمٌ، قال:",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_ea89101c3ce70455a696bb99",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MAWQUF_OR_TAFSIR_REPORT_CANDIDATE",
+      "report_text": "حدَّثنا شَريكٌ، عن عاصمِ ابنِ كُلَيْبٍ، عن الحسنِ بنِ سعدٍ، عن ابنِ عباسٍ: ﴿وَعَلَّمَ آدَمَ الْأَسْمَاءَ كُلَّهَا﴾. قال: حتى الفَسْوَةِ والفُسَيَّةِ (¬١).\nحدَّثنا على بنُ الحسنِ، قال:\nحدَّثنا مسلمٌ، قال:",
+      "report_text_sha256": "d934d41c278c688ab7163e41cf063bd34e308b0433fdaa0a1ed40fe6e30a47a5",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "ابنِ عباسٍ",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_8a5ef010f62c563a8fe28cfc",
+      "terminal_speaker_surface_candidate": "ابنِ عباسٍ",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "book_id": 7798,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/10/page/78?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=6786"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_be6fe56725c2c230de49c350",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "سفيان",
+          "narrator_surface_raw": "سفيانُ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابو عاصم",
+          "narrator_surface_raw": "أبو عاصمٍ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "ثنا سفيانُ، قال: سمعتُ الأعمشَ يقرأُ: ﴿وَلَقَدْ خَلَقْنَاكُمْ ثُمَّ صَوَّرْنَاكُمْ﴾. قال: خلَقناكم في أصْلابِ الرجالِ، ثم صَوَّرناكم في أرحامِ النساءِ (¬١).\nوقال آخرون: بل معنى ذلك: ﴿خَلَقْنَاكُمْ﴾: يعني آدمَ، ﴿ثُمَّ صَوَّرْنَاكُمْ﴾ (¬٢): في ظهرِه.\n\nذكرُ مَن قال ذلك\n\nحدَّثني محمدُ بنُ عمرٍو، قال: ثنا أبو عاصمٍ، قال:",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_eb48bd6ec273cb990aa95248",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "report_text": "ثنا سفيانُ، قال: سمعتُ الأعمشَ يقرأُ: ﴿وَلَقَدْ خَلَقْنَاكُمْ ثُمَّ صَوَّرْنَاكُمْ﴾. قال: خلَقناكم في أصْلابِ الرجالِ، ثم صَوَّرناكم في أرحامِ النساءِ (¬١).\nوقال آخرون: بل معنى ذلك: ﴿خَلَقْنَاكُمْ﴾: يعني آدمَ، ﴿ثُمَّ صَوَّرْنَاكُمْ﴾ (¬٢): في ظهرِه.\nذكرُ مَن قال ذلك\nحدَّثني محمدُ بنُ عمرٍو، قال:\nثنا أبو عاصمٍ، قال:",
+      "report_text_sha256": "1d3a8591bbfc133aab5421582b3f5a3eaacc3dd13e55ab0e9bbf5fe52d626ed0",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "أبو عاصمٍ",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_ad1bc8d1a7f02ba3754b3f24",
+      "terminal_speaker_surface_candidate": "أبو عاصمٍ",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    }
+  ],
+  "schema_version": "siraj-adam-gemini-draft-batch-v1",
+  "task_contract_project_path": "sources/secondary/gemini-semantic-analysis-draft/contracts/chain-interpretation-contract-v1.json",
+  "task_name": "chain-interpretation"
+}

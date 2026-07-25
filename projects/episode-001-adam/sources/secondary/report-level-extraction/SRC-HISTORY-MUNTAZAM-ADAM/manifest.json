@@ -1,0 +1,41 @@
+{
+  "boundary_excluded_candidate_count": 81,
+  "episode_id": "episode-001-adam",
+  "included_window_count": 5,
+  "isnad_research_count": 53,
+  "outputs": {
+    "boundary_excluded": {
+      "project_path": "sources/secondary/report-level-extraction/SRC-HISTORY-MUNTAZAM-ADAM/boundary-excluded-candidates.jsonl",
+      "rows": 81,
+      "sha256": "e2306a50ee3029d16bb3adde99f9834a0c68b780b04e557f112588b569b44460"
+    },
+    "internal_isnad_research": {
+      "project_path": "sources/secondary/report-level-extraction/SRC-HISTORY-MUNTAZAM-ADAM/internal-isnad-research-queue.jsonl",
+      "rows": 53,
+      "sha256": "5ca0792f793c97671f55ab737e8d05bf3db905a35236150fba3063a7c8f5ad8a"
+    },
+    "report_candidates": {
+      "project_path": "sources/secondary/report-level-extraction/SRC-HISTORY-MUNTAZAM-ADAM/report-candidates.jsonl",
+      "rows": 117,
+      "sha256": "1bb775c52e1a4ef2c1d4b34b8f05b8ec6f9e615450d4278a6e976192a3fdb3e7"
+    }
+  },
+  "permissions": {
+    "candidate_only": true,
+    "evidence_approval_changed": false,
+    "gemini_execution_enabled": false,
+    "hadith_grading_changed": false,
+    "israiliyyat_classification_changed": false,
+    "quotation_approval_changed": false,
+    "source_approval_changed": false
+  },
+  "report_candidate_count": 117,
+  "report_kind_counts": {
+    "AUTHORIAL_COMMENTARY_CANDIDATE": 4,
+    "EARLY_REPORT_CANDIDATE": 55,
+    "PROPHETIC_HADITH_CANDIDATE": 33,
+    "UNCLASSIFIED_SOURCE_PASSAGE_CANDIDATE": 25
+  },
+  "schema_version": "siraj-adam-report-level-source-manifest-v1",
+  "work_source_id": "SRC-HISTORY-MUNTAZAM-ADAM"
+}

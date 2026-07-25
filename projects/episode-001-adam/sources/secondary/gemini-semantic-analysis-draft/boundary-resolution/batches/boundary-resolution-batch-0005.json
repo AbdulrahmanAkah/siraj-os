@@ -1,0 +1,534 @@
+{
+  "batch_id": "boundary-resolution-batch-0005",
+  "episode_id": "episode-001-adam",
+  "execution_enabled": false,
+  "execution_status": "BLOCKED_NOT_AUTHORIZED",
+  "generation_config": {
+    "response_mime_type": "application/json",
+    "temperature": 0
+  },
+  "model_id": null,
+  "provider_id": "GEMINI",
+  "record_count": 6,
+  "records": [
+    {
+      "allowed_decisions": [
+        "KEEP_AS_SINGLE",
+        "SPLIT_CURRENT_TEXT",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_FOLLOWING",
+        "DISCARD_AS_MID_REPORT_FRAGMENT",
+        "REQUIRES_HUMAN_REVIEW"
+      ],
+      "book_id": 12406,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/12406/volume/1/page/198?database_sha256=c0a44e43dc6d655a4d5725fc88aafb8ad0077e0ec2e8214f6c0dec6e9f4e31ab&segment_id=177"
+      ],
+      "current_chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابو عمر بن حيوية",
+          "narrator_surface_raw": "أبو عمر بْن حيوية",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "AKHBARANA",
+          "transmission_term_raw": "أخبرنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "احمد بن معروف",
+          "narrator_surface_raw": "أحمد بن معروف",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AKHBARANA",
+          "transmission_term_raw": "أخبرنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "الحارث بن ابي اسامة",
+          "narrator_surface_raw": "الحارث بن أبي أسامة",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "AKHBARANA",
+          "transmission_term_raw": "أخبرنا"
+        }
+      ],
+      "current_kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "current_text": "رَوَى السدي عَنْ أشياخه، قَالَ: بعث اللَّه ﷿ جبرئيل إِلَى الأَرْض ليأتيه بطين منها، قَالَتْ الأرض: إني أعوذ باللَّه منك أَن تنقص مني أَوْ تشينني، فرجع وَلَمْ يأخذ، وَقَالَ: رب إنها عاذت بك فأعذتها. فبعث ميكائيل فعاذت منه فأعاذها، فبعث ملك الْمَوْت فعاذت منه، فقال: وأنا أعوذ باللَّه أَن أرجع، وَلَمْ أنفذ أمره، فأخذ من وجه الأَرْض وخلط، فلم يأخذ من مكان واحد، وأخذ من تربة حمراء وبيضاء وسوداء، فلذلك خرج بنو آدَم مختلفين. فصعد بِهِ، فبل التراب حتى عاد طينا، ثُمَّ ترك حَتَّى تغير وأنتن، وهو قوله: من حَمَإٍ مَسْنُونٍ ١٥: ٢٦ [٢] ، قَالَ: منتن [٣] .\nوَقَدْ رَوَى سَعِيد بْن جُبَيْر، عَنِ ابْنِ عَبَّاسٍ، قَالَ: بعث رب العزة إِبْلِيس فأخذ من أديم الأَرْض، ومن عذبها ومن ملحها، فخلق آدَم، فمن ثُمَّ سمي آدَم، لأنه خلق من أديم الأَرْض، ومن ثم قال إبليس: أَأَسْجُدُ لِمَنْ خَلَقْتَ طِيناً ١٧: ٦١ [٤] ، أي هذه الطينة أنا جئت بها [٥] .\nوَقَدْ رواه ابْن جُبَيْر عَنْ ابْن مَسْعُود.\nفَأَخْبَرَنَا بِهِ مُحَمَّدُ بْنُ عَبْدِ الْبَاقِي الْبَزَّازُ، أَخْبَرَنَا أَبُو محمد الجوهري، أخبرنا أبو عمر بْن حيوية، أخبرنا أحمد بن معروف، أخبرنا الحارث بن أبي أسامة، أخبرنا",
+      "current_text_sha256": "5c28951668a6e44cda9f279d7303d21f63928b347c514f05488730521c1b8a25",
+      "event_ids": [
+        "EV-ADAM-001",
+        "EV-ADAM-002",
+        "EV-ADAM-003",
+        "EV-ADAM-004",
+        "EV-ADAM-005",
+        "EV-ADAM-006",
+        "EV-ADAM-007",
+        "EV-ADAM-020",
+        "EV-ADAM-021",
+        "EV-ADAM-022",
+        "EV-ADAM-023",
+        "EV-ADAM-024",
+        "EV-ADAM-030",
+        "EV-ADAM-031",
+        "EV-ADAM-032",
+        "EV-ADAM-033",
+        "EV-ADAM-040",
+        "EV-ADAM-041",
+        "EV-ADAM-042",
+        "EV-ADAM-050",
+        "EV-ADAM-051",
+        "EV-ADAM-052",
+        "EV-ADAM-053",
+        "EV-ADAM-054",
+        "EV-ADAM-055",
+        "EV-ADAM-070",
+        "EV-ADAM-071",
+        "EV-ADAM-080",
+        "EV-ADAM-081",
+        "EV-ADAM-082",
+        "EV-ADAM-090",
+        "EV-ADAM-091",
+        "EV-ADAM-099"
+      ],
+      "following_context": {
+        "normalized_report_id": "adam_normalized_report_0fcb67b706bf719f7c51068b",
+        "text_excerpt": "أَخْبَرَنَا ابْنُ الْحُصَيْنِ، أَخْبَرَنَا ابْنُ الْمُذْهِبِ، أَخْبَرَنَا أَحْمَدُ بْنُ جَعْفَرٍ، حَدَّثَنَا عَبْدُ اللَّهِ بْنُ أَحْمَدَ، حدثني أَبِي، أَخْبَرَنَا أَبُو عَامِرٍ عَبْدُ الْمَلِكِ بْنُ عَمْرٍو، حَدَّثَنَا زُهَيْرُ بْنُ مُحَمَّدٍ، عَنْ عَبْدِ اللَّهِ بْنِ مُحَمَّدِ بْنِ عَقِيلٍ، عَنْ عَبْدِ الرَّحْمَنِ بْنِ مُحَمَّدِ بْنِ يَزِيدَ الأَنْصَارِيِّ، عَنْ أَبِي لُبَابَةَ الْبَدْرِيِّ، أَنّ رَسُولَ اللَّهِ ﷺ، قَالَ: «سَيِّدُ الأَيَّامِ يَوْمُ الْجُمُعَةِ، وَأَعْظَمُهَا عِنْدَهُ، وَأَعْظَمُ عِنْدَ اللَّهِ ﷿ مِنْ يَوْمِ الْفِطْرِ وَيَوْمِ الأَضْحَى [٣] ، وَفِيهِ خَمْسُ خِلالٍ: خَلَقَ اللَّهُ ﵎ فِيهِ آَدَمَ، وَأَهْبَطَ اللَّهُ فِيهِ آَدَمَ إِلَى الأَرْضِ، وَفِيهِ تُوفِّيَ آَدَمُ، وَفِيهِ سَاعَةٌ لا يَسْأَلُ الْعَبْدُ فِيهَا شَيْئًا إِلا أَتَاهُ اللَّهُ إِيَّاهُ ما لم"
+      },
+      "normalized_report_id": "adam_normalized_report_025e86b974709f10bbbbbc98",
+      "permissions": {
+        "candidate_only": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_boundaries": true
+      },
+      "previous_context": {
+        "normalized_report_id": "adam_normalized_report_5f934f64e8619fd905284a45",
+        "text_excerpt": "بَاب ذكر الْجَنَّة [١] الْجَنَّة والنار مخلوقتان قبل آدَم. قَالَ عَبْد اللَّهِ بْن سلام: والجنة فِي السماء. ويدل عَلَيْهِ قَوْله: عِنْدَ سِدْرَةِ الْمُنْتَهى () عِنْدَها جَنَّةُ الْمَأْوى ٥٣: ١٤- ١٥ [٢] . وقال مجاهد: وَفي السَّماءِ رِزْقُكُمْ ٥١: ٢٢ [٣] ، قال: المطر، وَما تُوعَدُونَ ٥١: ٢٢ [٤] قَالَ: الْجَنَّة. ويدل عَلَى أَن الْجَنَّة قَدْ خلقت قَوْله تَعَالَى: اسْكُنْ أَنْتَ وَزَوْجُكَ الْجَنَّةَ ٢: ٣٥ [٥] . وقد روى سَعِيدِ بْنِ جُبَيْرٍ، عَنِ ابْنِ عَبَّاسٍ، قَالَ: كَانَ عَرْشُ اللَّهِ عَلَى الْمَاءِ، ثُمَّ اتَّخَذَ جَنَّةً، ثُمَّ اتَّخَذَ دُونَهَا أُخْرَى ثُمَّ أَطْبَقَهَا/ بِلُؤْلُؤَةٍ وَاحِدَةٍ، فَقَالَ: وَمن دُونِهِما جَنَّتانِ ٥٥: ٦٢ [٦] ."
+      },
+      "research_question_ids": [
+        "RQ-ADAM-001",
+        "RQ-ADAM-002",
+        "RQ-ADAM-003",
+        "RQ-ADAM-004",
+        "RQ-ADAM-005",
+        "RQ-ADAM-006",
+        "RQ-ADAM-020",
+        "RQ-ADAM-009",
+        "RQ-ADAM-010",
+        "RQ-ADAM-011",
+        "RQ-ADAM-012",
+        "RQ-ADAM-013",
+        "RQ-ADAM-014",
+        "RQ-ADAM-015",
+        "RQ-ADAM-016",
+        "RQ-ADAM-017",
+        "RQ-ADAM-018",
+        "RQ-ADAM-019",
+        "RQ-ADAM-025",
+        "RQ-ADAM-026",
+        "RQ-ADAM-027",
+        "RQ-ADAM-028",
+        "RQ-ADAM-029",
+        "RQ-ADAM-030",
+        "RQ-ADAM-032"
+      ],
+      "task_record_id": "adam_gemini_boundary_task_012d79de429d93e4a3c4664b",
+      "warnings": [
+        "NO_DETERMINISTIC_SPLIT_FOUND",
+        "REQUESTED_RESEGMENTATION_NOT_ACHIEVED"
+      ],
+      "window_id": "ecd55c860e9f458931578651",
+      "work_source_id": "SRC-HISTORY-MUNTAZAM-ADAM"
+    },
+    {
+      "allowed_decisions": [
+        "KEEP_AS_SINGLE",
+        "SPLIT_CURRENT_TEXT",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_FOLLOWING",
+        "DISCARD_AS_MID_REPORT_FRAGMENT",
+        "REQUIRES_HUMAN_REVIEW"
+      ],
+      "book_id": 12406,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/12406/volume/1/page/174?database_sha256=c0a44e43dc6d655a4d5725fc88aafb8ad0077e0ec2e8214f6c0dec6e9f4e31ab&segment_id=153"
+      ],
+      "current_chain_nodes_candidate": [],
+      "current_kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "current_text": "حَدَّثَنَا مَعْمَرٌ، عَنِ الزُّهْرِيِّ، عَنْ عُرْوَةَ، عَنْ عَائِشَةَ، قَالَتْ: قَالَ رَسُولُ اللَّهِ ﷺ: «خَلَقَ الْجَانَّ مِنْ مارِجٍ مِنْ نارٍ ٥٥: ١٥، وَخُلِقَتِ الْمَلائِكَةُ مِنْ نُورٍ» .",
+      "current_text_sha256": "652f0afde9a1f511fc441ca12feb4a05ab0280bae2b69c5996d0adc8d964f680",
+      "event_ids": [
+        "EV-ADAM-001",
+        "EV-ADAM-002",
+        "EV-ADAM-003",
+        "EV-ADAM-004",
+        "EV-ADAM-005",
+        "EV-ADAM-006",
+        "EV-ADAM-007",
+        "EV-ADAM-050",
+        "EV-ADAM-051",
+        "EV-ADAM-052",
+        "EV-ADAM-053",
+        "EV-ADAM-054",
+        "EV-ADAM-055"
+      ],
+      "following_context": {
+        "normalized_report_id": "adam_normalized_report_35f7026c7db39dd5c7d6f6ce",
+        "text_excerpt": "وَرَوَى عِكْرِمَةُ، عَنِ ابْنِ عَبَّاسٍ، قَالَ: كَانَ أَبُو الْجِنِّ اسْمُهُ سوما [٢] ، فَقَالَ اللَّه لَهُ: تَمَنَّ، فَقَالَ: أَتَمَنَّى أَنْ نَرَى وَلا نُرَى، وَأَنْ نَغِيبَ فِي الثَّرَى، وَأَنْ يَصِيرَ كَهْلَنَا شَابًا، فَأُعْطِيَ ذَلِكَ، فَإِنَّ الدَّهْرَ لَيَمُرُّ عَلَى إِبْلِيسَ فَيُهْرِمُهُ ثُمَّ يُصْبِحُ، وَهُوَ ابْنُ ثَلاثِينَ سَنَةً. وَالثَّانِي: أَن الجان هُوَ الاثنين، قاله الْحَسَن، وعطاء، وَقَتَادَة، ومقاتل. [٣] والثالث: أَن الجان مسيخ الجن."
+      },
+      "normalized_report_id": "adam_normalized_report_0607c8553e8fdf540228c194",
+      "permissions": {
+        "candidate_only": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_boundaries": true
+      },
+      "previous_context": {
+        "normalized_report_id": "adam_normalized_report_b5830442f8cf343a72437c16",
+        "text_excerpt": "بَاب ذكر مَا تَحْتَ الأَرْض اعلم أَن الأَرْض كَانَ طبقا واحدا، فشقها سبحانه سبعا، وَكَذَلِكَ السماء. قَالَ كعب: هذه الأَرْض عَلَى صخرة خضراء فِي كف ملك، وَذَلِكَ الْمَلِك قائم على ظهر الحوت، وذلك الحوت منطو بالسماوات السبع من تَحْتَ الأَرْض. وَقَالَ ابْن عَبَّاس: الصخرة عَلَى منكبي ملك والملك عَلَى الثور والثور عَلَى الماء، والماء متن الريح. وَقَالَ وهب: اسم الحوت بهموت ."
+      },
+      "research_question_ids": [
+        "RQ-ADAM-001",
+        "RQ-ADAM-002",
+        "RQ-ADAM-003",
+        "RQ-ADAM-004",
+        "RQ-ADAM-005",
+        "RQ-ADAM-006",
+        "RQ-ADAM-020",
+        "RQ-ADAM-017",
+        "RQ-ADAM-018",
+        "RQ-ADAM-019"
+      ],
+      "task_record_id": "adam_gemini_boundary_task_7d8f5a32f937dee01673b69a",
+      "warnings": [
+        "NO_DETERMINISTIC_SPLIT_FOUND",
+        "REQUESTED_RESEGMENTATION_NOT_ACHIEVED"
+      ],
+      "window_id": "0e1709a891b6cda7ead9c4e7",
+      "work_source_id": "SRC-HISTORY-MUNTAZAM-ADAM"
+    },
+    {
+      "allowed_decisions": [
+        "KEEP_AS_SINGLE",
+        "SPLIT_CURRENT_TEXT",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_FOLLOWING",
+        "DISCARD_AS_MID_REPORT_FRAGMENT",
+        "REQUIRES_HUMAN_REVIEW"
+      ],
+      "book_id": 12406,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/12406/volume/1/page/185?database_sha256=c0a44e43dc6d655a4d5725fc88aafb8ad0077e0ec2e8214f6c0dec6e9f4e31ab&segment_id=164"
+      ],
+      "current_chain_nodes_candidate": [],
+      "current_kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "current_text": "حَدَّثَنَا أَحْمَدُ بن عبد العزيز بن مرداس، حَدَّثَنَا عَبْدُ اللَّهِ بْنُ مُحَمَّدِ بْنِ سَعِيدٍ القرشي، حَدَّثَنَا مُحَمَّدُ بْنُ مُوسَى، حَدَّثَنَا مَسْلَمَةُ بْنُ الصّلْتِ، حَدَّثَنَا جَارِيَةُ بْنُ الْمُنْذِرِ، حَدَّثَنَا الأَعْمَشُ، عَنْ سُلَيْمَانَ بْنِ مُوسَى، عَنِ الْقَاسِمِ بْنِ مُخَيْمِرَةَ، عَنْ حُذَيْفَةَ، عَنِ النَّبِيِّ ﷺ، قَالَ: «لَمَّا أَبْرَمَ اللَّهُ ﷿ خَلْقَهُ فَلَمْ يَبْقَ غَيْرُ آَدَمَ خَلَقَ شَمْسَيْنِ مِنْ نُورِ عَرْشِهِ فَأَمَّا مَا كَانَ فِي سَابِقِ عِلْمِهِ أَنْ يَطْمسَهَا وَيُحَوِّلَهَا قَمَرًا فَإِنَّهُ خَلَقَهَا دُونَ الشَّمْسِ فِي الضَّوْءِ، وَلَوْ تَرَكَهَا شَمْسَيْنِ لَمْ يُعْرَفِ اللَّيْلُ مِنَ النَّهَارِ، وَلَكَانَ الصَّائِمُ لا يَدْرِي إِلَى مَتَى يَصُومُ، فَأَرْسَلَ جِبْرِيلَ فَأَمَرَ جِنَاحَهُ عَلَى وَجْهِ الْقَمَرِ ثَلاثَ مَرَّاتٍ فَمَحَا عَنْهُ الضَّوْءَ، وَبَقِيَ فِيهِ النُّورُ، وَخَلَقَ لِلشَّمْسِ عَجَلَةً لَهَا ثَلاثُمِائَةٍ وَسِتُّونَ عروة، ووكل بها ثلاثمائة وَسِتِّينَ مَلَكًا قَدْ يَعْلقُ كُلُّ مَلَكٍ بِعُرْوَةٍ وَإِذَا أَرَادَ أَنْ يُرِيَ الْعِبَادِ آَيَةً خَرَّتِ الشَّمْسُ عَنْ عجلتِهَا فَوَقَعَتْ فِي بَحْرٍ وَتَسْجُدُ الشَّمْسُ تَحْتَ الْعَرْشِ بِمِقْدَارِ اللَّيْلِ، ثُمَّ تُؤْمَرُ بِالطُّلُوعِ، فَإِذَا مَا دَنَتِ الْقِيَامَةُ جُعِلَتِ الشَّمْسُ، ثُمَّ يَتْبَعُهَا الْقَمَرُ ثُمَّ يَطْلُعَانِ مِنَ الْمَغْرِبِ ثُمَّ يُعُودُ إِلَى مَا خَلَقَ اللَّهُ» [٢] .",
+      "current_text_sha256": "5fb31f339be6295355fb58658552174672158e879a5d3e13beb5f3d7017f7e96",
+      "event_ids": [],
+      "following_context": null,
+      "normalized_report_id": "adam_normalized_report_09cf4022246884efd415329f",
+      "permissions": {
+        "candidate_only": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_boundaries": true
+      },
+      "previous_context": {
+        "normalized_report_id": "adam_normalized_report_8fa59d54fa3b80bc1f328f06",
+        "text_excerpt": "بَاب ذكر السماء والسموات [١] قَالَ: لما خلق ﷿ الماء ثار منه دخان فبنى منه السموات، وتمت وَمَا فِيهَا من الشمس والقمر والنجوم والأفلاك والملائكة فِي يومين بَعْد خلق الأرضين وَمَا فيهن فِي أربعة أَيَّام. وَقَالَ أبو الخلد: والسماء موج مكفوف. وَقَالَ كعب: السماء أشد بياضا من اللبن. قَالَ القاسم بْن أَبِي برة: السماء بيضاء، ولكن من بَعْد ترى خضراء. وَقَالَ إياس بْن مُعَاوِيَة: السماء عَلَى الأَرْض مثل القبة. وَقَالَ الرَّبِيع بْن أَنَس [٢] : السموات أولها موج مكفوف، وَالثَّانِيَة من صخر، والثالثة من حديد، والرابعة من صفر ونحاس، والخامسة من فضة، والسادسة من ذهب، والسابعة من ياقوتة حمراء. وذكر أَبُو الْحُسَيْن أَحْمَد بْن جَعْفَر [٣] : أَن لا اخْتِلاف بَيْنَ الْعُلَمَاء فِي أَن السماء مثال الكرة، وأنها تدور بجميع مَا فِيهَا من الكواكب كدور الكرة عَلَى قطبين ثابتين غَيْر متحركين أحدهما فِي ناحية الشمال، والآخر فِي ناحية الجنوب. ويدل عَلَى ذَلِكَ أَن الكواكب جميعا تبدو من المشرق فترتفع قليلا عَلَى ترتيب"
+      },
+      "research_question_ids": [],
+      "task_record_id": "adam_gemini_boundary_task_8017118a89e84d55b221a2d7",
+      "warnings": [
+        "NO_DETERMINISTIC_SPLIT_FOUND",
+        "REQUESTED_RESEGMENTATION_NOT_ACHIEVED"
+      ],
+      "window_id": "4b97becab141ac7345d07d8c",
+      "work_source_id": "SRC-HISTORY-MUNTAZAM-ADAM"
+    },
+    {
+      "allowed_decisions": [
+        "KEEP_AS_SINGLE",
+        "SPLIT_CURRENT_TEXT",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_FOLLOWING",
+        "DISCARD_AS_MID_REPORT_FRAGMENT",
+        "REQUIRES_HUMAN_REVIEW"
+      ],
+      "book_id": 12406,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/12406/volume/1/page/199?database_sha256=c0a44e43dc6d655a4d5725fc88aafb8ad0077e0ec2e8214f6c0dec6e9f4e31ab&segment_id=178"
+      ],
+      "current_chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابي",
+          "narrator_surface_raw": "أَبِي",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANI",
+          "transmission_term_raw": "حدثني"
+        }
+      ],
+      "current_kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "current_text": "أَخْبَرَنَا ابْنُ الْحُصَيْنِ، أَخْبَرَنَا ابْنُ الْمُذْهِبِ، أَخْبَرَنَا أَحْمَدُ بْنُ جَعْفَرٍ، حَدَّثَنَا عَبْدُ اللَّهِ بْنُ أَحْمَدَ، حدثني أَبِي، أَخْبَرَنَا أَبُو عَامِرٍ عَبْدُ الْمَلِكِ بْنُ عَمْرٍو، حَدَّثَنَا زُهَيْرُ بْنُ مُحَمَّدٍ، عَنْ عَبْدِ اللَّهِ بْنِ مُحَمَّدِ بْنِ عَقِيلٍ، عَنْ عَبْدِ الرَّحْمَنِ بْنِ مُحَمَّدِ بْنِ يَزِيدَ الأَنْصَارِيِّ، عَنْ أَبِي لُبَابَةَ الْبَدْرِيِّ، أَنّ رَسُولَ اللَّهِ ﷺ، قَالَ:\n«سَيِّدُ الأَيَّامِ يَوْمُ الْجُمُعَةِ، وَأَعْظَمُهَا عِنْدَهُ، وَأَعْظَمُ عِنْدَ اللَّهِ ﷿ مِنْ يَوْمِ الْفِطْرِ وَيَوْمِ الأَضْحَى [٣] ، وَفِيهِ خَمْسُ خِلالٍ: خَلَقَ اللَّهُ ﵎ فِيهِ آَدَمَ، وَأَهْبَطَ اللَّهُ فِيهِ آَدَمَ إِلَى الأَرْضِ، وَفِيهِ تُوفِّيَ آَدَمُ، وَفِيهِ سَاعَةٌ لا يَسْأَلُ الْعَبْدُ فِيهَا شَيْئًا إِلا أَتَاهُ اللَّهُ إِيَّاهُ ما لم",
+      "current_text_sha256": "be25526c4b0fd680d8c01ceb3aa9704a2d1fdeef6e2f80f911e1bd1048b0aa22",
+      "event_ids": [
+        "EV-ADAM-001",
+        "EV-ADAM-002",
+        "EV-ADAM-003",
+        "EV-ADAM-004",
+        "EV-ADAM-005",
+        "EV-ADAM-006",
+        "EV-ADAM-007",
+        "EV-ADAM-020",
+        "EV-ADAM-021",
+        "EV-ADAM-022",
+        "EV-ADAM-023",
+        "EV-ADAM-024",
+        "EV-ADAM-030",
+        "EV-ADAM-031",
+        "EV-ADAM-032",
+        "EV-ADAM-033",
+        "EV-ADAM-040",
+        "EV-ADAM-041",
+        "EV-ADAM-042",
+        "EV-ADAM-050",
+        "EV-ADAM-051",
+        "EV-ADAM-052",
+        "EV-ADAM-053",
+        "EV-ADAM-054",
+        "EV-ADAM-055",
+        "EV-ADAM-070",
+        "EV-ADAM-071",
+        "EV-ADAM-080",
+        "EV-ADAM-081",
+        "EV-ADAM-082",
+        "EV-ADAM-090",
+        "EV-ADAM-091",
+        "EV-ADAM-099"
+      ],
+      "following_context": {
+        "normalized_report_id": "adam_normalized_report_6788e982ad7640bd1c307f92",
+        "text_excerpt": "أَخْبَرَنَا عَبْدُ الأَوَّلِّ، أَخْبَرَنَا الدَّاوُدِيُّ، أَخْبَرَنَا ابْنُ أَعْيُنَ السَّرَخْسِيُّ، أَخْبَرَنَا إِبْرَاهِيمُ بْنُ خُرَيْمٍ، حَدَّثَنَا عَبْدُ بْنُ حُمَيْدٍ، حَدَّثَنَا هَوْذَةُ بْنُ خَلِيفَةَ، حَدَّثَنَا عَوْفٌ، عَنْ قَسَّامِ بْنِ زُهَيْرٍ، عَنْ أَبِي مُوسَى، عَنِ النَّبِيِّ ﷺ، قَالَ: «إِنَّ اللَّهَ ﷿ خَلَقَ آدَم مِنْ قَبْضَةٍ قَبَضَهَا مِنْ جَمِيعِ الأَرْضِ، فَجَاءَ بَنُو آَدَمَ عَلَى قدر الأرض، جاء مِنْهُمْ الأَبْيَضُ، وَالأَحْمَرُ، وَالأَسْوَدُ، وَبَيْنَ ذَلِكَ، وَالْخَبِيثُ، وَالطَّيِّبُ، وَالسَّهْلُ، وَالْحَزَنُ وَبَيْنَ ذَلِكَ» [٢] ."
+      },
+      "normalized_report_id": "adam_normalized_report_0fcb67b706bf719f7c51068b",
+      "permissions": {
+        "candidate_only": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_boundaries": true
+      },
+      "previous_context": {
+        "normalized_report_id": "adam_normalized_report_025e86b974709f10bbbbbc98",
+        "text_excerpt": "رَوَى السدي عَنْ أشياخه، قَالَ: بعث اللَّه ﷿ جبرئيل إِلَى الأَرْض ليأتيه بطين منها، قَالَتْ الأرض: إني أعوذ باللَّه منك أَن تنقص مني أَوْ تشينني، فرجع وَلَمْ يأخذ، وَقَالَ: رب إنها عاذت بك فأعذتها. فبعث ميكائيل فعاذت منه فأعاذها، فبعث ملك الْمَوْت فعاذت منه، فقال: وأنا أعوذ باللَّه أَن أرجع، وَلَمْ أنفذ أمره، فأخذ من وجه الأَرْض وخلط، فلم يأخذ من مكان واحد، وأخذ من تربة حمراء وبيضاء وسوداء، فلذلك خرج بنو آدَم مختلفين. فصعد بِهِ، فبل التراب حتى عاد طينا، ثُمَّ ترك حَتَّى تغير وأنتن، وهو قوله: من حَمَإٍ مَسْنُونٍ ١٥: ٢٦ [٢] ، قَالَ: منتن [٣] . وَقَدْ رَوَى سَعِيد بْن جُبَيْر، عَنِ ابْنِ عَبَّاسٍ، قَالَ: بعث رب العزة إِبْلِيس فأخذ من أديم الأَرْض، ومن عذبها ومن ملحها، فخلق آدَم، فمن ثُمَّ سمي آدَم، لأنه خلق من أديم الأَرْض، ومن ثم قال إبليس: أَأَسْجُدُ لِمَنْ خَلَقْتَ طِيناً ١٧: ٦١ [٤] ، أي هذه الطينة أنا جئت بها [٥] . وَقَدْ رواه ابْن جُبَيْر عَنْ ابْن مَسْعُود. فَأَخْبَرَنَا بِهِ مُحَمَّدُ بْنُ عَبْدِ الْبَاقِي الْبَزَّازُ، أَخْبَرَنَا أَبُو محمد الجوهري، أخبرنا أبو عمر بْن حيوية، أخبرنا أحمد بن معروف، أخبرنا الحارث بن أبي أسامة، أخبرنا"
+      },
+      "research_question_ids": [
+        "RQ-ADAM-001",
+        "RQ-ADAM-002",
+        "RQ-ADAM-003",
+        "RQ-ADAM-004",
+        "RQ-ADAM-005",
+        "RQ-ADAM-006",
+        "RQ-ADAM-020",
+        "RQ-ADAM-009",
+        "RQ-ADAM-010",
+        "RQ-ADAM-011",
+        "RQ-ADAM-012",
+        "RQ-ADAM-013",
+        "RQ-ADAM-014",
+        "RQ-ADAM-015",
+        "RQ-ADAM-016",
+        "RQ-ADAM-017",
+        "RQ-ADAM-018",
+        "RQ-ADAM-019",
+        "RQ-ADAM-025",
+        "RQ-ADAM-026",
+        "RQ-ADAM-027",
+        "RQ-ADAM-028",
+        "RQ-ADAM-029",
+        "RQ-ADAM-030",
+        "RQ-ADAM-032"
+      ],
+      "task_record_id": "adam_gemini_boundary_task_0e33a230a88fdeb16edf438f",
+      "warnings": [
+        "NO_DETERMINISTIC_SPLIT_FOUND",
+        "REQUESTED_RESEGMENTATION_NOT_ACHIEVED"
+      ],
+      "window_id": "ecd55c860e9f458931578651",
+      "work_source_id": "SRC-HISTORY-MUNTAZAM-ADAM"
+    },
+    {
+      "allowed_decisions": [
+        "KEEP_AS_SINGLE",
+        "SPLIT_CURRENT_TEXT",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_FOLLOWING",
+        "DISCARD_AS_MID_REPORT_FRAGMENT",
+        "REQUIRES_HUMAN_REVIEW"
+      ],
+      "book_id": 12406,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/12406/volume/1/page/177?database_sha256=c0a44e43dc6d655a4d5725fc88aafb8ad0077e0ec2e8214f6c0dec6e9f4e31ab&segment_id=156"
+      ],
+      "current_chain_nodes_candidate": [],
+      "current_kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "current_text": "وَرَوَى سَعِيدُ بْنُ جُبَيْرٍ، عَنِ ابْنِ عَبَّاسٍ، قَالَ: كَانَ إِبْلِيسُ اسْمُهُ عَزَازِيلَ، ثُمَّ إِبْلِيسُ بَعْدُ.\nوَقَالَ ابْن جريج: كَانَ اسم إِبْلِيس فِي السماء الْحَارِث.\nوَقَدْ رَوَى ثور بْن يَزِيد، عَن خَالِد بْن معدان، قَالَ: خلق اللَّه إِبْلِيس من مارج من نار، فلما خلق علق فِي الهواء، فَقَالَ: يا هواء إِن كنت فوقي فارفعني إليك، وإن كنت أسفل مني فأهبطني إليك. فنودي: إِن اللَّه بكل مكان ومع كُل إنس وجان، فاصطكت أسنانه، وخرج من فِيهِ شرر خلق من كُل شررة شَيْطَان مخلد.\nأَخْبَرَنَا مُحَمَّدُ بْنُ عَبْدِ الْبَاقِي بْنِ أَحْمَدَ بْنِ سُلَيْمَان، قَالَ:\nأَخْبَرَنَا أَحْمَدُ بْنُ أَحْمَدَ الحداد، قال:\nأَخْبَرَنَا أَبُو نُعَيْمٍ أَحْمَدُ بْنُ عَبْدِ اللَّهِ الْحَافِظُ، قَالَ:\nحَدَّثَنَا أَبِي، قَالَ:\nأَخْبَرَنَا أَحْمَدُ بْنُ مُحَمَّدِ بْنِ أَبَانَ، قَالَ:\nحَدَّثَنَا أَبُو بَكْرِ بْنِ عُبَيْدٍ، قَالَ:\nحَدَّثَنَا يَحْيَى بْنُ عُثْمَانَ، قَالَ:",
+      "current_text_sha256": "8bcb2b648825574d948d77bd950bd9656402be7600819284d56ce111edfd9768",
+      "event_ids": [
+        "EV-ADAM-001",
+        "EV-ADAM-002",
+        "EV-ADAM-003",
+        "EV-ADAM-004",
+        "EV-ADAM-005",
+        "EV-ADAM-006",
+        "EV-ADAM-007",
+        "EV-ADAM-050",
+        "EV-ADAM-051",
+        "EV-ADAM-052",
+        "EV-ADAM-053",
+        "EV-ADAM-054",
+        "EV-ADAM-055"
+      ],
+      "following_context": {
+        "normalized_report_id": "adam_normalized_report_243743971c1ea2a0a8e7340a",
+        "text_excerpt": "وحكى أَبُو جَعْفَر الطبري أَن إِبْلِيس بعث حكما يقضي بَيْنَ الجن فِي الأَرْض فقضى بينهم بالحق ألف سَنَة فسمي حكما، فدخله الكبر فألقى بَيْنَ الَّذِينَ كَانَ حكم بينهم العداوة والبغضاء حَتَّى اقتتلوا، فبعث اللَّه ﷿ عَلَيْهِم [نارا] فأحرقتهم، فعرج السماء، وأقام عِنْدَ الْمَلائِكَة يعَبْد اللَّهِ إِلَى أَن خلق آدَم. [١] والقول الثَّانِي: إنه كَانَ من الجن. قَالَ الْحَسَن: لَمْ يكن إِبْلِيس من الْمَلائِكَة قط. وَقَالَ شَهْر بْن حوشب: كَانَ إِبْلِيسُ من الجن الَّذِينَ طردتهم الْمَلائِكَة، فأسره بَعْض الْمَلائِكَة فَذَهَبَ بِهِ إِلَى السماء [٢] . وَقَالَ سَعْد بْن مَسْعُود: كانت الْمَلائِكَة تقاتل الجن فسبي إِبْلِيس، وَكَانَ صغيرا، وَكَانَ مَعَ الْمَلائِكَة يتعبد معها، فلما أمروا أَن يسجدوا سجدوا وأبى إِبْلِيس [٣] ."
+      },
+      "normalized_report_id": "adam_normalized_report_1755d04267a2782bf2717c3f",
+      "permissions": {
+        "candidate_only": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_boundaries": true
+      },
+      "previous_context": {
+        "normalized_report_id": "adam_normalized_report_f4ea97b914c1863ee24200c2",
+        "text_excerpt": "بَاب ذكر إِبْلِيس لعنه اللَّه [١] اختلف الْعُلَمَاء، هل كَانَ من الجن أَوْ من الْمَلائِكَة عَلَى قولين [٢] . أحدهما: أَنَّهُ كَانَ من الْمَلائِكَة وأعظمهم قبيلة. وإن من الْمَلائِكَة قبيلة يقال لَهُمْ الجن، وكَانَ مِنْهُم، وَكَانَ [لَهُ] [٣] سلطان سماء الدنيا، وَكَانَ لَهُ سلطان الأَرْض يسوس مَا بَيْنَ السماء وَالأَرْض، فعصى فمسخه اللَّه شيطانا رجيما [٤] ."
+      },
+      "research_question_ids": [
+        "RQ-ADAM-001",
+        "RQ-ADAM-002",
+        "RQ-ADAM-003",
+        "RQ-ADAM-004",
+        "RQ-ADAM-005",
+        "RQ-ADAM-006",
+        "RQ-ADAM-020",
+        "RQ-ADAM-017",
+        "RQ-ADAM-018",
+        "RQ-ADAM-019"
+      ],
+      "task_record_id": "adam_gemini_boundary_task_ad6084090931d443d60835b1",
+      "warnings": [
+        "MULTIPLE_STRONG_STARTS_REMAIN",
+        "NO_DETERMINISTIC_SPLIT_FOUND",
+        "REQUESTED_RESEGMENTATION_NOT_ACHIEVED"
+      ],
+      "window_id": "0e1709a891b6cda7ead9c4e7",
+      "work_source_id": "SRC-HISTORY-MUNTAZAM-ADAM"
+    },
+    {
+      "allowed_decisions": [
+        "KEEP_AS_SINGLE",
+        "SPLIT_CURRENT_TEXT",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_FOLLOWING",
+        "DISCARD_AS_MID_REPORT_FRAGMENT",
+        "REQUIRES_HUMAN_REVIEW"
+      ],
+      "book_id": 12406,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/12406/volume/1/page/175?database_sha256=c0a44e43dc6d655a4d5725fc88aafb8ad0077e0ec2e8214f6c0dec6e9f4e31ab&segment_id=154"
+      ],
+      "current_chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "رسول الله صلي الله عليه وسلم",
+          "narrator_surface_raw": "رسول الله ﷺ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "current_kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "current_text": "وروى أبو الدرداء، عن رسول الله ﷺ، قَالَ: «خَلَقَ اللَّهُ الْجِنَّ عَلَى ثَلاثَةِ أَصْنَافٍ، صنف حيات وعقارب وَخَشَاشِ الأَرْضِ، وَصِنْفٍ كَالرِّيحِ فِي الْهَوَاءِ، وَصِنْفٍ عَلَيْهِم الْحِسَابُ وَالْعِقَابُ.\nوَخَلَقَ الإِنْسَ عَلَى ثَلاثَةِ أَصْنَافٍ: صِنْفٍ لَهُمْ قُلُوبٌ لا يَعْقِلُونَ بِهَا، وَصِنْفٌ أَجْسَادُهُمْ أَجْسَادُ بَنِي آَدَمَ وَأَرْوَاحَهُمْ أَرْوَاحُ الشَّيَاطِينَ، وَصِنْفٍ فِي ظِلِّ اللَّهِ يَوْمَ لا ظِلَّ إِلا ظِلُّهِ» [١] .\nواختلف النَّاس هل يدخل مسلمو الجن الْجَنَّة؟ فَقَالَ الضَّحَّاك: يدخلون الْجَنَّة ويأكلون ويشربون.\nوَقَالَ مجاهد: يدخلونها ولكن لا يأكلون فِيهَا ولا يشربون، يلهمون من التسبيح والتقديس مَا يجد أَهْل الْجَنَّة من لذيذ الطعام والشراب.\nوَقَالَ ليث بْن أَبِي سليم: ثوابهم أَن يجاروا من النار، ويقال لَهُمْ: كونوا ترابا.",
+      "current_text_sha256": "df922ac5a1c0e277e2b35ab49a4605eafb9d21f8067b124848bd4ff2aa49c198",
+      "event_ids": [
+        "EV-ADAM-001",
+        "EV-ADAM-002",
+        "EV-ADAM-003",
+        "EV-ADAM-004",
+        "EV-ADAM-005",
+        "EV-ADAM-006",
+        "EV-ADAM-007",
+        "EV-ADAM-050",
+        "EV-ADAM-051",
+        "EV-ADAM-052",
+        "EV-ADAM-053",
+        "EV-ADAM-054",
+        "EV-ADAM-055"
+      ],
+      "following_context": {
+        "normalized_report_id": "adam_normalized_report_7f6fc710bab0c0b3f39459b7",
+        "text_excerpt": "قَالَ: حَدَّثَنَا الْبَغَوِيُّ، قَالَ: حَدَّثَنَا هُدْبَةُ، قَالَ: حَدَّثَنَا هَمَّامٌ، عَنْ قَتَادَةَ، عَنْ عِكْرِمَةَ، عَنِ ابن عباس، قال: الْجَانُ مَسِيخُ الْجِنِّ، كَمَا أَنَّ الْقِرَدَةَ وَالْخَنَازِيرَ مَسِيخُ الإِنْسِ. وَأَمَّا الشياطين: فَكُل متجبر عات من الجن. وَهُوَ مأخوذ من شطن أي بَعْد عَن الخير وقيل بَعْد غوره فِي الشر. وَكَذَلِكَ المارد والعفريت. وَقَدْ رَوَى الضَّحَّاكُ، عَنِ ابْنِ عَبَّاسٍ، قَالَ: الشَّيَاطِينُ وِلْدَانُ إِبْلِيسَ لا يَمُوتُونَ إِلا مَعَ إِبْلِيسَ. وَالْجِنُّ: يَمُوتُونَ، وَمِنْهُمُ الْمُؤْمِنُ وَمِنْهُمُ الْكَافِرُ. وَقَالَ السدي: فِي الجن شيعة وقدرية ومرجئة. قَالَ عَبْد اللَّهِ بْن عَمْرو بْن العاص: خلق اللَّه الجن قبل آدَم بألفي سَنَة. وَقَدْ رُوِيَ عَنِ النبي ﷺ أنه سئل عن الْغِيلانِ، فَقَالَ: «هِيَ شَجَرَةُ الْجِنِّ» . وَقِيلَ عِنْدَ عُمَرِ بْنِ الْخَطَّابِ ﵁ إِنَّ الْغِيلانَ تَتَحَوَّلُ عَنْ خَلْقِهَا، فَقَالَ: إِنَّهُ لَيْسَ شَيْءٌ يَتَحَوَّلُ عَنْ خَلْقِهِ، وَلَكِنْ لَهُمْ سَحَرَةٌ كَسَحَرَتِكُمْ، فَإِذَا أَحْسَسْتُمْ مِنْ ذَلِكَ شَيْئًا فَأَذِّنُوا."
+      },
+      "normalized_report_id": "adam_normalized_report_20dc2d482ddac77365551c28",
+      "permissions": {
+        "candidate_only": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_boundaries": true
+      },
+      "previous_context": {
+        "normalized_report_id": "adam_normalized_report_51650a5c03ef513c58922b77",
+        "text_excerpt": "بَاب ذكر الجن والشياطين [١] هَذَا الجن ثلاثة أنواع: جان، وجن، وشياطين، ولا خلاف أَن الكل خلقوا قبل آدَم. فأما الجان: ففيه ثلاثة أقوال، أحدها: أَنَّهُ أَبُو الجن، رواه أَبُو صَالِح، والضحاك عَنِ ابْنِ عَبَّاسٍ، وَهُوَ مخلوق من نار. أَخْبَرَنَا ابْنُ الْحُصَيْنِ، قَالَ: أخبرنا ابن المذهب، قال: أخبرنا أحمد بْن جَعْفَرٍ، قَالَ: حَدَّثَنَا عَبْدُ اللَّهِ بْنُ أَحْمَدَ، قَالَ: حَدَّثَنِي أَبِي، قَالَ: حَدَّثَنَا عَبْدُ الرَّزَّاقِ، قَالَ:"
+      },
+      "research_question_ids": [
+        "RQ-ADAM-001",
+        "RQ-ADAM-002",
+        "RQ-ADAM-003",
+        "RQ-ADAM-004",
+        "RQ-ADAM-005",
+        "RQ-ADAM-006",
+        "RQ-ADAM-020",
+        "RQ-ADAM-017",
+        "RQ-ADAM-018",
+        "RQ-ADAM-019"
+      ],
+      "task_record_id": "adam_gemini_boundary_task_899231a6334fe78fde6cb812",
+      "warnings": [
+        "NO_DETERMINISTIC_SPLIT_FOUND",
+        "REQUESTED_RESEGMENTATION_NOT_ACHIEVED"
+      ],
+      "window_id": "0e1709a891b6cda7ead9c4e7",
+      "work_source_id": "SRC-HISTORY-MUNTAZAM-ADAM"
+    }
+  ],
+  "schema_version": "siraj-adam-gemini-draft-batch-v1",
+  "task_contract_project_path": "sources/secondary/gemini-semantic-analysis-draft/contracts/boundary-resolution-contract-v1.json",
+  "task_name": "boundary-resolution"
+}

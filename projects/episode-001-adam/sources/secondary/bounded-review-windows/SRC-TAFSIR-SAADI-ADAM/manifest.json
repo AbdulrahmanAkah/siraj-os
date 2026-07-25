@@ -1,0 +1,38 @@
+{
+  "attribution_profile_counts": {},
+  "book_character_limit": 240000,
+  "book_id": 42,
+  "book_title": "تفسير السعدي = تيسير الكريم الرحمن",
+  "excluded_after_tabari_boundary": 0,
+  "excluded_by_book_budget": 26,
+  "input_candidate_count": 77,
+  "outputs": {
+    "gemini_input_draft": {
+      "execution_status": "BLOCKED_PENDING_HUMAN_WINDOW_APPROVAL",
+      "project_path": "sources/secondary/bounded-review-windows/SRC-TAFSIR-SAADI-ADAM/gemini-input-draft.jsonl",
+      "rows": 27,
+      "sha256": "aa62a913cdd45d60a824b9947b640569def6340ddd7a9107e33f41bc908aa1b2"
+    },
+    "review_windows": {
+      "project_path": "sources/secondary/bounded-review-windows/SRC-TAFSIR-SAADI-ADAM/review-windows.jsonl",
+      "rows": 27,
+      "sha256": "d5bb3081bfecea3f6784c2ecf83bd433119736108b30fd666b64f7a36346def6"
+    }
+  },
+  "raw_window_count": 53,
+  "review_window_character_count": 239427,
+  "review_window_count": 27,
+  "review_window_limit": 45,
+  "selected_candidate_count": 77,
+  "tabari_continuation_boundary": {
+    "boundary_sequence_num": null,
+    "status": "NOT_APPLICABLE"
+  },
+  "tier_counts": {
+    "A": 14,
+    "B": 17,
+    "C": 13
+  },
+  "window_character_limit": 18000,
+  "work_source_id": "SRC-TAFSIR-SAADI-ADAM"
+}

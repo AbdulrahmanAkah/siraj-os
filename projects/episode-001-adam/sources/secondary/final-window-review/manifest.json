@@ -1,0 +1,72 @@
+{
+  "schema_version": "siraj-adam-final-window-review-manifest-v2",
+  "episode_id": "episode-001-adam",
+  "status": "PASS_FINAL_HUMAN_WINDOW_REVIEW_COMPLETE",
+  "counts": {
+    "INCLUDE": 92,
+    "EXCLUDE": 114,
+    "DEFER": 1
+  },
+  "source_window_count": 207,
+  "repaired_window_count": 39,
+  "technical_defer_count": 0,
+  "editorial_defer_count": 1,
+  "duplicate_group_count": 19,
+  "attribution_review_record_count": 23,
+  "next_gate": "REPORT_LEVEL_EXTRACTION_AND_INTERNAL_ISNAD_RESEARCH",
+  "permissions": {
+    "gemini_execution_enabled": false,
+    "source_approval_changed": false,
+    "evidence_approval_changed": false,
+    "quotation_approval_changed": false,
+    "hadith_grading_changed": false,
+    "israiliyyat_classification_changed": false,
+    "final_narrative_approval_changed": false
+  },
+  "files": {
+    "README.md": {
+      "size_bytes": 691,
+      "sha256": "bce4001b4d1c677a3e8cc57474fbf05d7e1b209012be8bc2d77e9af3719f0e7a"
+    },
+    "adam-approved-window-register-v2.json": {
+      "size_bytes": 121050,
+      "sha256": "65bd92b41817471930910dc0d3b0fc77c8e19a29050c2d7a4d0d7452471e400d"
+    },
+    "adam-attribution-review-v2.json": {
+      "size_bytes": 16954,
+      "sha256": "a216365c90cd1d40d952bbf56669563c77ae94530603f9c4bebd64923d5345bc"
+    },
+    "adam-duplicate-groups-v2.json": {
+      "size_bytes": 13899,
+      "sha256": "928e85ac2dc35f5a49cefefbee683f06620390287743ad608af214960259b663"
+    },
+    "adam-human-window-decisions-v1.json": {
+      "size_bytes": 364940,
+      "sha256": "19757476818894816e78898032e88842a96c75ef97be8335cf7079a54b4bd2d8"
+    },
+    "adam-narration-attribution-policy-v2.json": {
+      "size_bytes": 2308,
+      "sha256": "e6c65aefbdde0b2b5c8ffc92be568bd5e083639c9ca1c72c32bea9f6bde1c60f"
+    },
+    "adam-repaired-window-adjudication-v1.json": {
+      "size_bytes": 42208,
+      "sha256": "bfb1a204cce27f032c00c8d252be3407ea3096de50aef1ac5d697228c3933476"
+    },
+    "adam-window-review-report-v2.md": {
+      "size_bytes": 3144,
+      "sha256": "75f171d38da37db643d8e1f62950dbd9a5fe59e2f9ecd0777ac465e2d0ec6e9c"
+    },
+    "adam-window-review-table-v2.csv": {
+      "size_bytes": 95404,
+      "sha256": "f1616c5b276e42215c351a2f9e4d5e1c324565baa37136d80c268d7c454e7544"
+    },
+    "apply-adam-final-window-review-v2.ps1": {
+      "size_bytes": 3420,
+      "sha256": "de216f8911628078cd8fc19418f3b674185628efdf12e5ba0db9975646a9ca43"
+    },
+    "test_adam_final_window_review_v2.py": {
+      "size_bytes": 1787,
+      "sha256": "9ae2195539959c51a264dec68f02b60103f6296064ac11fa57097e3dcc97e4fa"
+    }
+  }
+}

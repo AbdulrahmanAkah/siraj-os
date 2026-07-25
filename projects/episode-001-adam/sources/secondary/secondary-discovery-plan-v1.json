@@ -1,0 +1,48 @@
+{
+  "attribution_profile_count": 2,
+  "created_at": "2026-07-24T12:29:45.186852Z",
+  "episode_id": "episode-001-adam",
+  "phases": [
+    {
+      "action": "Discover and rank local Shamela books.",
+      "order": 10,
+      "phase_id": "SECONDARY-01-CATALOG",
+      "status": "COMPLETED"
+    },
+    {
+      "action": "Select one original work asset per target.",
+      "order": 20,
+      "phase_id": "SECONDARY-02-SELECTION",
+      "status": "PENDING_HUMAN_SELECTION"
+    },
+    {
+      "action": "Export selected books to project-local normalized artifacts and record checksums.",
+      "order": 30,
+      "phase_id": "SECONDARY-03-MATERIALIZATION",
+      "status": "BLOCKED"
+    },
+    {
+      "action": "Run bounded candidate-locator discovery against selected local assets.",
+      "order": 40,
+      "phase_id": "SECONDARY-04-GEMINI-LOCATORS",
+      "status": "BLOCKED"
+    },
+    {
+      "action": "Verify text and locators deterministically, then review reports individually.",
+      "order": 50,
+      "phase_id": "SECONDARY-05-VERIFICATION",
+      "status": "BLOCKED"
+    }
+  ],
+  "plan_id": "adam-01-secondary-source-discovery-plan-v1",
+  "prohibitions": [
+    "NO_GEMINI_WEB_BROWSING",
+    "NO_AUTOMATIC_SOURCE_APPROVAL",
+    "NO_AUTOMATIC_ISRAILIYYAT_ACCEPTANCE",
+    "NO_AUTOMATIC_HADITH_GRADING",
+    "NO_CANDIDATE_USAGE_IN_NARRATIVE"
+  ],
+  "schema_version": "siraj-secondary-source-discovery-plan-v1",
+  "status": "READY_FOR_BOOK_SELECTION",
+  "work_target_count": 10
+}

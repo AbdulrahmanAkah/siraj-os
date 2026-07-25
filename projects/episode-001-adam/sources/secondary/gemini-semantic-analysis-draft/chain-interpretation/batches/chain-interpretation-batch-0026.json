@@ -1,0 +1,306 @@
+{
+  "batch_id": "chain-interpretation-batch-0026",
+  "episode_id": "episode-001-adam",
+  "execution_enabled": false,
+  "execution_status": "BLOCKED_NOT_AUTHORIZED",
+  "generation_config": {
+    "response_mime_type": "application/json",
+    "temperature": 0
+  },
+  "model_id": null,
+  "provider_id": "GEMINI",
+  "record_count": 6,
+  "records": [
+    {
+      "book_id": 4445,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/4445/volume/1/page/124?database_sha256=a48b153a0a451ce0f63625bee7fa294a88d8dbbc5db4b9472afa652260b74b3b&segment_id=122"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_a264f1866f7187c37e2a3a1a",
+      "chain_nodes_candidate": [],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "حَدَّثَنَا عَبْدُ الرَّزَّاقِ، حَدَّثَنَا مَعْمَرٌ، عَنِ الزُّهْرِيِّ، عَنْ عُرْوَةَ، عَنْ عَائِشَةَ قَالَتْ: قَالَ رَسُولُ اللَّهِ ﷺ: خُلِقَتِ الْمَلَائِكَةُ مِنْ نُورٍ، وَخُلِقَتِ الْجَانُّ",
+      "kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_4f80da78c0626f6253f2ddf2",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MARFU_CONTEXT_CANDIDATE",
+      "report_text": "حَدَّثَنَا عَبْدُ الرَّزَّاقِ، حَدَّثَنَا مَعْمَرٌ، عَنِ الزُّهْرِيِّ، عَنْ عُرْوَةَ، عَنْ عَائِشَةَ قَالَتْ: قَالَ رَسُولُ اللَّهِ ﷺ: خُلِقَتِ الْمَلَائِكَةُ مِنْ نُورٍ، وَخُلِقَتِ الْجَانُّ",
+      "report_text_sha256": "20d17b435bbb046d069cb5eabad0c71fe22b8f8cb7199cd00982f219339b7f9b",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "PROPHET_WITH_COMPANION_OR_MARFU_TABII",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": null,
+        "prophet_name": "محمد ﷺ",
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_2950ccf2a98d3db0f08def0b",
+      "terminal_speaker_surface_candidate": null,
+      "work_source_id": "SRC-HISTORY-BIDAYAH-ADAM"
+    },
+    {
+      "book_id": 4445,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/4445/volume/20/page/113?database_sha256=a48b153a0a451ce0f63625bee7fa294a88d8dbbc5db4b9472afa652260b74b3b&segment_id=12830"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_408fdfaaf0588ee6ae3b5099",
+      "chain_nodes_candidate": [],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "حَدَّثَنَا عُمَرُ، عَنِ الْأَوْزَاعِيِّ، عَنْ هَارُونَ بْنِ رِئَابٍ، عَنْ أَنَسِ بْنِ مَالِكٍ، قَالَ: قَالَ رَسُولُ اللَّهِ ﷺ «يُبْعَثُ أَهْلُ الْجَنَّةِ عَلَى صُورَةِ آدَمَ، فِي مِيلَادِ ثَلَاثٍ وَثَلَاثِينَ سَنَةً، جُرْدًا مُرْدًا مُكَحَّلِينَ، ثُمَّ يُذْهَبُ بِهِمْ إِلَى شَجَرَة",
+      "kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_5bb02f2930137c9158aa0c05",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MARFU_CONTEXT_CANDIDATE",
+      "report_text": "حَدَّثَنَا عُمَرُ، عَنِ الْأَوْزَاعِيِّ، عَنْ هَارُونَ بْنِ رِئَابٍ، عَنْ أَنَسِ بْنِ مَالِكٍ، قَالَ: قَالَ رَسُولُ اللَّهِ ﷺ «يُبْعَثُ أَهْلُ الْجَنَّةِ عَلَى صُورَةِ آدَمَ، فِي مِيلَادِ ثَلَاثٍ وَثَلَاثِينَ سَنَةً، جُرْدًا مُرْدًا مُكَحَّلِينَ، ثُمَّ يُذْهَبُ بِهِمْ إِلَى شَجَرَةٍ فِي الْجَنَّةِ، فَيُكْسَوْنَ مِنْهَا، لَا تَبْلَى ثِيَابُهُمْ وَلَا يَفْنَى شَبَابُهُمْ».\nوَقَالَ أَبُو بَكْرِ بْنُ أَبِي دَاوُدَ:",
+      "report_text_sha256": "cd4d3e8a6c0687a6e75517dd3246aa7cfae44a73c761f20dc134dd2abeced7ea",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "PROPHET_WITH_COMPANION_OR_MARFU_TABII",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": null,
+        "prophet_name": "محمد ﷺ",
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_207e35018f3f64759a5b7090",
+      "terminal_speaker_surface_candidate": null,
+      "work_source_id": "SRC-HISTORY-BIDAYAH-ADAM"
+    },
+    {
+      "book_id": 4445,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/4445/volume/1/page/225?database_sha256=a48b153a0a451ce0f63625bee7fa294a88d8dbbc5db4b9472afa652260b74b3b&segment_id=224"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_41761dea02c6454b135b2484",
+      "chain_nodes_candidate": [],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "الْآيَاتِ. فَهَذَا تَنْبِيهٌ أَوَّلًا بِذِكْرِ آدَمَ، ثُمَّ اسْتَطْرَدَ إِلَى الْجِنْسِ، وَلَيْسَ الْمُرَادُ بِهَذَا ذِكْرَ آدَمَ وَحَوَّاءَ بَلْ لَمَّا جَرَى ذِكْرُ الشَّخْصِ اسْتَطْرَدَ إِلَى الْجِنْسِ، كَمَا فِي قَوْلِهِ تَعَالَى: وَلَقَدْ خَلَقْنَا الْإِنْسَانَ مِنْ سُلَالَةٍ مِنْ طِينٍ ثُمَّ جَعَلْنَاهُ نُطْفَةً فِي قَرَارٍ مَكِينٍ [الْمُؤْمِنُونَ: ١٢ ١٣]. وَقَالَ تَعَالَى: وَلَقَدْ زَيَّنَّا السَّمَاءَ الدُّنْيَا بِمَصَابِيحَ وَجَعَلْنَاهَا رُجُومًا لِلشَّيَاطِينِ [الْمُلْكِ: ٥]. وَمَعْلُومٌ أَنَّ رُجُومَ الشَّيَاطِينِ لَيْسَتْ هِيَ أَعْيَانَ مَصَابِيحِ السَّمَاءِ، وَإِنَّمَا اسْتَطْرَدَ مِنْ شَخْصِهَا إِلَى جِنْسِهَا.\nفَأَمَّا الْحَدِيثُ الَّذِي رَوَاهُ الْإِمَامُ أَحْمَدُ، حَدَّثَنَا عَبْدُ الصَّمَدِ، حَدَّثَنَا عُمَرُ بْنُ إِبْرَاهِيمَ، حَدَّثَنَا قَتَادَةُ، عَنِ الْحَسَنِ، عَنْ سَمُرَةَ، عَنِ النَّبِيِّ ﷺ قَالَ: لَمَّا، وَلَدَتْ حَوَّاءُ طَافَ بِهَا إِبْلِيسُ، وَكَانَ لَا يَعِيشُ لَهَا وَلَدٌ، فَقَالَ: سَمِّيهِ عَبْدَ الْحَارِثِ فَإِنَّهُ يَعِيشُ. فَسَمَّتْهُ عَبْد",
+      "kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_7a7ca52339cd0ea6be862c8e",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MARFU_EXPLICIT_CANDIDATE",
+      "report_text": "الْآيَاتِ. فَهَذَا تَنْبِيهٌ أَوَّلًا بِذِكْرِ آدَمَ، ثُمَّ اسْتَطْرَدَ إِلَى الْجِنْسِ، وَلَيْسَ الْمُرَادُ بِهَذَا ذِكْرَ آدَمَ وَحَوَّاءَ بَلْ لَمَّا جَرَى ذِكْرُ الشَّخْصِ اسْتَطْرَدَ إِلَى الْجِنْسِ، كَمَا فِي قَوْلِهِ تَعَالَى: وَلَقَدْ خَلَقْنَا الْإِنْسَانَ مِنْ سُلَالَةٍ مِنْ طِينٍ ثُمَّ جَعَلْنَاهُ نُطْفَةً فِي قَرَارٍ مَكِينٍ [الْمُؤْمِنُونَ: ١٢ ١٣]. وَقَالَ تَعَالَى: وَلَقَدْ زَيَّنَّا السَّمَاءَ الدُّنْيَا بِمَصَابِيحَ وَجَعَلْنَاهَا رُجُومًا لِلشَّيَاطِينِ [الْمُلْكِ: ٥]. وَمَعْلُومٌ أَنَّ رُجُومَ الشَّيَاطِينِ لَيْسَتْ هِيَ أَعْيَانَ مَصَابِيحِ السَّمَاءِ، وَإِنَّمَا اسْتَطْرَدَ مِنْ شَخْصِهَا إِلَى جِنْسِهَا.\nفَأَمَّا الْحَدِيثُ الَّذِي رَوَاهُ الْإِمَامُ أَحْمَدُ، حَدَّثَنَا عَبْدُ الصَّمَدِ، حَدَّثَنَا عُمَرُ بْنُ إِبْرَاهِيمَ، حَدَّثَنَا قَتَادَةُ، عَنِ الْحَسَنِ، عَنْ سَمُرَةَ، عَنِ النَّبِيِّ ﷺ قَالَ: لَمَّا، وَلَدَتْ حَوَّاءُ طَافَ بِهَا إِبْلِيسُ، وَكَانَ لَا يَعِيشُ لَهَا وَلَدٌ، فَقَالَ: سَمِّيهِ عَبْدَ الْحَارِثِ فَإِنَّهُ يَعِيشُ. فَسَمَّتْهُ عَبْدَ الْحَارِثِ فَعَاشَ، وَكَانَ ذَلِكَ مِنْ وَحْيِ الشَّيْطَانِ وَأَمْرِهِ. وَهَكَذَا رَوَاهُ التِّرْمِذِيُّ، وَابْنُ جَرِيرٍ، وَابْنُ أَبِي حَاتِمٍ، وَابْنُ مَرْدَوَيْهِ فِي تَفَاسِيرِهِمْ عِنْدَ هَذِهِ الْآيَةِ مِنْ سُورَةِ الْأَعْرَافِ. وَأَخْرَجَهُ الْحَاكِمُ فِي مُسْتَدْرَكِهِ، كُلُّهُمْ مِنْ حَدِيثِ عَبْدِ الصَّمَدِ بْنِ عَبْدِ الْوَارِثِ بِهِ. وَقَالَ الْحَاكِمُ: صَحِيحُ الْإِسْنَادِ، وَلَمْ يُخَرِّجَاهُ. وَقَالَ التِّرْمِذِيُّ: حَسَنٌ غَرِيبٌ لَا نَعْرِفُهُ مَرْفُوعًا إِلَّا مِنْ حَدِيثِ عُمَرَ بْنِ إِبْرَاهِيمَ. وَرَوَاهُ بَعْضُهُمْ، عَنْ عَبْدِ الصَّمَدِ، وَلَمْ يَرْفَعْهُ فَهَذِهِ عِلَّةٌ قَادِحَةٌ فِي الْحَدِيثِ أَنَّهُ رُوِيَ مَوْقُوفًا",
+      "report_text_sha256": "8ca9e93c18e38675d171e7e1e15635c6e1ef80ac15c5c9481952da099d39eabf",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "PROPHET_WITH_COMPANION_OR_MARFU_TABII",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": null,
+        "prophet_name": "محمد ﷺ",
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_dc6b1b0d3c2048868c31c87a",
+      "terminal_speaker_surface_candidate": null,
+      "work_source_id": "SRC-HISTORY-BIDAYAH-ADAM"
+    },
+    {
+      "book_id": 4445,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/4445/volume/20/page/111?database_sha256=a48b153a0a451ce0f63625bee7fa294a88d8dbbc5db4b9472afa652260b74b3b&segment_id=12828"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_f2255377aaa93b94902975a6",
+      "chain_nodes_candidate": [],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "حَدَّثَنَا أَبُو خَيْثَمَةَ، حَدَّثَنَا جَرِيرٌ، عَنْ عُمَارَةَ بْنِ الْقَعْقَاعِ، عَنْ أَبِي زُرْعَةَ، عَنْ أَبِي هُرَيْرَةَ، قَالَ: قَالَ رَسُولُ اللَّهِ ﷺ: «أَوَّلُ زُمْرَةٍ يَدْخُلُونَ الْجَنَّةَ عَلَى صُورَةِ الْقَمَرِ لَيْلَةَ الْبَدْرِ، وَالَّذِينَ يَلُونَهُمْ عَلَى صُورَةِ أَشَدِّ كَوْكَبٍ دُرِّيٍّ فِي ال",
+      "kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_864bf031afd4cb2081e629ea",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MARFU_CONTEXT_CANDIDATE",
+      "report_text": "حَدَّثَنَا أَبُو خَيْثَمَةَ، حَدَّثَنَا جَرِيرٌ، عَنْ عُمَارَةَ بْنِ الْقَعْقَاعِ، عَنْ أَبِي زُرْعَةَ، عَنْ أَبِي هُرَيْرَةَ، قَالَ: قَالَ رَسُولُ اللَّهِ ﷺ: «أَوَّلُ زُمْرَةٍ يَدْخُلُونَ الْجَنَّةَ عَلَى صُورَةِ الْقَمَرِ لَيْلَةَ الْبَدْرِ، وَالَّذِينَ يَلُونَهُمْ عَلَى صُورَةِ أَشَدِّ كَوْكَبٍ دُرِّيٍّ فِي السَّمَاءِ إِضَاءَةً، لَا يَبُولُونَ، وَلَا يَتَغَوَّطُونَ، وَلَا يَتْفُلُونَ وَلَا يَمْتَخِطُونُ، أَمَشْاطُهُمُ الذَّهَبُ، وَرَشْحُهُمُ الْمِسْكُ، وَمَجَامِرُهُمُ الْأَلُوَّةُ، وَأَزْوَاجُهُمُ الْحُورُ الْعِينُ، أَخْلَاقُهُمْ عَلَى خُلُقِ رَجُلٍ وَاحِدٍ، عَلَى صُورَةِ أَبِيهِمْ آدَمَ، سِتُّونَ ذِرَاعًا فِي السَّمَاءِ».\nوَرَوَاهُ مُسْلِمٌ عَنْ أَبِي خَيْثَمَةَ، وَاتَّفَقَا عَلَيْهِ، مِنْ حَدِيثِ جَرِيرٍ.",
+      "report_text_sha256": "79d6fa48213654f6c62be688641a75b980aa7929a6a3a9ec62549782a1314ddb",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "PROPHET_WITH_COMPANION_OR_MARFU_TABII",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": null,
+        "prophet_name": "محمد ﷺ",
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_a5dd7ead25fa841d829b7d05",
+      "terminal_speaker_surface_candidate": null,
+      "work_source_id": "SRC-HISTORY-BIDAYAH-ADAM"
+    },
+    {
+      "book_id": 4445,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/4445/volume/1/page/226?database_sha256=a48b153a0a451ce0f63625bee7fa294a88d8dbbc5db4b9472afa652260b74b3b&segment_id=225"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_d59de7b2f8e9cca5424c0c47",
+      "chain_nodes_candidate": [],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "عَلَى الصَّحَابِيِّ، وَهَذَا أَشْبَهُ، وَالظَّاهِرُ أَنَّهُ تَلَقَّاهُ مِنَ الْإِسْرَائِيلِيَّاتِ. وَهَكَذَا رُوِيَ مَوْقُوفًا عَلَى ابْنِ عَبَّاسٍ، وَالظَّاهِرُ أَنَّ هَذَا مُتَلَقًّى عَنْ كَعْبِ الْأَحْبَارِ، وَمَنْ دُونَهُ، وَاللَّهُ أَعْلَمُ. وَقَدْ فَسَّرَ الْحَسَنُ الْبَصْرِيُّ رَاوِي الْحَدِيثِ هَذِهِ الْآيَةَ بِخِلَافِ هَذَا، فَلَوْ كَانَ عِنْدَهُ عَنْ سَمُرَةَ مَرْفُوعًا لَمَا عَدَلَ عَنْهُ إِلَى غَيْرِهِ، وَاللَّهُ أَعْلَمُ. وَأَيْضًا فَاللَّهُ تَعَالَى إِنَّمَا خَلَقَ آدَمَ وَحَوَّاءَ لِيَكُونَا أَصْلَ الْبَشَرِ، وَلِيَبُثَّ مِنْهُمَا",
+      "kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_c38c1e61c8d65f4f83b95e81",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MARFU_EXPLICIT_CANDIDATE",
+      "report_text": "عَلَى الصَّحَابِيِّ، وَهَذَا أَشْبَهُ، وَالظَّاهِرُ أَنَّهُ تَلَقَّاهُ مِنَ الْإِسْرَائِيلِيَّاتِ. وَهَكَذَا رُوِيَ مَوْقُوفًا عَلَى ابْنِ عَبَّاسٍ، وَالظَّاهِرُ أَنَّ هَذَا مُتَلَقًّى عَنْ كَعْبِ الْأَحْبَارِ، وَمَنْ دُونَهُ، وَاللَّهُ أَعْلَمُ. وَقَدْ فَسَّرَ الْحَسَنُ الْبَصْرِيُّ رَاوِي الْحَدِيثِ هَذِهِ الْآيَةَ بِخِلَافِ هَذَا، فَلَوْ كَانَ عِنْدَهُ عَنْ سَمُرَةَ مَرْفُوعًا لَمَا عَدَلَ عَنْهُ إِلَى غَيْرِهِ، وَاللَّهُ أَعْلَمُ. وَأَيْضًا فَاللَّهُ تَعَالَى إِنَّمَا خَلَقَ آدَمَ وَحَوَّاءَ لِيَكُونَا أَصْلَ الْبَشَرِ، وَلِيَبُثَّ مِنْهُمَا رِجَالًا كَثِيرًا وَنِسَاءً فَكَيْفَ كَانَتْ حَوَّاءُ لَا يَعِيشُ لَهَا وَلَدٌ، كَمَا ذَكَرَ فِي هَذَا الْحَدِيثِ إِنْ كَانَ مَحْفُوظًا. وَالْمَظْنُونُ بَلِ الْمَقْطُوعُ بِهِ أَنَّ رَفْعَهُ إِلَى النَّبِيِّ ﷺ خَطَأٌ. وَالصَّوَابُ وَقْفُهُ، وَاللَّهُ أَعْلَمُ. وَقَدْ حَرَّرْنَا هَذَا فِي كِتَابِنَا التَّفْسِيرِ، وَلِلَّهِ الْحَمْدُ. ثُمَّ قَدْ كَانَ آدَمُ وَحَوَّاءُ أَتْقَى لِلَّهِ مِمَّا ذُكِرَ عَنْهُمَا فِي هَذَا فَإِنَّ آدَمَ أَبُو الْبَشَرِ الَّذِي خَلَقَهُ اللَّهُ بِيَدِهِ، وَنَفَخَ فِيهِ مِنْ رُوحِهِ، وَأَسْجَدَ لَهُ مَلَائِكَتَهُ، وَعَلَّمَهُ أَسْمَاءَ كُلِّ شَيْءٍ، وَأَسْكَنَهُ جَنَّتَهُ.\nوَقَدْ رَوَى ابْنُ حِبَّانَ فِي صَحِيحِهِ، عَنْ أَبِي ذَرٍّ قَالَ:\nقُلْتُ: يَا رَسُولَ اللَّهِ كَمِ الْأَنْبِيَاءُ؟ قَالَ: «مِائَةُ أَلْفٍ وَأَرْبَعَةٌ وَعِشْرُونَ أَلْفًا».\nقُلْتُ: يَا رَسُولَ اللَّهِ كَمِ الرُّسُلُ مِنْهُمْ؟ قَالَ: «ثَلَاثُمِائَةٍ وَثَلَاثَةَ عَشَرَ، جَمٌّ غَفِيرٌ».\nقُلْتُ: يَا رَسُولَ اللَّهِ مَنْ كَانَ أَوَّلَهُمْ؟ قَالَ: «آدَمُ».",
+      "report_text_sha256": "3ee3040320600c06c4465e5236604a33533e2c0a35cd40a91f272ab9d79220b9",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "PROPHET_WITH_COMPANION_OR_MARFU_TABII",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": null,
+        "prophet_name": "محمد ﷺ",
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_53a6fe58342e77c3f1953140",
+      "terminal_speaker_surface_candidate": null,
+      "work_source_id": "SRC-HISTORY-BIDAYAH-ADAM"
+    },
+    {
+      "book_id": 4445,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/4445/volume/1/page/227?database_sha256=a48b153a0a451ce0f63625bee7fa294a88d8dbbc5db4b9472afa652260b74b3b&segment_id=226"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_0088e6d8b91594033e1b2a10",
+      "chain_nodes_candidate": [],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "حَدَّثَنَا إِبْرَاهِيمُ بْنُ نَائِلَةَ الْأَصْبَهَانِيُّ، حَدَّثَنَا شَيْبَانُ بْنُ فَرُّوخَ، حَدَّثَنَا نَافِعُ بْنُ هُرْمُزَ، عَنْ عَطَاءِ بْنِ أَبِي رَبَاحٍ، عَنِ ابْنِ عَبَّاسٍ قَالَ: قَالَ رَسُولُ اللَّهِ، ﷺ: أَلَا أُخْبِرُكُمْ بِأَفْضَلِ الْمَلَائِكَةِ جِبْرِيلُ، وَأَفْضَلُ النَّبِيِّينَ آدَمُ وَأَفْضَلُ الْأَيَّامِ يَوْمُ الْجُمُعَةِ، وَأَفْضَلُ الشُّهُورِ شَ",
+      "kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_cb09b44ee83af1714b6251e8",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MARFU_EXPLICIT_CANDIDATE",
+      "report_text": "حَدَّثَنَا إِبْرَاهِيمُ بْنُ نَائِلَةَ الْأَصْبَهَانِيُّ، حَدَّثَنَا شَيْبَانُ بْنُ فَرُّوخَ، حَدَّثَنَا نَافِعُ بْنُ هُرْمُزَ، عَنْ عَطَاءِ بْنِ أَبِي رَبَاحٍ، عَنِ ابْنِ عَبَّاسٍ قَالَ: قَالَ رَسُولُ اللَّهِ، ﷺ: أَلَا أُخْبِرُكُمْ بِأَفْضَلِ الْمَلَائِكَةِ جِبْرِيلُ، وَأَفْضَلُ النَّبِيِّينَ آدَمُ وَأَفْضَلُ الْأَيَّامِ يَوْمُ الْجُمُعَةِ، وَأَفْضَلُ الشُّهُورِ شَهْرُ رَمَضَانَ، وَأَفْضَلُ اللَّيَالِي لَيْلَةُ الْقَدْرِ، وَأَفْضَلُ النِّسَاءِ مَرْيَمُ بِنْتُ عِمْرَانَ. وَهَذَا إِسْنَادٌ ضَعِيفٌ، فَإِنَّ نَافِعًا أَبَا هُرْمُزَ كَذَّبَهُ ابْنُ مَعِينٍ، وَضَعَّفَهُ أَحْمَدُ، وَأَبُو زُرْعَةَ، وَأَبُو حَاتِمٍ، وَابْنُ حِبَّانَ، وَغَيْرُهُمْ، وَاللَّهُ أَعْلَمُ.\nوَقَالَ كَعْبُ الْأَحْبَارِ: لَيْسَ أَحَدٌ فِي الْجَنَّةِ لَهُ لِحْيَةٌ إِلَّا آدَمَ لِحْيَتُهُ سَوْدَاءُ إِلَى سُرَّتِهِ، وَلَيْسَ أَحَدٌ يُكْنَى فِي الْجَنَّةِ إِلَّا آدَمُ كُنْيَتُهُ فِي الدُّنْيَا أَبُو الْبَشَرِ، وَفِي الْجَنَّةِ أَبُو مُحَمَّدٍ.\nوَقَدْ رَوَى ابْنُ عَدِيٍّ مِنْ طَرِيقِ شَيْخِ ابْنِ أَبِي خَالِدٍ، عَنْ حَمَّادِ بْنِ سَلَمَةَ، عَنْ عَمْرِو بْنِ دِينَارٍ، عَنْ جَابِرِ بْنِ عَبْدِ اللَّهِ مَرْفُوعًا. أَهْلُ الْجَنَّةِ يُدْعَوْنَ بِأَسْمَائِهِمْ إِلَّا آدَمَ فَإِنَّهُ يُكْنَى أَبَا مُحَمَّدٍ. وَرَوَاهُ ابْنُ عَدِيٍّ أَيْضًا مِنْ حَدِيثِ عَلِيِّ بْنِ أَبِي طَالِبٍ، وَهُوَ ضَعِيفٌ مِنْ كُلِّ وَجْهٍ، وَاللَّهُ أَعْلَمُ.\nوَفِي حَدِيثِ الْإِسْرَاءِ الَّذِي فِي الصَّحِيحَيْنِ أَنَّ رَسُولَ اللَّهِ ﷺ لَمَّا",
+      "report_text_sha256": "d9e9327d6ad18b30c609e21127ea51842bde8417feb621da518c35f4e2d365b3",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "PROPHET_WITH_COMPANION_OR_MARFU_TABII",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": null,
+        "prophet_name": "محمد ﷺ",
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_f1b75cc2ec87c35482a7c384",
+      "terminal_speaker_surface_candidate": null,
+      "work_source_id": "SRC-HISTORY-BIDAYAH-ADAM"
+    }
+  ],
+  "schema_version": "siraj-adam-gemini-draft-batch-v1",
+  "task_contract_project_path": "sources/secondary/gemini-semantic-analysis-draft/contracts/chain-interpretation-contract-v1.json",
+  "task_name": "chain-interpretation"
+}

@@ -1,0 +1,167 @@
+{
+  "batch_id": "boundary-resolution-batch-0075",
+  "episode_id": "episode-001-adam",
+  "execution_enabled": false,
+  "execution_status": "BLOCKED_NOT_AUTHORIZED",
+  "generation_config": {
+    "response_mime_type": "application/json",
+    "temperature": 0
+  },
+  "model_id": null,
+  "provider_id": "GEMINI",
+  "record_count": 2,
+  "records": [
+    {
+      "allowed_decisions": [
+        "KEEP_AS_SINGLE",
+        "SPLIT_CURRENT_TEXT",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_FOLLOWING",
+        "DISCARD_AS_MID_REPORT_FRAGMENT",
+        "REQUIRES_HUMAN_REVIEW"
+      ],
+      "book_id": 7798,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/22/page/193?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=14858"
+      ],
+      "current_chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابن ثور",
+          "narrator_surface_raw": "ابنُ ثورٍ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "معمر",
+          "narrator_surface_raw": "معمرٍ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "قتادة في قوله",
+          "narrator_surface_raw": "قتادةَ في قولِه",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابن زيد في قوله",
+          "narrator_surface_raw": "ابنُ زيدٍ في قولِه",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 3,
+          "transmission_term_canonical": "QALA",
+          "transmission_term_raw": "قال"
+        }
+      ],
+      "current_kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "current_text": "ثنا ابنُ ثورٍ، عن معمرٍ، عن قتادةَ في قولِه: ﴿مِنْ صَلْصَالٍ كَالْفَخَّارِ﴾. قال: من طينٍ له صلصلةٌ كان يابسًا، ثم خلَق الإنسانَ منه (¬٤).\nحدَّثني يونسُ، قال:\nأخبَرنا ابنُ وهبٍ، قال: قال ابنُ زيدٍ في قولِه:",
+      "current_text_sha256": "ea354baeaeb31c0adfdb654631dab74467080f1d3264c0098fbd8702382dca01",
+      "event_ids": [],
+      "following_context": {
+        "normalized_report_id": "adam_normalized_report_9739771706377940a19a00ef",
+        "text_excerpt": "﴿مِنْ صَلْصَالٍ كَالْفَخَّارِ﴾. قال: يَبِس آدمُ في الطينِ في الجنةِ حتى صار كالصَّلْصالِ، وهو الفخارُ. والحمأُ المسنونُ المُنتنُ الريحِ. حدَّثنا ابنُ بشارٍ، قال: ثنا محمدُ بنُ مَرْوانَ، قال: ثنا أبو العوّامِ، عن قتادةَ: ﴿خَلَقَ الْإِنْسَانَ مِنْ صَلْصَالٍ كَالْفَخَّارِ﴾. قال: من ترابٍ يابسٍ له صلْصلةٌ (¬١). حدَّثنا ابنُ بشارٍ، قال: ثنا أبو عاصمٍ، قال:"
+      },
+      "normalized_report_id": "adam_normalized_report_fd60e8eaad9a0b7038a11b39",
+      "permissions": {
+        "candidate_only": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_boundaries": true
+      },
+      "previous_context": {
+        "normalized_report_id": "adam_normalized_report_dbd04f3fcc61f91a55c334d0",
+        "text_excerpt": "ثنا سعيدٌ، عن قتادةَ في قولِه: ﴿خَلَقَ الْإِنْسَانَ مِنْ صَلْصَالٍ كَالْفَخَّارِ﴾] (¬٢): والصلصالُ الترابُ اليابسُ الذي تُسمعُ له صلصلةٌ، وهو كالفخارِ كما قال اللَّهُ ﷿ (¬٣). حدَّثنا ابنُ عبدِ الأعلى، قال:"
+      },
+      "research_question_ids": [],
+      "task_record_id": "adam_gemini_boundary_task_fb0ad6240308bc01c8ed9be8",
+      "warnings": [
+        "MULTIPLE_STRONG_STARTS_REMAIN",
+        "NO_DETERMINISTIC_SPLIT_FOUND",
+        "REQUESTED_RESEGMENTATION_NOT_ACHIEVED"
+      ],
+      "window_id": "7b0ef97e83f84e937b247d40",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "allowed_decisions": [
+        "KEEP_AS_SINGLE",
+        "SPLIT_CURRENT_TEXT",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_FOLLOWING",
+        "DISCARD_AS_MID_REPORT_FRAGMENT",
+        "REQUIRES_HUMAN_REVIEW"
+      ],
+      "book_id": 7798,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/1/page/529?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=709"
+      ],
+      "current_chain_nodes_candidate": [],
+      "current_kind_candidate": "QURAN_EXEGESIS_CONTEXT_CANDIDATE",
+      "current_text": "بجميعِ (¬١) ما قد كان، وما هو كائنٌ، والعالمُ للغُيوبِ دون جميعِ خلقِك. وذلك أنهم نفَوْا عن أنفسِهم بقولِهم: ﴿لَا عِلْمَ لَنَا إِلَّا مَا عَلَّمْتَنَا﴾. أن يكونَ لهم علمٌ إلا ما علَّمهم ربُّهم، وأثْبَتوا ما نَفَوْا عن أنفسِهم مِن ذلك لربِّهم بقولِهم: ﴿إِنَّكَ أَنْتَ الْعَلِيمُ الْحَكِيمُ﴾. يَعْنون بذلك العالمَ مِن غيرِ تعليمٍ، إذ كان مَن سواك لا يَعْلَمُ شيئًا إلا بتعليمِ غيرِه إياه.\n﴿الْحَكِيمُ﴾: هو ذو الحِكْمةِ، كما حدَّثنى به المُثَنَّى، قال:\nحدَّثنا عبدُ اللهِ، قال:",
+      "current_text_sha256": "5b4e2271275854105130e0c73775bb4ee072908e76b8604ed7ed69057d2ceaae",
+      "event_ids": [
+        "EV-ADAM-040",
+        "EV-ADAM-041",
+        "EV-ADAM-042",
+        "EV-ADAM-050",
+        "EV-ADAM-051",
+        "EV-ADAM-052",
+        "EV-ADAM-053",
+        "EV-ADAM-054",
+        "EV-ADAM-055"
+      ],
+      "following_context": {
+        "normalized_report_id": "adam_normalized_report_598e1a939e9438fc4bf21719",
+        "text_excerpt": "حدَّثنا بشرُ ابنُ عُمارة، عن أبى رَوْقٍ، عن الضَّحاكِ، عن ابنِ عباس: ﴿قَالَ يَاآدَمُ أَنْبِئْهُمْ بِأَسْمَائِهِمْ﴾. يقولُ: أخْبِرْهم بأسمائِهم، ﴿فَلَمَّا أَنْبَأَهُمْ بِأَسْمَائِهِمْ قَالَ أَلَمْ أَقُلْ لَكُمْ﴾ أيُّها الملائكةُ خاصةً: ﴿إِنِّي أَعْلَمُ غَيْبَ السَّمَاوَاتِ وَالْأَرْضِ﴾، ولا يَعْلَمُه غيرى (¬٣). حدَّثنى يونُسُ، قال: أخْبَرنا ابنُ وهبٍ، قال: قال ابنُ زيدٍ في قصةِ الملائكةِ"
+      },
+      "normalized_report_id": "adam_normalized_report_fe6413ed60bd3df2739e2f9b",
+      "permissions": {
+        "candidate_only": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_boundaries": true
+      },
+      "previous_context": {
+        "normalized_report_id": "adam_normalized_report_2c3389ecd48f55b1c51f06c1",
+        "text_excerpt": "حدَّثنى معاويةُ، عن علىٍّ، عن ابنِ عباسٍ: العليمُ الذى قد كمُل في علمِه، والحكيمُ الذى قد كمُل في حِكْمتِه (¬٢). وقد قيل: إن معنى ﴿الْحَكِيمُ﴾ الحاكمُ، كما (¬٣) العليمُ بمعنى العالمِ، والخبيرُ بمعنى الخابرِ. القولُ في تأويلِ قولِه جلَّ ثناؤُه: ﴿قَالَ يَاآدَمُ أَنْبِئْهُمْ بِأَسْمَائِهِمْ فَلَمَّا أَنْبَأَهُمْ بِأَسْمَائِهِمْ قَالَ أَلَمْ أَقُلْ لَكُمْ إِنِّي أَعْلَمُ غَيْبَ السَّمَاوَاتِ وَالْأَرْضِ﴾."
+      },
+      "research_question_ids": [
+        "RQ-ADAM-015",
+        "RQ-ADAM-016",
+        "RQ-ADAM-017",
+        "RQ-ADAM-018",
+        "RQ-ADAM-019",
+        "RQ-ADAM-020"
+      ],
+      "task_record_id": "adam_gemini_boundary_task_5cc4b7e51f11d0ffe1ac6782",
+      "warnings": [
+        "NO_DETERMINISTIC_SPLIT_FOUND",
+        "REQUESTED_RESEGMENTATION_NOT_ACHIEVED"
+      ],
+      "window_id": "77c665c37c70ab8fdc300f09",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    }
+  ],
+  "schema_version": "siraj-adam-gemini-draft-batch-v1",
+  "task_contract_project_path": "sources/secondary/gemini-semantic-analysis-draft/contracts/boundary-resolution-contract-v1.json",
+  "task_name": "boundary-resolution"
+}

@@ -1,0 +1,72 @@
+{
+  "created_at": "2026-07-24T11:28:20.764085Z",
+  "episode_id": "episode-001-adam",
+  "human_review_required": true,
+  "model_instructions": [
+    "Use only the supplied source content; do not browse the web.",
+    "Do not invent a source, report, page, chapter, number, quotation, chain, or chronology.",
+    "Every extracted passage must preserve source_id and exact_locator.",
+    "Do not issue final hadith grades or final religious rulings.",
+    "Do not treat parallel editions or duplicate routes as independent corroboration automatically.",
+    "Label interpretive claims, historical reports, Isra'iliyyat, disagreements, and uncertainty explicitly.",
+    "Return uncovered research questions as coverage gaps rather than guessing.",
+    "Do not import material from later Adam story units merely because it occurs in the same report."
+  ],
+  "purpose": "Extract evidence only from locally approved and checksummed source assets.",
+  "required_output": {
+    "chronology": [],
+    "claims": [
+      {
+        "claim_id": "string",
+        "claim_text": "string",
+        "dispute_status": "UNDISPUTED_OR_PENDING",
+        "evidence_refs": [
+          "passage_id"
+        ],
+        "source_refs": [
+          "source_id"
+        ],
+        "uncertainty_language_requirement": "string",
+        "verification_status": "CANDIDATE"
+      }
+    ],
+    "coverage_gaps": [],
+    "disputed_points": [],
+    "entities": [],
+    "events": [],
+    "exclusions": [],
+    "extracted_passages": [
+      {
+        "exact_locator": "string",
+        "normalized_text": "string",
+        "passage_id": "string",
+        "source_id": "string",
+        "verbatim": true
+      }
+    ],
+    "extractor_version": "string",
+    "locations": [],
+    "quotations": [],
+    "source_relationships": [],
+    "unresolved_questions": [],
+    "warnings": []
+  },
+  "schema_version": "siraj-gemini-research-work-package-template-v1",
+  "source_selection_rule": {
+    "exact_registry_record_count": 20,
+    "require_access_status": "AVAILABLE",
+    "require_allowed_for_extraction": true,
+    "require_nonempty_path": true,
+    "require_sha256_match": true
+  },
+  "status": "BLOCKED_SOURCE_ASSETS_PENDING",
+  "supplied_context": [
+    "episode definition",
+    "research questions",
+    "event map",
+    "exact source registry",
+    "selected local source passages",
+    "editorial and religious methodology constraints"
+  ],
+  "work_package_id": "adam-01-gemini-research-template-v1"
+}

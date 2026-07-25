@@ -1,0 +1,325 @@
+{
+  "batch_id": "semantic-mapping-batch-0020",
+  "episode_id": "episode-001-adam",
+  "execution_enabled": false,
+  "execution_status": "BLOCKED_NOT_AUTHORIZED",
+  "generation_config": {
+    "response_mime_type": "application/json",
+    "temperature": 0
+  },
+  "model_id": null,
+  "provider_id": "GEMINI",
+  "record_count": 6,
+  "records": [
+    {
+      "attribution_profiles": [],
+      "book_id": 8658,
+      "book_title": "تفسير ابن أبي حاتم",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/8658/volume/7/page/2367?database_sha256=72fa72e670a63139b624db32c1e3752a5b3d10c862b3245339d4eadd5995f23a&segment_id=2357"
+      ],
+      "chain_nodes_candidate": [],
+      "event_ids": [],
+      "footnote_context": "(١) . الدر ٥/ ٤٠٣.\n(٢) . الدر ٥/ ٤٠٣.\n(٣) . الدر ٥/ ٤٠٤\n(٤) . الدر ٥/ ٤٠٤\n(٥) . الدر ٥/ ٤٠٤",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_7489d738c376815cbe07c8d3",
+      "original_text": "قوله: أَفَتَتَّخِذُونَهُ وَذُرِّيَّتَهُ\n\n١٢٨٥٠ - عَنْ مُجَاهِدٍ فِي\n\nقَوْلِهِ: أَفَتَتَّخِذُونَهُ وَذُرِّيَّتَهُ قَالَ: ولد إبليس خمسة:\nثبر والأعور وزلنبور ومسوط وداسم، فمسوط صاحب الصخب، والأعور وداسم لا أدري مَا يفعلان، والثبر صاحب المصائب، وزلنبور الّذِي يفرق بين الناس، ويبصر الرجل عيوب أهله «١» .\n\n١٢٨٥١ - عَنْ قَتَادَة فِي قَوْلِهِ: أَفَتَتَّخِذُونَهُ وَذُرِّيَّتَهُ قَالَ: هم أولاده يتوالدون كما يتوالد بنو آدم وهم أكثر عددًا «٢» .\n\nقوله: بِئْسَ لِلظَّالِمِينَ بَدَلا\n\n١٢٨٥٢ - عَنْ قَتَادَة فِي قَوْلِهِ: بِئْسَ لِلظَّالِمِينَ بَدَلا قَالَ: بئسما استبدلوا بعبادة ربهم إذ أطاعوا إبليس لعنه الله تعالى «٣» .\n\nقوله: مَا أَشْهَدْتُهُمْ خلق السماوات وَالأَرْضِ وَلا خَلْقَ أَنْفُسِهِمْ\n...\n١٢٨٥٣ - عَنِ السُّدِّيِّ فِي قوله: مَا أَشْهَدْتُهُمْ خَلْقَ السماوات وَالأَرْضِ وَلا خَلْقَ أَنْفُسِهِمْ قَالَ: يَقُولُ: مَا أشهدت الشياطين الذين اتخذتم معي هَذَا وَمَا كُنْتُ مُتَّخِذَ الْمُضِلِّينَ قَالَ: الشياطين عَضُدًا قَالَ: ولا اتخذتهم عضدا عَلَى شيء عضدوني عليه فأعانوني «٤» .\n\nقوله: وَمَا كُنْتُ مُتَّخِذَ الْمُضِلِّينَ عَضُدًا\n\n١٢٨٥٤ - عَنْ قَتَادَة فِي قَوْلِهِ: وَمَا كُنْتُ مُتَّخِذَ الْمُضِلِّينَ عَضُدًا قَالَ: أعواناً.\n\nقوله: وَجَعَلْنَا بَيْنَهُمْ مَوْبِقًا\n\n١٢٨٥٥ - مِنْ طَرِيق عَلِيٍّ، عَنْ ابْنِ عَبَّاسٍ فِي قَوْلِهِ: وَجَعَلْنَا بَيْنَهُمْ مَوْبِقًا يَقُولُ: مهلكًا «٥» .\n\n١٢٨٥٦ - عَنْ أَنَسٍ فِي قَوْلِهِ: وَجَعَلْنَا بَيْنَهُمْ مَوْبِقًا قَالَ: واد في جهنم مِنْ قيح ودم.",
+      "original_text_sha256": "05eaac269c7645f8aa90394af2e1d9ce4abd0620c56be934a956dbad61dc31fd",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "MAWQUF_OR_TAFSIR_REPORT_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [],
+      "task_record_id": "adam_gemini_semantic_task_fe589259a221a4f8b6c41440",
+      "terminal_speaker_surface_candidate": null,
+      "window_id": "baef7d8161e82647c4f67da2",
+      "work_source_id": "SRC-TAFSIR-IBN-ABI-HATIM-ADAM"
+    },
+    {
+      "attribution_profiles": [],
+      "book_id": 8658,
+      "book_title": "تفسير ابن أبي حاتم",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/8658/volume/7/page/2263?database_sha256=72fa72e670a63139b624db32c1e3752a5b3d10c862b3245339d4eadd5995f23a&segment_id=2253"
+      ],
+      "chain_nodes_candidate": [],
+      "event_ids": [],
+      "footnote_context": "(١) . الدر ٥/ ٧٧- ٧٨.\n(٢) . الدر ٥/ ٧٧- ٧٨.\n(٣) . الدر ٥/ ٧٧- ٧٨.\n(٤) . الدر ٥/ ٧٧- ٧٨.\n(٥) . الدر ٥/ ٧٧- ٧٨.\n(٦) . الدر ٥/ ٧٧- ٧٨.\n(٧) . الدر ٥/ ٧٨- ٧٩.\n(٨) . الدر ٥/ ٧٨- ٧٩.\n(٩) . الدر ٥/ ٧٨- ٧٩.\n(١٠) . الدر ٥/ ٧٨- ٧٩.",
+      "kind_candidate": "SOURCE_PASSAGE_CONTEXT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_772fcc366d094bd2fa250a76",
+      "original_text": "الصلصال، الماء يقع عَلَى الأَرْض الطيبة ثُمَّ يحسر عنها فتيبس، ثُمَّ تصير مثل الخزف الرقاق «١» .\n\n١٢٣٧٢ - عَنِ ابْنِ عَبَّاسٍ ﵄ قَالَ: الصلصال، هُوَ التراب اليابس الّذِي يبل بعد يبسه «٢» .\n\n١٢٣٧٣ - عَنِ ابْنِ عَبَّاسٍ ﵄ قَالَ: الصلصال، طين خلط برمل «٣» .\n\n١٢٣٧٤ - عَنِ ابْنِ عَبَّاسٍ ﵄ قَالَ: الصلصال، الّذِي إِذَا ضربته صلصل «٤» .\n\n١٢٣٧٥ - عَنْ قَتَادَة ﵁ قَالَ: الصلصال، التراب اليابس الّذِي يسمع لَهُ صلصلة «٥» .\n\n١٢٣٧٦ - عَنِ ابْنِ عَبَّاسٍ ﵄ قَالَ: الصلصال، الطين تعصره بيدك فيخرج الماء مِنْ بين أصابعك «٦» .\n\nقوله: مِنْ حَمَإٍ مَسْنُونٍ\n\n١٢٣٧٧ - عَنِ ابْنِ عَبَّاسٍ ﵄ فِي قَوْلِهِ: مِنْ حَمَإٍ مَسْنُونٍ قَالَ:\nمِنْ طين رطب «٧» .\n\n١٢٣٧٨ - عَنِ ابْنِ عَبَّاسٍ ﵄ فِي قَوْلِهِ: مِنْ حَمَإٍ مَسْنُونٍ قَالَ مِنْ طين منتن «٨» .\n\nقوله: وَالْجَانَّ خَلَقْنَاهُ مِنْ قَبْلُ مِنْ نَارِ السَّمُومِ\n\n١٢٣٧٩ - عَنِ ابْنِ عَبَّاسٍ ﵄ فِي قَوْلِهِ: وَالْجَانَّ خَلَقْنَاهُ مِنْ قَبْلُ مِنْ نَارِ السَّمُومِ قَالَ: مِنَ أحسن الناس «٩»\n\n١٢٣٨٠ - عَنِ ابْنِ عَبَّاسٍ فِي قَوْلِهِ: مِنْ نَارِ السَّمُومِ قَالَ: السَّمُومِ الحارة التي تقتل. «١٠»\n\n١٢٣٨١ - عَنِ ابْنِ مَسْعُودٍ ﵁ قال: السموم التي خلق منها",
+      "original_text_sha256": "6e8c0cf4ae70749e3babb75f19264e80a463c09e43491a463450c2c589410843",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "MAWQUF_OR_TAFSIR_REPORT_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [],
+      "task_record_id": "adam_gemini_semantic_task_02df382f8b0c4f8f3bb0e49e",
+      "terminal_speaker_surface_candidate": null,
+      "window_id": "ba50ff734ac7f1afa95ce2a4",
+      "work_source_id": "SRC-TAFSIR-IBN-ABI-HATIM-ADAM"
+    },
+    {
+      "attribution_profiles": [],
+      "book_id": 8658,
+      "book_title": "تفسير ابن أبي حاتم",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/8658/volume/7/page/2334?database_sha256=72fa72e670a63139b624db32c1e3752a5b3d10c862b3245339d4eadd5995f23a&segment_id=2324"
+      ],
+      "chain_nodes_candidate": [],
+      "event_ids": [
+        "EV-ADAM-050",
+        "EV-ADAM-051",
+        "EV-ADAM-052",
+        "EV-ADAM-053",
+        "EV-ADAM-054",
+        "EV-ADAM-055"
+      ],
+      "footnote_context": "(١) . الدر ٥/ ٣٠٠- ٣٠١.\n(٢) . الدر ٥/ ٣٠٠- ٣٠١. [.....]\n(٣) . الدر ٥/ ٣٠٠- ٣٠١.\n(٤) . الدر ٥/ ٣٠٠- ٣٠١.\n(٥) . الدر ٥/ ٣٠٢- ٣٠٣.\n(٦) . الدر ٥/ ٣٠٢- ٣٠٣.\n(٧) . الدر ٥/ ٣٠٢- ٣٠٣.",
+      "kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_8b59721fd9722bfb27608d60",
+      "original_text": "١٣٣٠٧ - عَنْ سَعِيدِ بْنِ جُبَيْرٍ ﵁ فِي قَوْلِهِ: فَتَسْتَجِيبُونَ بِحَمْدِهِ قَالَ: يخرجون مِنْ قبورهم وهم يقولون: سبحانك اللهم وبحمدك «١» .\n\n١٣٣٠٨ - عَنْ قَتَادَة ﵁ فِي قَوْلِهِ يَوْم يَدْعُوكُمْ فَتَسْتَجِيبُونَ بِحَمْدِهِ أي بمعرفته وطاعته وَتَظُنُّونَ إِنَّ لَبِثْتُمْ إِلا قَلِيلا أَيْ فِي الدُّنْيَا تحاقرت الأعمار فِي أَنْفُسِهِمْ، وَقَلَّتْ حِينَ عَايَنُوا يَوْم الْقِيَامَة «٢» .\n\n١٣٣٠٩ - عَنْ ابْنِ عُمَرَ ﵄ قَالَ: قَالَ رَسُولُ اللَّهِ ﷺ ليس علي أَهْل لا الله إلا الله وحشة في قبورهم ولا في منشرهم، وكأني بِأَهْلِ لا الله إلا الله ينفضون التراب عَنْ رؤوسهم ويقولون: الحمد لله الّذِي أذهب عنا الحزن «٣» .\n\nقَوْلهُ تَعَالَى: وَقُلْ لِعِبَادِي يَقُولُوا الَّتِي هِيَ أَحْسَنُ\n\n١٣٣١٠ - عَنِ ابْنِ سيرين ﵁ فِي قَوْلِهِ: وَقُلْ لِعِبَادِي يَقُولُوا الَّتِي هِيَ أَحْسَنُ قَالَ: لا الله إلا الله «٤» .\n\nقَوْلهُ تَعَالَى: إِنَّ الشَّيْطَانَ كَانَ لِلإِنْسَانِ عَدُوًّا مُبِينًا\n\n١٣٣١١ - عَنْ قَتَادَة ﵁ قَالَ: نزغ الشيطان: تحريشه «٥» .\n\n١٣٣١٢ - عَنْ قَتَادَة فِي قَوْلِهِ: إِنَّ الشَّيْطَانَ كَانَ لِلإِنْسَانِ عَدُوًّا مُبِينًا قَالَ:\nعَادُوهُ فَإِنَّهُ يَحِقُّ عَلَى كُلِّ مُسْلِمٍ عَدَاوَتُهُ، وعَدَاوَتُهُ أَنْ تُعَادِيَهُ بِطَاعَةِ اللَّهِ.\n\nقَوْلهُ تَعَالَى: وَلَقَدْ فَضَّلْنَا بَعْضَ النَّبِيِّينَ عَلَى بَعْضٍ الآية\n.\n١٣٣١٣ - عَنْ قَتَادَة فِي قَوْلِهِ: وَلَقَدْ فَضَّلْنَا بَعْضَ النَّبِيِّينَ عَلَى بَعْضٍ قَالَ:\nاتَّخَذَ اللَّهُ إِبْرَاهِيمَ خَلِيلا وَكَلَّمَ مُوسَى تَكْلِيمًا، وَجَعَلَ عِيسَى كَمَثَلِ آدَمَ خَلَقَهُ مِنْ تُرَابٍ ثُمَّ قَالَ لَهُ كن فكان وَهُوَ عَبْدُ اللَّهِ وَرَسُولُهُ مِنْ كَلِمَةِ اللَّهِ وروحه وآتى سليمان ملكًا عظيمًا لَا يَنْبَغِي لأَحَدٍ مِنْ بَعْدَهِ، وَآتَى دَاوُدَ زبورًا، وغفر لِمُحَمَّدٍ ﷺ ما تقدم مِنْ ذنبه وما تأخر «٦» .\n\n١٣٣١٤ - عَنِ ابْنِ جُرَيْجٍ ﵁ فِي قَوْلِهِ: وَلَقَدْ فَضَّلْنَا بَعْضَ النَّبِيِّينَ عَلَى بَعْضٍ قَالَ: كلم الله موسى تكليمًا وأرسل محمدًا إِلَى الناس كافة «٧» .",
+      "original_text_sha256": "bff8ab1a24add1a693eb33414ac27a3dc2b81211c4cca65688c9c3ea5380a8cf",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "MARFU_CONTEXT_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [
+        "RQ-ADAM-017",
+        "RQ-ADAM-018",
+        "RQ-ADAM-019",
+        "RQ-ADAM-020"
+      ],
+      "task_record_id": "adam_gemini_semantic_task_c6a3ff096a1d972c35b06065",
+      "terminal_speaker_surface_candidate": null,
+      "window_id": "654e3a6f1897e0ccb4fcee7e",
+      "work_source_id": "SRC-TAFSIR-IBN-ABI-HATIM-ADAM"
+    },
+    {
+      "attribution_profiles": [],
+      "book_id": 8658,
+      "book_title": "تفسير ابن أبي حاتم",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/8658/volume/7/page/2259?database_sha256=72fa72e670a63139b624db32c1e3752a5b3d10c862b3245339d4eadd5995f23a&segment_id=2249"
+      ],
+      "chain_nodes_candidate": [],
+      "event_ids": [],
+      "footnote_context": "(١) . الدر ٥/ ٦٨- ٦٩.\n(٢) . الدر ٥/ ٦٩.\n(٣) . الدر ٥/ ٦٩.\n(٤) . الدر ٥/ ٦٩- ٧٠.\n(٥) . الدر ٥/ ٦٩- ٧٠.\n(٦) . الدر ٥/ ٦٩- ٧٠.\n(٧) . الدر ٥/ ٦٩- ٧٠.\n(٨) . الدر ٥/ ٦٩- ٧٠. [.....]",
+      "kind_candidate": "SOURCE_PASSAGE_CONTEXT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_913d017a82bb4b90e2beb809",
+      "original_text": "قوله: وَلَوْ فَتَحْنَا عَلَيْهِمْ بَابًا مِنَ السَّمَاءِ فَظَلُّوا فِيهِ يَعْرُجُونَ\n\n١٢٣٤٣ - عَنِ ابْنِ عَبَّاسٍ فِي\n\nقوله: وَلَوْ فَتَحْنَا عَلَيْهِمْ بَابًا مِنَ السَّمَاءِ فَظَلُّوا فِيهِ يَعْرُجُونَ يَقُولُ: ولو فتحنا عَلَيْهِمْ بابًا مِنَ السَّمَاء فظلت الملائكة تعرج فيه يختلفون فيه ذاهبين وجائين لقال أَهْل الشرك: إنما أخذت أبصارنا وشبه علينا وسحرنا «١» .\n\nقوله: سُكِّرَتْ أَبْصَارُنَا\n\n١٢٣٤٤ - عَنْ مُجَاهِدٍ فِي قَوْلِهِ: سُكِّرَتْ أَبْصَارُنَا قَالَ: سدت «٢» .\n\nقوله: وَلَقَدْ جَعَلْنَا فِي السَّمَاء بُرُوجًا\n\n١٢٣٤٥ - عَنْ قَتَادَة وَلَقَدْ جَعَلْنَا فِي السَّمَاء بُرُوجًا قَالَ: الكواكب «٣» .\n\n١٢٣٤٦ - عَنِ أَبِي صالح فِي قَوْلِهِ: وَلَقَدْ جَعَلْنَا فِي السَّمَاء بُرُوجًا قَالَ:\nالكواكب العظام «٤» .\n\n١٢٣٤٦ - عَنْ عطية وَلَقَدْ جَعَلْنَا فِي السَّمَاء بُرُوجًا قَالَ: قُصُورًا فِي السَّمَاء فيها الحرس «٥» .\n\nقوله: وَحَفِظْنَاهَا مِنْ كُلّ شَيْطَانٍ رَجِيمٍ\n\n١٢٣٤٧ - عَنْ قَتَادَة ﵁ فِي قَوْلِهِ: وَحَفِظْنَاهَا مِنْ كُلّ شَيْطَانٍ رَجِيمٍ قَالَ: الرجيم، الملعون «٦» .\n\nقوله: إِلا مِنَ اسْتَرَقَ السَّمْعَ\n\n١٢٣٤٨ - عن ابن عباس ﵄ في قَوْلِهِ: إِلا مِنَ اسْتَرَقَ السَّمْعَ فأراد إِنَّ يخطف السمع كقوله: إِلا مِنْ خَطِفَ الْخَطْفَةَ «٧» .\n\n١٢٣٤٩ - عَنِ الضَّحَّاكِ ﵁ فِي قَوْلِهِ: إِلا مِنَ اسْتَرَقَ السَّمْعَ قَالَ: هُوَ كقوله: إِلا مِنْ خَطِفَ الْخَطْفَةَ فَأَتْبَعَهُ شِهَابٌ ثَاقِبٌ [مبين] قَالَ: كَانَ ابن عباس يَقُولُ: إِنَّ الشهب لا تقتل، ولكن تحرق وتخبل وتجرح مِنْ غير أن تقتل «٨» .",
+      "original_text_sha256": "0dabdbe3941b474e36a76d2528b746ac2c742c1c6802dc5a0f9cc497f1b18f34",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "MAWQUF_OR_TAFSIR_REPORT_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [],
+      "task_record_id": "adam_gemini_semantic_task_157311a98d85c23e949fb7af",
+      "terminal_speaker_surface_candidate": null,
+      "window_id": "ba50ff734ac7f1afa95ce2a4",
+      "work_source_id": "SRC-TAFSIR-IBN-ABI-HATIM-ADAM"
+    },
+    {
+      "attribution_profiles": [],
+      "book_id": 8658,
+      "book_title": "تفسير ابن أبي حاتم",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/8658/volume/12/page/411?database_sha256=72fa72e670a63139b624db32c1e3752a5b3d10c862b3245339d4eadd5995f23a&segment_id=3869"
+      ],
+      "chain_nodes_candidate": [],
+      "event_ids": [],
+      "footnote_context": "",
+      "kind_candidate": "SOURCE_PASSAGE_CONTEXT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_9742ca368e8b5a1c20681e8e",
+      "original_text": "رقم الصفحة: رقم الحديث: لفظ التخريج: أرقام التخريج بالصفحة: التحقيقات:::: خلقهم في ظهر آدم، ثم صورهم حين أخذ عليهم الميثاق، ثم كان السجود بعد.\n١٤٤٤: ٨٢٤٧: يبصرون: ١: تفسير مجاهد: (١/ ٢٣٢) .\n: ٨٢٤٨: دينهم: ٢: تفسير ابن كثير: (٢/ ٢٠٤) .\n١٤٤٥: ٨٢٥١: عليهم: ١: تفسير ابن كثير: (٢/ ٢٠٥) .\n: ٨٢٥٢: يبصرون: ٢: تفسير مجاهد: (١/ ٢٣٢) .\n: ٨٢٥٤: فيه: ٣: المصدر السابق لابن كثير.\n١٤٤٦: ٨٢٦٣: موحدين: ١: تفسير ابن كثير: (٢/ ٢٠٤) ولهذا ورد في الحديث: الاستعاذة من تسلط الشيطان على الإنسان من جهاته كلها. كما قال الحافظ أبو بكر البزار في مسنده:",
+      "original_text_sha256": "4a8c228a12061d9e582e128b659eba151edaaa16e356dacb634c9391e1f46908",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [],
+      "task_record_id": "adam_gemini_semantic_task_3567f31bbde33c3eaa4326ad",
+      "terminal_speaker_surface_candidate": null,
+      "window_id": "2d788a922721242d7c99035f",
+      "work_source_id": "SRC-TAFSIR-IBN-ABI-HATIM-ADAM"
+    },
+    {
+      "attribution_profiles": [
+        "WAHB_IBN_MUNABBIH"
+      ],
+      "book_id": 8658,
+      "book_title": "تفسير ابن أبي حاتم",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/8658/volume/5/page/1612?database_sha256=72fa72e670a63139b624db32c1e3752a5b3d10c862b3245339d4eadd5995f23a&segment_id=1602"
+      ],
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "يونس بن عبد الله الاعلي قراءة",
+          "narrator_surface_raw": "يونس بن عبد الله الأَعْلَى قِرَاءَةً",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "AKHBARANA",
+          "transmission_term_raw": "أخبرنا"
+        }
+      ],
+      "event_ids": [],
+      "footnote_context": "(١) . الترمذي كتاب التفسير رقم ٧٥. ٥٣/ ٢٤٨ قال هذا حديث حسن.",
+      "kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_a6498139c264f39287633877",
+      "original_text": "أخبرنا يونس بن عبد الله الأَعْلَى قِرَاءَةً، أَنْبَأَ ابْنُ وَهْبٍ أَنَّ مَالِكًا أَخْبَرَهُ، عَنْ زَيْدِ بْنِ أَبِي أُنَيْسَةَ، أَنَّ عَبْدَ الْحَمِيدِ بْنَ عَبْدِ الرَّحْمَنِ بْنِ زَيْدِ بْنِ الْخَطَّابِ أَخْبَرَهُ عَنْ مُسْلِمِ بْنِ يَسَارٍ الْجُهَنِيِّ، أَنَّ عُمَرَ بْنَ الْخَطَّابِ سُئِلَ عَنْ هَذِهِ الآيَةِ وَإِذْ أَخَذَ رَبُّكَ مِنْ بَنِي آدَمَ مِنْ ظُهُورِهِمْ ذُرِّيَتِهِمْ إِلَى قَوْلِهِ: إِنَّا كُنَّا عَنْ هَذَا غَافِلِينَ فَقَالَ عُمَرُ بْنُ الْخَطَّابِ ﵁: سَمِعْتُ رَسُولَ اللَّهِ ﷺ يَسْأَلُ عَنْهَا فَقَالَ رَسُولُ اللَّهِ ﷺ: إِنَّ اللَّهَ خَلَقَ آدَمَ ثُمَّ مَسَحَ ظَهْرَهُ بِيَمِينِهِ فَاسْتَخْرَجَ مِنْهُ ذُرِّيَّةً فَقَالَ:\nخَلَقْتُ هَؤُلاءِ لِلْجَنَّةِ وَبِعَمَلِ أَهْلِ الْجَنَّةِ يَعْمَلُونَ، ثُمَّ مَسَحَ ظَهْرَهُ فَاسْتَخْرَجَ مِنْهُ ذُرِّيَّةً فَقَالَ: خَلَقْتُ هَؤُلاءِ لِلنَّارِ وَبِعَمَلِ أَهْلِ النَّارِ يَعْمَلُونَ، فَقَالَ رَجُلٌ: يَا رَسُولَ اللَّهِ فَفِيمَ الْعَمَلُ؟ فَقَالَ رَسُولُ اللَّهِ ﷺ: إِنَّ اللَّهَ إِذَا خَلَقَ الْعَبْدَ لِلْجَنَّةِ اسْتَعْمَلَهُ بِعَمَلِ أَهْلِ الْجَنَّةِ حَتَّى يَمُوتَ عَلَى عَمَلٍ مِنْ أَعْمَالِ أَهْلِ الْجَنَّةِ فَيَدْخُلَ بِهِ الْجَنَّةَ، وَإِذَا خَلَقَ الْعَبْدَ لِلنَّارِ اسْتَعْمَلَهُ بِعَمَلِ أَهْلِ النَّارِ حَتَّى يَمُوتَ عَلَى عَمَلٍ مِنْ أَعْمَالِ أَهْلِ النَّارِ فَيَدْخُلَ به النار «١» .",
+      "original_text_sha256": "0f71b1cf42ea5632296767ceb7d0fa5a6c3901ba1c9b442aac82450583d67edf",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "MARFU_CONTEXT_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [],
+      "task_record_id": "adam_gemini_semantic_task_c1bf89391881ee603e57061f",
+      "terminal_speaker_surface_candidate": "يونس بن عبد الله الأَعْلَى قِرَاءَةً",
+      "window_id": "b40c562d3415e312c9f7a4c7",
+      "work_source_id": "SRC-TAFSIR-IBN-ABI-HATIM-ADAM"
+    }
+  ],
+  "schema_version": "siraj-adam-gemini-draft-batch-v1",
+  "task_contract_project_path": "sources/secondary/gemini-semantic-analysis-draft/contracts/semantic-mapping-contract-v1.json",
+  "task_name": "semantic-mapping"
+}

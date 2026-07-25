@@ -1,0 +1,25 @@
+{
+  "allowed_task_names_after_authorization": [
+    "boundary-resolution",
+    "semantic-mapping",
+    "chain-interpretation"
+  ],
+  "api_key_required_at_execution_only": true,
+  "episode_id": "episode-001-adam",
+  "execution_enabled": false,
+  "execution_status": "BLOCKED_NOT_AUTHORIZED",
+  "explicit_user_authorization_required": true,
+  "model_id_required_before_execution": true,
+  "network_call_present_in_this_phase": false,
+  "prohibited_authority_actions": [
+    "hadith grading",
+    "narrator judgement",
+    "isnad approval",
+    "Israiliyyat approval",
+    "evidence approval",
+    "quotation approval",
+    "final narrative approval"
+  ],
+  "provider_id": "GEMINI",
+  "schema_version": "siraj-gemini-execution-lock-v1"
+}

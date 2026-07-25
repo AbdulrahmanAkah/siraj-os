@@ -1,0 +1,358 @@
+{
+  "batch_id": "chain-interpretation-batch-0025",
+  "episode_id": "episode-001-adam",
+  "execution_enabled": false,
+  "execution_status": "BLOCKED_NOT_AUTHORIZED",
+  "generation_config": {
+    "response_mime_type": "application/json",
+    "temperature": 0
+  },
+  "model_id": null,
+  "provider_id": "GEMINI",
+  "record_count": 6,
+  "records": [
+    {
+      "book_id": 7798,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/5/page/464?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=3581"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_a16b2bb5a109b9f88205808f",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "عبد الله بن ابي جعفر",
+          "narrator_surface_raw": "عبدُ اللهِ بنُ أبي جعفرٍ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابيه",
+          "narrator_surface_raw": "أبيه",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "الربيع قوله",
+          "narrator_surface_raw": "الربيعِ قولَه",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "depends_on_boundary_resolution": false,
+      "isnad_internal_text_candidate": "ثنا سعيدٌ، عن قتادةَ: ﴿الْحَقُّ مِنْ رَبِّكَ فَلَا تَكُنْ مِنَ الْمُمْتَرِينَ﴾ يعنى: فلا تكنْ في شكٍّ مِن عيسى أنه كمثَلِ آدمَ عبدُ اللهِ ورسولُه، وكلمةُ اللهِ ورُوحُه (¬١).\nحدَّثني المثنى، قال: ثنا إسحاقُ، قال:",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_f9891100576a0a640ad69d26",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "report_text": "ثنا عبدُ اللهِ بنُ أبي جعفرٍ، عن أبيه، عن الربيعِ قولَه: ﴿الْحَقُّ مِنْ رَبِّكَ فَلَا تَكُنْ مِنَ الْمُمْتَرِينَ﴾. يقولُ: فلا تكنْ في شكٍّ مما قصَصْنا عليك أن عيسى عبدُ اللهِ ورسولُه، وكلمةٌ منه ورُوحٌ، وأن مَثَلَه عندَ اللهِ كمَثَلِ آدمَ خلَقه مِن ترابٍ، ثم قال له: ﴿كُنْ﴾ فيكونُ.\nحدَّثنا ابن حميدٍ، قال:",
+      "report_text_sha256": "71d017e7c2e8e7f08653bcd0ef5a2b0f89281632f856b74be707c3d0ff85e253",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "الربيعِ قولَه",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_2402f6db0f7e88646a7b0407",
+      "terminal_speaker_surface_candidate": "الربيعِ قولَه",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "book_id": 7798,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/1/page/517?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=697"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_a8f487f98535d05c61d30993",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابيه",
+          "narrator_surface_raw": "أبيه",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "الربيع قوله",
+          "narrator_surface_raw": "الربيعِ قولَه",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "depends_on_boundary_resolution": false,
+      "isnad_internal_text_candidate": "حدَّثنى حجاجٌ، عن جَريرِ بنِ حازمٍ ومباركٍ، عن الحسنِ، وأبى بكرٍ، عن الحسنِ وقتادةَ، قالا: علَّمه اسمَ كلِّ شيءٍ، هذه الخيلُ، وهذه البِغالُ، والإبلُ، والجنُّ، والوحشُ، وجعَل يُسَمِّى كلَّ شيءٍ باسمِه (¬٣).\nحُدِّثْتُ عن عمارٍ، قال:",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_fcaa438b6db35497f691f564",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "report_text": "حدَّثنا عبدُ الله بنُ أبى جعفرٍ، عن أبيه، عن الربيعِ قولَه: ﴿وَعَلَّمَ آدَمَ الْأَسْمَاءَ كُلَّهَا﴾. قال: أسماءَ الملائكةِ (¬٥).\nوقال آخَرون: إنما علَّمه أسماءَ ذُرِّيَّتِه.",
+      "report_text_sha256": "8d62654fc69e097266bfda4497385e37a8aaa1b2d27f149f0d4b9001f3aa4c0c",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "الربيعِ قولَه",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_e7bd006fbd7ee8e90a1fd8db",
+      "terminal_speaker_surface_candidate": "الربيعِ قولَه",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "book_id": 4445,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/4445/volume/1/page/231?database_sha256=a48b153a0a451ce0f63625bee7fa294a88d8dbbc5db4b9472afa652260b74b3b&segment_id=230"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_d7d774ee93f23ad57e173dbd",
+      "chain_nodes_candidate": [],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "وَرَوَى ابْنُ عَسَاكِرَ مِنْ طَرِيقِ شَيْبَانَ بْنِ فَرُّوخَ، عَنْ مُحَمَّدِ بْنِ زِيَادٍ، عَنْ مَيْمُونٍ بْنِ مِهْرَانَ، عَنِ ابْنِ عَبَّاسٍ أَنَّ رَسُولَ اللَّهِ ﷺ قَالَ: كَبَّرَتِ الْمَلَائِكَةُ عَلَى آدَمَ أَرْبَعًا. وَكَبَّرَ أَبُو بَكْرٍ عَلَى فَاطِمَةَ أَرْبَعًا، وَكَبَّرَ عُمَرُ عَلَى أَبِي بَكْرٍ أَرْبَعًا، وَكَ",
+      "kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_08ad9781204823bf417ee1ef",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MARFU_CONTEXT_CANDIDATE",
+      "report_text": "وَرَوَى ابْنُ عَسَاكِرَ مِنْ طَرِيقِ شَيْبَانَ بْنِ فَرُّوخَ، عَنْ مُحَمَّدِ بْنِ زِيَادٍ، عَنْ مَيْمُونٍ بْنِ مِهْرَانَ، عَنِ ابْنِ عَبَّاسٍ أَنَّ رَسُولَ اللَّهِ ﷺ قَالَ: كَبَّرَتِ الْمَلَائِكَةُ عَلَى آدَمَ أَرْبَعًا. وَكَبَّرَ أَبُو بَكْرٍ عَلَى فَاطِمَةَ أَرْبَعًا، وَكَبَّرَ عُمَرُ عَلَى أَبِي بَكْرٍ أَرْبَعًا، وَكَبَّرَ صُهَيْبٌ عَلَى عُمَرَ أَرْبَعًا. قَالَ ابْنُ عَسَاكِرَ. وَرَوَاهُ غَيْرُهُ عَنْ مَيْمُونٍ فَقَالَ: عَنِ ابْنِ عُمَرَ.\nوَاخْتَلَفُوا فِي مَوْضِعِ دَفْنِهِ; فَالْمَشْهُورُ أَنَّهُ دُفِنَ عِنْدَ الْجَبَلِ الَّذِي أُهْبِطَ عَلَيْهِ فِي الْهِنْدِ. وَقِيلَ: بِجَبَلِ أَبِي قُبَيْسٍ بِمَكَّةَ، وَيُقَالُ إِنَّ نُوحًا ﵇ لَمَّا كَانَ زَمَنُ الطُّوفَانِ حَمَلَهُ هُوَ وَحَوَّاءُ فِي تَابُوتٍ فَدَفَنَهُمَا بِبَيْتِ الْمَقْدِسِ حَكَى ذَلِكَ ابْنُ جَرِيرٍ.",
+      "report_text_sha256": "d9102fae765409a441df25d0498543a37205bc0371ddd421c42b8f56e54f46c3",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "PROPHET_WITH_COMPANION_OR_MARFU_TABII",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": null,
+        "prophet_name": "محمد ﷺ",
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_68ad9c8b255863effa2467ba",
+      "terminal_speaker_surface_candidate": null,
+      "work_source_id": "SRC-HISTORY-BIDAYAH-ADAM"
+    },
+    {
+      "book_id": 4445,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/4445/volume/1/page/228?database_sha256=a48b153a0a451ce0f63625bee7fa294a88d8dbbc5db4b9472afa652260b74b3b&segment_id=227"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_824e0d1e17793a25821e860a",
+      "chain_nodes_candidate": [],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "حَدَّثَنَا مُحَمَّدُ بْنُ الْمُثَنَّى، حَدَّثَنَا يَزِيدُ بْنُ هَارُونَ، أَنْبَأَنَا هِشَامُ بْنُ حَسَّانَ، عَنِ الْحَسَنِ قَالَ: كَانَ عَقْلُ آدَمَ مِثْلَ عَقْلِ جَمِيعِ وَلَدِهِ.\nوَقَالَ بَعْضُ الْعُلَمَاءِ فِي قَوْلِهِ ﷺ: فَمَرَرْتُ بِيُوسُفَ وَإِذَا هُوَ قَدْ أُعْطِيَ شَطْرَ الْحُسْنِ. قَالُوا: مَعْنَاهُ أَنَّهُ كَانَ عَلَى النِّصْفِ مِنْ حُسْنِ آدَمَ ﵇، وَهَذَا مُنَاسِبٌ فَإِنَّ اللَّهَ خَلَقَ آدَمَ وَصَوَّرَهُ بِيَدِهِ الْكَرِيمَةِ، وَنَفَخَ فِيهِ مِنْ رُوحِهِ فَمَا كَانَ لِيَخْلُقَ إِلَّا أَحْسَنَ الْأَشْيَاءِ. وَقَدْ رَوَيْنَا عَنْ عَبْدِ اللَّهِ بْنِ عُمَرَ، وَابْنِ عَمْرٍو أَيْضًا مَوْقُوفًا وَمَرْفُوعًا: إِنَّ اللَّهَ تَعَالَى لَمَّا خَلَقَ الْجَنَّةَ قَالَتِ الْمَلَائِكَةُ يَا رَبَّنَا اجْعَلْ لَنَا هَذِهِ فَإِنَّكَ خَلَقْتَ لِبَنِي آدَمَ الدُّنْيَا يَأْكُلُونَ فِيهَا",
+      "kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_1b94d14075682b30f16df73f",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MARFU_EXPLICIT_CANDIDATE",
+      "report_text": "حَدَّثَنَا مُحَمَّدُ بْنُ الْمُثَنَّى، حَدَّثَنَا يَزِيدُ بْنُ هَارُونَ، أَنْبَأَنَا هِشَامُ بْنُ حَسَّانَ، عَنِ الْحَسَنِ قَالَ: كَانَ عَقْلُ آدَمَ مِثْلَ عَقْلِ جَمِيعِ وَلَدِهِ.\nوَقَالَ بَعْضُ الْعُلَمَاءِ فِي قَوْلِهِ ﷺ: فَمَرَرْتُ بِيُوسُفَ وَإِذَا هُوَ قَدْ أُعْطِيَ شَطْرَ الْحُسْنِ. قَالُوا: مَعْنَاهُ أَنَّهُ كَانَ عَلَى النِّصْفِ مِنْ حُسْنِ آدَمَ ﵇، وَهَذَا مُنَاسِبٌ فَإِنَّ اللَّهَ خَلَقَ آدَمَ وَصَوَّرَهُ بِيَدِهِ الْكَرِيمَةِ، وَنَفَخَ فِيهِ مِنْ رُوحِهِ فَمَا كَانَ لِيَخْلُقَ إِلَّا أَحْسَنَ الْأَشْيَاءِ. وَقَدْ رَوَيْنَا عَنْ عَبْدِ اللَّهِ بْنِ عُمَرَ، وَابْنِ عَمْرٍو أَيْضًا مَوْقُوفًا وَمَرْفُوعًا: إِنَّ اللَّهَ تَعَالَى لَمَّا خَلَقَ الْجَنَّةَ قَالَتِ الْمَلَائِكَةُ يَا رَبَّنَا اجْعَلْ لَنَا هَذِهِ فَإِنَّكَ خَلَقْتَ لِبَنِي آدَمَ الدُّنْيَا يَأْكُلُونَ فِيهَا وَيَشْرَبُونَ، فَقَالَ اللَّهُ تَعَالَى: وَعِزَّتِي وَجَلَالِي لَا أَجْعَلُ صَالِحَ ذُرِّيَّةِ مَنْ خَلَقْتُ بِيَدِيَّ كَمَنَ قُلْتُ لَهُ كُنْ فَكَانَ. وَقَدْ وَرَدَ الْحَدِيثَ الْمَرْوِيَّ فِي الصَّحِيحَيْنِ، وَغَيْرِهِمَا مِنْ طُرُقٍ، أَنَّ رَسُولَ اللَّهِ",
+      "report_text_sha256": "3fad75734efb3a8b63df6de3d75f08140d6b10c483bc4ec60e812d2f80261eb7",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "PROPHET_WITH_COMPANION_OR_MARFU_TABII",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": null,
+        "prophet_name": "محمد ﷺ",
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_9bf6a603a99be2d0bde766b4",
+      "terminal_speaker_surface_candidate": null,
+      "work_source_id": "SRC-HISTORY-BIDAYAH-ADAM"
+    },
+    {
+      "book_id": 4445,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/4445/volume/1/page/159?database_sha256=a48b153a0a451ce0f63625bee7fa294a88d8dbbc5db4b9472afa652260b74b3b&segment_id=157"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_0a0bf387f0f5b28c1f36c68f",
+      "chain_nodes_candidate": [],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "حَدَّثَنَا قُتَيْبَةُ بْنُ سَعِيدٍ، حَدَّثَنَا ابْنُ لَهِيعَةَ، عَنْ مُوسَى بْنِ وَرْدَانَ، عَنْ أَبِي هُرَيْرَةَ: أَنَّ النَّبِيَّ ﷺ قَالَ: إِنَّ الْمُؤْمِنَ لَيُنْضِي شَيْطَانَهُ كَمَا يُنْضِي أَحَدُكُمْ بِعِيرَهُ فِي السَّفَرِ. تَفَرَّدَ بِهِ أَحْمَدُ مِنْ هَذَا الْوَجْهِ. وَمَعْنَى لَيُنْضِ",
+      "kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_291ea4669b9c6112b94b4906",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MARFU_CONTEXT_CANDIDATE",
+      "report_text": "حَدَّثَنَا قُتَيْبَةُ بْنُ سَعِيدٍ، حَدَّثَنَا ابْنُ لَهِيعَةَ، عَنْ مُوسَى بْنِ وَرْدَانَ، عَنْ أَبِي هُرَيْرَةَ: أَنَّ النَّبِيَّ ﷺ قَالَ: إِنَّ الْمُؤْمِنَ لَيُنْضِي شَيْطَانَهُ كَمَا يُنْضِي أَحَدُكُمْ بِعِيرَهُ فِي السَّفَرِ. تَفَرَّدَ بِهِ أَحْمَدُ مِنْ هَذَا الْوَجْهِ. وَمَعْنَى لَيُنْضِي شَيْطَانَهُ: لَيَأْخُذُ بِنَاصِيَتِهِ فَيَغْلِبُهُ وَيَقْهَرُهُ، كَمَا يَفْعَلُ بِالْبَعِيرِ إِذَا شَرَدَ ثُمَّ غَلَبَهُ، وَقَوْلُهُ تَعَالَى إِخْبَارًا عَنْ إِبْلِيسَ: قَالَ فَبِمَا أَغْوَيْتَنِي لَأَقْعُدَنَّ لَهُمْ صِرَاطَكَ الْمُسْتَقِيمَ ثُمَّ لَآتِيَنَّهُمْ مِنْ بَيْنِ أَيْدِيهِمْ وَمِنْ خَلْفِهِمْ وَعَنْ أَيْمَانِهِمْ وَعَنْ شَمَائِلِهِمْ وَلَا تَجِدُ أَكْثَرَهُمْ شَاكِرِينَ [الْأَعْرَافِ: ١٦ - ١٧].\nقَالَ الْإِمَامُ أَحْمَدُ:",
+      "report_text_sha256": "20ee6de34e23826340cca552494e60f96213fd98955132a34747aa9dffc7e142",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "PROPHET_WITH_COMPANION_OR_MARFU_TABII",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": null,
+        "prophet_name": "محمد ﷺ",
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_c18a5dee98c2c4ca38a9ec79",
+      "terminal_speaker_surface_candidate": null,
+      "work_source_id": "SRC-HISTORY-BIDAYAH-ADAM"
+    },
+    {
+      "book_id": 4445,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/4445/volume/20/page/112?database_sha256=a48b153a0a451ce0f63625bee7fa294a88d8dbbc5db4b9472afa652260b74b3b&segment_id=12829"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_2e4d502aa3bfa7c114c2cf62",
+      "chain_nodes_candidate": [],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "حَدَّثَنَا الْقَاسِمُ بْنُ هَاشِمٍ، حَدَّثَنَا صَفْوَانُ بْنُ صَالِحٍ، حَدَّثَنِي رَوَّادُ بْنُ جَرَّاحٍ الْعَسْقَلَانِيُّ، حَدَّثَنَا الْأَوْزَاعِيُّ، عَنْ هَارُونَ بْنِ رِئَابٍ، عَنْ أَنَسِ بْنِ مَالِكٍ، قَالَ: قَالَ رَسُولُ اللَّهِ ﷺ: «يَدْخُلُ أَهْلُ الْجَنَّةِ الْجَنَّةَ عَلَى طُولِ آدَمَ; سِتِّينَ ذِرَاعًا بِذِرَاعِ الْمَلَكِ، عَلَى حُسْنِ يُوسُفَ، وَعَلَى مِيلَادِ عِيسَى، ثَلَاثٍ وَث",
+      "kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_386d2ac1ae7515a9df69bc98",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MARFU_CONTEXT_CANDIDATE",
+      "report_text": "حَدَّثَنَا الْقَاسِمُ بْنُ هَاشِمٍ، حَدَّثَنَا صَفْوَانُ بْنُ صَالِحٍ، حَدَّثَنِي رَوَّادُ بْنُ جَرَّاحٍ الْعَسْقَلَانِيُّ، حَدَّثَنَا الْأَوْزَاعِيُّ، عَنْ هَارُونَ بْنِ رِئَابٍ، عَنْ أَنَسِ بْنِ مَالِكٍ، قَالَ: قَالَ رَسُولُ اللَّهِ ﷺ: «يَدْخُلُ أَهْلُ الْجَنَّةِ الْجَنَّةَ عَلَى طُولِ آدَمَ; سِتِّينَ ذِرَاعًا بِذِرَاعِ الْمَلَكِ، عَلَى حُسْنِ يُوسُفَ، وَعَلَى مِيلَادِ عِيسَى، ثَلَاثٍ وَثَلَاثِينَ سَنَةً، وَعَلَى لِسَانِ مُحَمَّدٍ، جُرْدٌ مُرْدٌ مُكَحَّلُونَ».\nوَقَدْ رَوَاهُ أَبُو بَكْرِ بْنُ أَبِي دَاوُدَ، حَدَّثَنَا مَحْمُودُ بْنُ خَالِدٍ وَعَبَّاسُ بْنُ الْوَلِيدِ،",
+      "report_text_sha256": "0229e442e1b2e6be7e16fb1061365c14b4be78721853129ef402eee87fcf0c94",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "PROPHET_WITH_COMPANION_OR_MARFU_TABII",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": null,
+        "prophet_name": "محمد ﷺ",
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_dee3f12d2d8088c34c3f2103",
+      "terminal_speaker_surface_candidate": null,
+      "work_source_id": "SRC-HISTORY-BIDAYAH-ADAM"
+    }
+  ],
+  "schema_version": "siraj-adam-gemini-draft-batch-v1",
+  "task_contract_project_path": "sources/secondary/gemini-semantic-analysis-draft/contracts/chain-interpretation-contract-v1.json",
+  "task_name": "chain-interpretation"
+}

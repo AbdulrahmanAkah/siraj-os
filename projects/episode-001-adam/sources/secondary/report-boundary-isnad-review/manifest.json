@@ -1,0 +1,80 @@
+{
+  "counts": {
+    "boundary_excluded_records_verified": 559,
+    "boundary_windows_verified": 18,
+    "excluded": 404,
+    "merge_required": 37,
+    "merge_with_next": 27,
+    "merge_with_previous": 10,
+    "resegmentation_required": 435,
+    "retained": 732,
+    "retained_as_single_candidate": 260,
+    "retained_internal_isnad_research_records": 545,
+    "retained_prophetic_hadith_candidates": 101
+  },
+  "episode_id": "episode-001-adam",
+  "files": {
+    "README.md": {
+      "sha256": "dc4505a8d0111f29dfae31a74450921e54c80b7b344e90931c183f5b84c27a34",
+      "size_bytes": 674
+    },
+    "adam-boundary-exclusion-verification-v1.json": {
+      "sha256": "0cda5135662d9d619b6f44c2f1326c92191c610d631e160ead4ee259dbcbdf17",
+      "size_bytes": 4004
+    },
+    "adam-merge-queue-v1.jsonl": {
+      "sha256": "9cd7b0a2606b6f8066123ab6a69506ff63bc309755120a711170318f00b76ca6",
+      "size_bytes": 235313
+    },
+    "adam-refined-internal-isnad-research-queue-v2.jsonl": {
+      "sha256": "4e574ad19f2baf796419d2596f2ee9f56a7bdc1706b4885c469e9753dc3316fc",
+      "size_bytes": 2233755
+    },
+    "adam-report-boundary-isnad-decisions-v1.json": {
+      "sha256": "80b15f7ad77529fec100fd394860e1f0dc95f8027d3417c1a00b608c9c7524b7",
+      "size_bytes": 3811192
+    },
+    "adam-report-boundary-isnad-review-report-v1.md": {
+      "sha256": "c6e96508ff9cd7bd3929aae969e736e0eab5b464ee4608619563e5dbaa42a36d",
+      "size_bytes": 4508
+    },
+    "adam-report-exclusions-v1.jsonl": {
+      "sha256": "b65ba6c40fc38aabc2fceef21f64b97f4ff72a6a6b705fb1268fdc2f9ef509ab",
+      "size_bytes": 3081590
+    },
+    "adam-report-review-table-v1.csv": {
+      "sha256": "a8a7e9a0a4152ce05e32596ddf886de36b1ac5ed5fb4964bdf471349a08bb0f3",
+      "size_bytes": 863790
+    },
+    "adam-resegmentation-queue-v1.jsonl": {
+      "sha256": "9398d8388f71985c2b2ecdcc24719fa07f03e4b53a4afa9916879364bc8c8bf9",
+      "size_bytes": 3751237
+    },
+    "adam-retained-report-register-v1.jsonl": {
+      "sha256": "e86e53a6b17f1a166a7bda7d4833dd4ba644939bd7b51a0eaf0c35f2137b1139",
+      "size_bytes": 6062371
+    },
+    "apply-adam-report-boundary-isnad-review-v1.ps1": {
+      "sha256": "29c24103e470bf4f1186e648ac094187cd246634c5b26c94f0c7e04d95a7dced",
+      "size_bytes": 3851
+    },
+    "test_adam_report_boundary_isnad_review_v1.py": {
+      "sha256": "b57ad12a0a2d8e1707adc8ad6d23f334d1e47ca885f8a24003dad823a7fe8032",
+      "size_bytes": 2974
+    }
+  },
+  "next_gate": "DETERMINISTIC_REPORT_RESEGMENTATION_AND_CHAIN_NORMALIZATION",
+  "permissions": {
+    "candidate_only": true,
+    "evidence_approval_changed": false,
+    "final_narrative_approval_changed": false,
+    "gemini_execution_enabled": false,
+    "hadith_grading_changed": false,
+    "israiliyyat_classification_changed": false,
+    "narrator_judgement_changed": false,
+    "quotation_approval_changed": false,
+    "source_approval_changed": false
+  },
+  "schema_version": "siraj-adam-report-boundary-isnad-review-manifest-v1",
+  "status": "PASS_REPORT_BOUNDARY_AND_ISNAD_REVIEW_COMPLETE"
+}

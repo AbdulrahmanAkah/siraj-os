@@ -1,0 +1,840 @@
+{
+  "schema_version": "siraj-shamela-book-storage-diagnostic-v1",
+  "created_at": "2026-07-24T19:42:10.272818Z",
+  "episode_id": "episode-001-adam",
+  "work_source_id": "SRC-HISTORY-BIDAYAH-ADAM",
+  "book_id": 4445,
+  "materialization_asset": {
+    "allowed_for_gemini": false,
+    "allowed_for_local_schema_inspection": true,
+    "allowed_for_quotation": false,
+    "author": "ابن كثير 3",
+    "book_title": "البداية والنهاية - ت التركي",
+    "candidate_score": 100.0,
+    "category": "التاريخ",
+    "materialization_status": "RAW_SQLITE_COPIED_CHECKSUM_VERIFIED",
+    "original_database_path": "C:\\shamela4\\database\\book\\445\\4445.db",
+    "project_asset_path": "sources/secondary/assets/raw/SRC-HISTORY-BIDAYAH-ADAM/4445.db",
+    "selected_book_id": 4445,
+    "sha256": "a48b153a0a451ce0f63625bee7fa294a88d8dbbc5db4b9472afa652260b74b3b",
+    "size_bytes": 708608,
+    "work_source_id": "SRC-HISTORY-BIDAYAH-ADAM"
+  },
+  "raw_database": {
+    "status": "PASS",
+    "path": "C:\\SIRAJ\\Repositories\\siraj-os\\projects\\episode-001-adam\\sources\\secondary\\assets\\raw\\SRC-HISTORY-BIDAYAH-ADAM\\4445.db",
+    "size_bytes": 708608,
+    "sha256": "a48b153a0a451ce0f63625bee7fa294a88d8dbbc5db4b9472afa652260b74b3b",
+    "encoding": "UTF-8",
+    "user_version": 0,
+    "application_id": 0,
+    "database_list": [
+      {
+        "seq": 0,
+        "name": "main",
+        "file": "C:\\SIRAJ\\Repositories\\siraj-os\\projects\\episode-001-adam\\sources\\secondary\\assets\\raw\\SRC-HISTORY-BIDAYAH-ADAM\\4445.db"
+      }
+    ],
+    "integrity_check": [
+      "ok"
+    ],
+    "objects": [
+      {
+        "type": "index",
+        "name": "correspond",
+        "table_name": "title",
+        "rootpage": 8,
+        "create_sql": "CREATE INDEX correspond on title (page)"
+      },
+      {
+        "type": "index",
+        "name": "number",
+        "table_name": "page",
+        "rootpage": 6,
+        "create_sql": "CREATE INDEX number on page (number)"
+      },
+      {
+        "type": "index",
+        "name": "page_id",
+        "table_name": "page",
+        "rootpage": 5,
+        "create_sql": "CREATE INDEX page_id on page (page)"
+      },
+      {
+        "type": "index",
+        "name": "parent",
+        "table_name": "title",
+        "rootpage": 7,
+        "create_sql": "CREATE INDEX parent on title (parent)"
+      },
+      {
+        "type": "index",
+        "name": "part",
+        "table_name": "page",
+        "rootpage": 4,
+        "create_sql": "CREATE INDEX part on page (part)"
+      },
+      {
+        "type": "table",
+        "name": "page",
+        "table_name": "page",
+        "rootpage": 2,
+        "create_sql": "CREATE TABLE page (id INTEGER PRIMARY KEY, part TEXT, page INTEGER, number INTEGER, services TEXT)",
+        "columns": [
+          {
+            "cid": 0,
+            "name": "id",
+            "declared_type": "INTEGER",
+            "not_null": false,
+            "default": null,
+            "primary_key": true
+          },
+          {
+            "cid": 1,
+            "name": "part",
+            "declared_type": "TEXT",
+            "not_null": false,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "cid": 2,
+            "name": "page",
+            "declared_type": "INTEGER",
+            "not_null": false,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "cid": 3,
+            "name": "number",
+            "declared_type": "INTEGER",
+            "not_null": false,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "cid": 4,
+            "name": "services",
+            "declared_type": "TEXT",
+            "not_null": false,
+            "default": null,
+            "primary_key": false
+          }
+        ],
+        "row_count": 13161,
+        "column_profiles": [
+          {
+            "name": "id",
+            "declared_type": "INTEGER",
+            "total_rows": 13161,
+            "null_rows": 0,
+            "non_null_rows": 13161,
+            "max_length": 5,
+            "avg_length": 4.156143150216549,
+            "largest_value_samples": [
+              {
+                "python_type": "int",
+                "char_length": 5,
+                "preview": "10000"
+              },
+              {
+                "python_type": "int",
+                "char_length": 5,
+                "preview": "10001"
+              },
+              {
+                "python_type": "int",
+                "char_length": 5,
+                "preview": "10002"
+              },
+              {
+                "python_type": "int",
+                "char_length": 5,
+                "preview": "10003"
+              },
+              {
+                "python_type": "int",
+                "char_length": 5,
+                "preview": "10004"
+              }
+            ]
+          },
+          {
+            "name": "part",
+            "declared_type": "TEXT",
+            "total_rows": 13161,
+            "null_rows": 0,
+            "non_null_rows": 13161,
+            "max_length": 2,
+            "avg_length": 1.5786794316541297,
+            "largest_value_samples": [
+              {
+                "python_type": "str",
+                "char_length": 2,
+                "preview": "10"
+              },
+              {
+                "python_type": "str",
+                "char_length": 2,
+                "preview": "10"
+              },
+              {
+                "python_type": "str",
+                "char_length": 2,
+                "preview": "10"
+              },
+              {
+                "python_type": "str",
+                "char_length": 2,
+                "preview": "10"
+              },
+              {
+                "python_type": "str",
+                "char_length": 2,
+                "preview": "10"
+              }
+            ]
+          },
+          {
+            "name": "page",
+            "declared_type": "INTEGER",
+            "total_rows": 13161,
+            "null_rows": 0,
+            "non_null_rows": 13161,
+            "max_length": 3,
+            "avg_length": 2.8474280069903504,
+            "largest_value_samples": [
+              {
+                "python_type": "int",
+                "char_length": 3,
+                "preview": "100"
+              },
+              {
+                "python_type": "int",
+                "char_length": 3,
+                "preview": "100"
+              },
+              {
+                "python_type": "int",
+                "char_length": 3,
+                "preview": "100"
+              },
+              {
+                "python_type": "int",
+                "char_length": 3,
+                "preview": "100"
+              },
+              {
+                "python_type": "int",
+                "char_length": 3,
+                "preview": "100"
+              }
+            ]
+          },
+          {
+            "name": "number",
+            "declared_type": "INTEGER",
+            "total_rows": 13161,
+            "null_rows": 13161,
+            "non_null_rows": 0,
+            "max_length": null,
+            "avg_length": null,
+            "largest_value_samples": []
+          },
+          {
+            "name": "services",
+            "declared_type": "TEXT",
+            "total_rows": 13161,
+            "null_rows": 13161,
+            "non_null_rows": 0,
+            "max_length": null,
+            "avg_length": null,
+            "largest_value_samples": []
+          }
+        ],
+        "sample_rows": [
+          {
+            "__rowid__": {
+              "python_type": "int",
+              "char_length": 1,
+              "preview": "1"
+            },
+            "id": {
+              "python_type": "int",
+              "char_length": 1,
+              "preview": "1"
+            },
+            "part": {
+              "python_type": "str",
+              "char_length": 1,
+              "preview": "1"
+            },
+            "page": {
+              "python_type": "int",
+              "char_length": 1,
+              "preview": "3"
+            },
+            "number": {
+              "python_type": "NoneType",
+              "preview": null
+            },
+            "services": {
+              "python_type": "NoneType",
+              "preview": null
+            }
+          },
+          {
+            "__rowid__": {
+              "python_type": "int",
+              "char_length": 1,
+              "preview": "2"
+            },
+            "id": {
+              "python_type": "int",
+              "char_length": 1,
+              "preview": "2"
+            },
+            "part": {
+              "python_type": "str",
+              "char_length": 1,
+              "preview": "1"
+            },
+            "page": {
+              "python_type": "int",
+              "char_length": 1,
+              "preview": "4"
+            },
+            "number": {
+              "python_type": "NoneType",
+              "preview": null
+            },
+            "services": {
+              "python_type": "NoneType",
+              "preview": null
+            }
+          },
+          {
+            "__rowid__": {
+              "python_type": "int",
+              "char_length": 1,
+              "preview": "3"
+            },
+            "id": {
+              "python_type": "int",
+              "char_length": 1,
+              "preview": "3"
+            },
+            "part": {
+              "python_type": "str",
+              "char_length": 1,
+              "preview": "1"
+            },
+            "page": {
+              "python_type": "int",
+              "char_length": 1,
+              "preview": "5"
+            },
+            "number": {
+              "python_type": "NoneType",
+              "preview": null
+            },
+            "services": {
+              "python_type": "NoneType",
+              "preview": null
+            }
+          },
+          {
+            "__rowid__": {
+              "python_type": "int",
+              "char_length": 1,
+              "preview": "4"
+            },
+            "id": {
+              "python_type": "int",
+              "char_length": 1,
+              "preview": "4"
+            },
+            "part": {
+              "python_type": "str",
+              "char_length": 1,
+              "preview": "1"
+            },
+            "page": {
+              "python_type": "int",
+              "char_length": 1,
+              "preview": "6"
+            },
+            "number": {
+              "python_type": "NoneType",
+              "preview": null
+            },
+            "services": {
+              "python_type": "NoneType",
+              "preview": null
+            }
+          },
+          {
+            "__rowid__": {
+              "python_type": "int",
+              "char_length": 1,
+              "preview": "5"
+            },
+            "id": {
+              "python_type": "int",
+              "char_length": 1,
+              "preview": "5"
+            },
+            "part": {
+              "python_type": "str",
+              "char_length": 1,
+              "preview": "1"
+            },
+            "page": {
+              "python_type": "int",
+              "char_length": 1,
+              "preview": "7"
+            },
+            "number": {
+              "python_type": "NoneType",
+              "preview": null
+            },
+            "services": {
+              "python_type": "NoneType",
+              "preview": null
+            }
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "name": "title",
+        "table_name": "title",
+        "rootpage": 3,
+        "create_sql": "CREATE TABLE title (id INTEGER PRIMARY KEY, page INTEGER, parent INTEGER)",
+        "columns": [
+          {
+            "cid": 0,
+            "name": "id",
+            "declared_type": "INTEGER",
+            "not_null": false,
+            "default": null,
+            "primary_key": true
+          },
+          {
+            "cid": 1,
+            "name": "page",
+            "declared_type": "INTEGER",
+            "not_null": false,
+            "default": null,
+            "primary_key": false
+          },
+          {
+            "cid": 2,
+            "name": "parent",
+            "declared_type": "INTEGER",
+            "not_null": false,
+            "default": null,
+            "primary_key": false
+          }
+        ],
+        "row_count": 3451,
+        "column_profiles": [
+          {
+            "name": "id",
+            "declared_type": "INTEGER",
+            "total_rows": 3451,
+            "null_rows": 0,
+            "non_null_rows": 3451,
+            "max_length": 4,
+            "avg_length": 3.6792234135033324,
+            "largest_value_samples": [
+              {
+                "python_type": "int",
+                "char_length": 4,
+                "preview": "1000"
+              },
+              {
+                "python_type": "int",
+                "char_length": 4,
+                "preview": "1001"
+              },
+              {
+                "python_type": "int",
+                "char_length": 4,
+                "preview": "1002"
+              },
+              {
+                "python_type": "int",
+                "char_length": 4,
+                "preview": "1003"
+              },
+              {
+                "python_type": "int",
+                "char_length": 4,
+                "preview": "1004"
+              }
+            ]
+          },
+          {
+            "name": "page",
+            "declared_type": "INTEGER",
+            "total_rows": 3451,
+            "null_rows": 0,
+            "non_null_rows": 3451,
+            "max_length": 5,
+            "avg_length": 4.318748188930745,
+            "largest_value_samples": [
+              {
+                "python_type": "int",
+                "char_length": 5,
+                "preview": "10000"
+              },
+              {
+                "python_type": "int",
+                "char_length": 5,
+                "preview": "10000"
+              },
+              {
+                "python_type": "int",
+                "char_length": 5,
+                "preview": "10002"
+              },
+              {
+                "python_type": "int",
+                "char_length": 5,
+                "preview": "10003"
+              },
+              {
+                "python_type": "int",
+                "char_length": 5,
+                "preview": "10003"
+              }
+            ]
+          },
+          {
+            "name": "parent",
+            "declared_type": "INTEGER",
+            "total_rows": 3451,
+            "null_rows": 0,
+            "non_null_rows": 3451,
+            "max_length": 4,
+            "avg_length": 3.4630541871921183,
+            "largest_value_samples": [
+              {
+                "python_type": "int",
+                "char_length": 4,
+                "preview": "1001"
+              },
+              {
+                "python_type": "int",
+                "char_length": 4,
+                "preview": "1001"
+              },
+              {
+                "python_type": "int",
+                "char_length": 4,
+                "preview": "1006"
+              },
+              {
+                "python_type": "int",
+                "char_length": 4,
+                "preview": "1006"
+              },
+              {
+                "python_type": "int",
+                "char_length": 4,
+                "preview": "1006"
+              }
+            ]
+          }
+        ],
+        "sample_rows": [
+          {
+            "__rowid__": {
+              "python_type": "int",
+              "char_length": 1,
+              "preview": "1"
+            },
+            "id": {
+              "python_type": "int",
+              "char_length": 1,
+              "preview": "1"
+            },
+            "page": {
+              "python_type": "int",
+              "char_length": 1,
+              "preview": "1"
+            },
+            "parent": {
+              "python_type": "int",
+              "char_length": 1,
+              "preview": "0"
+            }
+          },
+          {
+            "__rowid__": {
+              "python_type": "int",
+              "char_length": 1,
+              "preview": "2"
+            },
+            "id": {
+              "python_type": "int",
+              "char_length": 1,
+              "preview": "2"
+            },
+            "page": {
+              "python_type": "int",
+              "char_length": 1,
+              "preview": "9"
+            },
+            "parent": {
+              "python_type": "int",
+              "char_length": 1,
+              "preview": "0"
+            }
+          },
+          {
+            "__rowid__": {
+              "python_type": "int",
+              "char_length": 1,
+              "preview": "3"
+            },
+            "id": {
+              "python_type": "int",
+              "char_length": 1,
+              "preview": "3"
+            },
+            "page": {
+              "python_type": "int",
+              "char_length": 1,
+              "preview": "9"
+            },
+            "parent": {
+              "python_type": "int",
+              "char_length": 1,
+              "preview": "2"
+            }
+          },
+          {
+            "__rowid__": {
+              "python_type": "int",
+              "char_length": 1,
+              "preview": "4"
+            },
+            "id": {
+              "python_type": "int",
+              "char_length": 1,
+              "preview": "4"
+            },
+            "page": {
+              "python_type": "int",
+              "char_length": 2,
+              "preview": "13"
+            },
+            "parent": {
+              "python_type": "int",
+              "char_length": 1,
+              "preview": "2"
+            }
+          },
+          {
+            "__rowid__": {
+              "python_type": "int",
+              "char_length": 1,
+              "preview": "5"
+            },
+            "id": {
+              "python_type": "int",
+              "char_length": 1,
+              "preview": "5"
+            },
+            "page": {
+              "python_type": "int",
+              "char_length": 2,
+              "preview": "24"
+            },
+            "parent": {
+              "python_type": "int",
+              "char_length": 1,
+              "preview": "2"
+            }
+          }
+        ]
+      }
+    ],
+    "long_text_candidates": []
+  },
+  "master_database_book_rows": {
+    "status": "PASS",
+    "path": "C:\\shamela4\\database\\master.db",
+    "size_bytes": 3444736,
+    "sha256": "fc4be9682eb89433c6392a0bad62f55c9c07e7287ff5cfeef7e25d9b65a3fb42",
+    "book_id": 4445,
+    "matching_rows": [
+      {
+        "table": "author_book",
+        "matched_column": "book_id",
+        "row": {
+          "author_id": {
+            "python_type": "int",
+            "char_length": 1,
+            "preview": "3"
+          },
+          "book_id": {
+            "python_type": "int",
+            "char_length": 4,
+            "preview": "4445"
+          }
+        }
+      },
+      {
+        "table": "book",
+        "matched_column": "book_id",
+        "row": {
+          "book_id": {
+            "python_type": "int",
+            "char_length": 4,
+            "preview": "4445"
+          },
+          "book_name": {
+            "python_type": "str",
+            "char_length": 27,
+            "preview": "البداية والنهاية - ت التركي"
+          },
+          "book_category": {
+            "python_type": "int",
+            "char_length": 2,
+            "preview": "25"
+          },
+          "book_type": {
+            "python_type": "int",
+            "char_length": 1,
+            "preview": "1"
+          },
+          "book_date": {
+            "python_type": "int",
+            "char_length": 3,
+            "preview": "774"
+          },
+          "authors": {
+            "python_type": "str",
+            "char_length": 1,
+            "preview": "3"
+          },
+          "main_author": {
+            "python_type": "int",
+            "char_length": 1,
+            "preview": "3"
+          },
+          "printed": {
+            "python_type": "int",
+            "char_length": 1,
+            "preview": "1"
+          },
+          "group_id": {
+            "python_type": "int",
+            "char_length": 5,
+            "preview": "23708"
+          },
+          "hidden": {
+            "python_type": "int",
+            "char_length": 1,
+            "preview": "0"
+          },
+          "major_online": {
+            "python_type": "int",
+            "char_length": 1,
+            "preview": "2"
+          },
+          "minor_online": {
+            "python_type": "int",
+            "char_length": 1,
+            "preview": "0"
+          },
+          "major_ondisk": {
+            "python_type": "int",
+            "char_length": 1,
+            "preview": "2"
+          },
+          "minor_ondisk": {
+            "python_type": "int",
+            "char_length": 1,
+            "preview": "0"
+          },
+          "pdf_links": {
+            "python_type": "str",
+            "char_length": 365,
+            "preview": "{\"root\": \"/4445/\", \"files\": [\"bn00.pdf\", \"bn01.pdf\", \"bn01p.pdf|\", \"bn02.pdf\", \"bn03.pdf\", \"bn04.pdf\", \"bn05.pdf\", \"bn06.pdf\", \"bn07.pdf\", \"bn08.pdf\", \"bn09.pdf\", \"bn10.pdf\", \"bn11.pdf\", \"bn12.pdf\", \"bn13.pdf\", \"bn14.pdf\", \"bn15.pdf\", \"bn16.pdf\", \"bn17.pdf\", \"bn18.pdf\", \"bn19.pdf\", \"bn19p.pdf|\", \"bn20.pdf\", \"bn21.pdf\", \"bn21p.pdf\"], \"size\": 207757089, \"cover\": 1}"
+          },
+          "pdf_ondisk": {
+            "python_type": "int",
+            "char_length": 1,
+            "preview": "0"
+          },
+          "pdf_online": {
+            "python_type": "int",
+            "char_length": 1,
+            "preview": "1"
+          },
+          "cover_ondisk": {
+            "python_type": "int",
+            "char_length": 1,
+            "preview": "1"
+          },
+          "cover_online": {
+            "python_type": "int",
+            "char_length": 1,
+            "preview": "1"
+          },
+          "meta_data": {
+            "python_type": "str",
+            "char_length": 109,
+            "preview": "{\"date\": \"08121431\", \"group\": 23708, \"group_order\": 10, \"prefix\": \"البداية والنهاية\", \"hide_diacritic\": true}"
+          },
+          "parent": {
+            "python_type": "NoneType",
+            "preview": null
+          },
+          "alpha": {
+            "python_type": "int",
+            "char_length": 1,
+            "preview": "4"
+          },
+          "group_order": {
+            "python_type": "int",
+            "char_length": 2,
+            "preview": "10"
+          },
+          "book_up": {
+            "python_type": "NoneType",
+            "preview": null
+          }
+        }
+      }
+    ]
+  },
+  "related_files": [
+    {
+      "path": "C:\\shamela4\\database\\book\\445\\4445.db",
+      "is_file": true,
+      "is_dir": false,
+      "size_bytes": 708608
+    },
+    {
+      "path": "C:\\SIRAJ\\Repositories\\siraj-os\\projects\\episode-001-adam\\sources\\secondary\\assets\\raw\\SRC-HISTORY-BIDAYAH-ADAM\\4445.db",
+      "is_file": true,
+      "is_dir": false,
+      "size_bytes": 708608
+    }
+  ],
+  "interpretation_gate": {
+    "status": "HUMAN_REVIEW_REQUIRED",
+    "questions": [
+      "Which table or file contains the actual Arabic page body?",
+      "Is the selected database a metadata/index shard rather than a text asset?",
+      "Does master.db point to an alternate content file or storage provider?",
+      "Is any long binary value compressed content requiring a documented decoder?"
+    ]
+  }
+}

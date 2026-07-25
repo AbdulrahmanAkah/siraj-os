@@ -1,0 +1,645 @@
+{
+  "batch_id": "boundary-resolution-batch-0017",
+  "episode_id": "episode-001-adam",
+  "execution_enabled": false,
+  "execution_status": "BLOCKED_NOT_AUTHORIZED",
+  "generation_config": {
+    "response_mime_type": "application/json",
+    "temperature": 0
+  },
+  "model_id": null,
+  "provider_id": "GEMINI",
+  "record_count": 6,
+  "records": [
+    {
+      "allowed_decisions": [
+        "KEEP_AS_SINGLE",
+        "SPLIT_CURRENT_TEXT",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_FOLLOWING",
+        "DISCARD_AS_MID_REPORT_FRAGMENT",
+        "REQUIRES_HUMAN_REVIEW"
+      ],
+      "book_id": 9783,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/9783/volume/1/page/23?database_sha256=3eac670046fd84fefb8ebfe68a2a2f5f37f7716804a599a61555d3ea8a0162cb&segment_id=21"
+      ],
+      "current_chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "اسماعيل بن امية",
+          "narrator_surface_raw": "إسماعيل بن أمية",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "AKHBARANI",
+          "transmission_term_raw": "أخبرني"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ايوب بن خالد",
+          "narrator_surface_raw": "أيوب بن خالد",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "عبد الله بن رافع مولي ام سلمة",
+          "narrator_surface_raw": "عبد الله بن رافع مولى أم سلمة",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابي هريرة قال",
+          "narrator_surface_raw": "أبي هريرة قال",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 3,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "الفضيل بن سليمان",
+          "narrator_surface_raw": "الفضيل بْنُ سُلَيْمَانَ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 4,
+          "transmission_term_canonical": "HADDATHANA",
+          "transmission_term_raw": "حدثنا"
+        }
+      ],
+      "current_kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "current_text": "أخبرني إسماعيل بن أمية، عن أيوب بن خالد، عن عبد الله بن رافع مولى أم سلمة، عن أبي هريرة قال: [أخذ رسول الله ص بِيَدِي فَقَالَ: خَلَقَ اللَّهُ التُّرْبَةَ يَوْمَ السَّبْتِ، وَخَلَقَ فِيهَا الْجِبَالَ يَوْمَ الأَحَدِ، وَخَلَقَ الشَّجَرَ يَوْمَ الاثْنَيْنِ، وَخَلَقَ الْمَكْرُوهَ يَوْمَ الثُّلاثَاءِ، وَخَلَقَ النُّورَ يَوْمَ الأَرْبِعَاءِ، وَبَثَّ فِيهَا الدَّوَابَّ يَوْمَ الْخَمِيسِ، وَخَلَقَ آدَمَ بَعْدَ الْعَصْرِ مِنْ يَوْمِ الْجُمُعَةِ، آخِرَ خَلْقٍ خُلِقَ، فِي آخِرِ سَاعَةٍ مِنْ سَاعَاتِ الْجُمُعَةِ، فِيمَا بَيْنَ الْعَصْرِ إِلَى اللَّيْلِ] .\nحَدَّثَنَا مُحَمَّدُ بْنُ عَبْدِ اللَّهِ بْنِ بزيع، قال:\nحدثنا الفضيل بْنُ سُلَيْمَانَ، حَدَّثَنِي مُحَمَّدُ بْنُ زَيْدٍ، قَالَ:\nحَدَّثَنِي أَبُو سَلَمَةَ بْنُ عَبْدِ الرَّحْمَنِ بْنِ عَوْفٍ، قَالَ:",
+      "current_text_sha256": "caacf62a2a3f04585819f25a31637d5f9f25a3f1c35d23d29dacd53ed3683a05",
+      "event_ids": [],
+      "following_context": {
+        "normalized_report_id": "adam_normalized_report_d33e075286af52b27d743e5b",
+        "text_excerpt": "وَأَخْرَجَهُ مِنْهَا فِي آخِرِ سَاعَةٍ ثُمَّ قَالَتِ الْيَهُودُ: ثُمَّ مَاذَا يَا مُحَمَّدُ؟ قَالَ: ثُمَّ اسْتَوَى عَلَى الْعَرْشِ، قَالُوا: قَدْ أَصَبْتَ لَوْ اتممت: قالوا: ثم استراح، فغضب النبي ص غضبا شديدا، فنزل: «وَلَقَدْ خَلَقْنَا السَّماواتِ وَالْأَرْضَ وَما بَيْنَهُما فِي سِتَّةِ أَيَّامٍ وَما مَسَّنا مِنْ لُغُوبٍ فَاصْبِرْ عَلى مَا يَقُولُونَ» . حَدَّثَنِي الْقَاسِمُ بْنُ بِشْرِ بْنِ مَعْرُوفٍ وَالْحُسَيْنُ بن علي الصدائي، قالا: حدثنا حجاج، قال: قال ابن جريج:"
+      },
+      "normalized_report_id": "adam_normalized_report_8f3e9b65667524dc8ba27894",
+      "permissions": {
+        "candidate_only": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_boundaries": true
+      },
+      "previous_context": {
+        "normalized_report_id": "adam_normalized_report_86ed13dca9e588aa17e463a8",
+        "text_excerpt": "القول في هل كان الله ﷿ خلق قبل خلقه الزمان والليل والنهار شيئا غير ذلك من الخلق قد قلنا قبل: إن الزمان إنما هو ساعات الليل والنهار، وإن الساعات إنما هي قطع الشمس والقمر درجات الفلك. فإذا كان ذلك كذلك، وكان صحيحا عن رسول الله ص ما حَدَّثَنَا هَنَّادُ بْنُ السَّرِيِّ، قَالَ:"
+      },
+      "research_question_ids": [],
+      "task_record_id": "adam_gemini_boundary_task_422477cab059d5559197947f",
+      "warnings": [
+        "MULTIPLE_STRONG_STARTS_REMAIN",
+        "NO_DETERMINISTIC_SPLIT_FOUND",
+        "REQUESTED_RESEGMENTATION_NOT_ACHIEVED"
+      ],
+      "window_id": "e37b16ebf3b8b8819ae11b80",
+      "work_source_id": "SRC-HISTORY-TABARI-ADAM"
+    },
+    {
+      "allowed_decisions": [
+        "KEEP_AS_SINGLE",
+        "SPLIT_CURRENT_TEXT",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_FOLLOWING",
+        "DISCARD_AS_MID_REPORT_FRAGMENT",
+        "REQUIRES_HUMAN_REVIEW"
+      ],
+      "book_id": 9783,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/9783/volume/1/page/91?database_sha256=3eac670046fd84fefb8ebfe68a2a2f5f37f7716804a599a61555d3ea8a0162cb&segment_id=89"
+      ],
+      "current_chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابو احمد",
+          "narrator_surface_raw": "أبو أحمد",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA",
+          "transmission_term_raw": "حدثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "مسعر",
+          "narrator_surface_raw": "مسعر",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "HADDATHANA",
+          "transmission_term_raw": "حدثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابي حصين",
+          "narrator_surface_raw": "أبي حصين",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "سعيد بن جبير",
+          "narrator_surface_raw": "سعيد بْنِ جُبَيْرٍ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 3,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "current_kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "current_text": "حَدَّثَنَا شُعْبَةُ، عَنْ أَبِي حُصَيْنٍ، عَنْ سَعِيدِ بْنِ جُبَيْرٍ، قَالَ: إِنَّمَا سُمِّيَ آدَمَ لأَنَّهُ خُلِقَ مِنْ أَدِيمِ الأَرْضِ حَدَّثَنِي أَحْمَدُ بْنُ إسحاق الأهوازي، قال:\nحدثنا أبو أحمد، قال:\nحدثنا مسعر، عن أبي حصين، عن سعيد بْنِ جُبَيْرٍ، قَالَ: خُلِقَ آدَمُ مِنْ أَدِيمِ الأَرْضِ فَسُمِّيَ آدَمَ.\nحَدَّثَنِي أَحْمَدُ بْنُ إِسْحَاقَ، قَالَ:\nحَدَّثَنَا أَبُو أَحْمَدَ، قَالَ:",
+      "current_text_sha256": "01e2b972bb00814c9a6f7a45b58433d8b43b90f70591281a442124c68f20ce6b",
+      "event_ids": [
+        "EV-ADAM-001",
+        "EV-ADAM-002",
+        "EV-ADAM-003",
+        "EV-ADAM-004",
+        "EV-ADAM-005",
+        "EV-ADAM-006",
+        "EV-ADAM-007",
+        "EV-ADAM-010",
+        "EV-ADAM-011",
+        "EV-ADAM-020",
+        "EV-ADAM-021",
+        "EV-ADAM-022",
+        "EV-ADAM-023",
+        "EV-ADAM-024",
+        "EV-ADAM-030",
+        "EV-ADAM-031",
+        "EV-ADAM-032",
+        "EV-ADAM-033",
+        "EV-ADAM-040",
+        "EV-ADAM-041",
+        "EV-ADAM-042",
+        "EV-ADAM-050",
+        "EV-ADAM-051",
+        "EV-ADAM-052",
+        "EV-ADAM-053",
+        "EV-ADAM-054",
+        "EV-ADAM-055",
+        "EV-ADAM-070",
+        "EV-ADAM-071",
+        "EV-ADAM-080",
+        "EV-ADAM-081",
+        "EV-ADAM-082",
+        "EV-ADAM-090",
+        "EV-ADAM-091",
+        "EV-ADAM-099"
+      ],
+      "following_context": {
+        "normalized_report_id": "adam_normalized_report_9b78042877912c3b2b173d6a",
+        "text_excerpt": "وَمِنْ ثَمَّ سُمِّيَ آدَمَ، لأَنَّهُ خُلِقَ مِنْ أَدِيمِ الأَرْضِ، وَمِنْ ثَمَّ قَالَ إِبْلِيسُ: «أَأَسْجُدُ لِمَنْ خَلَقْتَ طِيناً» ، أَيْ هَذِهِ الطِّينَةُ أَنَا جِئْتُ بِهَا. حَدَّثَنَا ابْنُ الْمُثَنَّى، قَالَ: حَدَّثَنَا أَبُو دَاوُدَ، قَالَ:"
+      },
+      "normalized_report_id": "adam_normalized_report_9017bfb88715ca5e991a201b",
+      "permissions": {
+        "candidate_only": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_boundaries": true
+      },
+      "previous_context": {
+        "normalized_report_id": "adam_normalized_report_7315921bbef561e35384c537",
+        "text_excerpt": "حَدَّثَنَا عَنْبَسَةُ، عَنْ عَوْفٍ الأَعْرَابِيِّ- عَنْ قَسَامَةَ بْنِ زُهَيْرٍ، عَنْ أَبِي مُوسَى الأَشْعَرِيِّ، قَالَ: [قَالَ رسول الله ص: إِنَّ اللَّهَ خَلَقَ آدَمَ مِنْ قَبْضَةٍ قَبَضَهَا مِنْ جَمِيعِ الأَرْضِ، فَجَاءَ بَنُو آدَمَ عَلَى قَدْرِ الأَرْضِ، جَاءَ مِنْهُمُ الأَحْمَرُ، وَالأَسْوَدُ، وَالأَبْيَضُ، وَبَيْنَ ذَلِكَ وَالسَّهْلُ، وَالْحَزْنُ، وَالْخَبِيثُ، وَالطَّيِّبُ، ثُمَّ بُلَّتْ طِينَتُهُ حَتَّى صَارَتْ طِينًا لازِبًا، ثُمَّ تُرِكَتْ حَتَّى صَارَتْ حَمَأً مَسْنُونًا، ثُمَّ تُرِكَتْ حَتَّى صَارَتْ صَلْصَالا"
+      },
+      "research_question_ids": [
+        "RQ-ADAM-001",
+        "RQ-ADAM-002",
+        "RQ-ADAM-003",
+        "RQ-ADAM-004",
+        "RQ-ADAM-005",
+        "RQ-ADAM-006",
+        "RQ-ADAM-020",
+        "RQ-ADAM-007",
+        "RQ-ADAM-008",
+        "RQ-ADAM-009",
+        "RQ-ADAM-010",
+        "RQ-ADAM-011",
+        "RQ-ADAM-012",
+        "RQ-ADAM-013",
+        "RQ-ADAM-014",
+        "RQ-ADAM-015",
+        "RQ-ADAM-016",
+        "RQ-ADAM-017",
+        "RQ-ADAM-018",
+        "RQ-ADAM-019",
+        "RQ-ADAM-025",
+        "RQ-ADAM-026",
+        "RQ-ADAM-027",
+        "RQ-ADAM-028",
+        "RQ-ADAM-029",
+        "RQ-ADAM-030",
+        "RQ-ADAM-032"
+      ],
+      "task_record_id": "adam_gemini_boundary_task_1195d7abad8a9756531aab14",
+      "warnings": [
+        "MULTIPLE_STRONG_STARTS_REMAIN",
+        "NO_DETERMINISTIC_SPLIT_FOUND",
+        "REQUESTED_RESEGMENTATION_NOT_ACHIEVED"
+      ],
+      "window_id": "fc95dde8755ea5efbb4bad11",
+      "work_source_id": "SRC-HISTORY-TABARI-ADAM"
+    },
+    {
+      "allowed_decisions": [
+        "KEEP_AS_SINGLE",
+        "SPLIT_CURRENT_TEXT",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_FOLLOWING",
+        "DISCARD_AS_MID_REPORT_FRAGMENT",
+        "REQUIRES_HUMAN_REVIEW"
+      ],
+      "book_id": 9783,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/9783/volume/1/page/55?database_sha256=3eac670046fd84fefb8ebfe68a2a2f5f37f7716804a599a61555d3ea8a0162cb&segment_id=53"
+      ],
+      "current_chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "اسباط",
+          "narrator_surface_raw": "أسباط",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA",
+          "transmission_term_raw": "حدثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "السدي",
+          "narrator_surface_raw": "السدي",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "current_kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "current_text": "حدثنا أسباط، عن السدي، في خبر ذكره عن أبي مالك، وعن أبي صالح عن ابن عباس- وعن مرة الهمداني عن عبد الله بن مسعود- وعن ناس من اصحاب النبي ص: «ثُمَّ اسْتَوى إِلَى السَّماءِ وَهِيَ دُخانٌ» ، وكان ذلك الدخان من تنفس الماء حين تنفس وجعلها سماء واحدة، ثم فتقها فجعلها سبع سموات في يومين، في الخميس والجمعة.\nوإنما سمي يوم الجمعة لأنه جمع فيه خلق السموات والأرض «وَأَوْحى فِي كُلِّ سَماءٍ أَمْرَها» قال: خلق في كل سماء خلقها من الملائكة، والخلق الذي فيها من البحار وجبال البرد وما لم يعلم، ثم زين السماء الدنيا بالكواكب، فجعلها زينة وحفظا، تحفظ من الشياطين، فلما فرغ من خلق ما أحب استوى على العرش فذلك حين يقول: «خَلَقَ السَّماواتِ وَالْأَرْضَ فِي سِتَّةِ أَيَّامٍ*» ، ويقول:\n«كانَتا رَتْقاً فَفَتَقْناهُما» .\nحَدَّثَنِي الْمُثَنَّى، حَدَّثَنَا أَبُو صَالِحٍ، قَالَ:",
+      "current_text_sha256": "9a281b08de86f0595d89ce91160a944be1a729cb7d652a75784de0d1013b0c13",
+      "event_ids": [],
+      "following_context": {
+        "normalized_report_id": "adam_normalized_report_3ab137b626f01649a386de17",
+        "text_excerpt": "حَدَّثَنَا أَبُو بَكْرِ بْنُ عَيَّاشٍ، عَنِ أبي سعد البقال، عن عكرمة، عن ابن عباس، عن النبي ص- قَالَ: هَنَّادٌ، وَقَرَأْتُ سَائِرَ الْحَدِيثِ- قَالَ: وَخَلَقَ يَوْمَ الْخَمِيسِ السَّمَاءَ، وَخَلَقَ يَوْمَ الْجُمُعَةِ النُّجُومَ وَالشَّمْسَ وَالْقَمَرَ وَالْمَلائِكَةَ إِلَى ثَلاثِ سَاعَاتٍ بَقِيَتْ مِنْهُ، فَخَلَقَ فِي أَوَّلِ سَاعَةٍ مِنْ هَذِهِ الثَّلاثِ سَاعَاتِ الآجَالَ، مَنْ يَحْيَا وَمَنْ يَمُوتُ، وَفِي الثَّانِيَةِ أَلْقَى الآفَةَ عَلَى كُلِّ شَيْءٍ مِمَّا يَنْتَفِعُ بِهِ النَّاسُ، وَفِي الثَّالِثَةِ آدَمَ وَأَسْكَنَهُ الْجَنَّةَ، وَأَمَرَ إِبْلِيسَ بِالسُّجُودِ، وَأَخْرَجَهُ مِنْهَا فِي آخِرِ سَاعَةٍ. حَدَّثَنِي الْقَاسِمُ بْنُ بِشْرِ بن معروف، والحسين بن علي الصدائي، قالا: حدثنا حجاج، قال ابن جريج:"
+      },
+      "normalized_report_id": "adam_normalized_report_90993e675b9a10bd9068dd11",
+      "permissions": {
+        "candidate_only": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_boundaries": true
+      },
+      "previous_context": null,
+      "research_question_ids": [],
+      "task_record_id": "adam_gemini_boundary_task_04678aa8a9691607f8831af6",
+      "warnings": [
+        "NO_DETERMINISTIC_SPLIT_FOUND",
+        "REQUESTED_RESEGMENTATION_NOT_ACHIEVED"
+      ],
+      "window_id": "4f0d216267deb689f343c163",
+      "work_source_id": "SRC-HISTORY-TABARI-ADAM"
+    },
+    {
+      "allowed_decisions": [
+        "KEEP_AS_SINGLE",
+        "SPLIT_CURRENT_TEXT",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_FOLLOWING",
+        "DISCARD_AS_MID_REPORT_FRAGMENT",
+        "REQUIRES_HUMAN_REVIEW"
+      ],
+      "book_id": 9783,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/9783/volume/1/page/101?database_sha256=3eac670046fd84fefb8ebfe68a2a2f5f37f7716804a599a61555d3ea8a0162cb&segment_id=99"
+      ],
+      "current_chain_nodes_candidate": [],
+      "current_kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "current_text": "«وَنَحْنُ نُسَبِّحُ بِحَمْدِكَ وَنُقَدِّسُ لَكَ قالَ إِنِّي أَعْلَمُ مَا لا تَعْلَمُونَ» ، فَكان في علم الله ﷿ انه سيكون من تلك الخليقة أنبياء ورسل وقوم صالحون وساكنو الجنة.\nقال: وذكر لنا أن ابْنِ عَبَّاسٍ كان يقول: إن الله تعالى لما أخذ في خلق آدم قالت الملائكة: ما الله تعالى بخالق خلقا أكرم عليه منا، ولا أعلم منا، فابتلوا بخلق آدم ع- وكل خلق مبتلى، كما ابتليت السموات والأرض بالطاعة- فقال الله تعالى: «ائْتِيا طَوْعاً أَوْ كَرْهاً قالَتا أَتَيْنا طائِعِينَ» .\nحَدَّثَنَا القاسم، قال:\nحَدَّثَنَا الحسين بن داود، قال:",
+      "current_text_sha256": "8fd0adb27375079644dee4fcfcca9398966e23c0317b053b36ffc9b94b6d4c07",
+      "event_ids": [
+        "EV-ADAM-001",
+        "EV-ADAM-002",
+        "EV-ADAM-003",
+        "EV-ADAM-004",
+        "EV-ADAM-005",
+        "EV-ADAM-006",
+        "EV-ADAM-007",
+        "EV-ADAM-010",
+        "EV-ADAM-011",
+        "EV-ADAM-020",
+        "EV-ADAM-021",
+        "EV-ADAM-022",
+        "EV-ADAM-023",
+        "EV-ADAM-024",
+        "EV-ADAM-030",
+        "EV-ADAM-031",
+        "EV-ADAM-032",
+        "EV-ADAM-033",
+        "EV-ADAM-040",
+        "EV-ADAM-041",
+        "EV-ADAM-042",
+        "EV-ADAM-050",
+        "EV-ADAM-051",
+        "EV-ADAM-052",
+        "EV-ADAM-053",
+        "EV-ADAM-054",
+        "EV-ADAM-055",
+        "EV-ADAM-070",
+        "EV-ADAM-071",
+        "EV-ADAM-080",
+        "EV-ADAM-081",
+        "EV-ADAM-082",
+        "EV-ADAM-090",
+        "EV-ADAM-091",
+        "EV-ADAM-099"
+      ],
+      "following_context": {
+        "normalized_report_id": "adam_normalized_report_b8ea2b1396ea33cdab1209c8",
+        "text_excerpt": "حدثنا عبد الله بن أبي جعفر، عن أبيه، عن الربيع بن أَنَسٍ: «ثُمَّ عَرَضَهُمْ عَلَى الْمَلائِكَةِ فَقالَ أَنْبِئُونِي بِأَسْماءِ هؤُلاءِ إِنْ كُنْتُمْ صادِقِينَ» إِلَى قَوْلِهِ: «إِنَّكَ أَنْتَ الْعَلِيمُ الْحَكِيمُ » ، قَالَ: وَذَلِكَ حِينَ قَالُوا: «أَتَجْعَلُ فِيها مَنْ يُفْسِدُ فِيها وَيَسْفِكُ الدِّماءَ» إِلَى قَوْلِهِ «وَنُقَدِّسُ لَكَ» قَالَ: فَلَمَّا عَرَفُوا أَنَّهُ جَاعِلٌ فِي الأَرْضِ خَلِيفَةً قَالُوا بَيْنَهُمْ: لَنْ يَخْلُقَ اللَّهُ تعالى خَلْقًا إِلا كُنَّا نَحْنُ أَعْلَمُ مِنْهُ وَأَكْرَمُ عَلَيْهِ، فَأَرَادَ اللَّهُ تعالى أَنْ يُخْبِرَهُمْ أَنَّهُ قَدْ فَضَّلَ عَلَيْهِمْ آدَمَ، وَعَلَّمَهُ الأَسْمَاءَ كُلَّهَا، وَقَالَ"
+      },
+      "normalized_report_id": "adam_normalized_report_90ce0ca5b48d343233d79190",
+      "permissions": {
+        "candidate_only": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_boundaries": true
+      },
+      "previous_context": {
+        "normalized_report_id": "adam_normalized_report_0a27666cd32057732166af28",
+        "text_excerpt": "حَدَّثَنِي حجاج، عن جرير بن حازم، ومبارك عن الحسن وأبي بكر عن الحسن وقتادة قالا: قال الله ﷿ للملائكة: «إِنِّي جاعِلٌ فِي الْأَرْضِ خَلِيفَةً» قال لهم: إني فاعل، فعرضوا برأيهم، فعلمهم علما وطوى منهم علما علمه لا يعلمونه، فقالوا بالعلم الذي علمهم: «أَتَجْعَلُ فِيها مَنْ يُفْسِدُ فِيها وَيَسْفِكُ الدِّماءَ» - وقد كانت الملائكة علمت من علم الله تعالى أنه لا ذنب عند الله تعالى أعظم من سفك الدِّمَاءَ- «وَنَحْنُ نُسَبِّحُ بِحَمْدِكَ وَنُقَدِّسُ لَكَ قالَ إِنِّي أَعْلَمُ مَا لا تَعْلَمُونَ» ، فلما أخذ تعالى في خلق آدم ع همست الملائكة فيما بينهم، فقالوا: ليخلق ربنا ﷿ ما شاء أن يخلق، فلن يخلق خلقا إلا كنا أعلم منه، وأكرم عليه منه، فلما خلقه ونفخ فيه من روحه أمرهم أن يسجدوا له لما قالوا، ففضله عليهم، فعلموا أنهم ليسوا بخير منه، فقالوا: إن لم نكن خيرا منه، فنحن أعلم منه، لأنا كنا قبله، وخلقت الأمم قبله،"
+      },
+      "research_question_ids": [
+        "RQ-ADAM-001",
+        "RQ-ADAM-002",
+        "RQ-ADAM-003",
+        "RQ-ADAM-004",
+        "RQ-ADAM-005",
+        "RQ-ADAM-006",
+        "RQ-ADAM-020",
+        "RQ-ADAM-007",
+        "RQ-ADAM-008",
+        "RQ-ADAM-009",
+        "RQ-ADAM-010",
+        "RQ-ADAM-011",
+        "RQ-ADAM-012",
+        "RQ-ADAM-013",
+        "RQ-ADAM-014",
+        "RQ-ADAM-015",
+        "RQ-ADAM-016",
+        "RQ-ADAM-017",
+        "RQ-ADAM-018",
+        "RQ-ADAM-019",
+        "RQ-ADAM-025",
+        "RQ-ADAM-026",
+        "RQ-ADAM-027",
+        "RQ-ADAM-028",
+        "RQ-ADAM-029",
+        "RQ-ADAM-030",
+        "RQ-ADAM-032"
+      ],
+      "task_record_id": "adam_gemini_boundary_task_3107317d36429f69a9c79b22",
+      "warnings": [
+        "MULTIPLE_STRONG_STARTS_REMAIN",
+        "NO_DETERMINISTIC_SPLIT_FOUND",
+        "REQUESTED_RESEGMENTATION_NOT_ACHIEVED"
+      ],
+      "window_id": "fc95dde8755ea5efbb4bad11",
+      "work_source_id": "SRC-HISTORY-TABARI-ADAM"
+    },
+    {
+      "allowed_decisions": [
+        "KEEP_AS_SINGLE",
+        "SPLIT_CURRENT_TEXT",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_FOLLOWING",
+        "DISCARD_AS_MID_REPORT_FRAGMENT",
+        "REQUIRES_HUMAN_REVIEW"
+      ],
+      "book_id": 9783,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/9783/volume/1/page/94?database_sha256=3eac670046fd84fefb8ebfe68a2a2f5f37f7716804a599a61555d3ea8a0162cb&segment_id=92"
+      ],
+      "current_chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "اسباط",
+          "narrator_surface_raw": "أسباط",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA",
+          "transmission_term_raw": "حدثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "السدي- في خبر ذكره- عن ابي مالك وعن ابي صالح",
+          "narrator_surface_raw": "السدي- في خبر ذكره- عن أبي مالك وعن أبي صالح",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابن عباس- وعن مرة الهمداني",
+          "narrator_surface_raw": "ابن عباس- وعن مرة الهمداني",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابن مسعود- وعن ناس من اصحاب النبي ص",
+          "narrator_surface_raw": "ابن مسعود- وعن ناس من اصحاب النبي ص",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 3,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "current_kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "current_text": "حدثنا أسباط، عن السدي- في خبر ذكره- عن أبي مالك وعن أبي صالح، عن ابن عباس- وعن مرة الهمداني، عن ابن مسعود- وعن ناس من اصحاب النبي ص: فَلَمَّا بَلَغَ الْحِينَ الَّذِي أَرَادَ اللَّهُ ﷿ أَنْ يَنْفُخَ فِيهِ الرُّوحَ قَالَ لِلْمَلائِكَةِ: إِذَا نَفَخْتُ فِيهِ مِنْ رُوحِي فَاسْجُدُوا لَهُ، فَلَمَّا نَفَخَ فِيهِ الرُّوحَ فَدَخَلَ الرُّوحُ، فِي رَأْسِهِ عَطَسَ، فَقَالَتِ الْمَلائِكَةُ: قُلِ الْحَمْدُ لِلَّهِ، فَقَالَ: الْحَمْدُ لِلَّهِ، فَقَالَ اللَّهُ ﷿ لَهُ: رَحِمَكَ رَبُّكَ فَلَمَّا دَخَلَ الرُّوحُ فِي عَيْنَيْهِ نَظَرَ إِلَى ثِمَارِ الْجَنَّةِ، فَلَمَّا دَخَلَ فِي جَوْفِهِ اشْتَهَى الطَّعَامَ، فَوَثَبَ قَبْلَ أَنْ تَبْلُغَ الرُّوحُ رِجْلَيْهِ عَجْلانَ إِلَى ثِمَارِ الْجَنَّةِ، فَذَلِكَ حِينَ يَقُولُ: «خُلِقَ الْإِنْسانُ مِنْ عَجَلٍ» ، «فَسَجَدَ الْمَلائِكَةُ كُلُّهُمْ أَجْمَعُونَ إِلَّا إِبْلِيسَ أَبى أَنْ يَكُونَ مَعَ السَّاجِدِينَ» ، «أَبى وَاسْتَكْبَرَ وَكانَ مِنَ الْكافِرِينَ» ، فقال الله له: «ما مَنَعَكَ أَلَّا تَسْجُدَ إِذْ أَمَرْتُكَ» لِمَا خَلَقْتُ بِيَدِي، قَالَ:\nأَنَا خَيْرٌ مِنْهُ، لَمْ أَكُنْ لأَسْجُدَ لِبَشَرٍ خَلَقْتَهُ مِنْ طِينٍ، قَالَ اللَّهُ لَهُ:\n«فَاهْبِطْ مِنْها فَما يَكُونُ لَكَ» - يَعْنِي مَا يَنْبَغِي لَكَ- «أَنْ تَتَكَبَّرَ",
+      "current_text_sha256": "e8f5d214530d1864e96d86b3c3d22698eb0ebd8354f08b869a1f7334f8281ad7",
+      "event_ids": [
+        "EV-ADAM-001",
+        "EV-ADAM-002",
+        "EV-ADAM-003",
+        "EV-ADAM-004",
+        "EV-ADAM-005",
+        "EV-ADAM-006",
+        "EV-ADAM-007",
+        "EV-ADAM-010",
+        "EV-ADAM-011",
+        "EV-ADAM-020",
+        "EV-ADAM-021",
+        "EV-ADAM-022",
+        "EV-ADAM-023",
+        "EV-ADAM-024",
+        "EV-ADAM-030",
+        "EV-ADAM-031",
+        "EV-ADAM-032",
+        "EV-ADAM-033",
+        "EV-ADAM-040",
+        "EV-ADAM-041",
+        "EV-ADAM-042",
+        "EV-ADAM-050",
+        "EV-ADAM-051",
+        "EV-ADAM-052",
+        "EV-ADAM-053",
+        "EV-ADAM-054",
+        "EV-ADAM-055",
+        "EV-ADAM-070",
+        "EV-ADAM-071",
+        "EV-ADAM-080",
+        "EV-ADAM-081",
+        "EV-ADAM-082",
+        "EV-ADAM-090",
+        "EV-ADAM-091",
+        "EV-ADAM-099"
+      ],
+      "following_context": {
+        "normalized_report_id": "adam_normalized_report_6bac5d770ffa73fea7eac16f",
+        "text_excerpt": "فِيها فَاخْرُجْ إِنَّكَ مِنَ الصَّاغِرِينَ» ، وَالصّغَارُ الذُّلُّ. حَدَّثَنَا أَبُو كُرَيْبٍ، قَالَ: حَدَّثَنَا عُثْمَانُ بْنُ سَعِيدٍ، قَالَ:"
+      },
+      "normalized_report_id": "adam_normalized_report_957902bf1ebb6ce51c40f350",
+      "permissions": {
+        "candidate_only": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_boundaries": true
+      },
+      "previous_context": {
+        "normalized_report_id": "adam_normalized_report_329c0e9b5c9f1de2de2a752b",
+        "text_excerpt": "مَضَى لَهُ مِنَ الْمُدَّةِ مَا مَضَى وَهُوَ طِينٌ صَلْصَالٌ كَالْفَخَّارِ، وَأَرَادَ ﷿ أَنْ يَنْفُخَ فِيهِ الرُّوحَ، تَقَدَّمَ إِلَى الْمَلائِكَةِ فَقَالَ لَهُمْ: إِذَا نَفَخْتُ فِيهِ مِنْ رُوحِي فَقَعُوا لَهُ سَاجِدِينَ. فَلَمَّا نَفَخَ فِيهِ الرُّوحَ أَتَتْهُ الرُّوحُ مِنْ قِبَلِ رَأْسِهِ، فِيمَا ذُكِرَ عَنِ السَّلَفِ قَبْلِنَا أَنَّهُمْ قَالُوهُ. ذِكْرُ مَنْ قَالَ ذلك: حدثني موسى بن هارون، قال: حدثنا عمرو بن حماد، قال:"
+      },
+      "research_question_ids": [
+        "RQ-ADAM-001",
+        "RQ-ADAM-002",
+        "RQ-ADAM-003",
+        "RQ-ADAM-004",
+        "RQ-ADAM-005",
+        "RQ-ADAM-006",
+        "RQ-ADAM-020",
+        "RQ-ADAM-007",
+        "RQ-ADAM-008",
+        "RQ-ADAM-009",
+        "RQ-ADAM-010",
+        "RQ-ADAM-011",
+        "RQ-ADAM-012",
+        "RQ-ADAM-013",
+        "RQ-ADAM-014",
+        "RQ-ADAM-015",
+        "RQ-ADAM-016",
+        "RQ-ADAM-017",
+        "RQ-ADAM-018",
+        "RQ-ADAM-019",
+        "RQ-ADAM-025",
+        "RQ-ADAM-026",
+        "RQ-ADAM-027",
+        "RQ-ADAM-028",
+        "RQ-ADAM-029",
+        "RQ-ADAM-030",
+        "RQ-ADAM-032"
+      ],
+      "task_record_id": "adam_gemini_boundary_task_ccf782e629e03c020e72f65e",
+      "warnings": [
+        "NO_DETERMINISTIC_SPLIT_FOUND",
+        "REQUESTED_RESEGMENTATION_NOT_ACHIEVED"
+      ],
+      "window_id": "fc95dde8755ea5efbb4bad11",
+      "work_source_id": "SRC-HISTORY-TABARI-ADAM"
+    },
+    {
+      "allowed_decisions": [
+        "KEEP_AS_SINGLE",
+        "SPLIT_CURRENT_TEXT",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_FOLLOWING",
+        "DISCARD_AS_MID_REPORT_FRAGMENT",
+        "REQUIRES_HUMAN_REVIEW"
+      ],
+      "book_id": 9783,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/9783/volume/1/page/17?database_sha256=3eac670046fd84fefb8ebfe68a2a2f5f37f7716804a599a61555d3ea8a0162cb&segment_id=15"
+      ],
+      "current_chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "زبان",
+          "narrator_surface_raw": "زبان",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA",
+          "transmission_term_raw": "حدثنا"
+        }
+      ],
+      "current_kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "current_text": "حَدَّثَنَا عَبْدُ الصَّمَدِ ابن عبد الوارث، حدثنا زبان، عَنْ عَاصِمٍ، عَنْ أَبِي صَالِحٍ، عَنْ أَبِي هريرة، ان [رسول الله ص قَالَ: الْحُقْبُ ثَمَانُونَ عَامًا، الْيَوْمُ مِنْهَا سُدُسُ الدُّنْيَا] .\nفبين في هذا الخبر أن الدنيا كلها ستة آلاف سنة، وذلك أن اليوم الذي هو من أيام الآخرة إذا كان مقداره ألف سنة من سني الدنيا، وكان اليوم الواحد من ذلك سدس الدنيا، كان معلوما بذلك أن جميعها ستة أيام من أيام الآخرة، وذلك ستة آلاف سنة.\nوقد زعم اليهود أن جميع ما ثبت عندهم- على ما في التوراة مما هو فيها من لدن خلق الله آدم إلى وقت الهجرة، وذلك في التوراة التي هي في ايديهم اليوم- اربعه آلاف سنه وستمائه سنة واثنتان وأربعون سنة، وقد ذكروا تفصيل ذلك بولادة رجل رجل، ونبي نبي، وموته من عهد آدم إلى هجرة نبينا محمد ص",
+      "current_text_sha256": "c9a3ed738b4a515b54b90823d2a3c8f75835d530bd18925b1f38c2d4bf59303a",
+      "event_ids": [],
+      "following_context": {
+        "normalized_report_id": "adam_normalized_report_26de6bced124d089fff58b24",
+        "text_excerpt": "وسأذكر تفصيلهم ذلك إن شاء الله، وتفصيل غيرهم ممن فصله من علماء أهل الكتب وغيرهم من أهل العلم بالسير وأخبار الناس إذا انتهيت إليه إن شاء الله. وأما اليونانية من النصارى فإنها تزعم أن الذي ادعته اليهود من ذلك باطل، وأن الصحيح من القول في قدر مدة أيام الدنيا- من لدن خلق الله آدم إلى وقت هجره نبينا محمد ص على سياق ما عندهم في التوراة التي هي في ايديهم- خمسه آلاف سنه وتسعمائة سنة واثنتان وتسعون سنة وأشهر وذكروا تفصيل ما ادعوه من ذلك بولادة نبي نبي، وملك ملك، ووفاته من عهد آدم إلى وقت هجره رسول الله ص، وزعموا أن اليهود إنما نقصوا ما نقصوا من عدد سني ما بين تاريخهم وتاريخ النصارى دفعا منهم لنبوه عيسى بن مريم ع إذ كانت صفته ووقت مبعثه مثبتة في التوراة وقالوا: لم يأت الوقت الذي وقت لنا في التوراة أن الذي صفته صفة عيسى يكون فيه، وهم ينتظرون- بزعمهم- خروجه ووقته. واحسب أن الذي ينتظرونه ويدعون أن صفته في التوراة مثبتة، هو الدجال الذي وصفه رسول الله ص لأمته، وذكر لهم أن عامة أتباعه اليهود، فإن كان ذلك هو عبد الله بن صياد، فهو من نسل اليهود. وأما المجوس فإنهم يزعمون أن قدر مدة الزمان من لدن ملك جيومرت إلى وقت هجرة نبينا ص ثلاثة آلاف سنة ومائة سنة وتسع وثلاثون سنة، وهم لا يذكرون مع ذلك نسبا يعرف فوق جيومرت، ويزعمون أنه آدم أبو البشر، ص وعلى جميع أنبياء الله ورسله. ثم أهل الأخبار بعد في أمره مختلفون، فمن قائل منهم فيه مثل قول المجوس، ومن قائل منهم إنه تسمى بآدم بعد أن ملك الأقاليم السبعة، وأنه إنما هو جامر بن يافث ابن نوح، كان بنوح ع برا ولخدمته ملازما، وعليه حدبا شفيقا، فدعا الله له ولذريته ن…"
+      },
+      "normalized_report_id": "adam_normalized_report_99a38cb81d0b1031f4272520",
+      "permissions": {
+        "candidate_only": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_boundaries": true
+      },
+      "previous_context": {
+        "normalized_report_id": "adam_normalized_report_71b9aa7555ed3fc002d3fa58",
+        "text_excerpt": "وإذ كان ذلك كذلك، وكان الخبر عن رسول الله ص صحيحا أنه أخبر عن الباقي من ذلك في حياته انه نصف يوم، وذلك خمسمائة عام، إذ كان ذلك نصف يوم من الأيام التي قدر اليوم الواحد منها ألف عام- كان معلوما أن الماضي من الدنيا الى وقت قول النبي ص ما رويناه عن أبي ثعلبة الخشني عنه، كان قدر سته آلاف سنه وخمسمائة سنة، أو نحوا من ذلك وقريبا منه والله أعلم. فهذا الذي قلنا- في قدر مدة أزمان الدنيا، من مبدأ أولها إلى منتهى آخرها- من أثبت ما قيل في ذلك عندنا من القول، للشواهد الدالة التي بيناها على صحة ذلك. وقد روي عن رسول الله ص خبر يدل على صحة قول من قال: إن الدنيا كلها ستة آلاف سنة، لو كان صحيحا سنده لم نعد القول به إلى غيره، وذلك ما حَدَّثَنِي بِهِ مُحَمَّدُ بْنُ سِنَانٍ الْقَزَّازُ، قَالَ:"
+      },
+      "research_question_ids": [],
+      "task_record_id": "adam_gemini_boundary_task_4cdffaaeff62b7f51d4bdcbe",
+      "warnings": [
+        "NO_DETERMINISTIC_SPLIT_FOUND",
+        "REQUESTED_RESEGMENTATION_NOT_ACHIEVED"
+      ],
+      "window_id": "3bea7c95675ac163ed02ead1",
+      "work_source_id": "SRC-HISTORY-TABARI-ADAM"
+    }
+  ],
+  "schema_version": "siraj-adam-gemini-draft-batch-v1",
+  "task_contract_project_path": "sources/secondary/gemini-semantic-analysis-draft/contracts/boundary-resolution-contract-v1.json",
+  "task_name": "boundary-resolution"
+}

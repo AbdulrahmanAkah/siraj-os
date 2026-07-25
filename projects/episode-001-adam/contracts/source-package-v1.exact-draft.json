@@ -1,0 +1,1624 @@
+{
+  "central_question": "ماذا ثبت عن حال الكون قبيل خلق آدم، وكيف خلقه الله وكرمه بالعلم، وأمر الملائكة بالسجود له، ثم خلق زوجه وأسكنهما الجنة؟",
+  "created_at": "2026-07-24T11:28:20.764085Z",
+  "episode_id": "episode-001-adam",
+  "exclusion_policy": {
+    "automatic_hadith_grading": true,
+    "creed_conflicting_reports": true,
+    "dorar_hadith_grading": true,
+    "sectarian_sources": [
+      "TWELVER_SHIA",
+      "RAFIDI",
+      "ISMAILI",
+      "BATINI"
+    ],
+    "unsupported_modern_storytelling": true
+  },
+  "geographical_scope": {
+    "notes": "لا يجزم بتعيين مواقع أرضية أو غيبية لم يثبت تعيينها.",
+    "status": "TO_BE_APPROVED"
+  },
+  "historical_scope": {
+    "chronology_policy": "VERIFIED_CHRONOLOGY_ONLY; EDITORIAL_ORDER_MUST_BE_LABELED",
+    "ends_with": "النهي عن الشجرة قبل وقوع الوسوسة",
+    "required_event_ids": [
+      "EV-ADAM-001",
+      "EV-ADAM-002",
+      "EV-ADAM-003",
+      "EV-ADAM-004",
+      "EV-ADAM-005",
+      "EV-ADAM-006",
+      "EV-ADAM-007",
+      "EV-ADAM-010",
+      "EV-ADAM-011",
+      "EV-ADAM-020",
+      "EV-ADAM-021",
+      "EV-ADAM-022",
+      "EV-ADAM-023",
+      "EV-ADAM-024",
+      "EV-ADAM-030",
+      "EV-ADAM-031",
+      "EV-ADAM-032",
+      "EV-ADAM-033",
+      "EV-ADAM-040",
+      "EV-ADAM-041",
+      "EV-ADAM-042",
+      "EV-ADAM-050",
+      "EV-ADAM-051",
+      "EV-ADAM-052",
+      "EV-ADAM-053",
+      "EV-ADAM-054",
+      "EV-ADAM-055",
+      "EV-ADAM-060",
+      "EV-ADAM-061",
+      "EV-ADAM-070",
+      "EV-ADAM-071",
+      "EV-ADAM-080",
+      "EV-ADAM-081",
+      "EV-ADAM-082",
+      "EV-ADAM-090",
+      "EV-ADAM-091",
+      "EV-ADAM-099"
+    ],
+    "starts_with": "حال الكون والمخلوقات قبل خلق آدم",
+    "status": "PROVISIONAL"
+  },
+  "inclusion_policy": {
+    "authenticated_hadith": "REQUIRED_AFTER_AUTHORIZED_GRADING",
+    "israiliyyat": "LABELED_COMPARATIVE_USE_ONLY",
+    "quran": "REQUIRED",
+    "sunni_history_and_prophetic_histories": "PRINCIPAL_WITH_REPORT_LEVEL_CLASSIFICATION",
+    "sunni_tafsir": "PRINCIPAL_WITH_REPORT_LEVEL_CLASSIFICATION"
+  },
+  "input_fingerprint": "1b9eb71410580aafd63ddd9ecc118ec0581709beb2627dd80ac33e07d0d3b7f7",
+  "language": "ar",
+  "package_status": "DRAFT_EXACT_LOCATORS_ASSETS_PENDING",
+  "religious_sensitivity": {
+    "hadith_grading_authorities": "PENDING_HUMAN_DEFINITION",
+    "israiliyyat_policy": "LABEL_AND_DO_NOT_ASSERT_WHERE_REVELATION_IS_SILENT",
+    "methodology": "SUNNI_SALAFI",
+    "prohibited_visuals": [
+      "DEPICTION_OF_ALLAH",
+      "DEPICTION_OF_PROPHETS",
+      "EMBODIED_DEPICTION_OF_ANGELS",
+      "UNREVIEWED_RECONSTRUCTION_OF_UNSEEN_EVENTS"
+    ],
+    "status": "HUMAN_REVIEW_REQUIRED"
+  },
+  "research_questions": [
+    {
+      "priority": "required",
+      "question": "ما الثابت عن وجود الله قبل الخلق والعرش والماء؟",
+      "question_id": "RQ-ADAM-001",
+      "section": "pre_creation",
+      "verification_status": "pending"
+    },
+    {
+      "priority": "required",
+      "question": "ما الثابت عن القلم وكتابة المقادير؟",
+      "question_id": "RQ-ADAM-002",
+      "section": "pre_creation",
+      "verification_status": "pending"
+    },
+    {
+      "priority": "required",
+      "question": "ما ترتيب المخلوقات الأولى الذي يمكن الجزم به؟",
+      "question_id": "RQ-ADAM-003",
+      "section": "pre_creation",
+      "verification_status": "pending"
+    },
+    {
+      "priority": "required",
+      "question": "ما القدر المناسب ذكره عن خلق السماوات والأرض قبل قصة آدم؟",
+      "question_id": "RQ-ADAM-004",
+      "section": "pre_creation",
+      "verification_status": "pending"
+    },
+    {
+      "priority": "required",
+      "question": "متى خلقت الملائكة والجن بالنسبة إلى آدم؟",
+      "question_id": "RQ-ADAM-005",
+      "section": "angels_and_jinn",
+      "verification_status": "pending"
+    },
+    {
+      "priority": "supporting",
+      "question": "هل ثبت أن الجن سكنوا الأرض وأفسدوا وسفكوا الدماء قبل آدم؟",
+      "question_id": "RQ-ADAM-006",
+      "section": "angels_and_jinn",
+      "verification_status": "deferred"
+    },
+    {
+      "priority": "required",
+      "question": "ما معنى الخليفة في قوله تعالى إني جاعل في الأرض خليفة؟",
+      "question_id": "RQ-ADAM-007",
+      "section": "announcement",
+      "verification_status": "pending"
+    },
+    {
+      "priority": "required",
+      "question": "كيف علمت الملائكة بإمكان الإفساد وسفك الدماء؟",
+      "question_id": "RQ-ADAM-008",
+      "section": "announcement",
+      "verification_status": "pending"
+    },
+    {
+      "priority": "required",
+      "question": "كيف تجمع أوصاف التراب والطين والطين اللازب والحمأ المسنون والصلصال؟",
+      "question_id": "RQ-ADAM-009",
+      "section": "creation",
+      "verification_status": "pending"
+    },
+    {
+      "priority": "required",
+      "question": "هل تمثل أوصاف مادة آدم مراحل زمنية متتابعة أم أحوالًا للمادة؟",
+      "question_id": "RQ-ADAM-010",
+      "section": "creation",
+      "verification_status": "pending"
+    },
+    {
+      "priority": "required",
+      "question": "ما الثابت في أخذ تراب آدم من جميع الأرض؟",
+      "question_id": "RQ-ADAM-011",
+      "section": "creation",
+      "verification_status": "deferred"
+    },
+    {
+      "priority": "required",
+      "question": "ما الثابت في بقاء جسد آدم قبل نفخ الروح ومرور إبليس به؟",
+      "question_id": "RQ-ADAM-012",
+      "section": "creation",
+      "verification_status": "deferred"
+    },
+    {
+      "priority": "required",
+      "question": "ما الثابت في نفخ الروح وأول حركة أو كلام أو عطاس لآدم؟",
+      "question_id": "RQ-ADAM-013",
+      "section": "life",
+      "verification_status": "deferred"
+    },
+    {
+      "priority": "required",
+      "question": "ما الثابت في طول آدم وتعليمه السلام؟",
+      "question_id": "RQ-ADAM-014",
+      "section": "life",
+      "verification_status": "pending"
+    },
+    {
+      "priority": "required",
+      "question": "ما المقصود بالأسماء كلها؟",
+      "question_id": "RQ-ADAM-015",
+      "section": "knowledge",
+      "verification_status": "pending"
+    },
+    {
+      "priority": "required",
+      "question": "ما وجه تكريم آدم بالعلم وعلاقته بالاستخلاف؟",
+      "question_id": "RQ-ADAM-016",
+      "section": "knowledge",
+      "verification_status": "pending"
+    },
+    {
+      "priority": "required",
+      "question": "ما طبيعة السجود لآدم ولماذا لا يعد عبادة له؟",
+      "question_id": "RQ-ADAM-017",
+      "section": "prostration",
+      "verification_status": "pending"
+    },
+    {
+      "priority": "required",
+      "question": "لماذا ذكر إبليس مع الملائكة مع أنه من الجن؟",
+      "question_id": "RQ-ADAM-018",
+      "section": "iblis",
+      "verification_status": "pending"
+    },
+    {
+      "priority": "required",
+      "question": "ما حقيقة اعتراض إبليس والكبر والحسد والقياس الفاسد؟",
+      "question_id": "RQ-ADAM-019",
+      "section": "iblis",
+      "verification_status": "pending"
+    },
+    {
+      "priority": "supporting",
+      "question": "ما الثابت في اسم إبليس ومكانته وأخباره قبل المعصية؟",
+      "question_id": "RQ-ADAM-020",
+      "section": "iblis",
+      "verification_status": "deferred"
+    },
+    {
+      "priority": "required",
+      "question": "ما النصوص المتعلقة بميثاق بني آدم؟",
+      "question_id": "RQ-ADAM-021",
+      "section": "covenant",
+      "verification_status": "deferred"
+    },
+    {
+      "priority": "required",
+      "question": "ما النصوص المتعلقة باستخراج ذرية آدم من ظهره؟",
+      "question_id": "RQ-ADAM-022",
+      "section": "covenant",
+      "verification_status": "deferred"
+    },
+    {
+      "priority": "required",
+      "question": "ما العلاقة بين ميثاق الذر واستخراج الذرية وهل هما واقعة واحدة؟",
+      "question_id": "RQ-ADAM-023",
+      "section": "covenant",
+      "verification_status": "deferred"
+    },
+    {
+      "priority": "required",
+      "question": "ما الموضع الزمني الثابت أو الراجح لميثاق الذر؟",
+      "question_id": "RQ-ADAM-024",
+      "section": "covenant",
+      "verification_status": "deferred"
+    },
+    {
+      "priority": "required",
+      "question": "ما الثابت في خلق زوج آدم من النفس الواحدة ومن ضلع؟",
+      "question_id": "RQ-ADAM-025",
+      "section": "eve",
+      "verification_status": "pending"
+    },
+    {
+      "priority": "required",
+      "question": "ما مصدر اسم حواء وما درجة ثبوته؟",
+      "question_id": "RQ-ADAM-026",
+      "section": "eve",
+      "verification_status": "deferred"
+    },
+    {
+      "priority": "supporting",
+      "question": "هل ثبت الضلع الأيسر أو خلقها أثناء نوم آدم؟",
+      "question_id": "RQ-ADAM-027",
+      "section": "eve",
+      "verification_status": "deferred"
+    },
+    {
+      "priority": "required",
+      "question": "هل الجنة التي سكنها آدم هي جنة الخلد السماوية؟",
+      "question_id": "RQ-ADAM-028",
+      "section": "paradise",
+      "verification_status": "pending"
+    },
+    {
+      "priority": "required",
+      "question": "هل ثبت نوع الشجرة المنهي عنها؟",
+      "question_id": "RQ-ADAM-029",
+      "section": "tree",
+      "verification_status": "pending"
+    },
+    {
+      "priority": "supporting",
+      "question": "ما الروايات التاريخية والإسرائيلية الواردة في تعيين الشجرة؟",
+      "question_id": "RQ-ADAM-030",
+      "section": "tree",
+      "verification_status": "deferred"
+    },
+    {
+      "priority": "required",
+      "question": "ما الترتيب الزمني الثابت بين تعليم السلام وتعليم الأسماء والسجود وخلق الزوج وميثاق الذر؟",
+      "question_id": "RQ-ADAM-031",
+      "section": "chronology",
+      "verification_status": "deferred"
+    },
+    {
+      "priority": "required",
+      "question": "ما أفضل نقطة لإنهاء الحلقة قبل بدء الوسوسة وفق كثافة الأدلة والستوريبورد؟",
+      "question_id": "RQ-ADAM-032",
+      "section": "episode_boundary",
+      "verification_status": "pending"
+    }
+  ],
+  "schema_version": "siraj-episode-source-package-v1",
+  "source_items": [
+    {
+      "access_status": "PLANNED",
+      "allowed_for_extraction": false,
+      "allowed_for_quotation": false,
+      "author": "",
+      "authority_class": "REVELATION_PRIMARY",
+      "checksum": "",
+      "copyright_or_usage_notes": "Local asset acquisition and rights review pending.",
+      "edition": "",
+      "language": "ar",
+      "notes": {
+        "asset_key": "QURAN_HAFS_UTHMANI",
+        "exact_locator": {
+          "ayah_end": 7,
+          "ayah_start": 7,
+          "display": "هود 7",
+          "scheme": "QURAN_SURAH_AYAH",
+          "surah_name_ar": "هود",
+          "surah_number": 11
+        },
+        "final_usage_status": "LOCAL_ASSET_AND_CHECKSUM_REQUIRED",
+        "locator_status": "VERIFIED",
+        "parallel_locators": [],
+        "parent_source_id": "SRC-QURAN-HUD-007",
+        "report_grading_status": "NOT_APPLICABLE",
+        "supports_event_ids": [
+          "EV-ADAM-002"
+        ],
+        "supports_question_ids": [
+          "RQ-ADAM-001",
+          "RQ-ADAM-003"
+        ]
+      },
+      "page/section availability": "LOCATOR_VERIFIED_ASSET_PENDING",
+      "path": "",
+      "primary_or_secondary": "PRIMARY",
+      "publication_date": "",
+      "publisher": "",
+      "source_id": "EXACT-SRC-QURAN-HUD-007",
+      "source_type": "QURAN",
+      "title": "القرآن الكريم"
+    },
+    {
+      "access_status": "PLANNED",
+      "allowed_for_extraction": false,
+      "allowed_for_quotation": false,
+      "author": "",
+      "authority_class": "REVELATION_PRIMARY",
+      "checksum": "",
+      "copyright_or_usage_notes": "Local asset acquisition and rights review pending.",
+      "edition": "",
+      "language": "ar",
+      "notes": {
+        "asset_key": "QURAN_HAFS_UTHMANI",
+        "exact_locator": {
+          "ayah_end": 27,
+          "ayah_start": 26,
+          "display": "الحجر 26-27",
+          "scheme": "QURAN_SURAH_AYAH",
+          "surah_name_ar": "الحجر",
+          "surah_number": 15
+        },
+        "final_usage_status": "LOCAL_ASSET_AND_CHECKSUM_REQUIRED",
+        "locator_status": "VERIFIED",
+        "parallel_locators": [],
+        "parent_source_id": "SRC-QURAN-HIJR-026-027",
+        "report_grading_status": "NOT_APPLICABLE",
+        "supports_event_ids": [
+          "EV-ADAM-006",
+          "EV-ADAM-020",
+          "EV-ADAM-021"
+        ],
+        "supports_question_ids": [
+          "RQ-ADAM-005",
+          "RQ-ADAM-006",
+          "RQ-ADAM-009",
+          "RQ-ADAM-010"
+        ]
+      },
+      "page/section availability": "LOCATOR_VERIFIED_ASSET_PENDING",
+      "path": "",
+      "primary_or_secondary": "PRIMARY",
+      "publication_date": "",
+      "publisher": "",
+      "source_id": "EXACT-SRC-QURAN-HIJR-026-027",
+      "source_type": "QURAN",
+      "title": "القرآن الكريم"
+    },
+    {
+      "access_status": "PLANNED",
+      "allowed_for_extraction": false,
+      "allowed_for_quotation": false,
+      "author": "",
+      "authority_class": "REVELATION_PRIMARY",
+      "checksum": "",
+      "copyright_or_usage_notes": "Local asset acquisition and rights review pending.",
+      "edition": "",
+      "language": "ar",
+      "notes": {
+        "asset_key": "QURAN_HAFS_UTHMANI",
+        "exact_locator": {
+          "ayah_end": 35,
+          "ayah_start": 29,
+          "display": "البقرة 29-35",
+          "scheme": "QURAN_SURAH_AYAH",
+          "surah_name_ar": "البقرة",
+          "surah_number": 2
+        },
+        "final_usage_status": "LOCAL_ASSET_AND_CHECKSUM_REQUIRED",
+        "locator_status": "VERIFIED",
+        "parallel_locators": [],
+        "parent_source_id": "SRC-QURAN-BAQARAH-029-035",
+        "report_grading_status": "NOT_APPLICABLE",
+        "supports_event_ids": [
+          "EV-ADAM-004",
+          "EV-ADAM-010",
+          "EV-ADAM-011",
+          "EV-ADAM-040",
+          "EV-ADAM-041",
+          "EV-ADAM-042",
+          "EV-ADAM-050",
+          "EV-ADAM-051",
+          "EV-ADAM-052",
+          "EV-ADAM-080",
+          "EV-ADAM-090"
+        ],
+        "supports_question_ids": [
+          "RQ-ADAM-004",
+          "RQ-ADAM-007",
+          "RQ-ADAM-008",
+          "RQ-ADAM-015",
+          "RQ-ADAM-016",
+          "RQ-ADAM-017",
+          "RQ-ADAM-018",
+          "RQ-ADAM-019",
+          "RQ-ADAM-028",
+          "RQ-ADAM-029",
+          "RQ-ADAM-030"
+        ]
+      },
+      "page/section availability": "LOCATOR_VERIFIED_ASSET_PENDING",
+      "path": "",
+      "primary_or_secondary": "PRIMARY",
+      "publication_date": "",
+      "publisher": "",
+      "source_id": "EXACT-SRC-QURAN-BAQARAH-029-035",
+      "source_type": "QURAN",
+      "title": "القرآن الكريم"
+    },
+    {
+      "access_status": "PLANNED",
+      "allowed_for_extraction": false,
+      "allowed_for_quotation": false,
+      "author": "",
+      "authority_class": "REVELATION_PRIMARY",
+      "checksum": "",
+      "copyright_or_usage_notes": "Local asset acquisition and rights review pending.",
+      "edition": "",
+      "language": "ar",
+      "notes": {
+        "asset_key": "QURAN_HAFS_UTHMANI",
+        "exact_locator": {
+          "ayah_end": 19,
+          "ayah_start": 11,
+          "display": "الأعراف 11-19",
+          "scheme": "QURAN_SURAH_AYAH",
+          "surah_name_ar": "الأعراف",
+          "surah_number": 7
+        },
+        "final_usage_status": "LOCAL_ASSET_AND_CHECKSUM_REQUIRED",
+        "locator_status": "VERIFIED",
+        "parallel_locators": [],
+        "parent_source_id": "SRC-QURAN-ARAF-011-019",
+        "report_grading_status": "NOT_APPLICABLE",
+        "supports_event_ids": [
+          "EV-ADAM-050",
+          "EV-ADAM-051",
+          "EV-ADAM-052",
+          "EV-ADAM-053",
+          "EV-ADAM-054",
+          "EV-ADAM-055",
+          "EV-ADAM-080",
+          "EV-ADAM-090"
+        ],
+        "supports_question_ids": [
+          "RQ-ADAM-017",
+          "RQ-ADAM-018",
+          "RQ-ADAM-019",
+          "RQ-ADAM-020",
+          "RQ-ADAM-028",
+          "RQ-ADAM-029",
+          "RQ-ADAM-030"
+        ]
+      },
+      "page/section availability": "LOCATOR_VERIFIED_ASSET_PENDING",
+      "path": "",
+      "primary_or_secondary": "PRIMARY",
+      "publication_date": "",
+      "publisher": "",
+      "source_id": "EXACT-SRC-QURAN-ARAF-011-019",
+      "source_type": "QURAN",
+      "title": "القرآن الكريم"
+    },
+    {
+      "access_status": "PLANNED",
+      "allowed_for_extraction": false,
+      "allowed_for_quotation": false,
+      "author": "",
+      "authority_class": "REVELATION_PRIMARY",
+      "checksum": "",
+      "copyright_or_usage_notes": "Local asset acquisition and rights review pending.",
+      "edition": "",
+      "language": "ar",
+      "notes": {
+        "asset_key": "QURAN_HAFS_UTHMANI",
+        "exact_locator": {
+          "ayah_end": 43,
+          "ayah_start": 28,
+          "display": "الحجر 28-43",
+          "scheme": "QURAN_SURAH_AYAH",
+          "surah_name_ar": "الحجر",
+          "surah_number": 15
+        },
+        "final_usage_status": "LOCAL_ASSET_AND_CHECKSUM_REQUIRED",
+        "locator_status": "VERIFIED",
+        "parallel_locators": [],
+        "parent_source_id": "SRC-QURAN-HIJR-028-043",
+        "report_grading_status": "NOT_APPLICABLE",
+        "supports_event_ids": [
+          "EV-ADAM-022",
+          "EV-ADAM-030",
+          "EV-ADAM-050",
+          "EV-ADAM-051",
+          "EV-ADAM-052",
+          "EV-ADAM-053",
+          "EV-ADAM-054",
+          "EV-ADAM-055"
+        ],
+        "supports_question_ids": [
+          "RQ-ADAM-012",
+          "RQ-ADAM-013",
+          "RQ-ADAM-017",
+          "RQ-ADAM-018",
+          "RQ-ADAM-019",
+          "RQ-ADAM-020"
+        ]
+      },
+      "page/section availability": "LOCATOR_VERIFIED_ASSET_PENDING",
+      "path": "",
+      "primary_or_secondary": "PRIMARY",
+      "publication_date": "",
+      "publisher": "",
+      "source_id": "EXACT-SRC-QURAN-HIJR-028-043",
+      "source_type": "QURAN",
+      "title": "القرآن الكريم"
+    },
+    {
+      "access_status": "PLANNED",
+      "allowed_for_extraction": false,
+      "allowed_for_quotation": false,
+      "author": "",
+      "authority_class": "REVELATION_PRIMARY",
+      "checksum": "",
+      "copyright_or_usage_notes": "Local asset acquisition and rights review pending.",
+      "edition": "",
+      "language": "ar",
+      "notes": {
+        "asset_key": "QURAN_HAFS_UTHMANI",
+        "exact_locator": {
+          "ayah_end": 65,
+          "ayah_start": 61,
+          "display": "الإسراء 61-65",
+          "scheme": "QURAN_SURAH_AYAH",
+          "surah_name_ar": "الإسراء",
+          "surah_number": 17
+        },
+        "final_usage_status": "LOCAL_ASSET_AND_CHECKSUM_REQUIRED",
+        "locator_status": "VERIFIED",
+        "parallel_locators": [],
+        "parent_source_id": "SRC-QURAN-ISRA-061-065",
+        "report_grading_status": "NOT_APPLICABLE",
+        "supports_event_ids": [
+          "EV-ADAM-050",
+          "EV-ADAM-052",
+          "EV-ADAM-053",
+          "EV-ADAM-054",
+          "EV-ADAM-055"
+        ],
+        "supports_question_ids": [
+          "RQ-ADAM-017",
+          "RQ-ADAM-018",
+          "RQ-ADAM-019",
+          "RQ-ADAM-020"
+        ]
+      },
+      "page/section availability": "LOCATOR_VERIFIED_ASSET_PENDING",
+      "path": "",
+      "primary_or_secondary": "PRIMARY",
+      "publication_date": "",
+      "publisher": "",
+      "source_id": "EXACT-SRC-QURAN-ISRA-061-065",
+      "source_type": "QURAN",
+      "title": "القرآن الكريم"
+    },
+    {
+      "access_status": "PLANNED",
+      "allowed_for_extraction": false,
+      "allowed_for_quotation": false,
+      "author": "",
+      "authority_class": "REVELATION_PRIMARY",
+      "checksum": "",
+      "copyright_or_usage_notes": "Local asset acquisition and rights review pending.",
+      "edition": "",
+      "language": "ar",
+      "notes": {
+        "asset_key": "QURAN_HAFS_UTHMANI",
+        "exact_locator": {
+          "ayah_end": 50,
+          "ayah_start": 50,
+          "display": "الكهف 50",
+          "scheme": "QURAN_SURAH_AYAH",
+          "surah_name_ar": "الكهف",
+          "surah_number": 18
+        },
+        "final_usage_status": "LOCAL_ASSET_AND_CHECKSUM_REQUIRED",
+        "locator_status": "VERIFIED",
+        "parallel_locators": [],
+        "parent_source_id": "SRC-QURAN-KAHF-050",
+        "report_grading_status": "NOT_APPLICABLE",
+        "supports_event_ids": [
+          "EV-ADAM-007",
+          "EV-ADAM-052"
+        ],
+        "supports_question_ids": [
+          "RQ-ADAM-018",
+          "RQ-ADAM-019",
+          "RQ-ADAM-020"
+        ]
+      },
+      "page/section availability": "LOCATOR_VERIFIED_ASSET_PENDING",
+      "path": "",
+      "primary_or_secondary": "PRIMARY",
+      "publication_date": "",
+      "publisher": "",
+      "source_id": "EXACT-SRC-QURAN-KAHF-050",
+      "source_type": "QURAN",
+      "title": "القرآن الكريم"
+    },
+    {
+      "access_status": "PLANNED",
+      "allowed_for_extraction": false,
+      "allowed_for_quotation": false,
+      "author": "",
+      "authority_class": "REVELATION_PRIMARY",
+      "checksum": "",
+      "copyright_or_usage_notes": "Local asset acquisition and rights review pending.",
+      "edition": "",
+      "language": "ar",
+      "notes": {
+        "asset_key": "QURAN_HAFS_UTHMANI",
+        "exact_locator": {
+          "ayah_end": 120,
+          "ayah_start": 115,
+          "display": "طه 115-120",
+          "scheme": "QURAN_SURAH_AYAH",
+          "surah_name_ar": "طه",
+          "surah_number": 20
+        },
+        "final_usage_status": "LOCAL_ASSET_AND_CHECKSUM_REQUIRED",
+        "locator_status": "VERIFIED",
+        "parallel_locators": [],
+        "parent_source_id": "SRC-QURAN-TAHA-115-120",
+        "report_grading_status": "NOT_APPLICABLE",
+        "supports_event_ids": [
+          "EV-ADAM-050",
+          "EV-ADAM-051",
+          "EV-ADAM-052",
+          "EV-ADAM-080",
+          "EV-ADAM-081",
+          "EV-ADAM-082",
+          "EV-ADAM-090"
+        ],
+        "supports_question_ids": [
+          "RQ-ADAM-017",
+          "RQ-ADAM-018",
+          "RQ-ADAM-019",
+          "RQ-ADAM-028",
+          "RQ-ADAM-029",
+          "RQ-ADAM-030"
+        ]
+      },
+      "page/section availability": "LOCATOR_VERIFIED_ASSET_PENDING",
+      "path": "",
+      "primary_or_secondary": "PRIMARY",
+      "publication_date": "",
+      "publisher": "",
+      "source_id": "EXACT-SRC-QURAN-TAHA-115-120",
+      "source_type": "QURAN",
+      "title": "القرآن الكريم"
+    },
+    {
+      "access_status": "PLANNED",
+      "allowed_for_extraction": false,
+      "allowed_for_quotation": false,
+      "author": "",
+      "authority_class": "REVELATION_PRIMARY",
+      "checksum": "",
+      "copyright_or_usage_notes": "Local asset acquisition and rights review pending.",
+      "edition": "",
+      "language": "ar",
+      "notes": {
+        "asset_key": "QURAN_HAFS_UTHMANI",
+        "exact_locator": {
+          "ayah_end": 85,
+          "ayah_start": 71,
+          "display": "ص 71-85",
+          "scheme": "QURAN_SURAH_AYAH",
+          "surah_name_ar": "ص",
+          "surah_number": 38
+        },
+        "final_usage_status": "LOCAL_ASSET_AND_CHECKSUM_REQUIRED",
+        "locator_status": "VERIFIED",
+        "parallel_locators": [],
+        "parent_source_id": "SRC-QURAN-SAD-071-085",
+        "report_grading_status": "NOT_APPLICABLE",
+        "supports_event_ids": [
+          "EV-ADAM-020",
+          "EV-ADAM-022",
+          "EV-ADAM-030",
+          "EV-ADAM-050",
+          "EV-ADAM-051",
+          "EV-ADAM-052",
+          "EV-ADAM-053",
+          "EV-ADAM-054",
+          "EV-ADAM-055"
+        ],
+        "supports_question_ids": [
+          "RQ-ADAM-009",
+          "RQ-ADAM-010",
+          "RQ-ADAM-012",
+          "RQ-ADAM-013",
+          "RQ-ADAM-017",
+          "RQ-ADAM-018",
+          "RQ-ADAM-019",
+          "RQ-ADAM-020"
+        ]
+      },
+      "page/section availability": "LOCATOR_VERIFIED_ASSET_PENDING",
+      "path": "",
+      "primary_or_secondary": "PRIMARY",
+      "publication_date": "",
+      "publisher": "",
+      "source_id": "EXACT-SRC-QURAN-SAD-071-085",
+      "source_type": "QURAN",
+      "title": "القرآن الكريم"
+    },
+    {
+      "access_status": "PLANNED",
+      "allowed_for_extraction": false,
+      "allowed_for_quotation": false,
+      "author": "",
+      "authority_class": "REVELATION_PRIMARY",
+      "checksum": "",
+      "copyright_or_usage_notes": "Local asset acquisition and rights review pending.",
+      "edition": "",
+      "language": "ar",
+      "notes": {
+        "asset_key": "QURAN_HAFS_UTHMANI",
+        "exact_locator": {
+          "ayah_end": 1,
+          "ayah_start": 1,
+          "display": "النساء 1",
+          "scheme": "QURAN_SURAH_AYAH",
+          "surah_name_ar": "النساء",
+          "surah_number": 4
+        },
+        "final_usage_status": "LOCAL_ASSET_AND_CHECKSUM_REQUIRED",
+        "locator_status": "VERIFIED",
+        "parallel_locators": [],
+        "parent_source_id": "SRC-QURAN-NISA-001",
+        "report_grading_status": "NOT_APPLICABLE",
+        "supports_event_ids": [
+          "EV-ADAM-070"
+        ],
+        "supports_question_ids": [
+          "RQ-ADAM-025",
+          "RQ-ADAM-026",
+          "RQ-ADAM-027",
+          "RQ-ADAM-031"
+        ]
+      },
+      "page/section availability": "LOCATOR_VERIFIED_ASSET_PENDING",
+      "path": "",
+      "primary_or_secondary": "PRIMARY",
+      "publication_date": "",
+      "publisher": "",
+      "source_id": "EXACT-SRC-QURAN-NISA-001",
+      "source_type": "QURAN",
+      "title": "القرآن الكريم"
+    },
+    {
+      "access_status": "PLANNED",
+      "allowed_for_extraction": false,
+      "allowed_for_quotation": false,
+      "author": "",
+      "authority_class": "REVELATION_PRIMARY",
+      "checksum": "",
+      "copyright_or_usage_notes": "Local asset acquisition and rights review pending.",
+      "edition": "",
+      "language": "ar",
+      "notes": {
+        "asset_key": "QURAN_HAFS_UTHMANI",
+        "exact_locator": {
+          "ayah_end": 172,
+          "ayah_start": 172,
+          "display": "الأعراف 172",
+          "scheme": "QURAN_SURAH_AYAH",
+          "surah_name_ar": "الأعراف",
+          "surah_number": 7
+        },
+        "final_usage_status": "LOCAL_ASSET_AND_CHECKSUM_REQUIRED",
+        "locator_status": "VERIFIED",
+        "parallel_locators": [],
+        "parent_source_id": "SRC-QURAN-ARAF-172",
+        "report_grading_status": "NOT_APPLICABLE",
+        "supports_event_ids": [
+          "EV-ADAM-060"
+        ],
+        "supports_question_ids": [
+          "RQ-ADAM-021",
+          "RQ-ADAM-023",
+          "RQ-ADAM-024"
+        ]
+      },
+      "page/section availability": "LOCATOR_VERIFIED_ASSET_PENDING",
+      "path": "",
+      "primary_or_secondary": "PRIMARY",
+      "publication_date": "",
+      "publisher": "",
+      "source_id": "EXACT-SRC-QURAN-ARAF-172",
+      "source_type": "QURAN",
+      "title": "القرآن الكريم"
+    },
+    {
+      "access_status": "PLANNED",
+      "allowed_for_extraction": false,
+      "allowed_for_quotation": false,
+      "author": "",
+      "authority_class": "HADITH_PENDING_AUTHORIZED_GRADING",
+      "checksum": "",
+      "copyright_or_usage_notes": "Local asset acquisition and rights review pending.",
+      "edition": "",
+      "language": "ar",
+      "notes": {
+        "asset_key": "SAHIH_AL_BUKHARI",
+        "exact_locator": {
+          "book_ar": "كتاب بدء الخلق",
+          "canonical_number": "3191",
+          "chapter_ar": "باب ما جاء في قول الله تعالى وهو الذي يبدأ الخلق ثم يعيده",
+          "display": "صحيح البخاري 3191",
+          "scheme": "COLLECTION_CANONICAL_NUMBER"
+        },
+        "final_usage_status": "HUMAN_HADITH_REVIEW_REQUIRED",
+        "locator_status": "VERIFIED",
+        "parallel_locators": [
+          {
+            "canonical_number": "7418",
+            "reference_url": "https://sunnah.com/bukhari:7418",
+            "work_title": "صحيح البخاري"
+          }
+        ],
+        "parent_source_id": "SRC-HADITH-BEGINNING-CREATION-001",
+        "report_grading_status": "PENDING_AUTHORIZED_HADITH_GRADING_POLICY",
+        "supports_event_ids": [
+          "EV-ADAM-001",
+          "EV-ADAM-002",
+          "EV-ADAM-004"
+        ],
+        "supports_question_ids": [
+          "RQ-ADAM-001",
+          "RQ-ADAM-003",
+          "RQ-ADAM-004"
+        ]
+      },
+      "page/section availability": "LOCATOR_VERIFIED_ASSET_PENDING",
+      "path": "",
+      "primary_or_secondary": "PRIMARY",
+      "publication_date": "",
+      "publisher": "",
+      "source_id": "EXACT-HADITH-BUKHARI-3191",
+      "source_type": "HADITH",
+      "title": "صحيح البخاري"
+    },
+    {
+      "access_status": "PLANNED",
+      "allowed_for_extraction": false,
+      "allowed_for_quotation": false,
+      "author": "",
+      "authority_class": "HADITH_PENDING_AUTHORIZED_GRADING",
+      "checksum": "",
+      "copyright_or_usage_notes": "Local asset acquisition and rights review pending.",
+      "edition": "",
+      "language": "ar",
+      "notes": {
+        "asset_key": "SUNAN_ABI_DAWUD",
+        "exact_locator": {
+          "book_ar": "كتاب السنة",
+          "canonical_number": "4700",
+          "chapter_ar": "باب في القدر",
+          "display": "سنن أبي داود 4700",
+          "scheme": "COLLECTION_CANONICAL_NUMBER"
+        },
+        "final_usage_status": "HUMAN_HADITH_REVIEW_REQUIRED",
+        "locator_status": "VERIFIED",
+        "parallel_locators": [
+          {
+            "canonical_number": "2155",
+            "reference_url": "https://sunnah.com/tirmidhi:2155",
+            "work_title": "جامع الترمذي"
+          }
+        ],
+        "parent_source_id": "SRC-HADITH-BEGINNING-CREATION-001",
+        "report_grading_status": "PENDING_AUTHORIZED_HADITH_GRADING_POLICY",
+        "supports_event_ids": [
+          "EV-ADAM-003"
+        ],
+        "supports_question_ids": [
+          "RQ-ADAM-002",
+          "RQ-ADAM-003"
+        ]
+      },
+      "page/section availability": "LOCATOR_VERIFIED_ASSET_PENDING",
+      "path": "",
+      "primary_or_secondary": "PRIMARY",
+      "publication_date": "",
+      "publisher": "",
+      "source_id": "EXACT-HADITH-ABUDAWUD-4700",
+      "source_type": "HADITH",
+      "title": "سنن أبي داود"
+    },
+    {
+      "access_status": "PLANNED",
+      "allowed_for_extraction": false,
+      "allowed_for_quotation": false,
+      "author": "",
+      "authority_class": "HADITH_PENDING_AUTHORIZED_GRADING",
+      "checksum": "",
+      "copyright_or_usage_notes": "Local asset acquisition and rights review pending.",
+      "edition": "",
+      "language": "ar",
+      "notes": {
+        "asset_key": "SAHIH_MUSLIM",
+        "exact_locator": {
+          "book_ar": "كتاب الزهد والرقائق",
+          "canonical_number": "2996",
+          "chapter_ar": "باب في أحاديث متفرقة",
+          "display": "صحيح مسلم 2996",
+          "scheme": "COLLECTION_CANONICAL_NUMBER"
+        },
+        "final_usage_status": "HUMAN_HADITH_REVIEW_REQUIRED",
+        "locator_status": "VERIFIED",
+        "parallel_locators": [],
+        "parent_source_id": "SRC-HADITH-CREATION-MATERIALS-001",
+        "report_grading_status": "PENDING_AUTHORIZED_HADITH_GRADING_POLICY",
+        "supports_event_ids": [
+          "EV-ADAM-005",
+          "EV-ADAM-006",
+          "EV-ADAM-020"
+        ],
+        "supports_question_ids": [
+          "RQ-ADAM-005",
+          "RQ-ADAM-006",
+          "RQ-ADAM-009",
+          "RQ-ADAM-010"
+        ]
+      },
+      "page/section availability": "LOCATOR_VERIFIED_ASSET_PENDING",
+      "path": "",
+      "primary_or_secondary": "PRIMARY",
+      "publication_date": "",
+      "publisher": "",
+      "source_id": "EXACT-HADITH-MUSLIM-2996",
+      "source_type": "HADITH",
+      "title": "صحيح مسلم"
+    },
+    {
+      "access_status": "PLANNED",
+      "allowed_for_extraction": false,
+      "allowed_for_quotation": false,
+      "author": "",
+      "authority_class": "HADITH_PENDING_AUTHORIZED_GRADING",
+      "checksum": "",
+      "copyright_or_usage_notes": "Local asset acquisition and rights review pending.",
+      "edition": "",
+      "language": "ar",
+      "notes": {
+        "asset_key": "SUNAN_ABI_DAWUD",
+        "exact_locator": {
+          "book_ar": "كتاب السنة",
+          "canonical_number": "4693",
+          "chapter_ar": "باب في القدر",
+          "display": "سنن أبي داود 4693",
+          "scheme": "COLLECTION_CANONICAL_NUMBER"
+        },
+        "final_usage_status": "HUMAN_HADITH_REVIEW_REQUIRED",
+        "locator_status": "VERIFIED",
+        "parallel_locators": [],
+        "parent_source_id": "SRC-HADITH-ADAM-EARTH-HANDFUL-001",
+        "report_grading_status": "PENDING_AUTHORIZED_HADITH_GRADING_POLICY",
+        "supports_event_ids": [
+          "EV-ADAM-020",
+          "EV-ADAM-021"
+        ],
+        "supports_question_ids": [
+          "RQ-ADAM-009",
+          "RQ-ADAM-010"
+        ]
+      },
+      "page/section availability": "LOCATOR_VERIFIED_ASSET_PENDING",
+      "path": "",
+      "primary_or_secondary": "PRIMARY",
+      "publication_date": "",
+      "publisher": "",
+      "source_id": "EXACT-HADITH-ABUDAWUD-4693",
+      "source_type": "HADITH",
+      "title": "سنن أبي داود"
+    },
+    {
+      "access_status": "PLANNED",
+      "allowed_for_extraction": false,
+      "allowed_for_quotation": false,
+      "author": "",
+      "authority_class": "HADITH_PENDING_AUTHORIZED_GRADING",
+      "checksum": "",
+      "copyright_or_usage_notes": "Local asset acquisition and rights review pending.",
+      "edition": "",
+      "language": "ar",
+      "notes": {
+        "asset_key": "SAHIH_MUSLIM",
+        "exact_locator": {
+          "book_ar": "كتاب البر والصلة والآداب",
+          "canonical_number": "2611a",
+          "chapter_ar": "باب خلق الإنسان خلقا لا يتمالك",
+          "display": "صحيح مسلم 2611a",
+          "scheme": "COLLECTION_CANONICAL_NUMBER"
+        },
+        "final_usage_status": "HUMAN_HADITH_REVIEW_REQUIRED",
+        "locator_status": "VERIFIED",
+        "parallel_locators": [],
+        "parent_source_id": "SRC-HADITH-IBLIS-HOLLOW-001",
+        "report_grading_status": "PENDING_AUTHORIZED_HADITH_GRADING_POLICY",
+        "supports_event_ids": [
+          "EV-ADAM-023",
+          "EV-ADAM-024"
+        ],
+        "supports_question_ids": [
+          "RQ-ADAM-012"
+        ]
+      },
+      "page/section availability": "LOCATOR_VERIFIED_ASSET_PENDING",
+      "path": "",
+      "primary_or_secondary": "PRIMARY",
+      "publication_date": "",
+      "publisher": "",
+      "source_id": "EXACT-HADITH-MUSLIM-2611A",
+      "source_type": "HADITH",
+      "title": "صحيح مسلم"
+    },
+    {
+      "access_status": "PLANNED",
+      "allowed_for_extraction": false,
+      "allowed_for_quotation": false,
+      "author": "",
+      "authority_class": "HADITH_PENDING_AUTHORIZED_GRADING",
+      "checksum": "",
+      "copyright_or_usage_notes": "Local asset acquisition and rights review pending.",
+      "edition": "",
+      "language": "ar",
+      "notes": {
+        "asset_key": "SAHIH_AL_BUKHARI",
+        "exact_locator": {
+          "book_ar": "كتاب أحاديث الأنبياء",
+          "canonical_number": "3326",
+          "chapter_ar": "باب خلق آدم صلوات الله عليه وذريته",
+          "display": "صحيح البخاري 3326",
+          "scheme": "COLLECTION_CANONICAL_NUMBER"
+        },
+        "final_usage_status": "HUMAN_HADITH_REVIEW_REQUIRED",
+        "locator_status": "VERIFIED",
+        "parallel_locators": [
+          {
+            "canonical_number": "2841",
+            "reference_url": "https://sunnah.com/muslim:2841",
+            "work_title": "صحيح مسلم"
+          },
+          {
+            "canonical_number": "6227",
+            "reference_url": "https://sunnah.com/bukhari:6227",
+            "work_title": "صحيح البخاري"
+          }
+        ],
+        "parent_source_id": "SRC-HADITH-ADAM-HEIGHT-SALAM-001",
+        "report_grading_status": "PENDING_AUTHORIZED_HADITH_GRADING_POLICY",
+        "supports_event_ids": [
+          "EV-ADAM-032",
+          "EV-ADAM-033"
+        ],
+        "supports_question_ids": [
+          "RQ-ADAM-014",
+          "RQ-ADAM-031"
+        ]
+      },
+      "page/section availability": "LOCATOR_VERIFIED_ASSET_PENDING",
+      "path": "",
+      "primary_or_secondary": "PRIMARY",
+      "publication_date": "",
+      "publisher": "",
+      "source_id": "EXACT-HADITH-BUKHARI-3326",
+      "source_type": "HADITH",
+      "title": "صحيح البخاري"
+    },
+    {
+      "access_status": "PLANNED",
+      "allowed_for_extraction": false,
+      "allowed_for_quotation": false,
+      "author": "",
+      "authority_class": "HADITH_PENDING_AUTHORIZED_GRADING",
+      "checksum": "",
+      "copyright_or_usage_notes": "Local asset acquisition and rights review pending.",
+      "edition": "",
+      "language": "ar",
+      "notes": {
+        "asset_key": "JAMI_AL_TIRMIDHI",
+        "exact_locator": {
+          "book_ar": "كتاب تفسير القرآن عن رسول الله صلى الله عليه وسلم",
+          "canonical_number": "3075",
+          "chapter_ar": "باب ومن سورة الأعراف",
+          "display": "جامع الترمذي 3075",
+          "scheme": "COLLECTION_CANONICAL_NUMBER"
+        },
+        "final_usage_status": "HUMAN_HADITH_REVIEW_REQUIRED",
+        "locator_status": "VERIFIED",
+        "parallel_locators": [],
+        "parent_source_id": "SRC-HADITH-COVENANT-PROGENY-001",
+        "report_grading_status": "PENDING_AUTHORIZED_HADITH_GRADING_POLICY",
+        "supports_event_ids": [
+          "EV-ADAM-060",
+          "EV-ADAM-061"
+        ],
+        "supports_question_ids": [
+          "RQ-ADAM-021",
+          "RQ-ADAM-022",
+          "RQ-ADAM-023",
+          "RQ-ADAM-024"
+        ]
+      },
+      "page/section availability": "LOCATOR_VERIFIED_ASSET_PENDING",
+      "path": "",
+      "primary_or_secondary": "PRIMARY",
+      "publication_date": "",
+      "publisher": "",
+      "source_id": "EXACT-HADITH-TIRMIDHI-3075",
+      "source_type": "HADITH",
+      "title": "جامع الترمذي"
+    },
+    {
+      "access_status": "PLANNED",
+      "allowed_for_extraction": false,
+      "allowed_for_quotation": false,
+      "author": "",
+      "authority_class": "HADITH_PENDING_AUTHORIZED_GRADING",
+      "checksum": "",
+      "copyright_or_usage_notes": "Local asset acquisition and rights review pending.",
+      "edition": "",
+      "language": "ar",
+      "notes": {
+        "asset_key": "JAMI_AL_TIRMIDHI",
+        "exact_locator": {
+          "book_ar": "كتاب تفسير القرآن عن رسول الله صلى الله عليه وسلم",
+          "canonical_number": "3076",
+          "chapter_ar": "باب ومن سورة الأعراف",
+          "display": "جامع الترمذي 3076",
+          "scheme": "COLLECTION_CANONICAL_NUMBER"
+        },
+        "final_usage_status": "HUMAN_HADITH_REVIEW_REQUIRED",
+        "locator_status": "VERIFIED",
+        "parallel_locators": [],
+        "parent_source_id": "SRC-HADITH-COVENANT-PROGENY-001",
+        "report_grading_status": "PENDING_AUTHORIZED_HADITH_GRADING_POLICY",
+        "supports_event_ids": [
+          "EV-ADAM-061"
+        ],
+        "supports_question_ids": [
+          "RQ-ADAM-022",
+          "RQ-ADAM-023",
+          "RQ-ADAM-024"
+        ]
+      },
+      "page/section availability": "LOCATOR_VERIFIED_ASSET_PENDING",
+      "path": "",
+      "primary_or_secondary": "PRIMARY",
+      "publication_date": "",
+      "publisher": "",
+      "source_id": "EXACT-HADITH-TIRMIDHI-3076",
+      "source_type": "HADITH",
+      "title": "جامع الترمذي"
+    },
+    {
+      "access_status": "PLANNED",
+      "allowed_for_extraction": false,
+      "allowed_for_quotation": false,
+      "author": "",
+      "authority_class": "HADITH_PENDING_AUTHORIZED_GRADING",
+      "checksum": "",
+      "copyright_or_usage_notes": "Local asset acquisition and rights review pending.",
+      "edition": "",
+      "language": "ar",
+      "notes": {
+        "asset_key": "SAHIH_AL_BUKHARI",
+        "exact_locator": {
+          "book_ar": "كتاب أحاديث الأنبياء",
+          "canonical_number": "3331",
+          "chapter_ar": "باب خلق آدم صلوات الله عليه وذريته",
+          "display": "صحيح البخاري 3331",
+          "scheme": "COLLECTION_CANONICAL_NUMBER"
+        },
+        "final_usage_status": "HUMAN_HADITH_REVIEW_REQUIRED",
+        "locator_status": "VERIFIED",
+        "parallel_locators": [
+          {
+            "canonical_number": "1468a",
+            "reference_url": "https://sunnah.com/muslim:1468a",
+            "work_title": "صحيح مسلم"
+          },
+          {
+            "canonical_number": "1467b",
+            "reference_url": "https://sunnah.com/muslim:1467b",
+            "work_title": "صحيح مسلم"
+          }
+        ],
+        "parent_source_id": "SRC-HADITH-WOMAN-RIB-001",
+        "report_grading_status": "PENDING_AUTHORIZED_HADITH_GRADING_POLICY",
+        "supports_event_ids": [
+          "EV-ADAM-070"
+        ],
+        "supports_question_ids": [
+          "RQ-ADAM-025",
+          "RQ-ADAM-026",
+          "RQ-ADAM-027",
+          "RQ-ADAM-031"
+        ]
+      },
+      "page/section availability": "LOCATOR_VERIFIED_ASSET_PENDING",
+      "path": "",
+      "primary_or_secondary": "PRIMARY",
+      "publication_date": "",
+      "publisher": "",
+      "source_id": "EXACT-HADITH-BUKHARI-3331",
+      "source_type": "HADITH",
+      "title": "صحيح البخاري"
+    },
+    {
+      "access_status": "PLANNED",
+      "allowed_for_extraction": false,
+      "allowed_for_quotation": false,
+      "author": "محمد بن جرير الطبري",
+      "authority_class": "SUNNI_CLASSICAL_TAFSIR",
+      "checksum": "",
+      "copyright_or_usage_notes": "Acquisition and rights review pending.",
+      "edition": "",
+      "language": "ar",
+      "notes": {
+        "canonical_locator": null,
+        "israiliyyat_indicator": "possible",
+        "supports_event_ids": [],
+        "usage_restrictions": [
+          "classify_each_report_individually"
+        ],
+        "verification_status": "pending"
+      },
+      "page/section availability": "PLANNED",
+      "path": "",
+      "primary_or_secondary": "SECONDARY",
+      "publication_date": "",
+      "publisher": "",
+      "source_id": "SRC-TAFSIR-TABARI-ADAM",
+      "source_type": "TAFSIR",
+      "title": "جامع البيان عن تأويل آي القرآن"
+    },
+    {
+      "access_status": "PLANNED",
+      "allowed_for_extraction": false,
+      "allowed_for_quotation": false,
+      "author": "ابن أبي حاتم",
+      "authority_class": "SUNNI_CLASSICAL_TAFSIR",
+      "checksum": "",
+      "copyright_or_usage_notes": "Acquisition and rights review pending.",
+      "edition": "",
+      "language": "ar",
+      "notes": {
+        "canonical_locator": null,
+        "israiliyyat_indicator": "possible",
+        "supports_event_ids": [],
+        "usage_restrictions": [
+          "classify_each_report_individually"
+        ],
+        "verification_status": "pending"
+      },
+      "page/section availability": "PLANNED",
+      "path": "",
+      "primary_or_secondary": "SECONDARY",
+      "publication_date": "",
+      "publisher": "",
+      "source_id": "SRC-TAFSIR-IBN-ABI-HATIM-ADAM",
+      "source_type": "TAFSIR",
+      "title": "تفسير القرآن العظيم"
+    },
+    {
+      "access_status": "PLANNED",
+      "allowed_for_extraction": false,
+      "allowed_for_quotation": false,
+      "author": "الحسين بن مسعود البغوي",
+      "authority_class": "SUNNI_CLASSICAL_TAFSIR",
+      "checksum": "",
+      "copyright_or_usage_notes": "Acquisition and rights review pending.",
+      "edition": "",
+      "language": "ar",
+      "notes": {
+        "canonical_locator": null,
+        "israiliyyat_indicator": "possible",
+        "supports_event_ids": [],
+        "usage_restrictions": [
+          "classify_each_report_individually"
+        ],
+        "verification_status": "pending"
+      },
+      "page/section availability": "PLANNED",
+      "path": "",
+      "primary_or_secondary": "SECONDARY",
+      "publication_date": "",
+      "publisher": "",
+      "source_id": "SRC-TAFSIR-BAGHAWI-ADAM",
+      "source_type": "TAFSIR",
+      "title": "معالم التنزيل"
+    },
+    {
+      "access_status": "PLANNED",
+      "allowed_for_extraction": false,
+      "allowed_for_quotation": false,
+      "author": "إسماعيل بن كثير",
+      "authority_class": "SUNNI_CLASSICAL_TAFSIR",
+      "checksum": "",
+      "copyright_or_usage_notes": "Acquisition and rights review pending.",
+      "edition": "",
+      "language": "ar",
+      "notes": {
+        "canonical_locator": null,
+        "israiliyyat_indicator": "possible",
+        "supports_event_ids": [],
+        "usage_restrictions": [
+          "classify_each_report_individually"
+        ],
+        "verification_status": "pending"
+      },
+      "page/section availability": "PLANNED",
+      "path": "",
+      "primary_or_secondary": "SECONDARY",
+      "publication_date": "",
+      "publisher": "",
+      "source_id": "SRC-TAFSIR-IBN-KATHIR-ADAM",
+      "source_type": "TAFSIR",
+      "title": "تفسير القرآن العظيم"
+    },
+    {
+      "access_status": "PLANNED",
+      "allowed_for_extraction": false,
+      "allowed_for_quotation": false,
+      "author": "عبد الرحمن السعدي",
+      "authority_class": "SUNNI_CLASSICAL_TAFSIR",
+      "checksum": "",
+      "copyright_or_usage_notes": "Acquisition and rights review pending.",
+      "edition": "",
+      "language": "ar",
+      "notes": {
+        "canonical_locator": null,
+        "israiliyyat_indicator": "low",
+        "supports_event_ids": [],
+        "usage_restrictions": [],
+        "verification_status": "pending"
+      },
+      "page/section availability": "PLANNED",
+      "path": "",
+      "primary_or_secondary": "SECONDARY",
+      "publication_date": "",
+      "publisher": "",
+      "source_id": "SRC-TAFSIR-SAADI-ADAM",
+      "source_type": "TAFSIR",
+      "title": "تيسير الكريم الرحمن"
+    },
+    {
+      "access_status": "PLANNED",
+      "allowed_for_extraction": false,
+      "allowed_for_quotation": false,
+      "author": "محمد بن جرير الطبري",
+      "authority_class": "SUNNI_CLASSICAL_HISTORY",
+      "checksum": "",
+      "copyright_or_usage_notes": "Acquisition and rights review pending.",
+      "edition": "",
+      "language": "ar",
+      "notes": {
+        "canonical_locator": null,
+        "israiliyyat_indicator": "possible",
+        "supports_event_ids": [],
+        "usage_restrictions": [
+          "principal_historical_source",
+          "classify_each_report_individually"
+        ],
+        "verification_status": "pending"
+      },
+      "page/section availability": "PLANNED",
+      "path": "",
+      "primary_or_secondary": "SECONDARY",
+      "publication_date": "",
+      "publisher": "",
+      "source_id": "SRC-HISTORY-TABARI-ADAM",
+      "source_type": "HISTORICAL_WORK",
+      "title": "تاريخ الرسل والملوك"
+    },
+    {
+      "access_status": "PLANNED",
+      "allowed_for_extraction": false,
+      "allowed_for_quotation": false,
+      "author": "إسماعيل بن كثير",
+      "authority_class": "SUNNI_CLASSICAL_HISTORY",
+      "checksum": "",
+      "copyright_or_usage_notes": "Acquisition and rights review pending.",
+      "edition": "",
+      "language": "ar",
+      "notes": {
+        "canonical_locator": null,
+        "israiliyyat_indicator": "possible",
+        "supports_event_ids": [],
+        "usage_restrictions": [
+          "principal_historical_source",
+          "classify_each_report_individually"
+        ],
+        "verification_status": "pending"
+      },
+      "page/section availability": "PLANNED",
+      "path": "",
+      "primary_or_secondary": "SECONDARY",
+      "publication_date": "",
+      "publisher": "",
+      "source_id": "SRC-HISTORY-BIDAYAH-ADAM",
+      "source_type": "HISTORICAL_WORK",
+      "title": "البداية والنهاية"
+    },
+    {
+      "access_status": "PLANNED",
+      "allowed_for_extraction": false,
+      "allowed_for_quotation": false,
+      "author": "إسماعيل بن كثير",
+      "authority_class": "SUNNI_PROPHETIC_HISTORY",
+      "checksum": "",
+      "copyright_or_usage_notes": "Acquisition and rights review pending.",
+      "edition": "",
+      "language": "ar",
+      "notes": {
+        "canonical_locator": null,
+        "israiliyyat_indicator": "possible",
+        "supports_event_ids": [],
+        "usage_restrictions": [
+          "principal_historical_source",
+          "classify_each_report_individually"
+        ],
+        "verification_status": "pending"
+      },
+      "page/section availability": "PLANNED",
+      "path": "",
+      "primary_or_secondary": "SECONDARY",
+      "publication_date": "",
+      "publisher": "",
+      "source_id": "SRC-HISTORY-QASAS-IBN-KATHIR-ADAM",
+      "source_type": "PROPHETIC_HISTORY",
+      "title": "قصص الأنبياء"
+    },
+    {
+      "access_status": "PLANNED",
+      "allowed_for_extraction": false,
+      "allowed_for_quotation": false,
+      "author": "ابن الجوزي",
+      "authority_class": "SUNNI_CLASSICAL_HISTORY",
+      "checksum": "",
+      "copyright_or_usage_notes": "Acquisition and rights review pending.",
+      "edition": "",
+      "language": "ar",
+      "notes": {
+        "canonical_locator": null,
+        "israiliyyat_indicator": "possible",
+        "supports_event_ids": [],
+        "usage_restrictions": [
+          "principal_historical_source",
+          "classify_each_report_individually"
+        ],
+        "verification_status": "pending"
+      },
+      "page/section availability": "PLANNED",
+      "path": "",
+      "primary_or_secondary": "SECONDARY",
+      "publication_date": "",
+      "publisher": "",
+      "source_id": "SRC-HISTORY-MUNTAZAM-ADAM",
+      "source_type": "HISTORICAL_WORK",
+      "title": "المنتظم في تاريخ الملوك والأمم"
+    },
+    {
+      "access_status": "PLANNED",
+      "allowed_for_extraction": false,
+      "allowed_for_quotation": false,
+      "author": "ابن الأثير",
+      "authority_class": "SUNNI_CLASSICAL_HISTORY",
+      "checksum": "",
+      "copyright_or_usage_notes": "Acquisition and rights review pending.",
+      "edition": "",
+      "language": "ar",
+      "notes": {
+        "canonical_locator": null,
+        "israiliyyat_indicator": "possible",
+        "supports_event_ids": [],
+        "usage_restrictions": [
+          "principal_historical_source",
+          "classify_each_report_individually"
+        ],
+        "verification_status": "pending"
+      },
+      "page/section availability": "PLANNED",
+      "path": "",
+      "primary_or_secondary": "SECONDARY",
+      "publication_date": "",
+      "publisher": "",
+      "source_id": "SRC-HISTORY-KAMIL-ADAM",
+      "source_type": "HISTORICAL_WORK",
+      "title": "الكامل في التاريخ"
+    },
+    {
+      "access_status": "PLANNED",
+      "allowed_for_extraction": false,
+      "allowed_for_quotation": false,
+      "author": "وهب بن منبه",
+      "authority_class": "COMPARATIVE_RESTRICTED",
+      "checksum": "",
+      "copyright_or_usage_notes": "Acquisition and rights review pending.",
+      "edition": "",
+      "language": "ar",
+      "notes": {
+        "canonical_locator": null,
+        "israiliyyat_indicator": "explicit",
+        "supports_event_ids": [],
+        "usage_restrictions": [
+          "must_be_labeled",
+          "must_not_contradict_sunni_creed",
+          "must_not_be_asserted_without_support"
+        ],
+        "verification_status": "pending"
+      },
+      "page/section availability": "PLANNED",
+      "path": "",
+      "primary_or_secondary": "COMPARATIVE",
+      "publication_date": "",
+      "publisher": "",
+      "source_id": "SRC-ISRAILIYYAT-WAHB-ADAM",
+      "source_type": "ISRAILIYYAT",
+      "title": "مرويات وهب بن منبه في قصة آدم"
+    },
+    {
+      "access_status": "PLANNED",
+      "allowed_for_extraction": false,
+      "allowed_for_quotation": false,
+      "author": "كعب الأحبار",
+      "authority_class": "COMPARATIVE_RESTRICTED",
+      "checksum": "",
+      "copyright_or_usage_notes": "Acquisition and rights review pending.",
+      "edition": "",
+      "language": "ar",
+      "notes": {
+        "canonical_locator": null,
+        "israiliyyat_indicator": "explicit",
+        "supports_event_ids": [],
+        "usage_restrictions": [
+          "must_be_labeled",
+          "must_not_contradict_sunni_creed",
+          "must_not_be_asserted_without_support"
+        ],
+        "verification_status": "pending"
+      },
+      "page/section availability": "PLANNED",
+      "path": "",
+      "primary_or_secondary": "COMPARATIVE",
+      "publication_date": "",
+      "publisher": "",
+      "source_id": "SRC-ISRAILIYYAT-KAAB-ADAM",
+      "source_type": "ISRAILIYYAT",
+      "title": "مرويات كعب الأحبار في قصة آدم"
+    }
+  ],
+  "source_package_id": "adam-01-source-package-exact-draft-v1",
+  "title": "Adam Episode 1 exact-locator source package draft",
+  "updated_at": "2026-07-24T11:28:20.764085Z"
+}

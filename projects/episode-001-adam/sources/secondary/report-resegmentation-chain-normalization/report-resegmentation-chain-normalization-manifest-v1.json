@@ -1,0 +1,121 @@
+{
+  "consumed_source_candidate_count": 732,
+  "created_at": "2026-07-24T23:52:27.127035Z",
+  "episode_id": "episode-001-adam",
+  "exact_duplicate_group_count": 0,
+  "lineage_action_counts": {
+    "MERGED": 8,
+    "MERGED_THEN_RESEGMENTED": 43,
+    "PASSTHROUGH_SINGLE": 257,
+    "RESEGMENTED": 428,
+    "UNRESOLVED_MERGE_TARGET_RESEGMENTED": 2
+  },
+  "merge_component_count": 34,
+  "merge_lineage_count": 34,
+  "next_gate": "BOUNDED_GEMINI_SEMANTIC_ANALYSIS_DRAFT",
+  "next_gate_constraints": {
+    "execution_enabled": false,
+    "gemini_may": [
+      "propose report boundaries for unresolved records",
+      "propose speaker and chain-surface interpretations",
+      "compare text variants and source dependence",
+      "map reports to episode events and research questions"
+    ],
+    "gemini_may_not": [
+      "grade a hadith",
+      "judge a narrator",
+      "approve an isnad",
+      "approve an Israiliyyat classification",
+      "approve evidence or quotation",
+      "write outside the supplied candidate records"
+    ]
+  },
+  "normalized_chain_candidate_count": 448,
+  "normalized_report_count": 738,
+  "outputs": {
+    "exact_duplicate_groups": {
+      "groups": 0,
+      "project_path": "sources/secondary/report-resegmentation-chain-normalization/normalized-exact-duplicate-groups-v1.json",
+      "sha256": "49bcf80cef02433a6d07549e1e9aa09e47d55ec4d96304c1a31957424bc12530"
+    },
+    "merge_lineage": {
+      "project_path": "sources/secondary/report-resegmentation-chain-normalization/merge-lineage-v1.jsonl",
+      "rows": 34,
+      "sha256": "26feccf0e59c0971d5cea2eef8fd6b301008ca3cc613b33f38bcb2741d42eef3"
+    },
+    "normalized_isnad_chain_candidates": {
+      "project_path": "sources/secondary/report-resegmentation-chain-normalization/normalized-isnad-chain-candidates-v1.jsonl",
+      "rows": 448,
+      "sha256": "767937b89bd45688c8d99224d46a81676bac06a97412b971f8e2bfd92495a744"
+    },
+    "normalized_report_register": {
+      "project_path": "sources/secondary/report-resegmentation-chain-normalization/normalized-report-register-v1.jsonl",
+      "rows": 738,
+      "sha256": "4369cc6b23b295565b876f8bced6bf9ebc7ccbdc9cec58f4e5397b6565111878"
+    },
+    "resegmentation_lineage": {
+      "project_path": "sources/secondary/report-resegmentation-chain-normalization/resegmentation-lineage-v1.jsonl",
+      "rows": 411,
+      "sha256": "11d5103ab55a0c92879f11c725456e545d3238292658872aa8c6e0699d39261e"
+    },
+    "review_queue": {
+      "project_path": "sources/secondary/report-resegmentation-chain-normalization/normalized-report-review-queue-v1.csv",
+      "rows": 738,
+      "sha256": "e0c51cbc9e836f9a03492051e45078ae3e0da3c6c79f238702cb11a2174776bb"
+    },
+    "unresolved_boundary_review_queue": {
+      "project_path": "sources/secondary/report-resegmentation-chain-normalization/unresolved-boundary-review-queue-v1.jsonl",
+      "rows": 446,
+      "sha256": "7a4ad14d38b588a6721812dcfe289c73c682cc57f42aba7dec7b9eb789468f65"
+    }
+  },
+  "permissions": {
+    "candidate_only": true,
+    "evidence_approval_changed": false,
+    "final_narrative_approval_changed": false,
+    "gemini_execution_enabled": false,
+    "hadith_grading_changed": false,
+    "israiliyyat_classification_changed": false,
+    "narrator_judgement_changed": false,
+    "quotation_approval_changed": false,
+    "source_approval_changed": false
+  },
+  "report_kind_counts": {
+    "AUTHORIAL_COMMENTARY_CANDIDATE": 23,
+    "EARLY_REPORT_CANDIDATE": 419,
+    "PROPHETIC_HADITH_CANDIDATE": 108,
+    "QURAN_EXEGESIS_CONTEXT_CANDIDATE": 119,
+    "SOURCE_PASSAGE_CONTEXT_CANDIDATE": 69
+  },
+  "resegmentation_lineage_count": 411,
+  "schema_version": "siraj-adam-report-resegmentation-chain-normalization-v1",
+  "source_counts": {
+    "SRC-HISTORY-BIDAYAH-ADAM": 40,
+    "SRC-HISTORY-KAMIL-ADAM": 19,
+    "SRC-HISTORY-MUNTAZAM-ADAM": 46,
+    "SRC-HISTORY-TABARI-ADAM": 95,
+    "SRC-TAFSIR-BAGHAWI-ADAM": 55,
+    "SRC-TAFSIR-IBN-ABI-HATIM-ADAM": 82,
+    "SRC-TAFSIR-IBN-KATHIR-ADAM": 107,
+    "SRC-TAFSIR-SAADI-ADAM": 36,
+    "SRC-TAFSIR-TABARI-ADAM": 258
+  },
+  "source_merge_candidate_count": 37,
+  "source_report_registry": "sources/secondary/report-level-extraction/report-candidate-registry-v1.jsonl",
+  "source_report_registry_sha256": "b9f37c5b56f321b3ff0c58a56f943eefb97a4c178d83365a313af652ab8877aa",
+  "source_resegmentation_candidate_count": 435,
+  "source_retained_candidate_count": 732,
+  "source_review_manifest": "sources/secondary/report-boundary-isnad-review/manifest.json",
+  "source_review_manifest_sha256": "ad7f5056ae29ea6f73b1b771be23ab24b49ebf448a92743ba1487edeaab982df",
+  "source_single_candidate_count": 260,
+  "status": "PASS_NORMALIZED_REPORTS_READY_FOR_BOUNDED_SEMANTIC_REVIEW",
+  "unresolved_boundary_record_count": 446,
+  "warning_counts": {
+    "MERGE_TARGET_NOT_RESOLVED": 2,
+    "MULTIPLE_STRONG_STARTS_REMAIN": 133,
+    "NO_DETERMINISTIC_SPLIT_FOUND": 405,
+    "POSSIBLE_MID_REPORT_FRAGMENT": 6,
+    "REQUESTED_RESEGMENTATION_NOT_ACHIEVED": 397,
+    "VERY_SHORT_REPORT_UNIT": 9
+  }
+}

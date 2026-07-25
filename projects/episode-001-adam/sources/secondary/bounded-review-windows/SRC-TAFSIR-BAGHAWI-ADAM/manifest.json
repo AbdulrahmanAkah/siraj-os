@@ -1,0 +1,41 @@
+{
+  "attribution_profile_counts": {
+    "KAB_AL_AHBAR": 1,
+    "WAHB_IBN_MUNABBIH": 2
+  },
+  "book_character_limit": 240000,
+  "book_id": 41,
+  "book_title": "تفسير البغوي - طيبة",
+  "excluded_after_tabari_boundary": 0,
+  "excluded_by_book_budget": 119,
+  "input_candidate_count": 248,
+  "outputs": {
+    "gemini_input_draft": {
+      "execution_status": "BLOCKED_PENDING_HUMAN_WINDOW_APPROVAL",
+      "project_path": "sources/secondary/bounded-review-windows/SRC-TAFSIR-BAGHAWI-ADAM/gemini-input-draft.jsonl",
+      "rows": 18,
+      "sha256": "43ec076adfb9d12a1d92917a1a43c31205efa2a3f9887b565d05e2b62bdf5d3a"
+    },
+    "review_windows": {
+      "project_path": "sources/secondary/bounded-review-windows/SRC-TAFSIR-BAGHAWI-ADAM/review-windows.jsonl",
+      "rows": 18,
+      "sha256": "22015d41656866cec26b625f39217d0f13af9ab800cb41dedb5fb16f89d2707b"
+    }
+  },
+  "raw_window_count": 137,
+  "review_window_character_count": 239866,
+  "review_window_count": 18,
+  "review_window_limit": 45,
+  "selected_candidate_count": 207,
+  "tabari_continuation_boundary": {
+    "boundary_sequence_num": null,
+    "status": "NOT_APPLICABLE"
+  },
+  "tier_counts": {
+    "A": 13,
+    "B": 25,
+    "C": 17
+  },
+  "window_character_limit": 18000,
+  "work_source_id": "SRC-TAFSIR-BAGHAWI-ADAM"
+}

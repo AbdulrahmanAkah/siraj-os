@@ -1,0 +1,454 @@
+{
+  "attribution_window_count": 23,
+  "book_count": 9,
+  "books": [
+    {
+      "attribution_profile_counts": {
+        "KAB_AL_AHBAR": 3,
+        "WAHB_IBN_MUNABBIH": 2
+      },
+      "book_character_limit": 240000,
+      "book_id": 4445,
+      "book_title": "البداية والنهاية - ت التركي",
+      "excluded_after_tabari_boundary": 0,
+      "excluded_by_book_budget": 110,
+      "input_candidate_count": 435,
+      "manifest_project_path": "sources/secondary/bounded-review-windows/SRC-HISTORY-BIDAYAH-ADAM/manifest.json",
+      "manifest_sha256": "02b37446c12aafc371d891c9024f68e9da0f8cad2f572515e8af50c3eb16e5df",
+      "outputs": {
+        "gemini_input_draft": {
+          "execution_status": "BLOCKED_PENDING_HUMAN_WINDOW_APPROVAL",
+          "project_path": "sources/secondary/bounded-review-windows/SRC-HISTORY-BIDAYAH-ADAM/gemini-input-draft.jsonl",
+          "rows": 21,
+          "sha256": "530686cc694c28826827cc43b44ce76674b028cd3d36013b5d0836c6634fdfc4"
+        },
+        "review_windows": {
+          "project_path": "sources/secondary/bounded-review-windows/SRC-HISTORY-BIDAYAH-ADAM/review-windows.jsonl",
+          "rows": 21,
+          "sha256": "a3bd185eb3bda062af2d0f8d2c613e0d585335a979d4062a798752815abcfc1a"
+        }
+      },
+      "raw_window_count": 131,
+      "review_window_character_count": 238905,
+      "review_window_count": 21,
+      "review_window_limit": 45,
+      "selected_candidate_count": 238,
+      "tabari_continuation_boundary": {
+        "boundary_sequence_num": null,
+        "status": "NOT_APPLICABLE"
+      },
+      "tier_counts": {
+        "A": 38,
+        "B": 31,
+        "C": 33
+      },
+      "window_character_limit": 18000,
+      "work_source_id": "SRC-HISTORY-BIDAYAH-ADAM"
+    },
+    {
+      "attribution_profile_counts": {
+        "WAHB_IBN_MUNABBIH": 1
+      },
+      "book_character_limit": 240000,
+      "book_id": 21712,
+      "book_title": "الكامل في التاريخ - ت تدمري",
+      "excluded_after_tabari_boundary": 0,
+      "excluded_by_book_budget": 3,
+      "input_candidate_count": 72,
+      "manifest_project_path": "sources/secondary/bounded-review-windows/SRC-HISTORY-KAMIL-ADAM/manifest.json",
+      "manifest_sha256": "ba44aafaec9e37dd9212060882e40b635ebe0ad860311af9a13512e45bc9f267",
+      "outputs": {
+        "gemini_input_draft": {
+          "execution_status": "BLOCKED_PENDING_HUMAN_WINDOW_APPROVAL",
+          "project_path": "sources/secondary/bounded-review-windows/SRC-HISTORY-KAMIL-ADAM/gemini-input-draft.jsonl",
+          "rows": 33,
+          "sha256": "1936d5333d98a497f2f65418f6298fc84fee5ffdeb39b48b5c818cb8d5c25178"
+        },
+        "review_windows": {
+          "project_path": "sources/secondary/bounded-review-windows/SRC-HISTORY-KAMIL-ADAM/review-windows.jsonl",
+          "rows": 33,
+          "sha256": "cfa7caac80fd16b5c5c58baf054f35f0510fc1a3229d3aa9c25f3d875ca9f486"
+        }
+      },
+      "raw_window_count": 36,
+      "review_window_character_count": 238712,
+      "review_window_count": 33,
+      "review_window_limit": 45,
+      "selected_candidate_count": 72,
+      "tabari_continuation_boundary": {
+        "boundary_sequence_num": null,
+        "status": "NOT_APPLICABLE"
+      },
+      "tier_counts": {
+        "A": 7,
+        "B": 14,
+        "C": 48
+      },
+      "window_character_limit": 18000,
+      "work_source_id": "SRC-HISTORY-KAMIL-ADAM"
+    },
+    {
+      "attribution_profile_counts": {
+        "KAB_AL_AHBAR": 3,
+        "WAHB_IBN_MUNABBIH": 3
+      },
+      "book_character_limit": 240000,
+      "book_id": 12406,
+      "book_title": "المنتظم في تاريخ الملوك والأمم",
+      "excluded_after_tabari_boundary": 0,
+      "excluded_by_book_budget": 86,
+      "input_candidate_count": 193,
+      "manifest_project_path": "sources/secondary/bounded-review-windows/SRC-HISTORY-MUNTAZAM-ADAM/manifest.json",
+      "manifest_sha256": "86582279908357db8f9fc4bc2da6710bda35800800430d6c459e734aaf969075",
+      "outputs": {
+        "gemini_input_draft": {
+          "execution_status": "BLOCKED_PENDING_HUMAN_WINDOW_APPROVAL",
+          "project_path": "sources/secondary/bounded-review-windows/SRC-HISTORY-MUNTAZAM-ADAM/gemini-input-draft.jsonl",
+          "rows": 23,
+          "sha256": "c11eb0c602056cf8bb3c8edd8d33f804a19f101a1f2f5c2ff57d5f99288aadce"
+        },
+        "review_windows": {
+          "project_path": "sources/secondary/bounded-review-windows/SRC-HISTORY-MUNTAZAM-ADAM/review-windows.jsonl",
+          "rows": 23,
+          "sha256": "919495070bf2bab4c189ae6300e2e9b374ce31cb6f6377b170ed6033a850c291"
+        }
+      },
+      "raw_window_count": 109,
+      "review_window_character_count": 239794,
+      "review_window_count": 23,
+      "review_window_limit": 45,
+      "selected_candidate_count": 186,
+      "tabari_continuation_boundary": {
+        "boundary_sequence_num": null,
+        "status": "NOT_APPLICABLE"
+      },
+      "tier_counts": {
+        "A": 8,
+        "B": 37,
+        "C": 47,
+        "D": 1
+      },
+      "window_character_limit": 18000,
+      "work_source_id": "SRC-HISTORY-MUNTAZAM-ADAM"
+    },
+    {
+      "attribution_profile_counts": {
+        "WAHB_IBN_MUNABBIH": 3
+      },
+      "book_character_limit": 240000,
+      "book_id": 9783,
+      "book_title": "تاريخ الطبري = تاريخ الرسل والملوك، وصلة تاريخ الطبري",
+      "excluded_after_tabari_boundary": 8,
+      "excluded_by_book_budget": 44,
+      "input_candidate_count": 200,
+      "manifest_project_path": "sources/secondary/bounded-review-windows/SRC-HISTORY-TABARI-ADAM/manifest.json",
+      "manifest_sha256": "c1adee463eb0d0ca575d0014f9122674df51710d5098e54a791484ff55aa2cff",
+      "outputs": {
+        "gemini_input_draft": {
+          "execution_status": "BLOCKED_PENDING_HUMAN_WINDOW_APPROVAL",
+          "project_path": "sources/secondary/bounded-review-windows/SRC-HISTORY-TABARI-ADAM/gemini-input-draft.jsonl",
+          "rows": 32,
+          "sha256": "cd18b20f7359b1099a1bd2ddef7b8457a2828c2376d860fa8f7623412d16fab6"
+        },
+        "review_windows": {
+          "project_path": "sources/secondary/bounded-review-windows/SRC-HISTORY-TABARI-ADAM/review-windows.jsonl",
+          "rows": 32,
+          "sha256": "60df5c266a6f4054fb50bea82a87d8e5662519144ffefc1b1e95de09ab2fcca1"
+        }
+      },
+      "raw_window_count": 76,
+      "review_window_character_count": 239296,
+      "review_window_count": 32,
+      "review_window_limit": 45,
+      "selected_candidate_count": 198,
+      "tabari_continuation_boundary": {
+        "boundary_page_id": 5821,
+        "boundary_sequence_num": 5821,
+        "hits": [
+          {
+            "matched_pattern": "صلة تاريخ الطبري",
+            "matched_text": "صلة تاريخ الطبري لعريب بن سعد القرطبي",
+            "page_id": 5821,
+            "sequence_num": 5821,
+            "source": "TOC"
+          },
+          {
+            "matched_pattern": "عريب بن سعد",
+            "matched_text": "صلة تاريخ الطبري لعريب بن سعد القرطبي",
+            "page_id": 5821,
+            "sequence_num": 5821,
+            "source": "TOC"
+          },
+          {
+            "matched_pattern": "صلة تاريخ الطبري",
+            "matched_text": "<span data-type=\"title\" id=toc-1636>الجزء الحادي عشر</span> <span data-type=\"title\" id=toc-1635>[صلة تاريخ الطبري لعريب بن سعد القرطبي]</span> ﷽ ثم دخلت <span data-type=\"title\" id=toc-1637>سنة احدى وتسعين ومائتين</span> (ذكر ما دار في هذه السنه من اخبار بنى العباس) (ذكر اخبار القرامطة وقتل صاحب الشامة) فيها كتب الوزير القاسم بن عبيد الله الى محمد بن سليمان الكاتب- وكان المكتفي قد ولاه حرب القرمطى صاحب الشامة، وصير اليه امر القواد والجيوش- فأمره بمناهضه صاحب الشامة والجد في امره وجمع القواد والرج",
+            "page_id": 5821,
+            "sequence_num": 5821,
+            "source": "PAGE"
+          }
+        ],
+        "matched_pattern": "صلة تاريخ الطبري",
+        "matched_text": "صلة تاريخ الطبري لعريب بن سعد القرطبي",
+        "policy": "Windows starting at or after this candidate boundary are excluded pending human confirmation.",
+        "source": "TOC",
+        "status": "DETECTED_CANDIDATE_BOUNDARY"
+      },
+      "tier_counts": {
+        "A": 22,
+        "B": 36,
+        "C": 85
+      },
+      "window_character_limit": 18000,
+      "work_source_id": "SRC-HISTORY-TABARI-ADAM"
+    },
+    {
+      "attribution_profile_counts": {
+        "KAB_AL_AHBAR": 1,
+        "WAHB_IBN_MUNABBIH": 2
+      },
+      "book_character_limit": 240000,
+      "book_id": 41,
+      "book_title": "تفسير البغوي - طيبة",
+      "excluded_after_tabari_boundary": 0,
+      "excluded_by_book_budget": 119,
+      "input_candidate_count": 248,
+      "manifest_project_path": "sources/secondary/bounded-review-windows/SRC-TAFSIR-BAGHAWI-ADAM/manifest.json",
+      "manifest_sha256": "339cfe623de1dc58fc3b9d7ec3a0a6096bfd75652d876b2b084b6ea510ad45ca",
+      "outputs": {
+        "gemini_input_draft": {
+          "execution_status": "BLOCKED_PENDING_HUMAN_WINDOW_APPROVAL",
+          "project_path": "sources/secondary/bounded-review-windows/SRC-TAFSIR-BAGHAWI-ADAM/gemini-input-draft.jsonl",
+          "rows": 18,
+          "sha256": "43ec076adfb9d12a1d92917a1a43c31205efa2a3f9887b565d05e2b62bdf5d3a"
+        },
+        "review_windows": {
+          "project_path": "sources/secondary/bounded-review-windows/SRC-TAFSIR-BAGHAWI-ADAM/review-windows.jsonl",
+          "rows": 18,
+          "sha256": "22015d41656866cec26b625f39217d0f13af9ab800cb41dedb5fb16f89d2707b"
+        }
+      },
+      "raw_window_count": 137,
+      "review_window_character_count": 239866,
+      "review_window_count": 18,
+      "review_window_limit": 45,
+      "selected_candidate_count": 207,
+      "tabari_continuation_boundary": {
+        "boundary_sequence_num": null,
+        "status": "NOT_APPLICABLE"
+      },
+      "tier_counts": {
+        "A": 13,
+        "B": 25,
+        "C": 17
+      },
+      "window_character_limit": 18000,
+      "work_source_id": "SRC-TAFSIR-BAGHAWI-ADAM"
+    },
+    {
+      "attribution_profile_counts": {
+        "WAHB_IBN_MUNABBIH": 3
+      },
+      "book_character_limit": 240000,
+      "book_id": 8658,
+      "book_title": "تفسير ابن أبي حاتم",
+      "excluded_after_tabari_boundary": 0,
+      "excluded_by_book_budget": 34,
+      "input_candidate_count": 595,
+      "manifest_project_path": "sources/secondary/bounded-review-windows/SRC-TAFSIR-IBN-ABI-HATIM-ADAM/manifest.json",
+      "manifest_sha256": "e8311b9e717808291b633670c0b0cd45cc5a8397be40a91047c14c6c2f800bdf",
+      "outputs": {
+        "gemini_input_draft": {
+          "execution_status": "BLOCKED_PENDING_HUMAN_WINDOW_APPROVAL",
+          "project_path": "sources/secondary/bounded-review-windows/SRC-TAFSIR-IBN-ABI-HATIM-ADAM/gemini-input-draft.jsonl",
+          "rows": 20,
+          "sha256": "24011abea22fc59470b6585037239ace465724e3411c5f2862d75a299acfa15a"
+        },
+        "review_windows": {
+          "project_path": "sources/secondary/bounded-review-windows/SRC-TAFSIR-IBN-ABI-HATIM-ADAM/review-windows.jsonl",
+          "rows": 20,
+          "sha256": "0917537ecc99d6905a6e560eef4931237429c2a5f313a7da383c916a60b35a2d"
+        }
+      },
+      "raw_window_count": 54,
+      "review_window_character_count": 238584,
+      "review_window_count": 20,
+      "review_window_limit": 45,
+      "selected_candidate_count": 214,
+      "tabari_continuation_boundary": {
+        "boundary_sequence_num": null,
+        "status": "NOT_APPLICABLE"
+      },
+      "tier_counts": {
+        "A": 11,
+        "B": 38,
+        "C": 107
+      },
+      "window_character_limit": 18000,
+      "work_source_id": "SRC-TAFSIR-IBN-ABI-HATIM-ADAM"
+    },
+    {
+      "attribution_profile_counts": {
+        "KAB_AL_AHBAR": 2,
+        "WAHB_IBN_MUNABBIH": 1
+      },
+      "book_character_limit": 240000,
+      "book_id": 1503,
+      "book_title": "تفسير ابن كثير - ط ابن الجوزي",
+      "excluded_after_tabari_boundary": 0,
+      "excluded_by_book_budget": 154,
+      "input_candidate_count": 561,
+      "manifest_project_path": "sources/secondary/bounded-review-windows/SRC-TAFSIR-IBN-KATHIR-ADAM/manifest.json",
+      "manifest_sha256": "b114da20beeaf5adcf0356f22acf0dcad4bf47450fc415bfee89d5592105ebee",
+      "outputs": {
+        "gemini_input_draft": {
+          "execution_status": "BLOCKED_PENDING_HUMAN_WINDOW_APPROVAL",
+          "project_path": "sources/secondary/bounded-review-windows/SRC-TAFSIR-IBN-KATHIR-ADAM/gemini-input-draft.jsonl",
+          "rows": 16,
+          "sha256": "d937b72f4f7ced0e2bb0aef11032292671c1acb081069b4dbaed25b7b19226e0"
+        },
+        "review_windows": {
+          "project_path": "sources/secondary/bounded-review-windows/SRC-TAFSIR-IBN-KATHIR-ADAM/review-windows.jsonl",
+          "rows": 16,
+          "sha256": "cf77e52200e868a7fa6e475de214f5cee5795fd3bad870c2a51e69a6ad919432"
+        }
+      },
+      "raw_window_count": 170,
+      "review_window_character_count": 237380,
+      "review_window_count": 16,
+      "review_window_limit": 45,
+      "selected_candidate_count": 272,
+      "tabari_continuation_boundary": {
+        "boundary_sequence_num": null,
+        "status": "NOT_APPLICABLE"
+      },
+      "tier_counts": {
+        "A": 35,
+        "B": 19,
+        "C": 16
+      },
+      "window_character_limit": 18000,
+      "work_source_id": "SRC-TAFSIR-IBN-KATHIR-ADAM"
+    },
+    {
+      "attribution_profile_counts": {},
+      "book_character_limit": 240000,
+      "book_id": 42,
+      "book_title": "تفسير السعدي = تيسير الكريم الرحمن",
+      "excluded_after_tabari_boundary": 0,
+      "excluded_by_book_budget": 26,
+      "input_candidate_count": 77,
+      "manifest_project_path": "sources/secondary/bounded-review-windows/SRC-TAFSIR-SAADI-ADAM/manifest.json",
+      "manifest_sha256": "dd299e004db75079ca179038334adebd5b17684956f5f9197726844b51818fd6",
+      "outputs": {
+        "gemini_input_draft": {
+          "execution_status": "BLOCKED_PENDING_HUMAN_WINDOW_APPROVAL",
+          "project_path": "sources/secondary/bounded-review-windows/SRC-TAFSIR-SAADI-ADAM/gemini-input-draft.jsonl",
+          "rows": 27,
+          "sha256": "aa62a913cdd45d60a824b9947b640569def6340ddd7a9107e33f41bc908aa1b2"
+        },
+        "review_windows": {
+          "project_path": "sources/secondary/bounded-review-windows/SRC-TAFSIR-SAADI-ADAM/review-windows.jsonl",
+          "rows": 27,
+          "sha256": "d5bb3081bfecea3f6784c2ecf83bd433119736108b30fd666b64f7a36346def6"
+        }
+      },
+      "raw_window_count": 53,
+      "review_window_character_count": 239427,
+      "review_window_count": 27,
+      "review_window_limit": 45,
+      "selected_candidate_count": 77,
+      "tabari_continuation_boundary": {
+        "boundary_sequence_num": null,
+        "status": "NOT_APPLICABLE"
+      },
+      "tier_counts": {
+        "A": 14,
+        "B": 17,
+        "C": 13
+      },
+      "window_character_limit": 18000,
+      "work_source_id": "SRC-TAFSIR-SAADI-ADAM"
+    },
+    {
+      "attribution_profile_counts": {
+        "WAHB_IBN_MUNABBIH": 2
+      },
+      "book_character_limit": 240000,
+      "book_id": 7798,
+      "book_title": "تفسير الطبري جامع البيان - ت التركي",
+      "excluded_after_tabari_boundary": 0,
+      "excluded_by_book_budget": 131,
+      "input_candidate_count": 800,
+      "manifest_project_path": "sources/secondary/bounded-review-windows/SRC-TAFSIR-TABARI-ADAM/manifest.json",
+      "manifest_sha256": "24da552ffaead66be3ba5104044a507b7cc1734e80e9210199e4844300de39fe",
+      "outputs": {
+        "gemini_input_draft": {
+          "execution_status": "BLOCKED_PENDING_HUMAN_WINDOW_APPROVAL",
+          "project_path": "sources/secondary/bounded-review-windows/SRC-TAFSIR-TABARI-ADAM/gemini-input-draft.jsonl",
+          "rows": 17,
+          "sha256": "601b2f0862b6ac8c4db2054addf6d967c4d47f215e255747fa9a8f6ba42c022b"
+        },
+        "review_windows": {
+          "project_path": "sources/secondary/bounded-review-windows/SRC-TAFSIR-TABARI-ADAM/review-windows.jsonl",
+          "rows": 17,
+          "sha256": "7959ba27086039d636b94520012879b8649c875d8173c1fdb88ae165e6331cc1"
+        }
+      },
+      "raw_window_count": 148,
+      "review_window_character_count": 239492,
+      "review_window_count": 17,
+      "review_window_limit": 45,
+      "selected_candidate_count": 338,
+      "tabari_continuation_boundary": {
+        "boundary_sequence_num": null,
+        "status": "NOT_APPLICABLE"
+      },
+      "tier_counts": {
+        "A": 44,
+        "B": 64,
+        "C": 11
+      },
+      "window_character_limit": 18000,
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    }
+  ],
+  "configuration": {
+    "c_tier_limit_per_book": 140,
+    "context_pages": 1,
+    "maximum_characters_per_book": 240000,
+    "maximum_characters_per_window": 18000,
+    "maximum_gap": 2,
+    "maximum_windows_per_book": 45
+  },
+  "created_at": "2026-07-24T21:46:37.348959Z",
+  "episode_id": "episode-001-adam",
+  "human_review_queue": {
+    "project_path": "sources/secondary/bounded-review-windows/human-review-queue-v1.csv",
+    "sha256": "5db7a5ae1bde06bcdc4dd9de85fe3012f0116c2dffafe933a69aaf5936ac087a",
+    "status": "PENDING_HUMAN_REVIEW"
+  },
+  "next_gate": "HUMAN_WINDOW_APPROVAL_FOR_GEMINI",
+  "permissions": {
+    "candidate_only": true,
+    "evidence_approval_changed": false,
+    "gemini_execution_enabled": false,
+    "israiliyyat_classification_changed": false,
+    "quotation_approval_changed": false,
+    "report_classification_changed": false,
+    "source_approval_changed": false
+  },
+  "review_window_character_count": 2151456,
+  "review_window_count": 207,
+  "schema_version": "siraj-adam-bounded-review-window-manifest-v1",
+  "source_normalized_manifest": "sources/secondary/normalized-export-manifest-v1.json",
+  "source_normalized_manifest_sha256": "1cf4509817e5c9ce02c58bc4ba8bce0c6b97a5a4474163de07b126da240bdf10",
+  "source_prefilter_manifest": "sources/secondary/topic-prefilter/topic-prefilter-manifest-v1.json",
+  "source_prefilter_manifest_sha256": "5270cf4ac193023d4a169f5f16f6c7e5400e50cce65627f4b2ce0faa99633a0f",
+  "status": "PASS_HUMAN_REVIEW_QUEUE_READY",
+  "tier_counts": {
+    "A": 192,
+    "B": 281,
+    "C": 377,
+    "D": 1
+  }
+}

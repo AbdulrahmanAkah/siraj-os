@@ -1,0 +1,41 @@
+{
+  "attribution_profile_counts": {
+    "KAB_AL_AHBAR": 3,
+    "WAHB_IBN_MUNABBIH": 2
+  },
+  "book_character_limit": 240000,
+  "book_id": 4445,
+  "book_title": "البداية والنهاية - ت التركي",
+  "excluded_after_tabari_boundary": 0,
+  "excluded_by_book_budget": 110,
+  "input_candidate_count": 435,
+  "outputs": {
+    "gemini_input_draft": {
+      "execution_status": "BLOCKED_PENDING_HUMAN_WINDOW_APPROVAL",
+      "project_path": "sources/secondary/bounded-review-windows/SRC-HISTORY-BIDAYAH-ADAM/gemini-input-draft.jsonl",
+      "rows": 21,
+      "sha256": "530686cc694c28826827cc43b44ce76674b028cd3d36013b5d0836c6634fdfc4"
+    },
+    "review_windows": {
+      "project_path": "sources/secondary/bounded-review-windows/SRC-HISTORY-BIDAYAH-ADAM/review-windows.jsonl",
+      "rows": 21,
+      "sha256": "a3bd185eb3bda062af2d0f8d2c613e0d585335a979d4062a798752815abcfc1a"
+    }
+  },
+  "raw_window_count": 131,
+  "review_window_character_count": 238905,
+  "review_window_count": 21,
+  "review_window_limit": 45,
+  "selected_candidate_count": 238,
+  "tabari_continuation_boundary": {
+    "boundary_sequence_num": null,
+    "status": "NOT_APPLICABLE"
+  },
+  "tier_counts": {
+    "A": 38,
+    "B": 31,
+    "C": 33
+  },
+  "window_character_limit": 18000,
+  "work_source_id": "SRC-HISTORY-BIDAYAH-ADAM"
+}

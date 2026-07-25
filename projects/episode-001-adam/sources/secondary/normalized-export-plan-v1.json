@@ -1,0 +1,32 @@
+{
+  "completed_at": "2026-07-24T21:18:46.955912Z",
+  "created_at": "2026-07-24T12:40:36.789936Z",
+  "deferred_work_source_ids": [
+    "SRC-HISTORY-QASAS-IBN-KATHIR-ADAM"
+  ],
+  "episode_id": "episode-001-adam",
+  "gemini_execution_enabled": false,
+  "next_gate": "DETERMINISTIC_TOPIC_PREFILTER",
+  "normalized_book_count": 9,
+  "normalized_export_manifest": "sources/secondary/normalized-export-manifest-v1.json",
+  "prohibitions": [
+    "NO_GEMINI_ACCESS_TO_RAW_SQLITE_DATABASES",
+    "NO_GEMINI_WEB_BROWSING",
+    "NO_QUOTATION_APPROVAL",
+    "NO_SOURCE_ADJUDICATION",
+    "NO_NARRATIVE_USE"
+  ],
+  "required_next_actions": [
+    "Review the SQLite table and column inspection.",
+    "Define deterministic text, title, page, volume and ordering column mappings.",
+    "Export normalized project-local UTF-8 JSONL artifacts.",
+    "Verify row counts, locators and SHA-256 checksums.",
+    "Only then create one bounded Gemini locator-discovery work package per selected work."
+  ],
+  "schema_version": "siraj-secondary-normalized-export-plan-v1",
+  "selected_work_count": 9,
+  "status": "PASS_NORMALIZED_EXPORT_COMPLETE",
+  "storage_contract": "HYBRID_SQLITE_AND_LUCENE",
+  "total_page_records": 63900,
+  "total_toc_records": 45070
+}

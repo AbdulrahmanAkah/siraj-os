@@ -1,0 +1,40 @@
+{
+  "attribution_profile_counts": {
+    "WAHB_IBN_MUNABBIH": 3
+  },
+  "book_character_limit": 240000,
+  "book_id": 8658,
+  "book_title": "تفسير ابن أبي حاتم",
+  "excluded_after_tabari_boundary": 0,
+  "excluded_by_book_budget": 34,
+  "input_candidate_count": 595,
+  "outputs": {
+    "gemini_input_draft": {
+      "execution_status": "BLOCKED_PENDING_HUMAN_WINDOW_APPROVAL",
+      "project_path": "sources/secondary/bounded-review-windows/SRC-TAFSIR-IBN-ABI-HATIM-ADAM/gemini-input-draft.jsonl",
+      "rows": 20,
+      "sha256": "24011abea22fc59470b6585037239ace465724e3411c5f2862d75a299acfa15a"
+    },
+    "review_windows": {
+      "project_path": "sources/secondary/bounded-review-windows/SRC-TAFSIR-IBN-ABI-HATIM-ADAM/review-windows.jsonl",
+      "rows": 20,
+      "sha256": "0917537ecc99d6905a6e560eef4931237429c2a5f313a7da383c916a60b35a2d"
+    }
+  },
+  "raw_window_count": 54,
+  "review_window_character_count": 238584,
+  "review_window_count": 20,
+  "review_window_limit": 45,
+  "selected_candidate_count": 214,
+  "tabari_continuation_boundary": {
+    "boundary_sequence_num": null,
+    "status": "NOT_APPLICABLE"
+  },
+  "tier_counts": {
+    "A": 11,
+    "B": 38,
+    "C": 107
+  },
+  "window_character_limit": 18000,
+  "work_source_id": "SRC-TAFSIR-IBN-ABI-HATIM-ADAM"
+}

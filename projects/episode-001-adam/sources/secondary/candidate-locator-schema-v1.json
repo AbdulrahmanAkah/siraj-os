@@ -1,0 +1,149 @@
+{
+  "$id": "siraj-candidate-locator-package-v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidates": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "attribution": {
+            "type": "string"
+          },
+          "candidate_classification": {
+            "enum": [
+              "QURANIC_INTERPRETATION",
+              "PROPHETIC_REPORT",
+              "COMPANION_OR_SUCCESSOR_REPORT",
+              "HISTORICAL_REPORT",
+              "ISRAILIYYAT_CANDIDATE",
+              "AUTHOR_ANALYSIS",
+              "UNCLASSIFIED"
+            ]
+          },
+          "candidate_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "confidence": {
+            "maximum": 1,
+            "minimum": 0,
+            "type": "number"
+          },
+          "exact_locator": {
+            "pattern": "^shamela://local/",
+            "type": "string"
+          },
+          "heading_context": {
+            "type": "string"
+          },
+          "isnad_present": {
+            "enum": [
+              true,
+              false,
+              "UNCLEAR"
+            ]
+          },
+          "israiliyyat_indicator": {
+            "enum": [
+              "NONE",
+              "POSSIBLE",
+              "EXPLICIT_ATTRIBUTION",
+              "CONTRADICTS_REVELATION_CANDIDATE",
+              "UNCLEAR"
+            ]
+          },
+          "normalized_text": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "source_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "supports_event_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "supports_question_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "verbatim_text": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "verification_status": {
+            "const": "CANDIDATE"
+          }
+        },
+        "required": [
+          "candidate_id",
+          "source_id",
+          "exact_locator",
+          "verbatim_text",
+          "normalized_text",
+          "heading_context",
+          "attribution",
+          "isnad_present",
+          "supports_event_ids",
+          "supports_question_ids",
+          "candidate_classification",
+          "israiliyyat_indicator",
+          "confidence",
+          "verification_status"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "coverage_gaps": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "episode_id": {
+      "const": "episode-001-adam"
+    },
+    "schema_version": {
+      "const": "siraj-candidate-locator-package-v1"
+    },
+    "selected_book_id": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "source_asset_checksum": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "warnings": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "work_source_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "episode_id",
+    "work_source_id",
+    "selected_book_id",
+    "source_asset_checksum",
+    "candidates",
+    "coverage_gaps",
+    "warnings"
+  ],
+  "title": "SIRAJ Candidate Locator Package v1",
+  "type": "object"
+}

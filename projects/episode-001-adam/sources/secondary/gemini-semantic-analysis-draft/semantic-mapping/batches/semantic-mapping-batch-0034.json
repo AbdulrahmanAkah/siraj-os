@@ -1,0 +1,332 @@
+{
+  "batch_id": "semantic-mapping-batch-0034",
+  "episode_id": "episode-001-adam",
+  "execution_enabled": false,
+  "execution_status": "BLOCKED_NOT_AUTHORIZED",
+  "generation_config": {
+    "response_mime_type": "application/json",
+    "temperature": 0
+  },
+  "model_id": null,
+  "provider_id": "GEMINI",
+  "record_count": 6,
+  "records": [
+    {
+      "attribution_profiles": [],
+      "book_id": 42,
+      "book_title": "تفسير السعدي = تيسير الكريم الرحمن",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/42/volume/0/page/534?database_sha256=afaa57ca7290c648083328f67adfa34d73fd1bab16e3e82a72af1e5af6294401&segment_id=1206"
+      ],
+      "chain_nodes_candidate": [],
+      "event_ids": [],
+      "footnote_context": "",
+      "kind_candidate": "QURAN_EXEGESIS_CONTEXT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_5347518b0884b711cba1dedc",
+      "original_text": "﴿ذَلِكَ بِأَنَّ اللَّهَ هُوَ الْحَقُّ وَأَنَّهُ يُحْيِي الْمَوْتَى وَأَنَّهُ عَلَى كُلِّ شَيْءٍ قَدِيرٌ * وَأَنَّ السَّاعَةَ آتِيَةٌ لا رَيْبَ فِيهَا وَأَنَّ اللَّهَ يَبْعَثُ مَنْ فِي الْقُبُورِ﴾ .\n﴿ذَلِكَ﴾ الذي أنشأ الآدمي من ما وصف لكم، وأحيا الأرض بعد موتها، ﴿بِأَنَّ اللَّهَ هُوَ الْحَقُّ﴾ أي: الرب المعبود، الذي لا تنبغي العبادة إلا له، وعبادته هي الحق، وعبادة غيره باطلة، ﴿وَأَنَّهُ يُحْيِي الْمَوْتَى﴾ كما ابتدأ الخلق، وكما أحيا الأرض بعد موتها، ﴿وَأَنَّهُ عَلَى كُلِّ شَيْءٍ قَدِيرٌ﴾ كما أشهدكم من بديع قدرته وعظيم صنعته ما أشهدكم.\n﴿وَأَنَّ السَّاعَةَ آتِيَةٌ لا رَيْبَ فِيهَا﴾ فلا وجه لاستبعادها، ﴿وَأَنَّ اللَّهَ يَبْعَثُ مَنْ فِي الْقُبُورِ﴾ فيجازيكم بأعمالكم حسنها وسيئها.",
+      "original_text_sha256": "a3b6daa0ea8e98301c4a917ed35e38f6928056730a257d6f08f8c701fefcc9e4",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [],
+      "task_record_id": "adam_gemini_semantic_task_79ae25e5069801f4be9f4270",
+      "terminal_speaker_surface_candidate": null,
+      "window_id": "35159cc0f8459350839b971d",
+      "work_source_id": "SRC-TAFSIR-SAADI-ADAM"
+    },
+    {
+      "attribution_profiles": [],
+      "book_id": 42,
+      "book_title": "تفسير السعدي = تيسير الكريم الرحمن",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/42/volume/0/page/639?database_sha256=afaa57ca7290c648083328f67adfa34d73fd1bab16e3e82a72af1e5af6294401&segment_id=1439"
+      ],
+      "chain_nodes_candidate": [],
+      "event_ids": [],
+      "footnote_context": "(١) زيادة بخط المؤلف من هامش أ.\n(٢) زيادة من ب.",
+      "kind_candidate": "QURAN_EXEGESIS_CONTEXT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_6629250a511125ea81e77983",
+      "original_text": "﴿٢٠\n- ٢١﴾ ﴿وَمِنْ آيَاتِهِ أَنْ خَلَقَكُمْ مِنْ تُرَابٍ ثُمَّ إِذَا أَنْتُمْ بَشَرٌ تَنْتَشِرُونَ * وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً إِنَّ فِي ذَلِكَ لآيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ﴾ .\nهذا شروع في تعداد آياته الدالة على انفراده بالإلهية وكمال عظمته، ونفوذ مشيئته وقوة اقتداره وجميل صنعه وسعة رحمته وإحسانه فقال: ﴿وَمِنْ آيَاتِهِ أَنْ خَلَقَكُمْ مِنْ تُرَابٍ﴾ وذلك بخلق أصل النسل آدم ﵇ ﴿ثُمَّ إِذَا أَنْتُمْ بَشَرٌ تَنْتَشِرُونَ﴾ [أي: الذي خلقكم من أصل واحد ومادة واحدة] (١) وبثكم في أقطار الأرض [وأرجائها ففي ذلك آيات على أن الذي أنشأكم من هذا الأصل وبثكم في أقطار الأرض] (٢) هو الرب المعبود الملك المحمود والرحيم الودود الذي سيعيدكم بالبعث بعد الموت.\n﴿وَمِنْ آيَاتِهِ﴾ الدالة على رحمته وعنايته بعباده وحكمته العظيمة وعلمه المحيط، ﴿أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا﴾ تناسبكم وتناسبونهن وتشاكلكم وتشاكلونهن ﴿لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً﴾ بما رتب على الزواج من الأسباب الجالبة للمودة والرحمة.\nفحصل بالزوجة الاستمتاع واللذة والمنفعة بوجود الأولاد وتربيتهم، والسكون إليها، فلا تجد بين أحد في الغالب مثل ما بين الزوجين من المودة والرحمة، ﴿إِنَّ فِي ذَلِكَ لآيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ﴾ يُعملون أفكارهم ويتدبرون آيات الله وينتقلون من شيء إلى شيء.",
+      "original_text_sha256": "be35a02f9c7b68e343a5342c9b744bf4c0bb730dd19d2fff1c806d34f591e2aa",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [],
+      "task_record_id": "adam_gemini_semantic_task_f5dbf5449635a9781764a4f3",
+      "terminal_speaker_surface_candidate": null,
+      "window_id": "022de346bb33032359d9f521",
+      "work_source_id": "SRC-TAFSIR-SAADI-ADAM"
+    },
+    {
+      "attribution_profiles": [],
+      "book_id": 42,
+      "book_title": "تفسير السعدي = تيسير الكريم الرحمن",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/42/volume/0/page/479?database_sha256=afaa57ca7290c648083328f67adfa34d73fd1bab16e3e82a72af1e5af6294401&segment_id=1073"
+      ],
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "عداوة ابليس لادم وذريته",
+          "narrator_surface_raw": "عداوة إبليس لآدم وذريته",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "تعالي",
+          "narrator_surface_raw": "تعالى",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "QALA",
+          "transmission_term_raw": "قال"
+        }
+      ],
+      "event_ids": [],
+      "footnote_context": "",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_8ea5541a942d5bbd8c4613ee",
+      "original_text": "﴿٥٠﴾\n﴿وَإِذْ قُلْنَا لِلْمَلائِكَةِ اسْجُدُوا لآدَمَ فَسَجَدُوا إِلا إِبْلِيسَ كَانَ مِنَ الْجِنِّ فَفَسَقَ عَنْ أَمْرِ رَبِّهِ أَفَتَتَّخِذُونَهُ وَذُرِّيَّتَهُ أَوْلِيَاءَ مِنْ دُونِي وَهُمْ لَكُمْ عَدُوٌّ بِئْسَ لِلظَّالِمِينَ بَدَلا﴾ .\nيخبر تعالى، عن عداوة إبليس لآدم وذريته، وأن الله أمر الملائكة بالسجود لآدم، إكراما وتعظيما، وامتثالا لأمر الله، فامتثلوا ذلك ﴿إِلا إِبْلِيسَ كَانَ مِنَ الْجِنِّ فَفَسَقَ عَنْ أَمْرِ رَبِّهِ﴾ وقال: ﴿أَأَسْجُدُ لِمَنْ خَلَقْتَ طِينًا﴾ وقال: ﴿أَنَا خَيْرٌ مِنْهُ﴾ فتبين بهذا عداوته لله ولأبيكم ولكم، فكيف تتخذونه وذريته أي: الشياطين ﴿أَوْلِيَاءَ مِنْ دُونِي وَهُمْ لَكُمْ عَدُوٌّ بِئْسَ لِلظَّالِمِينَ بَدَلا﴾ أي: بئس ما اختاروا لأنفسهم من ولاية الشيطان، الذي لا يأمرهم إلا بالفحشاء والمنكر عن ولاية الرحمن، الذي كل السعادة والفلاح والسرور في ولايته. وفي هذه الآية، الحث على اتخاذ الشيطان عدوا، والإغراء بذلك، وذكر السبب الموجب لذلك، وأنه لا يفعل ذلك إلا ظالم، وأي: ظلم أعظم من ظلم من اتخذ عدوه الحقيقي وليا، وترك الولي الحميد؟ \".\n⦗٤٨٠⦘\nقال تعالى: ﴿اللَّهُ وَلِيُّ الَّذِينَ آمَنُوا يُخْرِجُهُمْ مِنَ الظُّلُمَاتِ إِلَى النُّورِ وَالَّذِينَ كَفَرُوا أَوْلِيَاؤُهُمُ الطَّاغُوتُ يُخْرِجُونَهُمْ مِنَ النُّورِ إِلَى الظُّلُمَاتِ﴾ وقال تعالى: ﴿إِنَّهُمُ اتَّخَذُوا الشَّيَاطِينَ أَوْلِيَاءَ مِنْ دُونِ اللَّهِ﴾",
+      "original_text_sha256": "04290fb66c425486caf5ff65839707a40f6be9c5a48ef1afecba971dbd6fcf22",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [],
+      "task_record_id": "adam_gemini_semantic_task_7cf9e351ac797856d5fea036",
+      "terminal_speaker_surface_candidate": "تعالى",
+      "window_id": "26d34b7d8916c2b06131d714",
+      "work_source_id": "SRC-TAFSIR-SAADI-ADAM"
+    },
+    {
+      "attribution_profiles": [],
+      "book_id": 42,
+      "book_title": "تفسير السعدي = تيسير الكريم الرحمن",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/42/volume/0/page/548?database_sha256=afaa57ca7290c648083328f67adfa34d73fd1bab16e3e82a72af1e5af6294401&segment_id=1241"
+      ],
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "الله في هذه الايات اطوار الادمي وتنقلاته",
+          "narrator_surface_raw": "الله في هذه الآيات أطوار الآدمي وتنقلاته",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "DHUKIRA",
+          "transmission_term_raw": "ذكر"
+        }
+      ],
+      "event_ids": [],
+      "footnote_context": "",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_907f0c8a32a07f25c9be2807",
+      "original_text": "﴿١٢\n- ١٦﴾ ﴿وَلَقَدْ خَلَقْنَا الإنْسَانَ مِنْ سُلالَةٍ مِنْ طِينٍ * ثُمَّ جَعَلْنَاهُ نُطْفَةً فِي قَرَارٍ مَكِينٍ * ثُمَّ خَلَقْنَا النُّطْفَةَ عَلَقَةً فَخَلَقْنَا الْعَلَقَةَ مُضْغَةً فَخَلَقْنَا الْمُضْغَةَ عِظَامًا فَكَسَوْنَا الْعِظَامَ لَحْمًا ثُمَّ أَنْشَأْنَاهُ خَلْقًا آخَرَ فَتَبَارَكَ اللَّهُ أَحْسَنُ الْخَالِقِينَ * ثُمَّ إِنَّكُمْ بَعْدَ ذَلِكَ لَمَيِّتُونَ * ثُمَّ إِنَّكُمْ يَوْمَ الْقِيَامَةِ تُبْعَثُونَ﴾ .\nذكر الله في هذه الآيات أطوار الآدمي وتنقلاته، من ابتداء خلقه إلى آخر ما يصير إليه، فذكر ابتداء خلق أبي النوع البشري آدم ﵇، وأنه ﴿مِنْ سُلالَةٍ مِنْ طِينٍ﴾ أي: قد سلت، وأخذت من جميع الأرض، ولذلك جاء بنوه على قدر الأرض، منهم الطيب والخبيث، وبين ذلك، والسهل والحزن، وبين ذلك.\n﴿ثُمَّ جَعَلْنَاهُ﴾ أي: جنس الآدميين ﴿نُطْفَةً﴾ تخرج من بين الصلب والترائب، فتستقر ﴿فِي قَرَارٍ مَكِينٍ﴾ وهو الرحم، محفوظة من الفساد والريح وغير ذلك.\n﴿ثُمَّ خَلَقْنَا النُّطْفَةَ﴾ التي قد استقرت قبل ﴿عَلَقَةً﴾ أي: دما أحمر، ⦗٥٤٩⦘ بعد مضي أربعين يوما من النطفة، ﴿فخَلَقْنَا الْعَلَقَةَ﴾ بعد أربعين يوما ﴿مُضْغَةً﴾ أي: قطعة لحم صغيرة، بقدر ما يمضغ من صغرها.\n﴿فَخَلَقْنَا الْمُضْغَةَ﴾ اللينة ﴿عِظَامًا﴾ صلبة، قد تخللت اللحم، بحسب حاجة البدن إليها، ﴿فَكَسَوْنَا الْعِظَامَ لَحْمًا﴾ أي: جعلنا اللحم، كسوة للعظام، كما جعلنا العظام، عمادا للحم، وذلك في الأربعين الثالثة، ﴿ثُمَّ أَنْشَأْنَاهُ خَلْقًا آخَرَ﴾ نفخ فيه الروح، فانتقل من كونه جمادا، إلى أن صار حيوانا، ﴿فَتَبَارَكَ اللَّهُ﴾ أي: تعالى وتعاظم وكثر خيره ﴿أَحْسَنُ الْخَالِقِينَ﴾ ﴿الذي أحسن كل شيء خلقه وبدأ خلق الإنسان من طين ثم جعل نسله من سلالة من ماء مهين ثم سواه ونفخ فيه من روحه وجعل لكم السمع والأبصار والأفئدة قليلا ما تشكرون﴾ فخلقه كله حسن، والإنسان من أحسن مخلوقاته، بل هو أحسنها على الإطلاق، كما قال تعالى: ﴿لَقَدْ خَلَقْنَا الإنْسَانَ فِي أَحْسَنِ تَقْوِيمٍ﴾ ولهذا كان خواصه أفضل المخلوقات وأكملها.\n﴿ثُمَّ إِنَّكُمْ بَعْدَ ذَلِكَ﴾ الخلق، ونفخ الروح ﴿لَمَيِّتُونَ﴾ في أحد أطواركم وتنقلاتكم ﴿ثُمَّ إِنَّكُمْ يَوْمَ الْقِيَامَةِ تُبْعَثُونَ﴾ فتجازون بأعمالكم، حسنها وسيئها. قال تعالى: ﴿أَيَحْسَبُ الإنْسَانُ أَنْ يُتْرَكَ سُدًى * أَلَمْ يَكُ نُطْفَةً مِنْ مَنِيٍّ يُمْنَى * ثُمَّ كَانَ عَلَقَةً فَخَلَقَ فَسَوَّى * فَجَعَلَ مِنْهُ الزَّوْجَيْنِ الذَّكَرَ وَالأنْثَى * أَلَيْسَ ذَلِكَ بِقَادِرٍ عَلَى أَنْ يُحْيِيَ الْمَوْتَى﴾",
+      "original_text_sha256": "c7e46e07a01c163ec046cb64b7866c71ea88a5bdf5a36dad4b9a05e1a881dd06",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [],
+      "task_record_id": "adam_gemini_semantic_task_e44e5cf90419caee233a9b53",
+      "terminal_speaker_surface_candidate": "الله في هذه الآيات أطوار الآدمي وتنقلاته",
+      "window_id": "9c62f266f8d57301885902a2",
+      "work_source_id": "SRC-TAFSIR-SAADI-ADAM"
+    },
+    {
+      "attribution_profiles": [],
+      "book_id": 42,
+      "book_title": "تفسير السعدي = تيسير الكريم الرحمن",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/42/volume/0/page/533?database_sha256=afaa57ca7290c648083328f67adfa34d73fd1bab16e3e82a72af1e5af6294401&segment_id=1204"
+      ],
+      "chain_nodes_candidate": [],
+      "event_ids": [],
+      "footnote_context": "",
+      "kind_candidate": "QURAN_EXEGESIS_CONTEXT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_9c0b925782c5fde06b905633",
+      "original_text": "﴿٣\n- ٤﴾ ﴿وَمِنَ النَّاسِ مَنْ يُجَادِلُ فِي اللَّهِ بِغَيْرِ عِلْمٍ وَيَتَّبِعُ كُلَّ شَيْطَانٍ مَرِيدٍ * كُتِبَ عَلَيْهِ أَنَّهُ مَنْ تَوَلاهُ فَأَنَّهُ يُضِلُّهُ وَيَهْدِيهِ إِلَى عَذَابِ السَّعِيرِ﴾ .\nأي: ومن الناس طائفة وفرقة، سلكوا طريق الضلال، وجعلوا يجادلون بالباطل الحق، يريدون إحقاق الباطل وإبطال الحق، والحال أنهم في غاية الجهل ما عندهم من العلم شيء، وغاية ما عندهم، تقليد أئمة الضلال، من كل شيطان مريد، متمرد على الله وعلى رسله، معاند لهم، قد شاق الله ورسوله، وصار من الأئمة الذين يدعون إلى النار.\n﴿كُتِبَ عَلَيْهِ﴾ أي: قدر على هذا الشيطان المريد ﴿أَنَّهُ مَنْ تَوَلاهُ﴾ أي: اتبعه ﴿فَأَنَّهُ يُضِلُّهُ﴾ عن الحق، ويجنبه الصراط المستقيم ﴿وَيَهْدِيهِ إِلَى عَذَابِ السَّعِيرِ﴾ وهذا نائب إبليس حقا، فإن الله قال عنه ﴿إِنَّمَا يَدْعُو حِزْبَهُ لِيَكُونُوا مِنْ أَصْحَابِ السَّعِيرِ﴾ فهذا الذي يجادل في الله، قد جمع بين ضلاله بنفسه، وتصديه إلى إضلال الناس، وهو متبع، ومقلد لكل شيطان مريد، ظلمات بعضها فوق بعض، ويدخل في هذا، جمهور أهل الكفر والبدع، فإن أكثرهم مقلدة، يجادلون بغير علم.",
+      "original_text_sha256": "03fba60117005c588c2267fa77be7cd4fa132764dc53770af3dff3227a4b5f14",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [],
+      "task_record_id": "adam_gemini_semantic_task_8d0de4133d8ab26fca4a6b91",
+      "terminal_speaker_surface_candidate": null,
+      "window_id": "35159cc0f8459350839b971d",
+      "work_source_id": "SRC-TAFSIR-SAADI-ADAM"
+    },
+    {
+      "attribution_profiles": [],
+      "book_id": 42,
+      "book_title": "تفسير السعدي = تيسير الكريم الرحمن",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/42/volume/0/page/829?database_sha256=afaa57ca7290c648083328f67adfa34d73fd1bab16e3e82a72af1e5af6294401&segment_id=1888"
+      ],
+      "chain_nodes_candidate": [],
+      "event_ids": [],
+      "footnote_context": "(١) في ب: وهو الطين المشوي.\n(٢) في ب: لعنه الله.\n(٣) كذا في ب، وفي أ: مادة الثقلين.\n(٤) في ب: عليهم.",
+      "kind_candidate": "QURAN_EXEGESIS_CONTEXT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_a73525bb09dca2e084fa0ab9",
+      "original_text": "﴿١٤\n-١٦﴾ ﴿خَلَقَ الإنْسَانَ مِنْ صَلْصَالٍ كَالْفَخَّارِ * وَخَلَقَ الْجَانَّ مِنْ مَارِجٍ مِنْ نَارٍ * فَبِأَيِّ آلاءِ رَبِّكُمَا تُكَذِّبَانِ﴾\nوهذا من نعمه تعالى على عباده، حيث أراهم [من] آثار قدرته وبديع صنعته، أن ﴿خَلَقَ﴾ أبا الإنس وهو آدم ﵇ ﴿مِنْ صَلْصَالٍ كَالْفَخَّارِ﴾ أي: من طين مبلول، قد أحكم بله وأتقن، حتى جف، فصار له صلصلة وصوت يشبه صوت الفخار الذي طبخ على النار (١) .\n﴿وَخَلَقَ الْجَانَّ﴾ أي: أبا الجن، وهو إبليس اللعين (٢) ﴿مِنْ مَارِجٍ مِنْ نَارٍ﴾ أي: من لهب النار الصافي، أو الذي قد خالطه الدخان، وهذا يدل على شرف عنصر الآدمي المخلوق من الطين والتراب، الذي هو محل الرزانة والثقل والمنافع، بخلاف عنصر الجان وهو النار، التي هي محل الخفة والطيش والشر والفساد.\nولما بين خلق الثقلين ومادة ذلك (٣) وكان ذلك منة منه [تعالى]⦗٨٣٠⦘ على عباده (٤) قال: ﴿فَبِأَيِّ آلاءِ رَبِّكُمَا تُكَذِّبَانِ﴾",
+      "original_text_sha256": "70324a93af67761aae5bfb619bd9e77f597a0ec2814d7cd12cafb71754cdf745",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [],
+      "task_record_id": "adam_gemini_semantic_task_3a7b9f74dc10e650241452c0",
+      "terminal_speaker_surface_candidate": null,
+      "window_id": "33b911d86e1972364e5b6db8",
+      "work_source_id": "SRC-TAFSIR-SAADI-ADAM"
+    }
+  ],
+  "schema_version": "siraj-adam-gemini-draft-batch-v1",
+  "task_contract_project_path": "sources/secondary/gemini-semantic-analysis-draft/contracts/semantic-mapping-contract-v1.json",
+  "task_name": "semantic-mapping"
+}

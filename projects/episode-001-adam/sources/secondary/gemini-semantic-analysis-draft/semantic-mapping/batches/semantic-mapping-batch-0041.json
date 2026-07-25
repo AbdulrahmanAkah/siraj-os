@@ -1,0 +1,456 @@
+{
+  "batch_id": "semantic-mapping-batch-0041",
+  "episode_id": "episode-001-adam",
+  "execution_enabled": false,
+  "execution_status": "BLOCKED_NOT_AUTHORIZED",
+  "generation_config": {
+    "response_mime_type": "application/json",
+    "temperature": 0
+  },
+  "model_id": null,
+  "provider_id": "GEMINI",
+  "record_count": 6,
+  "records": [
+    {
+      "attribution_profiles": [],
+      "book_id": 7798,
+      "book_title": "تفسير الطبري جامع البيان - ت التركي",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/20/page/144?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=13542"
+      ],
+      "chain_nodes_candidate": [],
+      "event_ids": [],
+      "footnote_context": "(¬١) سقط من: ص، ت ١.\n(¬٢) في ص، ت ١: \"كبرا\"، وفي ت ٢، ت ٣: \"كفرا\".",
+      "kind_candidate": "QURAN_EXEGESIS_CONTEXT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_448534a8ff90c8af68c96703",
+      "original_text": "طِينٍ (٧١) فَإِذَا سَوَّيْتُهُ وَنَفَخْتُ فِيهِ مِنْ رُوحِي فَقَعُوا لَهُ سَاجِدِينَ (٧٢) فَسَجَدَ الْمَلَائِكَةُ كُلُّهُمْ أَجْمَعُونَ (٧٣) إِلَّا إِبْلِيسَ اسْتَكْبَرَ وَكَانَ مِنَ الْكَافِرِينَ (٧٤)﴾.\nوقولُه: ﴿إِذْ قَالَ رَبُّكَ﴾. مِن صلةِ قولِه: ﴿إِذْ يَخْتَصِمُونَ﴾. وتأويلُ الكلامِ: ما كان لي مِن علمٍ بالملأَ الأعلى إذ يختصِمون حينَ قال ربُّك يا محمدُ للملائكةِ: ﴿إِنِّي خَالِقٌ بَشَرًا مِنْ طِينٍ﴾. يعنى بذلك خَلْقَ آدَمَ.\n\nوقولُه: ﴿فَإِذَا سَوَّيْتُهُ وَنَفَخْتُ فِيهِ مِنْ رُوحِي﴾. يقولُ تعالى ذكرُه: فإذا سوَّيتُ خَلْقَه، وعدَّلْتُ صورتَه، ﴿وَنَفَخْتُ فِيهِ مِنْ رُوحِي﴾. قيل: عُنِى بذلك: ونَفَخْتُ فيه مِن قُدْرتي.",
+      "original_text_sha256": "061ebba599a9725783b75f861c1369c7c656df7eeda50e16997546bb95e57aa0",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [],
+      "task_record_id": "adam_gemini_semantic_task_1d0861194326815197dbc773",
+      "terminal_speaker_surface_candidate": null,
+      "window_id": "69606a01829c587de9b3a1ae",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "attribution_profiles": [],
+      "book_id": 7798,
+      "book_title": "تفسير الطبري جامع البيان - ت التركي",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/18/page/479?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=12577"
+      ],
+      "chain_nodes_candidate": [],
+      "event_ids": [],
+      "footnote_context": "(¬١) تقدم في ص ٤٠٧.\n(¬٢) بعده في ص، ت ١، ت ٢: \"وبالنهار\".\n(¬٣) في م: \"ذكرى\".",
+      "kind_candidate": "QURAN_EXEGESIS_CONTEXT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_45ffe1a06ef1ec2738fe57f4",
+      "original_text": "شاءَه.\n\nالقول في تأويل قوله تعالى: ﴿وَمِنْ آيَاتِهِ خَلْقُ السَّمَاوَاتِ وَالْأَرْضِ وَاخْتِلَافُ أَلْسِنَتِكُمْ وَأَلْوَانِكُمْ إِنَّ فِي ذَلِكَ لَآيَاتٍ لِلْعَالِمِينَ (٢٢)﴾.\n\nيقولُ تعالَى ذِكرُه: ومِن حُججِه أيضًا وأدلتِه على أنه لا يُعجزه شيءٌ، وأنَّه إذا شاء أمات من كان حيًّا من خلقه، ثم إذا شاء أنشَره وأعادَه، كما كان قبل إماتتِه إياه - خَلْقُه السماوات والأرضَ مِن غير شيءٍ أحدث ذلك منه، بل بقدرته التي لا يمتنع معها عليه شيءٌ أَرادَه، ﴿وَاخْتِلَافُ أَلْسِنَتِكُمْ﴾. يقولُ: واختلافُ منطق ألسنتكم ولغاتها، ﴿وَأَلْوَنكُمْ﴾. يقولُ: واختلافُ ألوان أجسامِكم، ﴿إِنَّ فِي ذَلِكَ لَآيَاتٍ لِلْعَالِمِينَ﴾. يقول: إن في فعله ذلك كذلك لعبرًا وأدلةً لخلقه الذين يعقلون أنه لا يُعييه إعادتُهم لهيئتهم التي كانوا بها قبلَ مماتِهم، من بعدِ فنائِهم.\nوقد بيَّنا معنى العالمين فيما مضَى قبلُ (¬١).\n\nالقول في تأويل قوله تعالى: ﴿وَمِنْ آيَاتِهِ مَنَامُكُمْ بِاللَّيْلِ وَالنَّهَارِ وَابْتِغَاؤُكُمْ مِنْ فَضْلِهِ إِنَّ فِي ذَلِكَ لَآيَاتٍ لِقَوْمٍ يَسْمَعُونَ (٢٣)﴾.\n\nيقولُ تعالى ذكرُه: ومن حُججِه عليكم، أيُّها القومُ، تقديرُه الساعاتِ والأوقاتِ، ومخالفتُه بينَ الليلِ والنهارِ، فجعل الليل لكم سَكَنا تسكُنون فيه، وتنامون فيه (¬٢)، وجعَل النهار مضيئًا لتصرُّفكم في معايشِكم والتماسِكم فيه من رزقِ ربِّكم، ﴿إِنَّ فِي ذَلِكَ لَآيَاتٍ لِقَوْمٍ يَسْمَعُونَ﴾. يقول تعالى ذكرُه: إِنَّ في فعل الله ذلك كذلك، لَعِبرًا وذكرًا (¬٣) وأدلةً على أن فاعلَ ذلك لا يُعجزه شيءٌ أَرادَه،",
+      "original_text_sha256": "d304b8c49e201b507238018b6d402fae521800f45b0886fbd13efd8b941e6ffe",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [],
+      "task_record_id": "adam_gemini_semantic_task_c69e62eb0c89c1959e81e7bc",
+      "terminal_speaker_surface_candidate": null,
+      "window_id": "09867b6b744700570dd04bf7",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "attribution_profiles": [
+        "WAHB_IBN_MUNABBIH"
+      ],
+      "book_id": 7798,
+      "book_title": "تفسير الطبري جامع البيان - ت التركي",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/14/page/65?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=9526"
+      ],
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "شبيب بن بشر",
+          "narrator_surface_raw": "شَبيبُ بنُ بشرٍ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "عكرمة",
+          "narrator_surface_raw": "عكرمة",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابن عباس",
+          "narrator_surface_raw": "ابن عباسٍ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "event_ids": [],
+      "footnote_context": "(¬١) السعالى، جمع سعلاة: وهم سحرة الجن. النهاية ٢/ ٣٦٩.\n(¬٢) الغول: جنس من الجن والشياطين، كانت العرب تزعم أن الغول في الفلاة تتراءى للناس فتتغول تغولا، أي: تتلون تلونا في صور شتى. النهاية ٣/ ٣٩٦.\n(¬٣) أخرجه أبو الشيخ في العظمة (١٠٩٥) من طريق إسماعيل به.",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_497b984df86d92a9f64392e8",
+      "original_text": "ثنا شَبيبُ بنُ بشرٍ، عن عكرمة، عن ابن عباسٍ، قال: لما خلق الله الملائكة قال: إني خالق بشرًا مِن طين، فإذا أنا خلَقتُه فاسجدوا له. فقالوا: لا نَفْعَلُ. فأرسل عليهم نارًا فأحرقتهم،",
+      "original_text_sha256": "11f8d720a8e302abef7d231192e6411b357d1616087b0468a10db74e86736fd8",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "MAWQUF_OR_TAFSIR_REPORT_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [],
+      "task_record_id": "adam_gemini_semantic_task_f2ae0a80a3c522ddbfd4c269",
+      "terminal_speaker_surface_candidate": "ابن عباسٍ",
+      "window_id": "157dfa2875c5eef0d63593e7",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "attribution_profiles": [],
+      "book_id": 7798,
+      "book_title": "تفسير الطبري جامع البيان - ت التركي",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/10/page/557?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=7265"
+      ],
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "الحسين",
+          "narrator_surface_raw": "الحسينُ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابي جعفر",
+          "narrator_surface_raw": "أبي جعفرٍ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "الربيع",
+          "narrator_surface_raw": "الربيع",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابي العالية",
+          "narrator_surface_raw": "أبي العاليةِ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 3,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابي بن كعب",
+          "narrator_surface_raw": "أُبيِّ بن كعبٍ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 4,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "الله",
+          "narrator_surface_raw": "الله",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 5,
+          "transmission_term_canonical": "QALA",
+          "transmission_term_raw": "قال"
+        }
+      ],
+      "event_ids": [
+        "EV-ADAM-060",
+        "EV-ADAM-061"
+      ],
+      "footnote_context": "= الفريابي في القدر (٥٨)، والآجرى في الشريعة (٤٤٢) من طريق ابن جريج به إلى قوله: وأقروا. وأخرجه ابن منده (٣٦) من طريق الحكم، عن سعيد بن جبير إلى قوله: وأقروا.\n(¬١) بعده في ص، ت ١، ت ٢، س، ف: \"أنا\".\n(¬٢) في م: \"مثل\".\n(¬٣) في ص، ت ١، ت ٢، س، ف: \"في\".",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_4aaf602246c6bf2460865b7d",
+      "original_text": "ثنا الحسينُ، قال: ثني حجاجٌ، عن أبي جعفرٍ، عن الربيع، عن أبي العاليةِ، عن أُبيِّ بن كعبٍ، قال: جمَعهم يومئذٍ جميعًا ما هو كائنٌ إلى يوم القيامة، ثم استَنْطَقهم وأخَذ عليهم الميثاقَ، ﴿وَأَشْهَدَهُمْ عَلَى أَنْفُسِهِمْ أَلَسْتُ بِرَبِّكُمْ قَالُوا بَلَى شَهِدْنَا أَنْ تَقُولُوا يَوْمَ الْقِيَامَةِ إِنَّا كُنَّا عَنْ هَذَا غَافِلِينَ (١٧٢) أَوْ تَقُولُوا إِنَّمَا أَشْرَكَ آبَاؤُنَا مِنْ قَبْلُ وَكُنَّا ذُرِّيَّةً مِنْ بَعْدِهِمْ أَفَتُهْلِكُنَا بِمَا فَعَلَ الْمُبْطِلُونَ (١٧٣)﴾. قال: فإني أُشْهِدُ عليكم السماوات السبعَ والأرَضِين السبعَ، وأُشْهِدُ عليكم أباكم آدم؛ أنْ تَقُولوا يوم القيامةِ: لم نَعْلَم بهذا. اعْلَموا أنه لا إلهَ غيرى، ولا ربَّ غيرِى، ولا تُشْرِكوا بي شيئًا، و (¬١) سأُرْسِلُ إليكم رسلًا يُذَكِّرُونكم عَهْدى وميثاقي، وسأُنْزِلُ عليكم كتبى. قالوا: شهِدنَا أَنَّكَ رَبُّنا وإلهُنا، لا ربَّ لنا غيرُك، ولا إلهَ لنا غيرُك. فأقَرُّوا له يومئذٍ بالطاعةِ، ورفَع عليهم أباهم آدمَ، فنظَر إليهم، فرأى منهم الغنيَّ والفقيرَ، وحَسنَ الصورة ودونَ ذلك، فقال: ربِّ، لولا ساويتَ بينَهم؟ قال: فإنى أُحِبُّ أن أُشكَر. قال: وفيهم الأنبياءُ ﵈ يومئذٍ مثلُ (¬٢) السُّرُج، وخَصَّ الأنبياءَ بميثاقٍ آخرَ، قال الله: ﴿وَإِذْ أَخَذْنَا مِنَ النَّبِيِّينَ مِيثَاقَهُمْ وَمِنْكَ وَمِنْ نُوحٍ وَإِبْرَاهِيمَ وَمُوسَى وَعِيسَى ابْنِ مَرْيَمَ وَأَخَذْنَا مِنْهُمْ مِيثَاقًا غَلِيظًا﴾ [الأحزاب: ٧]. وهو الذي يقولُ تعالى ذكرُه: ﴿فَأَقِمْ وَجْهَكَ لِلدِّينِ حَنِيفًا فِطْرَتَ اللَّهِ الَّتِي فَطَرَ النَّاسَ عَلَيْهَا لَا تَبْدِيلَ لِخَلْقِ اللَّهِ﴾ [الروم: ٣٠]. وفى ذلك قال: ﴿هَذَا نَذِيرٌ مِنَ النُّذُرِ الْأُولَى﴾ [النجم: ٥٦]. يقولُ: أخَذنا ميثاقَه مع النذر الأولى. ومن (¬٣) ذلك قوله: ﴿وَمَا وَجَدْنَا لِأَكْثَرِهِمْ مِنْ عَهْدٍ وَإِنْ وَجَدْنَا",
+      "original_text_sha256": "a21ec79828a626d25d4a3e4e7f34592f9228c48d0a1be82068edd5ce49373acf",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [
+        "RQ-ADAM-021",
+        "RQ-ADAM-022",
+        "RQ-ADAM-023",
+        "RQ-ADAM-024"
+      ],
+      "task_record_id": "adam_gemini_semantic_task_c871cd5f02826f13ed4c02e1",
+      "terminal_speaker_surface_candidate": "الله",
+      "window_id": "b9cdee4a9fc424c4ecccbc4c",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "attribution_profiles": [
+        "WAHB_IBN_MUNABBIH"
+      ],
+      "book_id": 7798,
+      "book_title": "تفسير الطبري جامع البيان - ت التركي",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/14/page/68?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=9529"
+      ],
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابليس",
+          "narrator_surface_raw": "إبليس",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "QALA",
+          "transmission_term_raw": "قال"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "الله له",
+          "narrator_surface_raw": "الله له",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "QALA",
+          "transmission_term_raw": "قال"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابليس",
+          "narrator_surface_raw": "إبليس",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "QALA",
+          "transmission_term_raw": "قال"
+        }
+      ],
+      "event_ids": [],
+      "footnote_context": "(¬١) ديار: أحد، ولا يستعمل إلا في النفي. اللسان (دور).\n(¬٢) هي قراءة ابن كثير وأبى عمرو وابن عامر. السبعة لابن مجاهد ص ٣٤٨.",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_4e2b4074e700fb8508b7fbdd",
+      "original_text": "القول في تأويل قوله تعالى: ﴿قَالَ رَبِّ فَأَنْظِرْنِي إِلَى يَوْمِ يُبْعَثُونَ (٣٦) قَالَ فَإِنَّكَ مِنَ الْمُنْظَرِينَ (٣٧) إِلَى يَوْمِ الْوَقْتِ الْمَعْلُومِ (٣٨)﴾.\n\nيقول تعالى ذكره: قال إبليس: ربِّ فإذ أخرجتنى مِن السماواتِ ولعَنتنى، فأَخِّرْنى إلى يومِ تَبْعَثُ خلقَك مِن قبورهم، فتَحْشُرُهم لموقف القيامة.\n\nقال الله له: فإنك ممن أُخر هلاكه إلى يوم الوقت المعلوم لهلاك جميع خلقى، وذلك حين لا يبقى على الأرضِ مِن بنى آدمَ دَيَّارٌ (¬١).\n\nالقول في تأويل قوله تعالى: ﴿قَالَ رَبِّ بِمَا أَغْوَيْتَنِي لأُزَيِّنَنَّ لَهُمْ فِي الْأَرْضِ وَلأُغْوِيَنَّهُمْ أَجْمَعِينَ (٣٩) إِلَّا عِبَادَكَ مِنْهُمُ الْمُخْلَصِينَ (٤٠)﴾.\n\nيقول تعالى ذكره: قال إبليس: ﴿رَبِّ بِمَا أَغْوَيْتَنِي﴾؛ باغوائِكَ، ﴿لأُزَيِّنَنَّ لَهُمْ فِي الْأَرْضِ﴾. وكأن قوله: ﴿بِمَا أَغْوَيْتَنِي﴾. خرج مخرَجَ القَسَمِ، كما يقال: بالله، أو بعزة الله، لأُغوِيَنَّهم.\nوعنى بقوله: ﴿لأُزَيِّنَنَّ لَهُمْ فِي الْأَرْضِ﴾: لأُحَسِّنن لهم معاصيك، ولأُحبِّبنَّها إليهم في الأرضِ، ﴿وَلأُغْوِيَنَّهُمْ أَجْمَعِينَ﴾. يقولُ: ولأَضِلَّنَّهم عن سبيل الرشادِ.\n\n﴿إِلَّا عِبَادَكَ مِنْهُمُ الْمُخْلَصِينَ﴾. يقولُ: إلا من أخلصته بتوفيقك فهديته، فإن ذلك ممن لا سلطان لى عليه ولا طاقة لى به.\nوقد قُرِئَ: (إِلَّا عِبادَكَ مِنْهُمُ المُخلِصِينَ) (¬٢). فمَن قرأ ذلك كذلك، فإنه يَعْنى به: إلا مَن أخلَص طاعتك، فإنه لا سبيل لى عليه.",
+      "original_text_sha256": "b69e188cbd291b6f2c82735bc13cc70dee5c8b473e928a59f69571856760c8dd",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [],
+      "task_record_id": "adam_gemini_semantic_task_4ac79a24ff5dfe6452c25a2d",
+      "terminal_speaker_surface_candidate": "إبليس",
+      "window_id": "157dfa2875c5eef0d63593e7",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "attribution_profiles": [],
+      "book_id": 7798,
+      "book_title": "تفسير الطبري جامع البيان - ت التركي",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/20/page/148?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=13546"
+      ],
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "سعيد",
+          "narrator_surface_raw": "سعيدٌ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "قتادة",
+          "narrator_surface_raw": "قتادةَ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "event_ids": [],
+      "footnote_context": "(¬١) هي قراءة عاصم وحمزة. السبعة لابن مجاهد ص ٥٥٧.\n(¬٢) في م: \"يقول\".\n(¬٣) هي قراءة ابن كثير ونافع وأبي عمرو وابن عامر والكسائي، ورواية المفضل عن عاصم. السبعة لابن مجاهد ص ٥٥٧.",
+      "kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_5776ee7b5a6513c589a9b92a",
+      "original_text": "ثنا سعيدٌ، عن قتادةَ: ﴿قَالَ فَبِعِزَّتِكَ لأُغْوِيَنَّهُمْ أَجْمَعِينَ﴾. قال: عَلِم عدوُّ الله أنه ليست له عزّةٌ.\n\nالقولُ في تأويلِ قولِه تعالى: ﴿قَالَ فَالْحَقُّ وَالْحَقَّ أَقُولُ (٨٤) لأَمْلأَنَّ جَهَنَّمَ مِنْكَ وَمِمَّنْ تَبِعَكَ مِنْهُمْ أَجْمَعِينَ (٨٥) قُلْ مَا أَسْأَلُكُمْ عَلَيْهِ مِنْ أَجْرٍ وَمَا أَنَا مِنَ الْمُتَكَلِّفِينَ (٨٦)﴾.\n\nاختلفتِ القرأةُ في قراءةِ قولِه: ﴿قَالَ فَالْحَقُّ وَالْحَقَّ أَقُولُ﴾؛ فقرَأه بعضُ أهلِ الحجازِ وعامةُ الكوفيِّين برفعِ الحقِّ الأوّلِ، ونَصْبِ الثاني (¬١). وفي رفعِ الحقِّ الأوّلِ إذا قُرئ كذلك وَجْهان؛ أحدُهما: رَفْعُه بضميرٍ: الله الحقُّ، أو: أنا الحقُّ وأقولُ الحقَّ. والثاني: أن يكونَ مرفوعًا بتأويلِ قولِه:\n\n﴿لأَمْلأَنَّ﴾. فيكونَ معنى الكلامِ حينئذٍ: فالحقُّ أن أملأَ جهنمَ منك. كما يقالُ (¬٢): عَزْمةٌ صادقةٌ لآتينّك. فرفَعَ \"عَزْمةً\" بتأويلِ \"لآتينّك\"؛ لأن تأويلَه: أن آتيَك. كما قال: ﴿ثُمَّ بَدَا لَهُمْ مِنْ بَعْدِ مَا رَأَوُا الْآيَاتِ لَيَسْجُنُنَّهُ﴾ [يوسف: ٣٥]. ولا بدَّ لقولِه: ﴿بَدَا لَهُمْ﴾ مِن مرفوعٍ، وهو مضمرٌ في المعنى.\nوقرَأ ذلك عامةُ قرأةِ المدينةِ والبصرةِ وبعضُ المكيِّين والكوفيِّين، بنصْبِ الحقِّ الأوّلِ والثانى كليهما (¬٣)، بمعنى: حقًّا لأملأنَّ جهنمَ، والحقَّ أقولُ. ثم أُدخِلَتِ الألفُ واللَّامُ عليه وهو منصوبٌ؛ لأن دخولَهما - إذا كان ذلك معنى الكلامِ - وخروجَهما منه سواءٌ، كما سواءٌ قولُهم: حمدًا لله. و: الحمدَ لله. عندهم إذا نُصِبَ. وقد يَحتمِلُ أن يكونَ نصْبُه على وجهِ الإغراءِ، بمعنى: الزموا الحقَّ. أو:",
+      "original_text_sha256": "073258fa8275d87dbf197009b6e6f26b30e22121e002b66242fb38f1eadf72a8",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "MARFU_EXPLICIT_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [],
+      "task_record_id": "adam_gemini_semantic_task_b8c5bd7071ad717d83719156",
+      "terminal_speaker_surface_candidate": "قتادةَ",
+      "window_id": "69606a01829c587de9b3a1ae",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    }
+  ],
+  "schema_version": "siraj-adam-gemini-draft-batch-v1",
+  "task_contract_project_path": "sources/secondary/gemini-semantic-analysis-draft/contracts/semantic-mapping-contract-v1.json",
+  "task_name": "semantic-mapping"
+}

@@ -1,0 +1,323 @@
+{
+  "batch_id": "semantic-mapping-batch-0049",
+  "episode_id": "episode-001-adam",
+  "execution_enabled": false,
+  "execution_status": "BLOCKED_NOT_AUTHORIZED",
+  "generation_config": {
+    "response_mime_type": "application/json",
+    "temperature": 0
+  },
+  "model_id": null,
+  "provider_id": "GEMINI",
+  "record_count": 4,
+  "records": [
+    {
+      "attribution_profiles": [],
+      "book_id": 7798,
+      "book_title": "تفسير الطبري جامع البيان - ت التركي",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/1/page/510?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=690"
+      ],
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابيه والثوري",
+          "narrator_surface_raw": "أبيه والثورىِّ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "علي بن بذيمة",
+          "narrator_surface_raw": "علىِّ بنِ بَذِيمةَ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "مجاهد في قوله",
+          "narrator_surface_raw": "مجاهدٍ في قولِه",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "event_ids": [
+        "EV-ADAM-020",
+        "EV-ADAM-021",
+        "EV-ADAM-022",
+        "EV-ADAM-023",
+        "EV-ADAM-024",
+        "EV-ADAM-040",
+        "EV-ADAM-041",
+        "EV-ADAM-042"
+      ],
+      "footnote_context": "(¬١) تفسير عبد الرزاق -كما في الدر المنثور ١/ ٤٦ - وأخرجه عبد الرزاق أيضًا في الأمالى (١٩٥).\n(¬٢) في ر: \"أبي\".\n(¬٣) تقدم مطولًا في ص ٤٩٦.\n(¬٤) في م: \"ذلك\".\n(¬٥) في م: \"ذلك الخليفة\"، وفى ت ١: \"تلك الخليقة\".\n(¬٦) في الأصل، وتفسير ابن أبى حاتم: \"ساكن\"، وفى ر، ت ١: \"ساكنون\".\n(¬٧) جزء من الأثر المتقدم في ص ٤٩١، وأخرجه ابن أبى حاتم في تفسيره ١/ ٧٩ (٣٣٥) من طريق سعيد بن بشير، عن قتادة. وعزاه السيوطى في الدر المنثور ١/ ٤٦ إلى عبد بن حميد.",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_f161b1cef24617922599095c",
+      "original_text": "طاوسٍ، عن أبيه والثورىِّ، عن علىِّ بنِ بَذِيمةَ، عن مجاهدٍ في قولِه: ﴿إِنِّي أَعْلَمُ مَا لَا تَعْلَمُونَ﴾. قال: علِم مِن إبليسَ المعصيةَ وخلَقه لها (¬١).\nوحدَّثنا ابنُ حميدٍ، قال:",
+      "original_text_sha256": "f12726995f01386a3546ae13a6f698674d3eab2230a755eb59f72cc50c1911e3",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [
+        "RQ-ADAM-009",
+        "RQ-ADAM-010",
+        "RQ-ADAM-011",
+        "RQ-ADAM-012",
+        "RQ-ADAM-015",
+        "RQ-ADAM-016"
+      ],
+      "task_record_id": "adam_gemini_semantic_task_3e5e961ad6704f954825792f",
+      "terminal_speaker_surface_candidate": "مجاهدٍ في قولِه",
+      "window_id": "7822417dacbe32c4c34b524e",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "attribution_profiles": [
+        "WAHB_IBN_MUNABBIH"
+      ],
+      "book_id": 7798,
+      "book_title": "تفسير الطبري جامع البيان - ت التركي",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/14/page/66?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=9527"
+      ],
+      "chain_nodes_candidate": [],
+      "event_ids": [],
+      "footnote_context": "(¬١) سقط من: م.\n(¬٢) أخرجه أبو الشيخ في العظمة (١٠٣٩) من طريق أبي عاصم به، وينظر ما تقدم في ١/ ٥٤١.\n(¬٣) في ص، ت ١، ت ٢، ف: \"وسجد\".\n(¬٤) بعده في ت ١، ت ٢، ف: \"أجمعون\".",
+      "kind_candidate": "QURAN_EXEGESIS_CONTEXT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_f70099a354b5910110939b32",
+      "original_text": "وخلق ملائكةً أُخرَى، فقال: إني خالق بشرًا من طين، فإذا أنا خلقته فاسجدوا له. فأبوا، قال: فأرسل عليهم نارًا فأحرقتهم. ثم خلق ملائكة أُخرى، فقال: إني خالق بشرًا مِن طين، فإذا أنا خلَقتُه فاسْجُدوا له. فأبوا. قال (¬١): فأرسل عليهم نارًا فأحرقتهم، ثم خلق ملائكةٌ، فقال: إني خالق بشرًا مِن طين، فإذا أنا خلَقتُه فاسْجُدوا له. فأبوا. قال (¬١): فأرسل عليهم نارًا فأحرقتهم، ثم خلق ملائكة، فقال: إني خالق بشرًا من طين، فإذا أنا خلَقتُه فاسْجُدوا له. فقالوا: سمعنا وأطعنا. إلا إبليس كان من الكافرين الأولين (¬٢).\n\nالقول في تأويل قوله تعالى: ﴿فَسَجَدَ الْمَلَائِكَةُ كُلُّهُمْ أَجْمَعُونَ (٣٠) إِلَّا إِبْلِيسَ أَبَى أَنْ يَكُونَ مَعَ السَّاجِدِينَ (٣١) قَالَ يَاإِبْلِيسُ مَا لَكَ أَلَّا تَكُونَ مَعَ السَّاجِدِينَ (٣٢)﴾.\n\nيقول تعالى ذكره: فلما خلق الله ذلك البشر، ونفخ فيه الروح بعد أن سوّاه، سجد (¬٣) الملائكةُ كلُّهم جميعًا (¬٤)، إلا إبليس، فإنه أبى أن يكون مع الساجدين في سجودِهم لآدم حين سجدوا له (¬١)، فلم يَسْجُد له معهم تكبرا وحسَدًا وبغيًّا.\n\nفقال الله تعالى ذكره: ﴿يَاإِبْلِيسُ مَا لَكَ أَلَّا تَكُونَ مَعَ السَّاجِدِينَ﴾. يقولُ: ما منعك مِن أن تَكونَ مع الساجدين. فـ \"أن\" في قول بعض نحويى الكوفة خَفْضٌ، وفى قول بعض أهل البصرةِ نَصْبٌ بفَقْدِ الخافض.\n\nالقول في تأويل قوله تعالى: ﴿قَالَ لَمْ أَكُنْ لِأَسْجُدَ لِبَشَرٍ خَلَقْتَهُ مِنْ صَلْصَالٍ مِنْ حَمَإٍ مَسْنُونٍ (٣٣) قَالَ فَاخْرُجْ مِنْهَا فَإِنَّكَ رَجِيمٌ (٣٤) وَإِنَّ عَلَيْكَ اللَّعْنَةَ إِلَى يَوْمِ",
+      "original_text_sha256": "ab6522db1731e01ffe01c4bb6e3ae8b180fc5f2aa6ca7888b2fdd8d008ec3e65",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [],
+      "task_record_id": "adam_gemini_semantic_task_0ff02318d5d28cd4dc6d0ef0",
+      "terminal_speaker_surface_candidate": null,
+      "window_id": "157dfa2875c5eef0d63593e7",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "attribution_profiles": [],
+      "book_id": 7798,
+      "book_title": "تفسير الطبري جامع البيان - ت التركي",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/5/page/464?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=3581"
+      ],
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "عبد الله بن ابي جعفر",
+          "narrator_surface_raw": "عبدُ اللهِ بنُ أبي جعفرٍ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابيه",
+          "narrator_surface_raw": "أبيه",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "الربيع قوله",
+          "narrator_surface_raw": "الربيعِ قولَه",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "event_ids": [],
+      "footnote_context": "(¬١) عزاه السيوطي في الدر المنثور ٢/ ٣٨ إلى المصنف.\n(¬٢) سيرة ابن هشام ١٠/ ٥٨٢ وأخرجه ابن أبي حاتم في تفسيره ٢/ ٦٦٦ (٣٦١٠، ٣٦١٢) من طريق عبد الله بن إدريس وسلمة، عن ابن إسحاق قوله.",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_f9891100576a0a640ad69d26",
+      "original_text": "ثنا عبدُ اللهِ بنُ أبي جعفرٍ، عن أبيه، عن الربيعِ قولَه: ﴿الْحَقُّ مِنْ رَبِّكَ فَلَا تَكُنْ مِنَ الْمُمْتَرِينَ﴾. يقولُ: فلا تكنْ في شكٍّ مما قصَصْنا عليك أن عيسى عبدُ اللهِ ورسولُه، وكلمةٌ منه ورُوحٌ، وأن مَثَلَه عندَ اللهِ كمَثَلِ آدمَ خلَقه مِن ترابٍ، ثم قال له: ﴿كُنْ﴾ فيكونُ.\nحدَّثنا ابن حميدٍ، قال:",
+      "original_text_sha256": "71d017e7c2e8e7f08653bcd0ef5a2b0f89281632f856b74be707c3d0ff85e253",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [],
+      "task_record_id": "adam_gemini_semantic_task_a16b2bb5a109b9f88205808f",
+      "terminal_speaker_surface_candidate": "الربيعِ قولَه",
+      "window_id": "c990e5f9c5fe845870c10155",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "attribution_profiles": [],
+      "book_id": 7798,
+      "book_title": "تفسير الطبري جامع البيان - ت التركي",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/1/page/517?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=697"
+      ],
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابيه",
+          "narrator_surface_raw": "أبيه",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "الربيع قوله",
+          "narrator_surface_raw": "الربيعِ قولَه",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "event_ids": [
+        "EV-ADAM-020",
+        "EV-ADAM-021",
+        "EV-ADAM-022",
+        "EV-ADAM-023",
+        "EV-ADAM-024",
+        "EV-ADAM-040",
+        "EV-ADAM-041",
+        "EV-ADAM-042"
+      ],
+      "footnote_context": "(¬١) في م: \"الأشياء\".\n(¬٢) أخرجه المصنف في تاريخه ١/ ٩٨. وهو في تفسير عبد الرزاق ١/ ٤٢، ٤٣.\n(¬٣) تقدم بتمامه في ص ٤٩٣.\n(¬٤) سقط من: ص، م، ت ١، ت ٢.\n(¬٥) أخرجه المصنف في تاريخه ١/ ٩٩ عن عبدة المروزى، عن عمار بن الحسن به.",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_fcaa438b6db35497f691f564",
+      "original_text": "حدَّثنا عبدُ الله بنُ أبى جعفرٍ، عن أبيه، عن الربيعِ قولَه: ﴿وَعَلَّمَ آدَمَ الْأَسْمَاءَ كُلَّهَا﴾. قال: أسماءَ الملائكةِ (¬٥).\nوقال آخَرون: إنما علَّمه أسماءَ ذُرِّيَّتِه.",
+      "original_text_sha256": "8d62654fc69e097266bfda4497385e37a8aaa1b2d27f149f0d4b9001f3aa4c0c",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [
+        "RQ-ADAM-009",
+        "RQ-ADAM-010",
+        "RQ-ADAM-011",
+        "RQ-ADAM-012",
+        "RQ-ADAM-015",
+        "RQ-ADAM-016"
+      ],
+      "task_record_id": "adam_gemini_semantic_task_a8f487f98535d05c61d30993",
+      "terminal_speaker_surface_candidate": "الربيعِ قولَه",
+      "window_id": "7822417dacbe32c4c34b524e",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    }
+  ],
+  "schema_version": "siraj-adam-gemini-draft-batch-v1",
+  "task_contract_project_path": "sources/secondary/gemini-semantic-analysis-draft/contracts/semantic-mapping-contract-v1.json",
+  "task_name": "semantic-mapping"
+}

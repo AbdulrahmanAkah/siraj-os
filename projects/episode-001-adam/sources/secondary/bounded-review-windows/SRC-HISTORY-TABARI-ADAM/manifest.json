@@ -1,0 +1,68 @@
+{
+  "attribution_profile_counts": {
+    "WAHB_IBN_MUNABBIH": 3
+  },
+  "book_character_limit": 240000,
+  "book_id": 9783,
+  "book_title": "تاريخ الطبري = تاريخ الرسل والملوك، وصلة تاريخ الطبري",
+  "excluded_after_tabari_boundary": 8,
+  "excluded_by_book_budget": 44,
+  "input_candidate_count": 200,
+  "outputs": {
+    "gemini_input_draft": {
+      "execution_status": "BLOCKED_PENDING_HUMAN_WINDOW_APPROVAL",
+      "project_path": "sources/secondary/bounded-review-windows/SRC-HISTORY-TABARI-ADAM/gemini-input-draft.jsonl",
+      "rows": 32,
+      "sha256": "cd18b20f7359b1099a1bd2ddef7b8457a2828c2376d860fa8f7623412d16fab6"
+    },
+    "review_windows": {
+      "project_path": "sources/secondary/bounded-review-windows/SRC-HISTORY-TABARI-ADAM/review-windows.jsonl",
+      "rows": 32,
+      "sha256": "60df5c266a6f4054fb50bea82a87d8e5662519144ffefc1b1e95de09ab2fcca1"
+    }
+  },
+  "raw_window_count": 76,
+  "review_window_character_count": 239296,
+  "review_window_count": 32,
+  "review_window_limit": 45,
+  "selected_candidate_count": 198,
+  "tabari_continuation_boundary": {
+    "boundary_page_id": 5821,
+    "boundary_sequence_num": 5821,
+    "hits": [
+      {
+        "matched_pattern": "صلة تاريخ الطبري",
+        "matched_text": "صلة تاريخ الطبري لعريب بن سعد القرطبي",
+        "page_id": 5821,
+        "sequence_num": 5821,
+        "source": "TOC"
+      },
+      {
+        "matched_pattern": "عريب بن سعد",
+        "matched_text": "صلة تاريخ الطبري لعريب بن سعد القرطبي",
+        "page_id": 5821,
+        "sequence_num": 5821,
+        "source": "TOC"
+      },
+      {
+        "matched_pattern": "صلة تاريخ الطبري",
+        "matched_text": "<span data-type=\"title\" id=toc-1636>الجزء الحادي عشر</span> <span data-type=\"title\" id=toc-1635>[صلة تاريخ الطبري لعريب بن سعد القرطبي]</span> ﷽ ثم دخلت <span data-type=\"title\" id=toc-1637>سنة احدى وتسعين ومائتين</span> (ذكر ما دار في هذه السنه من اخبار بنى العباس) (ذكر اخبار القرامطة وقتل صاحب الشامة) فيها كتب الوزير القاسم بن عبيد الله الى محمد بن سليمان الكاتب- وكان المكتفي قد ولاه حرب القرمطى صاحب الشامة، وصير اليه امر القواد والجيوش- فأمره بمناهضه صاحب الشامة والجد في امره وجمع القواد والرج",
+        "page_id": 5821,
+        "sequence_num": 5821,
+        "source": "PAGE"
+      }
+    ],
+    "matched_pattern": "صلة تاريخ الطبري",
+    "matched_text": "صلة تاريخ الطبري لعريب بن سعد القرطبي",
+    "policy": "Windows starting at or after this candidate boundary are excluded pending human confirmation.",
+    "source": "TOC",
+    "status": "DETECTED_CANDIDATE_BOUNDARY"
+  },
+  "tier_counts": {
+    "A": 22,
+    "B": 36,
+    "C": 85
+  },
+  "window_character_limit": 18000,
+  "work_source_id": "SRC-HISTORY-TABARI-ADAM"
+}

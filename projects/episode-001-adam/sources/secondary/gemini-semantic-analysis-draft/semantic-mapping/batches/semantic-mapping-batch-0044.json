@@ -1,0 +1,439 @@
+{
+  "batch_id": "semantic-mapping-batch-0044",
+  "episode_id": "episode-001-adam",
+  "execution_enabled": false,
+  "execution_status": "BLOCKED_NOT_AUTHORIZED",
+  "generation_config": {
+    "response_mime_type": "application/json",
+    "temperature": 0
+  },
+  "model_id": null,
+  "provider_id": "GEMINI",
+  "record_count": 6,
+  "records": [
+    {
+      "attribution_profiles": [],
+      "book_id": 7798,
+      "book_title": "تفسير الطبري جامع البيان - ت التركي",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/10/page/85?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=6793"
+      ],
+      "chain_nodes_candidate": [],
+      "event_ids": [],
+      "footnote_context": "(¬١) في م: \"فتبين\".\n(¬٢) سقط من: الأصل.\n(¬٣) في الأصل: \"القول في تأويل قوله ﷿: قال\".\n(¬٤) في الأصل: \"وهذا\".",
+      "kind_candidate": "QURAN_EXEGESIS_CONTEXT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_83aa14b5a00c9499f4f031c3",
+      "original_text": "السَّاجِدِينَ﴾. أن ذلك معنى الكلامِ، من ذكره، ثم عَمِلَ قولُه: ﴿مَا مَنَعَكَ﴾. في \"أنْ\" ما كان عاملًا فيه قبلَ \"أحْوجَك\" لو ظَهَر، إذ كان قد نابَ عنه.\nوإنما قلنا: هذا القولُ أولى بالصوابِ؛ لِما قد مَضَى مِن دلالتِنا قبلُ على أنه غيرُ جائزٍ أن يكونَ في كتابِ اللهِ شيءٌ لا معنَى له، وأن لكلِّ كلمةٍ معنًى صحيحًا، فبَيِّنٌ (¬١) بذلك فسادُ قولِ مَن قال: \"لا\" في الكلامِ حشوٌ لا معنَى لها.\nوأما قولُ مَن قال: معنى المنعِ ههنا القولُ، فلذلك دخلَت \"لا\" مع \"أن\". فإن المنعَ وإن كان قد يكونُ قولًا وفعلًا، فليس المعروفَ في الناسِ استعمالُ المنعِ في الأمرِ بتركِ شيءٍ؛ لأن المأمورَ بتركِ الفعلِ إذا كان قادرًا على فعلِه وتركِه، ففعَلَه، لا يقالُ: فَعَله وهو ممنوعٌ مِن فعلِه. إلا على اسْتكراهٍ للكلامِ. وذلك أن المنعَ من الفعلِ حَوْلٌ بينَه وبينَه، فغيرُ جائزٍ أن يكونَ وهو مَحُولٌ بينَه وبينه فاعلًا له؛ لأنه إن جازَ ذلك وَجَب أن يكونَ محولًا بينَه وبينَه، لا مَحولًا، وممنوعًا لا ممنوعًا.\nوبعدُ، فإن إبليسَ لم يأتمِرْ لأمرِ اللهِ بالسجودِ لآدمَ كِبْرًا، فكيف كان يأتمرُ لغيرِه في تركِ أمرِ اللهِ وطاعتِه بتركِه السجودَ لآدمَ، فيجوزَ أن يقالَ له: أيُّ شيءٍ قال لك: لا تسجُدْ لآدمَ إذ أمرتُك بالسجودِ له (¬٢)؟ ولكن معناه إن شاء اللهُ ما قلتُ: ما منَعَك من السجودِ له فأحْوجَك، أو: فأخْرجك، أو: فاضْطرَّك إلى ألا تسجُدَ له. على ما بَيَّنتُ.\n[وأمّا قولُه] (¬٣): ﴿أَنَا خَيْرٌ مِنْهُ خَلَقْتَنِي مِنْ نَارٍ وَخَلَقْتَهُ مِنْ طِينٍ﴾. فإنه (¬٤) خبرٌ مِن",
+      "original_text_sha256": "c3b9094544208061f12a1fd9b5aa93424ba98c2cade2f591316fdcbb9aa3193b",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [],
+      "task_record_id": "adam_gemini_semantic_task_f0b1e6c74a50bd1c57e55a1d",
+      "terminal_speaker_surface_candidate": null,
+      "window_id": "c5e813e1eea4ca77eeda2fc3",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "attribution_profiles": [],
+      "book_id": 7798,
+      "book_title": "تفسير الطبري جامع البيان - ت التركي",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/5/page/459?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=3576"
+      ],
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "جرير (¬٢)",
+          "narrator_surface_raw": "جَرِيرٌ (¬٢)",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "مغيرة",
+          "narrator_surface_raw": "مُغيرةَ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "عامر",
+          "narrator_surface_raw": "عامرٍ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "event_ids": [],
+      "footnote_context": "(¬١) ذكره ابن عطية في المحرر الوجيز ٢/ ٤٤٧، وأبو حيان في البحر المحيط ٢/ ٤٧٦.\n(¬٢) في س: \"جويبر\". وينظر تهذيب الكمال ٤/ ٥٤٠.",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_85a76a7d19df4f0c72e5d9ee",
+      "original_text": "ثنا جَرِيرٌ (¬٢)، عن مُغيرةَ، عن عامرٍ، قال: كان أهلُ نَجْرانَ أعظمَ قومٍ من النصارَى في عيسى قولًا، فكانوا يُجادِلون النبيَّ ﷺ، فأَنْزَلَ اللهُ ﷿ هذه الآيةَ في سورةِ آلِ عِمْرانَ: ﴿إِنَّ مَثَلَ عِيسَى عِنْدَ اللَّهِ كَمَثَلِ آدَمَ خَلَقَهُ مِنْ تُرَابٍ ثُمَّ قَالَ لَهُ كُنْ فَيَكُونُ﴾ إلى قولِه: ﴿فَنَجْعَلْ لَعْنَتَ اللَّهِ عَلَى",
+      "original_text_sha256": "85465f6fdaa28dce10fde5b965298e8dbab2727ca447125d1ff4737159662561",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [],
+      "task_record_id": "adam_gemini_semantic_task_2601fefa87ecda224981f280",
+      "terminal_speaker_surface_candidate": "عامرٍ",
+      "window_id": "c990e5f9c5fe845870c10155",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "attribution_profiles": [
+        "WAHB_IBN_MUNABBIH"
+      ],
+      "book_id": 7798,
+      "book_title": "تفسير الطبري جامع البيان - ت التركي",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/9/page/153?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=6186"
+      ],
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابن زيد] (¬٥) في قوله",
+          "narrator_surface_raw": "ابن زيدٍ] (¬٥) في قولِه",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "QALA",
+          "transmission_term_raw": "قال"
+        }
+      ],
+      "event_ids": [],
+      "footnote_context": "(¬١) ينظر تفسير البغوي ٣/ ١٢٧.\n(¬٢) أخرجه ابن أبي حاتم في تفسيره ٤/ ١٢٦١، ١٢٦٢ (٧٠٩٦، ٧١٠١) من طريق أبي صالح.\n(¬٣) أخرجه ابن أبي حاتم في تفسيره ٤/ ١٢٦١ (٧٠٩٢)، وعقب الأثر (٧٠٩٥) من طريق عمرو بن حماد عن أسباط به.\n(¬٤) أخرجه ابن أبي حاتم في تفسيره ٤/ ١٢٦١ (٧٠٩٣، ٧٠٩٧) عن محمد بن سعد به.\n(¬٥) سقط من النسخ، والمثبت مما تقدم في ص ١٥٠.\n(¬٦) سقط من النسخ، والمثبت مما تقدم في ص ١٥٠.",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_8bf7ea461680b4524da96b05",
+      "original_text": "أَخْبَرنا ابن وهبٍ [قال: قال ابن زيدٍ] (¬٥) في قولِه: ﴿هُوَ الَّذِي خَلَقَكُمْ مِنْ طِينٍ ثُمَّ قَضَى أَجَلًا وَأَجَلٌ مُسَمًّى عِنْدَهُ ثُمَّ أَنْتُمْ تَمْتَرُونَ﴾. قال: خلَق آدمَ مِن طينٍ، ثم خلَقَنا من آدمَ حينَ (¬٦) أَخَذَنَا مِن ظهرِه، ثم",
+      "original_text_sha256": "6269717f0e0901c22e11fd13e33ded627d812b2b9d5a2b466a0ffbb4797bf35f",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [],
+      "task_record_id": "adam_gemini_semantic_task_16d6fbc9effce40e5b9718c2",
+      "terminal_speaker_surface_candidate": "ابن زيدٍ] (¬٥) في قولِه",
+      "window_id": "e3bfa57f820206715ad6e9be",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "attribution_profiles": [],
+      "book_id": 7798,
+      "book_title": "تفسير الطبري جامع البيان - ت التركي",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/1/page/543?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=723"
+      ],
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابو جعفر",
+          "narrator_surface_raw": "أبو جعفرٍ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "QALA",
+          "transmission_term_raw": "قال"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "نعم اعرفه وابلسا",
+          "narrator_surface_raw": "نَعَمْ أَعْرِفُه وأبْلَسَا",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "QALA",
+          "transmission_term_raw": "قال"
+        }
+      ],
+      "event_ids": [
+        "EV-ADAM-040",
+        "EV-ADAM-041",
+        "EV-ADAM-042",
+        "EV-ADAM-070",
+        "EV-ADAM-071",
+        "EV-ADAM-080",
+        "EV-ADAM-081",
+        "EV-ADAM-082",
+        "EV-ADAM-090",
+        "EV-ADAM-091",
+        "EV-ADAM-099"
+      ],
+      "footnote_context": "(¬١) أخرجه المصنف في تاريخه ١/ ٩٥. وأخرجه ابن أبي حاتم في تفسيره ١/ ٨٤ (٣٦٢)، وابن الأنباري في الأضداد ص ٣٣٦ من طريق بشر به بنحوه.\nوعزاه السيوطي في الدر المنثور ١/ ٥٠ إلى ابن المنذر. وتقدم بتمامه في ص ٤٨٢.\n(¬٢) في م: \"فغير\"، وغير منقوطة في ص.\nوالأثر أخرجه ابن أبي حاتم في تفسيره ١/ ٨٤ عقب الأثر (٣٦٢) من طريق عمرو بن حماد به نحوه.\n(¬٣) ديوانه ص ١٢٣.\n(¬٤) رسم مكرِس ومكرَس: بعرت فيه الإبل وبوَّلت، فركب بعضه بعضًا. التاج (ك ر س).",
+      "kind_candidate": "AUTHORIAL_COMMENTARY_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_8d4a63c87f1e3cf86b2b8377",
+      "original_text": "قال أبو جعفرٍ: وكما قال اللهُ ﵎: ﴿فَإِذَا هُمْ مُبْلِسُونَ﴾ [الأنعام: ٤٤]. يعنى به أنهم آيِسون مِن الخيرِ، نادِمون حُزْنًا، كما قال العجَّاجُ (¬٣):\nيا صاحِ هل تَعْرِفُ رَسْمًا مُكْرَسَا (¬٤)\nقال نَعَمْ أَعْرِفُه وأبْلَسَا",
+      "original_text_sha256": "4d49f9a15e67c7aa19a3fc5e281c516399c8d13480573a245dbdbffd7b4c414f",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [
+        "RQ-ADAM-015",
+        "RQ-ADAM-016",
+        "RQ-ADAM-025",
+        "RQ-ADAM-026",
+        "RQ-ADAM-027",
+        "RQ-ADAM-028",
+        "RQ-ADAM-029",
+        "RQ-ADAM-030",
+        "RQ-ADAM-032"
+      ],
+      "task_record_id": "adam_gemini_semantic_task_a3d760cff230cdb5d856963f",
+      "terminal_speaker_surface_candidate": "نَعَمْ أَعْرِفُه وأبْلَسَا",
+      "window_id": "97719d941058649117cccb9b",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "attribution_profiles": [],
+      "book_id": 7798,
+      "book_title": "تفسير الطبري جامع البيان - ت التركي",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/1/page/543?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=723"
+      ],
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابو جعفر",
+          "narrator_surface_raw": "أبو جعفرٍ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "QALA",
+          "transmission_term_raw": "قال"
+        }
+      ],
+      "event_ids": [
+        "EV-ADAM-040",
+        "EV-ADAM-041",
+        "EV-ADAM-042",
+        "EV-ADAM-070",
+        "EV-ADAM-071",
+        "EV-ADAM-080",
+        "EV-ADAM-081",
+        "EV-ADAM-082",
+        "EV-ADAM-090",
+        "EV-ADAM-091",
+        "EV-ADAM-099"
+      ],
+      "footnote_context": "(¬١) أخرجه المصنف في تاريخه ١/ ٩٥. وأخرجه ابن أبي حاتم في تفسيره ١/ ٨٤ (٣٦٢)، وابن الأنباري في الأضداد ص ٣٣٦ من طريق بشر به بنحوه.\nوعزاه السيوطي في الدر المنثور ١/ ٥٠ إلى ابن المنذر. وتقدم بتمامه في ص ٤٨٢.\n(¬٢) في م: \"فغير\"، وغير منقوطة في ص.\nوالأثر أخرجه ابن أبي حاتم في تفسيره ١/ ٨٤ عقب الأثر (٣٦٢) من طريق عمرو بن حماد به نحوه.\n(¬٣) ديوانه ص ١٢٣.\n(¬٤) رسم مكرِس ومكرَس: بعرت فيه الإبل وبوَّلت، فركب بعضه بعضًا. التاج (ك ر س).",
+      "kind_candidate": "AUTHORIAL_COMMENTARY_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_8d92aa5f0ec8279cb56ddf64",
+      "original_text": "قال أبو جعفرٍ: وإبليسُ: إفْعِيلُ، مِن الإبْلاسِ، وهو الإياسُ مِن الخيرِ والندَمُ والحزنُ.\nكما حدَّثنا به أبو كُرَيْبٍ، قال:\nحدَّثنا عثمانُ بنُ سعيدٍ، قال:",
+      "original_text_sha256": "1d7aaea0a115f705d52020afd8fc432d68cea0ac67fb2a3203e5d293268ca8e6",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [
+        "RQ-ADAM-015",
+        "RQ-ADAM-016",
+        "RQ-ADAM-025",
+        "RQ-ADAM-026",
+        "RQ-ADAM-027",
+        "RQ-ADAM-028",
+        "RQ-ADAM-029",
+        "RQ-ADAM-030",
+        "RQ-ADAM-032"
+      ],
+      "task_record_id": "adam_gemini_semantic_task_a3e016eef6cf20f52d6412e3",
+      "terminal_speaker_surface_candidate": "أبو جعفرٍ",
+      "window_id": "97719d941058649117cccb9b",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "attribution_profiles": [],
+      "book_id": 7798,
+      "book_title": "تفسير الطبري جامع البيان - ت التركي",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/10/page/547?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=7255"
+      ],
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "كلثوم بن جبر",
+          "narrator_surface_raw": "كُلثومُ بنُ جبرٍ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        }
+      ],
+      "event_ids": [
+        "EV-ADAM-060",
+        "EV-ADAM-061"
+      ],
+      "footnote_context": "(¬١) في م، ت ١، ت ٢، س، ف: \"فتلا\". وغير منقوطة في ص، وتقدم تفسير هذه الكلمة في ١/ ٥٤٩.\n(¬٢) أخرجه المصنف في تاريخه ١/ ١٣٤، وأخرجه أحمد ٤/ ٢٦٧ (٢٤٥٥)، وابن أبي عاصم في السنة (٢٠٢)، والنسائى في الكبرى (١١١٩١)، والطحاوى في المشكل (٣٨٨٩)، وابن منده في الرد على الجهمية ص ٥٧ (٢٩)، والحاكم ٢/ ٥٤٤، والبيهقى في الأسماء والصفات (٧١٤) من طريق الحسين بن محمد به، وأخرجه الحاكم ١/ ٢٧، والبيهقى (٤٤١، ٧١٤) من طريق جرير به. وقال النسائي: كلثوم ليس بالقوى، وحديثه ليس بالمحفوظ. واختلف في رفعه ووقفه، ورجح ابن كثير الموقوف. ينظر البداية والنهاية ١/ ٢١١، والتفسير ٣/ ٥٠٢. وقد أخرجه ابن أبي حاتم في تفسيره ٥/ ١٦١٣ من طريق الحسين به موقوفا.\n(¬٣) في النسخ: \"ذرياتهم\". وسنثبتها كرسم مصحفنا دون الإشارة إلى ما في النسخ، وينظر هذه القراءة فيما تقدم في ١/ ٤٣٦.\n(¬٤) في م: \"هذا\".\n(¬٥) أخرجه المصنف في تاريخه ١/ ١٣٤، وأخرجه ابن سعد ١/ ٢٩، والفريابي في القدر (٥٩) من طريق كلثوم بن جبر به. وعزاه السيوطي في الدر المنثور ٣/ ١٤١ إلى عبد بن حميد وأبى الشيخ وابن المنذر.",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_9306b4ae4472eb4980e27a52",
+      "original_text": "ثنا كُلثومُ بنُ جبرٍ، قال: سألتُ سعيدَ بنَ جُبيرٍ عن قولِه: ﴿وَإِذْ أَخَذَ رَبُّكَ مِنْ بَنِي آدَمَ مِنْ ظُهُورِهِمْ ذُرِّيَّتَهُمْ (¬٣)﴾. قال: سألتُ عنها ابنَ عباسٍ، فقال: مسَح ربُّك ظهرَ آدمَ، فخرَجت كلُّ نَسَمةٍ هو خالقُها إلى يوم القيامةِ بنَعْمانَ هذه (¬٤) - وأشار بيدِه - فأخَذ مواثيقَهم، وأشهدَهم على أنفسِهم: ﴿أَلَسْتُ بِرَبِّكُمْ قَالُوا بَلَى﴾ (¬٥).",
+      "original_text_sha256": "43134f04f588265438eefb332efd1662f803b75c3a2365a1ddae015c7fe4c0bf",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [
+        "RQ-ADAM-021",
+        "RQ-ADAM-022",
+        "RQ-ADAM-023",
+        "RQ-ADAM-024"
+      ],
+      "task_record_id": "adam_gemini_semantic_task_80783051b851269533099cab",
+      "terminal_speaker_surface_candidate": "كُلثومُ بنُ جبرٍ",
+      "window_id": "b9cdee4a9fc424c4ecccbc4c",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    }
+  ],
+  "schema_version": "siraj-adam-gemini-draft-batch-v1",
+  "task_contract_project_path": "sources/secondary/gemini-semantic-analysis-draft/contracts/semantic-mapping-contract-v1.json",
+  "task_name": "semantic-mapping"
+}

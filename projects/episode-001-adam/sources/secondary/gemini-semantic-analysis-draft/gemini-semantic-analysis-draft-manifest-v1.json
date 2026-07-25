@@ -1,0 +1,1669 @@
+{
+  "batch_counts": {
+    "boundary_resolution_batches": 75,
+    "chain_interpretation_batches": 75,
+    "semantic_mapping_batches": 49,
+    "total_batches": 199
+  },
+  "configuration": {
+    "maximum_characters_per_batch": 48000,
+    "maximum_records_per_batch": 6,
+    "response_mime_type": "application/json",
+    "temperature": 0
+  },
+  "created_at": "2026-07-25T00:00:51.827381Z",
+  "episode_id": "episode-001-adam",
+  "next_gate": "EXPLICIT_GEMINI_EXECUTION_AUTHORIZATION",
+  "normalized_chain_candidate_count": 448,
+  "normalized_report_count": 738,
+  "outputs": {
+    "batch_index": {
+      "project_path": "sources/secondary/gemini-semantic-analysis-draft/batch-index-v1.csv",
+      "rows": 199,
+      "sha256": "e3ed8354f37db93cd5fbede4bcb6deb230adee387214e0fec7ec6bc4e83a2533"
+    },
+    "batches": [
+      {
+        "batch_id": "boundary-resolution-batch-0001",
+        "character_count": 25494,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0001.json",
+        "record_count": 6,
+        "sha256": "7104dfdaf3dcd1aa0be5d4b679dcac7bfad5281136b53b90107d85dbf12b51b9",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0002",
+        "character_count": 25440,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0002.json",
+        "record_count": 6,
+        "sha256": "bef9b5c25490b4761d617c2f1619a96d0b9e240d25c89bdb31e19711317f5c47",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0003",
+        "character_count": 27219,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0003.json",
+        "record_count": 6,
+        "sha256": "f5d5f64d09a16de2129b5a041880961ecd87e9e3b16563834ca73d048587ae8e",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0004",
+        "character_count": 32817,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0004.json",
+        "record_count": 6,
+        "sha256": "b0c0897c5ec00ba5c8a0d09065f25eaab886247c4fe103327acce8bbba756f08",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0005",
+        "character_count": 25881,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0005.json",
+        "record_count": 6,
+        "sha256": "0dca995abf68802196e35c2c4790b12859aa1c1099620db4202af19f24b3dda9",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0006",
+        "character_count": 19025,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0006.json",
+        "record_count": 6,
+        "sha256": "f8e4fe8944b2690513d7a44819256e09cfb1555d554ee93921cb54dcbbb47392",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0007",
+        "character_count": 25402,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0007.json",
+        "record_count": 6,
+        "sha256": "0d7ed83c1b9961e51157bf285d6d392bdea6bac587300b5fa6408ee764a5c249",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0008",
+        "character_count": 28281,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0008.json",
+        "record_count": 6,
+        "sha256": "fc62f82a19307b62f6d66475a5eecc0d844a9dc43d25cc3f2d27fae33f26cf26",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0009",
+        "character_count": 23183,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0009.json",
+        "record_count": 6,
+        "sha256": "1eb507c67caf918fdcc27e82e9fa28783a456b633cb05b3170a4570361b14703",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0010",
+        "character_count": 27427,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0010.json",
+        "record_count": 6,
+        "sha256": "878a22fbbcfab00c4ad9c316573a004932d8ea6818263eddfbcc4e54152d03bf",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0011",
+        "character_count": 25116,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0011.json",
+        "record_count": 6,
+        "sha256": "b08325734c08dbddaa7e47ef35bd9e908c564814472fe208adaf8e0e86d2beb6",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0012",
+        "character_count": 27749,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0012.json",
+        "record_count": 6,
+        "sha256": "dbce08fedab8fc45c62ffe43c6eb2d4fba95d78d4ef75069b96486e1bc12bbc1",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0013",
+        "character_count": 24314,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0013.json",
+        "record_count": 6,
+        "sha256": "8e7c672b088fafd1cda9ad4e07f012f66a1ace3f96a199490752f365806f5e36",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0014",
+        "character_count": 24808,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0014.json",
+        "record_count": 6,
+        "sha256": "c2a2f87d9b0df9be2a136f1e1be96207658960aad56dd8fefab064ccc47c0c7e",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0015",
+        "character_count": 23873,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0015.json",
+        "record_count": 6,
+        "sha256": "8ab03f63e6e975e7babf387ca086ea2b8bd84d43aa4881a26f7b8d2911e606f9",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0016",
+        "character_count": 24734,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0016.json",
+        "record_count": 6,
+        "sha256": "a85a328da23ba44d0cd3f00467cfa3749a5291fccc052831ecc9446a47dbce68",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0017",
+        "character_count": 27650,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0017.json",
+        "record_count": 6,
+        "sha256": "dcd93f8579d3f81ff016a1a18c9d9ecb2775b50f3a4f5be9570958c0b7192a62",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0018",
+        "character_count": 23708,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0018.json",
+        "record_count": 6,
+        "sha256": "38bdcc4f2d258d9feecb13017e3d1813cea07282d68b201f2abc10ffd28cb62b",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0019",
+        "character_count": 28515,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0019.json",
+        "record_count": 6,
+        "sha256": "e1c6d76ff5852e394c54cec9ee2e66ea9a6d441e9db9f6c33d5b0e295c9dd694",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0020",
+        "character_count": 25944,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0020.json",
+        "record_count": 6,
+        "sha256": "1ff25fda4b00beebb7f3631590e6ad1d0e80da542a5f7d2db99a3198924ec959",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0021",
+        "character_count": 22465,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0021.json",
+        "record_count": 6,
+        "sha256": "e9f2ce25b0be4476a2248d5c2b2de1f3ea387ddca50716eaee5e433375768015",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0022",
+        "character_count": 26419,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0022.json",
+        "record_count": 6,
+        "sha256": "90fbf61040f1559c0d1d4109cabfa19669d667ee982a9de218755359edde775a",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0023",
+        "character_count": 26994,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0023.json",
+        "record_count": 6,
+        "sha256": "d07088faf22703aa19629450fc29168f291b1845f7306df15bc5161739a86b29",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0024",
+        "character_count": 23886,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0024.json",
+        "record_count": 6,
+        "sha256": "d4911de02b8a40a17f76e342f2fa3d0010e1cc90943493fe4052ee27150db5c4",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0025",
+        "character_count": 29507,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0025.json",
+        "record_count": 6,
+        "sha256": "d40c63c6d358a5529437c55326ef149fb58ef3b5c2ff7c742127ef3f7edad344",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0026",
+        "character_count": 34725,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0026.json",
+        "record_count": 6,
+        "sha256": "98b2b5f2dd858a981ab9498fd53f28312b8eecf9fad3c00f9642aa119a838371",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0027",
+        "character_count": 32853,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0027.json",
+        "record_count": 6,
+        "sha256": "9f8f6810293230624e5eef9568cf796d8ab7a2f58a95b94d36094b221917e002",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0028",
+        "character_count": 32909,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0028.json",
+        "record_count": 6,
+        "sha256": "c2b07e289734e4948d81f7cdbec43ade3913f7dc31cb379662efeda8f8f08e6c",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0029",
+        "character_count": 32507,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0029.json",
+        "record_count": 6,
+        "sha256": "e19db5e8b646a9141d56aefc53eb57c6b00636e3c91cb34ae1f2e98c55ea1777",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0030",
+        "character_count": 32244,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0030.json",
+        "record_count": 6,
+        "sha256": "eeb7c0e833425f1afb8879e299a6866ce54d259b8df5a83b202128611b9224cd",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0031",
+        "character_count": 41982,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0031.json",
+        "record_count": 6,
+        "sha256": "b00c1f42f6b3dc2e5c4b08b7547ddb2d3d8f47c8f1389aba0f560f2023b4d38b",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0032",
+        "character_count": 33112,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0032.json",
+        "record_count": 6,
+        "sha256": "33b791e83501ea93e216d16421e3cd22b5a9de78a8e5c92980d7dce33a4a20c8",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0033",
+        "character_count": 39011,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0033.json",
+        "record_count": 6,
+        "sha256": "295cf8b0946bb112ec5eb522286383c1f3c9ae08514168d7cd63991f10cdac9d",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0034",
+        "character_count": 24419,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0034.json",
+        "record_count": 6,
+        "sha256": "fa27c31e2fc6e1e20a5b250889728d391eb8c81302dc583d923f637f81e60085",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0035",
+        "character_count": 33048,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0035.json",
+        "record_count": 6,
+        "sha256": "654af322a1999c2775711b0d419780acf3c6819314315b9e50e375a75aa122a9",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0036",
+        "character_count": 33632,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0036.json",
+        "record_count": 6,
+        "sha256": "b8343d05db945b79bcf3dbc439616b07767187afab369654cfb2c6d03c9061c9",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0037",
+        "character_count": 35653,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0037.json",
+        "record_count": 6,
+        "sha256": "7ee519c05f1f6ac17c37538d8e5bb63cda49d6ff5a2715a3e093b48f570a4d58",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0038",
+        "character_count": 39469,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0038.json",
+        "record_count": 6,
+        "sha256": "d043cf8ac357bc2954bade1fa51e57e37d544f06ce4134e1501ac88dba0ed22f",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0039",
+        "character_count": 40252,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0039.json",
+        "record_count": 6,
+        "sha256": "5a64ba3cf2588e6fe48fe92d50828669e532c49b888569925fef5d28c373c9a8",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0040",
+        "character_count": 36480,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0040.json",
+        "record_count": 6,
+        "sha256": "60a735ad2623a541bfa1d70e56f588a44f33b64a2b537697df87e8765ff88131",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0041",
+        "character_count": 40124,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0041.json",
+        "record_count": 6,
+        "sha256": "9766d7988c215f70285a23064ac53f1d12a0a2fd4115837be6d22e46a4c0db29",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0042",
+        "character_count": 38919,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0042.json",
+        "record_count": 6,
+        "sha256": "69f126fa27ceaffce30914a68b5940b48e27442adc9de008a341b7e2539ecb95",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0043",
+        "character_count": 35361,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0043.json",
+        "record_count": 6,
+        "sha256": "c0ac6567f22c9f84eeaf95ac4fc57eb678af371ab8ed4042b267f3b4991fc8c2",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0044",
+        "character_count": 34985,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0044.json",
+        "record_count": 6,
+        "sha256": "90b9ca2e5c517e23d5175ca6150ef591acbb2e058e0bcf16fee157011dc1f3ed",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0045",
+        "character_count": 22737,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0045.json",
+        "record_count": 6,
+        "sha256": "a1b1fc83c3f295988090271aec26b39dbb410a0169f8ba506ef7796747bb9047",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0046",
+        "character_count": 27977,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0046.json",
+        "record_count": 6,
+        "sha256": "e5e50f1d019477d95ab0a8bb3215e0a30bdd6c05620f679a003911f6f450278e",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0047",
+        "character_count": 23506,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0047.json",
+        "record_count": 6,
+        "sha256": "093f1db36523fa5df12bcc791e2a6897bc3d9f10c3f235c57e719e0e33bb8fcf",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0048",
+        "character_count": 28095,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0048.json",
+        "record_count": 6,
+        "sha256": "4331c6e2386a86462befe9c9f1bd7d56c4777988091c16debf35328dd8d5c376",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0049",
+        "character_count": 27430,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0049.json",
+        "record_count": 6,
+        "sha256": "bde1463b45d4917c7519d49431cbf620e454aaa8fb728d0322d4208fd8fa5beb",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0050",
+        "character_count": 24587,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0050.json",
+        "record_count": 6,
+        "sha256": "a267ed9f53f40563a172bfadefe8ae916c98bc62323ff2d4eb7f7c3b163e2eed",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0051",
+        "character_count": 22273,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0051.json",
+        "record_count": 6,
+        "sha256": "7079fd3bdf1fee7b114c847fcf15e5e9513ea084634f1c188de11a68d828ce05",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0052",
+        "character_count": 24212,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0052.json",
+        "record_count": 6,
+        "sha256": "4d29fcea4252910ab35be70ff1f2c4bb26f4d4aa48d46aeba30165da25313261",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0053",
+        "character_count": 21247,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0053.json",
+        "record_count": 6,
+        "sha256": "2852790b754ec0b5cc8228ed30725318ce97cf373e1aa59095666e4f1fe57e84",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0054",
+        "character_count": 29197,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0054.json",
+        "record_count": 6,
+        "sha256": "02e6696f5a0af235683c663da84c7972d69de0fbd086603e1b5caeea7f75e78b",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0055",
+        "character_count": 23184,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0055.json",
+        "record_count": 6,
+        "sha256": "ecc4fb66ff178d64434e4dcfcd6b9c476a0be4e744e7c8a0af7992ca05ebc38b",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0056",
+        "character_count": 24670,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0056.json",
+        "record_count": 6,
+        "sha256": "2652c82a5a0812a9cb8ff089014bd3437efa9ad6efb8e2b4c18f60c51b085f61",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0057",
+        "character_count": 25468,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0057.json",
+        "record_count": 6,
+        "sha256": "38f196d156760db199e32583f91a4e4606bf90b5a8d50954cfd9ebfeeb922f49",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0058",
+        "character_count": 24061,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0058.json",
+        "record_count": 6,
+        "sha256": "cf2c0b9a661396c898f84ae3fb1b18e9fc7ba28d93c289d2840e52a6e450bb8f",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0059",
+        "character_count": 22740,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0059.json",
+        "record_count": 6,
+        "sha256": "9bfd1b14dcfb06676d7ad67d9ec1072ba6c1fdecdabf01dee4e0b4a8fbde23ab",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0060",
+        "character_count": 23797,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0060.json",
+        "record_count": 6,
+        "sha256": "e3f5f9214bbe86e5cf8f77add2d5f737d4da92698409d7cd0b82bc4cf472f145",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0061",
+        "character_count": 23367,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0061.json",
+        "record_count": 6,
+        "sha256": "152e71b1dee05d9091ca94a65645b7990d9ba2d77835b6bfe29e3970de877996",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0062",
+        "character_count": 24021,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0062.json",
+        "record_count": 6,
+        "sha256": "41394131a5982b68c8cdb869d55226dc6049f355e838bbb7fed47206d090111d",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0063",
+        "character_count": 25234,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0063.json",
+        "record_count": 6,
+        "sha256": "1c5f08a8dc750608d6d558278a51fa7790f0eeca6c9857e8412e2b703685eff5",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0064",
+        "character_count": 22855,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0064.json",
+        "record_count": 6,
+        "sha256": "4fc1e228199e6f13b3949d614aa823130152f8797687da42c3f6ecf0e4133365",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0065",
+        "character_count": 22387,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0065.json",
+        "record_count": 6,
+        "sha256": "b040371d2f67b65c052d743c5370f088b24a0c740b2ce868733fce6326da12bd",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0066",
+        "character_count": 22273,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0066.json",
+        "record_count": 6,
+        "sha256": "07aa13453bd023cda3bb7b310af2707f9bc183919eae5c3c6a130bfa197f2519",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0067",
+        "character_count": 27782,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0067.json",
+        "record_count": 6,
+        "sha256": "76b82e7ba1bead8aa706e150da3ed03c6ebbdcf09cfcf0898978de2612f9343a",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0068",
+        "character_count": 22898,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0068.json",
+        "record_count": 6,
+        "sha256": "4c6118119f93c516190b96430d6469f8c6cae9c9ea13f3846361a9f894a1d8ab",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0069",
+        "character_count": 22753,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0069.json",
+        "record_count": 6,
+        "sha256": "cf85fcdb94d7c3ac75d95b3d2a0ad15b8fb159b49344ff3779e69cdbe8bffe5a",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0070",
+        "character_count": 19845,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0070.json",
+        "record_count": 6,
+        "sha256": "b69421f7e4982bcb2aea80ddf3b7a7840e4cbaef72bf9c8e789667e52c39c9bb",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0071",
+        "character_count": 23933,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0071.json",
+        "record_count": 6,
+        "sha256": "2c6b6c2329d4860edda5815466699b347f2c9f9456b2181901cd1554f6abfff4",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0072",
+        "character_count": 22099,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0072.json",
+        "record_count": 6,
+        "sha256": "404007bf8d7b03100c0a5df4b2e556cc5569767c42327afac618d68a0711016b",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0073",
+        "character_count": 21803,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0073.json",
+        "record_count": 6,
+        "sha256": "0c27ee168d65875bd810e914518d326227ac3dbcc700e3e1b39eca448e17acd0",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0074",
+        "character_count": 24978,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0074.json",
+        "record_count": 6,
+        "sha256": "87496f5898b4f95b3fb6527246104c3bea5f20b6e2f9a865c86aa79b9d567268",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "boundary-resolution-batch-0075",
+        "character_count": 6961,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/boundary-resolution/batches/boundary-resolution-batch-0075.json",
+        "record_count": 2,
+        "sha256": "dad4ecb8278ce57af8622a0dd721d96d37329f21e4d9e38b77e612b8a23e364b",
+        "task_name": "boundary-resolution"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0001",
+        "character_count": 18529,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0001.json",
+        "record_count": 6,
+        "sha256": "b031f07cd68f0ba3b72f332a88c72363fc9c4e1e454acb9770443e83234d4bc2",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0002",
+        "character_count": 19594,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0002.json",
+        "record_count": 6,
+        "sha256": "54c2c1b3bed88dbf8d0e68b7d4cb82f7e3121d5e296f8be82f62a35a6bc6b8c8",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0003",
+        "character_count": 17172,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0003.json",
+        "record_count": 6,
+        "sha256": "87fc7b50cccaad513363d652130aae2db7b68699745c1a2bad379ea45220ff14",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0004",
+        "character_count": 20170,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0004.json",
+        "record_count": 6,
+        "sha256": "3385ecafb04b8cd00ec218356d75e3e4d544e8b0452367178f6f7e9e3c48bddc",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0005",
+        "character_count": 21580,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0005.json",
+        "record_count": 6,
+        "sha256": "03f42b90c9deb1bc36c31e9d5005c569f0dd380dc35e3a06d30819ca409d3a89",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0006",
+        "character_count": 21488,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0006.json",
+        "record_count": 6,
+        "sha256": "ea62b0cc0292badc558fbf4eaed64a965219ff1737a30837b696df7b9b17287f",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0007",
+        "character_count": 19432,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0007.json",
+        "record_count": 6,
+        "sha256": "7fe65b51d60552030aef3e182911e2ab193716ae64762e4f3965635090777019",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0008",
+        "character_count": 19816,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0008.json",
+        "record_count": 6,
+        "sha256": "33dfa5d6b4937339c6c4f64baaef6e3035357e3ce94d565f806524b4a6b17885",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0009",
+        "character_count": 19728,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0009.json",
+        "record_count": 6,
+        "sha256": "d0cbabae20f2a94e02a2f7e067ee0e749957e4c499189254aff40a28b2f8b845",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0010",
+        "character_count": 19031,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0010.json",
+        "record_count": 6,
+        "sha256": "290354507a0cb04264aa48d13145e6f5ece2881afe9e05634df09d8cfb6d5572",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0011",
+        "character_count": 18518,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0011.json",
+        "record_count": 6,
+        "sha256": "f9c37e2feee3b49a1b88197cbfb4b28731f0034649e04896b6360907b50ecce0",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0012",
+        "character_count": 18853,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0012.json",
+        "record_count": 6,
+        "sha256": "2c7e911b1a7b5caf02d4859d35a4c63ca311a934b3c280a9e9d9457ddce13cb1",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0013",
+        "character_count": 21726,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0013.json",
+        "record_count": 6,
+        "sha256": "207b94c7e16f0de0962d08409dd716176444515cc0ab5285ab4706ee9d94d706",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0014",
+        "character_count": 20230,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0014.json",
+        "record_count": 6,
+        "sha256": "4f0cf8491feaa1e50afc56183746d37b5a4c288c142244550e8b1dcfac5c89a0",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0015",
+        "character_count": 24154,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0015.json",
+        "record_count": 6,
+        "sha256": "e3e0b26acfa32e427dccf543b472a9ab300b7ea911fd0bee9892f8437c6a1290",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0016",
+        "character_count": 20507,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0016.json",
+        "record_count": 6,
+        "sha256": "4f547d28f50d6458047030105c41c198a9fa3c4d6977492b7822b408f727a07a",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0017",
+        "character_count": 21958,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0017.json",
+        "record_count": 6,
+        "sha256": "56ac5cfb9789914ec9cfdef83665b9c2ccde36e8900a69b29a169a5c0f4580e8",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0018",
+        "character_count": 20573,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0018.json",
+        "record_count": 6,
+        "sha256": "76508b6b2d598f2129f61b3cfe37292433670491fc8d8189c8c732e3a756502c",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0019",
+        "character_count": 18076,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0019.json",
+        "record_count": 6,
+        "sha256": "4e0a68a5de731755c9774cadb56f65b88b0324995cf6972af8c1ea9be8e32263",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0020",
+        "character_count": 19427,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0020.json",
+        "record_count": 6,
+        "sha256": "b11305d7c27a646bf3406d6f08fea2dedd94ae1d3344a57348ebbc93457ed9a4",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0021",
+        "character_count": 16264,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0021.json",
+        "record_count": 6,
+        "sha256": "c8c0a551e726a9dac7acc582264f22223b9a891bf394249a3a6e7dfca113d96b",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0022",
+        "character_count": 23989,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0022.json",
+        "record_count": 6,
+        "sha256": "33b39ff01b781da7d4fb6d6a081ca17e2e1a7350e992cc71c22e53f24571dc76",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0023",
+        "character_count": 28302,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0023.json",
+        "record_count": 6,
+        "sha256": "2ce7692ddb367e0d5341db4eb54a6037ce4b89a3fd0c12f3df5c2559c43415ef",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0024",
+        "character_count": 24424,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0024.json",
+        "record_count": 6,
+        "sha256": "8df878a26fd00b7291e1babf5cc96d6bb6ee9d9ae7f38529f98ada7a46685175",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0025",
+        "character_count": 24313,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0025.json",
+        "record_count": 6,
+        "sha256": "360faa1a9fa6bf2c899446c59ebd932522f901db4da14ee6958cb4b7eb17aa9f",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0026",
+        "character_count": 29705,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0026.json",
+        "record_count": 6,
+        "sha256": "e7ce9b821fbe1229a212af4967f5366f53d4cfe6ecafd4e50d81f9d0ec7bb384",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0027",
+        "character_count": 25631,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0027.json",
+        "record_count": 6,
+        "sha256": "ea848c4a2d19fde8c9233af756bb6ad862e890742474c219998cdb9a899ae383",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0028",
+        "character_count": 32193,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0028.json",
+        "record_count": 6,
+        "sha256": "10fd0a514e9ae33e4729655a3f277ac38ea7f9af5aedb5e65600ec4d3c6329ba",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0029",
+        "character_count": 26602,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0029.json",
+        "record_count": 6,
+        "sha256": "2b083d36d1b6856419964bedf83560f3e0b48031bdc5f75ad2ef72eb92d70ebe",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0030",
+        "character_count": 27909,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0030.json",
+        "record_count": 6,
+        "sha256": "62ac6ce2ff7c3ed4b50eceed14470a76fe2e6ddce1542fd83f87db6893d11d44",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0031",
+        "character_count": 28970,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0031.json",
+        "record_count": 6,
+        "sha256": "73a7bb460f67dee2ed0b68df29fc78d09ad9efb3d24aed9350a400ed8be14bac",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0032",
+        "character_count": 20689,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0032.json",
+        "record_count": 6,
+        "sha256": "f4f8cfa1ad3877aa4e27c0f9bc2f98aec0c2df01338a262491c5d3eeed47da17",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0033",
+        "character_count": 28078,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0033.json",
+        "record_count": 6,
+        "sha256": "3767375fec03555ded284cbf0d21dbfde4f739fa42e46a08518e0cddff70b367",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0034",
+        "character_count": 18916,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0034.json",
+        "record_count": 6,
+        "sha256": "0c8f431fbfb9c0f96975a072703e8c6e6444926752bd5f4e44d50b9ef2d91bd0",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0035",
+        "character_count": 18608,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0035.json",
+        "record_count": 6,
+        "sha256": "f4a11fbcd7bb49ba89458dc2e7d5dbf036ec9d03ead9162076dfbd76a5776996",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0036",
+        "character_count": 27427,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0036.json",
+        "record_count": 6,
+        "sha256": "8dfbcb598b5dea8ec479ea6a84e34d33584d01ee8789d2a1a23d3c0ec7b2d4b9",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0037",
+        "character_count": 21693,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0037.json",
+        "record_count": 6,
+        "sha256": "ceeb8863b4ede3e0d6b1839d7821f2bf5e96114394d50056d8bc81cff25eba4c",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0038",
+        "character_count": 19886,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0038.json",
+        "record_count": 6,
+        "sha256": "b53842060a5da958dd0f27e457ae2c98cc9ab74a46fee08c9e6f40358df2c038",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0039",
+        "character_count": 21037,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0039.json",
+        "record_count": 6,
+        "sha256": "93e4191dbdcec554683bd4d5e38af483eebb50ae906c0fdec13b8c6737847469",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0040",
+        "character_count": 21512,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0040.json",
+        "record_count": 6,
+        "sha256": "e7939ce7472b0105437c52ac343eefddace73b29526ecf9f8e95809ad3caa2bf",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0041",
+        "character_count": 22282,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0041.json",
+        "record_count": 6,
+        "sha256": "e39efb4698f357802027cde174127980fb94a6e2a6bb00c1f340b2ee12f2532b",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0042",
+        "character_count": 22143,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0042.json",
+        "record_count": 6,
+        "sha256": "9145fdb9408ae9e3e4ae8d74917adac8b54e05cacd84a3cf2c3ab8a3f91d80ac",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0043",
+        "character_count": 21757,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0043.json",
+        "record_count": 6,
+        "sha256": "af935def3e4bd91673b026e15091b478dc5b5e00fee743acff18fd651c803849",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0044",
+        "character_count": 18875,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0044.json",
+        "record_count": 6,
+        "sha256": "b6d9a685b9209d99737aaea4a38614fa649ac8a43810680f3dbedfb9bdb07ca7",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0045",
+        "character_count": 19164,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0045.json",
+        "record_count": 6,
+        "sha256": "50de8f62c08650e6372ffefde5acbca4d86cd94b9675e0ba9227a202f2bd4134",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0046",
+        "character_count": 20939,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0046.json",
+        "record_count": 6,
+        "sha256": "a511967cdb9c56f754801af36107517794a52ae2e1f8445938dfbfa342e77f71",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0047",
+        "character_count": 21979,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0047.json",
+        "record_count": 6,
+        "sha256": "6af12a24d91e3e7b01aacaf97938f55783e494d64d1fc1a81be9105eb286e8c1",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0048",
+        "character_count": 20948,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0048.json",
+        "record_count": 6,
+        "sha256": "8ddd9fdfc9d2e21b4368660e1030f48055ebc568905d48a4f1b2449fba83e2c2",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "semantic-mapping-batch-0049",
+        "character_count": 13142,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/semantic-mapping/batches/semantic-mapping-batch-0049.json",
+        "record_count": 4,
+        "sha256": "72a014ad5f9f877b02a2a24c1605c6e333053b983de4928a721939a255a84ad9",
+        "task_name": "semantic-mapping"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0001",
+        "character_count": 21729,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0001.json",
+        "record_count": 6,
+        "sha256": "ddee0d64298810c39f08f0b09bb186060185f51ef3232c8c6953a61d67914466",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0002",
+        "character_count": 25268,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0002.json",
+        "record_count": 6,
+        "sha256": "2b061cc5695f44992e9184a5ea59088e4e77f43c1596f1b13fc94c5bb2b295e7",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0003",
+        "character_count": 22291,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0003.json",
+        "record_count": 6,
+        "sha256": "20f91b7237d9048c6cb6eaa9a1a2a9694ac22f03f5e7a50cdc44beb75b5ae5d6",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0004",
+        "character_count": 23249,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0004.json",
+        "record_count": 6,
+        "sha256": "579e0edf6a2f4d88d5469d995de8f621b383d3c9b7970a125417165a37370b2d",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0005",
+        "character_count": 25484,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0005.json",
+        "record_count": 6,
+        "sha256": "61001beca455056fcb98d704743b3e396c773e63df858debe9796c76e3595652",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0006",
+        "character_count": 23529,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0006.json",
+        "record_count": 6,
+        "sha256": "7a12882dbcc4671a1e53a637287ba407474aef0cbcc9596ace2d2b055a0d38e8",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0007",
+        "character_count": 21802,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0007.json",
+        "record_count": 6,
+        "sha256": "f83731f841f1963b326635da5a5a97d88856e7c4539e952ca9dc60dbf202563d",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0008",
+        "character_count": 31225,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0008.json",
+        "record_count": 6,
+        "sha256": "c16174dc3ff6b8a7ac6102800855693a01e6ad061f31b4c165c9247cdf2d6749",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0009",
+        "character_count": 26722,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0009.json",
+        "record_count": 6,
+        "sha256": "32d3108ac4925ad1eefbdb29802d297a739482b93b22ad10b697b2e38f2e79cc",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0010",
+        "character_count": 34572,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0010.json",
+        "record_count": 6,
+        "sha256": "b72465a6fe138f1de75410f9836e045ab0d4a4b5d0d664c3a2046beeb59f80ea",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0011",
+        "character_count": 25647,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0011.json",
+        "record_count": 6,
+        "sha256": "810e687f9fa0c1e4e572b777d05e3548d33b58295db358afcc2c09342cb9c009",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0012",
+        "character_count": 36093,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0012.json",
+        "record_count": 6,
+        "sha256": "a3d7042e32ee736358859a2f4e7c556ce008bef61a3dfdf2775f1c09508fe0d6",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0013",
+        "character_count": 30425,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0013.json",
+        "record_count": 6,
+        "sha256": "88acf158fc201eeb856bba197e8cce7b844adff630bf3a60b55351f433eef939",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0014",
+        "character_count": 27266,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0014.json",
+        "record_count": 6,
+        "sha256": "0da482ede3ca33284ef934b3e8d691a5d50f1d4d88c8ccc9a06f4323c551897d",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0015",
+        "character_count": 35302,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0015.json",
+        "record_count": 6,
+        "sha256": "cd268dac2bfc11286985662c8ccb26df57434f85aa80f88928c8578bdbe1e24d",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0016",
+        "character_count": 27772,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0016.json",
+        "record_count": 6,
+        "sha256": "f1a2a9f65b69a4db322a2f6e9b7741d494825ebf8bf554de5532001274e301d3",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0017",
+        "character_count": 21478,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0017.json",
+        "record_count": 6,
+        "sha256": "b01aca977a558ea3b77a2d20e80fa3b971d9e81189cf02eeece17405a1c4a804",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0018",
+        "character_count": 20816,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0018.json",
+        "record_count": 6,
+        "sha256": "d3de1276f4eb637d3d9eb8277aa19dfe617d37780324cde601fa3462f643da44",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0019",
+        "character_count": 28256,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0019.json",
+        "record_count": 6,
+        "sha256": "0c6ca7d455b53c51ef5a6481fc946aa226bb5e090c80419279dd2f99d8fe0dea",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0020",
+        "character_count": 21476,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0020.json",
+        "record_count": 6,
+        "sha256": "cde33803fc2032b1c2c1f085c735cc3db4b8264dfd48f997207c8b7f5134048c",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0021",
+        "character_count": 17885,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0021.json",
+        "record_count": 6,
+        "sha256": "3491f7a0ab09cd65666dffe7570526038f9ff59c6242c3f29036569cd08c876e",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0022",
+        "character_count": 21158,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0022.json",
+        "record_count": 6,
+        "sha256": "91ffe49996f1e3f6faef312f5bc6a00be42ff45b019c5a5e00bf557c1aa78f75",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0023",
+        "character_count": 21332,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0023.json",
+        "record_count": 6,
+        "sha256": "133dff9b9d1db4316fa5beffc7d445088288df987e6f46536bc3671a3c27720e",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0024",
+        "character_count": 22296,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0024.json",
+        "record_count": 6,
+        "sha256": "1ab7fa4599d8a3be5e1bfbbdbaf7ff8c7f5287b729de7efd5624229a6d1d8362",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0025",
+        "character_count": 18734,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0025.json",
+        "record_count": 6,
+        "sha256": "c269185c0bae6a2c4ae0f31a00ec13bf329ebf7ac9d69365f06c3b6d12b76916",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0026",
+        "character_count": 19944,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0026.json",
+        "record_count": 6,
+        "sha256": "4790395a03cf8523c481227034e00a7d3163a9c53d7752e444f55df0e6714a0d",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0027",
+        "character_count": 20979,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0027.json",
+        "record_count": 6,
+        "sha256": "2f39d010a2c11184f4ebb20614128eda6777d2f12c0eb23a0aefce7f4cdd0b0a",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0028",
+        "character_count": 20148,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0028.json",
+        "record_count": 6,
+        "sha256": "fc663b4104578c4e723950f778827d3e98a6a6028803892428ab89f24ea64f13",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0029",
+        "character_count": 24316,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0029.json",
+        "record_count": 6,
+        "sha256": "08077c58d02b3a780d2fcc675895100e4aab51e0c32237aca7973875ada25c8a",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0030",
+        "character_count": 22792,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0030.json",
+        "record_count": 6,
+        "sha256": "28afdc7d4f6bb13ca72812b318e95118e66ff8c2ee9ac2bf83f67c6f966da148",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0031",
+        "character_count": 20261,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0031.json",
+        "record_count": 6,
+        "sha256": "598683294ad5e6e7fffe83825037334d9b90660f6b5eabf2c77bb549c29b21a5",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0032",
+        "character_count": 19847,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0032.json",
+        "record_count": 6,
+        "sha256": "f196681d51050835d7bfcb24fe228aa2d0f0d95969a94f5c8e3dd544d9c763eb",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0033",
+        "character_count": 19914,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0033.json",
+        "record_count": 6,
+        "sha256": "4bbbf3c0e8c5cd7b9e33ff4a1663e0e3d4cd149a972e4afdb3e3e9398c23b063",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0034",
+        "character_count": 21634,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0034.json",
+        "record_count": 6,
+        "sha256": "2456410c7afef8992b654a633432765f42034da467654d966a09bacdc630a75a",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0035",
+        "character_count": 23470,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0035.json",
+        "record_count": 6,
+        "sha256": "ba78586cda698aad790bb8049e8ae09462eeed281bb1609d0d2b39baa4cd8694",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0036",
+        "character_count": 24016,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0036.json",
+        "record_count": 6,
+        "sha256": "d92e604c20aea5429b89c60a76bb66ada77ef56cf74b905853f947c0b7b72113",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0037",
+        "character_count": 23066,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0037.json",
+        "record_count": 6,
+        "sha256": "ecd7cb6868e6f8ce2425287cb3e2b0b066376209a9549e09ec2c0925369b2d8f",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0038",
+        "character_count": 27381,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0038.json",
+        "record_count": 6,
+        "sha256": "17d842dff7f1167dab0f67c638d15ac430e39d0704d625b8edabbf9c21f6b579",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0039",
+        "character_count": 32442,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0039.json",
+        "record_count": 6,
+        "sha256": "1f3cb4b47000fb3432d6d8c160cb46323c6d99b2c6ebd879a12c5d5e9eee30fe",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0040",
+        "character_count": 36231,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0040.json",
+        "record_count": 6,
+        "sha256": "1d6c7c697cf1d51a69616af9090ffb2bda496c48c087d06b6cc0e83b7b0d77ca",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0041",
+        "character_count": 38860,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0041.json",
+        "record_count": 6,
+        "sha256": "4b4e27ed148fe65d8ec13dafa53c399f135c4059945b0d3efab7fb4b03e7ad40",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0042",
+        "character_count": 32544,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0042.json",
+        "record_count": 6,
+        "sha256": "628d9bd4036cc14a2f59332477a5b18af9ae09574960490a6c64bb4c45682d3a",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0043",
+        "character_count": 27198,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0043.json",
+        "record_count": 6,
+        "sha256": "6a5811be2aa24c015fcc7ee16f172e0329bc1cd6b97e47c6af31654bc8c09035",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0044",
+        "character_count": 31678,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0044.json",
+        "record_count": 6,
+        "sha256": "2a6c0bddc6934bce4972463d877c1dc290dba18b188fd7f281a8f1619f0fc80d",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0045",
+        "character_count": 29964,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0045.json",
+        "record_count": 6,
+        "sha256": "307fb54627d4d885514d3a57b0d0ba031bf7c287c58f63d0a2a129609eeb17da",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0046",
+        "character_count": 37079,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0046.json",
+        "record_count": 6,
+        "sha256": "1f54015db856f405e462f2aad935167032824fdf33dae2f44cb45eba360a952e",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0047",
+        "character_count": 33306,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0047.json",
+        "record_count": 6,
+        "sha256": "33be190bc09e44343dba9c4006d4563ce5aee575b1d85134686d05e80bf3e2b0",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0048",
+        "character_count": 28370,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0048.json",
+        "record_count": 6,
+        "sha256": "cae164d86c8d2125851362a00f55e993b58f20849b2f561b430c435ed25d74d1",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0049",
+        "character_count": 36782,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0049.json",
+        "record_count": 6,
+        "sha256": "5247f6af2c401b34aad59c782c84ce2f7649468e8d0752a5adec998eca8ac09a",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0050",
+        "character_count": 32571,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0050.json",
+        "record_count": 6,
+        "sha256": "36f78a1b26f023b543d71033f665a7cf3e1d09b45a94f6a10e51301f8fe34c2f",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0051",
+        "character_count": 25228,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0051.json",
+        "record_count": 6,
+        "sha256": "5f400c86287442a1a92a7faa2df968248508d3ead1a2ed0097884ca5461cb5c6",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0052",
+        "character_count": 23850,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0052.json",
+        "record_count": 6,
+        "sha256": "e4dd016a854c919d981bd58419bf5f1a1f72ab533f788eae91b16f1bc1d2020f",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0053",
+        "character_count": 21592,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0053.json",
+        "record_count": 6,
+        "sha256": "be8e1544d63041612ae811927383bf3e8032387edb76e1ca55ea5039f56796f4",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0054",
+        "character_count": 23777,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0054.json",
+        "record_count": 6,
+        "sha256": "90e37e39bcf9aa3443721169f40848bf60aabbfab0b8a2785fd2a6c1735ae133",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0055",
+        "character_count": 25322,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0055.json",
+        "record_count": 6,
+        "sha256": "823f34060c75768ee05559f0066c1d2d0891492cbd638facfb1edb7fa727d99e",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0056",
+        "character_count": 26126,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0056.json",
+        "record_count": 6,
+        "sha256": "1a092fb59dc4dd066a16deb3dbfe06f09c0b62f7acb824a9cff27eab1ffd1c85",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0057",
+        "character_count": 25404,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0057.json",
+        "record_count": 6,
+        "sha256": "8f4b0681951799287ed11421818273183907abdfb19f088222ad006bbd302a45",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0058",
+        "character_count": 20419,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0058.json",
+        "record_count": 6,
+        "sha256": "864806e8ca37f39f6d07e356a616aa85c178aaf71b496f60ba2dc30a33a9bdf6",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0059",
+        "character_count": 28947,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0059.json",
+        "record_count": 6,
+        "sha256": "af882902b6da3416f7ae395b15f5eeef6f645e1077c6da72bfb4356ba82ebfc9",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0060",
+        "character_count": 22060,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0060.json",
+        "record_count": 6,
+        "sha256": "c5797bac4d9389eeac10a5915af62167e8be8566d149fd86aae5d41ca30fea7a",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0061",
+        "character_count": 21547,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0061.json",
+        "record_count": 6,
+        "sha256": "35fb96736d3f5871b2e30d0b236791cdb03d9be124af186b20597e372d67927f",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0062",
+        "character_count": 21533,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0062.json",
+        "record_count": 6,
+        "sha256": "a4509edfb58c8b379410c869b65d940e52aae965871bc989baaddf3729a48eb6",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0063",
+        "character_count": 24512,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0063.json",
+        "record_count": 6,
+        "sha256": "a6ad51c61f90ef26613a2cdfe841e453eeac336a5f4792e53379822f1f65acd6",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0064",
+        "character_count": 23261,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0064.json",
+        "record_count": 6,
+        "sha256": "31091e07587d69c2c4cc01c714a6e41f262881bc3cef987a3ced18bc229931f4",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0065",
+        "character_count": 20735,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0065.json",
+        "record_count": 6,
+        "sha256": "93401662669a81a155c2935406ad608d90277e7b276171912f101fcde4dc2d71",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0066",
+        "character_count": 23847,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0066.json",
+        "record_count": 6,
+        "sha256": "5fddbe923774515b508691a4c942b8b592893af0ccfd6482465b39273626aa5f",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0067",
+        "character_count": 20762,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0067.json",
+        "record_count": 6,
+        "sha256": "e4baf1529f2d611bb358b29f1a6265ad8d5d8e35411039db2f7a8940628e33dc",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0068",
+        "character_count": 21349,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0068.json",
+        "record_count": 6,
+        "sha256": "13af91976bb6b9e79bbe4dc6d55180b87b89db0c996bdeb6dedf418890293aa0",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0069",
+        "character_count": 26729,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0069.json",
+        "record_count": 6,
+        "sha256": "8e8fbf095edcc2a677d8ce8057e4e1680f2251049af788d884998a8a3798a444",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0070",
+        "character_count": 24667,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0070.json",
+        "record_count": 6,
+        "sha256": "36590c53d2568d95a1ed6450ba80c2395944e9c0b93fcb2e70d0ba24a36e06bf",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0071",
+        "character_count": 20365,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0071.json",
+        "record_count": 6,
+        "sha256": "d0f3fa916d1712bca7a0394be21e7be9967fb71c106d9f96ae1478cd870b734b",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0072",
+        "character_count": 22076,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0072.json",
+        "record_count": 6,
+        "sha256": "96d8907e7b57aaf265109dec1c88d214e997f4ac1bc2271d069345bd07b82dde",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0073",
+        "character_count": 20323,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0073.json",
+        "record_count": 6,
+        "sha256": "ba9c103b7cbabeb5c9fc06363c188250eabdada831ee6bf779c3c60b2a54fbef",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0074",
+        "character_count": 21857,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0074.json",
+        "record_count": 6,
+        "sha256": "fb3e884477aea1cc6481b0fc35d0b8dd992174ae479ecaf23f64e1e1b654d149",
+        "task_name": "chain-interpretation"
+      },
+      {
+        "batch_id": "chain-interpretation-batch-0075",
+        "character_count": 16690,
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/chain-interpretation/batches/chain-interpretation-batch-0075.json",
+        "record_count": 4,
+        "sha256": "0aacb78fe21e3ae01b691247f0ff8be8562e484e178e90651c319e2eda9e55b7",
+        "task_name": "chain-interpretation"
+      }
+    ],
+    "contracts": {
+      "boundary_resolution": {
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/contracts/boundary-resolution-contract-v1.json",
+        "sha256": "fabf44568973d8ccaf565a1abc226360c913b275f6b1df23a2fa301b155c08da"
+      },
+      "chain_interpretation": {
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/contracts/chain-interpretation-contract-v1.json",
+        "sha256": "d41dfc2136487bf0f485cf4a9bb44a83a559b7cfec9df2a2dfb3143cdae1ca1e"
+      },
+      "semantic_mapping": {
+        "project_path": "sources/secondary/gemini-semantic-analysis-draft/contracts/semantic-mapping-contract-v1.json",
+        "sha256": "347ee9dfd7893a30e8e0243087023e87003c6b81a19ac50add0a37beb5749506"
+      }
+    },
+    "execution_lock": {
+      "project_path": "sources/secondary/gemini-semantic-analysis-draft/execution-lock-v1.json",
+      "sha256": "48d13f4458c80c7c1462a84835d30f5f7840f742cb85f2e9e2dceb321bc259e6"
+    },
+    "policy_snapshot": {
+      "project_path": "sources/secondary/gemini-semantic-analysis-draft/narration-attribution-policy-snapshot-v2.json",
+      "sha256": "ffcf794936debcb93501787b82906753f5a36decf4a62ba80aab81446dc82222"
+    }
+  },
+  "permissions": {
+    "candidate_only": true,
+    "evidence_approval_changed": false,
+    "final_narrative_approval_changed": false,
+    "gemini_execution_enabled": false,
+    "hadith_grading_changed": false,
+    "isnad_approval_changed": false,
+    "israiliyyat_classification_changed": false,
+    "narrator_judgement_changed": false,
+    "network_call_made": false,
+    "quotation_approval_changed": false,
+    "source_approval_changed": false
+  },
+  "schema_version": "siraj-adam-bounded-gemini-semantic-draft-manifest-v1",
+  "source_phase9_manifest": "sources/secondary/report-resegmentation-chain-normalization/report-resegmentation-chain-normalization-manifest-v1.json",
+  "source_phase9_manifest_sha256": "5306f37a092bd46bed56d0c3877baa35f2c17ca4d46d52efc263e3bde7aea79c",
+  "source_policy": "editorial/narration-attribution-policy-v2.json",
+  "source_policy_sha256": "e6c65aefbdde0b2b5c8ffc92be568bd5e083639c9ca1c72c32bea9f6bde1c60f",
+  "stable_report_count": 292,
+  "status": "PASS_GEMINI_DRAFTS_READY_EXECUTION_BLOCKED",
+  "task_counts": {
+    "boundary_resolution_records": 446,
+    "chain_interpretation_records": 448,
+    "chain_records_depending_on_boundary_resolution": 302,
+    "stable_semantic_mapping_records": 292
+  },
+  "unresolved_boundary_count": 446
+}

@@ -1,0 +1,406 @@
+{
+  "batch_id": "semantic-mapping-batch-0018",
+  "episode_id": "episode-001-adam",
+  "execution_enabled": false,
+  "execution_status": "BLOCKED_NOT_AUTHORIZED",
+  "generation_config": {
+    "response_mime_type": "application/json",
+    "temperature": 0
+  },
+  "model_id": null,
+  "provider_id": "GEMINI",
+  "record_count": 6,
+  "records": [
+    {
+      "attribution_profiles": [],
+      "book_id": 8658,
+      "book_title": "تفسير ابن أبي حاتم",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/8658/volume/11/page/183?database_sha256=72fa72e670a63139b624db32c1e3752a5b3d10c862b3245339d4eadd5995f23a&segment_id=3645"
+      ],
+      "chain_nodes_candidate": [],
+      "event_ids": [],
+      "footnote_context": "",
+      "kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_03975c2df6c251bf1f4abbc2",
+      "original_text": "رَسُول اللَّهِ ﷺ يَقُولُ: «من نفس عن غريمه أو محا عنه كان في ظل العرش يوم القيامة» .\nرواه أحمد (٥/ ٣٠٠، ٣٠٨) والدارمي (٢/ ٢٦٢) والمنثور (١/ ٣٦٩) والكنز (١٥٣٧٩) وشرح السنة (٨/ ١٩٩) وابن كثير (١/ ٤٩١) وابن أبى شيبة (٧/ ١٢، ٢٥٠) .\n٥٥٤: ٢٩٤٤: الأول: ١: تفسير الثوري: (ص/ ٧٣) .\n: ٢٩٤٧: السلم: ٢: في «الأصل» «السلام» وفي «الدرر» (١/ ١١٧) «السلم» .\nوالسلم هو: بيع شيء موصوف في الذمة بثمن معجل والفقهاء تسميه: بيع المحاويج لأنه بيع غائب تدعو إليه ضرورة كل واحد من المتبايعين فإن صاحب رأس المال محتاج إلى أن يشترى السلعة، وصاحب السلعة محتاج إلى ثمنها قبل حصولها عنده لينفقها على نفسه وعلى زرعه حتى ينضج فهو من المصالح الحاجية. والسلم يسمى السلف.\n٥٥٥: ٢٩٥٠: (....) : ١: في «الأصل» طمس، وفي ابن كثير «خلق آدم، مسح ظهره فأخرج منه ما هو في ذارئ إلى يوم القيامة، فجعل يعرض في ذريته عليه» .\nانظر التفسير: (١/ ٣٣٤) .",
+      "original_text_sha256": "d081a05eb6d6bf502c6ccd59350e624cd2f48d4246e5997b80049fef72956df4",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "MARFU_CONTEXT_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [],
+      "task_record_id": "adam_gemini_semantic_task_da48c84f312db0e71dd896cb",
+      "terminal_speaker_surface_candidate": null,
+      "window_id": "404b0fc80d53c49fa2345e97",
+      "work_source_id": "SRC-TAFSIR-IBN-ABI-HATIM-ADAM"
+    },
+    {
+      "attribution_profiles": [],
+      "book_id": 8658,
+      "book_title": "تفسير ابن أبي حاتم",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/8658/volume/5/page/1633?database_sha256=72fa72e670a63139b624db32c1e3752a5b3d10c862b3245339d4eadd5995f23a&segment_id=1623"
+      ],
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "بن يمان عن سفيان عن ابن ابي نجيح",
+          "narrator_surface_raw": "بْنُ يَمَانٍ عَنْ سُفْيَانَ عَنِ ابْنِ أَبِي نَجِيحٍ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "محمد بن عبد الاعلي الصغاني",
+          "narrator_surface_raw": "مُحَمَّدُ بْنُ عَبْدِ الأَعْلَى الصغاني",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "محمد بن ثور عن معمر قال",
+          "narrator_surface_raw": "مُحَمَّدُ بْنُ ثَوْرٍ عَنْ مَعْمَرٍ قَالَ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "عبيد الله بن محمد",
+          "narrator_surface_raw": "عُبَيْدُ اللَّهِ بْنُ مُحَمَّدٍ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 3,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "عبد الواحد",
+          "narrator_surface_raw": "عَبْدُ الْوَاحِدِ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 4,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "سالم بن ابي حفصة قال",
+          "narrator_surface_raw": "سَالِمُ بْنُ أَبِي حَفْصَةَ قَالَ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 5,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        }
+      ],
+      "event_ids": [
+        "EV-ADAM-070",
+        "EV-ADAM-071"
+      ],
+      "footnote_context": "(١) . قال ابن كثير: هذه الآثار يظهر عليها- والله أعلم- أنها من آثار أهل الكتاب ٣/ ٥٣١.\n(٢) . الدر ٣/ ٦٢٤.",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_1a539bd56c03b4c256063fa2",
+      "original_text": "وَرُوِيَ عَنْ أَبِي الْبُحْتُرِيِّ. نَحْو ذَلِكَ.\n\n٨٦٤٨ - حَدَّثَنَا الأَشَجُّ، ثنا بْنُ يَمَانٍ عَنْ سُفْيَانَ عَنِ ابْنِ أَبِي نَجِيحٍ، عَنْ مُجَاهِدٍ قَالَ: أَشْفَقْنَا أَنْ لَا يَكُونَ إِنْسَانًا، وَرُوِيَ عَنْ أَبِي مَلَكٍ مِثْلُ ذَلِكَ.\n\n٨٦٤٩ - حَدَّثَنَا أَبِي، ثنا سَهْلُ بْنُ عُثْمَانَ ثنا مِهْرَانُ بْنُ أَبِي عُمَرَ الرَّازِيُّ عَنِ ابْنِ أَبِي خَالِدٍ عَنْ أَبِي صَالِحٍ فِي هَذِهِ الآيَةِ لَئِنْ آتَيْتَنَا صَالِحًا قَالَ: خَشِينَا أَنْ يَكُونَ بَهِيمَةً فَقَالا: لَئِنْ آتَيْتَنَا بَشَرًا سَوِيًّا.\n\n٨٦٥٠ - حَدَّثَنَا أَبِي، ثنا مُحَمَّدُ بْنُ عَبْدِ الأَعْلَى الصغاني، ثنا مُحَمَّدُ بْنُ ثَوْرٍ عَنْ مَعْمَرٍ قَالَ: وَقَالَ الْحَسَنُ: لَئِنْ آتَيْتَنَا صَالِحًا قَالَ: غُلامًا.\n\n٨٦٥١ - حَدَّثَنَا مُحَمَّدُ بْنُ عَمَّارٍ، ثنا عُبَيْدُ اللَّهِ بْنُ مُحَمَّدٍ، ثنا عَبْدُ الْوَاحِدِ، ثنا سَالِمُ بْنُ أَبِي حَفْصَةَ قَالَ: سَمِعْتُ سَعِيدَ بْنَ جُبَيْرٍ فِي هَذِهِ الآيَةِ لَئِنْ آتَيْتَنَا صَالِحًا مِثْلَ خَلْقِنَا لَنَكُونَنَّ مِنَ الشَّاكِرِينَ وَرُوِيَ عَنِ السُّدِّيِّ مِثْلُ قَوْلِ سَعِيدِ بْنِ جُبَيْرٍ\n\nقَوْلُهُ تَعَالَى: لَنَكُونَنَّ مِنَ الشَّاكِرِينَ\n\n٨٦٥٢ - حَدَّثَنَا عَلِيُّ بْنُ الْحُسَيْنِ الْهِسِنْجَانِيُّ، ثنا أَبُو عُمَرَ الْحَوْضِيُّ ثنا خَالِدُ بْنُ عَبْدِ اللَّهِ عَنْ عَطَاءٍ عَنْ سَعِيدِ بْنِ جُبَيْرٍ عَنِ ابْنِ عَبَّاسٍ فِي هَذِهِ الآيَةِ يَعْنِي قَوْلَهُ: لَئِنْ آتَيْتَنَا صَالِحًا لَنَكُونَنَّ مِنَ الشَّاكِرِينَ قَالَ: مَا أَشْرَكَ آدَمُ أَنْ ضَرَبَهُ لِمَنْ بَعْدَهُ «١» .\n\nقَوْلُهُ تَعَالَى فَلَمَّا آتَاهُمَا صَالِحًا جَعَلَا له شركاء فيما آتاهما\n\n٨٦٥٣ - حَدَّثَنَا أَبِي، ثنا أَبُو الْجُمَاهِرِ أَنْبَأَ سَعِيدُ بْنُ بَشِيرٍ عَنْ عُقْبَةَ عَنْ قَتَادَةَ عَنْ مُجَاهِدٍ عَنِ ابْنِ عَبَّاسٍ عَنْ أُبَيِّ بْنِ كَعْبٍ قَالَ: لَمَّا حَمَلَتْ حَوَّاءُ أَتَاهَا الشَّيْطَانُ فَقَالَ:\nأَتُطِيعِينِي وَيَسْلَمْ لَكِ وَلَدُكِ؟ سَمِّيهِ عَبْدَ الْحَارِثِ، فَلَمْ تَفْعَلْ فَوَلَدَتْ فَمَاتَ، ثُمَّ حَمَلَتْ فَقَالَ لَهَا مِثْلَ ذَلِكَ فَلَمْ تَفْعَلْ، ثُمَّ حَمَلَتِ الثَّالِثَ فَجَاءَهَا فَقَالَ: إِنْ تُطِيعِينِي يَسْلَمْ، وَإِلا فإنه يكون بهيمة فهيبهما فأطاعا «٢» .",
+      "original_text_sha256": "8de18af33917c902a30ce53d53ac7ce1b7768384a73fb34153c8da94ba129a46",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "MAWQUF_OR_TAFSIR_REPORT_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [
+        "RQ-ADAM-025",
+        "RQ-ADAM-026",
+        "RQ-ADAM-027"
+      ],
+      "task_record_id": "adam_gemini_semantic_task_72ffbceaa88727846901777e",
+      "terminal_speaker_surface_candidate": "سَالِمُ بْنُ أَبِي حَفْصَةَ قَالَ",
+      "window_id": "253f8f7aa4a315ef9370aade",
+      "work_source_id": "SRC-TAFSIR-IBN-ABI-HATIM-ADAM"
+    },
+    {
+      "attribution_profiles": [
+        "WAHB_IBN_MUNABBIH"
+      ],
+      "book_id": 8658,
+      "book_title": "تفسير ابن أبي حاتم",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/8658/volume/5/page/1450?database_sha256=72fa72e670a63139b624db32c1e3752a5b3d10c862b3245339d4eadd5995f23a&segment_id=1440"
+      ],
+      "chain_nodes_candidate": [],
+      "event_ids": [
+        "EV-ADAM-080",
+        "EV-ADAM-081",
+        "EV-ADAM-082",
+        "EV-ADAM-090",
+        "EV-ADAM-091",
+        "EV-ADAM-099"
+      ],
+      "footnote_context": "",
+      "kind_candidate": "SOURCE_PASSAGE_CONTEXT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_1d5ad3e738da5d2a14efa72c",
+      "original_text": "الْمُؤَدِّبُ ثنا شَيْبَانُ عَنْ قَتَادَةَ قَوْلُهُ: وَلا تَقْرَبَا هَذِهِ الشَّجَرَةَ فَتَكُونَا مِنَ الظَّالِمِينَ، قَالَ: ابْتَلَى اللَّهُ آدَمَ كَمَا ابْتَلَى الْمَلائِكَةَ قَبْلَهُ، وَكُلُّ شَيْءٍ خُلِقَ مُبْتَلًى، وَلَمْ يَدَعِ اللَّهُ شَيْئًا مِنْ خَلْقِهِ إِلا ابْتَلاهُ بِالطَّاعَةِ فَمَا زَالَ الْبَلَاءُ بِآدَمَ حَتَّى وَقَعَ فِيمَا نُهِيَ عَنْهُ.\n\nقَوْلُهُ تَعَالَى:",
+      "original_text_sha256": "67db4d173cd00f8bc685076a9ea9b51fb38d1b5144a723ddbc0e3e25715427d5",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [
+        "RQ-ADAM-028",
+        "RQ-ADAM-029",
+        "RQ-ADAM-030",
+        "RQ-ADAM-032"
+      ],
+      "task_record_id": "adam_gemini_semantic_task_ba26f8dbf713d34b66cc6c78",
+      "terminal_speaker_surface_candidate": null,
+      "window_id": "30690c525905a898ea4bdd81",
+      "work_source_id": "SRC-TAFSIR-IBN-ABI-HATIM-ADAM"
+    },
+    {
+      "attribution_profiles": [],
+      "book_id": 8658,
+      "book_title": "تفسير ابن أبي حاتم",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/8658/volume/7/page/2338?database_sha256=72fa72e670a63139b624db32c1e3752a5b3d10c862b3245339d4eadd5995f23a&segment_id=2328"
+      ],
+      "chain_nodes_candidate": [],
+      "event_ids": [
+        "EV-ADAM-050",
+        "EV-ADAM-051",
+        "EV-ADAM-052",
+        "EV-ADAM-053",
+        "EV-ADAM-054",
+        "EV-ADAM-055"
+      ],
+      "footnote_context": "(١) . الدر ٥/ ٣١٢- ٣١٣.\n(٢) . الدر ٥/ ٣١٦.\n(٣) . الدر ٥/ ٣١٦. [.....]\n(٤) . الدر ٥/ ٣١٦.\n(٥) . الدر ٥/ ٣١٦.\n(٦) . الدر ٥/ ٣١٦.\n(٧) . الدر ٥/ ٣١٦.\n(٨) . الدر ٥/ ٣١٦.",
+      "kind_candidate": "SOURCE_PASSAGE_CONTEXT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_23d384c109128bfd685f3326",
+      "original_text": "قَوْلهُ تَعَالَى: إِنَّ عِبَادِي لَيْسَ لَكَ عَلَيْهِمْ سُلْطَانٌ\n\n١٣٣٣٦ - عَنْ مُجَاهِدٍ ﵁ فِي قَوْلِهِ: إن عبادي ليس لك عليهم سلطان قَالَ: عبادي الذين قضيت لَهُمْ بالجنة، ليس لك عليهم ان يذنبوا ذنبا الا اغفر لَهُمْ «١» .\n\nقَوْلهُ تَعَالَى: يُزْجِي\n\n١٣٣٣٧ - عَنْ ابْنِ عَبَّاسٍ ﵄ فِي قَوْلِهِ: يُزْجِي قَالَ:\nيجري «٢» .\n\n١٣٣٣٨ - عَنْ عَطَاءٍ الْخُرَاسَانِيِّ ﵁ فِي قَوْلِهِ: يُزْجِي لَكُمُ الْفُلْكَ قَالَ: يسيرها في البحر «٣» .\n\n١٣٣٣٩ - عَنْ عطاء الخراساني ﵁ قَالَ: الْفُلْكَ السفن «٤» .\n\nقَوْلهُ تَعَالَى: بِكُمْ رَحِيمًا\n\n١٣٣٤٠ - عَنِ الأوزاعي ﵁ فِي قَوْلِهِ: إِنَّهُ كَانَ بِكُمْ رَحِيمًا قَالَ:\nنَزَلَتْ في المشركين «٥» .\n\nقَوْلهُ تَعَالَى أَوْ يُرْسِلَ عَلَيْكُمْ حَاصِبًا\n\n١٣٣٤١ - عَنْ قَتَادَة ﵁ فِي قَوْلِهِ: أَوْ يُرْسِلَ عَلَيْكُمْ حَاصِبًا قَالَ:\nحجارة مِنَ السَّمَاء ثُمَّ لا تَجِدُوا لَكُمْ وَكِيلا أي منعه ولا ناصرًا أَمْ أَمِنْتُمْ إِنَّ يُعِيدَكُمْ فِيهِ تَارَةً أُخْرَى أي مرة أخرى في البحر «٦» .\n\nقَوْلهُ تَعَالَى: تَبِيعًا\n\n١٣٣٤٢ - عَنْ ابْنِ عَبَّاسٍ ﵄ فِي قَوْلِهِ: قَاصِفًا قَالَ: عاصفًا وفي قوله: ثُمَّ لا تَجِدُوا لَكُمْ عَلَيْنَا بِهِ تَبِيعًا قَالَ: نصيرًا «٧» .\n\n١٣٣٤٣ - عَنْ قَتَادَة ﵁ فِي قَوْلِهِ: ثُمَّ لا تَجِدُوا لَكُمْ عَلَيْنَا بِهِ تَبِيعًا قَالَ: لا يتبعنا أحد بشيء من ذلك «٨» .",
+      "original_text_sha256": "9afa2429f64f6b7380542cb3bbe680d80e29f3effca0d53d36deb2f1b016c4d8",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "MAWQUF_OR_TAFSIR_REPORT_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [
+        "RQ-ADAM-017",
+        "RQ-ADAM-018",
+        "RQ-ADAM-019",
+        "RQ-ADAM-020"
+      ],
+      "task_record_id": "adam_gemini_semantic_task_6e4e81f921417f2b0bb7d88d",
+      "terminal_speaker_surface_candidate": null,
+      "window_id": "654e3a6f1897e0ccb4fcee7e",
+      "work_source_id": "SRC-TAFSIR-IBN-ABI-HATIM-ADAM"
+    },
+    {
+      "attribution_profiles": [],
+      "book_id": 8658,
+      "book_title": "تفسير ابن أبي حاتم",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/8658/volume/7/page/2337?database_sha256=72fa72e670a63139b624db32c1e3752a5b3d10c862b3245339d4eadd5995f23a&segment_id=2327"
+      ],
+      "chain_nodes_candidate": [],
+      "event_ids": [
+        "EV-ADAM-050",
+        "EV-ADAM-051",
+        "EV-ADAM-052",
+        "EV-ADAM-053",
+        "EV-ADAM-054",
+        "EV-ADAM-055"
+      ],
+      "footnote_context": "(١) . الدر ٥/ ٣١٠- ٣١١\n(٢) . الدر ٥/ ٣١٠- ٣١١\n(٣) . الدر ٥/ ٣١٢- ٣١٣.\n(٤) . الدر ٥/ ٣١٢- ٣١٣.\n(٥) . الدر ٥/ ٣١٢- ٣١٣.\n(٦) . الدر ٥/ ٣١٢- ٣١٣.\n(٧) . الدر ٥/ ٣١٢- ٣١٣.",
+      "kind_candidate": "SOURCE_PASSAGE_CONTEXT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_36a74dae33b053aee8c54ca2",
+      "original_text": "قَوْلهُ تَعَالَى: لأَحْتَنِكَنَّ\n\n١٣٣٢٩ - عَنْ ابْنِ عَبَّاسٍ ﵄ فِي قَوْلِهِ: لأَحْتَنِكَنَّ قَالَ:\nلأستولين «١» .\n\n١٣٣٣٠ - عن ابن زيد ﵁ في قَوْلِهِ: لأَحْتَنِكَنَّ ذُرِّيَّتَهُ يَقُولُ:\nلأضلنهم «٢» .\n\nقَوْلهُ تَعَالَى: جَزَاءً مَوْفُورًا\n\n١٣٣٣١ - عَنْ مُجَاهِدٍ ﵁ فِي قَوْلِهِ: جَزَاءً مَوْفُورًا قَالَ:\nوافرًا «٣» .\n\n١٣٣٣٢ - عَنْ سَعِيدِ بْنِ جُبَيْرٍ ﵁ في قَوْلِهِ: فَإِنَّ جَهَنَّمَ جَزَاؤُكُمْ جَزَاءً مَوْفُورًا يَقُولُ: يوفر عذابها للكافر فلا يدخر عنهم منها شيء «٤» .\n\nقَوْلهُ تَعَالَى: وَاسْتَفْزِزْ مِنَ اسْتَطَعْتَ مِنْهُمْ بصوتك\n\n١٣٣٣٣ - عن ابن عباس ﵄ في قَوْلِهِ: وَاسْتَفْزِزْ مِنَ اسْتَطَعْتَ مِنْهُمْ بِصَوْتِكَ قَالَ: صوته كُلّ داع دعا إِلَى معصية الله وَأَجْلِبْ عَلَيْهِمْ بِخَيْلِكَ قَالَ: كُلّ راكب في معصية الله وَشَارِكْهُمْ فِي الأَمْوَالِ قَالَ: كُلّ مال في معصية الله وَالأَوْلادِ قال: ما قتلوا مِنَ أولادهم وأتوا فيهم الحرام «٥» .\n\n١٣٣٣٤ - عَنْ ابْنِ عَبَّاسٍ ﵄ فِي قَوْلِهِ: وَأَجْلِبْ عَلَيْهِمْ بِخَيْلِكَ وَرَجِلِكَ وَشَارِكْهُمْ فِي الأَمْوَالِ وَالأَوْلادِ قَالَ: خيل تسير في معصية الله وكل رجل يمشي في معصية الله وكل مال أخذ بغير حقه وكل ولد زنا «٦» .\n\n١٣٣٣٥ - عَنْ مُجَاهِدٍ ﵁ فِي قَوْلِهِ: وَاسْتَفْزِزْ مِنَ اسْتَطَعْتَ مِنْهُمْ بِصَوْتِكَ قَالَ: استنزل مِنَ استطعت منهم بالغناء والمزامير واللهو والباطل أجلب عَلَيْهِمْ بِخَيْلِكَ وَرَجِلِكَ قَالَ: كُلّ راكب وماش في بمعاصي الله وَشَارِكْهُمْ فِي الأَمْوَالِ وَالأَوْلادِ قَالَ: كُلّ مال أخذ بغير طاعة الله تَعَالَى، وأنفق في غير حقه، والأولاد، أولاد الزنا «٧» .",
+      "original_text_sha256": "b6d1fc7b0f906e809bd0932f35d4c9aaba8d0bbf76d4bf27be5f6102a3352a80",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "MAWQUF_OR_TAFSIR_REPORT_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [
+        "RQ-ADAM-017",
+        "RQ-ADAM-018",
+        "RQ-ADAM-019",
+        "RQ-ADAM-020"
+      ],
+      "task_record_id": "adam_gemini_semantic_task_9016af034ee6236590484985",
+      "terminal_speaker_surface_candidate": null,
+      "window_id": "654e3a6f1897e0ccb4fcee7e",
+      "work_source_id": "SRC-TAFSIR-IBN-ABI-HATIM-ADAM"
+    },
+    {
+      "attribution_profiles": [],
+      "book_id": 8658,
+      "book_title": "تفسير ابن أبي حاتم",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/8658/volume/11/page/29?database_sha256=72fa72e670a63139b624db32c1e3752a5b3d10c862b3245339d4eadd5995f23a&segment_id=3493"
+      ],
+      "chain_nodes_candidate": [],
+      "event_ids": [],
+      "footnote_context": "",
+      "kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_36e538ec52f5cabe9917263f",
+      "original_text": "روى البخاري في صحيحه من حديث أنس- ﵁ عَنِ النَّبِيِّ ﷺ قَالَ:\n«يجتمع المؤمنون يوم القيامة فيقولون: لو استشفعنا إلى ربنا، فيأتون آدم فيقولون:\nأنت أبو الناس. خلقك الله بيده، وأسجد لك ملائكته، وعلمك أسماء كل شيء، فاشفع لنا عند ربك حتى يريحنا من مكاننا هذا. فيقول: لست هناكم- ويذكر ذنبه فيستحي- ائتوا نوحا فإنه أول رسول بعثه إلى الأرض. فيأتونه فيقول: لست هناكم- ويذكر سؤاله ربه ما ليس له به علم فيستحى- فيقول: ائتوا خليل الرحمن.\nفيأتونه، فيقول: لست هناكم ائتوا موسى عبدا كلمه الله وأعطاه التوراة، فيأتونه فيقول موسى: لست هناكم- ويذكر قتل النفس بغير نفس فيستحي من ربه- فيقول: ائتوا عيسى عبد الله ورسوله وكلمة الله وروحه، فيقول: لست هناكم، ائتو محمدا ﷺ عبدا غفر الله له ما تقدم من ذنبه وما تأخر، فيأتونى، فأنطلق حتى أستأذن على ربي فيؤذن، فإذا رأيت ربى وقعت ساجدا، فيدعنى ما شاء، ثم يقال: ارفع رأسك، وسل تعطى، وقل يسمع، واشفع تشفع. فأرفع رأسى، فأحمده بتحميد يعلمنيه، ثم أشفع، فيحد لي حدا، فأدخلهم الجنة. ثم أعود إليه. فإذا رأيت ربي- مثله- ثم أشفع، فيحد لي حدا، فأدخلهم الجنة. ثم أعود الثالثة. ثم أعود الرابعة فأقول: ما بقي في",
+      "original_text_sha256": "55cae8ce2c2a8bf6e1c25976d980c95b4c22795a2e80f46f36455c657d668a1a",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "MARFU_CONTEXT_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [],
+      "task_record_id": "adam_gemini_semantic_task_1e71d56bf0606a1a92d506ec",
+      "terminal_speaker_surface_candidate": null,
+      "window_id": "aac3657c3396a95405ac97ab",
+      "work_source_id": "SRC-TAFSIR-IBN-ABI-HATIM-ADAM"
+    }
+  ],
+  "schema_version": "siraj-adam-gemini-draft-batch-v1",
+  "task_contract_project_path": "sources/secondary/gemini-semantic-analysis-draft/contracts/semantic-mapping-contract-v1.json",
+  "task_name": "semantic-mapping"
+}

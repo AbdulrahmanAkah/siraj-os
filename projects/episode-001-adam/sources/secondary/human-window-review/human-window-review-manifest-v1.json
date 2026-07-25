@@ -1,0 +1,55 @@
+{
+  "created_at": "2026-07-24T21:53:07.155537Z",
+  "episode_id": "episode-001-adam",
+  "minimum_per_source": 4,
+  "next_gate": "HUMAN_REVIEW_DECISIONS_EXPORT",
+  "outputs": {
+    "expected_decisions_filename": "adam-human-window-decisions-v1.json",
+    "reserve_csv": "sources/secondary/human-window-review/human-review-reserve-v1.csv",
+    "reserve_csv_sha256": "1ae2b3717d19df55d3c951d044f8c23b1538b2b0b9b3f4efb0ac6c21da683b8f",
+    "shortlist_csv": "sources/secondary/human-window-review/human-review-shortlist-v1.csv",
+    "shortlist_csv_sha256": "3f3e577649f38a3717d17727969c857c3abab4852a97115422e621087f3c6834",
+    "workbench_html": "sources/secondary/human-window-review/adam-human-window-review-workbench-v1.html",
+    "workbench_html_sha256": "9eb842c6d5bc132fc52b78100456336a2c57188d144e8b7f909f9ae76ba9d5d8"
+  },
+  "permissions": {
+    "candidate_only": true,
+    "evidence_approval_changed": false,
+    "gemini_execution_enabled": false,
+    "israiliyyat_classification_changed": false,
+    "quotation_approval_changed": false,
+    "report_classification_changed": false,
+    "source_approval_changed": false
+  },
+  "reserve_count": 135,
+  "schema_version": "siraj-adam-human-window-review-workbench-v1",
+  "shortlist_attribution_window_count": 23,
+  "shortlist_count": 72,
+  "shortlist_limit": 72,
+  "shortlist_source_counts": {
+    "SRC-HISTORY-BIDAYAH-ADAM": 9,
+    "SRC-HISTORY-KAMIL-ADAM": 5,
+    "SRC-HISTORY-MUNTAZAM-ADAM": 5,
+    "SRC-HISTORY-TABARI-ADAM": 5,
+    "SRC-TAFSIR-BAGHAWI-ADAM": 7,
+    "SRC-TAFSIR-IBN-ABI-HATIM-ADAM": 6,
+    "SRC-TAFSIR-IBN-KATHIR-ADAM": 13,
+    "SRC-TAFSIR-SAADI-ADAM": 5,
+    "SRC-TAFSIR-TABARI-ADAM": 17
+  },
+  "shortlist_stage_counts": {
+    "00_GENERAL_ADAM": 72,
+    "01_CREATION_DECREE": 54,
+    "02_CREATION_MATERIAL": 44,
+    "03_SPIRIT_AND_FORM": 32,
+    "04_TEACHING_NAMES": 13,
+    "05_HONOUR_AND_STATUS": 8,
+    "06_ANGELIC_PROSTRATION": 47,
+    "07_PARADISE_RESIDENCE": 17,
+    "08_HADITH_ANCHORS": 6
+  },
+  "source_manifest": "sources/secondary/bounded-review-windows/bounded-review-window-manifest-v1.json",
+  "source_manifest_sha256": "16187af6f509a19409ed4c667f52f3ed5b9b87789a95fb58a7cb9ff5eb8ab9cd",
+  "source_window_count": 207,
+  "status": "PASS_REVIEW_WORKBENCH_READY"
+}

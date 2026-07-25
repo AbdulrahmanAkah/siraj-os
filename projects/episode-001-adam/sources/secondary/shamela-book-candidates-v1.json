@@ -1,0 +1,2208 @@
+{
+  "catalog_book_count": 8593,
+  "created_at": "2026-07-24T12:29:45.186852Z",
+  "episode_id": "episode-001-adam",
+  "master_db": "C:\\shamela4\\database\\master.db",
+  "master_db_sha256": "fc4be9682eb89433c6392a0bad62f55c9c07e7287ff5cfeef7e25d9b65a3fb42",
+  "schema_version": "siraj-shamela-book-candidate-report-v1",
+  "selection_policy": [
+    "NO_AUTOMATIC_BOOK_SELECTION",
+    "SELECT_THE_ORIGINAL_WORK_NOT_A_SUMMARY_OR_DERIVATIVE",
+    "VERIFY_AUTHOR_AND_EDITION_METADATA",
+    "BOOK_DATABASE_MUST_EXIST",
+    "HUMAN_APPROVAL_REQUIRED"
+  ],
+  "shamela_root": "C:\\shamela4",
+  "status": "CANDIDATES_DISCOVERED_HUMAN_SELECTION_REQUIRED",
+  "target_work_count": 10,
+  "targets": [
+    {
+      "candidates": [
+        {
+          "author": "ابن جرير الطبري 59",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\798\\7798.db",
+          "book_id": 7798,
+          "book_title": "تفسير الطبري جامع البيان - ت التركي",
+          "category": "التفسير",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\", \"prefix\": \"تفسير الطبري\", \"group\": 43}",
+          "score": 89.4,
+          "score_details": {
+            "author_component": 28.0,
+            "author_match": true,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "ابن جرير الطبري",
+            "matched_title_alias": "تفسير الطبري",
+            "penalties": [],
+            "title_component": 56.4
+          }
+        },
+        {
+          "author": "ابن جرير الطبري 59",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\043\\43.db",
+          "book_id": 43,
+          "book_title": "تفسير الطبري جامع البيان - ط دار التربية والتراث",
+          "category": "التفسير",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\", \"prefix\": \"تفسير الطبري\", \"suffix\": \"ط التربية والتراث\", \"group\": 43}",
+          "score": 81.148,
+          "score_details": {
+            "author_component": 28.0,
+            "author_match": true,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "ابن جرير الطبري",
+            "matched_title_alias": "تفسير الطبري",
+            "penalties": [],
+            "title_component": 48.148
+          }
+        },
+        {
+          "author": "أبو عمرو الداني 45",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\649\\37649.db",
+          "book_id": 37649,
+          "book_title": "جامع البيان في القراءات السبع",
+          "category": "التجويد والقراءات",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"21111432\"}",
+          "score": 57.2,
+          "score_details": {
+            "author_component": 0.0,
+            "author_match": false,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "",
+            "matched_title_alias": "جامع البيان",
+            "penalties": [],
+            "title_component": 57.2
+          }
+        },
+        {
+          "author": "محب الدين الطبري 308",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\001\\1001.db",
+          "book_id": 1001,
+          "book_title": "ذخائر العقبى في مناقب ذوي القربى",
+          "category": "السيرة النبوية",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 55.488,
+          "score_details": {
+            "author_component": 24.0,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "الطبري",
+            "matched_title_alias": "جامع البيان في تأويل القرآن",
+            "penalties": [],
+            "title_component": 31.488
+          }
+        },
+        {
+          "author": "الإيجي، محمد بن عبد الرحمن 824",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\743\\29743.db",
+          "book_id": 29743,
+          "book_title": "تفسير الإيجي جامع البيان في تفسير القرآن",
+          "category": "التفسير",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"06031432\"}",
+          "score": 55.039,
+          "score_details": {
+            "author_component": 0.0,
+            "author_match": false,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "",
+            "matched_title_alias": "جامع البيان",
+            "penalties": [],
+            "title_component": 50.039
+          }
+        },
+        {
+          "author": "ابن جرير الطبري 59",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\127\\13127.db",
+          "book_id": 13127,
+          "book_title": "صريح السنة للطبري",
+          "category": "كتب السنة",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 54.483,
+          "score_details": {
+            "author_component": 28.0,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "ابن جرير الطبري",
+            "matched_title_alias": "تفسير الطبري",
+            "penalties": [],
+            "title_component": 26.483
+          }
+        },
+        {
+          "author": "ابن جرير الطبري 59",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\464\\26464.db",
+          "book_id": 26464,
+          "book_title": "التبصير في معالم الدين للطبري",
+          "category": "كتب السنة",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 54.444,
+          "score_details": {
+            "author_component": 28.0,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "ابن جرير الطبري",
+            "matched_title_alias": "جامع البيان في تأويل القرآن",
+            "penalties": [],
+            "title_component": 26.444
+          }
+        },
+        {
+          "author": "المراغي، أحمد بن مصطفى 1328",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\608\\23608.db",
+          "book_id": 23608,
+          "book_title": "تفسير المراغي",
+          "category": "التفسير",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 50.733,
+          "score_details": {
+            "author_component": 0.0,
+            "author_match": false,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "",
+            "matched_title_alias": "تفسير الطبري",
+            "penalties": [],
+            "title_component": 45.733
+          }
+        },
+        {
+          "author": "محب الدين الطبري 308",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\657\\8657.db",
+          "book_id": 8657,
+          "book_title": "الرياض النضرة في مناقب العشرة",
+          "category": "التراجم والطبقات",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 50.444,
+          "score_details": {
+            "author_component": 24.0,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "الطبري",
+            "matched_title_alias": "جامع البيان في تأويل القرآن",
+            "penalties": [],
+            "title_component": 26.444
+          }
+        },
+        {
+          "author": "النيسابوري، بيان الحق 1323",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\593\\23593.db",
+          "book_id": 23593,
+          "book_title": "إيجاز البيان عن معاني القرآن",
+          "category": "التفسير",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 49.664,
+          "score_details": {
+            "author_component": 0.0,
+            "author_match": false,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "",
+            "matched_title_alias": "جامع البيان عن تأويل آي القرآن",
+            "penalties": [],
+            "title_component": 44.664
+          }
+        }
+      ],
+      "expected_author": "محمد بن جرير الطبري",
+      "expected_title": "جامع البيان عن تأويل آي القرآن",
+      "selection_status": "REQUIRES_HUMAN_SELECTION",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "candidates": [
+        {
+          "author": "ابن أبي حاتم 119",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\658\\8658.db",
+          "book_id": 8658,
+          "book_title": "تفسير ابن أبي حاتم",
+          "category": "التفسير",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 100.0,
+          "score_details": {
+            "author_component": 28.0,
+            "author_match": true,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "ابن أبي حاتم",
+            "matched_title_alias": "تفسير ابن أبي حاتم",
+            "penalties": [],
+            "title_component": 92.0
+          }
+        },
+        {
+          "author": "ابن أبي حاتم 119",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\046\\6046.db",
+          "book_id": 6046,
+          "book_title": "المراسيل لابن أبي حاتم",
+          "category": "العلل والسؤلات الحديثية",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"26021433\"}",
+          "score": 71.333,
+          "score_details": {
+            "author_component": 28.0,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "ابن أبي حاتم",
+            "matched_title_alias": "تفسير ابن أبي حاتم",
+            "penalties": [],
+            "title_component": 43.333
+          }
+        },
+        {
+          "author": "ابن أبي حاتم 119",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\170\\2170.db",
+          "book_id": 2170,
+          "book_title": "الجرح والتعديل - ابن أبي حاتم",
+          "category": "التراجم والطبقات",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 71.0,
+          "score_details": {
+            "author_component": 28.0,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "ابن أبي حاتم",
+            "matched_title_alias": "تفسير ابن أبي حاتم",
+            "penalties": [],
+            "title_component": 43.0
+          }
+        },
+        {
+          "author": "البغوي، أبو محمد 4",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\217\\12217.db",
+          "book_id": 12217,
+          "book_title": "تفسير البغوي - إحياء التراث",
+          "category": "التفسير",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 65.399,
+          "score_details": {
+            "author_component": 26.0,
+            "author_match": true,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "أبو محمد الرازي",
+            "matched_title_alias": "تفسير ابن أبي حاتم",
+            "penalties": [],
+            "title_component": 34.399
+          }
+        },
+        {
+          "author": "ابن أبي حاتم 119",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\350\\1350.db",
+          "book_id": 1350,
+          "book_title": "العلل لابن أبي حاتم ت الحميد",
+          "category": "العلل والسؤلات الحديثية",
+          "hidden": false,
+          "metadata_excerpt": "{\"prefix\": \"«العلل» لابن أبي حاتم\", \"suffix\": \"ت الحميد\", \"date\": \"08121431\"}",
+          "score": 63.004,
+          "score_details": {
+            "author_component": 28.0,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "ابن أبي حاتم",
+            "matched_title_alias": "تفسير القرآن العظيم لابن أبي حاتم",
+            "penalties": [],
+            "title_component": 35.004
+          }
+        },
+        {
+          "author": "البغوي، أبو محمد 4",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\041\\41.db",
+          "book_id": 41,
+          "book_title": "تفسير البغوي - طيبة",
+          "category": "التفسير",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 62.095,
+          "score_details": {
+            "author_component": 26.0,
+            "author_match": true,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "أبو محمد الرازي",
+            "matched_title_alias": "تفسير ابن أبي حاتم",
+            "penalties": [],
+            "title_component": 31.095
+          }
+        },
+        {
+          "author": "علم الدين السخاوي المقرئ 23",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\533\\533.db",
+          "book_id": 533,
+          "book_title": "تفسير القرآن العظيم - السخاوي",
+          "category": "التفسير",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"11031443\"}",
+          "score": 55.152,
+          "score_details": {
+            "author_component": 0.0,
+            "author_match": false,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "",
+            "matched_title_alias": "تفسير القرآن العظيم",
+            "penalties": [
+              "AUTHOR_MISMATCH_FOR_AMBIGUOUS_TITLE"
+            ],
+            "title_component": 78.152
+          }
+        },
+        {
+          "author": "البغوي، أبو محمد 4",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\885\\17885.db",
+          "book_id": 17885,
+          "book_title": "التهذيب في الفقه الشافعي",
+          "category": "الفقه الشافعي",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"18111436\", \"group\": 17885}",
+          "score": 52.791,
+          "score_details": {
+            "author_component": 26.0,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "أبو محمد الرازي",
+            "matched_title_alias": "تفسير القرآن العظيم",
+            "penalties": [],
+            "title_component": 26.791
+          }
+        },
+        {
+          "author": "عبد الملك بن قاسم 2724",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\536\\14536.db",
+          "book_id": 14536,
+          "book_title": "تفسير القرآن العظيم - جزء عم",
+          "category": "التفسير",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"22061436\"}",
+          "score": 52.733,
+          "score_details": {
+            "author_component": 0.0,
+            "author_match": false,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "",
+            "matched_title_alias": "تفسير القرآن العظيم",
+            "penalties": [
+              "AUTHOR_MISMATCH_FOR_AMBIGUOUS_TITLE"
+            ],
+            "title_component": 75.733
+          }
+        },
+        {
+          "author": "البغوي، أبو محمد 4",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\891\\7891.db",
+          "book_id": 7891,
+          "book_title": "شرح السنة للبغوي",
+          "category": "كتب السنة",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"28031433\"}",
+          "score": 47.943,
+          "score_details": {
+            "author_component": 26.0,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "أبو محمد الرازي",
+            "matched_title_alias": "تفسير القرآن العظيم",
+            "penalties": [],
+            "title_component": 21.943
+          }
+        }
+      ],
+      "expected_author": "ابن أبي حاتم",
+      "expected_title": "تفسير القرآن العظيم",
+      "selection_status": "REQUIRES_HUMAN_SELECTION",
+      "work_source_id": "SRC-TAFSIR-IBN-ABI-HATIM-ADAM"
+    },
+    {
+      "candidates": [
+        {
+          "author": "البغوي، أبو محمد 4",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\041\\41.db",
+          "book_id": 41,
+          "book_title": "تفسير البغوي - طيبة",
+          "category": "التفسير",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 100.0,
+          "score_details": {
+            "author_component": 24.667,
+            "author_match": true,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "البغوي",
+            "matched_title_alias": "تفسير البغوي",
+            "penalties": [],
+            "title_component": 76.391
+          }
+        },
+        {
+          "author": "البغوي، أبو محمد 4",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\217\\12217.db",
+          "book_id": 12217,
+          "book_title": "تفسير البغوي - إحياء التراث",
+          "category": "التفسير",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 93.802,
+          "score_details": {
+            "author_component": 24.667,
+            "author_match": true,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "البغوي",
+            "matched_title_alias": "تفسير البغوي",
+            "penalties": [],
+            "title_component": 64.135
+          }
+        },
+        {
+          "author": "أبو القاسم البغوي 56",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\101\\13101.db",
+          "book_id": 13101,
+          "book_title": "جزء البغوي",
+          "category": "كتب السنة",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 61.879,
+          "score_details": {
+            "author_component": 24.0,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "البغوي",
+            "matched_title_alias": "تفسير البغوي",
+            "penalties": [],
+            "title_component": 37.879
+          }
+        },
+        {
+          "author": "البغوي، أبو محمد 4",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\891\\7891.db",
+          "book_id": 7891,
+          "book_title": "شرح السنة للبغوي",
+          "category": "كتب السنة",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"28031433\"}",
+          "score": 52.095,
+          "score_details": {
+            "author_component": 24.667,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "البغوي",
+            "matched_title_alias": "تفسير البغوي",
+            "penalties": [],
+            "title_component": 27.429
+          }
+        },
+        {
+          "author": "البغوي، أبو محمد 4",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\885\\17885.db",
+          "book_id": 17885,
+          "book_title": "التهذيب في الفقه الشافعي",
+          "category": "الفقه الشافعي",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"18111436\", \"group\": 17885}",
+          "score": 50.964,
+          "score_details": {
+            "author_component": 24.667,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "البغوي",
+            "matched_title_alias": "معالم التنزيل في تفسير القرآن",
+            "penalties": [],
+            "title_component": 26.297
+          }
+        },
+        {
+          "author": "المراغي، أحمد بن مصطفى 1328",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\608\\23608.db",
+          "book_id": 23608,
+          "book_title": "تفسير المراغي",
+          "category": "التفسير",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 50.733,
+          "score_details": {
+            "author_component": 0.0,
+            "author_match": false,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "",
+            "matched_title_alias": "تفسير البغوي",
+            "penalties": [],
+            "title_component": 45.733
+          }
+        },
+        {
+          "author": "أبو القاسم البغوي 56",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\106\\27106.db",
+          "book_id": 27106,
+          "book_title": "وفاة الشيوخ الذين أدركهم البغوي",
+          "category": "كتب السنة",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 49.992,
+          "score_details": {
+            "author_component": 24.0,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "البغوي",
+            "matched_title_alias": "تفسير البغوي",
+            "penalties": [],
+            "title_component": 25.992
+          }
+        },
+        {
+          "author": "مجير الدين العليمي 1723",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\404\\14404.db",
+          "book_id": 14404,
+          "book_title": "فتح الرحمن في تفسير القرآن",
+          "category": "التفسير",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"04081437\"}",
+          "score": 49.338,
+          "score_details": {
+            "author_component": 0.0,
+            "author_match": false,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "",
+            "matched_title_alias": "معالم التنزيل في تفسير القرآن",
+            "penalties": [],
+            "title_component": 44.338
+          }
+        },
+        {
+          "author": "الشعراوي 17",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\083\\1083.db",
+          "book_id": 1083,
+          "book_title": "تفسير الشعراوي",
+          "category": "التفسير",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 49.256,
+          "score_details": {
+            "author_component": 0.0,
+            "author_match": false,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "",
+            "matched_title_alias": "تفسير البغوي",
+            "penalties": [],
+            "title_component": 44.256
+          }
+        },
+        {
+          "author": "البغوي، أبو محمد 4",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\803\\10803.db",
+          "book_id": 10803,
+          "book_title": "الأنوار في شمائل النبي المختار",
+          "category": "السيرة النبوية",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 48.264,
+          "score_details": {
+            "author_component": 24.667,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "البغوي",
+            "matched_title_alias": "معالم التنزيل في تفسير القرآن",
+            "penalties": [],
+            "title_component": 23.597
+          }
+        }
+      ],
+      "expected_author": "الحسين بن مسعود البغوي",
+      "expected_title": "معالم التنزيل",
+      "selection_status": "REQUIRES_HUMAN_SELECTION",
+      "work_source_id": "SRC-TAFSIR-BAGHAWI-ADAM"
+    },
+    {
+      "candidates": [
+        {
+          "author": "ابن كثير 3",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\503\\1503.db",
+          "book_id": 1503,
+          "book_title": "تفسير ابن كثير - ط ابن الجوزي",
+          "category": "التفسير",
+          "hidden": false,
+          "metadata_excerpt": "{\"group\": 8473, \"date\": \"14021446\"}",
+          "score": 100.0,
+          "score_details": {
+            "author_component": 30.0,
+            "author_match": true,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "ابن كثير",
+            "matched_title_alias": "تفسير ابن كثير",
+            "penalties": [],
+            "title_component": 71.28
+          }
+        },
+        {
+          "author": "ابن كثير 3",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\509\\1509.db",
+          "book_id": 1509,
+          "book_title": "تفسير ابن كثير - ط أولاد الشيخ",
+          "category": "التفسير",
+          "hidden": false,
+          "metadata_excerpt": "{\"group\": 8473, \"date\": \"14021446\"}",
+          "score": 100.0,
+          "score_details": {
+            "author_component": 30.0,
+            "author_match": true,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "ابن كثير",
+            "matched_title_alias": "تفسير ابن كثير",
+            "penalties": [],
+            "title_component": 67.2
+          }
+        },
+        {
+          "author": "ابن كثير 3",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\473\\8473.db",
+          "book_id": 8473,
+          "book_title": "تفسير ابن كثير - ت السلامة",
+          "category": "التفسير",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\", \"group\": 8473}",
+          "score": 100.0,
+          "score_details": {
+            "author_component": 30.0,
+            "author_match": true,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "ابن كثير",
+            "matched_title_alias": "تفسير ابن كثير",
+            "penalties": [],
+            "title_component": 73.868
+          }
+        },
+        {
+          "author": "ابن كثير 3",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\604\\23604.db",
+          "book_id": 23604,
+          "book_title": "تفسير ابن كثير - ط العلمية",
+          "category": "التفسير",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\", \"group\": 8473}",
+          "score": 100.0,
+          "score_details": {
+            "author_component": 30.0,
+            "author_match": true,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "ابن كثير",
+            "matched_title_alias": "تفسير ابن كثير",
+            "penalties": [],
+            "title_component": 73.868
+          }
+        },
+        {
+          "author": "ابن كثير 3",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\800\\22800.db",
+          "book_id": 22800,
+          "book_title": "فضائل القرآن لابن كثير",
+          "category": "علوم القرآن وأصول التفسير",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 81.765,
+          "score_details": {
+            "author_component": 30.0,
+            "author_match": true,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "ابن كثير",
+            "matched_title_alias": "تفسير القرآن العظيم لابن كثير",
+            "penalties": [],
+            "title_component": 46.765
+          }
+        },
+        {
+          "author": "ابن كثير 3",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\016\\30016.db",
+          "book_id": 30016,
+          "book_title": "مسند أبي بكر الصديق - لابن كثير",
+          "category": "كتب السنة",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"06061446\"}",
+          "score": 63.027,
+          "score_details": {
+            "author_component": 30.0,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "ابن كثير",
+            "matched_title_alias": "تفسير القرآن العظيم لابن كثير",
+            "penalties": [],
+            "title_component": 33.027
+          }
+        },
+        {
+          "author": "ابن كثير 3",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\097\\30097.db",
+          "book_id": 30097,
+          "book_title": "البداية والنهاية - ط دار ابن كثير",
+          "category": "التاريخ",
+          "hidden": false,
+          "metadata_excerpt": "{\"min_ver\": 2, \"group\": 23708, \"group_order\": 30, \"prefix\": \"البداية والنهاية\", \"date\": \"02081445\"}",
+          "score": 60.8,
+          "score_details": {
+            "author_component": 30.0,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "ابن كثير",
+            "matched_title_alias": "تفسير ابن كثير",
+            "penalties": [],
+            "title_component": 30.8
+          }
+        },
+        {
+          "author": "ابن كثير 3",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\555\\16555.db",
+          "book_id": 16555,
+          "book_title": "مسند الفاروق لابن كثير ت إمام",
+          "category": "كتب السنة",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"29121436\", \"group\": 26039}",
+          "score": 60.328,
+          "score_details": {
+            "author_component": 30.0,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "ابن كثير",
+            "matched_title_alias": "تفسير القرآن العظيم لابن كثير",
+            "penalties": [],
+            "title_component": 30.328
+          }
+        },
+        {
+          "author": "ابن كثير 3",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\039\\26039.db",
+          "book_id": 26039,
+          "book_title": "مسند الفاروق لابن كثير ت قلعجي",
+          "category": "كتب السنة",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\", \"group\": 26039}",
+          "score": 59.907,
+          "score_details": {
+            "author_component": 30.0,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "ابن كثير",
+            "matched_title_alias": "تفسير القرآن العظيم لابن كثير",
+            "penalties": [],
+            "title_component": 29.907
+          }
+        },
+        {
+          "author": "ابن كثير 3",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\098\\30098.db",
+          "book_id": 30098,
+          "book_title": "البداية والنهاية - ط دار ابن كثير - التكملة",
+          "category": "التاريخ",
+          "hidden": false,
+          "metadata_excerpt": "{\"min_ver\": 2, \"group\": 23708, \"group_order\": 20, \"prefix\": \"البداية والنهاية - ط دار ابن كثير السادسة\", \"date\": \"02081445\"}",
+          "score": 56.21,
+          "score_details": {
+            "author_component": 30.0,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "ابن كثير",
+            "matched_title_alias": "تفسير ابن كثير",
+            "penalties": [],
+            "title_component": 26.21
+          }
+        }
+      ],
+      "expected_author": "إسماعيل بن كثير",
+      "expected_title": "تفسير القرآن العظيم",
+      "selection_status": "REQUIRES_HUMAN_SELECTION",
+      "work_source_id": "SRC-TAFSIR-IBN-KATHIR-ADAM"
+    },
+    {
+      "candidates": [
+        {
+          "author": "عبد الرحمن السعدي 128",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\042\\42.db",
+          "book_id": 42,
+          "book_title": "تفسير السعدي = تيسير الكريم الرحمن",
+          "category": "التفسير",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 100.0,
+          "score_details": {
+            "author_component": 28.0,
+            "author_match": true,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "عبد الرحمن السعدي",
+            "matched_title_alias": "تيسير الكريم الرحمن",
+            "penalties": [],
+            "title_component": 70.965
+          }
+        },
+        {
+          "author": "عبد الرحمن السعدي 128",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\461\\1461.db",
+          "book_id": 1461,
+          "book_title": "تيسير اللطيف المنان في خلاصة تفسير القرآن - ت المزيد",
+          "category": "التفسير",
+          "hidden": false,
+          "metadata_excerpt": "{\"prefix\": \"تيسير اللطيف المنان في خلاصة تفسير القرآن\", \"group\": 1461, \"date\": \"12091445\"}",
+          "score": 73.0,
+          "score_details": {
+            "author_component": 28.0,
+            "author_match": true,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "عبد الرحمن السعدي",
+            "matched_title_alias": "تيسير الكريم الرحمن في تفسير كلام المنان",
+            "penalties": [],
+            "title_component": 40.0
+          }
+        },
+        {
+          "author": "عبد الرحمن السعدي 128",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\363\\31363.db",
+          "book_id": 31363,
+          "book_title": "تيسير اللطيف المنان في خلاصة تفسير القرآن - ط الأوقاف السعودية",
+          "category": "التفسير",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\", \"prefix\": \"تيسير اللطيف المنان في خلاصة تفسير القرآن\", \"group\": 1461}",
+          "score": 69.133,
+          "score_details": {
+            "author_component": 28.0,
+            "author_match": true,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "عبد الرحمن السعدي",
+            "matched_title_alias": "تيسير الكريم الرحمن في تفسير كلام المنان",
+            "penalties": [],
+            "title_component": 36.133
+          }
+        },
+        {
+          "author": "عبد الرحمن السعدي 128",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\090\\10090.db",
+          "book_id": 10090,
+          "book_title": "تفسير أسماء الله الحسنى للسعدي",
+          "category": "العقيدة",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 59.095,
+          "score_details": {
+            "author_component": 28.0,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "عبد الرحمن السعدي",
+            "matched_title_alias": "تفسير السعدي",
+            "penalties": [],
+            "title_component": 31.095
+          }
+        },
+        {
+          "author": "فايز السريح 3190",
+          "book_database_exists": false,
+          "book_database_path": "C:\\shamela4\\database\\book\\194\\30194.db",
+          "book_id": 30194,
+          "book_title": "قصص القرآن من تفسير السعدي",
+          "category": "التفسير",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"16121447\"}",
+          "score": 58.116,
+          "score_details": {
+            "author_component": 0.0,
+            "author_match": false,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "",
+            "matched_title_alias": "تفسير السعدي",
+            "penalties": [
+              "BOOK_DATABASE_MISSING"
+            ],
+            "title_component": 61.116
+          }
+        },
+        {
+          "author": "عبد الرحمن بن ناصر البراك 175",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\288\\288.db",
+          "book_id": 288,
+          "book_title": "التعليق والإيضاح على تفسير الجلالين - جـ 1",
+          "category": "التفسير",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"11021444\"}",
+          "score": 56.66,
+          "score_details": {
+            "author_component": 26.571,
+            "author_match": true,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "عبد الرحمن بن ناصر السعدي",
+            "matched_title_alias": "تيسير الكريم الرحمن في تفسير كلام المنان",
+            "penalties": [],
+            "title_component": 25.089
+          }
+        },
+        {
+          "author": "عبد الرحمن السعدي 128",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\077\\9077.db",
+          "book_id": 9077,
+          "book_title": "القواعد الحسان لتفسير القرآن",
+          "category": "علوم القرآن وأصول التفسير",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 53.426,
+          "score_details": {
+            "author_component": 28.0,
+            "author_match": true,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "عبد الرحمن السعدي",
+            "matched_title_alias": "تيسير الكريم الرحمن",
+            "penalties": [],
+            "title_component": 20.426
+          }
+        },
+        {
+          "author": "أبو المظفر السمعاني 1013",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\320\\8320.db",
+          "book_id": 8320,
+          "book_title": "تفسير السمعاني",
+          "category": "التفسير",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 52.949,
+          "score_details": {
+            "author_component": 0.0,
+            "author_match": false,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "",
+            "matched_title_alias": "تفسير السعدي",
+            "penalties": [],
+            "title_component": 47.949
+          }
+        },
+        {
+          "author": "عبد الرحمن السعدي 128",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\589\\8589.db",
+          "book_id": 8589,
+          "book_title": "التوضيح والبيان لشجرة الإيمان",
+          "category": "العقيدة",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 50.0,
+          "score_details": {
+            "author_component": 28.0,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "عبد الرحمن السعدي",
+            "matched_title_alias": "تيسير الكريم الرحمن",
+            "penalties": [],
+            "title_component": 22.0
+          }
+        },
+        {
+          "author": "عبد الرحمن بن ناصر البراك 175",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\302\\1302.db",
+          "book_id": 1302,
+          "book_title": "التوضيح للمسائل العقدية في مقدمة الرسالة القيروانية",
+          "category": "العقيدة",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"09051445\", \"shorts\": {\"0\": \"[الشرح]\"}}",
+          "score": 49.363,
+          "score_details": {
+            "author_component": 26.571,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "عبد الرحمن بن ناصر السعدي",
+            "matched_title_alias": "تيسير الكريم الرحمن في تفسير كلام المنان",
+            "penalties": [],
+            "title_component": 22.791
+          }
+        }
+      ],
+      "expected_author": "عبد الرحمن السعدي",
+      "expected_title": "تيسير الكريم الرحمن في تفسير كلام المنان",
+      "selection_status": "REQUIRES_HUMAN_SELECTION",
+      "work_source_id": "SRC-TAFSIR-SAADI-ADAM"
+    },
+    {
+      "candidates": [
+        {
+          "author": "ابن جرير الطبري 59",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\783\\9783.db",
+          "book_id": 9783,
+          "book_title": "تاريخ الطبري = تاريخ الرسل والملوك، وصلة تاريخ الطبري",
+          "category": "التاريخ",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\", \"group\": 9783}",
+          "score": 100.0,
+          "score_details": {
+            "author_component": 28.0,
+            "author_match": true,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "ابن جرير الطبري",
+            "matched_title_alias": "تاريخ الطبري تاريخ الرسل والملوك",
+            "penalties": [],
+            "title_component": 77.063
+          }
+        },
+        {
+          "author": "ابن جرير الطبري 59",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\127\\13127.db",
+          "book_id": 13127,
+          "book_title": "صريح السنة للطبري",
+          "category": "كتب السنة",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 57.793,
+          "score_details": {
+            "author_component": 28.0,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "ابن جرير الطبري",
+            "matched_title_alias": "تاريخ الطبري",
+            "penalties": [],
+            "title_component": 29.793
+          }
+        },
+        {
+          "author": "ابن جرير الطبري 59",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\798\\7798.db",
+          "book_id": 7798,
+          "book_title": "تفسير الطبري جامع البيان - ت التركي",
+          "category": "التفسير",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\", \"prefix\": \"تفسير الطبري\", \"group\": 43}",
+          "score": 57.335,
+          "score_details": {
+            "author_component": 28.0,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "ابن جرير الطبري",
+            "matched_title_alias": "تاريخ الطبري تاريخ الرسل والملوك",
+            "penalties": [],
+            "title_component": 29.335
+          }
+        },
+        {
+          "author": "ابن جرير الطبري 59",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\043\\43.db",
+          "book_id": 43,
+          "book_title": "تفسير الطبري جامع البيان - ط دار التربية والتراث",
+          "category": "التفسير",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\", \"prefix\": \"تفسير الطبري\", \"suffix\": \"ط التربية والتراث\", \"group\": 43}",
+          "score": 54.815,
+          "score_details": {
+            "author_component": 28.0,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "ابن جرير الطبري",
+            "matched_title_alias": "تاريخ الطبري تاريخ الرسل والملوك",
+            "penalties": [],
+            "title_component": 26.815
+          }
+        },
+        {
+          "author": "البصروي 1725",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\637\\6637.db",
+          "book_id": 6637,
+          "book_title": "تاريخ البصروي",
+          "category": "التاريخ",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 54.573,
+          "score_details": {
+            "author_component": 0.0,
+            "author_match": false,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "",
+            "matched_title_alias": "تاريخ الطبري",
+            "penalties": [],
+            "title_component": 49.573
+          }
+        },
+        {
+          "author": "ابن جرير الطبري 59",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\597\\5597.db",
+          "book_id": 5597,
+          "book_title": "تهذيب الآثار - الجزء المفقود",
+          "category": "الفقه العام",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 53.6,
+          "score_details": {
+            "author_component": 28.0,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "ابن جرير الطبري",
+            "matched_title_alias": "تاريخ الرسل والملوك",
+            "penalties": [],
+            "title_component": 25.6
+          }
+        },
+        {
+          "author": "محب الدين الطبري 308",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\657\\8657.db",
+          "book_id": 8657,
+          "book_title": "الرياض النضرة في مناقب العشرة",
+          "category": "التراجم والطبقات",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 51.033,
+          "score_details": {
+            "author_component": 24.0,
+            "author_match": true,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "الطبري",
+            "matched_title_alias": "تاريخ الطبري تاريخ الرسل والملوك",
+            "penalties": [],
+            "title_component": 22.033
+          }
+        },
+        {
+          "author": "- 601",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\033\\10033.db",
+          "book_id": 10033,
+          "book_title": "تاريخ الفلبين",
+          "category": "التاريخ",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 50.733,
+          "score_details": {
+            "author_component": 0.0,
+            "author_match": false,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "",
+            "matched_title_alias": "تاريخ الطبري",
+            "penalties": [],
+            "title_component": 45.733
+          }
+        },
+        {
+          "author": "ابن جرير الطبري 59",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\133\\1133.db",
+          "book_id": 1133,
+          "book_title": "المنتخب من ذيل المذيل",
+          "category": "التراجم والطبقات",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 50.455,
+          "score_details": {
+            "author_component": 28.0,
+            "author_match": true,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "ابن جرير الطبري",
+            "matched_title_alias": "تاريخ الطبري",
+            "penalties": [],
+            "title_component": 17.455
+          }
+        },
+        {
+          "author": "ابن جرير الطبري 59",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\092\\13092.db",
+          "book_id": 13092,
+          "book_title": "تهذيب الآثار - مسند عمر",
+          "category": "الفقه العام",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 49.6,
+          "score_details": {
+            "author_component": 28.0,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "ابن جرير الطبري",
+            "matched_title_alias": "تاريخ الرسل والملوك",
+            "penalties": [],
+            "title_component": 21.6
+          }
+        }
+      ],
+      "expected_author": "محمد بن جرير الطبري",
+      "expected_title": "تاريخ الرسل والملوك",
+      "selection_status": "REQUIRES_HUMAN_SELECTION",
+      "work_source_id": "SRC-HISTORY-TABARI-ADAM"
+    },
+    {
+      "candidates": [
+        {
+          "author": "ابن كثير 3",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\445\\4445.db",
+          "book_id": 4445,
+          "book_title": "البداية والنهاية - ت التركي",
+          "category": "التاريخ",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\", \"group\": 23708, \"group_order\": 10, \"prefix\": \"البداية والنهاية\", \"hide_diacritic\": true}",
+          "score": 100.0,
+          "score_details": {
+            "author_component": 30.0,
+            "author_match": true,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "ابن كثير",
+            "matched_title_alias": "البداية والنهاية",
+            "penalties": [],
+            "title_component": 74.13
+          }
+        },
+        {
+          "author": "ابن كثير 3",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\376\\8376.db",
+          "book_id": 8376,
+          "book_title": "البداية والنهاية - ت شيري",
+          "category": "التاريخ",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\", \"group\": 23708, \"group_order\": 50, \"prefix\": \"البداية والنهاية\"}",
+          "score": 100.0,
+          "score_details": {
+            "author_component": 30.0,
+            "author_match": true,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "ابن كثير",
+            "matched_title_alias": "البداية والنهاية",
+            "penalties": [],
+            "title_component": 76.051
+          }
+        },
+        {
+          "author": "ابن كثير 3",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\708\\23708.db",
+          "book_id": 23708,
+          "book_title": "البداية والنهاية - ط السعادة",
+          "category": "التاريخ",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\", \"group\": 23708, \"group_order\": 40, \"prefix\": \"البداية والنهاية\"}",
+          "score": 100.0,
+          "score_details": {
+            "author_component": 30.0,
+            "author_match": true,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "ابن كثير",
+            "matched_title_alias": "البداية والنهاية",
+            "penalties": [],
+            "title_component": 73.238
+          }
+        },
+        {
+          "author": "ابن كثير 3",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\097\\30097.db",
+          "book_id": 30097,
+          "book_title": "البداية والنهاية - ط دار ابن كثير",
+          "category": "التاريخ",
+          "hidden": false,
+          "metadata_excerpt": "{\"min_ver\": 2, \"group\": 23708, \"group_order\": 30, \"prefix\": \"البداية والنهاية\", \"date\": \"02081445\"}",
+          "score": 98.481,
+          "score_details": {
+            "author_component": 30.0,
+            "author_match": true,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "ابن كثير",
+            "matched_title_alias": "البداية والنهاية",
+            "penalties": [],
+            "title_component": 63.481
+          }
+        },
+        {
+          "author": "ابن كثير 3",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\098\\30098.db",
+          "book_id": 30098,
+          "book_title": "البداية والنهاية - ط دار ابن كثير - التكملة",
+          "category": "التاريخ",
+          "hidden": false,
+          "metadata_excerpt": "{\"min_ver\": 2, \"group\": 23708, \"group_order\": 20, \"prefix\": \"البداية والنهاية - ط دار ابن كثير السادسة\", \"date\": \"02081445\"}",
+          "score": 92.261,
+          "score_details": {
+            "author_component": 30.0,
+            "author_match": true,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "ابن كثير",
+            "matched_title_alias": "البداية والنهاية",
+            "penalties": [],
+            "title_component": 57.261
+          }
+        },
+        {
+          "author": "ابن كثير 3",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\932\\932.db",
+          "book_id": 932,
+          "book_title": "قصص الأنبياء من البداية والنهاية - ت عبد الواحد",
+          "category": "السيرة النبوية",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\", \"group\": 23708, \"hide_diacritic\": true}",
+          "score": 83.466,
+          "score_details": {
+            "author_component": 30.0,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "ابن كثير",
+            "matched_title_alias": "البداية والنهاية",
+            "penalties": [],
+            "title_component": 53.466
+          }
+        },
+        {
+          "author": "ابن كثير 3",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\678\\23678.db",
+          "book_id": 23678,
+          "book_title": "معجزات النبي من البداية والنهاية - ت السيد إبراهيم",
+          "category": "السيرة النبوية",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\", \"group\": 23708}",
+          "score": 82.286,
+          "score_details": {
+            "author_component": 30.0,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "ابن كثير",
+            "matched_title_alias": "البداية والنهاية",
+            "penalties": [],
+            "title_component": 52.286
+          }
+        },
+        {
+          "author": "ابن كثير 3",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\809\\21809.db",
+          "book_id": 21809,
+          "book_title": "جامع المسانيد والسنن",
+          "category": "كتب السنة",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 51.333,
+          "score_details": {
+            "author_component": 30.0,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "ابن كثير",
+            "matched_title_alias": "البداية والنهاية",
+            "penalties": [],
+            "title_component": 21.333
+          }
+        },
+        {
+          "author": "ابن كثير 3",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\860\\12860.db",
+          "book_id": 12860,
+          "book_title": "طبقات الشافعيين",
+          "category": "التراجم والطبقات",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 50.484,
+          "score_details": {
+            "author_component": 30.0,
+            "author_match": true,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "ابن كثير",
+            "matched_title_alias": "البداية والنهاية",
+            "penalties": [],
+            "title_component": 15.484
+          }
+        },
+        {
+          "author": "- 601",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\429\\429.db",
+          "book_id": 429,
+          "book_title": "تعريف بالأماكن الواردة في البداية والنهاية لابن كثير",
+          "category": "البلدان والرحلات",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 50.088,
+          "score_details": {
+            "author_component": 0.0,
+            "author_match": false,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "",
+            "matched_title_alias": "البداية والنهاية",
+            "penalties": [],
+            "title_component": 50.088
+          }
+        }
+      ],
+      "expected_author": "إسماعيل بن كثير",
+      "expected_title": "البداية والنهاية",
+      "selection_status": "REQUIRES_HUMAN_SELECTION",
+      "work_source_id": "SRC-HISTORY-BIDAYAH-ADAM"
+    },
+    {
+      "candidates": [
+        {
+          "author": "ابن كثير 3",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\932\\932.db",
+          "book_id": 932,
+          "book_title": "قصص الأنبياء من البداية والنهاية - ت عبد الواحد",
+          "category": "السيرة النبوية",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\", \"group\": 23708, \"hide_diacritic\": true}",
+          "score": 83.496,
+          "score_details": {
+            "author_component": 30.0,
+            "author_match": true,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "ابن كثير",
+            "matched_title_alias": "قصص الأنبياء",
+            "penalties": [],
+            "title_component": 48.496
+          }
+        },
+        {
+          "author": "ابن كثير 3",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\800\\22800.db",
+          "book_id": 22800,
+          "book_title": "فضائل القرآن لابن كثير",
+          "category": "علوم القرآن وأصول التفسير",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 70.061,
+          "score_details": {
+            "author_component": 30.0,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "ابن كثير",
+            "matched_title_alias": "قصص الأنبياء لابن كثير",
+            "penalties": [],
+            "title_component": 40.061
+          }
+        },
+        {
+          "author": "ابن كثير 3",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\097\\30097.db",
+          "book_id": 30097,
+          "book_title": "البداية والنهاية - ط دار ابن كثير",
+          "category": "التاريخ",
+          "hidden": false,
+          "metadata_excerpt": "{\"min_ver\": 2, \"group\": 23708, \"group_order\": 30, \"prefix\": \"البداية والنهاية\", \"date\": \"02081445\"}",
+          "score": 64.92,
+          "score_details": {
+            "author_component": 30.0,
+            "author_match": true,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "ابن كثير",
+            "matched_title_alias": "قصص الأنبياء لابن كثير",
+            "penalties": [],
+            "title_component": 29.92
+          }
+        },
+        {
+          "author": "ابن كثير 3",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\555\\16555.db",
+          "book_id": 16555,
+          "book_title": "مسند الفاروق لابن كثير ت إمام",
+          "category": "كتب السنة",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"29121436\", \"group\": 26039}",
+          "score": 62.639,
+          "score_details": {
+            "author_component": 30.0,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "ابن كثير",
+            "matched_title_alias": "قصص الأنبياء لابن كثير",
+            "penalties": [],
+            "title_component": 32.639
+          }
+        },
+        {
+          "author": "ابن كثير 3",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\039\\26039.db",
+          "book_id": 26039,
+          "book_title": "مسند الفاروق لابن كثير ت قلعجي",
+          "category": "كتب السنة",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\", \"group\": 26039}",
+          "score": 62.132,
+          "score_details": {
+            "author_component": 30.0,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "ابن كثير",
+            "matched_title_alias": "قصص الأنبياء لابن كثير",
+            "penalties": [],
+            "title_component": 32.132
+          }
+        },
+        {
+          "author": "ابن كثير 3",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\016\\30016.db",
+          "book_id": 30016,
+          "book_title": "مسند أبي بكر الصديق - لابن كثير",
+          "category": "كتب السنة",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"06061446\"}",
+          "score": 61.853,
+          "score_details": {
+            "author_component": 30.0,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "ابن كثير",
+            "matched_title_alias": "قصص الأنبياء لابن كثير",
+            "penalties": [],
+            "title_component": 31.853
+          }
+        },
+        {
+          "author": "ابن كثير 3",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\098\\30098.db",
+          "book_id": 30098,
+          "book_title": "البداية والنهاية - ط دار ابن كثير - التكملة",
+          "category": "التاريخ",
+          "hidden": false,
+          "metadata_excerpt": "{\"min_ver\": 2, \"group\": 23708, \"group_order\": 20, \"prefix\": \"البداية والنهاية - ط دار ابن كثير السادسة\", \"date\": \"02081445\"}",
+          "score": 61.051,
+          "score_details": {
+            "author_component": 30.0,
+            "author_match": true,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "ابن كثير",
+            "matched_title_alias": "قصص الأنبياء لابن كثير",
+            "penalties": [],
+            "title_component": 26.051
+          }
+        },
+        {
+          "author": "ابن كثير 3",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\376\\8376.db",
+          "book_id": 8376,
+          "book_title": "البداية والنهاية - ت شيري",
+          "category": "التاريخ",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\", \"group\": 23708, \"group_order\": 50, \"prefix\": \"البداية والنهاية\"}",
+          "score": 54.2,
+          "score_details": {
+            "author_component": 30.0,
+            "author_match": true,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "ابن كثير",
+            "matched_title_alias": "قصص الأنبياء لابن كثير",
+            "penalties": [],
+            "title_component": 19.2
+          }
+        },
+        {
+          "author": "ابن كثير 3",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\473\\8473.db",
+          "book_id": 8473,
+          "book_title": "تفسير ابن كثير - ت السلامة",
+          "category": "التفسير",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\", \"group\": 8473}",
+          "score": 51.925,
+          "score_details": {
+            "author_component": 30.0,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "ابن كثير",
+            "matched_title_alias": "قصص الأنبياء لابن كثير",
+            "penalties": [],
+            "title_component": 21.925
+          }
+        },
+        {
+          "author": "ابن كثير 3",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\604\\23604.db",
+          "book_id": 23604,
+          "book_title": "تفسير ابن كثير - ط العلمية",
+          "category": "التفسير",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\", \"group\": 8473}",
+          "score": 51.925,
+          "score_details": {
+            "author_component": 30.0,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "ابن كثير",
+            "matched_title_alias": "قصص الأنبياء لابن كثير",
+            "penalties": [],
+            "title_component": 21.925
+          }
+        }
+      ],
+      "expected_author": "إسماعيل بن كثير",
+      "expected_title": "قصص الأنبياء",
+      "selection_status": "REQUIRES_HUMAN_SELECTION",
+      "work_source_id": "SRC-HISTORY-QASAS-IBN-KATHIR-ADAM"
+    },
+    {
+      "candidates": [
+        {
+          "author": "ابن الجوزي 51",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\406\\12406.db",
+          "book_id": 12406,
+          "book_title": "المنتظم في تاريخ الملوك والأمم",
+          "category": "التاريخ",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 100.0,
+          "score_details": {
+            "author_component": 27.333,
+            "author_match": true,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "ابن الجوزي",
+            "matched_title_alias": "المنتظم في تاريخ الملوك والأمم",
+            "penalties": [],
+            "title_component": 92.0
+          }
+        },
+        {
+          "author": "سبط ابن الجوزي 1700",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\644\\23644.db",
+          "book_id": 23644,
+          "book_title": "مرآة الزمان في تواريخ الأعيان",
+          "category": "التاريخ",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"12081438\", \"min_ver\": 2}",
+          "score": 62.733,
+          "score_details": {
+            "author_component": 26.0,
+            "author_match": true,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "ابن الجوزي",
+            "matched_title_alias": "المنتظم في تاريخ الملوك والأمم",
+            "penalties": [],
+            "title_component": 31.733
+          }
+        },
+        {
+          "author": "ابن الجوزي 51",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\858\\6858.db",
+          "book_id": 6858,
+          "book_title": "التذكرة في الوعظ",
+          "category": "الرقائق والآداب والأذكار",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 57.145,
+          "score_details": {
+            "author_component": 27.333,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "ابن الجوزي",
+            "matched_title_alias": "المنتظم في التاريخ",
+            "penalties": [],
+            "title_component": 29.812
+          }
+        },
+        {
+          "author": "ابن الجوزي 51",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\619\\23619.db",
+          "book_id": 23619,
+          "book_title": "زاد المسير في علم التفسير",
+          "category": "التفسير",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 55.034,
+          "score_details": {
+            "author_component": 27.333,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "ابن الجوزي",
+            "matched_title_alias": "المنتظم في التاريخ",
+            "penalties": [],
+            "title_component": 27.701
+          }
+        },
+        {
+          "author": "ابن الجوزي 51",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\907\\5907.db",
+          "book_id": 5907,
+          "book_title": "التحقيق في أحاديث الخلاف",
+          "category": "كتب السنة",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 54.972,
+          "score_details": {
+            "author_component": 27.333,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "ابن الجوزي",
+            "matched_title_alias": "المنتظم في تاريخ الملوك والأمم",
+            "penalties": [],
+            "title_component": 27.639
+          }
+        },
+        {
+          "author": "ابن الجوزي 51",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\180\\180.db",
+          "book_id": 180,
+          "book_title": "المنثور",
+          "category": "الرقائق والآداب والأذكار",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 54.762,
+          "score_details": {
+            "author_component": 27.333,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "ابن الجوزي",
+            "matched_title_alias": "المنتظم",
+            "penalties": [],
+            "title_component": 27.429
+          }
+        },
+        {
+          "author": "ابن الجوزي 51",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\927\\10927.db",
+          "book_id": 10927,
+          "book_title": "تاريخ بيت المقدس",
+          "category": "التاريخ",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 54.259,
+          "score_details": {
+            "author_component": 27.333,
+            "author_match": true,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "ابن الجوزي",
+            "matched_title_alias": "المنتظم في تاريخ الملوك والأمم",
+            "penalties": [],
+            "title_component": 21.925
+          }
+        },
+        {
+          "author": "ابن الجوزي 51",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\022\\22.db",
+          "book_id": 22,
+          "book_title": "أعمار الأعيان",
+          "category": "التراجم والطبقات",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"19121441\"}",
+          "score": 54.011,
+          "score_details": {
+            "author_component": 27.333,
+            "author_match": true,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "ابن الجوزي",
+            "matched_title_alias": "المنتظم في التاريخ",
+            "penalties": [],
+            "title_component": 21.677
+          }
+        },
+        {
+          "author": "ابن الجوزي 51",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\700\\6700.db",
+          "book_id": 6700,
+          "book_title": "تلقيح فهوم أهل الأثر",
+          "category": "التاريخ",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 52.544,
+          "score_details": {
+            "author_component": 27.333,
+            "author_match": true,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "ابن الجوزي",
+            "matched_title_alias": "المنتظم في التاريخ",
+            "penalties": [],
+            "title_component": 20.211
+          }
+        },
+        {
+          "author": "ابن الجوزي 51",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\351\\7351.db",
+          "book_id": 7351,
+          "book_title": "العلل المتناهية في الأحاديث الواهية",
+          "category": "العلل والسؤلات الحديثية",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 52.212,
+          "score_details": {
+            "author_component": 27.333,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "ابن الجوزي",
+            "matched_title_alias": "المنتظم في التاريخ",
+            "penalties": [],
+            "title_component": 24.879
+          }
+        }
+      ],
+      "expected_author": "ابن الجوزي",
+      "expected_title": "المنتظم في تاريخ الملوك والأمم",
+      "selection_status": "REQUIRES_HUMAN_SELECTION",
+      "work_source_id": "SRC-HISTORY-MUNTAZAM-ADAM"
+    },
+    {
+      "candidates": [
+        {
+          "author": "عز الدين ابن الأثير 244",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\712\\21712.db",
+          "book_id": 21712,
+          "book_title": "الكامل في التاريخ - ت تدمري",
+          "category": "التاريخ",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 100.0,
+          "score_details": {
+            "author_component": 25.2,
+            "author_match": true,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "ابن الأثير",
+            "matched_title_alias": "الكامل في التاريخ",
+            "penalties": [],
+            "title_component": 77.357
+          }
+        },
+        {
+          "author": "عز الدين ابن الأثير 244",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\018\\30018.db",
+          "book_id": 30018,
+          "book_title": "أسد الغابة في معرفة الصحابة - ت الرفاعي",
+          "category": "التاريخ",
+          "hidden": false,
+          "metadata_excerpt": "{\"prefix\": \"أسد الغابة في معرفة الصحابة\", \"group\": 23700, \"group_order\": 50, \"date\": \"27061446\"}",
+          "score": 56.061,
+          "score_details": {
+            "author_component": 25.2,
+            "author_match": true,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "ابن الأثير",
+            "matched_title_alias": "الكامل في التاريخ",
+            "penalties": [],
+            "title_component": 25.861
+          }
+        },
+        {
+          "author": "عز الدين ابن الأثير 244",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\700\\23700.db",
+          "book_id": 23700,
+          "book_title": "أسد الغابة في معرفة الصحابة - ط الفكر",
+          "category": "التراجم والطبقات",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\", \"sub_books\": [1564], \"min_ver\": 2, \"prefix\": \"أسد الغابة في معرفة الصحابة\", \"group\": 23700, \"group_order\": 30}",
+          "score": 53.258,
+          "score_details": {
+            "author_component": 25.2,
+            "author_match": true,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "ابن الأثير",
+            "matched_title_alias": "الكامل في التاريخ",
+            "penalties": [],
+            "title_component": 23.058
+          }
+        },
+        {
+          "author": "ابن الأثير، مجد الدين أبو السعادات 493",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\905\\17905.db",
+          "book_id": 17905,
+          "book_title": "البديع في علم العربية",
+          "category": "النحو والصرف",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"23021437\"}",
+          "score": 53.216,
+          "score_details": {
+            "author_component": 24.286,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "ابن الأثير",
+            "matched_title_alias": "الكامل في التاريخ",
+            "penalties": [],
+            "title_component": 28.93
+          }
+        },
+        {
+          "author": "عز الدين ابن الأثير 244",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\793\\5793.db",
+          "book_id": 5793,
+          "book_title": "اللباب في تهذيب الأنساب",
+          "category": "الأنساب",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 52.867,
+          "score_details": {
+            "author_component": 25.2,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "ابن الأثير",
+            "matched_title_alias": "الكامل في التاريخ",
+            "penalties": [],
+            "title_component": 27.667
+          }
+        },
+        {
+          "author": "عز الدين ابن الأثير 244",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\110\\1110.db",
+          "book_id": 1110,
+          "book_title": "أسد الغابة في معرفة الصحابة - ط العلمية",
+          "category": "التراجم والطبقات",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\", \"prefix\": \"أسد الغابة في معرفة الصحابة\", \"group\": 23700, \"min_ver\": 2, \"group_order\": 40}",
+          "score": 52.506,
+          "score_details": {
+            "author_component": 25.2,
+            "author_match": true,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "ابن الأثير",
+            "matched_title_alias": "الكامل في التاريخ",
+            "penalties": [],
+            "title_component": 22.306
+          }
+        },
+        {
+          "author": "ابن الأثير، مجد الدين أبو السعادات 493",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\241\\13241.db",
+          "book_id": 13241,
+          "book_title": "الشافي في شرح مسند الشافعي",
+          "category": "شروح الحديث",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"30071435\"}",
+          "score": 51.987,
+          "score_details": {
+            "author_component": 24.286,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "ابن الأثير",
+            "matched_title_alias": "الكامل في التاريخ",
+            "penalties": [],
+            "title_component": 27.701
+          }
+        },
+        {
+          "author": "عز الدين ابن الأثير 244",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\564\\1564.db",
+          "book_id": 1564,
+          "book_title": "أسد الغابة في معرفة الصحابة - ط الشعب",
+          "category": "التراجم والطبقات",
+          "hidden": false,
+          "metadata_excerpt": "{\"prefix\": \"أسد الغابة في معرفة الصحابة\", \"group\": 23700, \"date\": \"02111445\", \"group_order\": 10}",
+          "score": 51.412,
+          "score_details": {
+            "author_component": 25.2,
+            "author_match": true,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "ابن الأثير",
+            "matched_title_alias": "الكامل في التاريخ",
+            "penalties": [],
+            "title_component": 21.212
+          }
+        },
+        {
+          "author": "ابن الأثير، مجد الدين أبو السعادات 493",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\691\\23691.db",
+          "book_id": 23691,
+          "book_title": "النهاية في غريب الحديث والأثر",
+          "category": "الغريب والمعاجم",
+          "hidden": false,
+          "metadata_excerpt": "{\"date\": \"08121431\"}",
+          "score": 50.385,
+          "score_details": {
+            "author_component": 24.286,
+            "author_match": true,
+            "category_component": 0.0,
+            "category_match": false,
+            "matched_author_alias": "ابن الأثير",
+            "matched_title_alias": "الكامل في التاريخ",
+            "penalties": [],
+            "title_component": 26.099
+          }
+        },
+        {
+          "author": "عز الدين ابن الأثير 244",
+          "book_database_exists": true,
+          "book_database_path": "C:\\shamela4\\database\\book\\559\\1559.db",
+          "book_id": 1559,
+          "book_title": "أسد الغابة في معرفة الصحابة - المطبعة الوهبية",
+          "category": "التراجم والطبقات",
+          "hidden": false,
+          "metadata_excerpt": "{\"prefix\": \"أسد الغابة في معرفة الصحابة\", \"group\": 23700, \"date\": \"02111445\", \"group_order\": 20}",
+          "score": 50.244,
+          "score_details": {
+            "author_component": 25.2,
+            "author_match": true,
+            "category_component": 5.0,
+            "category_match": true,
+            "matched_author_alias": "ابن الأثير",
+            "matched_title_alias": "الكامل في التاريخ",
+            "penalties": [],
+            "title_component": 20.044
+          }
+        }
+      ],
+      "expected_author": "ابن الأثير",
+      "expected_title": "الكامل في التاريخ",
+      "selection_status": "REQUIRES_HUMAN_SELECTION",
+      "work_source_id": "SRC-HISTORY-KAMIL-ADAM"
+    }
+  ],
+  "targets_with_candidates": 10,
+  "targets_without_candidates": []
+}

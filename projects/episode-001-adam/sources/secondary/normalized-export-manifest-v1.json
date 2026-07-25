@@ -1,0 +1,604 @@
+{
+  "book_count": 9,
+  "books": [
+    {
+      "author": "ابن كثير",
+      "book_id": 4445,
+      "book_title": "البداية والنهاية - ت التركي",
+      "category": "التاريخ",
+      "created_at": "2026-07-24T21:17:37.727940Z",
+      "episode_id": "episode-001-adam",
+      "manifest_project_path": "sources/secondary/assets/normalized/SRC-HISTORY-BIDAYAH-ADAM/manifest.json",
+      "manifest_sha256": "94178f4c09aca4ac00debb7f51c4c242030458f2b752a4015fb608509635654f",
+      "normalized_files": {
+        "pages": {
+          "project_path": "sources/secondary/assets/normalized/SRC-HISTORY-BIDAYAH-ADAM/pages.jsonl",
+          "rows": 13161,
+          "sha256": "6d5c574e8df39e83ef161be422c2bdf4aa25e3780b98ef3b805b1dd6d59e3160",
+          "size_bytes": 80563545
+        },
+        "toc": {
+          "project_path": "sources/secondary/assets/normalized/SRC-HISTORY-BIDAYAH-ADAM/toc.jsonl",
+          "rows": 3451,
+          "sha256": "45ccfefc7958e231a0ec3302a6a354218aef3a1b6c1a54fa44a07907bc1d67eb",
+          "size_bytes": 2954179
+        }
+      },
+      "permissions": {
+        "allowed_for_gemini_locator_discovery": false,
+        "allowed_for_local_deterministic_search": true,
+        "allowed_for_quotation": false,
+        "approved_for_evidence": false
+      },
+      "schema_version": "siraj-secondary-normalized-book-manifest-v2",
+      "source_integrity": {
+        "content_hash": "29da84dcd2ed4f550aa82141a7d6c06769bf305af2cb40eb81a1506a2f45dc23",
+        "installation_database_sha256": "a48b153a0a451ce0f63625bee7fa294a88d8dbbc5db4b9472afa652260b74b3b",
+        "installation_fingerprint": "5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5",
+        "materialized_database_path": "sources/secondary/assets/raw/SRC-HISTORY-BIDAYAH-ADAM/4445.db",
+        "materialized_database_sha256": "a48b153a0a451ce0f63625bee7fa294a88d8dbbc5db4b9472afa652260b74b3b"
+      },
+      "storage_contract": {
+        "adapter_version": "shamela-local-adapter-v1",
+        "catalog_metadata": "database/master.db",
+        "page_structure": "database/book/445/4445.db",
+        "page_text_index": "database/store/page",
+        "title_text_index": "database/store/title",
+        "type": "HYBRID_SQLITE_AND_LUCENE"
+      },
+      "validation": {
+        "duplicate_segment_ids": false,
+        "empty_bodies": 0,
+        "heading_count": 3451,
+        "lucene_nonempty_segment_count": 13161,
+        "missing_locators": 0,
+        "segment_count": 13161,
+        "skipped_empty_segment_count": 0,
+        "skipped_empty_segment_ids_sample": [],
+        "sqlite_page_count": 13161,
+        "status": "VALID"
+      },
+      "work_source_id": "SRC-HISTORY-BIDAYAH-ADAM"
+    },
+    {
+      "author": "عز الدين ابن الأثير",
+      "book_id": 21712,
+      "book_title": "الكامل في التاريخ - ت تدمري",
+      "category": "التاريخ",
+      "created_at": "2026-07-24T21:17:50.319980Z",
+      "episode_id": "episode-001-adam",
+      "manifest_project_path": "sources/secondary/assets/normalized/SRC-HISTORY-KAMIL-ADAM/manifest.json",
+      "manifest_sha256": "d754ce4d29c5757ccd6f53394ed805cd7b5cc3659cf047ca285192c3d81c797b",
+      "normalized_files": {
+        "pages": {
+          "project_path": "sources/secondary/assets/normalized/SRC-HISTORY-KAMIL-ADAM/pages.jsonl",
+          "rows": 6163,
+          "sha256": "ec491b9c83110d1b7f23616910e4bbd708d5e6adeb8a2d2828d31e47fc0cf5fc",
+          "size_bytes": 51773975
+        },
+        "toc": {
+          "project_path": "sources/secondary/assets/normalized/SRC-HISTORY-KAMIL-ADAM/toc.jsonl",
+          "rows": 920,
+          "sha256": "fabd81174ab242a31133c3dbe35199185c20c77c06bae8096cbb43016ef0f071",
+          "size_bytes": 784357
+        }
+      },
+      "permissions": {
+        "allowed_for_gemini_locator_discovery": false,
+        "allowed_for_local_deterministic_search": true,
+        "allowed_for_quotation": false,
+        "approved_for_evidence": false
+      },
+      "schema_version": "siraj-secondary-normalized-book-manifest-v2",
+      "source_integrity": {
+        "content_hash": "9414c00b179ddbe97006170824133ef97dfd010d2f737de033717cab5fe7d204",
+        "installation_database_sha256": "bf0c4379d2d3f7f5a4c30da7a96623019a120d1b198940dbd2c7fa45ed27b4cb",
+        "installation_fingerprint": "5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5",
+        "materialized_database_path": "sources/secondary/assets/raw/SRC-HISTORY-KAMIL-ADAM/21712.db",
+        "materialized_database_sha256": "bf0c4379d2d3f7f5a4c30da7a96623019a120d1b198940dbd2c7fa45ed27b4cb"
+      },
+      "storage_contract": {
+        "adapter_version": "shamela-local-adapter-v1",
+        "catalog_metadata": "database/master.db",
+        "page_structure": "database/book/712/21712.db",
+        "page_text_index": "database/store/page",
+        "title_text_index": "database/store/title",
+        "type": "HYBRID_SQLITE_AND_LUCENE"
+      },
+      "validation": {
+        "duplicate_segment_ids": false,
+        "empty_bodies": 0,
+        "heading_count": 920,
+        "lucene_nonempty_segment_count": 6163,
+        "missing_locators": 0,
+        "segment_count": 6163,
+        "skipped_empty_segment_count": 0,
+        "skipped_empty_segment_ids_sample": [],
+        "sqlite_page_count": 6163,
+        "status": "VALID"
+      },
+      "work_source_id": "SRC-HISTORY-KAMIL-ADAM"
+    },
+    {
+      "author": "ابن الجوزي",
+      "book_id": 12406,
+      "book_title": "المنتظم في تاريخ الملوك والأمم",
+      "category": "التاريخ",
+      "created_at": "2026-07-24T21:18:03.393942Z",
+      "episode_id": "episode-001-adam",
+      "manifest_project_path": "sources/secondary/assets/normalized/SRC-HISTORY-MUNTAZAM-ADAM/manifest.json",
+      "manifest_sha256": "feab71ef971cb2af29b603be03b715bb4fe7cd2656c35a93b5b27b3f043f272e",
+      "normalized_files": {
+        "pages": {
+          "project_path": "sources/secondary/assets/normalized/SRC-HISTORY-MUNTAZAM-ADAM/pages.jsonl",
+          "rows": 6790,
+          "sha256": "b2773051a892fb5212f3aab5622175ee2f11d01f9c0370d7ed9a8b29cde139bf",
+          "size_bytes": 42452889
+        },
+        "toc": {
+          "project_path": "sources/secondary/assets/normalized/SRC-HISTORY-MUNTAZAM-ADAM/toc.jsonl",
+          "rows": 7205,
+          "sha256": "dba88071991c1b91e690b0123f41cada3fe7f72576ed8177a63279b3e37971c4",
+          "size_bytes": 6713664
+        }
+      },
+      "permissions": {
+        "allowed_for_gemini_locator_discovery": false,
+        "allowed_for_local_deterministic_search": true,
+        "allowed_for_quotation": false,
+        "approved_for_evidence": false
+      },
+      "schema_version": "siraj-secondary-normalized-book-manifest-v2",
+      "source_integrity": {
+        "content_hash": "f2a7ff3aa9e9edb79bec1147e0f3a93d3609cce086d1a019a83c75da1b2d9aa5",
+        "installation_database_sha256": "c0a44e43dc6d655a4d5725fc88aafb8ad0077e0ec2e8214f6c0dec6e9f4e31ab",
+        "installation_fingerprint": "5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5",
+        "materialized_database_path": "sources/secondary/assets/raw/SRC-HISTORY-MUNTAZAM-ADAM/12406.db",
+        "materialized_database_sha256": "c0a44e43dc6d655a4d5725fc88aafb8ad0077e0ec2e8214f6c0dec6e9f4e31ab"
+      },
+      "storage_contract": {
+        "adapter_version": "shamela-local-adapter-v1",
+        "catalog_metadata": "database/master.db",
+        "page_structure": "database/book/406/12406.db",
+        "page_text_index": "database/store/page",
+        "title_text_index": "database/store/title",
+        "type": "HYBRID_SQLITE_AND_LUCENE"
+      },
+      "validation": {
+        "duplicate_segment_ids": false,
+        "empty_bodies": 0,
+        "heading_count": 7205,
+        "lucene_nonempty_segment_count": 6790,
+        "missing_locators": 0,
+        "segment_count": 6790,
+        "skipped_empty_segment_count": 0,
+        "skipped_empty_segment_ids_sample": [],
+        "sqlite_page_count": 6790,
+        "status": "VALID"
+      },
+      "work_source_id": "SRC-HISTORY-MUNTAZAM-ADAM"
+    },
+    {
+      "author": "ابن جرير الطبري",
+      "book_id": 9783,
+      "book_title": "تاريخ الطبري = تاريخ الرسل والملوك، وصلة تاريخ الطبري",
+      "category": "التاريخ",
+      "created_at": "2026-07-24T21:18:10.022875Z",
+      "episode_id": "episode-001-adam",
+      "manifest_project_path": "sources/secondary/assets/normalized/SRC-HISTORY-TABARI-ADAM/manifest.json",
+      "manifest_sha256": "3f6f19f2880b51f072ba75ea8e24e54a87268bed1b162a6ea00123916a4eff7f",
+      "normalized_files": {
+        "pages": {
+          "project_path": "sources/secondary/assets/normalized/SRC-HISTORY-TABARI-ADAM/pages.jsonl",
+          "rows": 6431,
+          "sha256": "c100f73f9027db2210e1002fffdd9bf37ca4f5dd7ea9038271d8ab73dff957e7",
+          "size_bytes": 40463406
+        },
+        "toc": {
+          "project_path": "sources/secondary/assets/normalized/SRC-HISTORY-TABARI-ADAM/toc.jsonl",
+          "rows": 1893,
+          "sha256": "728a96db63a2d32a290be6b5b2ad114cf263d654ce5c4ffc2e9b185300422594",
+          "size_bytes": 1634980
+        }
+      },
+      "permissions": {
+        "allowed_for_gemini_locator_discovery": false,
+        "allowed_for_local_deterministic_search": true,
+        "allowed_for_quotation": false,
+        "approved_for_evidence": false
+      },
+      "schema_version": "siraj-secondary-normalized-book-manifest-v2",
+      "source_integrity": {
+        "content_hash": "1787e523caa44bc381efb8cf324e26e12ae5157e8738e848d3b497c99856fb9f",
+        "installation_database_sha256": "3eac670046fd84fefb8ebfe68a2a2f5f37f7716804a599a61555d3ea8a0162cb",
+        "installation_fingerprint": "5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5",
+        "materialized_database_path": "sources/secondary/assets/raw/SRC-HISTORY-TABARI-ADAM/9783.db",
+        "materialized_database_sha256": "3eac670046fd84fefb8ebfe68a2a2f5f37f7716804a599a61555d3ea8a0162cb"
+      },
+      "storage_contract": {
+        "adapter_version": "shamela-local-adapter-v1",
+        "catalog_metadata": "database/master.db",
+        "page_structure": "database/book/783/9783.db",
+        "page_text_index": "database/store/page",
+        "title_text_index": "database/store/title",
+        "type": "HYBRID_SQLITE_AND_LUCENE"
+      },
+      "validation": {
+        "duplicate_segment_ids": false,
+        "empty_bodies": 0,
+        "heading_count": 1893,
+        "lucene_nonempty_segment_count": 6431,
+        "missing_locators": 0,
+        "segment_count": 6431,
+        "skipped_empty_segment_count": 0,
+        "skipped_empty_segment_ids_sample": [],
+        "sqlite_page_count": 6431,
+        "status": "VALID"
+      },
+      "work_source_id": "SRC-HISTORY-TABARI-ADAM"
+    },
+    {
+      "author": "البغوي، أبو محمد",
+      "book_id": 41,
+      "book_title": "تفسير البغوي - طيبة",
+      "category": "التفسير",
+      "created_at": "2026-07-24T21:18:14.875290Z",
+      "episode_id": "episode-001-adam",
+      "manifest_project_path": "sources/secondary/assets/normalized/SRC-TAFSIR-BAGHAWI-ADAM/manifest.json",
+      "manifest_sha256": "38fc8bdca6a3311d144cf4ee8612e1a8e4f88f083bcbb1732c65e088dfedf2d9",
+      "normalized_files": {
+        "pages": {
+          "project_path": "sources/secondary/assets/normalized/SRC-TAFSIR-BAGHAWI-ADAM/pages.jsonl",
+          "rows": 3553,
+          "sha256": "afb249bbf045f35108b3a2412cb7f45b46238b779f79d5e545c996a7e111781c",
+          "size_bytes": 34666146
+        },
+        "toc": {
+          "project_path": "sources/secondary/assets/normalized/SRC-TAFSIR-BAGHAWI-ADAM/toc.jsonl",
+          "rows": 2565,
+          "sha256": "e6fe2d282f0d4e4e49c6f6097478d693e5ba9a217eeeb82b108e385803673189",
+          "size_bytes": 1941208
+        }
+      },
+      "permissions": {
+        "allowed_for_gemini_locator_discovery": false,
+        "allowed_for_local_deterministic_search": true,
+        "allowed_for_quotation": false,
+        "approved_for_evidence": false
+      },
+      "schema_version": "siraj-secondary-normalized-book-manifest-v2",
+      "source_integrity": {
+        "content_hash": "113f6ae3b9dc5f439bc944b4b59ae24cb68c2e16165c817888e21a37b135b513",
+        "installation_database_sha256": "3c48f871c4c38193770b4577fe46deb03f9ea6a0b609bd0fec5326673922b86c",
+        "installation_fingerprint": "5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5",
+        "materialized_database_path": "sources/secondary/assets/raw/SRC-TAFSIR-BAGHAWI-ADAM/41.db",
+        "materialized_database_sha256": "3c48f871c4c38193770b4577fe46deb03f9ea6a0b609bd0fec5326673922b86c"
+      },
+      "storage_contract": {
+        "adapter_version": "shamela-local-adapter-v1",
+        "catalog_metadata": "database/master.db",
+        "page_structure": "database/book/041/41.db",
+        "page_text_index": "database/store/page",
+        "title_text_index": "database/store/title",
+        "type": "HYBRID_SQLITE_AND_LUCENE"
+      },
+      "validation": {
+        "duplicate_segment_ids": false,
+        "empty_bodies": 0,
+        "heading_count": 2565,
+        "lucene_nonempty_segment_count": 3553,
+        "missing_locators": 0,
+        "segment_count": 3553,
+        "skipped_empty_segment_count": 0,
+        "skipped_empty_segment_ids_sample": [],
+        "sqlite_page_count": 3553,
+        "status": "VALID"
+      },
+      "work_source_id": "SRC-TAFSIR-BAGHAWI-ADAM"
+    },
+    {
+      "author": "ابن أبي حاتم",
+      "book_id": 8658,
+      "book_title": "تفسير ابن أبي حاتم",
+      "category": "التفسير",
+      "created_at": "2026-07-24T21:18:21.871192Z",
+      "episode_id": "episode-001-adam",
+      "manifest_project_path": "sources/secondary/assets/normalized/SRC-TAFSIR-IBN-ABI-HATIM-ADAM/manifest.json",
+      "manifest_sha256": "fc18d3a36af8f3b1ee2aae2fb5abe269658b061082cbb4badc1aa1fe1577f12e",
+      "normalized_files": {
+        "pages": {
+          "project_path": "sources/secondary/assets/normalized/SRC-TAFSIR-IBN-ABI-HATIM-ADAM/pages.jsonl",
+          "rows": 4457,
+          "sha256": "08c4cc399a37ced8413b7fc870dda87c1501e0f27316ee87e79714e1ec96f950",
+          "size_bytes": 35124671
+        },
+        "toc": {
+          "project_path": "sources/secondary/assets/normalized/SRC-TAFSIR-IBN-ABI-HATIM-ADAM/toc.jsonl",
+          "rows": 16574,
+          "sha256": "a3d60be1887d18678c27f9ebbdb2f0b2be8d173e0f4a2de188731c1b541bdbdc",
+          "size_bytes": 14221221
+        }
+      },
+      "permissions": {
+        "allowed_for_gemini_locator_discovery": false,
+        "allowed_for_local_deterministic_search": true,
+        "allowed_for_quotation": false,
+        "approved_for_evidence": false
+      },
+      "schema_version": "siraj-secondary-normalized-book-manifest-v2",
+      "source_integrity": {
+        "content_hash": "f7371e8bcdbaa8e957b5d5fa7cc6e97dfe510351be21ad781f9c4a49b2d11519",
+        "installation_database_sha256": "72fa72e670a63139b624db32c1e3752a5b3d10c862b3245339d4eadd5995f23a",
+        "installation_fingerprint": "5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5",
+        "materialized_database_path": "sources/secondary/assets/raw/SRC-TAFSIR-IBN-ABI-HATIM-ADAM/8658.db",
+        "materialized_database_sha256": "72fa72e670a63139b624db32c1e3752a5b3d10c862b3245339d4eadd5995f23a"
+      },
+      "storage_contract": {
+        "adapter_version": "shamela-local-adapter-v1",
+        "catalog_metadata": "database/master.db",
+        "page_structure": "database/book/658/8658.db",
+        "page_text_index": "database/store/page",
+        "title_text_index": "database/store/title",
+        "type": "HYBRID_SQLITE_AND_LUCENE"
+      },
+      "validation": {
+        "duplicate_segment_ids": false,
+        "empty_bodies": 0,
+        "heading_count": 16574,
+        "lucene_nonempty_segment_count": 4457,
+        "missing_locators": 0,
+        "segment_count": 4457,
+        "skipped_empty_segment_count": 0,
+        "skipped_empty_segment_ids_sample": [],
+        "sqlite_page_count": 4457,
+        "status": "VALID"
+      },
+      "work_source_id": "SRC-TAFSIR-IBN-ABI-HATIM-ADAM"
+    },
+    {
+      "author": "ابن كثير",
+      "book_id": 1503,
+      "book_title": "تفسير ابن كثير - ط ابن الجوزي",
+      "category": "التفسير",
+      "created_at": "2026-07-24T21:18:28.465947Z",
+      "episode_id": "episode-001-adam",
+      "manifest_project_path": "sources/secondary/assets/normalized/SRC-TAFSIR-IBN-KATHIR-ADAM/manifest.json",
+      "manifest_sha256": "b6e6547f875d4c0da93048a468ffc6f479cb37557d1ccb0f1bb4c7b3cd039595",
+      "normalized_files": {
+        "pages": {
+          "project_path": "sources/secondary/assets/normalized/SRC-TAFSIR-IBN-KATHIR-ADAM/pages.jsonl",
+          "rows": 4652,
+          "sha256": "07bff0bfebc12fc139312eb743e9ac3ece5fd7c5bf221d68f07187a0695d17ea",
+          "size_bytes": 47732613
+        },
+        "toc": {
+          "project_path": "sources/secondary/assets/normalized/SRC-TAFSIR-IBN-KATHIR-ADAM/toc.jsonl",
+          "rows": 239,
+          "sha256": "d769037ecb2f3105a5acab2a597907020be01f8a5b4eccada0711893da79c3b5",
+          "size_bytes": 196951
+        }
+      },
+      "permissions": {
+        "allowed_for_gemini_locator_discovery": false,
+        "allowed_for_local_deterministic_search": true,
+        "allowed_for_quotation": false,
+        "approved_for_evidence": false
+      },
+      "schema_version": "siraj-secondary-normalized-book-manifest-v2",
+      "source_integrity": {
+        "content_hash": "bafa81185af1baa50fa191896d147b60f486b47c87ed4899899583eefd9bb366",
+        "installation_database_sha256": "e81a1a6fa62cc5dfa224bc326728ab924456e6a77cdb10e17e887ab19a8081d8",
+        "installation_fingerprint": "5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5",
+        "materialized_database_path": "sources/secondary/assets/raw/SRC-TAFSIR-IBN-KATHIR-ADAM/1503.db",
+        "materialized_database_sha256": "e81a1a6fa62cc5dfa224bc326728ab924456e6a77cdb10e17e887ab19a8081d8"
+      },
+      "storage_contract": {
+        "adapter_version": "shamela-local-adapter-v1",
+        "catalog_metadata": "database/master.db",
+        "page_structure": "database/book/503/1503.db",
+        "page_text_index": "database/store/page",
+        "title_text_index": "database/store/title",
+        "type": "HYBRID_SQLITE_AND_LUCENE"
+      },
+      "validation": {
+        "duplicate_segment_ids": false,
+        "empty_bodies": 0,
+        "heading_count": 239,
+        "lucene_nonempty_segment_count": 4652,
+        "missing_locators": 0,
+        "segment_count": 4652,
+        "skipped_empty_segment_count": 58,
+        "skipped_empty_segment_ids_sample": [
+          1,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          2,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          3,
+          30,
+          31
+        ],
+        "sqlite_page_count": 4710,
+        "status": "VALID"
+      },
+      "work_source_id": "SRC-TAFSIR-IBN-KATHIR-ADAM"
+    },
+    {
+      "author": "عبد الرحمن السعدي",
+      "book_id": 42,
+      "book_title": "تفسير السعدي = تيسير الكريم الرحمن",
+      "category": "التفسير",
+      "created_at": "2026-07-24T21:18:32.007671Z",
+      "episode_id": "episode-001-adam",
+      "manifest_project_path": "sources/secondary/assets/normalized/SRC-TAFSIR-SAADI-ADAM/manifest.json",
+      "manifest_sha256": "44056f65281392eefc5fcf850c42b9a3f65d2747965b97415bb8c1eb4e5e0f85",
+      "normalized_files": {
+        "pages": {
+          "project_path": "sources/secondary/assets/normalized/SRC-TAFSIR-SAADI-ADAM/pages.jsonl",
+          "rows": 2175,
+          "sha256": "de9775f2ec838f6658bff978b4b4e0519e810b88b4eb5f825751ff61f7152e5c",
+          "size_bytes": 16538291
+        },
+        "toc": {
+          "project_path": "sources/secondary/assets/normalized/SRC-TAFSIR-SAADI-ADAM/toc.jsonl",
+          "rows": 2119,
+          "sha256": "c22272e1b714ed1fac8fd190a23cd705094c21f410e45bff886314fbf28b3e88",
+          "size_bytes": 1598983
+        }
+      },
+      "permissions": {
+        "allowed_for_gemini_locator_discovery": false,
+        "allowed_for_local_deterministic_search": true,
+        "allowed_for_quotation": false,
+        "approved_for_evidence": false
+      },
+      "schema_version": "siraj-secondary-normalized-book-manifest-v2",
+      "source_integrity": {
+        "content_hash": "994ab04fe3a68291924445db4a8502ce8cc6d3f174b5ffcff980fbd58a039a07",
+        "installation_database_sha256": "afaa57ca7290c648083328f67adfa34d73fd1bab16e3e82a72af1e5af6294401",
+        "installation_fingerprint": "5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5",
+        "materialized_database_path": "sources/secondary/assets/raw/SRC-TAFSIR-SAADI-ADAM/42.db",
+        "materialized_database_sha256": "afaa57ca7290c648083328f67adfa34d73fd1bab16e3e82a72af1e5af6294401"
+      },
+      "storage_contract": {
+        "adapter_version": "shamela-local-adapter-v1",
+        "catalog_metadata": "database/master.db",
+        "page_structure": "database/book/042/42.db",
+        "page_text_index": "database/store/page",
+        "title_text_index": "database/store/title",
+        "type": "HYBRID_SQLITE_AND_LUCENE"
+      },
+      "validation": {
+        "duplicate_segment_ids": false,
+        "empty_bodies": 0,
+        "heading_count": 2119,
+        "lucene_nonempty_segment_count": 2175,
+        "missing_locators": 0,
+        "segment_count": 2175,
+        "skipped_empty_segment_count": 0,
+        "skipped_empty_segment_ids_sample": [],
+        "sqlite_page_count": 2175,
+        "status": "VALID"
+      },
+      "work_source_id": "SRC-TAFSIR-SAADI-ADAM"
+    },
+    {
+      "author": "ابن جرير الطبري",
+      "book_id": 7798,
+      "book_title": "تفسير الطبري جامع البيان - ت التركي",
+      "category": "التفسير",
+      "created_at": "2026-07-24T21:18:46.912865Z",
+      "episode_id": "episode-001-adam",
+      "manifest_project_path": "sources/secondary/assets/normalized/SRC-TAFSIR-TABARI-ADAM/manifest.json",
+      "manifest_sha256": "56ecb5f30f8b9be154ea84f62e7bf1b8e52fcdf9be8adb3e87460016041bdacf",
+      "normalized_files": {
+        "pages": {
+          "project_path": "sources/secondary/assets/normalized/SRC-TAFSIR-TABARI-ADAM/pages.jsonl",
+          "rows": 16518,
+          "sha256": "7612b6cbf34b07da3ffc4bb28fa4de1518b216c37ab1a83f488beb197938fa32",
+          "size_bytes": 99011358
+        },
+        "toc": {
+          "project_path": "sources/secondary/assets/normalized/SRC-TAFSIR-TABARI-ADAM/toc.jsonl",
+          "rows": 10104,
+          "sha256": "86bf6a412d7640efff83df727cd0dfec505feb678413a47456fb413d7b19a352",
+          "size_bytes": 9951620
+        }
+      },
+      "permissions": {
+        "allowed_for_gemini_locator_discovery": false,
+        "allowed_for_local_deterministic_search": true,
+        "allowed_for_quotation": false,
+        "approved_for_evidence": false
+      },
+      "schema_version": "siraj-secondary-normalized-book-manifest-v2",
+      "source_integrity": {
+        "content_hash": "73a5624a2d261ab8f2fa31a6519eab1c5ed051d0aa2cd9224b82ead9d4229ab3",
+        "installation_database_sha256": "59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3",
+        "installation_fingerprint": "5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5",
+        "materialized_database_path": "sources/secondary/assets/raw/SRC-TAFSIR-TABARI-ADAM/7798.db",
+        "materialized_database_sha256": "59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3"
+      },
+      "storage_contract": {
+        "adapter_version": "shamela-local-adapter-v1",
+        "catalog_metadata": "database/master.db",
+        "page_structure": "database/book/798/7798.db",
+        "page_text_index": "database/store/page",
+        "title_text_index": "database/store/title",
+        "type": "HYBRID_SQLITE_AND_LUCENE"
+      },
+      "validation": {
+        "duplicate_segment_ids": false,
+        "empty_bodies": 0,
+        "heading_count": 10104,
+        "lucene_nonempty_segment_count": 16518,
+        "missing_locators": 0,
+        "segment_count": 16518,
+        "skipped_empty_segment_count": 182,
+        "skipped_empty_segment_ids_sample": [
+          1,
+          10,
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          106,
+          107,
+          108,
+          109,
+          11,
+          110,
+          111,
+          112,
+          113,
+          114,
+          115,
+          116,
+          117,
+          118,
+          119,
+          12,
+          120
+        ],
+        "sqlite_page_count": 16700,
+        "status": "VALID"
+      },
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    }
+  ],
+  "created_at": "2026-07-24T21:18:46.953148Z",
+  "discovery_root": "C:\\SIRAJ\\Workspace\\first-project\\working\\shamela-local-discovery",
+  "episode_id": "episode-001-adam",
+  "installation_fingerprint": "5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5",
+  "installation_root": "C:\\shamela4",
+  "next_gate": "DETERMINISTIC_TOPIC_PREFILTER",
+  "permissions": {
+    "gemini_execution_enabled": false,
+    "quotation_approval_changed": false,
+    "source_approval_changed": false
+  },
+  "schema_version": "siraj-secondary-normalized-export-manifest-v2",
+  "status": "PASS_READY_FOR_BOUNDED_LOCAL_SEARCH",
+  "storage_contract": "HYBRID_SQLITE_AND_LUCENE",
+  "total_page_records": 63900,
+  "total_toc_records": 45070
+}

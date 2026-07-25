@@ -1,0 +1,473 @@
+{
+  "batch_id": "chain-interpretation-batch-0051",
+  "episode_id": "episode-001-adam",
+  "execution_enabled": false,
+  "execution_status": "BLOCKED_NOT_AUTHORIZED",
+  "generation_config": {
+    "response_mime_type": "application/json",
+    "temperature": 0
+  },
+  "model_id": null,
+  "provider_id": "GEMINI",
+  "record_count": 6,
+  "records": [
+    {
+      "book_id": 1503,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/1503/volume/1/page/354?database_sha256=e81a1a6fa62cc5dfa224bc326728ab924456e6a77cdb10e17e887ab19a8081d8&segment_id=409"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_e0abdab1f8c991c863db4c3e",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "الامام العلامة ابو جعفر (¬٤) بن جرير ﵀",
+          "narrator_surface_raw": "الإمام العلامة أبو جعفر (¬٤) بن جرير ﵀",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "QALA",
+          "transmission_term_raw": "قال"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "منبه يقول: لما أسكن الله آدم وزوجته الجنة، ونهاه عن أكل الشجرة، وكانت شجرة غصونها متشعب بعضها (في) (¬١) بعض، وكان لها ثمر - يأكله الملائكة لخلدهم، وهي (الثمرة) (¬٢) التي نهى الله عنها آدم وزوجته.\nفهذه أقوال ستة في (تعيين) (¬٣) هذه الشجرة.\nقال الإمام العلامة أبو جعفر (¬٤) بن جرير ﵀: والصواب في ذلك أن يقال إن الله جل ثناؤه نهى آدم وزوجته عن أكل (شجرة) (¬٥) بعينها من أشجار الجنة دون سائر (أشجارها) (¬٦)،",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_f778f065a203eaf1438616e3",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "report_text": "منبه يقول: لما أسكن الله آدم وزوجته الجنة، ونهاه عن أكل الشجرة، وكانت شجرة غصونها متشعب بعضها (في) (¬١) بعض، وكان لها ثمر - يأكله الملائكة لخلدهم، وهي (الثمرة) (¬٢) التي نهى الله عنها آدم وزوجته.\nفهذه أقوال ستة في (تعيين) (¬٣) هذه الشجرة.\nقال الإمام العلامة أبو جعفر (¬٤) بن جرير ﵀: والصواب في ذلك أن يقال إن الله جل ثناؤه نهى آدم وزوجته عن أكل (شجرة) (¬٥) بعينها من أشجار الجنة دون سائر (أشجارها) (¬٦)،",
+      "report_text_sha256": "aa6adfc8fc9eb0aeb0b9cf9826b563188b09bf33512ccf76dd5c360172d530c5",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "الإمام العلامة أبو جعفر (¬٤) بن جرير ﵀",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_e0cf8e9ea5ab1eb960c2c050",
+      "terminal_speaker_surface_candidate": "الإمام العلامة أبو جعفر (¬٤) بن جرير ﵀",
+      "work_source_id": "SRC-TAFSIR-IBN-KATHIR-ADAM"
+    },
+    {
+      "book_id": 1503,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/1503/volume/1/page/330?database_sha256=e81a1a6fa62cc5dfa224bc326728ab924456e6a77cdb10e17e887ab19a8081d8&segment_id=385"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_445ef85abf2404ec3e93b76d",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابن (¬١) ابي حاتم",
+          "narrator_surface_raw": "ابن (¬١) أبي حاتم",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "QALA",
+          "transmission_term_raw": "قال"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "سعيد بن سليمان حدثنا مبارك بن فضالة",
+          "narrator_surface_raw": "سعيد بن سليمان حدثنا مبارك بن فضالة",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "HADDATHANA",
+          "transmission_term_raw": "حدثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "الحسن",
+          "narrator_surface_raw": "الحسن",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "HADDATHANA",
+          "transmission_term_raw": "حدثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "الله للملايكة",
+          "narrator_surface_raw": "اللّه للملائكة",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 3,
+          "transmission_term_canonical": "QALA",
+          "transmission_term_raw": "قال"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "الحسن",
+          "narrator_surface_raw": "الحسن",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 4,
+          "transmission_term_canonical": "QALA",
+          "transmission_term_raw": "قال"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "معمر",
+          "narrator_surface_raw": "معمر",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 5,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "قتادة في قوله",
+          "narrator_surface_raw": "قتادة في قوله",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 6,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "قال ابن (¬١) أبي حاتم: وحدثنا الحسن بن محمد بن الصباح، حدثنا سعيد بن سليمان حدثنا مبارك بن فضالة، حدثنا الحسن؛ قال: قال اللّه للملائكة: ﴿إِنِّي جَاعِلٌ فِي الْأَرْضِ خَلِيفَةً﴾ قال لهم: إني فاعل، فآمنوا بربهم، فعلَّمهم علمًا، وطوى عنهم عِلمًا عَلِمه ولم يعلموه، فقالوا بالعلم الذي علمهم: ﴿أَتَجْعَلُ فِيهَا مَنْ يُفْسِدُ فِيهَا وَيَسْفِكُ الدِّمَاءَ﴾ قال: ﴿إِنِّي أَعْلَمُ مَا لَا تَعْلَمُونَ﴾.\nقال الحسن: إن الجن كانوا في الأرض يفسدون، ويسفكون الدماء، ولكن جعل الله في قلوبهم أن ذلك سيكون؛ فقالوا بالقول الذي علَّمهم.\nوقال عبد الرزاق (¬٢)، عن معمر، عن قتادة في قوله: ﴿أَتَجْعَلُ فِيهَا مَنْ يُفْسِدُ فِيهَا﴾ كان اللّه أعلمهم أنه إذا كان في الأرض خلق أفسدوا فيها وسفكوا الدماء، فذلك حين قالوا: ﴿أَتَجْعَلُ فِيهَا مَنْ يُفْسِدُ فِيهَا﴾؟\nوقال ابن أبي (¬٣) حاتم:",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_ff588c868943a5d084d25bc1",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MAQTU_OR_TAFSIR_REPORT_CANDIDATE",
+      "report_text": "قال ابن (¬١) أبي حاتم: وحدثنا الحسن بن محمد بن الصباح، حدثنا سعيد بن سليمان حدثنا مبارك بن فضالة، حدثنا الحسن؛ قال: قال اللّه للملائكة: ﴿إِنِّي جَاعِلٌ فِي الْأَرْضِ خَلِيفَةً﴾ قال لهم: إني فاعل، فآمنوا بربهم، فعلَّمهم علمًا، وطوى عنهم عِلمًا عَلِمه ولم يعلموه، فقالوا بالعلم الذي علمهم: ﴿أَتَجْعَلُ فِيهَا مَنْ يُفْسِدُ فِيهَا وَيَسْفِكُ الدِّمَاءَ﴾ قال: ﴿إِنِّي أَعْلَمُ مَا لَا تَعْلَمُونَ﴾.\nقال الحسن: إن الجن كانوا في الأرض يفسدون، ويسفكون الدماء، ولكن جعل الله في قلوبهم أن ذلك سيكون؛ فقالوا بالقول الذي علَّمهم.\nوقال عبد الرزاق (¬٢)، عن معمر، عن قتادة في قوله: ﴿أَتَجْعَلُ فِيهَا مَنْ يُفْسِدُ فِيهَا﴾ كان اللّه أعلمهم أنه إذا كان في الأرض خلق أفسدوا فيها وسفكوا الدماء، فذلك حين قالوا: ﴿أَتَجْعَلُ فِيهَا مَنْ يُفْسِدُ فِيهَا﴾؟\nوقال ابن أبي (¬٣) حاتم:",
+      "report_text_sha256": "9a9d61c5ee75784dbe190b4b8a42d637d6c11d50d279ce76b9e512a6893953f1",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "قتادة في قوله",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_56226ff97e389d2ca53125cb",
+      "terminal_speaker_surface_candidate": "قتادة في قوله",
+      "work_source_id": "SRC-TAFSIR-IBN-KATHIR-ADAM"
+    },
+    {
+      "book_id": 42,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/42/volume/0/page/285?database_sha256=afaa57ca7290c648083328f67adfa34d73fd1bab16e3e82a72af1e5af6294401&segment_id=545",
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/42/volume/0/page/285?database_sha256=afaa57ca7290c648083328f67adfa34d73fd1bab16e3e82a72af1e5af6294401&segment_id=546"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_2ed137d1be749b6d1a6f63b1",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "الله لابليس لما قال ما قال",
+          "narrator_surface_raw": "الله لإبليس لما قال ما قال",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "QALA",
+          "transmission_term_raw": "قال"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "﴿١٨﴾\n﴿قَالَ اخْرُجْ مِنْهَا مَذْءُومًا مَدْحُورًا لَمَنْ تَبِعَكَ مِنْهُمْ لأمْلأنَّ جَهَنَّمَ مِنْكُمْ أَجْمَعِينَ﴾ .\nأي: قال الله لإبليس لما قال ما قال: ﴿اخْرُجْ مِنْهَا﴾ خروج صغار واحتقار، لا خروج إكرام بل ﴿مَذْءُومًا﴾ أي: مذموما ﴿مَدْحُورًا﴾ مبعدا عن الله وعن رحمته وعن كل خير.\n﴿لأمْلأنَّ جَهَنَّمَ﴾ منك وممن تبعك منهم ﴿أَجْمَعِينَ﴾ وهذا قسم منه تعالى، أن النار دار العصاة، لا بد أن يملأها من إبليس وأتباعه من الجن والإنس.\n\nثم حذر آدم شره وفتنته فقال:\n﴿١٩\n- ٢٣﴾ ﴿وَيَا آدَمُ اسْكُنْ أَنْتَ وَزَوْجُكَ الْجَنَّةَ فَكُلا مِنْ حَيْثُ شِئْتُمَا وَلا تَقْرَبَا هَذِهِ الشَّجَرَةَ فَتَكُونَا مِنَ الظَّالِمِينَ *",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_54c02922b94e0451c206167f",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "report_text": "﴿١٨﴾\n﴿قَالَ اخْرُجْ مِنْهَا مَذْءُومًا مَدْحُورًا لَمَنْ تَبِعَكَ مِنْهُمْ لأمْلأنَّ جَهَنَّمَ مِنْكُمْ أَجْمَعِينَ﴾ .\nأي: قال الله لإبليس لما قال ما قال: ﴿اخْرُجْ مِنْهَا﴾ خروج صغار واحتقار، لا خروج إكرام بل ﴿مَذْءُومًا﴾ أي: مذموما ﴿مَدْحُورًا﴾ مبعدا عن الله وعن رحمته وعن كل خير.\n﴿لأمْلأنَّ جَهَنَّمَ﴾ منك وممن تبعك منهم ﴿أَجْمَعِينَ﴾ وهذا قسم منه تعالى، أن النار دار العصاة، لا بد أن يملأها من إبليس وأتباعه من الجن والإنس.\n\nثم حذر آدم شره وفتنته فقال:\n﴿١٩\n- ٢٣﴾ ﴿وَيَا آدَمُ اسْكُنْ أَنْتَ وَزَوْجُكَ الْجَنَّةَ فَكُلا مِنْ حَيْثُ شِئْتُمَا وَلا تَقْرَبَا هَذِهِ الشَّجَرَةَ فَتَكُونَا مِنَ الظَّالِمِينَ *",
+      "report_text_sha256": "0031fe9dd93ee6337822e9c604e510d288a04d1331d308ffb1b248d7c7299a13",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "الله لإبليس لما قال ما قال",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_ab96e947f7d6afb7780598db",
+      "terminal_speaker_surface_candidate": "الله لإبليس لما قال ما قال",
+      "work_source_id": "SRC-TAFSIR-SAADI-ADAM"
+    },
+    {
+      "book_id": 42,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/42/volume/0/page/431?database_sha256=afaa57ca7290c648083328f67adfa34d73fd1bab16e3e82a72af1e5af6294401&segment_id=925"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_b0f887e44b139db4d272de2b",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "الله",
+          "narrator_surface_raw": "الله",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "QALA",
+          "transmission_term_raw": "قال"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "﴿قَالَ يَا إِبْلِيسُ مَا لَكَ أَلا تَكُونَ مَعَ السَّاجِدِينَ * قَالَ لَمْ أَكُنْ لأسْجُدَ لِبَشَرٍ خَلَقْتَهُ مِنْ صَلْصَالٍ مِنْ حَمَإٍ مَسْنُونٍ * قَالَ فَاخْرُجْ مِنْهَا فَإِنَّكَ رَجِيمٌ * وَإِنَّ عَلَيْكَ اللَّعْنَةَ إِلَى يَوْمِ الدِّينِ * قَالَ رَبِّ فَأَنْظِرْنِي إِلَى يَوْمِ يُبْعَثُونَ * قَالَ فَإِنَّكَ مِنَ الْمُنْظَرِينَ * إِلَى يَوْمِ الْوَقْتِ الْمَعْلُومِ * قَالَ رَبِّ بِمَا أَغْوَيْتَنِي لأزَيِّنَنَّ لَهُمْ فِي الأرْضِ وَلأغْوِيَنَّهُمْ أَجْمَعِينَ * إِلا عِبَادَكَ مِنْهُمُ الْمُخْلَصِينَ * قَالَ هَذَا صِرَاطٌ عَلَيَّ مُسْتَقِيمٌ * إِنَّ عِبَادِي لَيْسَ لَكَ عَلَيْهِمْ سُلْطَانٌ إِلا مَنِ اتَّبَعَكَ مِنَ الْغَاوِينَ * وَإِنَّ جَهَنَّمَ لَمَوْعِدُهُمْ أَجْمَعِينَ * لَهَا سَبْعَةُ أَبْوَابٍ لِكُلِّ بَابٍ مِنْهُمْ جُزْءٌ مَقْسُومٌ﴾ .\nقال الله: ﴿يَا إِبْلِيسُ مَا لَكَ أَلا تَكُونَ مَعَ السَّاجِدِينَ * قَالَ لَمْ أَكُنْ لأسْجُدَ لِبَشَرٍ خَلَقْتَهُ مِنْ صَلْصَالٍ مِنْ حَمَإٍ مَسْنُونٍ﴾ فاستكبر على أمر الله وأبدى العداوة لآدم وذريته وأعجب بعنصره وقال أنا خير من آدم\n﴿قَالَ﴾ الله معاقبا له على كفره واستكباره ﴿فَاخْرُجْ مِنْهَا فَإِنَّكَ رَجِيمٌ﴾ أي مطرود مبعد من كل خير ﴿وَإِنَّ عَلَيْكَ اللَّعْنَةَ﴾ أي الذم والعيب والبعد عن رحمة الله ﴿إِلَى يَوْمِ الدِّينِ﴾ ففيها وما أشبهها دليل على أنه سيستمر على كفره وبعده من الخير\n﴿قَالَ رَبِّ فَأَنْظِرْنِي﴾ أي أمهلني ﴿إِلَى يَوْمِ يُبْعَثُونَ * قَالَ فَإِنَّكَ مِنَ الْمُنْظَرِينَ * إِلَى يَوْمِ الْوَقْتِ الْمَعْلُومِ﴾ وليس إجابة الله لدعائه كرامة في حقه وإنما ذلك امتحان وابتلاء من الله له وللعباد ليتبين الصادق الذي يطيع مولاه دون عدوه ممن ليس كذلك ولذلك حذرنا منه غاية التحذير وشرح لنا ما يريده منا\n﴿قَالَ رَبِّ بِمَا أَغْوَيْتَنِي لأزَيِّنَنَّ لَهُمْ فِي الأرْضِ﴾ أي أزين لهم الدنيا وأدعوهم إلى إيثارها على الأخرى حتى يكونوا منقادين لكل معصية ﴿وَلأغْوِيَنَّهُمْ أَجْمَعِينَ﴾ أي أصدهم كلهم عن الصراط المستقيم ﴿إِلا عِبَادَكَ مِنْ",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_58ffe52995b57c8dfb8f2118",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "report_text": "﴿قَالَ يَا إِبْلِيسُ مَا لَكَ أَلا تَكُونَ مَعَ السَّاجِدِينَ * قَالَ لَمْ أَكُنْ لأسْجُدَ لِبَشَرٍ خَلَقْتَهُ مِنْ صَلْصَالٍ مِنْ حَمَإٍ مَسْنُونٍ * قَالَ فَاخْرُجْ مِنْهَا فَإِنَّكَ رَجِيمٌ * وَإِنَّ عَلَيْكَ اللَّعْنَةَ إِلَى يَوْمِ الدِّينِ * قَالَ رَبِّ فَأَنْظِرْنِي إِلَى يَوْمِ يُبْعَثُونَ * قَالَ فَإِنَّكَ مِنَ الْمُنْظَرِينَ * إِلَى يَوْمِ الْوَقْتِ الْمَعْلُومِ * قَالَ رَبِّ بِمَا أَغْوَيْتَنِي لأزَيِّنَنَّ لَهُمْ فِي الأرْضِ وَلأغْوِيَنَّهُمْ أَجْمَعِينَ * إِلا عِبَادَكَ مِنْهُمُ الْمُخْلَصِينَ * قَالَ هَذَا صِرَاطٌ عَلَيَّ مُسْتَقِيمٌ * إِنَّ عِبَادِي لَيْسَ لَكَ عَلَيْهِمْ سُلْطَانٌ إِلا مَنِ اتَّبَعَكَ مِنَ الْغَاوِينَ * وَإِنَّ جَهَنَّمَ لَمَوْعِدُهُمْ أَجْمَعِينَ * لَهَا سَبْعَةُ أَبْوَابٍ لِكُلِّ بَابٍ مِنْهُمْ جُزْءٌ مَقْسُومٌ﴾ .\nقال الله: ﴿يَا إِبْلِيسُ مَا لَكَ أَلا تَكُونَ مَعَ السَّاجِدِينَ * قَالَ لَمْ أَكُنْ لأسْجُدَ لِبَشَرٍ خَلَقْتَهُ مِنْ صَلْصَالٍ مِنْ حَمَإٍ مَسْنُونٍ﴾ فاستكبر على أمر الله وأبدى العداوة لآدم وذريته وأعجب بعنصره وقال أنا خير من آدم\n﴿قَالَ﴾ الله معاقبا له على كفره واستكباره ﴿فَاخْرُجْ مِنْهَا فَإِنَّكَ رَجِيمٌ﴾ أي مطرود مبعد من كل خير ﴿وَإِنَّ عَلَيْكَ اللَّعْنَةَ﴾ أي الذم والعيب والبعد عن رحمة الله ﴿إِلَى يَوْمِ الدِّينِ﴾ ففيها وما أشبهها دليل على أنه سيستمر على كفره وبعده من الخير\n﴿قَالَ رَبِّ فَأَنْظِرْنِي﴾ أي أمهلني ﴿إِلَى يَوْمِ يُبْعَثُونَ * قَالَ فَإِنَّكَ مِنَ الْمُنْظَرِينَ * إِلَى يَوْمِ الْوَقْتِ الْمَعْلُومِ﴾ وليس إجابة الله لدعائه كرامة في حقه وإنما ذلك امتحان وابتلاء من الله له وللعباد ليتبين الصادق الذي يطيع مولاه دون عدوه ممن ليس كذلك ولذلك حذرنا منه غاية التحذير وشرح لنا ما يريده منا\n﴿قَالَ رَبِّ بِمَا أَغْوَيْتَنِي لأزَيِّنَنَّ لَهُمْ فِي الأرْضِ﴾ أي أزين لهم الدنيا وأدعوهم إلى إيثارها على الأخرى حتى يكونوا منقادين لكل معصية ﴿وَلأغْوِيَنَّهُمْ أَجْمَعِينَ﴾ أي أصدهم كلهم عن الصراط المستقيم ﴿إِلا عِبَادَكَ مِنْهُمُ الْمُخْلَصِينَ﴾ أي الذين أخلصتهم واجتبيتهم لإخلاصهم وإيمانهم وتوكلهم\nقال الله تعالى ﴿هَذَا صِرَاطٌ عَلَيَّ مُسْتَقِيمٌ﴾ أي معتدل موصل إليَّ وإلى دار كرامتي\n﴿إِنَّ عِبَادِي لَيْسَ لَكَ عَلَيْهِمْ سُلْطَانٌ﴾ تميلهم به إلى ما تشاء من أنواع الضلالات بسبب عبوديتهم لربهم وانقيادهم لأوامره أعانهم الله وعصمهم من الشيطان\n﴿إِلا مَنِ اتَّبَعَكَ﴾ فرضي بولايتك وطاعتك بدلا من طاعة الرحمن ﴿مِنَ الْغَاوِينَ﴾ والغاوي ضد الراشد فهو الذي عرف الحق وتركه والضال الذي تركه من غير علم منه به\n﴿وَإِنَّ جَهَنَّمَ لَمَوْعِدُهُمْ أَجْمَعِينَ﴾ أي إبليس وجنوده ﴿لَهَا سَبْعَةُ أَبْوَابٍ﴾ كل باب أسفل من الآخر ﴿لِكُلِّ بَابٍ مِنْهُمْ﴾ أي من أتباع إبليس ﴿جُزْءٌ مَقْسُومٌ﴾ بحسب أعمالهم قال الله تعالى ﴿فَكُبْكِبُوا فِيهَا هُمْ وَالْغَاوُونَ * وَجُنُودُ إِبْلِيسَ أَجْمَعُونَ﴾",
+      "report_text_sha256": "e113dddca57d2408716500d06cf7b62adf4f269ef0199bb6a58b88ea2c31a2f3",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "الله",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_3febf8a6ec55c223020d25d5",
+      "terminal_speaker_surface_candidate": "الله",
+      "work_source_id": "SRC-TAFSIR-SAADI-ADAM"
+    },
+    {
+      "book_id": 7798,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/10/page/548?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=7256"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_785873de9528738f4931204d",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "عمران بن عيينة",
+          "narrator_surface_raw": "عمرانُ بنُ عُيَيْنة",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "عطاء",
+          "narrator_surface_raw": "عطاءٍ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "سعيد بن جبير",
+          "narrator_surface_raw": "سعيدِ بن جبيرٍ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابن عباس",
+          "narrator_surface_raw": "ابن عباسٍ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 3,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "ثنا عمرانُ بنُ عُيَيْنة، عن عطاءٍ، عن سعيدِ بن جبيرٍ، عن ابن عباسٍ، قال: أُهبط آدمُ حينَ أُهبطَ، فمسَح اللَّهُ ظهرَه، فَأَخْرَج منه كلَّ نَسَمَةٍ هو خالقُها إلى يومِ القيامةِ، ثم قال: ﴿أَلَسْتُ بِرَبِّكُمْ قَالُوا بَلَى﴾. ثم تلا:",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_0128fbcf9993c81bc91d8f9f",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MAWQUF_OR_TAFSIR_REPORT_CANDIDATE",
+      "report_text": "ثنا عمرانُ بنُ عُيَيْنة، عن عطاءٍ، عن سعيدِ بن جبيرٍ، عن ابن عباسٍ، قال: أُهبط آدمُ حينَ أُهبطَ، فمسَح اللَّهُ ظهرَه، فَأَخْرَج منه كلَّ نَسَمَةٍ هو خالقُها إلى يومِ القيامةِ، ثم قال: ﴿أَلَسْتُ بِرَبِّكُمْ قَالُوا بَلَى﴾. ثم تلا:",
+      "report_text_sha256": "93271870ec269c23bf4acbcc25b62039f67b11816303c4648fab56b5313443a2",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "ابن عباسٍ",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_cec6b5162328a697190c6873",
+      "terminal_speaker_surface_candidate": "ابن عباسٍ",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "book_id": 7798,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/14/page/65?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=9526"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_b439af760bcfb127ffce3094",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "المثني",
+          "narrator_surface_raw": "المثنى",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANI",
+          "transmission_term_raw": "حدثني"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "محمد بن سهل بن عسكر",
+          "narrator_surface_raw": "محمد بن سهل بن عَسْكَرٍ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "بالنهار، والسموم بالليل، يقال: سَمَّ يومنا يَسُمُّ سَمومًا.\nحدثني المثنى، قال:\nثنا محمد بن سهل بن عَسْكَرٍ، قال:",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_01bbf84484bbe0e85057d5f7",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "report_text": "بالنهار، والسموم بالليل، يقال: سَمَّ يومنا يَسُمُّ سَمومًا.\nحدثني المثنى، قال:\nثنا محمد بن سهل بن عَسْكَرٍ، قال:",
+      "report_text_sha256": "036a1792fe3162533ef1cf39ef4537b3a241f6c38689eacacfe0827122826065",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "محمد بن سهل بن عَسْكَرٍ",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_00b1bf4297667f61ad37edf5",
+      "terminal_speaker_surface_candidate": "محمد بن سهل بن عَسْكَرٍ",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    }
+  ],
+  "schema_version": "siraj-adam-gemini-draft-batch-v1",
+  "task_contract_project_path": "sources/secondary/gemini-semantic-analysis-draft/contracts/chain-interpretation-contract-v1.json",
+  "task_name": "chain-interpretation"
+}

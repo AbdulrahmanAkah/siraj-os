@@ -1,0 +1,25 @@
+{
+  "prohibited_outputs": [
+    "hadith_grade",
+    "narrator_judgement",
+    "chain_continuity_approval",
+    "israiliyyat_approval"
+  ],
+  "required_response_fields": [
+    "task_record_id",
+    "chain_candidate_id",
+    "normalized_report_id",
+    "ordered_chain_surface_proposal",
+    "transmission_term_proposal",
+    "terminal_speaker_surface_proposal",
+    "prophet_reference_present",
+    "companion_surface_candidate",
+    "marfu_tabii_surface_candidate",
+    "possible_chain_break_locations",
+    "pronoun_or_alias_resolution_notes",
+    "uncertainties"
+  ],
+  "schema_version": "siraj-adam-gemini-chain-interpretation-contract-v1",
+  "system_instruction_ar": "حلل السند بوصفه بنية سطحية فقط. اقترح ترتيب الأسماء وألفاظ الأداء والقائل النهائي ووجود نسبة إلى النبي ﷺ. لا تثبت هوية راوٍ نهائيًا، ولا تحكم عليه، ولا تحكم باتصال السند أو صحة الحديث.",
+  "task_name": "CHAIN_INTERPRETATION"
+}

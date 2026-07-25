@@ -1,0 +1,348 @@
+{
+  "batch_id": "chain-interpretation-batch-0027",
+  "episode_id": "episode-001-adam",
+  "execution_enabled": false,
+  "execution_status": "BLOCKED_NOT_AUTHORIZED",
+  "generation_config": {
+    "response_mime_type": "application/json",
+    "temperature": 0
+  },
+  "model_id": null,
+  "provider_id": "GEMINI",
+  "record_count": 6,
+  "records": [
+    {
+      "book_id": 21712,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/21712/volume/1/page/27?database_sha256=bf0c4379d2d3f7f5a4c30da7a96623019a120d1b198940dbd2c7fa45ed27b4cb&segment_id=23"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_9c88ecde843e1d088a092608",
+      "chain_nodes_candidate": [],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "وَرَوَى أَبُو مُوسَى، عَنِ النَّبِيِّ ﷺ أَنَّهُ قَالَ: «إِنَّ اللَّهَ تَعَالَى خَلَقَ آدَمَ مِنْ قَبْضَةٍ قَبَضَهَا مِنْ جَمِيعِ الْأَرْضِ فَجَاءَ بَنُو آدَمَ عَلَى قَدْرِ الْأَرْضِ، مِنْهُمُ الْأَحْمَر",
+      "kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_06d86a7a2b94d291a29deb66",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MARFU_CONTEXT_CANDIDATE",
+      "report_text": "وَرَوَى أَبُو مُوسَى، عَنِ النَّبِيِّ ﷺ أَنَّهُ قَالَ: «إِنَّ اللَّهَ تَعَالَى خَلَقَ آدَمَ مِنْ قَبْضَةٍ قَبَضَهَا مِنْ جَمِيعِ الْأَرْضِ فَجَاءَ بَنُو آدَمَ عَلَى قَدْرِ الْأَرْضِ، مِنْهُمُ الْأَحْمَرُ، وَالْأَسْوَدُ، وَالْأَبْيَضُ، وَبَيْنَ ذَلِكَ، وَالسَّهْلُ وَالْحَزَنُ، وَالْخَبِيثُ، وَالطَّيِّبُ، ثُمَّ بَلَتْ طِينَتُهُ حَتَّى صَارَتْ",
+      "report_text_sha256": "d4e406193f071454f47ea1078d7afc82c81efe3291b9bdc422d3b09f5dddc678",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "PROPHET_WITH_COMPANION_OR_MARFU_TABII",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": null,
+        "prophet_name": "محمد ﷺ",
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_3fb1b1570067911c6abd6c85",
+      "terminal_speaker_surface_candidate": null,
+      "work_source_id": "SRC-HISTORY-KAMIL-ADAM"
+    },
+    {
+      "book_id": 21712,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/21712/volume/1/page/16?database_sha256=bf0c4379d2d3f7f5a4c30da7a96623019a120d1b198940dbd2c7fa45ed27b4cb&segment_id=12"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_cfaa95d8034892bb3ad082c1",
+      "chain_nodes_candidate": [],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "وَرَوَى نَحْوَهُ جَابِرُ بْنُ سَمُرَةَ، وَأَنَسٌ، وَسَهْلُ بْنُ سَعْدٍ، وَبُرَيْدَةُ، وَالْمُسْتَوْرِدُ بْنُ شَدَّادٍ، وَأَشْيَاخٌ مِنَ الْأَنْصَارِ كُلُّهُمْ عَنِ النَّبِيِّ ﵌.\nوَهَذِهِ أَخْبَارٌ صَحِيحَةٌ.\nقَالَ: وَقَدْ زَعَمَ الْيَهُودُ أَنَّ جَمِيعَ مَا ثَبَتَ عِنْدَهُمْ عَلَى مَا فِي التَّوْرَاةِ مِنْ لَدُنْ خَلْقِ آدَمَ إِلَى الْهِ",
+      "kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_9537c331ce64b3d0c311ff19",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MARFU_CONTEXT_CANDIDATE",
+      "report_text": "وَرَوَى نَحْوَهُ جَابِرُ بْنُ سَمُرَةَ، وَأَنَسٌ، وَسَهْلُ بْنُ سَعْدٍ، وَبُرَيْدَةُ، وَالْمُسْتَوْرِدُ بْنُ شَدَّادٍ، وَأَشْيَاخٌ مِنَ الْأَنْصَارِ كُلُّهُمْ عَنِ النَّبِيِّ ﵌.\nوَهَذِهِ أَخْبَارٌ صَحِيحَةٌ.\nقَالَ: وَقَدْ زَعَمَ الْيَهُودُ أَنَّ جَمِيعَ مَا ثَبَتَ عِنْدَهُمْ عَلَى مَا فِي التَّوْرَاةِ مِنْ لَدُنْ خَلْقِ آدَمَ إِلَى الْهِجْرَةِ أَرْبَعَةُ آلَافِ سَنَةٍ، وَسِتُّمِائَةٍ وَاثْنَتَانِ وَأَرْبَعُونَ سَنَةً.\nوَقَالَتِ الْيُونَانِيَّةُ مِنَ النَّصَارَى: إِنَّ مِنْ خَلْقِ آدَمَ إِلَى الْهِجْرَةِ خَمْسَةَ آلَافِ سَنَةٍ وَتِسْعَمِائَةٍ وَاثْنَتَيْنِ وَتِسْعِينَ سَنَةً وَشَهْرًا.\nوَزَعَمَ قَائِلٌ أَنَّ الْيَهُودَ إِنَّمَا نَقَصُوا مِنَ السِّنِينَ دَفْعًا مِنْهُمْ لِنُبُوَّةِ عِيسَى، إِذْ كَانَتْ صِفَتُهُ وَمَبْعَثُهُ فِي التَّوْرَاةِ، وَقَالُوا: لَمْ يَأْتِ الْوَقْتُ الَّذِي فِي التَّوْرَاةِ أَنَّ عِيسَى يَكُونُ فِيهِ، فَهُمْ يَنْتَظِرُونَ بِزَعْمِهِمْ خُرُوجَهُ وَوَقْتَهُ.\nقَالَ: وَأَحْسَبُ أَنَّ الَّذِي يَنْتَظِرُونَهُ وَيَدَّعُونَ أَنَّ صِفَتَهُ فِي التَّوْرَاةِ مُثْبَتَةٌ هُوَ الدَّجَّالُ.\nوَقَالَتِ الْمَجُوسُ: إِنَّ قَدْرَ مُدَّةِ الزَّمَانِ مِنْ لَدُنْ مُلْكِ جُيُومَرْثَ إِلَى وَقْتِ الْهِجْرَةِ ثَلَاثَةُ آلَافٍ وَمِائَةٌ وَتِسْعٌ وَثَلَاثُونَ سَنَةً، وَهُمْ لَا يَذْكُرُونَ مَعَ ذَلِكَ شَيْئًا يُعْرَفُ فَوْقَ جُيُومَرْثَ وَيَزْعُمُونَ أَنَّهُ هُوَ آدَمُ.\nوَأَهْلُ الْأَخْبَارِ مُخْتَلِفُونَ فِيهِ، فَمِنْ قَائِلٍ مِثْلَ قَوْلِ الْمَجُوسِ، وَمِنْ قَائِلٍ: إِنَّهُ يُسَمَّى بِآدَمَ بَعْدَ أَنْ مَلَكَ الْأَقَالِيمَ السَّبْعَةَ وَإِنَّهُ حَامُ بْنُ يَافِثَ بْنِ نُوحٍ، وَكَانَ بَارًّا بِنُوحٍ، فَدَعَا لَهُ وَلِذُرِّيَّتِهِ بِطُولِ الْعُمُرِ، وَالتَّمْكِينِ فِي الْبِلَادِ، وَاتِّصَالِ الْمُلْكِ، فَاسْتُجِيبَ لَهُ. فَمَلَكَ جُيُومَرْثُ وَوَلَدُهُ الْفُرْسَ. وَلَمْ يَزَلِ الْمُلْكُ فِيهِمْ إِلَى أَنْ دَخَلَ الْمُسْلِمُونَ الْمَدَائِنَ وَغَلَبُوهُمْ",
+      "report_text_sha256": "70eda742564f4addb50aaab3aa68b92d106a8da453e0505430fc0c51e456d17b",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "PROPHET_WITH_COMPANION_OR_MARFU_TABII",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": null,
+        "prophet_name": "محمد ﷺ",
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_8de1474ea5743da98721148c",
+      "terminal_speaker_surface_candidate": null,
+      "work_source_id": "SRC-HISTORY-KAMIL-ADAM"
+    },
+    {
+      "book_id": 12406,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/12406/volume/1/page/198?database_sha256=c0a44e43dc6d655a4d5725fc88aafb8ad0077e0ec2e8214f6c0dec6e9f4e31ab&segment_id=177"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_012d79de429d93e4a3c4664b",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابو عمر بن حيوية",
+          "narrator_surface_raw": "أبو عمر بْن حيوية",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "AKHBARANA",
+          "transmission_term_raw": "أخبرنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "احمد بن معروف",
+          "narrator_surface_raw": "أحمد بن معروف",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AKHBARANA",
+          "transmission_term_raw": "أخبرنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "الحارث بن ابي اسامة",
+          "narrator_surface_raw": "الحارث بن أبي أسامة",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "AKHBARANA",
+          "transmission_term_raw": "أخبرنا"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "رَوَى السدي عَنْ أشياخه، قَالَ: بعث اللَّه ﷿ جبرئيل إِلَى الأَرْض ليأتيه بطين منها، قَالَتْ الأرض: إني أعوذ باللَّه منك أَن تنقص مني أَوْ تشينني، فرجع وَلَمْ يأخذ، وَقَالَ: رب إنها عاذت بك فأعذتها. فبعث ميكائيل فعاذت منه فأعاذها، فبعث ملك الْمَوْت فعاذت منه، فقال: وأنا أعوذ باللَّه أَن أرجع، وَلَمْ أنفذ أمره، فأخذ من وجه الأَرْض وخلط، فلم يأخذ من مكان واحد، وأخذ من تربة حمراء وبيضاء وسوداء، فلذلك خرج بنو آدَم مختلفين. فصعد بِهِ، فبل التراب حتى عاد طينا، ثُمَّ ترك حَتَّى تغير وأنتن، وهو قوله: من حَمَإٍ مَسْنُونٍ ١٥: ٢٦ [٢] ، قَالَ: منتن [٣] .\nوَقَدْ رَوَى سَعِيد بْن جُبَيْر، عَنِ ابْنِ عَبَّاسٍ، قَالَ: بعث رب العزة إِبْلِيس فأخذ من أديم الأَرْض، ومن عذبها ومن ملحها، فخلق آدَم، فمن ثُمَّ سمي آدَم، لأنه خلق من أديم الأَرْض، ومن ثم قال إبليس: أَأَسْجُدُ لِمَنْ خَلَقْتَ طِيناً ١٧: ٦١ [٤] ، أي هذه الطينة أنا جئت بها [٥] .\nوَقَدْ رواه ابْن جُبَيْر عَنْ ابْن مَسْعُود.\nفَأَخْبَرَنَا بِهِ مُحَمَّدُ بْنُ عَبْدِ الْبَاقِي الْبَزَّازُ، أَخْبَرَنَا أَبُو محمد الجوهري، أخبرنا أبو عمر بْن حيوية، أخبرنا أحمد بن معروف، أخبرنا الحارث بن أبي أسامة، أخبرنا",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_025e86b974709f10bbbbbc98",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MAWQUF_OR_TAFSIR_REPORT_CANDIDATE",
+      "report_text": "رَوَى السدي عَنْ أشياخه، قَالَ: بعث اللَّه ﷿ جبرئيل إِلَى الأَرْض ليأتيه بطين منها، قَالَتْ الأرض: إني أعوذ باللَّه منك أَن تنقص مني أَوْ تشينني، فرجع وَلَمْ يأخذ، وَقَالَ: رب إنها عاذت بك فأعذتها. فبعث ميكائيل فعاذت منه فأعاذها، فبعث ملك الْمَوْت فعاذت منه، فقال: وأنا أعوذ باللَّه أَن أرجع، وَلَمْ أنفذ أمره، فأخذ من وجه الأَرْض وخلط، فلم يأخذ من مكان واحد، وأخذ من تربة حمراء وبيضاء وسوداء، فلذلك خرج بنو آدَم مختلفين. فصعد بِهِ، فبل التراب حتى عاد طينا، ثُمَّ ترك حَتَّى تغير وأنتن، وهو قوله: من حَمَإٍ مَسْنُونٍ ١٥: ٢٦ [٢] ، قَالَ: منتن [٣] .\nوَقَدْ رَوَى سَعِيد بْن جُبَيْر، عَنِ ابْنِ عَبَّاسٍ، قَالَ: بعث رب العزة إِبْلِيس فأخذ من أديم الأَرْض، ومن عذبها ومن ملحها، فخلق آدَم، فمن ثُمَّ سمي آدَم، لأنه خلق من أديم الأَرْض، ومن ثم قال إبليس: أَأَسْجُدُ لِمَنْ خَلَقْتَ طِيناً ١٧: ٦١ [٤] ، أي هذه الطينة أنا جئت بها [٥] .\nوَقَدْ رواه ابْن جُبَيْر عَنْ ابْن مَسْعُود.\nفَأَخْبَرَنَا بِهِ مُحَمَّدُ بْنُ عَبْدِ الْبَاقِي الْبَزَّازُ، أَخْبَرَنَا أَبُو محمد الجوهري، أخبرنا أبو عمر بْن حيوية، أخبرنا أحمد بن معروف، أخبرنا الحارث بن أبي أسامة، أخبرنا",
+      "report_text_sha256": "5c28951668a6e44cda9f279d7303d21f63928b347c514f05488730521c1b8a25",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "الحارث بن أبي أسامة",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_3f04054e9967783a9328c618",
+      "terminal_speaker_surface_candidate": "الحارث بن أبي أسامة",
+      "work_source_id": "SRC-HISTORY-MUNTAZAM-ADAM"
+    },
+    {
+      "book_id": 12406,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/12406/volume/1/page/174?database_sha256=c0a44e43dc6d655a4d5725fc88aafb8ad0077e0ec2e8214f6c0dec6e9f4e31ab&segment_id=153"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_7d8f5a32f937dee01673b69a",
+      "chain_nodes_candidate": [],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "حَدَّثَنَا مَعْمَرٌ، عَنِ الزُّهْرِيِّ، عَنْ عُرْوَةَ، عَنْ عَائِشَةَ، قَالَتْ: قَالَ رَسُولُ اللَّهِ ﷺ: «خَلَقَ الْجَانَّ مِنْ مارِجٍ مِنْ نارٍ ٥٥: ١٥، وَخُلِقَتِ الْمَلائِكَةُ مِنْ نُورٍ» .",
+      "kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_0607c8553e8fdf540228c194",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MARFU_CONTEXT_CANDIDATE",
+      "report_text": "حَدَّثَنَا مَعْمَرٌ، عَنِ الزُّهْرِيِّ، عَنْ عُرْوَةَ، عَنْ عَائِشَةَ، قَالَتْ: قَالَ رَسُولُ اللَّهِ ﷺ: «خَلَقَ الْجَانَّ مِنْ مارِجٍ مِنْ نارٍ ٥٥: ١٥، وَخُلِقَتِ الْمَلائِكَةُ مِنْ نُورٍ» .",
+      "report_text_sha256": "652f0afde9a1f511fc441ca12feb4a05ab0280bae2b69c5996d0adc8d964f680",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "PROPHET_WITH_COMPANION_OR_MARFU_TABII",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": null,
+        "prophet_name": "محمد ﷺ",
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_dae4c9d2ee5c637a25351ebd",
+      "terminal_speaker_surface_candidate": null,
+      "work_source_id": "SRC-HISTORY-MUNTAZAM-ADAM"
+    },
+    {
+      "book_id": 12406,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/12406/volume/1/page/185?database_sha256=c0a44e43dc6d655a4d5725fc88aafb8ad0077e0ec2e8214f6c0dec6e9f4e31ab&segment_id=164"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_8017118a89e84d55b221a2d7",
+      "chain_nodes_candidate": [],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "حَدَّثَنَا أَحْمَدُ بن عبد العزيز بن مرداس، حَدَّثَنَا عَبْدُ اللَّهِ بْنُ مُحَمَّدِ بْنِ سَعِيدٍ القرشي، حَدَّثَنَا مُحَمَّدُ بْنُ مُوسَى، حَدَّثَنَا مَسْلَمَةُ بْنُ الصّلْتِ، حَدَّثَنَا جَارِيَةُ بْنُ الْمُنْذِرِ، حَدَّثَنَا الأَعْمَشُ، عَنْ سُلَيْمَانَ بْنِ مُوسَى، عَنِ الْقَاسِمِ بْنِ مُخَيْمِرَةَ، عَنْ حُذَيْفَةَ، عَنِ النَّبِيِّ ﷺ، قَالَ: «لَمَّا أَبْرَمَ اللَّهُ ﷿ خَلْقَهُ فَلَمْ يَبْقَ غَيْرُ آَدَمَ خَلَقَ شَمْسَيْنِ مِنْ نُورِ عَرْشِهِ فَأَمَّا مَا كَانَ فِي سَابِقِ عِلْمِهِ أَنْ يَطْمسَ",
+      "kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_09cf4022246884efd415329f",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MARFU_CONTEXT_CANDIDATE",
+      "report_text": "حَدَّثَنَا أَحْمَدُ بن عبد العزيز بن مرداس، حَدَّثَنَا عَبْدُ اللَّهِ بْنُ مُحَمَّدِ بْنِ سَعِيدٍ القرشي، حَدَّثَنَا مُحَمَّدُ بْنُ مُوسَى، حَدَّثَنَا مَسْلَمَةُ بْنُ الصّلْتِ، حَدَّثَنَا جَارِيَةُ بْنُ الْمُنْذِرِ، حَدَّثَنَا الأَعْمَشُ، عَنْ سُلَيْمَانَ بْنِ مُوسَى، عَنِ الْقَاسِمِ بْنِ مُخَيْمِرَةَ، عَنْ حُذَيْفَةَ، عَنِ النَّبِيِّ ﷺ، قَالَ: «لَمَّا أَبْرَمَ اللَّهُ ﷿ خَلْقَهُ فَلَمْ يَبْقَ غَيْرُ آَدَمَ خَلَقَ شَمْسَيْنِ مِنْ نُورِ عَرْشِهِ فَأَمَّا مَا كَانَ فِي سَابِقِ عِلْمِهِ أَنْ يَطْمسَهَا وَيُحَوِّلَهَا قَمَرًا فَإِنَّهُ خَلَقَهَا دُونَ الشَّمْسِ فِي الضَّوْءِ، وَلَوْ تَرَكَهَا شَمْسَيْنِ لَمْ يُعْرَفِ اللَّيْلُ مِنَ النَّهَارِ، وَلَكَانَ الصَّائِمُ لا يَدْرِي إِلَى مَتَى يَصُومُ، فَأَرْسَلَ جِبْرِيلَ فَأَمَرَ جِنَاحَهُ عَلَى وَجْهِ الْقَمَرِ ثَلاثَ مَرَّاتٍ فَمَحَا عَنْهُ الضَّوْءَ، وَبَقِيَ فِيهِ النُّورُ، وَخَلَقَ لِلشَّمْسِ عَجَلَةً لَهَا ثَلاثُمِائَةٍ وَسِتُّونَ عروة، ووكل بها ثلاثمائة وَسِتِّينَ مَلَكًا قَدْ يَعْلقُ كُلُّ مَلَكٍ بِعُرْوَةٍ وَإِذَا أَرَادَ أَنْ يُرِيَ الْعِبَادِ آَيَةً خَرَّتِ الشَّمْسُ عَنْ عجلتِهَا فَوَقَعَتْ فِي بَحْرٍ وَتَسْجُدُ الشَّمْسُ تَحْتَ الْعَرْشِ بِمِقْدَارِ اللَّيْلِ، ثُمَّ تُؤْمَرُ بِالطُّلُوعِ، فَإِذَا مَا دَنَتِ الْقِيَامَةُ جُعِلَتِ الشَّمْسُ، ثُمَّ يَتْبَعُهَا الْقَمَرُ ثُمَّ يَطْلُعَانِ مِنَ الْمَغْرِبِ ثُمَّ يُعُودُ إِلَى مَا خَلَقَ اللَّهُ» [٢] .",
+      "report_text_sha256": "5fb31f339be6295355fb58658552174672158e879a5d3e13beb5f3d7017f7e96",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "PROPHET_WITH_COMPANION_OR_MARFU_TABII",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": null,
+        "prophet_name": "محمد ﷺ",
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_1daf86ff5ef0b606ebd6a7fb",
+      "terminal_speaker_surface_candidate": null,
+      "work_source_id": "SRC-HISTORY-MUNTAZAM-ADAM"
+    },
+    {
+      "book_id": 12406,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/12406/volume/1/page/199?database_sha256=c0a44e43dc6d655a4d5725fc88aafb8ad0077e0ec2e8214f6c0dec6e9f4e31ab&segment_id=178"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_0e33a230a88fdeb16edf438f",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابي",
+          "narrator_surface_raw": "أَبِي",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANI",
+          "transmission_term_raw": "حدثني"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "أَخْبَرَنَا ابْنُ الْحُصَيْنِ، أَخْبَرَنَا ابْنُ الْمُذْهِبِ، أَخْبَرَنَا أَحْمَدُ بْنُ جَعْفَرٍ، حَدَّثَنَا عَبْدُ اللَّهِ بْنُ أَحْمَدَ، حدثني أَبِي، أَخْبَرَنَا أَبُو عَامِرٍ عَبْدُ الْمَلِكِ بْنُ عَمْرٍو، حَدَّثَنَا زُهَيْرُ بْنُ مُحَمَّدٍ، عَنْ عَبْدِ اللَّهِ بْنِ مُحَمَّدِ بْنِ عَقِيلٍ، عَنْ عَبْدِ الرَّحْمَنِ بْنِ مُحَمَّدِ بْنِ يَزِيدَ الأَنْصَارِيِّ، عَنْ أَبِي لُبَابَةَ الْبَدْرِيِّ، أَنّ رَسُولَ اللَّهِ ﷺ، قَالَ:\n«سَيِّدُ الأَيَّامِ يَوْمُ الْجُمُعَةِ، وَأَعْظَمُهَا عِنْدَهُ، وَأَعْظَمُ عِنْدَ اللَّهِ ﷿ مِنْ يَوْمِ الْفِطْرِ وَيَوْمِ الأَضْحَى [٣] ، وَفِيهِ خَ",
+      "kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_0fcb67b706bf719f7c51068b",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MARFU_CONTEXT_CANDIDATE",
+      "report_text": "أَخْبَرَنَا ابْنُ الْحُصَيْنِ، أَخْبَرَنَا ابْنُ الْمُذْهِبِ، أَخْبَرَنَا أَحْمَدُ بْنُ جَعْفَرٍ، حَدَّثَنَا عَبْدُ اللَّهِ بْنُ أَحْمَدَ، حدثني أَبِي، أَخْبَرَنَا أَبُو عَامِرٍ عَبْدُ الْمَلِكِ بْنُ عَمْرٍو، حَدَّثَنَا زُهَيْرُ بْنُ مُحَمَّدٍ، عَنْ عَبْدِ اللَّهِ بْنِ مُحَمَّدِ بْنِ عَقِيلٍ، عَنْ عَبْدِ الرَّحْمَنِ بْنِ مُحَمَّدِ بْنِ يَزِيدَ الأَنْصَارِيِّ، عَنْ أَبِي لُبَابَةَ الْبَدْرِيِّ، أَنّ رَسُولَ اللَّهِ ﷺ، قَالَ:\n«سَيِّدُ الأَيَّامِ يَوْمُ الْجُمُعَةِ، وَأَعْظَمُهَا عِنْدَهُ، وَأَعْظَمُ عِنْدَ اللَّهِ ﷿ مِنْ يَوْمِ الْفِطْرِ وَيَوْمِ الأَضْحَى [٣] ، وَفِيهِ خَمْسُ خِلالٍ: خَلَقَ اللَّهُ ﵎ فِيهِ آَدَمَ، وَأَهْبَطَ اللَّهُ فِيهِ آَدَمَ إِلَى الأَرْضِ، وَفِيهِ تُوفِّيَ آَدَمُ، وَفِيهِ سَاعَةٌ لا يَسْأَلُ الْعَبْدُ فِيهَا شَيْئًا إِلا أَتَاهُ اللَّهُ إِيَّاهُ ما لم",
+      "report_text_sha256": "be25526c4b0fd680d8c01ceb3aa9704a2d1fdeef6e2f80f911e1bd1048b0aa22",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": "أَبِي",
+        "display_mode": "PROPHET_WITH_COMPANION_OR_MARFU_TABII",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": null,
+        "prophet_name": "محمد ﷺ",
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_e3c71ef946b8b35b7f1b6f72",
+      "terminal_speaker_surface_candidate": "أَبِي",
+      "work_source_id": "SRC-HISTORY-MUNTAZAM-ADAM"
+    }
+  ],
+  "schema_version": "siraj-adam-gemini-draft-batch-v1",
+  "task_contract_project_path": "sources/secondary/gemini-semantic-analysis-draft/contracts/chain-interpretation-contract-v1.json",
+  "task_name": "chain-interpretation"
+}

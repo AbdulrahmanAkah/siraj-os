@@ -1,0 +1,502 @@
+{
+  "batch_id": "chain-interpretation-batch-0042",
+  "episode_id": "episode-001-adam",
+  "execution_enabled": false,
+  "execution_status": "BLOCKED_NOT_AUTHORIZED",
+  "generation_config": {
+    "response_mime_type": "application/json",
+    "temperature": 0
+  },
+  "model_id": null,
+  "provider_id": "GEMINI",
+  "record_count": 6,
+  "records": [
+    {
+      "book_id": 8658,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/8658/volume/5/page/1614?database_sha256=72fa72e670a63139b624db32c1e3752a5b3d10c862b3245339d4eadd5995f23a&segment_id=1604"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_27f67b2d3a94ed5ddc20ceed",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابو صالح كاتب الليث",
+          "narrator_surface_raw": "أَبُو صَالِحٍ كَاتِبُ اللَّيْثِ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "أَخْبَرَنِي أَبُو حَفْصِ بْنُ أَبِي الْعَاتِكَةِ قَالَ: وَعُمْرُهُ كَانَ أَلْفَ سَنَةٍ «١» .\n\n٨٥٣٦ - حَدَّثَنَا أَبِي، ثنا أَبُو صَالِحٍ كَاتِبُ اللَّيْثِ، حَدَّثَنِي مُعَاوِيَةُ بْنُ صَالِحٍ، عَنْ عَلِيِّ ابْنِ أَبِي طَلْحَةَ، عَنِ ابْنِ عَبَّاسٍ: قَوْلَهُ: وَإِذْ أَخَذَ رَبُّكَ مِنْ بَنِي آدَمَ مِنْ ظهورهم ذُرِّيَتِهِمْ قَالَ: إِنَّ اللَّهَ خَلَقَ آدَمَ ثُمَّ أَخْرَجَ ذُرِّيَّتَهُ مِنْ صُلْبِهِ مِثْلَ الذَّرِّ فَقَالَ لَهُمْ: مَنْ رَبُّكُمْ؟ قَالُوا اللَّهُ رَبُّنَا، ثُمَّ أَعَادَهُمْ فِي صُلْبِهِ حَتَّى يُولَدَ كُلُّ مَنْ أَخَذَ مِيثَاقَهُ، لَا يُزَادُ فِيهِمْ وَلا يُنْقَصُ مِنْهُمْ إلى أن تقوم الساعة.",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_a187832d1ee8e62d9a53ed32",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MAWQUF_OR_TAFSIR_REPORT_CANDIDATE",
+      "report_text": "أَخْبَرَنِي أَبُو حَفْصِ بْنُ أَبِي الْعَاتِكَةِ قَالَ: وَعُمْرُهُ كَانَ أَلْفَ سَنَةٍ «١» .\n\n٨٥٣٦ - حَدَّثَنَا أَبِي، ثنا أَبُو صَالِحٍ كَاتِبُ اللَّيْثِ، حَدَّثَنِي مُعَاوِيَةُ بْنُ صَالِحٍ، عَنْ عَلِيِّ ابْنِ أَبِي طَلْحَةَ، عَنِ ابْنِ عَبَّاسٍ: قَوْلَهُ: وَإِذْ أَخَذَ رَبُّكَ مِنْ بَنِي آدَمَ مِنْ ظهورهم ذُرِّيَتِهِمْ قَالَ: إِنَّ اللَّهَ خَلَقَ آدَمَ ثُمَّ أَخْرَجَ ذُرِّيَّتَهُ مِنْ صُلْبِهِ مِثْلَ الذَّرِّ فَقَالَ لَهُمْ: مَنْ رَبُّكُمْ؟ قَالُوا اللَّهُ رَبُّنَا، ثُمَّ أَعَادَهُمْ فِي صُلْبِهِ حَتَّى يُولَدَ كُلُّ مَنْ أَخَذَ مِيثَاقَهُ، لَا يُزَادُ فِيهِمْ وَلا يُنْقَصُ مِنْهُمْ إلى أن تقوم الساعة.",
+      "report_text_sha256": "1cbcabd6590876cfcb15bc013f6963dfbad9ae6f959c08b8c6a40e8c814eea25",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "أَبُو صَالِحٍ كَاتِبُ اللَّيْثِ",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_281466f3b74f2ad2d989c253",
+      "terminal_speaker_surface_candidate": "أَبُو صَالِحٍ كَاتِبُ اللَّيْثِ",
+      "work_source_id": "SRC-TAFSIR-IBN-ABI-HATIM-ADAM"
+    },
+    {
+      "book_id": 8658,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/8658/volume/5/page/1612?database_sha256=72fa72e670a63139b624db32c1e3752a5b3d10c862b3245339d4eadd5995f23a&segment_id=1602"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_b026c6f528fbc23340bd3a84",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "عبيد الله بن موسي",
+          "narrator_surface_raw": "عُبَيْدُ اللَّهِ بْنُ مُوسَى",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابو جعفر عن الربيع خذوا ما اتيناكم بقوة قال",
+          "narrator_surface_raw": "أَبُو جَعْفَرٍ عَنِ الرَّبِيعِ خُذُوا مَا آتَيْنَاكُمْ بِقُوَّةٍ قَالَ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "العباس بن الوليد",
+          "narrator_surface_raw": "الْعَبَّاسُ بْنُ الْوَلِيدِ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "قَوْلُهُ تَعَالَى بِقُوَّةٍ\n\n٨٥٢٥ - أَخْبَرَنَا مُحَمَّدُ بْنُ سَعْدٍ فِيمَا كَتَبَ إِلَيَّ، حَدَّثَنِي أَبِي، حَدَّثَنِي عَمِّي الْحُسَيْنُ، عَنْ أَبِيهِ، عَنْ جَدِّهِ، عَنِ ابْنِ عَبَّاسٍ قَوْلُهُ: خُذُوا مَا آتَيْنَاكُمْ بِقُوَّةٍ يَقُولُ:\nالْعَمَلُ بِالْكِتَابِ.\n\n٨٥٢٦ - حَدَّثَنَا أَبِي، ثنا عُبَيْدُ اللَّهِ بْنُ مُوسَى، ثنا أَبُو جَعْفَرٍ عَنِ الرَّبِيعِ خُذُوا مَا آتَيْنَاكُمْ بِقُوَّةٍ قَالَ: بِطَاعَةٍ.\n\n٨٥٢٧ - حَدَّثَنَا مُحَمَّدُ بْنُ يَحْيَى، ثنا الْعَبَّاسُ بْنُ الْوَلِيدِ، ثَنَا يَزِيدُ بْنُ زُرَيْعٍ، عَنْ سَعِيدٍ، عَنْ قَتَادَةَ قَوْلُهُ: خُذُوا مَا آتَيْنَاكُمْ بِقُوَّةٍ قَالَ: بِجَدٍّ.\n\nقَوْلُهُ تَعَالَى وَاذْكُرُوا مَا فِيهِ لَعَلَّكُمْ تَتَّقُونَ\n\n٨٥٢٨ - وَبِهِ عَنْ قَتَادَةَ قَوْلُهُ: وَاذْكُرُوا مَا فِيهِ لَعَلَّكُمْ تَتَّقُونَ بِجَبَلٍ انْتَزَعَهُ اللَّهُ مِنْ أَصْلِهِ، ثُمَّ جَعَلَهُ فَوْقَ رُؤُوسِهِمْ ثُمَّ قَالَ: لَتَأْخُذُنَّ بِأَمْرِي أَوْ لأَرْمِيَّنَكُمْ بِهِ.\n\nقَوْلُهُ تَعَالَى: وَإِذْ أَخَذَ رَبُّكَ مِنْ بَنِي آدم من ظهورهم ذريتهم",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_acb8300073d95982114b969c",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MAWQUF_OR_TAFSIR_REPORT_CANDIDATE",
+      "report_text": "قَوْلُهُ تَعَالَى بِقُوَّةٍ\n\n٨٥٢٥ - أَخْبَرَنَا مُحَمَّدُ بْنُ سَعْدٍ فِيمَا كَتَبَ إِلَيَّ، حَدَّثَنِي أَبِي، حَدَّثَنِي عَمِّي الْحُسَيْنُ، عَنْ أَبِيهِ، عَنْ جَدِّهِ، عَنِ ابْنِ عَبَّاسٍ قَوْلُهُ: خُذُوا مَا آتَيْنَاكُمْ بِقُوَّةٍ يَقُولُ:\nالْعَمَلُ بِالْكِتَابِ.\n\n٨٥٢٦ - حَدَّثَنَا أَبِي، ثنا عُبَيْدُ اللَّهِ بْنُ مُوسَى، ثنا أَبُو جَعْفَرٍ عَنِ الرَّبِيعِ خُذُوا مَا آتَيْنَاكُمْ بِقُوَّةٍ قَالَ: بِطَاعَةٍ.\n\n٨٥٢٧ - حَدَّثَنَا مُحَمَّدُ بْنُ يَحْيَى، ثنا الْعَبَّاسُ بْنُ الْوَلِيدِ، ثَنَا يَزِيدُ بْنُ زُرَيْعٍ، عَنْ سَعِيدٍ، عَنْ قَتَادَةَ قَوْلُهُ: خُذُوا مَا آتَيْنَاكُمْ بِقُوَّةٍ قَالَ: بِجَدٍّ.\n\nقَوْلُهُ تَعَالَى وَاذْكُرُوا مَا فِيهِ لَعَلَّكُمْ تَتَّقُونَ\n\n٨٥٢٨ - وَبِهِ عَنْ قَتَادَةَ قَوْلُهُ: وَاذْكُرُوا مَا فِيهِ لَعَلَّكُمْ تَتَّقُونَ بِجَبَلٍ انْتَزَعَهُ اللَّهُ مِنْ أَصْلِهِ، ثُمَّ جَعَلَهُ فَوْقَ رُؤُوسِهِمْ ثُمَّ قَالَ: لَتَأْخُذُنَّ بِأَمْرِي أَوْ لأَرْمِيَّنَكُمْ بِهِ.\n\nقَوْلُهُ تَعَالَى: وَإِذْ أَخَذَ رَبُّكَ مِنْ بَنِي آدم من ظهورهم ذريتهم",
+      "report_text_sha256": "968640e5890886bc0d933986c39a48f60098ae629c796e0e39fcd53b94e4a7c4",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "الْعَبَّاسُ بْنُ الْوَلِيدِ",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_603491178a11c0a903bed2d7",
+      "terminal_speaker_surface_candidate": "الْعَبَّاسُ بْنُ الْوَلِيدِ",
+      "work_source_id": "SRC-TAFSIR-IBN-ABI-HATIM-ADAM"
+    },
+    {
+      "book_id": 8658,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/8658/volume/5/page/1449?database_sha256=72fa72e670a63139b624db32c1e3752a5b3d10c862b3245339d4eadd5995f23a&segment_id=1439"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_08d35c3d59e7945fdb349986",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابو يحيي الحماني",
+          "narrator_surface_raw": "أَبُو يَحْيَى الْحِمَّانِيُّ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "النضر ابو عمر الخزاز عن عكرمة عن ابن عباس",
+          "narrator_surface_raw": "النَّضْرُ أَبُو عُمَرَ الْخَزَّازُ عَنْ عِكْرِمَةَ عَنِ ابْنِ عَبَّاسٍ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابو خلف- يعني عبد الله بن عيسي الحريري- عن سعيد عن قتادة",
+          "narrator_surface_raw": "أَبُو خَلَفٍ- يَعْنِي عَبْدَ اللَّهِ بْنَ عِيسَى الْحَرِيرِيَّ- عَنْ سَعِيدٍ عَنْ قَتَادَةَ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "الْوَجْهُ الثَّانِي:\n\n٨٢٨٠ - حَدَّثَنَا مُحَمَّدُ بْنُ إِسْمَاعِيلَ بْنِ سَمُرَةَ، ثنا أَبُو يَحْيَى الْحِمَّانِيُّ، ثنا النَّضْرُ أَبُو عُمَرَ الْخَزَّازُ عَنْ عِكْرِمَةَ عَنِ ابْنِ عَبَّاسٍ: قَالَ: الشَّجَرَةُ الَّتِي نَهَى اللَّهُ تَعَالَى عَنْهَا آدَمَ السُّنْبُلَةُ- وَرُوِيَ عَنِ الْحَسَنُ: الْبَصْرِيُّ وَوَهْبُ بْنُ مُنَبِّهٍ وَعَطِيَّةُ الْعَوْفِيُّ وَعَبْدِ الرَّحْمَنِ بْنِ أَبِي لَيْلَى وَأَبِي مَالِكٍ وَمُحَارِبِ بْنِ دِثَارٍ مِثْلُ ذَلِكَ.\n\n٨٢٨١ - حَدَّثَنَا عَلِيُّ بْنُ الْحُسَيْنِ ثنا مُحَمَّدُ بْنُ عِيسَى ثنا سَلَمَةُ بْنُ الْفَضْلِ، حَدَّثَنِي مُحَمَّدُ بْنُ إِسْحَاقَ عَنْ بَعْضِ أَهْلِ الْيَمَنِ عَنْ وَهْبِ بْنِ مُنَبِّهٍ أَنَّهُ كَانَ يَقُولُ: هِيَ الْبُرُّ وَلَكِنَّ الْحَبَّةَ مِنْهَا فِي الْجَنَّةِ كَكُلَى الْبَقَرِ، أَلْيَنُ مِنَ الزُّبْدِ، وَأَحْلَى مِنَ الْعَسَلِ.\n\nالْوَجْهُ الثَّالِثُ:\n\n٨٢٨٢ - حَدَّثَنَا أَبُو سَعِيدٍ الأَشَجُّ ثنا أَبُو أَحْمَدَ عَنْ سُفْيَانَ، عَنْ حُصَيْنٍ عَنْ أَبِي مَالِكٍ: وَلا تَقْرَبَا هَذِهِ الشَّجَرَةَ قَالَ: النَّخْلَةُ.\n\nالْوَجْهُ الرَّابِعُ:\n\n٨٢٨٣ - حَدَّثَنَا عُمَرُ بْنُ شَبَّةَ بْنِ عُبَيْدَةَ النُّمَيْرِيُّ، ثنا أَبُو خَلَفٍ- يَعْنِي عَبْدَ اللَّهِ بْنَ عِيسَى الْحَرِيرِيَّ- عَنْ سَعِيدٍ عَنْ قَتَادَةَ: وَلا تَقْرَبَا هَذِهِ الشَّجَرَةَ قَالَ: هِيَ التِّينُ.",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_af8df45f48266ceb8b834aad",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MAWQUF_OR_TAFSIR_REPORT_CANDIDATE",
+      "report_text": "الْوَجْهُ الثَّانِي:\n\n٨٢٨٠ - حَدَّثَنَا مُحَمَّدُ بْنُ إِسْمَاعِيلَ بْنِ سَمُرَةَ، ثنا أَبُو يَحْيَى الْحِمَّانِيُّ، ثنا النَّضْرُ أَبُو عُمَرَ الْخَزَّازُ عَنْ عِكْرِمَةَ عَنِ ابْنِ عَبَّاسٍ: قَالَ: الشَّجَرَةُ الَّتِي نَهَى اللَّهُ تَعَالَى عَنْهَا آدَمَ السُّنْبُلَةُ- وَرُوِيَ عَنِ الْحَسَنُ: الْبَصْرِيُّ وَوَهْبُ بْنُ مُنَبِّهٍ وَعَطِيَّةُ الْعَوْفِيُّ وَعَبْدِ الرَّحْمَنِ بْنِ أَبِي لَيْلَى وَأَبِي مَالِكٍ وَمُحَارِبِ بْنِ دِثَارٍ مِثْلُ ذَلِكَ.\n\n٨٢٨١ - حَدَّثَنَا عَلِيُّ بْنُ الْحُسَيْنِ ثنا مُحَمَّدُ بْنُ عِيسَى ثنا سَلَمَةُ بْنُ الْفَضْلِ، حَدَّثَنِي مُحَمَّدُ بْنُ إِسْحَاقَ عَنْ بَعْضِ أَهْلِ الْيَمَنِ عَنْ وَهْبِ بْنِ مُنَبِّهٍ أَنَّهُ كَانَ يَقُولُ: هِيَ الْبُرُّ وَلَكِنَّ الْحَبَّةَ مِنْهَا فِي الْجَنَّةِ كَكُلَى الْبَقَرِ، أَلْيَنُ مِنَ الزُّبْدِ، وَأَحْلَى مِنَ الْعَسَلِ.\n\nالْوَجْهُ الثَّالِثُ:\n\n٨٢٨٢ - حَدَّثَنَا أَبُو سَعِيدٍ الأَشَجُّ ثنا أَبُو أَحْمَدَ عَنْ سُفْيَانَ، عَنْ حُصَيْنٍ عَنْ أَبِي مَالِكٍ: وَلا تَقْرَبَا هَذِهِ الشَّجَرَةَ قَالَ: النَّخْلَةُ.\n\nالْوَجْهُ الرَّابِعُ:\n\n٨٢٨٣ - حَدَّثَنَا عُمَرُ بْنُ شَبَّةَ بْنِ عُبَيْدَةَ النُّمَيْرِيُّ، ثنا أَبُو خَلَفٍ- يَعْنِي عَبْدَ اللَّهِ بْنَ عِيسَى الْحَرِيرِيَّ- عَنْ سَعِيدٍ عَنْ قَتَادَةَ: وَلا تَقْرَبَا هَذِهِ الشَّجَرَةَ قَالَ: هِيَ التِّينُ.",
+      "report_text_sha256": "0cdd70aed7d0e909a6282071ca9f3c32840563cb794b96c2dceb103cd883cd6f",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "أَبُو خَلَفٍ- يَعْنِي عَبْدَ اللَّهِ بْنَ عِيسَى الْحَرِيرِيَّ- عَنْ سَعِيدٍ عَنْ قَتَادَةَ",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_86b72d383c90c3bc59615b19",
+      "terminal_speaker_surface_candidate": "أَبُو خَلَفٍ- يَعْنِي عَبْدَ اللَّهِ بْنَ عِيسَى الْحَرِيرِيَّ- عَنْ سَعِيدٍ عَنْ قَتَادَةَ",
+      "work_source_id": "SRC-TAFSIR-IBN-ABI-HATIM-ADAM"
+    },
+    {
+      "book_id": 8658,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/8658/volume/1/page/78?database_sha256=72fa72e670a63139b624db32c1e3752a5b3d10c862b3245339d4eadd5995f23a&segment_id=68"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_47d23968da97e9ad9df2cfc8",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابو احمد الزبيري",
+          "narrator_surface_raw": "أَبُو أَحْمَدَ الزُّبَيْرِيُّ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "سفيان عن عطاء بن السايب عن ابن سابط في قوله",
+          "narrator_surface_raw": "سُفْيَانُ عَنْ عَطَاءِ بْنِ السَّائِبِ عَنِ ابْنِ سَابِطٍ فِي قَوْلُهُ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "عَمَّنْ حَدَّثَهُ عَنِ ابْنِ عَبَّاسٍ قَوْلُهُ: إِنِّي جَاعِلٌ فِي الْأَرْضِ خَلِيفَةً قَالُوا أَتَجْعَلُ فِيهَا مَنْ يُفْسِدُ فِيهَا وَيَسْفِكُ الدِّمَاءَ وَنَحْنُ نُسَبِّحُ بِحَمْدِكَ وَنُقَدِّسُ لَكَ قَالَ اللَّهُ: إِنِّي خَالِقٌ بَشَرًا وَإِنَّهُمْ يَتَحَاسَدُونَ فَيَقْتُلُ بَعْضُهُمْ بَعْضًا، وَيُفْسِدُونَ فِي الأَرْضِ، فَلِذَلِكَ قَالُوا مَا قَالُوا.\nيَعْنِي: أَتَجْعَلُ فِيهَا مَنْ يفسد فيها ويسفك الدماء.\n\n٣٢٥ - حَدَّثَنَا الْحَسَنُ بْنُ أَبِي الرَّبِيعِ الْجُرْجَانِيُّ أَنْبَأَ عَبْدُ الرَّزَّاقِ «١» أَنْبَأَ مَعْمَرٌ عَنْ قَتَادَةَ فِي قَوْلُهُ: أَتَجْعَلُ فِيهَا مَنْ يُفْسِدُ فِيهَا وَيَسْفِكُ الدِّمَاءَ قَالَ: كَانَ اللَّهُ أَعْلَمَ أَنَّهُ إِذَا كَانَ فِي الأَرْضِ خَلْقٌ أَفْسَدُوا فِيهَا وَسَفَكُوا الدِّمَاءَ، فَذَلِكَ حِينَ قَالُوا: أَتَجْعَلُ فِيهَا مَنْ يُفْسِدُ فِيهَا يَعْنُونَ النَّاسَ.\n\n٣٢٦ - حَدَّثَنَا أَحْمَدُ بْنُ عِصَامٍ، ثنا أَبُو أَحْمَدَ الزُّبَيْرِيُّ، ثنا سُفْيَانُ عَنْ عَطَاءِ بْنِ السَّائِبِ عَنِ ابْنِ سَابِطٍ فِي قَوْلُهُ: أَتَجْعَلُ فِيهَا مَنْ يُفْسِدُ فِيهَا وَيَسْفِكُ الدِّمَاءَ يَعْنُونَ النَّاسَ.\n\nوَالوجه الثَّالِثُ:\n\n٣٢٧ - حَدَّثَنَا أَبِي ثنا هِشَامٌ الرَّازِيُّ ثنا ابْنُ الْمُبَارَكِ عَنْ مَعْرُوفٍ- يعني ابن خربؤ الْمَكِّيَّ عَمَّنْ سَمِعَ أَبَا جَعْفَرٍ مُحَمَّدَ بْنَ عَلِيٍّ يَقُولُ: السِّجِلُّ مَلَكٌ، وَكَانَ هَارُوتُ وَمَارُوتُ مِنْ أَعْوَانِهِ، وَكَانَ لَهُ كُلَّ يَوْمٍ ثَلاثُ لَمْحَاتٍ يَنْظُرُهُنَّ فِي أُمِّ الْكِتَابِ، فَنَظَرَ نَظْرَةً لَمْ تَكُنْ لَهُ فَأَبْصَرَ فِيهَا خَلْقَ آدَمَ وَمَا فِيهِ مِنَ الأُمُورِ، فَأَسَرَّ ذَلِكَ إِلَى هَارُوتَ وَمَارُوتَ وَكَانَا مِنْ أَعْوَانِهِ، فَلَمَّا قَالَُ إِنِّي جَاعِلٌ فِي الْأَرْضِ خَلِيفَةً قَالُوا أَتَجْعَلُ فِيهَا مَنْ يُفْسِدُ فِيهَا وَيَسْفِكُ الدِّمَاءَ قَالا ذَلِكَ اسْتِطَالَةً عَلَى الْمَلائِكَةِ.\n\nوَالوجه الرَّابِعُ:\n\n٣٢٨ - حَدَّثَنَا أبى هِشَامُ بْنُ عُبَيْدِ اللَّهِ ثنا",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_bef7e05f51847cc53c7590d0",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MAWQUF_OR_TAFSIR_REPORT_CANDIDATE",
+      "report_text": "عَمَّنْ حَدَّثَهُ عَنِ ابْنِ عَبَّاسٍ قَوْلُهُ: إِنِّي جَاعِلٌ فِي الْأَرْضِ خَلِيفَةً قَالُوا أَتَجْعَلُ فِيهَا مَنْ يُفْسِدُ فِيهَا وَيَسْفِكُ الدِّمَاءَ وَنَحْنُ نُسَبِّحُ بِحَمْدِكَ وَنُقَدِّسُ لَكَ قَالَ اللَّهُ: إِنِّي خَالِقٌ بَشَرًا وَإِنَّهُمْ يَتَحَاسَدُونَ فَيَقْتُلُ بَعْضُهُمْ بَعْضًا، وَيُفْسِدُونَ فِي الأَرْضِ، فَلِذَلِكَ قَالُوا مَا قَالُوا.\nيَعْنِي: أَتَجْعَلُ فِيهَا مَنْ يفسد فيها ويسفك الدماء.\n\n٣٢٥ - حَدَّثَنَا الْحَسَنُ بْنُ أَبِي الرَّبِيعِ الْجُرْجَانِيُّ أَنْبَأَ عَبْدُ الرَّزَّاقِ «١» أَنْبَأَ مَعْمَرٌ عَنْ قَتَادَةَ فِي قَوْلُهُ: أَتَجْعَلُ فِيهَا مَنْ يُفْسِدُ فِيهَا وَيَسْفِكُ الدِّمَاءَ قَالَ: كَانَ اللَّهُ أَعْلَمَ أَنَّهُ إِذَا كَانَ فِي الأَرْضِ خَلْقٌ أَفْسَدُوا فِيهَا وَسَفَكُوا الدِّمَاءَ، فَذَلِكَ حِينَ قَالُوا: أَتَجْعَلُ فِيهَا مَنْ يُفْسِدُ فِيهَا يَعْنُونَ النَّاسَ.\n\n٣٢٦ - حَدَّثَنَا أَحْمَدُ بْنُ عِصَامٍ، ثنا أَبُو أَحْمَدَ الزُّبَيْرِيُّ، ثنا سُفْيَانُ عَنْ عَطَاءِ بْنِ السَّائِبِ عَنِ ابْنِ سَابِطٍ فِي قَوْلُهُ: أَتَجْعَلُ فِيهَا مَنْ يُفْسِدُ فِيهَا وَيَسْفِكُ الدِّمَاءَ يَعْنُونَ النَّاسَ.\n\nوَالوجه الثَّالِثُ:\n\n٣٢٧ - حَدَّثَنَا أَبِي ثنا هِشَامٌ الرَّازِيُّ ثنا ابْنُ الْمُبَارَكِ عَنْ مَعْرُوفٍ- يعني ابن خربؤ الْمَكِّيَّ عَمَّنْ سَمِعَ أَبَا جَعْفَرٍ مُحَمَّدَ بْنَ عَلِيٍّ يَقُولُ: السِّجِلُّ مَلَكٌ، وَكَانَ هَارُوتُ وَمَارُوتُ مِنْ أَعْوَانِهِ، وَكَانَ لَهُ كُلَّ يَوْمٍ ثَلاثُ لَمْحَاتٍ يَنْظُرُهُنَّ فِي أُمِّ الْكِتَابِ، فَنَظَرَ نَظْرَةً لَمْ تَكُنْ لَهُ فَأَبْصَرَ فِيهَا خَلْقَ آدَمَ وَمَا فِيهِ مِنَ الأُمُورِ، فَأَسَرَّ ذَلِكَ إِلَى هَارُوتَ وَمَارُوتَ وَكَانَا مِنْ أَعْوَانِهِ، فَلَمَّا قَالَُ إِنِّي جَاعِلٌ فِي الْأَرْضِ خَلِيفَةً قَالُوا أَتَجْعَلُ فِيهَا مَنْ يُفْسِدُ فِيهَا وَيَسْفِكُ الدِّمَاءَ قَالا ذَلِكَ اسْتِطَالَةً عَلَى الْمَلائِكَةِ.\n\nوَالوجه الرَّابِعُ:\n\n٣٢٨ - حَدَّثَنَا أبى هِشَامُ بْنُ عُبَيْدِ اللَّهِ ثنا عَبْدُ اللَّهِ بْنُ يَحْيَى بْنِ أَبِي كَثِيرٍ قَالَ:\nسَمِعْتُ أَبِي يَقُولُ: إِنَّ الْمَلائِكَةَ الَّذِينَ قَالُوا: أَتَجْعَلُ فِيهَا مَنْ يُفْسِدُ فِيهَا وَيَسْفِكُ الدِّمَاءَ وَنَحْنُ نُسَبِّحُ بِحَمْدِكَ وَنُقَدِّسُ لَكَ كَانُوا عَشَرَةَ آلافٍ، فَخَرَجَتْ نَارٌ مِنْ عِنْدِ الله فأحرقتهم «٢» .",
+      "report_text_sha256": "0825f3968192ec1f38cf22982c6a5a397e70c2fb5fdd9d7b1b7466dce3ea4f60",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "سُفْيَانُ عَنْ عَطَاءِ بْنِ السَّائِبِ عَنِ ابْنِ سَابِطٍ فِي قَوْلُهُ",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_ae303619460c4343cb769c1c",
+      "terminal_speaker_surface_candidate": "سُفْيَانُ عَنْ عَطَاءِ بْنِ السَّائِبِ عَنِ ابْنِ سَابِطٍ فِي قَوْلُهُ",
+      "work_source_id": "SRC-TAFSIR-IBN-ABI-HATIM-ADAM"
+    },
+    {
+      "book_id": 8658,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/8658/volume/5/page/1631?database_sha256=72fa72e670a63139b624db32c1e3752a5b3d10c862b3245339d4eadd5995f23a&segment_id=1621"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_187b370060a26835ba6c3954",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "حبان",
+          "narrator_surface_raw": "حبان",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "هلال بن الفياض",
+          "narrator_surface_raw": "هِلالُ بْنُ الْفَيَّاضِ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "عمر ابن ابراهيم عن قتادة عن الحسن",
+          "narrator_surface_raw": "عمر ابن إِبْرَاهِيمَ عَنْ قَتَادَةَ عَنِ الْحَسَنِ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "يزيد عن سعيد بن زريع عن قتادة قوله",
+          "narrator_surface_raw": "يَزِيدُ عَنْ سَعِيدِ بْنِ زُرَيْعٍ عَنْ قَتَادَةَ قَوْلُهُ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 3,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "عمرو بن حماد بن طلحة",
+          "narrator_surface_raw": "عَمْرُو بْنُ حَمَّادِ بْنِ طَلْحَةَ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 4,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "اسباط",
+          "narrator_surface_raw": "أَسْبَاطٌ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 5,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "هلال بن الفياض",
+          "narrator_surface_raw": "هِلالُ بْنُ الْفَيَّاضِ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 6,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "عمر بن ابراهيم",
+          "narrator_surface_raw": "عُمَرُ بْنُ إِبْرَاهِيمَ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 7,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "قَوْلِهِ تَعَالَى: لِيَسْكُنَ إِلَيْهَا\n\n٨٦٣٥ - حَدَّثَنَا مُحَمَّدُ بْنُ يَحْيَى، أَنْبَأَ الْعَبَّاسُ بْنُ الْوَلِيدِ ثنا يَزِيدُ عَنْ سَعِيدٍ عَنْ قَتَادَةَ جَعَلَ مِنْهَا زَوْجَهَا قَالَ: خُلِقَتْ حَوَّاءُ مِنْ ضِلْعٍ مِنْ أَضْلاعِهِ لِيَسْكُنْ إِلَيْهَا.\n\nقَوْلُهُ تَعَالَى: فَلَمَّا تَغَشَّاهَا\n\n٨٦٣٦ - حَدَّثَنَا عَلِيُّ بْنُ الْحُسَيْنِ ثنا مُحَمَّدُ بْنُ عَلِيِّ حمزة، ثنا حبان، عن عبد الله ابن الْمُبَارَكِ عَنْ شَرِيكٍ عَنْ خُصَيْفٍ عَنْ سَعِيدِ بْنِ جُبَيْرٍ عَنِ ابْنِ عَبَّاسٍ فَلَمَّا تَغَشَّاهَا آدَمُ حَمَلَتْ.\n\nقَوْلُهُ تَعَالَى: حَمَلَتْ حَمْلاً خَفِيفًا\n\n٨٦٣٧ - حَدَّثَنَا أَبُو زُرْعَةَ، ثنا هِلالُ بْنُ الْفَيَّاضِ، ثنا عمر ابن إِبْرَاهِيمَ عَنْ قَتَادَةَ عَنِ الْحَسَنِ، عَنْ سَمُرَةَ قَالَ: قَالَ رَسُولُ اللَّهِ ﷺ: إِنَّ حَوَّاءَ لَمَّا حَمَلَتْ كَانَ لَا يَعِيشُ لَهَا وَلَدٌ فَقَالَ لَهَا الشَّيْطَانُ: سَمِّيهِ عَبْدَ الْحَارِثِ فَإِنَّهُ يَعِيشُ فَسَمَّتْهُ و",
+      "kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_befac22d89ec46fb69e11de9",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MARFU_CONTEXT_CANDIDATE",
+      "report_text": "قَوْلِهِ تَعَالَى: لِيَسْكُنَ إِلَيْهَا\n\n٨٦٣٥ - حَدَّثَنَا مُحَمَّدُ بْنُ يَحْيَى، أَنْبَأَ الْعَبَّاسُ بْنُ الْوَلِيدِ ثنا يَزِيدُ عَنْ سَعِيدٍ عَنْ قَتَادَةَ جَعَلَ مِنْهَا زَوْجَهَا قَالَ: خُلِقَتْ حَوَّاءُ مِنْ ضِلْعٍ مِنْ أَضْلاعِهِ لِيَسْكُنْ إِلَيْهَا.\n\nقَوْلُهُ تَعَالَى: فَلَمَّا تَغَشَّاهَا\n\n٨٦٣٦ - حَدَّثَنَا عَلِيُّ بْنُ الْحُسَيْنِ ثنا مُحَمَّدُ بْنُ عَلِيِّ حمزة، ثنا حبان، عن عبد الله ابن الْمُبَارَكِ عَنْ شَرِيكٍ عَنْ خُصَيْفٍ عَنْ سَعِيدِ بْنِ جُبَيْرٍ عَنِ ابْنِ عَبَّاسٍ فَلَمَّا تَغَشَّاهَا آدَمُ حَمَلَتْ.\n\nقَوْلُهُ تَعَالَى: حَمَلَتْ حَمْلاً خَفِيفًا\n\n٨٦٣٧ - حَدَّثَنَا أَبُو زُرْعَةَ، ثنا هِلالُ بْنُ الْفَيَّاضِ، ثنا عمر ابن إِبْرَاهِيمَ عَنْ قَتَادَةَ عَنِ الْحَسَنِ، عَنْ سَمُرَةَ قَالَ: قَالَ رَسُولُ اللَّهِ ﷺ: إِنَّ حَوَّاءَ لَمَّا حَمَلَتْ كَانَ لَا يَعِيشُ لَهَا وَلَدٌ فَقَالَ لَهَا الشَّيْطَانُ: سَمِّيهِ عَبْدَ الْحَارِثِ فَإِنَّهُ يَعِيشُ فَسَمَّتْهُ وَكَانَ ذَلِكَ من وحي الشيطان وأمره ف حملت حَمْلاً خَفِيفًا وَلَمْ يَسْتَبِنْ.\n\n٨٦٣٨ - أَخْبَرَنَا مُحَمَّدُ بْنُ سَعْدٍ فِيمَا كَتَبَ إِلَيَّ، حَدَّثَنِي إِلَيَّ، حَدَّثَنِي عَمِّي الْحُسَيْنُ عَنْ أَبِيهِ عَنْ جَدِّهِ عَنِ ابْنِ عَبَّاسٍ: قَوْلُهُ: فَلَمَّا تَغَشَّاهَا حَمَلَتْ حَمْلاً خَفِيفًا فَشَكَّتْ أَحَمَلَتْ أَمْ لَا.\n\n٨٦٣٩ - حَدَّثَنَا مُحَمَّدُ بْنُ يَحْيَى، أَنْبَأَ الْعَبَّاسُ بْنُ الْوَلِيدِ، ثنا يَزِيدُ عَنْ سَعِيدِ بْنِ زُرَيْعٍ عَنْ قَتَادَةَ قَوْلُهُ: فَلَمَّا تَغَشَّاهَا حَمَلَتْ حَمْلاً خَفِيفًا فَاسْتَبَانَ حَمْلُهَا.\n\n٨٦٤٠ - حَدَّثَنَا أَبُو زُرْعَةَ، ثنا عَمْرُو بْنُ حَمَّادِ بْنِ طَلْحَةَ، ثنا أَسْبَاطٌ، عَنِ السُّدِّيِّ قَالَ: فوقع على حواء ف حملت حَمْلاً خَفِيفًا فَمَرَّتْ بِهِ وَهِيَ النُّطْفَةُ.\n\nقَوْلُهُ تعالى: فمرت به\n\n[الوجه الأول]\n\n٨٦٤١ - حَدَّثَنَا أَبُو زُرْعَةَ، ثنا هِلالُ بْنُ الْفَيَّاضِ، ثنا عُمَرُ بْنُ إِبْرَاهِيمَ، عَنْ قَتَادَةَ عَنِ الْحَسَنِ، عَنْ سَمُرَةَ قَالَ: قَالَ رَسُولُ اللَّهِ ﷺ: إِنَّ حَوَّاءَ لَمَّا حملت كان لا يعيش لها ولد، ف حملت حَمْلاً خَفِيفًا يَقُولُ: خَفِيفًا لَمْ يَسْتَبِنْ فَمَرَّتْ بِهِ لَمَّا اسْتَبَانَ حَمْلُهَا.",
+      "report_text_sha256": "5f15f3ec8356eba4c6c35d70161ff52b1f067768be5283f8ceb648a427db22bd",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": "عُمَرُ بْنُ إِبْرَاهِيمَ",
+        "display_mode": "PROPHET_WITH_COMPANION_OR_MARFU_TABII",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": null,
+        "prophet_name": "محمد ﷺ",
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_a17f36440a670314d8d74f12",
+      "terminal_speaker_surface_candidate": "عُمَرُ بْنُ إِبْرَاهِيمَ",
+      "work_source_id": "SRC-TAFSIR-IBN-ABI-HATIM-ADAM"
+    },
+    {
+      "book_id": 8658,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/8658/volume/11/page/30?database_sha256=72fa72e670a63139b624db32c1e3752a5b3d10c862b3245339d4eadd5995f23a&segment_id=3494"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_85f14c1509db4a9164bf7cce",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "يونس",
+          "narrator_surface_raw": "يونس",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA",
+          "transmission_term_raw": "حدثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابن وهب عن عبد الرحمن بن زيد بن اسلم في قصة الملايكة وادم",
+          "narrator_surface_raw": "ابن وهب عَنْ عَبْدَ الرَّحْمَنِ بْنَ زَيْدِ بْنِ أَسْلَمَ فِي قصة الملائكة وآدم",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "HADDATHANA",
+          "transmission_term_raw": "حدثنا"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "حدثنا يونس، حدثنا ابن وهب عَنْ عَبْدَ الرَّحْمَنِ بْنَ زَيْدِ بْنِ أَسْلَمَ فِي قصة الملائكة وآدم: فقال الله للملائكة: كما لم تعلموا هذه الأسماء فليس لكم علم، إنما أردت أن أجعلهم ليفسدوا فيها، هذا عندي قد علمته، فكذلك أخفيت عنكم أنى أجعل فيها من يعصيني ومن يطيعني.\n٨٣: ٣٥٩: ما أراد: ١: وقد دل على ذلك حديث الشفاعة المتقدم، وحديث موسى- ﵇: «رب أرنى آدم الذي أخرجنا ونفسه من الجنة فلما اجتمع به قال: أنت آدم الذي خلقه الله بيده ونفخ فيه من روحه وأسجد له ملائكته» .\n٨٤: ٣٦١: بعد: ١: تفسير ابن كثير: (١/ ٧٧) .\n: ٣٦٣: إبليس: ٢: هذا تضمينا للحديث الشريف: «كلكم في الجنة إلا من أبى وشرد على الله شراد البعير» .\nرواه ابن عدي في «الكامل» (٦/ ٢١٠٠)",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_d58a5c446bad9e49630e57e3",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "report_text": "حدثنا يونس، حدثنا ابن وهب عَنْ عَبْدَ الرَّحْمَنِ بْنَ زَيْدِ بْنِ أَسْلَمَ فِي قصة الملائكة وآدم: فقال الله للملائكة: كما لم تعلموا هذه الأسماء فليس لكم علم، إنما أردت أن أجعلهم ليفسدوا فيها، هذا عندي قد علمته، فكذلك أخفيت عنكم أنى أجعل فيها من يعصيني ومن يطيعني.\n٨٣: ٣٥٩: ما أراد: ١: وقد دل على ذلك حديث الشفاعة المتقدم، وحديث موسى- ﵇: «رب أرنى آدم الذي أخرجنا ونفسه من الجنة فلما اجتمع به قال: أنت آدم الذي خلقه الله بيده ونفخ فيه من روحه وأسجد له ملائكته» .\n٨٤: ٣٦١: بعد: ١: تفسير ابن كثير: (١/ ٧٧) .\n: ٣٦٣: إبليس: ٢: هذا تضمينا للحديث الشريف: «كلكم في الجنة إلا من أبى وشرد على الله شراد البعير» .\nرواه ابن عدي في «الكامل» (٦/ ٢١٠٠)",
+      "report_text_sha256": "bcc3fc4fbf123e07384f57a3e0004d39aef3b62d50de40aa9b1d51abaa41dcec",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "ابن وهب عَنْ عَبْدَ الرَّحْمَنِ بْنَ زَيْدِ بْنِ أَسْلَمَ فِي قصة الملائكة وآدم",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_6cad389a602488e7cb53a905",
+      "terminal_speaker_surface_candidate": "ابن وهب عَنْ عَبْدَ الرَّحْمَنِ بْنَ زَيْدِ بْنِ أَسْلَمَ فِي قصة الملائكة وآدم",
+      "work_source_id": "SRC-TAFSIR-IBN-ABI-HATIM-ADAM"
+    }
+  ],
+  "schema_version": "siraj-adam-gemini-draft-batch-v1",
+  "task_contract_project_path": "sources/secondary/gemini-semantic-analysis-draft/contracts/chain-interpretation-contract-v1.json",
+  "task_name": "chain-interpretation"
+}

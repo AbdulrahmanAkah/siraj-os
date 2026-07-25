@@ -1,0 +1,40 @@
+{
+  "attribution_profile_counts": {
+    "WAHB_IBN_MUNABBIH": 2
+  },
+  "book_character_limit": 240000,
+  "book_id": 7798,
+  "book_title": "تفسير الطبري جامع البيان - ت التركي",
+  "excluded_after_tabari_boundary": 0,
+  "excluded_by_book_budget": 131,
+  "input_candidate_count": 800,
+  "outputs": {
+    "gemini_input_draft": {
+      "execution_status": "BLOCKED_PENDING_HUMAN_WINDOW_APPROVAL",
+      "project_path": "sources/secondary/bounded-review-windows/SRC-TAFSIR-TABARI-ADAM/gemini-input-draft.jsonl",
+      "rows": 17,
+      "sha256": "601b2f0862b6ac8c4db2054addf6d967c4d47f215e255747fa9a8f6ba42c022b"
+    },
+    "review_windows": {
+      "project_path": "sources/secondary/bounded-review-windows/SRC-TAFSIR-TABARI-ADAM/review-windows.jsonl",
+      "rows": 17,
+      "sha256": "7959ba27086039d636b94520012879b8649c875d8173c1fdb88ae165e6331cc1"
+    }
+  },
+  "raw_window_count": 148,
+  "review_window_character_count": 239492,
+  "review_window_count": 17,
+  "review_window_limit": 45,
+  "selected_candidate_count": 338,
+  "tabari_continuation_boundary": {
+    "boundary_sequence_num": null,
+    "status": "NOT_APPLICABLE"
+  },
+  "tier_counts": {
+    "A": 44,
+    "B": 64,
+    "C": 11
+  },
+  "window_character_limit": 18000,
+  "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+}

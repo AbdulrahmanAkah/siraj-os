@@ -1,0 +1,139 @@
+{
+  "episode_boundary": "BEFORE_WHISPERING",
+  "episode_id": "episode-001-adam",
+  "excluded_record_count": 559,
+  "ordering_violations": 0,
+  "permissions": {
+    "approved_for_evidence": false,
+    "approved_for_narrative": false,
+    "boundary_verification_only": true
+  },
+  "schema_version": "siraj-adam-boundary-exclusion-verification-v1",
+  "status": "PASS",
+  "trigger_counts": {
+    "INHERITED_AFTER_BOUNDARY": 493,
+    "اهبطوا": 20,
+    "فأزلهما": 11,
+    "فأكلا": 2,
+    "فتلقى آدم": 15,
+    "فوسوس": 16,
+    "وسوس لهما": 2
+  },
+  "verification_method": [
+    "Combined retained and boundary-excluded records by window.",
+    "Sorted by sequence number and source character start.",
+    "Confirmed no retained record occurs after exclusion starts in any boundary window.",
+    "Confirmed each first exclusion is triggered by a configured post-boundary marker; later records inherit exclusion."
+  ],
+  "window_count": 18,
+  "windows": [
+    {
+      "excluded_records": 2,
+      "first_trigger": "فأزلهما",
+      "retained_after_boundary": false,
+      "window_id": "01586af221aa5f58f23b4b89"
+    },
+    {
+      "excluded_records": 3,
+      "first_trigger": "فوسوس",
+      "retained_after_boundary": false,
+      "window_id": "2a116191848963b5cffa8404"
+    },
+    {
+      "excluded_records": 6,
+      "first_trigger": "فوسوس",
+      "retained_after_boundary": false,
+      "window_id": "2d788a922721242d7c99035f"
+    },
+    {
+      "excluded_records": 21,
+      "first_trigger": "فوسوس",
+      "retained_after_boundary": false,
+      "window_id": "30690c525905a898ea4bdd81"
+    },
+    {
+      "excluded_records": 40,
+      "first_trigger": "فأزلهما",
+      "retained_after_boundary": false,
+      "window_id": "36e6d012c4212ab5ad9b6da1"
+    },
+    {
+      "excluded_records": 6,
+      "first_trigger": "فأزلهما",
+      "retained_after_boundary": false,
+      "window_id": "4758e5ff4159f946e60c45a2"
+    },
+    {
+      "excluded_records": 23,
+      "first_trigger": "فوسوس",
+      "retained_after_boundary": false,
+      "window_id": "484a22912f6d138342fdbbf0"
+    },
+    {
+      "excluded_records": 3,
+      "first_trigger": "فأزلهما",
+      "retained_after_boundary": false,
+      "window_id": "4aab5b845f55f22e5730aa48"
+    },
+    {
+      "excluded_records": 38,
+      "first_trigger": "فوسوس",
+      "retained_after_boundary": false,
+      "window_id": "6b05e3132f88a8111c4d01f2"
+    },
+    {
+      "excluded_records": 26,
+      "first_trigger": "فأزلهما",
+      "retained_after_boundary": false,
+      "window_id": "6dc60bc986c042ccc3d97b88"
+    },
+    {
+      "excluded_records": 60,
+      "first_trigger": "اهبطوا",
+      "retained_after_boundary": false,
+      "window_id": "82120fc15378ac20138723cf"
+    },
+    {
+      "excluded_records": 17,
+      "first_trigger": "فأزلهما",
+      "retained_after_boundary": false,
+      "window_id": "97719d941058649117cccb9b"
+    },
+    {
+      "excluded_records": 8,
+      "first_trigger": "فأزلهما",
+      "retained_after_boundary": false,
+      "window_id": "9eed2edbe4b5d7c23bd19c56"
+    },
+    {
+      "excluded_records": 10,
+      "first_trigger": "فوسوس",
+      "retained_after_boundary": false,
+      "window_id": "e11186389f240df99ded06c9"
+    },
+    {
+      "excluded_records": 10,
+      "first_trigger": "فأكلا",
+      "retained_after_boundary": false,
+      "window_id": "e1527187ffa73e11aba3abf9"
+    },
+    {
+      "excluded_records": 81,
+      "first_trigger": "فوسوس",
+      "retained_after_boundary": false,
+      "window_id": "ecd55c860e9f458931578651"
+    },
+    {
+      "excluded_records": 14,
+      "first_trigger": "فوسوس",
+      "retained_after_boundary": false,
+      "window_id": "f752d9421479110788fbd363"
+    },
+    {
+      "excluded_records": 191,
+      "first_trigger": "فوسوس",
+      "retained_after_boundary": false,
+      "window_id": "fc95dde8755ea5efbb4bad11"
+    }
+  ]
+}

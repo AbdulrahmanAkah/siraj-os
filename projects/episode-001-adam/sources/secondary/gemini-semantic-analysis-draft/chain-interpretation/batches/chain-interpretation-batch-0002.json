@@ -1,0 +1,358 @@
+{
+  "batch_id": "chain-interpretation-batch-0002",
+  "episode_id": "episode-001-adam",
+  "execution_enabled": false,
+  "execution_status": "BLOCKED_NOT_AUTHORIZED",
+  "generation_config": {
+    "response_mime_type": "application/json",
+    "temperature": 0
+  },
+  "model_id": null,
+  "provider_id": "GEMINI",
+  "record_count": 6,
+  "records": [
+    {
+      "book_id": 4445,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/4445/volume/1/page/230?database_sha256=a48b153a0a451ce0f63625bee7fa294a88d8dbbc5db4b9472afa652260b74b3b&segment_id=229"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_cf7a0f78bd6957a29e9c6d8a",
+      "chain_nodes_candidate": [],
+      "depends_on_boundary_resolution": false,
+      "isnad_internal_text_candidate": "ذِكْرُ وَفَاةِ آدَمَ وَوَصِيَّتِهِ إِلَى ابْنِهِ شِيثَ\n\nوَمَعْنَى شِيثَ: هِبَةُ اللَّهِ، وَسَمَّيَاهُ بِذَلِكَ لِأَنَّهُمَا رُزِقَاهُ بَعْدَ أَنْ قُتِلَ هَابِيلُ. قَالَ أَبُو ذَرٍّ فِي حَدِيثِهِ، عَنْ رَسُولِ اللَّهِ ﷺ: إِنَّ اللَّهَ أَنْزَلَ مِائَةَ صَحِيفَةٍ وَأَرْبَعَ صُحُفٍ عَلَى شِيثَ خَمْسِينَ صَحِيفَةً. قَالَ: مُحَمَّدُ بْنُ إِسْحَاقَ: وَلَمَّا حَضَرَتْ آدَمَ الْوَف",
+      "kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_ef529fe1e6fef2a87f274f13",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MARFU_CONTEXT_CANDIDATE",
+      "report_text": "ذِكْرُ وَفَاةِ آدَمَ وَوَصِيَّتِهِ إِلَى ابْنِهِ شِيثَ\n\nوَمَعْنَى شِيثَ: هِبَةُ اللَّهِ، وَسَمَّيَاهُ بِذَلِكَ لِأَنَّهُمَا رُزِقَاهُ بَعْدَ أَنْ قُتِلَ هَابِيلُ. قَالَ أَبُو ذَرٍّ فِي حَدِيثِهِ، عَنْ رَسُولِ اللَّهِ ﷺ: إِنَّ اللَّهَ أَنْزَلَ مِائَةَ صَحِيفَةٍ وَأَرْبَعَ صُحُفٍ عَلَى شِيثَ خَمْسِينَ صَحِيفَةً. قَالَ: مُحَمَّدُ بْنُ إِسْحَاقَ: وَلَمَّا حَضَرَتْ آدَمَ الْوَفَاةُ عَهِدَ إِلَى ابْنِهِ شِيثَ، وَعَلَّمَهُ سَاعَاتِ اللَّيْلِ وَالنَّهَارِ، وَعَلَّمَهُ عِبَادَاتِ تِلْكَ السَّاعَاتِ، وَأَعْلَمَهُ بِوُقُوعِ الطُّوفَانِ بَعْدَ ذَلِكَ. قَالَ: وَيُقَالُ إِنَّ أَنْسَابَ بَنِي آدَمَ الْيَوْمَ كُلُّهَا تَنْتَهِي إِلَى شِيثَ، وَسَائِرُ أَوْلَادِ آدَمَ غَيْرَهُ انْقَرَضُوا وَبَادُوا، وَاللَّهُ أَعْلَمُ.\nوَلِمَا تُوُفِّيَ آدَمُ ﵇، وَكَانَ ذَلِكَ يَوْمَ الْجُمُعَةِ جَاءَتْهُ الْمَلَائِكَةُ بِحَنُوطٍ، وَكَفَنٍ مِنْ عِنْدِ اللَّهِ ﷿ مِنَ الْجَنَّةِ، وَعَزُّوا فِيهِ ابْنَهُ، وَوَصِيَّهُ شِيثَ ﵇ قَالَ ابْنُ إِسْحَاقَ، وَكَسَفَتِ الشَّمْسُ وَالْقَمَرُ سَبْعَةَ أَيَّامٍ بِلَيَالِيهِنَّ. وَقَدْ قَالَ عَبْدُ اللَّهِ بْنُ الْإِمَامِ أَحْمَدَ:",
+      "report_text_sha256": "9056bbddc8050b2d245f0e45fdf74dd333eeb93eb293e713cc128205f5a35ecc",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "PROPHET_WITH_COMPANION_OR_MARFU_TABII",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": null,
+        "prophet_name": "محمد ﷺ",
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_1e22350c938898751ea85006",
+      "terminal_speaker_surface_candidate": null,
+      "work_source_id": "SRC-HISTORY-BIDAYAH-ADAM"
+    },
+    {
+      "book_id": 4445,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/4445/volume/1/page/159?database_sha256=a48b153a0a451ce0f63625bee7fa294a88d8dbbc5db4b9472afa652260b74b3b&segment_id=157"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_e81da6216afdb60065c9a9c0",
+      "chain_nodes_candidate": [],
+      "depends_on_boundary_resolution": false,
+      "isnad_internal_text_candidate": "زَوْجَ النَّبِيِّ ﷺ حَدَّثَتْهُ: أَنَّ رَسُولَ اللَّهِ ﷺ خَرَجَ مِنْ عِنْدِهَا لَيْلًا، قَالَتْ: فَغِرْتُ عَلَيْهِ، قَالَتْ: فَجَاءَ فَرَأَى مَا أَصْنَعُ. فَقَالَ: «مَالَكِ يَا عَائِشَةُ أَغِرْتِ.» قَالَتْ فَقُلْت",
+      "kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_f610ec67ca48731c34551b10",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MARFU_CONTEXT_CANDIDATE",
+      "report_text": "زَوْجَ النَّبِيِّ ﷺ حَدَّثَتْهُ: أَنَّ رَسُولَ اللَّهِ ﷺ خَرَجَ مِنْ عِنْدِهَا لَيْلًا، قَالَتْ: فَغِرْتُ عَلَيْهِ، قَالَتْ: فَجَاءَ فَرَأَى مَا أَصْنَعُ. فَقَالَ: «مَالَكِ يَا عَائِشَةُ أَغِرْتِ.» قَالَتْ فَقُلْتُ: وَمَالِي أَنْ لَا يَغَارَ مِثْلِي عَلَى مِثْلِكَ. فَقَالَ رَسُولُ اللَّهِ ﷺ: «أَفَأَخَذَكِ شَيْطَانُكِ.» قَالَتْ: يَا رَسُولَ اللَّهِ أَوَ مَعِي شَيْطَانٌ؟ قَالَ: «نَعَمْ.» قُلْتُ: وَمَعَ كُلِّ إِنْسَانٍ؟ قَالَ: «نَعَمْ.» قُلْتُ: وَمَعَكَ يَا رَسُولَ اللَّهِ؟ قَالَ: «نَعَمْ.» وَلَكِنَّ رَبِّي أَعَانَنِي عَلَيْهِ حَتَّى أَسْلَمَ «. وَهَكَذَا رَوَاهُ مُسْلِمٌ، عَنْ هَارُونَ، وَهُوَ ابْنُ سَعِيدٍ الْأَيْلِيُّ بِإِسْنَادِهِ نَحْوَهُ.\nوَقَالَ الْإِمَامُ أَحْمَدُ:",
+      "report_text_sha256": "35cad88d9f160cdd27c044c514265ab1c10e44a6237ddda05203432b8862f6a8",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "PROPHET_WITH_COMPANION_OR_MARFU_TABII",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": null,
+        "prophet_name": "محمد ﷺ",
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_0ed2c2dae58e00456595ab15",
+      "terminal_speaker_surface_candidate": null,
+      "work_source_id": "SRC-HISTORY-BIDAYAH-ADAM"
+    },
+    {
+      "book_id": 21712,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/21712/volume/1/page/19?database_sha256=bf0c4379d2d3f7f5a4c30da7a96623019a120d1b198940dbd2c7fa45ed27b4cb&segment_id=15"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_a02c5d44e2e833314d59da3b",
+      "chain_nodes_candidate": [],
+      "depends_on_boundary_resolution": false,
+      "isnad_internal_text_candidate": "الْقَوْلُ فِيمَا خُلِقَ بَعْدَ الْقَلَمِ\nثُمَّ إِنَّ اللَّهَ خَلَقَ - بَعْدَ الْقَلَمِ، وَبَعْدَ أَنْ أَمَرَهُ فَكَتَبَ مَا هُوَ كَائِنٌ إِلَى يَوْمِ الْقِيَامَةِ - سَحَابًا رَقِيقًا، وَهُوَ الْغَمَامُ الَّذِي قَالَ فِيهِ النَّبِيُّ ﷺ وَقَدْ «سَأَلَهُ أَبُو رَزِينٍ الْعَقِيلِيُّ: أَيْنَ كَانَ رَبُّنَا قَبْلَ أَنْ يَخْلُقَ الْخَلْقَ؟ فَقَالَ: فِي غَمَامٍ مَا تَحْتَهُ هَوَاءٌ، وَمَا فَوْقَهُ هَوَاءٌ، ثُمَّ خَلَقَ عَرْشَهُ عَلَى الْمَاءِ» . وَهُوَ الْغَمَامُ الَّذِي ذَكَرَهُ اللَّهُ فِي قَوْلِهِ: ﴿هَلْ يَنْظُرُونَ إِلَّا أَنْ يَأْتِيَهُمُ اللَّهُ فِي ظُلَلٍ مِنَ الْغَمَامِ﴾ [البقرة: ٢١٠] .\nقُلْتُ هَذَا فِيهِ نَظَرٌ، لِأَنَّهُ قَدْ تَقَدَّمَ أَنَّ أَوَّلَ مَا خَلَقَ اللَّهُ تَعَالَى الْقَلَمُ، وَقَالَ لَهُ: اكْتُبْ. فَجَرَى فِي تِلْكَ السَّاعَةِ. ثُمَّ ذَكَرَ فِي أَوَّلِ هَذَا الْفَصْلِ أَنَّ اللَّهَ خَلَقَ بَعْدَ الْقَلَمِ، وَبَعْدَ أَنْ جَرَى بِمَا هُوَ كَائِنٌ سَحَابًا، وَمِنَ الْمَعْلُومِ أَنَّ الْكِتَابَةَ لَا بُدَّ فِيهَا مِنْ آلَةٍ يُكْتَبُ بِهَا، وَهُوَ الْقَلَمُ، وَمِنْ شَيْءٍ يُكْتَبُ فِيهِ، وَهُوَ الَّذِي يُعَبَّرُ عَنْهُ هَهُنَا بِاللَّوْحِ الْمَحْفُوظِ. وَكَانَ يَنْبَغِي أَنْ يَذْكُرَ اللَّوْحَ الْمَحْفُوظَ ثَانِيًا لِلْقَلَمِ، وَاللَّهُ أَعْلَمُ.\nوَيُحْتَمَلُ أَنْ يَكُونَ تَرَكَ ذِكْرَهُ لِأَنَّهُ مَعْلُومٌ مِنْ مَفْهُومِ اللَّفْظِ بِطَرِيقَةِ الْمُلَازَمَةِ.\nثُمَّ اخْتَلَفَ الْعُلَمَاءُ فِيمَنْ خَلَقَ اللَّهُ بَعْدَ الْغَمَامِ، فَرَوَى الضَّحَّاكُ بْنُ مُزَاحِمٍ، عَنِ ابْنِ عَبَّاسٍ: أَوَّلُ مَا خَلَقَ اللَّهُ الْعَرْشُ، فَاسْتَوَى عَلَيْهِ.\nوَقَالَ آخَرُونَ: خَلَقَ اللَّهُ الْمَاءَ قَبْلَ الْعَرْشِ، وَخَلَقَ الْعَرْشَ فَوَضَعَهُ عَلَى الْمَاءِ، وَهُوَ قَوْلُ أَبِي صَالِحٍ، عَنِ ابْنِ عَبَّاسٍ، وَقَوْلُ ابْنِ مَسْعُودٍ، وَوَهْبِ بْنِ مُنَبِّهٍ.\nوَقَدْ قِيلَ: إِنَّ الَّذِي خَلَقَ اللَّهُ تَعَالَى بَعْدَ الْقَلَمِ الْكُرْسِيُّ، ثُمَّ الْعَرْشُ، ثُمَّ الْهَوَاءُ، ثُمَّ الظُّلُمَاتُ، ثُمَّ الْمَاءُ فَوَضَعَ الْعَرْشَ عَلَيْهِ.\nقَالَ: وَقَوْلُ مَنْ قَالَ: إِنَّ الْمَاءَ خُلِقَ قَبْلَ الْعَرْشِ أَوْلَى بِالصَّوَابِ؛ لِحَدِيثِ أَبِي رَزِينٍ عَنِ النَّبِيِّ ﷺ وَقَدْ قِيلَ: إِنَّ الْمَاءَ كَانَ عَلَى مَتْنِ الرِّيحِ حِينَ خُلِقَ الْعَرْشُ ; قَالَهُ سَعِيدُ بْنُ جُبَيْرٍ، عَنِ ابْنِ عَبَّاسٍ، فَإِنَّهُ كَانَ كَذَلِكَ فَق",
+      "kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_ec334ac4366b505f1ed07b50",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MARFU_CONTEXT_CANDIDATE",
+      "report_text": "الْقَوْلُ فِيمَا خُلِقَ بَعْدَ الْقَلَمِ\nثُمَّ إِنَّ اللَّهَ خَلَقَ - بَعْدَ الْقَلَمِ، وَبَعْدَ أَنْ أَمَرَهُ فَكَتَبَ مَا هُوَ كَائِنٌ إِلَى يَوْمِ الْقِيَامَةِ - سَحَابًا رَقِيقًا، وَهُوَ الْغَمَامُ الَّذِي قَالَ فِيهِ النَّبِيُّ ﷺ وَقَدْ «سَأَلَهُ أَبُو رَزِينٍ الْعَقِيلِيُّ: أَيْنَ كَانَ رَبُّنَا قَبْلَ أَنْ يَخْلُقَ الْخَلْقَ؟ فَقَالَ: فِي غَمَامٍ مَا تَحْتَهُ هَوَاءٌ، وَمَا فَوْقَهُ هَوَاءٌ، ثُمَّ خَلَقَ عَرْشَهُ عَلَى الْمَاءِ» . وَهُوَ الْغَمَامُ الَّذِي ذَكَرَهُ اللَّهُ فِي قَوْلِهِ: ﴿هَلْ يَنْظُرُونَ إِلَّا أَنْ يَأْتِيَهُمُ اللَّهُ فِي ظُلَلٍ مِنَ الْغَمَامِ﴾ [البقرة: ٢١٠] .\nقُلْتُ هَذَا فِيهِ نَظَرٌ، لِأَنَّهُ قَدْ تَقَدَّمَ أَنَّ أَوَّلَ مَا خَلَقَ اللَّهُ تَعَالَى الْقَلَمُ، وَقَالَ لَهُ: اكْتُبْ. فَجَرَى فِي تِلْكَ السَّاعَةِ. ثُمَّ ذَكَرَ فِي أَوَّلِ هَذَا الْفَصْلِ أَنَّ اللَّهَ خَلَقَ بَعْدَ الْقَلَمِ، وَبَعْدَ أَنْ جَرَى بِمَا هُوَ كَائِنٌ سَحَابًا، وَمِنَ الْمَعْلُومِ أَنَّ الْكِتَابَةَ لَا بُدَّ فِيهَا مِنْ آلَةٍ يُكْتَبُ بِهَا، وَهُوَ الْقَلَمُ، وَمِنْ شَيْءٍ يُكْتَبُ فِيهِ، وَهُوَ الَّذِي يُعَبَّرُ عَنْهُ هَهُنَا بِاللَّوْحِ الْمَحْفُوظِ. وَكَانَ يَنْبَغِي أَنْ يَذْكُرَ اللَّوْحَ الْمَحْفُوظَ ثَانِيًا لِلْقَلَمِ، وَاللَّهُ أَعْلَمُ.\nوَيُحْتَمَلُ أَنْ يَكُونَ تَرَكَ ذِكْرَهُ لِأَنَّهُ مَعْلُومٌ مِنْ مَفْهُومِ اللَّفْظِ بِطَرِيقَةِ الْمُلَازَمَةِ.\nثُمَّ اخْتَلَفَ الْعُلَمَاءُ فِيمَنْ خَلَقَ اللَّهُ بَعْدَ الْغَمَامِ، فَرَوَى الضَّحَّاكُ بْنُ مُزَاحِمٍ، عَنِ ابْنِ عَبَّاسٍ: أَوَّلُ مَا خَلَقَ اللَّهُ الْعَرْشُ، فَاسْتَوَى عَلَيْهِ.\nوَقَالَ آخَرُونَ: خَلَقَ اللَّهُ الْمَاءَ قَبْلَ الْعَرْشِ، وَخَلَقَ الْعَرْشَ فَوَضَعَهُ عَلَى الْمَاءِ، وَهُوَ قَوْلُ أَبِي صَالِحٍ، عَنِ ابْنِ عَبَّاسٍ، وَقَوْلُ ابْنِ مَسْعُودٍ، وَوَهْبِ بْنِ مُنَبِّهٍ.\nوَقَدْ قِيلَ: إِنَّ الَّذِي خَلَقَ اللَّهُ تَعَالَى بَعْدَ الْقَلَمِ الْكُرْسِيُّ، ثُمَّ الْعَرْشُ، ثُمَّ الْهَوَاءُ، ثُمَّ الظُّلُمَاتُ، ثُمَّ الْمَاءُ فَوَضَعَ الْعَرْشَ عَلَيْهِ.\nقَالَ: وَقَوْلُ مَنْ قَالَ: إِنَّ الْمَاءَ خُلِقَ قَبْلَ الْعَرْشِ أَوْلَى بِالصَّوَابِ؛ لِحَدِيثِ أَبِي رَزِينٍ عَنِ النَّبِيِّ ﷺ وَقَدْ قِيلَ: إِنَّ الْمَاءَ كَانَ عَلَى مَتْنِ الرِّيحِ حِينَ خُلِقَ الْعَرْشُ ; قَالَهُ سَعِيدُ بْنُ جُبَيْرٍ، عَنِ ابْنِ عَبَّاسٍ، فَإِنَّهُ كَانَ كَذَلِكَ فَقَدْ خُلِقَا قَبْلَ الْعَرْشِ.\nوَقَالَ غَيْرُهُ: إِنَّ اللَّهَ خَلَقَ الْقَلَمَ قَبْلَ أَنْ يَخْلُقَ شَيْئًا بِأَلْفِ عَامٍ.",
+      "report_text_sha256": "8878a88536551ee99118cf3defba0214eac566b2ff227bfa3c3102bb994563bf",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "PROPHET_WITH_COMPANION_OR_MARFU_TABII",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": null,
+        "prophet_name": "محمد ﷺ",
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_77e42658ddcc6b1ed0a356cc",
+      "terminal_speaker_surface_candidate": null,
+      "work_source_id": "SRC-HISTORY-KAMIL-ADAM"
+    },
+    {
+      "book_id": 12406,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/12406/volume/2/page/146?database_sha256=c0a44e43dc6d655a4d5725fc88aafb8ad0077e0ec2e8214f6c0dec6e9f4e31ab&segment_id=551"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_17ec0f7f5277b62ab6f2f065",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "معايش الانبياء",
+          "narrator_surface_raw": "معايش الأنبياء",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "DHUKIRA",
+          "transmission_term_raw": "ذكر"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "من ولد مختونا",
+          "narrator_surface_raw": "من ولد مختونا",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "DHUKIRA",
+          "transmission_term_raw": "ذكر"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "اقوام من القدماء",
+          "narrator_surface_raw": "أقوام من القدماء",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "DHUKIRA",
+          "transmission_term_raw": "ذكر"
+        }
+      ],
+      "depends_on_boundary_resolution": false,
+      "isnad_internal_text_candidate": "وَقَالَ ابن أبي خثيمة: منذ خلق اللَّه آدم إلى أن بعث محمدا ﷺ خمسة آلاف سنة وثمانمائة سنة\n.\nذكر معايش الأنبياء\n\n[١] قَالَ ابْنُ عَبَّاسٍ ﵁: كَانَ آدَمُ ﵇ حَرَّاثًا، وَكَانَ نُوحٌ نَجَّارًا، وَكَانَ إِدْرِيسُ خَيَّاطًا، وَكَانَ صَالِحُ/ تَاجِرًا، وَكَانَ إِبْرَاهِيمُ زَرَّاعًا، وَكَانَ شُعَيْبُ رَاعِيًا [وَكَانَ مُوسَى رَاعِيًا] [٢] وَكَانَ دَاوُدُ زَرَّادًا، وَكَانَ سُلَيْمَانُ مَلِكًا، وَكَانَ عِيسَى لا يَخْبَأُ شَيْئًا لِغَدِهِ، وَكَانَ نَبِيُّنَا ﷺ يرعى غنما لأهل بَيْتِهِ بِأَجْيَادَ، وَكَانَتْ حَوَّاءُ تَغْزِلُ الشَّعْرَ فَتَحُوكُهُ بِيَدِهَا فَتَكْسُو نَفْسَهَا وَوُلْدَهَا\n.\nذكر من ولد مختونا\n\nقَالَ مؤلف الكتاب [٣] : أما آدم فإنه خلق مختونا، وولد شيث وإدريس [ونوح] [٤] وسام، وهود، وصالح، ونبي أصحاب الرس، ولوط، ويُوسُف، وموسى، وشعيب، وسليمان، وزكريا، وعيسى، ونبينا مختونين مسرورين، وابتلي بالختان إِبْرَاهِيم الخليل عَلَى ما سبق\n.\nذكر أقوام من القدماء\n\n[٥] منهم:\n\nخالد بْن سنان العبسي\n\n[٦] قَالَ مؤلف الكتاب [٧] : ويروى أنه من الأنبياء.",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_84cc91944be492236311455a",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MAWQUF_OR_TAFSIR_REPORT_CANDIDATE",
+      "report_text": "وَقَالَ ابن أبي خثيمة: منذ خلق اللَّه آدم إلى أن بعث محمدا ﷺ خمسة آلاف سنة وثمانمائة سنة\n.\nذكر معايش الأنبياء\n\n[١] قَالَ ابْنُ عَبَّاسٍ ﵁: كَانَ آدَمُ ﵇ حَرَّاثًا، وَكَانَ نُوحٌ نَجَّارًا، وَكَانَ إِدْرِيسُ خَيَّاطًا، وَكَانَ صَالِحُ/ تَاجِرًا، وَكَانَ إِبْرَاهِيمُ زَرَّاعًا، وَكَانَ شُعَيْبُ رَاعِيًا [وَكَانَ مُوسَى رَاعِيًا] [٢] وَكَانَ دَاوُدُ زَرَّادًا، وَكَانَ سُلَيْمَانُ مَلِكًا، وَكَانَ عِيسَى لا يَخْبَأُ شَيْئًا لِغَدِهِ، وَكَانَ نَبِيُّنَا ﷺ يرعى غنما لأهل بَيْتِهِ بِأَجْيَادَ، وَكَانَتْ حَوَّاءُ تَغْزِلُ الشَّعْرَ فَتَحُوكُهُ بِيَدِهَا فَتَكْسُو نَفْسَهَا وَوُلْدَهَا\n.\nذكر من ولد مختونا\n\nقَالَ مؤلف الكتاب [٣] : أما آدم فإنه خلق مختونا، وولد شيث وإدريس [ونوح] [٤] وسام، وهود، وصالح، ونبي أصحاب الرس، ولوط، ويُوسُف، وموسى، وشعيب، وسليمان، وزكريا، وعيسى، ونبينا مختونين مسرورين، وابتلي بالختان إِبْرَاهِيم الخليل عَلَى ما سبق\n.\nذكر أقوام من القدماء\n\n[٥] منهم:\n\nخالد بْن سنان العبسي\n\n[٦] قَالَ مؤلف الكتاب [٧] : ويروى أنه من الأنبياء.",
+      "report_text_sha256": "f1b2596d3bf2392eab59c19dcfbb91b9e5f368b53bbfb4ae7d16028e91da870d",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "أقوام من القدماء",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_e1d4ce250011838a7ff377b6",
+      "terminal_speaker_surface_candidate": "أقوام من القدماء",
+      "work_source_id": "SRC-HISTORY-MUNTAZAM-ADAM"
+    },
+    {
+      "book_id": 9783,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/9783/volume/1/page/101?database_sha256=3eac670046fd84fefb8ebfe68a2a2f5f37f7716804a599a61555d3ea8a0162cb&segment_id=99"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_d4720e4b121c4cee96a51998",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "جرير بن حازم",
+          "narrator_surface_raw": "جرير بن حازم",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "الله ﷿ للملايكة",
+          "narrator_surface_raw": "الله ﷿ للملائكة",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "QALA",
+          "transmission_term_raw": "قال"
+        }
+      ],
+      "depends_on_boundary_resolution": false,
+      "isnad_internal_text_candidate": "حَدَّثَنِي حجاج، عن جرير بن حازم، ومبارك عن الحسن وأبي بكر عن الحسن وقتادة قالا: قال",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_0a27666cd32057732166af28",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "report_text": "حَدَّثَنِي حجاج، عن جرير بن حازم، ومبارك عن الحسن وأبي بكر عن الحسن وقتادة قالا: قال الله ﷿ للملائكة: «إِنِّي جاعِلٌ فِي الْأَرْضِ خَلِيفَةً» قال لهم: إني فاعل، فعرضوا برأيهم، فعلمهم علما وطوى منهم علما علمه لا يعلمونه، فقالوا بالعلم الذي علمهم: «أَتَجْعَلُ فِيها مَنْ يُفْسِدُ فِيها وَيَسْفِكُ الدِّماءَ» - وقد كانت الملائكة علمت من علم الله تعالى أنه لا ذنب عند الله تعالى أعظم من سفك الدِّمَاءَ- «وَنَحْنُ نُسَبِّحُ بِحَمْدِكَ وَنُقَدِّسُ لَكَ قالَ إِنِّي أَعْلَمُ مَا لا تَعْلَمُونَ» ، فلما أخذ تعالى في خلق آدم ع همست الملائكة فيما بينهم، فقالوا: ليخلق ربنا ﷿ ما شاء أن يخلق، فلن يخلق خلقا إلا كنا أعلم منه، وأكرم عليه منه، فلما خلقه ونفخ فيه من روحه أمرهم أن يسجدوا له لما قالوا، ففضله عليهم، فعلموا أنهم ليسوا بخير منه، فقالوا:\nإن لم نكن خيرا منه، فنحن أعلم منه، لأنا كنا قبله، وخلقت الأمم قبله،",
+      "report_text_sha256": "aba905d11701208660f544ddbb233411b6436df99085d2119dcce745fa950acc",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "الله ﷿ للملائكة",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_d7e7dc8d55aa9e35c258c172",
+      "terminal_speaker_surface_candidate": "الله ﷿ للملائكة",
+      "work_source_id": "SRC-HISTORY-TABARI-ADAM"
+    },
+    {
+      "book_id": 9783,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/9783/volume/1/page/46?database_sha256=3eac670046fd84fefb8ebfe68a2a2f5f37f7716804a599a61555d3ea8a0162cb&segment_id=44"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_ac695562c28385efbf786ab8",
+      "chain_nodes_candidate": [],
+      "depends_on_boundary_resolution": false,
+      "isnad_internal_text_candidate": "السَّماواتِ وَالْأَرْضَ وَما بَيْنَهُما فِي سِتَّةِ أَيَّامٍ ثُمَّ اسْتَوى عَلَى الْعَرْشِ مَا لَكُمْ مِنْ دُونِهِ مِنْ وَلِيٍّ وَلا شَفِيعٍ أَفَلا تَتَذَكَّرُونَ» وقال تعالى ذكره:\n«قُلْ أَإِنَّكُمْ لَتَكْفُرُونَ بِالَّذِي خَلَقَ الْأَرْضَ فِي يَوْمَيْنِ وَتَجْعَلُونَ لَهُ أَنْداداً ذلِكَ رَبُّ الْعالَمِينَ وَجَعَلَ فِيها رَواسِيَ مِنْ فَوْقِها وَبارَكَ فِيها وَقَدَّرَ فِيها أَقْواتَها فِي أَرْبَعَةِ أَيَّامٍ سَواءً لِلسَّائِلِينَ ثُمَّ اسْتَوى إِلَى السَّماءِ وَهِيَ دُخانٌ فَقالَ لَها وَلِلْأَرْضِ ائْتِيا طَوْعاً أَوْ كَرْهاً قالَتا أَتَيْنا طائِعِينَ فَقَضاهُنَّ سَبْعَ سَماواتٍ فِي يَوْمَيْنِ وَأَوْحى فِي كُلِّ سَماءٍ أَمْرَها وَزَيَّنَّا السَّماءَ الدُّنْيا بِمَصابِيحَ وَحِفْظاً ذلِكَ تَقْدِيرُ الْعَزِيزِ الْعَلِيمِ» .\nولا خلاف بين جميع أهل العلم أن اليومين اللذين ذكرهما الله ﵎ في قوله: «فَقَضاهُنَّ سَبْعَ سَماواتٍ فِي يَوْمَيْنِ» داخلان في الأيام الستة اللاتي ذكرهن قبل ذلك، فمعلوم إذ كان الله ﷿ إنما خلق السموات والأرضين وما فيهن في ستة أيام، وكانت الأخبار مع ذلك متظاهرة عن رسول الله ص بان آخر ما خلق الله من خلقه آدم، وأن خلقه إياه كان في يوم الجمعة- إن يوم الجمعة الذي فرغ فيه من خلق خلقه داخل في الأيام الستة التي أخبر الله تعالى ذكره أنه خلق خلقه",
+      "kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_1eddb0ad59a7c69b9756c05e",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MARFU_CONTEXT_CANDIDATE",
+      "report_text": "السَّماواتِ وَالْأَرْضَ وَما بَيْنَهُما فِي سِتَّةِ أَيَّامٍ ثُمَّ اسْتَوى عَلَى الْعَرْشِ مَا لَكُمْ مِنْ دُونِهِ مِنْ وَلِيٍّ وَلا شَفِيعٍ أَفَلا تَتَذَكَّرُونَ» وقال تعالى ذكره:\n«قُلْ أَإِنَّكُمْ لَتَكْفُرُونَ بِالَّذِي خَلَقَ الْأَرْضَ فِي يَوْمَيْنِ وَتَجْعَلُونَ لَهُ أَنْداداً ذلِكَ رَبُّ الْعالَمِينَ وَجَعَلَ فِيها رَواسِيَ مِنْ فَوْقِها وَبارَكَ فِيها وَقَدَّرَ فِيها أَقْواتَها فِي أَرْبَعَةِ أَيَّامٍ سَواءً لِلسَّائِلِينَ ثُمَّ اسْتَوى إِلَى السَّماءِ وَهِيَ دُخانٌ فَقالَ لَها وَلِلْأَرْضِ ائْتِيا طَوْعاً أَوْ كَرْهاً قالَتا أَتَيْنا طائِعِينَ فَقَضاهُنَّ سَبْعَ سَماواتٍ فِي يَوْمَيْنِ وَأَوْحى فِي كُلِّ سَماءٍ أَمْرَها وَزَيَّنَّا السَّماءَ الدُّنْيا بِمَصابِيحَ وَحِفْظاً ذلِكَ تَقْدِيرُ الْعَزِيزِ الْعَلِيمِ» .\nولا خلاف بين جميع أهل العلم أن اليومين اللذين ذكرهما الله ﵎ في قوله: «فَقَضاهُنَّ سَبْعَ سَماواتٍ فِي يَوْمَيْنِ» داخلان في الأيام الستة اللاتي ذكرهن قبل ذلك، فمعلوم إذ كان الله ﷿ إنما خلق السموات والأرضين وما فيهن في ستة أيام، وكانت الأخبار مع ذلك متظاهرة عن رسول الله ص بان آخر ما خلق الله من خلقه آدم، وأن خلقه إياه كان في يوم الجمعة- إن يوم الجمعة الذي فرغ فيه من خلق خلقه داخل في الأيام الستة التي أخبر الله تعالى ذكره أنه خلق خلقه فيهن، لأن ذلك لو لم يكن داخلا في الأيام الستة كان إنما خلق خلقه في سبعة أيام، لا في ستة، وذلك خلاف ما جاء به التنزيل، فتبين إذا- إذ كان الأمر كالذي وصفنا في ذلك- أن أول الأيام التي ابتدأ الله فيها خلق السموات والارض وما فيهن من خلقه يوم الأحد، إذ كان الآخر يوم الجمعة، وذلك ستة أيام، كما قال ربنا ﷻ.\nفأما الأخبار الواردة عن رسول الله ص وعن أصحابه بأن الفراغ من الخلق كان يوم الجمعة، فسنذكرها في مواضعها إن شاء الله تعالى",
+      "report_text_sha256": "12460ecb7b4637e748d32bbc345d2ab2338fe6d95e47e0781c9c0c3c04fd192e",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "PROPHET_WITH_COMPANION_OR_MARFU_TABII",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": null,
+        "prophet_name": "محمد ﷺ",
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_2c8d38453ae4ed85ef03149a",
+      "terminal_speaker_surface_candidate": null,
+      "work_source_id": "SRC-HISTORY-TABARI-ADAM"
+    }
+  ],
+  "schema_version": "siraj-adam-gemini-draft-batch-v1",
+  "task_contract_project_path": "sources/secondary/gemini-semantic-analysis-draft/contracts/chain-interpretation-contract-v1.json",
+  "task_name": "chain-interpretation"
+}

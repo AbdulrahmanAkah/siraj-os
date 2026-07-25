@@ -1,0 +1,482 @@
+{
+  "batch_id": "chain-interpretation-batch-0048",
+  "episode_id": "episode-001-adam",
+  "execution_enabled": false,
+  "execution_status": "BLOCKED_NOT_AUTHORIZED",
+  "generation_config": {
+    "response_mime_type": "application/json",
+    "temperature": 0
+  },
+  "model_id": null,
+  "provider_id": "GEMINI",
+  "record_count": 6,
+  "records": [
+    {
+      "book_id": 1503,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/1503/volume/5/page/452?database_sha256=e81a1a6fa62cc5dfa224bc326728ab924456e6a77cdb10e17e887ab19a8081d8&segment_id=3030"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_1630eed20acb08c6a1e954c0",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابي موسي",
+          "narrator_surface_raw": "أبي موسى",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "النبي صلي الله عليه وسلم قال",
+          "narrator_surface_raw": "النَّبِيّ ﷺ قال",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "حَدَّثَنَا يحيى بن سعيد، حَدَّثَنَا عوف، حَدَّثَنَا قسامة بن زهير، عن أبي موسى، عن النَّبِيّ ﷺ قال: \"إن اللَّه خلق آدم من قبضة قبضها من جميع الأرض، فجاء بنو آدم على قدر الأرض، جاء منهم الأحمر والأبيض والأسود وبين ذلك، والخبيث والطيب وبين ذلك\" (¬٦)، وقد رواه أب",
+      "kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_855626bc231470a42ad3cc42",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MARFU_CONTEXT_CANDIDATE",
+      "report_text": "حَدَّثَنَا يحيى بن سعيد، حَدَّثَنَا عوف، حَدَّثَنَا قسامة بن زهير، عن أبي موسى، عن النَّبِيّ ﷺ قال: \"إن اللَّه خلق آدم من قبضة قبضها من جميع الأرض، فجاء بنو آدم على قدر الأرض، جاء منهم الأحمر والأبيض والأسود وبين ذلك، والخبيث والطيب وبين ذلك\" (¬٦)، وقد رواه أبو داود والترمذي من طرق عن عوف الأعرابي به نحوه. وقال الترمذي: حسن صحيح (¬٧).\n\n﴿ثُمَّ جَعَلْنَاهُ نُطْفَةً﴾ هذا الضمير عائد على جنس الإنسان، كما قال في الآية الأخرى: ﴿وَبَدَأَ خَلْقَ الْإِنْسَانِ مِنْ طِينٍ (٧) ثُمَّ جَعَلَ نَسْلَهُ مِنْ سُلَالَةٍ مِنْ مَاءٍ مَهِينٍ (٨)﴾ [السجدة] أي: ضعيف، كما قال: ﴿أَلَمْ نَخْلُقْكُمْ مِنْ مَاءٍ مَهِينٍ (٢٠) فَجَعَلْنَاهُ فِي قَرَارٍ مَكِينٍ (٢١)﴾ يعني: الرحم معد لذلك مهيأ له ﴿إِلَى",
+      "report_text_sha256": "c04738e9b8c49b1730ef8288ca83be02ee0b61036f9c18c21b48a60efb5cdd7b",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": "النَّبِيّ ﷺ قال",
+        "display_mode": "PROPHET_WITH_COMPANION_OR_MARFU_TABII",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": null,
+        "prophet_name": "محمد ﷺ",
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_0fc9663e1ca72a998a7af73f",
+      "terminal_speaker_surface_candidate": "النَّبِيّ ﷺ قال",
+      "work_source_id": "SRC-TAFSIR-IBN-KATHIR-ADAM"
+    },
+    {
+      "book_id": 1503,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/1503/volume/1/page/335?database_sha256=e81a1a6fa62cc5dfa224bc326728ab924456e6a77cdb10e17e887ab19a8081d8&segment_id=390"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_689e5a2da20482cb5830497b",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "سعيد بن معبد",
+          "narrator_surface_raw": "سعيد بن معبد",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابن عباس",
+          "narrator_surface_raw": "ابن عباس",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "مسلم بن ابراهيم",
+          "narrator_surface_raw": "مسلم بن إبراهيم",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "HADDATHANA",
+          "transmission_term_raw": "حدثنا"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "وروى (¬١) ابن أبي حاتم، وابن جرير، من حديث عاصم بن كليب، عن سعيد بن معبد، عن ابن عباس: ﴿وَعَلَّمَ آدَمَ الْأَسْمَاءَ كُلَّهَا﴾ قال: علمه اسم الصحفة والقدر؟ قال: نعم حتى الفسوة والفسية.\nوقال مجاهد (¬٢): ﴿وَعَلَّمَ آدَمَ الْأَسْمَاءَ كُلَّهَا﴾ - قال: علمه اسم كل دابة، وكل طير، وكل شيء.\n[وكذلك روي (¬٣) عن سعيد بن جبير، وقتادة وغيرهم من السلف، أنه علمه أسماء كل شيء] (¬٤).\nوقال الربيع (¬٥) - في رواية عنه -: أسماء الملائكة.\nوقال حميد (¬٦) الشامي: أسماء النجوم. وقال عبد الرحمن (¬٧) بن زيد: علمه أسماء ذريته كلهم.\nواختار ابن (¬٨) جرير أنه علمه أسماء الملائكة وأسماء الذرية؛ لأنه قال: ﴿ثُمَّ عَرَضَهُمْ﴾ وهذا عبارة عما يعقل.\nوهذا الذي رجح به ليس بلازم؛ فإنه لا ينفي أن يدخل معهم غيرهم، ويعبر عن الجميع بصيغة من يعقل للتغليب، كما قال (تعالى) (¬٩): ﴿وَاللَّهُ خَلَقَ كُلَّ دَابَّةٍ مِنْ مَاءٍ فَمِنْهُمْ مَنْ يَمْشِي عَلَى بَطْنِهِ وَمِنْهُمْ مَنْ يَمْشِي عَلَى رِجْلَيْنِ وَمِنْهُمْ مَنْ يَمْشِي عَلَى أَرْبَعٍ يَخْلُقُ اللَّهُ مَا يَشَاءُ إِنَّ اللَّهَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ (٤٥)﴾ [النور].\n[وقد قرأ عبد اللّه بن مسعود: \"ثم عرضهن\". وقرأ أُبي بن كعب: \"ثم عرضها\"؛ أي: المسميات] (¬١٠).\nوالصحيح أنه علمه أسماء الأشياء كلها؛ وذواتها (وصفاتها) (¬١١) وأفعالها، كما قال ابن عباس: حتى الفسوة والفسية؛ يعني: أسماء الذوات والأفعال المكبر والمصغر؛ ولهذا قال البخاري (¬١٢) في تفسير هذه الآية في \"كتاب التفسير\" من \"صحيحه\":\nحدثنا مسلم بن إبراهيم،",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_8b5a137221fd590b482359ca",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MAWQUF_OR_TAFSIR_REPORT_CANDIDATE",
+      "report_text": "وروى (¬١) ابن أبي حاتم، وابن جرير، من حديث عاصم بن كليب، عن سعيد بن معبد، عن ابن عباس: ﴿وَعَلَّمَ آدَمَ الْأَسْمَاءَ كُلَّهَا﴾ قال: علمه اسم الصحفة والقدر؟ قال: نعم حتى الفسوة والفسية.\nوقال مجاهد (¬٢): ﴿وَعَلَّمَ آدَمَ الْأَسْمَاءَ كُلَّهَا﴾ - قال: علمه اسم كل دابة، وكل طير، وكل شيء.\n[وكذلك روي (¬٣) عن سعيد بن جبير، وقتادة وغيرهم من السلف، أنه علمه أسماء كل شيء] (¬٤).\nوقال الربيع (¬٥) - في رواية عنه -: أسماء الملائكة.\nوقال حميد (¬٦) الشامي: أسماء النجوم. وقال عبد الرحمن (¬٧) بن زيد: علمه أسماء ذريته كلهم.\nواختار ابن (¬٨) جرير أنه علمه أسماء الملائكة وأسماء الذرية؛ لأنه قال: ﴿ثُمَّ عَرَضَهُمْ﴾ وهذا عبارة عما يعقل.\nوهذا الذي رجح به ليس بلازم؛ فإنه لا ينفي أن يدخل معهم غيرهم، ويعبر عن الجميع بصيغة من يعقل للتغليب، كما قال (تعالى) (¬٩): ﴿وَاللَّهُ خَلَقَ كُلَّ دَابَّةٍ مِنْ مَاءٍ فَمِنْهُمْ مَنْ يَمْشِي عَلَى بَطْنِهِ وَمِنْهُمْ مَنْ يَمْشِي عَلَى رِجْلَيْنِ وَمِنْهُمْ مَنْ يَمْشِي عَلَى أَرْبَعٍ يَخْلُقُ اللَّهُ مَا يَشَاءُ إِنَّ اللَّهَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ (٤٥)﴾ [النور].\n[وقد قرأ عبد اللّه بن مسعود: \"ثم عرضهن\". وقرأ أُبي بن كعب: \"ثم عرضها\"؛ أي: المسميات] (¬١٠).\nوالصحيح أنه علمه أسماء الأشياء كلها؛ وذواتها (وصفاتها) (¬١١) وأفعالها، كما قال ابن عباس: حتى الفسوة والفسية؛ يعني: أسماء الذوات والأفعال المكبر والمصغر؛ ولهذا قال البخاري (¬١٢) في تفسير هذه الآية في \"كتاب التفسير\" من \"صحيحه\":\nحدثنا مسلم بن إبراهيم،",
+      "report_text_sha256": "c6799d46d505b0ea41cc9a862134db6950d768fce1b91625eae992e516db4b34",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "مسلم بن إبراهيم",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_d17893bc358e35837b17dc81",
+      "terminal_speaker_surface_candidate": "مسلم بن إبراهيم",
+      "work_source_id": "SRC-TAFSIR-IBN-KATHIR-ADAM"
+    },
+    {
+      "book_id": 1503,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/1503/volume/4/page/648?database_sha256=e81a1a6fa62cc5dfa224bc326728ab924456e6a77cdb10e17e887ab19a8081d8&segment_id=2507"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_237115e776b829b59846ebeb",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "باي شيء تنجو مني؟ فقال النبي",
+          "narrator_surface_raw": "بأي شيء تنجو مني؟ فقال النبي",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "AKHBARANI",
+          "transmission_term_raw": "أخبرني"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "أخبرني بأي شيء تنجو مني؟ فقال النبي: بل أخبرني بأي شيء تغلب ابن آدم مرتين؟ فأخذ كل واحد منهما على صاحبه، فقال النبي: إن الله تعالى يقول: ﴿إِنَّ عِبَادِي لَيْسَ لَكَ عَلَيْهِمْ سُلْطَانٌ إِلَّا مَنِ اتَّبَعَ",
+      "kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_8f8168a0f73fe82e28652af3",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MARFU_CONTEXT_CANDIDATE",
+      "report_text": "أخبرني بأي شيء تنجو مني؟ فقال النبي: بل أخبرني بأي شيء تغلب ابن آدم مرتين؟ فأخذ كل واحد منهما على صاحبه، فقال النبي: إن الله تعالى يقول: ﴿إِنَّ عِبَادِي لَيْسَ لَكَ عَلَيْهِمْ سُلْطَانٌ إِلَّا مَنِ اتَّبَعَكَ مِنَ الْغَاوِينَ (٤٢)﴾. قال عدو الله: قد سمعت هذا قبل أن تولد. قال النبي: ويقول الله: ﴿وَإِمَّا يَنْزَغَنَّكَ مِنَ الشَّيْطَانِ نَزْغٌ فَاسْتَعِذْ بِاللَّهِ إِنَّهُ سَمِيعٌ عَلِيمٌ (٢٠٠)﴾ [الأعراف]، وإني والله ما أحسست بك قط إلا استعذت بالله منك. قال عدو الله: صدقت بهذا تنجو مني، فقال النبي:",
+      "report_text_sha256": "9be2a90f5479a97decc98abcadb4c6d88a88d32dc9712328acd80e4c778797a6",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": "بأي شيء تنجو مني؟ فقال النبي",
+        "display_mode": "PROPHET_WITH_COMPANION_OR_MARFU_TABII",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": null,
+        "prophet_name": "محمد ﷺ",
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_6bafb3eede8b56ee16bcc61c",
+      "terminal_speaker_surface_candidate": "بأي شيء تنجو مني؟ فقال النبي",
+      "work_source_id": "SRC-TAFSIR-IBN-KATHIR-ADAM"
+    },
+    {
+      "book_id": 1503,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/1503/volume/6/page/90?database_sha256=e81a1a6fa62cc5dfa224bc326728ab924456e6a77cdb10e17e887ab19a8081d8&segment_id=3362"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_705dfb33a975a0b536d81821",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "شعيب",
+          "narrator_surface_raw": "شعيب",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "AKHBARANA",
+          "transmission_term_raw": "أخبرنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابو الزناد",
+          "narrator_surface_raw": "أبو الزناد",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AKHBARANA",
+          "transmission_term_raw": "أخبرنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "الاعرج",
+          "narrator_surface_raw": "الأعرج",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابي هريرة ﵁",
+          "narrator_surface_raw": "أبي هريرة ﵁",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 3,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "النبي صلي الله عليه وسلم",
+          "narrator_surface_raw": "النبي ﷺ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 4,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "أخبرنا شعيب، أخبرنا أبو الزناد، عن الأعرج، عن أبي هريرة ﵁، عن النبي ﷺ: \"قال الله كذبني ابن آدم ولم يكن له ذلك، وشتمني ولم يكن له ذلك، فأما تكذيبه إياي فقوله لن يعيدني كما بدأني وليس أول الخلق بأهون عليّ من إعادته، وأما شتمه إياي فقوله اتخذ",
+      "kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_93d1fb6a6d751146658b7738",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MARFU_CONTEXT_CANDIDATE",
+      "report_text": "أخبرنا شعيب، أخبرنا أبو الزناد، عن الأعرج، عن أبي هريرة ﵁، عن النبي ﷺ: \"قال الله كذبني ابن آدم ولم يكن له ذلك، وشتمني ولم يكن له ذلك، فأما تكذيبه إياي فقوله لن يعيدني كما بدأني وليس أول الخلق بأهون عليّ من إعادته، وأما شتمه إياي فقوله اتخذ الله ولدًا، وأنا الأحد الصمد الذي لم يلد ولم يولد ولم يكن له كفوًا أحد\" (¬٥) انفرد",
+      "report_text_sha256": "d55665a2292ce3878dd5ea8343e5ad23f2648ab6fd7518c412304efb65a0241b",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": "النبي ﷺ",
+        "display_mode": "PROPHET_WITH_COMPANION_OR_MARFU_TABII",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": null,
+        "prophet_name": "محمد ﷺ",
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_cc2953bb4fb887a9fff6f842",
+      "terminal_speaker_surface_candidate": "النبي ﷺ",
+      "work_source_id": "SRC-TAFSIR-IBN-KATHIR-ADAM"
+    },
+    {
+      "book_id": 1503,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/1503/volume/4/page/647?database_sha256=e81a1a6fa62cc5dfa224bc326728ab924456e6a77cdb10e17e887ab19a8081d8&segment_id=2506"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_206d4caaf0daec742ed4ddf6",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "عكرمة",
+          "narrator_surface_raw": "عكرمة",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابن عباس قال",
+          "narrator_surface_raw": "ابن عباس قال",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "ويذكر تخلف إبليس عدوه عن السجود له من بين سائر الملائكة حسدًا وكفرًا وعنادًا واستكبارًا وافتخارًا بالباطل، ولهذا قال: ﴿لَمْ أَكُنْ لِأَسْجُدَ لِبَشَرٍ خَلَقْتَهُ مِنْ صَلْصَالٍ مِنْ حَمَإٍ مَسْنُونٍ﴾ كما قال في الآية الأخرى، [﴿أَنَا خَيْرٌ مِنْهُ خَلَقْتَنِي مِنْ نَارٍ وَخَلَقْتَهُ مِنْ طِينٍ﴾] (¬١) [الأعراف: ١٢] وقوله: ﴿قَالَ أَرَأَيْتَكَ هَذَا الَّذِي كَرَّمْتَ عَلَيَّ لَئِنْ أَخَّرْتَنِ إِلَى يَوْمِ الْقِيَامَةِ لَأَحْتَنِكَنَّ ذُرِّيَّتَهُ إِلَّا قَلِيلًا (٦٢)﴾ [الإسراء].\nوقد روى ابن جرير ههنا أثرًا غريبًا عجيبًا من حديث شبيب بن بشر، عن عكرمة، عن ابن عباس قال: لما خلق الله الملائكة قال: ﴿إِنِّي خَالِقٌ بَشَرًا مِنْ طِينٍ (٧١) فَإِذَا سَوَّيْتُهُ وَنَفَخْتُ فِيهِ مِنْ رُوحِي فَقَعُوا لَهُ سَاجِدِينَ (٧٢)﴾ [ص] قالوا: لا نفعل، فأرسل عليهم نارًا فأحرقتهم، ثم خلق ملائكة أخرى فقال لهم مثل ذلك، [فقالوا: لا نفعل، فأرسل عليهم نارًا فأحرقتهم، ثم خلق ملائكة أخرى فقال: ﴿إِنِّي خَالِقٌ بَشَرًا مِنْ طِينٍ﴾، فإِذا أنا خلقته فاسجدوا له فأبوا، فأرسل عليهم نارًا فأحرقتهم، ثم خلق ملائكة فقال: ﴿إِنِّي خَالِقٌ بَشَرًا مِنْ طِينٍ﴾، فإِذا أنا خلقته فاسجدوا له] (¬٢) قالوا: سمعنا وأطعنا، إِلا إِبليس كان من الكافرين الأولين (¬٣).\nوفي ثبوت هذا عنه بعد، والظاهر أنه إسرائيلي، والله أعلم.\n\n﴿قَالَ فَاخْرُجْ مِنْهَا فَإِنَّكَ رَجِيمٌ (٣٤) وَإِنَّ عَلَيْكَ اللَّعْنَةَ إِلَى يَوْمِ الدِّينِ (٣٥) قَالَ رَبِّ فَأَنْظِرْنِي إِلَى يَوْمِ يُبْعَثُونَ (٣٦) قَالَ فَإِنَّكَ مِنَ الْمُنْظَرِينَ (٣٧) إِلَى يَوْمِ الْوَقْتِ الْمَعْلُومِ (٣٨)﴾.\nيقول آمرًا لإبليس أمرًا كونيًا لا يخالف ولا يمانع بالخروج من المنزلة التي كان فيها من الملأ الأعلى، وأنه رجيم، أي مرجوم، وأنه قد أتبعه لعنة لا تزال متصلة به لاحقة له متواترة عليه إلى يوم القيامة.\nوعن سعيد بن جبير أنه قال: لما لعن الله إِبليس، تغيرت صورته عن صورة الملائكة، ورنَّ رنَّة، فكل رنَّة في الدنيا إلى يوم القيامة منها. رواه ابن أبي حاتم (¬٤)، وأنه لما تحقق الغضب ا",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_9a2f3d56165091b947ab6f7e",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MAWQUF_OR_TAFSIR_REPORT_CANDIDATE",
+      "report_text": "ويذكر تخلف إبليس عدوه عن السجود له من بين سائر الملائكة حسدًا وكفرًا وعنادًا واستكبارًا وافتخارًا بالباطل، ولهذا قال: ﴿لَمْ أَكُنْ لِأَسْجُدَ لِبَشَرٍ خَلَقْتَهُ مِنْ صَلْصَالٍ مِنْ حَمَإٍ مَسْنُونٍ﴾ كما قال في الآية الأخرى، [﴿أَنَا خَيْرٌ مِنْهُ خَلَقْتَنِي مِنْ نَارٍ وَخَلَقْتَهُ مِنْ طِينٍ﴾] (¬١) [الأعراف: ١٢] وقوله: ﴿قَالَ أَرَأَيْتَكَ هَذَا الَّذِي كَرَّمْتَ عَلَيَّ لَئِنْ أَخَّرْتَنِ إِلَى يَوْمِ الْقِيَامَةِ لَأَحْتَنِكَنَّ ذُرِّيَّتَهُ إِلَّا قَلِيلًا (٦٢)﴾ [الإسراء].\nوقد روى ابن جرير ههنا أثرًا غريبًا عجيبًا من حديث شبيب بن بشر، عن عكرمة، عن ابن عباس قال: لما خلق الله الملائكة قال: ﴿إِنِّي خَالِقٌ بَشَرًا مِنْ طِينٍ (٧١) فَإِذَا سَوَّيْتُهُ وَنَفَخْتُ فِيهِ مِنْ رُوحِي فَقَعُوا لَهُ سَاجِدِينَ (٧٢)﴾ [ص] قالوا: لا نفعل، فأرسل عليهم نارًا فأحرقتهم، ثم خلق ملائكة أخرى فقال لهم مثل ذلك، [فقالوا: لا نفعل، فأرسل عليهم نارًا فأحرقتهم، ثم خلق ملائكة أخرى فقال: ﴿إِنِّي خَالِقٌ بَشَرًا مِنْ طِينٍ﴾، فإِذا أنا خلقته فاسجدوا له فأبوا، فأرسل عليهم نارًا فأحرقتهم، ثم خلق ملائكة فقال: ﴿إِنِّي خَالِقٌ بَشَرًا مِنْ طِينٍ﴾، فإِذا أنا خلقته فاسجدوا له] (¬٢) قالوا: سمعنا وأطعنا، إِلا إِبليس كان من الكافرين الأولين (¬٣).\nوفي ثبوت هذا عنه بعد، والظاهر أنه إسرائيلي، والله أعلم.\n\n﴿قَالَ فَاخْرُجْ مِنْهَا فَإِنَّكَ رَجِيمٌ (٣٤) وَإِنَّ عَلَيْكَ اللَّعْنَةَ إِلَى يَوْمِ الدِّينِ (٣٥) قَالَ رَبِّ فَأَنْظِرْنِي إِلَى يَوْمِ يُبْعَثُونَ (٣٦) قَالَ فَإِنَّكَ مِنَ الْمُنْظَرِينَ (٣٧) إِلَى يَوْمِ الْوَقْتِ الْمَعْلُومِ (٣٨)﴾.\nيقول آمرًا لإبليس أمرًا كونيًا لا يخالف ولا يمانع بالخروج من المنزلة التي كان فيها من الملأ الأعلى، وأنه رجيم، أي مرجوم، وأنه قد أتبعه لعنة لا تزال متصلة به لاحقة له متواترة عليه إلى يوم القيامة.\nوعن سعيد بن جبير أنه قال: لما لعن الله إِبليس، تغيرت صورته عن صورة الملائكة، ورنَّ رنَّة، فكل رنَّة في الدنيا إلى يوم القيامة منها. رواه ابن أبي حاتم (¬٤)، وأنه لما تحقق الغضب الذي لا مردَّ له، سأل من تمام حسده لآدم وذريته النظرة إلى يوم القيامة، وهو يوم البعث، وأنه أجيب إلى ذلك استدراجًا له وإِمهالًا، فلما تحقق النظرة، قبّحه الله.\n\n﴿قَالَ رَبِّ بِمَا أَغْوَيْتَنِي لَأُزَيِّنَنَّ لَهُمْ فِي الْأَرْضِ وَلَأُغْوِيَنَّهُمْ أَجْمَعِينَ (٣٩) إِلَّا عِبَادَكَ مِنْهُمُ الْمُخْلَصِينَ (٤٠) قَالَ هَذَا صِرَاطٌ عَلَيَّ مُسْتَقِيمٌ (٤١) إِنَّ عِبَادِي لَيْسَ لَكَ عَلَيْهِمْ سُلْطَانٌ إِلَّا مَنِ اتَّبَعَكَ مِنَ الْغَاوِينَ (٤٢) وَإِنَّ جَهَنَّمَ لَمَوْعِدُهُمْ أَجْمَعِينَ (٤٣) لَهَا سَبْعَةُ أَبْوَابٍ لِكُلِّ بَابٍ مِنْهُمْ جُزْءٌ مَقْسُومٌ (٤٤)﴾.\nيقول تعالى مخبرًا عن إِبليس وتمرده وعتوه أنه قال للرب: ﴿بِمَا أَغْوَيْتَنِي﴾ قال بعضهم: أقسم بإِغواء الله له.\n(قلت): ويحتمل أنه بسبب ما أغويتني وأضللتني ﴿لَأُزَيِّنَنَّ لَهُمْ﴾ أي: لذرية آدم ﵇ ﴿فِي",
+      "report_text_sha256": "bcb530f522aa03227a0afa27128556fc517781c0dedb87edf8c7068c22862177",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "ابن عباس قال",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_69588ee378a71466bbe8bc84",
+      "terminal_speaker_surface_candidate": "ابن عباس قال",
+      "work_source_id": "SRC-TAFSIR-IBN-KATHIR-ADAM"
+    },
+    {
+      "book_id": 1503,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/1503/volume/5/page/94?database_sha256=e81a1a6fa62cc5dfa224bc326728ab924456e6a77cdb10e17e887ab19a8081d8&segment_id=2672"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_239ccbd84e97be0e0d8c9da5",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابن عباس ﵄",
+          "narrator_surface_raw": "ابن عباس ﵄",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابن عباس",
+          "narrator_surface_raw": "ابن عباس",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابن عباس",
+          "narrator_surface_raw": "ابن عباس",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابن جرير",
+          "narrator_surface_raw": "ابن جرير",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 3,
+          "transmission_term_canonical": "QALA",
+          "transmission_term_raw": "قال"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "وقال ابن عباس ومجاهد في قوله: ﴿وَأَجْلِبْ عَلَيْهِمْ بِخَيْلِكَ وَرَجِلِكَ﴾ قال: كل راكب وماشٍ في (¬١) معصية الله.\nوقال قتادة: إن له خيلًا ورجالًا من الجن والإنس (¬٢) وهم الذين يطيعونه تقول العرب أجلب فلان على فلان إذا صاح عليه ومنه نهى في المسابقة عن الجلب والجنب ومنه اشتقاق الجلبة وهي ارتفاع الأصوات.\nوقوله تعالى: ﴿وَشَارِكْهُمْ فِي الْأَمْوَالِ وَالْأَوْلَادِ﴾ قال ابن عباس ومجاهد: هو ما أمرهم به من إنفاق الأموال في معاصي الله (¬٣).\nوقال عطاء: هو الربا (¬٤).\nوقال الحسن: هو جمعها من خبيث وإنفاقها في حرام، وكذا قال قتادة (¬٥).\nوقال العوفي، عن ابن عباس ﵄: أما مشاركته إياهم في أموالهم فهو ما حرموه من أنعامهم يعني من البحائر والسوائب ونحوها (¬٦) وكذا قال الضحاك وقتادة (¬٧).\nوقال ابن جرير: والأولى أن يقال: إن الآية تعم ذلك كله (¬٨)، وقوله: ﴿وَالْأَوْلَاد﴾ قال العوفي عن ابن عباس ومجاهد والضحاك يعني: أولاد الزنا (¬٩).\nوقال علي بن أبي طلحة، عن ابن عباس: هو ما كانوا قتلوه من أولادهم سفهًا بغير علم (¬١٠).\nوقال قتادة والحسن البصري: قد والله شاركهم في الأموال والأولاد مجسوا وهودوا ونصروا وصبغوا على غير صبغة الإسلام، وجزؤوا أموالهم جزءًا للشيطان، وكذا قال (¬١١) قتادة سواء.\nوقال أبو صالح، عن ابن عباس: هو تسميتهم أولادهم عبد الحارث وعبد الشمس وعبد فلان (¬١٢).\nقال ابن جرير: وأولى الأقوال بالصواب أن يقال: كل مولود ولدته أنثى عصي الله فيه بتسميته",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_a1f3b4dde6143c31614b6103",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MAWQUF_OR_TAFSIR_REPORT_CANDIDATE",
+      "report_text": "وقال ابن عباس ومجاهد في قوله: ﴿وَأَجْلِبْ عَلَيْهِمْ بِخَيْلِكَ وَرَجِلِكَ﴾ قال: كل راكب وماشٍ في (¬١) معصية الله.\nوقال قتادة: إن له خيلًا ورجالًا من الجن والإنس (¬٢) وهم الذين يطيعونه تقول العرب أجلب فلان على فلان إذا صاح عليه ومنه نهى في المسابقة عن الجلب والجنب ومنه اشتقاق الجلبة وهي ارتفاع الأصوات.\nوقوله تعالى: ﴿وَشَارِكْهُمْ فِي الْأَمْوَالِ وَالْأَوْلَادِ﴾ قال ابن عباس ومجاهد: هو ما أمرهم به من إنفاق الأموال في معاصي الله (¬٣).\nوقال عطاء: هو الربا (¬٤).\nوقال الحسن: هو جمعها من خبيث وإنفاقها في حرام، وكذا قال قتادة (¬٥).\nوقال العوفي، عن ابن عباس ﵄: أما مشاركته إياهم في أموالهم فهو ما حرموه من أنعامهم يعني من البحائر والسوائب ونحوها (¬٦) وكذا قال الضحاك وقتادة (¬٧).\nوقال ابن جرير: والأولى أن يقال: إن الآية تعم ذلك كله (¬٨)، وقوله: ﴿وَالْأَوْلَاد﴾ قال العوفي عن ابن عباس ومجاهد والضحاك يعني: أولاد الزنا (¬٩).\nوقال علي بن أبي طلحة، عن ابن عباس: هو ما كانوا قتلوه من أولادهم سفهًا بغير علم (¬١٠).\nوقال قتادة والحسن البصري: قد والله شاركهم في الأموال والأولاد مجسوا وهودوا ونصروا وصبغوا على غير صبغة الإسلام، وجزؤوا أموالهم جزءًا للشيطان، وكذا قال (¬١١) قتادة سواء.\nوقال أبو صالح، عن ابن عباس: هو تسميتهم أولادهم عبد الحارث وعبد الشمس وعبد فلان (¬١٢).\nقال ابن جرير: وأولى الأقوال بالصواب أن يقال: كل مولود ولدته أنثى عصي الله فيه بتسميته",
+      "report_text_sha256": "e8d4fac9ddc6e33240a667604a20771be9b7e80bd54644939a266510be9175e9",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "ابن جرير",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_2e6fe54b593cce5b2c8e55c0",
+      "terminal_speaker_surface_candidate": "ابن جرير",
+      "work_source_id": "SRC-TAFSIR-IBN-KATHIR-ADAM"
+    }
+  ],
+  "schema_version": "siraj-adam-gemini-draft-batch-v1",
+  "task_contract_project_path": "sources/secondary/gemini-semantic-analysis-draft/contracts/chain-interpretation-contract-v1.json",
+  "task_name": "chain-interpretation"
+}

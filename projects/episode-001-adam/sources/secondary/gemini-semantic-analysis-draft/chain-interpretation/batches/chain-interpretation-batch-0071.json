@@ -1,0 +1,442 @@
+{
+  "batch_id": "chain-interpretation-batch-0071",
+  "episode_id": "episode-001-adam",
+  "execution_enabled": false,
+  "execution_status": "BLOCKED_NOT_AUTHORIZED",
+  "generation_config": {
+    "response_mime_type": "application/json",
+    "temperature": 0
+  },
+  "model_id": null,
+  "provider_id": "GEMINI",
+  "record_count": 6,
+  "records": [
+    {
+      "book_id": 7798,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/10/page/558?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=7266"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_f7476afbc38c4e5a76d5b2f6",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "شعبة",
+          "narrator_surface_raw": "شعبةُ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابي بشر",
+          "narrator_surface_raw": "أبي بشرٍ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "يعقوب",
+          "narrator_surface_raw": "يعقوبُ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "جعفر",
+          "narrator_surface_raw": "جعفرٍ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 3,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "سعيد في قوله",
+          "narrator_surface_raw": "سعيدٍ في قوله",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 4,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "ثنا شعبةُ، عن أبي بشرٍ، عن سعيدِ بن جبيرٍ في هذه الآية: ﴿وَإِذْ أَخَذَ رَبُّكَ مِنْ بَنِي آدَمَ مِنْ ظُهُورِهِمْ ذُرِّيَّتَهُمْ وَأَشْهَدَهُمْ عَلَى أَنْفُسِهِمْ أَلَسْتُ بِرَبِّكُمْ﴾. قال: أَخرَجَهم من ظهرِ آدمَ، وجعَل لآدمَ عمر ألفِ سنةٍ. قال: فعُرِضوا على آدمَ، فرأى رجلًا من ذريتِه له نورٌ، فأعجَبه، فسأل عنه، فقال: هو داودُ، وقد جُعِلَ عمُرُه ستين سنةً. فجعَل له من عُمُرِهِ أربعين سنةً، فلما حُضِرَ (¬٣) آدمُ جعَل يُخاصِمُهم في الأربعين سنةً، فقيل له: إنك أعطيتها داود. قال: فجعَل يُخاصِمُهم (¬٤).\nحدَّثنا ابن حُميدٍ، قال: ثنا يعقوبُ، عن جعفرٍ، عن سعيدٍ في قوله: ﴿وَإِذْ أَخَذَ رَبُّكَ مِنْ بَنِي آدَمَ مِنْ ظُهُورِهِمْ ذُرِّيَّتَهُمْ﴾. قال: أَخْرَجَ ذُرِّيَّته من ظهره [في صورة] (¬٥) كهيئةِ الذَّرِّ، فعرَضَهم على آدمَ بأسمائِهم وأسماءِ آبائِهم وآجالهم.",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_cc6d5815a5ad29eeb355a661",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "report_text": "ثنا شعبةُ، عن أبي بشرٍ، عن سعيدِ بن جبيرٍ في هذه الآية: ﴿وَإِذْ أَخَذَ رَبُّكَ مِنْ بَنِي آدَمَ مِنْ ظُهُورِهِمْ ذُرِّيَّتَهُمْ وَأَشْهَدَهُمْ عَلَى أَنْفُسِهِمْ أَلَسْتُ بِرَبِّكُمْ﴾. قال: أَخرَجَهم من ظهرِ آدمَ، وجعَل لآدمَ عمر ألفِ سنةٍ. قال: فعُرِضوا على آدمَ، فرأى رجلًا من ذريتِه له نورٌ، فأعجَبه، فسأل عنه، فقال: هو داودُ، وقد جُعِلَ عمُرُه ستين سنةً. فجعَل له من عُمُرِهِ أربعين سنةً، فلما حُضِرَ (¬٣) آدمُ جعَل يُخاصِمُهم في الأربعين سنةً، فقيل له: إنك أعطيتها داود. قال: فجعَل يُخاصِمُهم (¬٤).\nحدَّثنا ابن حُميدٍ، قال:\nثنا يعقوبُ، عن جعفرٍ، عن سعيدٍ في قوله: ﴿وَإِذْ أَخَذَ رَبُّكَ مِنْ بَنِي آدَمَ مِنْ ظُهُورِهِمْ ذُرِّيَّتَهُمْ﴾. قال:\nأَخْرَجَ ذُرِّيَّته من ظهره [في صورة] (¬٥) كهيئةِ الذَّرِّ، فعرَضَهم على آدمَ بأسمائِهم وأسماءِ آبائِهم وآجالهم.",
+      "report_text_sha256": "d168dfc067767ad489fa1e5957b662b8f181fccd8d4694cfc7d5bd3099e21f87",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "سعيدٍ في قوله",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_644ed652df5761059db78589",
+      "terminal_speaker_surface_candidate": "سعيدٍ في قوله",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "book_id": 7798,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/10/page/560?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=7268"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_b8c14b3c27c809c7196a9281",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابن عباس",
+          "narrator_surface_raw": "ابن عباسٍ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "QALA",
+          "transmission_term_raw": "قال"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "سمِعتُ الضحاكَ يقولُ في قولِه: ﴿وَإِذْ أَخَذَ رَبُّكَ مِنْ بَنِي آدَمَ مِنْ ظُهُورِهِمْ ذُرِّيَّتَهُمْ﴾. قال: قال ابن عباسٍ: خلق الله آدمَ، ثم أَخْرَجَ ذُرِّيَّته من ظهرِه، فكَلَّمهم الله وأنطَقهم، فقال: ﴿أَلَسْتُ بِرَبِّكُمْ قَالُوا بَلَى﴾. ثم أعادَهم في صُلبِه، فليس أحدٌ من الخلقِ إِلَّا قد تكلَّم فقال: ربِّيَ اللهُ. وإنّ القيامة لن تَقُومَ حتى يُولَدَ من كان يومئذٍ أَشْهَدَ على نفسه.\nحدَّثنا ابن وكيعٍ، قال:",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_cc77a5e0fd89fcdc9dc00db3",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MAWQUF_OR_TAFSIR_REPORT_CANDIDATE",
+      "report_text": "سمِعتُ الضحاكَ يقولُ في قولِه: ﴿وَإِذْ أَخَذَ رَبُّكَ مِنْ بَنِي آدَمَ مِنْ ظُهُورِهِمْ ذُرِّيَّتَهُمْ﴾. قال: قال ابن عباسٍ: خلق الله آدمَ، ثم أَخْرَجَ ذُرِّيَّته من ظهرِه، فكَلَّمهم الله وأنطَقهم، فقال: ﴿أَلَسْتُ بِرَبِّكُمْ قَالُوا بَلَى﴾. ثم أعادَهم في صُلبِه، فليس أحدٌ من الخلقِ إِلَّا قد تكلَّم فقال: ربِّيَ اللهُ. وإنّ القيامة لن تَقُومَ حتى يُولَدَ من كان يومئذٍ أَشْهَدَ على نفسه.\nحدَّثنا ابن وكيعٍ، قال:",
+      "report_text_sha256": "81efdd8d25b98d8f5505a91d4e76d48a0ca50013e0e7c5c44a7a5e08410e48a1",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "ابن عباسٍ",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_94efa987f75534f205a6332d",
+      "terminal_speaker_surface_candidate": "ابن عباسٍ",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "book_id": 7798,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/1/page/509?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=689"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_18213bc544bd4c57c037d0d9",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابن ابي نجيح",
+          "narrator_surface_raw": "ابنِ أبي نجيحٍ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "مجاهد في قوله",
+          "narrator_surface_raw": "مُجاهدٍ في قولِه",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "الزياتِ، عن ابنِ أبي نجيحٍ، عن مُجاهدٍ في قولِه: ﴿إِنِّي أَعْلَمُ مَا لَا تَعْلَمُونَ﴾.\nقال: علِم مِن إبليسَ كتْمانَه الكِبْرَ ألا يسْجُدَ لآدمَ.\nحدَّثني محمدُ بن عمرٍو، قال:\nحدَّثنا أبو عاصمٍ، قال:\nحدَّثنا عيسى بنُ ميمونٍ (¬١)، قال: وحدَّثني المُثَنَّى، قال:\nحدَّثنا ابو حذيفةَ، قال:",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_ccf961b02d68ac80fc8a489f",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "report_text": "الزياتِ، عن ابنِ أبي نجيحٍ، عن مُجاهدٍ في قولِه: ﴿إِنِّي أَعْلَمُ مَا لَا تَعْلَمُونَ﴾.\nقال: علِم مِن إبليسَ كتْمانَه الكِبْرَ ألا يسْجُدَ لآدمَ.\nحدَّثني محمدُ بن عمرٍو، قال:\nحدَّثنا أبو عاصمٍ، قال:\nحدَّثنا عيسى بنُ ميمونٍ (¬١)، قال: وحدَّثني المُثَنَّى، قال:\nحدَّثنا ابو حذيفةَ، قال:",
+      "report_text_sha256": "00519f47ebf593c3921fd3a1ef75581fe9aa01dcfcf0ae10bbef24a766b6027a",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "مُجاهدٍ في قولِه",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_fb9fa88e690215afbca3d6c7",
+      "terminal_speaker_surface_candidate": "مُجاهدٍ في قولِه",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "book_id": 7798,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/1/page/547?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=727"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_169fc1ac3ce2bc7f69a47736",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابو جعفر",
+          "narrator_surface_raw": "أبو جعفرٍ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "QALA",
+          "transmission_term_raw": "قال"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "قال أبو جعفرٍ: وفى هذه الآيةِ دَلالةٌ واضحةٌ على صحةِ قولِ مَن قال: إن إبليسَ أُخْرِج مِن الجنةِ بعدَ الاسْتكبارِ عن السجودِ ﴿وَقُلْنَا يَاآدَمُ اسْكُنْ أَنْتَ وَزَوْجُكَ الْجَنَّةَ وَكُلَا مِنْهَا رَغَدًا حَيْثُ شِئْتُمَا وَلَا تَقْرَبَا هَذِهِ الشَّجَرَةَ فَتَكُونَا مِنَ الظَّالِمِينَ (٣٥)",
+      "kind_candidate": "AUTHORIAL_COMMENTARY_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_cd218f7a62ad5dc75283db54",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "report_text": "قال أبو جعفرٍ: وفى هذه الآيةِ دَلالةٌ واضحةٌ على صحةِ قولِ مَن قال: إن إبليسَ أُخْرِج مِن الجنةِ بعدَ الاسْتكبارِ عن السجودِ ﴿وَقُلْنَا يَاآدَمُ اسْكُنْ أَنْتَ وَزَوْجُكَ الْجَنَّةَ وَكُلَا مِنْهَا رَغَدًا حَيْثُ شِئْتُمَا وَلَا تَقْرَبَا هَذِهِ الشَّجَرَةَ فَتَكُونَا مِنَ الظَّالِمِينَ (٣٥)",
+      "report_text_sha256": "1c17f9c9a8a1d2d1793a20d8f41e18f2c3f7d94b10bd867f3cf78708f82ab124",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "أبو جعفرٍ",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_5ec8275b2f26090d89fc6b56",
+      "terminal_speaker_surface_candidate": "أبو جعفرٍ",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "book_id": 7798,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/10/page/78?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=6786"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_3f283fce59a251294d4bb8ce",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "الحسين",
+          "narrator_surface_raw": "الحسينُ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابن جريج",
+          "narrator_surface_raw": "ابن جريجٍ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "مجاهد قوله",
+          "narrator_surface_raw": "مجاهدٍ قولِه",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "ثنا الحسينُ، قال: ثني حجاجٌ، عن ابن جريجٍ، عن مجاهدٍ قولِه: ﴿وَلَقَدْ خَلَقْنَاكُمْ ثُمَّ صَوَّرْنَاكُمْ﴾. قال: صَوَّرناكم في ظهرِ آدمَ.",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_ce6fc31ccd42de625b58dda5",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "report_text": "ثنا الحسينُ، قال: ثني حجاجٌ، عن ابن جريجٍ، عن مجاهدٍ قولِه: ﴿وَلَقَدْ خَلَقْنَاكُمْ ثُمَّ صَوَّرْنَاكُمْ﴾. قال: صَوَّرناكم في ظهرِ آدمَ.",
+      "report_text_sha256": "75f4bdfe81e86bb1be2f1ff6de5c9bd4cf004a48652e6db119f15f1cba41617c",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "مجاهدٍ قولِه",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_f9960ee3fa49fbb7c699aac3",
+      "terminal_speaker_surface_candidate": "مجاهدٍ قولِه",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "book_id": 7798,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/1/page/491?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=671"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_afdf11dab739aa188de38007",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "قتادة قوله",
+          "narrator_surface_raw": "قتادةَ قولَه",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "حدَّثنا سعيدٌ، عن قتادةَ قولَه: ﴿وَإِذْ قَالَ رَبُّكَ لِلْمَلَائِكَةِ إِنِّي جَاعِلٌ فِي الْأَرْضِ خَلِيفَةً﴾. فاستشارَ (¬٤) الملائكةَ في خلقِ آدمَ، فقالوا: ﴿أَتَجْعَلُ فِيهَا مَنْ يُفْسِدُ فِيهَا وَيَسْفِكُ الدِّمَاءَ﴾. وقد علِمتِ الملائكةُ مِن علمِ اللهِ أنه لا شيْءَ أكْرَهُ إلى اللهِ مِن سَفْكِ الدماءِ والفسادِ في الأرضِ، ﴿وَنَحْنُ نُسَبِّحُ بِحَمْدِكَ وَنُقَدِّسُ لَكَ قَالَ إِنِّي أَعْلَمُ مَا لَا تَعْلَمُونَ﴾. فكان في علمِ اللهِ أنه سيكونُ مِن تلك (¬٥) الخليفةِ أنبياءُ ورسلٌ، وقومٌ صالحون، وساكِنو (¬٦) الجَنَّةِ. قال: وذُكِر لنا أن ابنَ عباسٍ كان يقولُ: إن اللهَ لما أخَذ في خلقِ آدمَ قالتِ الملائكةُ: ما اللهُ خالقٌ خلقًا أكرمَ عليه منَّا، ولا أعلمَ",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_d0f9790e49633b989d7bb8be",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "report_text": "حدَّثنا سعيدٌ، عن قتادةَ قولَه: ﴿وَإِذْ قَالَ رَبُّكَ لِلْمَلَائِكَةِ إِنِّي جَاعِلٌ فِي الْأَرْضِ خَلِيفَةً﴾. فاستشارَ (¬٤) الملائكةَ في خلقِ آدمَ، فقالوا: ﴿أَتَجْعَلُ فِيهَا مَنْ يُفْسِدُ فِيهَا وَيَسْفِكُ الدِّمَاءَ﴾. وقد علِمتِ الملائكةُ مِن علمِ اللهِ أنه لا شيْءَ أكْرَهُ إلى اللهِ مِن سَفْكِ الدماءِ والفسادِ في الأرضِ، ﴿وَنَحْنُ نُسَبِّحُ بِحَمْدِكَ وَنُقَدِّسُ لَكَ قَالَ إِنِّي أَعْلَمُ مَا لَا تَعْلَمُونَ﴾. فكان في علمِ اللهِ أنه سيكونُ مِن تلك (¬٥) الخليفةِ أنبياءُ ورسلٌ، وقومٌ صالحون، وساكِنو (¬٦) الجَنَّةِ. قال: وذُكِر لنا أن ابنَ عباسٍ كان يقولُ: إن اللهَ لما أخَذ في خلقِ آدمَ قالتِ الملائكةُ: ما اللهُ خالقٌ خلقًا أكرمَ عليه منَّا، ولا أعلمَ",
+      "report_text_sha256": "e6fbe5bd9e27e13214acac045145a12b9d8000f9379f380907270e88bef437ad",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "قتادةَ قولَه",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_a00fd035f60dbed50413d59a",
+      "terminal_speaker_surface_candidate": "قتادةَ قولَه",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    }
+  ],
+  "schema_version": "siraj-adam-gemini-draft-batch-v1",
+  "task_contract_project_path": "sources/secondary/gemini-semantic-analysis-draft/contracts/chain-interpretation-contract-v1.json",
+  "task_name": "chain-interpretation"
+}

@@ -1,0 +1,328 @@
+{
+  "batch_id": "chain-interpretation-batch-0006",
+  "episode_id": "episode-001-adam",
+  "execution_enabled": false,
+  "execution_status": "BLOCKED_NOT_AUTHORIZED",
+  "generation_config": {
+    "response_mime_type": "application/json",
+    "temperature": 0
+  },
+  "model_id": null,
+  "provider_id": "GEMINI",
+  "record_count": 6,
+  "records": [
+    {
+      "book_id": 8658,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/8658/volume/11/page/32?database_sha256=72fa72e670a63139b624db32c1e3752a5b3d10c862b3245339d4eadd5995f23a&segment_id=3496"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_8a9fb28dbfbfd2f5b84a4acd",
+      "chain_nodes_candidate": [],
+      "depends_on_boundary_resolution": false,
+      "isnad_internal_text_candidate": "قال ابن كيسان: فأزالهما من الزوال أي:\nصرفها عما كانا عليه من الطاعة إلى المعصية.\n٨٨: ٣٨٨: استحياء: ١: تفسير ابن كثير: (١/ ٨٠) .\n: ٣٨٩: العاصين: ٢: المصدر السابق. وقال ابن كثير: «هذا حديث غريب وفيه انقطاع بل إغفال بين قتادة وأبي بن كعب ﵄» .\n: ٣٩١: السماء: ٣: تفسير ابن كثير: (١/ ٨٠) .\n: ٣٩٢: بالمروة: ٤: تفسير ابن كثير: (١/ ٨٠) .\n: ٣٩٣: بالهند: ٥: تفسير ابن كثير: (١/ ٨٠) .\n٨٩: ٣٩٤: والطائف: ١: تفسير ابن كثير: (١/ ٨٠) .\n: ٣٩٥: بأصبهان: ٢: المصدر السابق.\n: ٣٩٧: منها: ٣: قلت: وكان دخول آدم وخروجه من الجنة يوم الجمعة، للحديث الصحيح الذي رواه مسلم وغيره عَنْ أَبِي هُرَيْرَةَ- ﵁ قَالَ: قَالَ رَسُولُ اللَّهِ ﷺ: «خير يوم طلعت فيه الشمس يوم الجمعة فيه خلق آدم، وفيه أدخل الجنة، وفيه أخرج منها» .\nرواه مسلم في (الجمعة، ح/ ١٧، ١٨) وأبو داود (ح/ ١٠٤٦) والترمذي (ح/ ٤٩١) و",
+      "kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_589eed67046698ef4d5a4ca1",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MARFU_CONTEXT_CANDIDATE",
+      "report_text": "وقال ابن كثير: «هذا حديث غريب وفيه انقطاع بل إغفال بين قتادة وأبي بن كعب ﵄» .\n: ٣٩١: السماء: ٣: تفسير ابن كثير: (١/ ٨٠) .\n: ٣٩٢: بالمروة: ٤: تفسير ابن كثير: (١/ ٨٠) .\n: ٣٩٣: بالهند: ٥: تفسير ابن كثير: (١/ ٨٠) .\n٨٩: ٣٩٤: والطائف: ١: تفسير ابن كثير: (١/ ٨٠) .\n: ٣٩٥: بأصبهان: ٢: المصدر السابق.\n: ٣٩٧: منها: ٣:",
+      "report_text_sha256": "6b45f8c03f52804fbb4a0597720bcbe7cb055e2bf0ae3282db7a5eed7ecfcf05",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "PROPHET_WITH_COMPANION_OR_MARFU_TABII",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": null,
+        "prophet_name": "محمد ﷺ",
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_5506e8ef363eb33a591c5171",
+      "terminal_speaker_surface_candidate": null,
+      "work_source_id": "SRC-TAFSIR-IBN-ABI-HATIM-ADAM"
+    },
+    {
+      "book_id": 8658,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/8658/volume/11/page/32?database_sha256=72fa72e670a63139b624db32c1e3752a5b3d10c862b3245339d4eadd5995f23a&segment_id=3496"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_94188a101c78fa99a64831a9",
+      "chain_nodes_candidate": [],
+      "depends_on_boundary_resolution": false,
+      "isnad_internal_text_candidate": "قال ابن كيسان: فأزالهما من الزوال أي:\nصرفها عما كانا عليه من الطاعة إلى المعصية.\n٨٨: ٣٨٨: استحياء: ١: تفسير ابن كثير: (١/ ٨٠) .\n: ٣٨٩: العاصين: ٢: المصدر السابق. وقال ابن كثير: «هذا حديث غريب وفيه انقطاع بل إغفال بين قتادة وأبي بن كعب ﵄» .\n: ٣٩١: السماء: ٣: تفسير ابن كثير: (١/ ٨٠) .\n: ٣٩٢: بالمروة: ٤: تفسير ابن كثير: (١/ ٨٠) .\n: ٣٩٣: بالهند: ٥: تفسير ابن كثير: (١/ ٨٠) .\n٨٩: ٣٩٤: والطائف: ١: تفسير ابن كثير: (١/ ٨٠) .\n: ٣٩٥: بأصبهان: ٢: المصدر السابق.\n: ٣٩٧: منها: ٣: قلت: وكان دخول آدم وخروجه من الجنة يوم الجمعة، للحديث الصحيح الذي رواه مسلم وغيره عَنْ أَبِي هُرَيْرَةَ- ﵁ قَالَ: قَالَ رَسُولُ اللَّهِ ﷺ: «خير يوم طلعت فيه الشمس يوم الجمعة فيه خلق آدم، وفيه أدخل الجنة، وفيه أخرج منها» .\nرواه مسلم في (الجمعة، ح/ ١٧، ١٨) وأبو داود (ح/ ١٠٤٦) والترمذي (ح/ ٤٩١) و",
+      "kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_58c9a779cfe4ac04e0e2bf3f",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MARFU_CONTEXT_CANDIDATE",
+      "report_text": "قلت: وكان دخول آدم وخروجه من الجنة يوم الجمعة، للحديث الصحيح الذي رواه مسلم وغيره عَنْ أَبِي هُرَيْرَةَ- ﵁ قَالَ: قَالَ رَسُولُ اللَّهِ ﷺ: «خير يوم طلعت فيه الشمس يوم الجمعة فيه خلق آدم، وفيه أدخل الجنة، وفيه أخرج منها» .\nرواه مسلم في (الجمعة، ح/ ١٧، ١٨) وأبو داود (ح/ ١٠٤٦) والترمذي (ح/ ٤٩١) والنسائي (٣/ ٩٠، ١١٤، ١١٥) وأحمد (٢/ ٤٠١، ٤١٨، ٤٨٦، ٥٠٤، ٥١٢، ٥٤٠) والبيهقي (٣/ ٢٥١) والحاكم (١/ ٢٧٨) والكشاف (١٧٠) والترغيب (١/ ٥٩٠) وابن حبان (١٠٢٤) والمشكاة (١٣٥٦، ١٣٥٩) والقرطبي (١٨/ ٩١) والمغني عن حمل الأسفار (١/ ١٧٩) والموطأ (١٠٨) والإرواء (٣/ ٢٢٧) .",
+      "report_text_sha256": "1620716b5a02595de9cf736608aa0914da338ac8c727edb993989e17f6c42905",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "PROPHET_WITH_COMPANION_OR_MARFU_TABII",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": null,
+        "prophet_name": "محمد ﷺ",
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_f3d9e393c5c7185e338dea6e",
+      "terminal_speaker_surface_candidate": null,
+      "work_source_id": "SRC-TAFSIR-IBN-ABI-HATIM-ADAM"
+    },
+    {
+      "book_id": 8658,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/8658/volume/12/page/639?database_sha256=72fa72e670a63139b624db32c1e3752a5b3d10c862b3245339d4eadd5995f23a&segment_id=4095"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_becb18ea9033227fee90edb4",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "الشاعر",
+          "narrator_surface_raw": "الشاعر",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "QALA",
+          "transmission_term_raw": "قال"
+        }
+      ],
+      "depends_on_boundary_resolution": false,
+      "isnad_internal_text_candidate": "رقم الصفحة: رقم الحديث: لفظ التخريج: أرقام التخريج بالصفحة: التحقيقات:::: قصة إبليس حين عصى ربه وأبى السجود وقال ما قال، وهو ما أخبر الله تعالى في قوله تعالى: «فَسَجَدُوا إِلا إِبْلِيسَ قَالَ أَأَسْجُدُ لِمَنْ خَلَقْتَ طينا» أي: من طين. وهذا استفهام إنكار. وقد تقدم القول في خلق آدم في «البقرة» و «الأنعام» مستوفي.\n٢٣٣٧: ١٣٣٢٩: لأستولين: ١: تفسير القرطبي: (٦/ ٣٩٠١) .\n: ١٣٣٣٠: لأضلنهم: ٢: المصدر السابق.\n: ١٣٣٣١: وافرا: ٣: المنثور: (٥/ ٣١٢- ٣١٣) .\n: ١٣٣٣٢: شيء: ٤: المصدر السابق.\n: ١٣٣٣٣: بصوتك: ٥: قوله: «واستفزز» أي: استزل واستخف، وأصله القطع، ومنه تفزز الثوب إذا انقطع.\nوالمعنى استزله بقطعك إياه عن الحق.\nواستفزه الخوف أي: استخفه. وفد مستفرا أي: غير مطمئن. «واستفز» أمر تعجيز، أي:\nأنت لا تقدر على إضلال أحد، وليس لك على أحد سلطان فافعل ما شئت.\n: ١٣٣٣٤: زنا: ٦: المنثور: (٥/ ٣١٣) .\n: ١٣٣٣٥: الزنا: ٧: المصدر السابق.\n٢٣٣٨: ١٣٣٣٦: لهم: ١: المنثور: (٥/ ٣١٢) .\n: ١٣٣٣٧: يزجى: ٢: قوله تعالى: «يزجي» الإزجاء: السوق ومنه قوله تعالى: «أَلَمْ تَرَ أَنَّ اللَّهَ يُزْجِي سَحَابًا» .\nقال الشاعر:\nيأي: ها الراكب المزجى مطيته سائل بنى أسد ما هذه الصوت وإزجاء الفلك: سوقه بالريح اللينه.\n: ١٣٣٣٨: البحر: ٣: المنثور: (٥/ ٣١٦) .\n: ١٣٣٣٩: السفن: ٤: المنثور: (٥/ ٣١٦) .",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_59806aebb81ce3a4fc97de44",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "report_text": "رقم الصفحة: رقم الحديث: لفظ التخريج: أرقام التخريج بالصفحة: التحقيقات:::: قصة إبليس حين عصى ربه وأبى السجود وقال ما قال، وهو ما أخبر الله تعالى في قوله تعالى: «فَسَجَدُوا إِلا إِبْلِيسَ قَالَ أَأَسْجُدُ لِمَنْ خَلَقْتَ طينا» أي: من طين. وهذا استفهام إنكار. وقد تقدم القول في خلق آدم في «البقرة» و «الأنعام» مستوفي.\n٢٣٣٧: ١٣٣٢٩: لأستولين: ١: تفسير القرطبي: (٦/ ٣٩٠١) .\n: ١٣٣٣٠: لأضلنهم: ٢: المصدر السابق.\n: ١٣٣٣١: وافرا: ٣: المنثور: (٥/ ٣١٢- ٣١٣) .\n: ١٣٣٣٢: شيء: ٤: المصدر السابق.\n: ١٣٣٣٣: بصوتك: ٥: قوله: «واستفزز» أي: استزل واستخف، وأصله القطع، ومنه تفزز الثوب إذا انقطع.\nوالمعنى استزله بقطعك إياه عن الحق.\nواستفزه الخوف أي: استخفه. وفد مستفرا أي: غير مطمئن. «واستفز» أمر تعجيز، أي:\nأنت لا تقدر على إضلال أحد، وليس لك على أحد سلطان فافعل ما شئت.\n: ١٣٣٣٤: زنا: ٦: المنثور: (٥/ ٣١٣) .\n: ١٣٣٣٥: الزنا: ٧: المصدر السابق.\n٢٣٣٨: ١٣٣٣٦: لهم: ١: المنثور: (٥/ ٣١٢) .\n: ١٣٣٣٧: يزجى: ٢: قوله تعالى: «يزجي» الإزجاء: السوق ومنه قوله تعالى: «أَلَمْ تَرَ أَنَّ اللَّهَ يُزْجِي سَحَابًا» .\nقال الشاعر:\nيأي: ها الراكب المزجى مطيته سائل بنى أسد ما هذه الصوت وإزجاء الفلك: سوقه بالريح اللينه.\n: ١٣٣٣٨: البحر: ٣: المنثور: (٥/ ٣١٦) .\n: ١٣٣٣٩: السفن: ٤: المنثور: (٥/ ٣١٦) .",
+      "report_text_sha256": "f3d8eb97a01c18d695c86572ce88360bb0dc28157bdfd3a1c79625f5b03c6765",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "الشاعر",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_a1c399f92b96bcee98b0b8b1",
+      "terminal_speaker_surface_candidate": "الشاعر",
+      "work_source_id": "SRC-TAFSIR-IBN-ABI-HATIM-ADAM"
+    },
+    {
+      "book_id": 8658,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/8658/volume/7/page/2339?database_sha256=72fa72e670a63139b624db32c1e3752a5b3d10c862b3245339d4eadd5995f23a&segment_id=2329"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_d69220fd190fc4f4a500fd09",
+      "chain_nodes_candidate": [],
+      "depends_on_boundary_resolution": false,
+      "isnad_internal_text_candidate": "قَوْلهُ تَعَالَى: وَلَقَدْ كَرَّمْنَا بَنِي آدَمَ\n\n١٣٣٤٤ - عَنْ ابن عباس ﵄ في قوله: وَلَقَدْ كَرَّمْنَا بَنِي آدَمَ قَالَ جعلناهم يأكلون بأيديهم وسائر الخلق يأكلون بأفواههم «١» .\n\nقوله تعالى: يوم ندعوا كُلّ أُنَاسٍ بِإِمَامِهِمْ\n\n١٣٣٤٥ - عَنْ ابْنِ عَبَّاسٍ ﵄ في قوله: يوم ندعوا كُلّ أُنَاسٍ بِإِمَامِهِمْ قَالَ: إمام هدى وإمام ضلالة.\n\n١٣٣٤٦ - عَنْ أَنَسٍ ﵁ فِي قَوْلِهِ: يوم ندعوا كُلّ أُنَاسٍ بِإِمَامِهِمْ قَالَ: بنبيهم «٢» .\n\n١٣٣٤٧ - عَنْ أَبِي هُرَيْرَةَ ﵁ عَنْ رَسُولِ اللَّهِ ﷺ فِي قَوْلِهِ: يَوْم ندعوا كُلّ أُنَاسٍ بِإِمَامِهِمْ قَالَ: يدعى أحدهم فيعطى كتابه بيمينه ويمد لَهُ في جسمه ستين ذراعًا ويبيض وجهه ويجعل عَلَى رأسه تا",
+      "kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_70e9872dee76d647c45f704c",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MARFU_CONTEXT_CANDIDATE",
+      "report_text": "قَوْلهُ تَعَالَى: وَلَقَدْ كَرَّمْنَا بَنِي آدَمَ\n\n١٣٣٤٤ - عَنْ ابن عباس ﵄ في قوله: وَلَقَدْ كَرَّمْنَا بَنِي آدَمَ قَالَ جعلناهم يأكلون بأيديهم وسائر الخلق يأكلون بأفواههم «١» .\n\nقوله تعالى: يوم ندعوا كُلّ أُنَاسٍ بِإِمَامِهِمْ\n\n١٣٣٤٥ - عَنْ ابْنِ عَبَّاسٍ ﵄ في قوله: يوم ندعوا كُلّ أُنَاسٍ بِإِمَامِهِمْ قَالَ: إمام هدى وإمام ضلالة.\n\n١٣٣٤٦ - عَنْ أَنَسٍ ﵁ فِي قَوْلِهِ: يوم ندعوا كُلّ أُنَاسٍ بِإِمَامِهِمْ قَالَ: بنبيهم «٢» .\n\n١٣٣٤٧ - عَنْ أَبِي هُرَيْرَةَ ﵁ عَنْ رَسُولِ اللَّهِ ﷺ فِي قَوْلِهِ: يَوْم ندعوا كُلّ أُنَاسٍ بِإِمَامِهِمْ قَالَ: يدعى أحدهم فيعطى كتابه بيمينه ويمد لَهُ في جسمه ستين ذراعًا ويبيض وجهه ويجعل عَلَى رأسه تاجًا مِنْ نور يتلألأ فينطلق إِلَى أصحابه فيرونه مِنْ بعيد فيقولون: اللهم ائتنا بهذا وبارك لنا في هَذَا حتى يأتيهم فَيَقُولُ: أبشروا، لكل رجل منكم مثل هَذَا «٣» .\nوأما الكافر فيسود وجهه ويمد لَهُ في جسمه ستين ذراعًا عَلَى صورة آدم ويلبس تاجًا مِنْ نار فيراه أصحابه فيقولون: نعوذ بالله مِنْ شر هَذَا اللهم لا تأتنا بهذا قَالَ:\nفيأتيهم فيقولون: رَبُّنَا أخره فَيَقُولُ: أبعدكم الله فإن لكل رجل منكم مثل هَذَا» «٤»\n\nقَوْلهُ تَعَالَى: وَمَنْ كَانَ فِي هَذِهِ أعمى الآية\n\n١٣٣٤٨ - عَنْ عِكْرِمَةَ قَالَ: جاء نفر مِنَ اهْل اليمن إِلَى ابْنِ عَبَّاسٍ فسأله رجل:\nأرأيت قَوْلهُ تَعَالَى: وَمَنْ كَانَ فِي هَذِهِ أَعْمَى فَهُوَ فِي الآخِرَةِ أَعْمَى فقال ابن عباس ﵄: لَمْ تصب المسألة اقرأ ما قبلها رَبُّكُمُ الَّذِي يُزْجِي لَكُمُ الْفُلْكَ فِي الْبَحْرِ حتى بلغ وَفَضَّلْنَاهُمْ عَلَى كَثِيرٍ مِمَّنْ خَلَقْنَا تَفْضِيلا فقال ابن عباس ﵄: فمن كَانَ أعمى عَنْ هَذَا النعيم الّذِي قد رأى وعاين فهو في أمر الآخرة التي لَمْ تر ولم تعاين أَعْمَى وَأَضَلُّ سَبِيلا «٥»",
+      "report_text_sha256": "bb6564da99d636cc7bc130bc1957b599c3919696a2d50de3cf3401b459453161",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "PROPHET_WITH_COMPANION_OR_MARFU_TABII",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": null,
+        "prophet_name": "محمد ﷺ",
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_b5e1bf7b2aace7d69194300f",
+      "terminal_speaker_surface_candidate": null,
+      "work_source_id": "SRC-TAFSIR-IBN-ABI-HATIM-ADAM"
+    },
+    {
+      "book_id": 8658,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/8658/volume/7/page/2334?database_sha256=72fa72e670a63139b624db32c1e3752a5b3d10c862b3245339d4eadd5995f23a&segment_id=2324"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_c6a3ff096a1d972c35b06065",
+      "chain_nodes_candidate": [],
+      "depends_on_boundary_resolution": false,
+      "isnad_internal_text_candidate": "١٣٣٠٧ - عَنْ سَعِيدِ بْنِ جُبَيْرٍ ﵁ فِي قَوْلِهِ: فَتَسْتَجِيبُونَ بِحَمْدِهِ قَالَ: يخرجون مِنْ قبورهم وهم يقولون: سبحانك اللهم وبحمدك «١» .\n\n١٣٣٠٨ - عَنْ قَتَادَة ﵁ فِي قَوْلِهِ يَوْم يَدْعُوكُمْ فَتَسْتَجِيبُونَ بِحَمْدِهِ أي بمعرفته وطاعته وَتَظُنُّونَ إِنَّ لَبِثْتُمْ إِلا قَلِيلا أَيْ فِي الدُّنْيَا تحاقرت الأعمار فِي أَنْفُسِهِمْ، وَقَلَّتْ حِينَ عَايَنُوا يَوْم الْقِيَامَة «٢» .\n\n١٣٣٠٩ - عَنْ ابْنِ عُمَرَ ﵄ قَالَ: قَالَ رَسُولُ اللَّهِ ﷺ ليس علي أَهْل لا الله إلا الله وحشة في قبورهم ولا في منشرهم، وكأني بِأَهْلِ لا الله إلا الله ينفضون التراب عَنْ رؤوسهم ويقولون: الحمد لله الّذِي أذهب عنا",
+      "kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_8b59721fd9722bfb27608d60",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MARFU_CONTEXT_CANDIDATE",
+      "report_text": "١٣٣٠٧ - عَنْ سَعِيدِ بْنِ جُبَيْرٍ ﵁ فِي قَوْلِهِ: فَتَسْتَجِيبُونَ بِحَمْدِهِ قَالَ: يخرجون مِنْ قبورهم وهم يقولون: سبحانك اللهم وبحمدك «١» .\n\n١٣٣٠٨ - عَنْ قَتَادَة ﵁ فِي قَوْلِهِ يَوْم يَدْعُوكُمْ فَتَسْتَجِيبُونَ بِحَمْدِهِ أي بمعرفته وطاعته وَتَظُنُّونَ إِنَّ لَبِثْتُمْ إِلا قَلِيلا أَيْ فِي الدُّنْيَا تحاقرت الأعمار فِي أَنْفُسِهِمْ، وَقَلَّتْ حِينَ عَايَنُوا يَوْم الْقِيَامَة «٢» .\n\n١٣٣٠٩ - عَنْ ابْنِ عُمَرَ ﵄ قَالَ: قَالَ رَسُولُ اللَّهِ ﷺ ليس علي أَهْل لا الله إلا الله وحشة في قبورهم ولا في منشرهم، وكأني بِأَهْلِ لا الله إلا الله ينفضون التراب عَنْ رؤوسهم ويقولون: الحمد لله الّذِي أذهب عنا الحزن «٣» .\n\nقَوْلهُ تَعَالَى: وَقُلْ لِعِبَادِي يَقُولُوا الَّتِي هِيَ أَحْسَنُ\n\n١٣٣١٠ - عَنِ ابْنِ سيرين ﵁ فِي قَوْلِهِ: وَقُلْ لِعِبَادِي يَقُولُوا الَّتِي هِيَ أَحْسَنُ قَالَ: لا الله إلا الله «٤» .\n\nقَوْلهُ تَعَالَى: إِنَّ الشَّيْطَانَ كَانَ لِلإِنْسَانِ عَدُوًّا مُبِينًا\n\n١٣٣١١ - عَنْ قَتَادَة ﵁ قَالَ: نزغ الشيطان: تحريشه «٥» .\n\n١٣٣١٢ - عَنْ قَتَادَة فِي قَوْلِهِ: إِنَّ الشَّيْطَانَ كَانَ لِلإِنْسَانِ عَدُوًّا مُبِينًا قَالَ:\nعَادُوهُ فَإِنَّهُ يَحِقُّ عَلَى كُلِّ مُسْلِمٍ عَدَاوَتُهُ، وعَدَاوَتُهُ أَنْ تُعَادِيَهُ بِطَاعَةِ اللَّهِ.\n\nقَوْلهُ تَعَالَى: وَلَقَدْ فَضَّلْنَا بَعْضَ النَّبِيِّينَ عَلَى بَعْضٍ الآية\n.\n١٣٣١٣ - عَنْ قَتَادَة فِي قَوْلِهِ: وَلَقَدْ فَضَّلْنَا بَعْضَ النَّبِيِّينَ عَلَى بَعْضٍ قَالَ:\nاتَّخَذَ اللَّهُ إِبْرَاهِيمَ خَلِيلا وَكَلَّمَ مُوسَى تَكْلِيمًا، وَجَعَلَ عِيسَى كَمَثَلِ آدَمَ خَلَقَهُ مِنْ تُرَابٍ ثُمَّ قَالَ لَهُ كن فكان وَهُوَ عَبْدُ اللَّهِ وَرَسُولُهُ مِنْ كَلِمَةِ اللَّهِ وروحه وآتى سليمان ملكًا عظيمًا لَا يَنْبَغِي لأَحَدٍ مِنْ بَعْدَهِ، وَآتَى دَاوُدَ زبورًا، وغفر لِمُحَمَّدٍ ﷺ ما تقدم مِنْ ذنبه وما تأخر «٦» .\n\n١٣٣١٤ - عَنِ ابْنِ جُرَيْجٍ ﵁ فِي قَوْلِهِ: وَلَقَدْ فَضَّلْنَا بَعْضَ النَّبِيِّينَ عَلَى بَعْضٍ قَالَ: كلم الله موسى تكليمًا وأرسل محمدًا إِلَى الناس كافة «٧» .",
+      "report_text_sha256": "bff8ab1a24add1a693eb33414ac27a3dc2b81211c4cca65688c9c3ea5380a8cf",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "PROPHET_WITH_COMPANION_OR_MARFU_TABII",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": null,
+        "prophet_name": "محمد ﷺ",
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_6e1e1901ba97cf5794632c95",
+      "terminal_speaker_surface_candidate": null,
+      "work_source_id": "SRC-TAFSIR-IBN-ABI-HATIM-ADAM"
+    },
+    {
+      "book_id": 8658,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/8658/volume/5/page/1612?database_sha256=72fa72e670a63139b624db32c1e3752a5b3d10c862b3245339d4eadd5995f23a&segment_id=1602"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_c1bf89391881ee603e57061f",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "يونس بن عبد الله الاعلي قراءة",
+          "narrator_surface_raw": "يونس بن عبد الله الأَعْلَى قِرَاءَةً",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "AKHBARANA",
+          "transmission_term_raw": "أخبرنا"
+        }
+      ],
+      "depends_on_boundary_resolution": false,
+      "isnad_internal_text_candidate": "أخبرنا يونس بن عبد الله الأَعْلَى قِرَاءَةً، أَنْبَأَ ابْنُ وَهْبٍ أَنَّ مَالِكًا أَخْبَرَهُ، عَنْ زَيْدِ بْنِ أَبِي أُنَيْسَةَ، أَنَّ عَبْدَ الْحَمِيدِ بْنَ عَبْدِ الرَّحْمَنِ بْنِ زَيْدِ بْنِ الْخَطَّابِ أَخْبَرَهُ عَنْ مُسْلِمِ بْنِ يَسَارٍ الْجُهَنِيِّ، أَنَّ عُمَرَ بْنَ الْخَطَّابِ سُئِلَ عَنْ هَذِهِ الآيَةِ وَإِذْ أَخَذَ رَبُّكَ مِنْ بَنِي آدَمَ مِنْ ظُهُورِهِمْ ذُرِّيَتِهِمْ إِلَى قَوْلِهِ: إِنَّا كُنَّا عَنْ هَذَا غَافِلِينَ فَقَالَ عُمَرُ بْنُ الْخَطَّابِ ﵁: سَمِعْتُ رَسُولَ اللَّهِ ﷺ يَسْأَلُ عَنْهَا فَقَالَ رَسُولُ اللَّهِ ﷺ: إِنَّ اللَّهَ خَلَقَ آدَمَ ثُمَّ مَسَحَ ظَهْرَهُ بِيَمِينِهِ فَاسْتَخْرَجَ مِنْهُ ذُرِّيَّةً فَقَالَ:\nخَلَقْتُ هَؤُلاءِ لِلْجَنَّةِ وَبِعَمَلِ أَهْلِ الْجَ",
+      "kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_a6498139c264f39287633877",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MARFU_CONTEXT_CANDIDATE",
+      "report_text": "أخبرنا يونس بن عبد الله الأَعْلَى قِرَاءَةً، أَنْبَأَ ابْنُ وَهْبٍ أَنَّ مَالِكًا أَخْبَرَهُ، عَنْ زَيْدِ بْنِ أَبِي أُنَيْسَةَ، أَنَّ عَبْدَ الْحَمِيدِ بْنَ عَبْدِ الرَّحْمَنِ بْنِ زَيْدِ بْنِ الْخَطَّابِ أَخْبَرَهُ عَنْ مُسْلِمِ بْنِ يَسَارٍ الْجُهَنِيِّ، أَنَّ عُمَرَ بْنَ الْخَطَّابِ سُئِلَ عَنْ هَذِهِ الآيَةِ وَإِذْ أَخَذَ رَبُّكَ مِنْ بَنِي آدَمَ مِنْ ظُهُورِهِمْ ذُرِّيَتِهِمْ إِلَى قَوْلِهِ: إِنَّا كُنَّا عَنْ هَذَا غَافِلِينَ فَقَالَ عُمَرُ بْنُ الْخَطَّابِ ﵁: سَمِعْتُ رَسُولَ اللَّهِ ﷺ يَسْأَلُ عَنْهَا فَقَالَ رَسُولُ اللَّهِ ﷺ: إِنَّ اللَّهَ خَلَقَ آدَمَ ثُمَّ مَسَحَ ظَهْرَهُ بِيَمِينِهِ فَاسْتَخْرَجَ مِنْهُ ذُرِّيَّةً فَقَالَ:\nخَلَقْتُ هَؤُلاءِ لِلْجَنَّةِ وَبِعَمَلِ أَهْلِ الْجَنَّةِ يَعْمَلُونَ، ثُمَّ مَسَحَ ظَهْرَهُ فَاسْتَخْرَجَ مِنْهُ ذُرِّيَّةً فَقَالَ: خَلَقْتُ هَؤُلاءِ لِلنَّارِ وَبِعَمَلِ أَهْلِ النَّارِ يَعْمَلُونَ، فَقَالَ رَجُلٌ: يَا رَسُولَ اللَّهِ فَفِيمَ الْعَمَلُ؟ فَقَالَ رَسُولُ اللَّهِ ﷺ: إِنَّ اللَّهَ إِذَا خَلَقَ الْعَبْدَ لِلْجَنَّةِ اسْتَعْمَلَهُ بِعَمَلِ أَهْلِ الْجَنَّةِ حَتَّى يَمُوتَ عَلَى عَمَلٍ مِنْ أَعْمَالِ أَهْلِ الْجَنَّةِ فَيَدْخُلَ بِهِ الْجَنَّةَ، وَإِذَا خَلَقَ الْعَبْدَ لِلنَّارِ اسْتَعْمَلَهُ بِعَمَلِ أَهْلِ النَّارِ حَتَّى يَمُوتَ عَلَى عَمَلٍ مِنْ أَعْمَالِ أَهْلِ النَّارِ فَيَدْخُلَ به النار «١» .",
+      "report_text_sha256": "0f71b1cf42ea5632296767ceb7d0fa5a6c3901ba1c9b442aac82450583d67edf",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": "يونس بن عبد الله الأَعْلَى قِرَاءَةً",
+        "display_mode": "PROPHET_WITH_COMPANION_OR_MARFU_TABII",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": null,
+        "prophet_name": "محمد ﷺ",
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_ebde86858f8d08f90f132eba",
+      "terminal_speaker_surface_candidate": "يونس بن عبد الله الأَعْلَى قِرَاءَةً",
+      "work_source_id": "SRC-TAFSIR-IBN-ABI-HATIM-ADAM"
+    }
+  ],
+  "schema_version": "siraj-adam-gemini-draft-batch-v1",
+  "task_contract_project_path": "sources/secondary/gemini-semantic-analysis-draft/contracts/chain-interpretation-contract-v1.json",
+  "task_name": "chain-interpretation"
+}

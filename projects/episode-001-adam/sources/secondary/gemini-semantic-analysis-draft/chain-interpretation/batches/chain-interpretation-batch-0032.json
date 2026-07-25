@@ -1,0 +1,422 @@
+{
+  "batch_id": "chain-interpretation-batch-0032",
+  "episode_id": "episode-001-adam",
+  "execution_enabled": false,
+  "execution_status": "BLOCKED_NOT_AUTHORIZED",
+  "generation_config": {
+    "response_mime_type": "application/json",
+    "temperature": 0
+  },
+  "model_id": null,
+  "provider_id": "GEMINI",
+  "record_count": 6,
+  "records": [
+    {
+      "book_id": 9783,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/9783/volume/1/page/85?database_sha256=3eac670046fd84fefb8ebfe68a2a2f5f37f7716804a599a61555d3ea8a0162cb&segment_id=83"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_77c082ad22350e94675bbbb8",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "اسباط",
+          "narrator_surface_raw": "أسباط",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA",
+          "transmission_term_raw": "حدثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "السدي",
+          "narrator_surface_raw": "السدي",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابن عباس- وعن مرة الهمداني عن ابن مسعود- وعن ناس من اصحاب النبي ص",
+          "narrator_surface_raw": "ابن عباس- وعن مرة الهمداني عن ابن مسعود- وعن ناس من اصحاب النبي ص",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "حدثنا أسباط، عن السدي، في خبر ذكره عن أبي مالك وعن أبي صالح، عن ابن عباس- وعن مرة الهمداني عن ابن مسعود- وعن ناس من اصحاب النبي ص، قال: لَمَّا فَرَغَ اللَّهُ ﷿ مِنْ خَلْقِ مَا أَحَبَّ اسْتَوَى عَلَى الْعَرْشِ، فَجَعَلَ إِبْلِيسَ عَلَى مُلْكِ سَمَاءِ الدُّنْيَا وَكَانَ مِنْ قَبِيلَةٍ مِنَ الْمَلائِكَةِ يُقَالُ لَهُمُ الْجِنُّ، وَإِنَّمَا سُمُّوا الْجِنَّ لأَنَّهُمْ خُزَّانُ الْجَنَّةِ، وَكَانَ إِبْلِيسُ مَعَ مُلْكِهِ خَازِنًا، فَوَقَعَ فِي صَدْرِهِ كِبْرٌ، وَقَالَ: مَا أَعْطَانِي اللَّهُ هَذَا إِلا لِمَزِيَّةٍ، هَكَذَا حَدَّثَنِي مُوسَى بْنُ هَارُونَ",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_4e8d9241d943f5a8e5875149",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MAWQUF_OR_TAFSIR_REPORT_CANDIDATE",
+      "report_text": "حدثنا أسباط، عن السدي، في خبر ذكره عن أبي مالك وعن أبي صالح، عن ابن عباس- وعن مرة الهمداني عن ابن مسعود- وعن ناس من اصحاب النبي ص، قال: لَمَّا فَرَغَ اللَّهُ ﷿ مِنْ خَلْقِ مَا أَحَبَّ اسْتَوَى عَلَى الْعَرْشِ، فَجَعَلَ إِبْلِيسَ عَلَى مُلْكِ سَمَاءِ الدُّنْيَا وَكَانَ مِنْ قَبِيلَةٍ مِنَ الْمَلائِكَةِ يُقَالُ لَهُمُ الْجِنُّ، وَإِنَّمَا سُمُّوا الْجِنَّ لأَنَّهُمْ خُزَّانُ الْجَنَّةِ، وَكَانَ إِبْلِيسُ مَعَ مُلْكِهِ خَازِنًا، فَوَقَعَ فِي صَدْرِهِ كِبْرٌ، وَقَالَ: مَا أَعْطَانِي اللَّهُ هَذَا إِلا لِمَزِيَّةٍ، هَكَذَا حَدَّثَنِي مُوسَى بْنُ هَارُونَ",
+      "report_text_sha256": "4db58c4e98de277f5967b83bb6dcc9d0d1d055af0764bf3ae6a52227899f86db",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "ابن عباس- وعن مرة الهمداني عن ابن مسعود- وعن ناس من اصحاب النبي ص",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_3a9d9f60d1f18a057c70bfc5",
+      "terminal_speaker_surface_candidate": "ابن عباس- وعن مرة الهمداني عن ابن مسعود- وعن ناس من اصحاب النبي ص",
+      "work_source_id": "SRC-HISTORY-TABARI-ADAM"
+    },
+    {
+      "book_id": 9783,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/9783/volume/1/page/97?database_sha256=3eac670046fd84fefb8ebfe68a2a2f5f37f7716804a599a61555d3ea8a0162cb&segment_id=95"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_d2f60979d332757530ecf5c4",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "عيسي ابن ميمون",
+          "narrator_surface_raw": "عيسى ابن ميمون",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA",
+          "transmission_term_raw": "حدثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابن ابي نجيح",
+          "narrator_surface_raw": "ابن أبي نجيح",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "مجاهد",
+          "narrator_surface_raw": "مجاهد",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "حدثنا عيسى ابن ميمون، عن ابن أبي نجيح، عن مجاهد، فِي قَوْلِ اللَّهِ ﷿:\n«وَعَلَّمَ آدَمَ الْأَسْماءَ كُلَّها» قَالَ: مَا خَلَقَ اللَّهُ تعالى كُلَّهُ.\nحَدَّثَنَا ابْنُ وَكِيعٍ، قَالَ:",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_53b4a8c922bb898f04d9d2ea",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "report_text": "حدثنا عيسى ابن ميمون، عن ابن أبي نجيح، عن مجاهد، فِي قَوْلِ اللَّهِ ﷿:\n«وَعَلَّمَ آدَمَ الْأَسْماءَ كُلَّها» قَالَ: مَا خَلَقَ اللَّهُ تعالى كُلَّهُ.\nحَدَّثَنَا ابْنُ وَكِيعٍ، قَالَ:",
+      "report_text_sha256": "9e244c81915ce9537f2dafa462011c9b3682d0e0fe4c2970cc42b8b7da21162b",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "مجاهد",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_a0219a0ff2b50fe1d0c5bcd5",
+      "terminal_speaker_surface_candidate": "مجاهد",
+      "work_source_id": "SRC-HISTORY-TABARI-ADAM"
+    },
+    {
+      "book_id": 9783,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/9783/volume/1/page/90?database_sha256=3eac670046fd84fefb8ebfe68a2a2f5f37f7716804a599a61555d3ea8a0162cb&segment_id=88"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_dcc016dd80977f00aff2f123",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "عمرو بن حماد",
+          "narrator_surface_raw": "عمرو بن حماد",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA",
+          "transmission_term_raw": "حدثنا"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "بِشْرُ بْنُ عُمَارَةَ، عَنْ أَبِي رَوْقٍ، عَنِ الضَّحَّاكِ، عَنِ ابْنِ عَبَّاسٍ، قَالَ: ثُمَّ أَمَرَ- يَعْنِي الرَّبَّ ﵎ بِتُرْبَةِ آدَمَ فَرُفِعَتْ، فخلق الله آدم من طين لا رب- وَاللازِبُ اللَّزِجُ الطَّيِّبُ- مِنْ حَمَإٍ مَسْنُونٍ، مُنْتِنٍ، قَالَ:\nوَإِنَّمَا كَانَ حَمَأً مَسْنُونًا بَعْدَ التُّرَابِ، قَالَ: فَخَلَقَ مِنْهُ آدَمَ بِيَدِهِ.\nحَدَّثَنِي مُوسَى بن هارون، قال:\nحدثنا عمرو بن حماد، قال:",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_5b2636b4478cedf2e720cd39",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MAWQUF_OR_TAFSIR_REPORT_CANDIDATE",
+      "report_text": "بِشْرُ بْنُ عُمَارَةَ، عَنْ أَبِي رَوْقٍ، عَنِ الضَّحَّاكِ، عَنِ ابْنِ عَبَّاسٍ، قَالَ: ثُمَّ أَمَرَ- يَعْنِي الرَّبَّ ﵎ بِتُرْبَةِ آدَمَ فَرُفِعَتْ، فخلق الله آدم من طين لا رب- وَاللازِبُ اللَّزِجُ الطَّيِّبُ- مِنْ حَمَإٍ مَسْنُونٍ، مُنْتِنٍ، قَالَ:\nوَإِنَّمَا كَانَ حَمَأً مَسْنُونًا بَعْدَ التُّرَابِ، قَالَ: فَخَلَقَ مِنْهُ آدَمَ بِيَدِهِ.\nحَدَّثَنِي مُوسَى بن هارون، قال:\nحدثنا عمرو بن حماد، قال:",
+      "report_text_sha256": "a4f7011d57389b788705a2381e5e0a4146d9edecaa852dceecc0e02953724889",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "عمرو بن حماد",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_10c4bb49784001ed3a162b58",
+      "terminal_speaker_surface_candidate": "عمرو بن حماد",
+      "work_source_id": "SRC-HISTORY-TABARI-ADAM"
+    },
+    {
+      "book_id": 9783,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/9783/volume/1/page/98?database_sha256=3eac670046fd84fefb8ebfe68a2a2f5f37f7716804a599a61555d3ea8a0162cb&segment_id=96"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_0386099ada3a6811fc2959c4",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "الحسين بن داود",
+          "narrator_surface_raw": "الحسين بن داود",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA",
+          "transmission_term_raw": "حدثنا"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "حَدَّثَنَا بِشْرُ بْنُ مُعَاذٍ، حَدَّثَنَا يَزِيدُ بْنُ زُرَيْعٍ، عَنْ سَعِيدٍ، عَنْ قَتَادَةَ، قَوْلُهُ ﷿: و «عَلَّمَ آدَمَ الْأَسْماءَ كُلَّها» حَتَّى بَلَغَ «إِنَّكَ أَنْتَ الْعَلِيمُ الْحَكِيمُ» ، قَالَ: يَا آدَمُ أَنْبِئْهُمْ بِأَسْمَائِهِمْ، فَأَنْبَأَ كُلَّ صِنْفٍ مِنَ الْخَلْقِ بِاسْمِهِ، وَأَلْجَأَهُ إِلَى جِنْسِهِ.\nحَدَّثَنَا الْقَاسِمُ بْنُ الْحَسَنِ، قَالَ: حدثنا الحسين بن داود، قَالَ:",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_5b5f38fbe44e2becef62c98e",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "report_text": "حَدَّثَنَا بِشْرُ بْنُ مُعَاذٍ، حَدَّثَنَا يَزِيدُ بْنُ زُرَيْعٍ، عَنْ سَعِيدٍ، عَنْ قَتَادَةَ، قَوْلُهُ ﷿: و «عَلَّمَ آدَمَ الْأَسْماءَ كُلَّها» حَتَّى بَلَغَ «إِنَّكَ أَنْتَ الْعَلِيمُ الْحَكِيمُ» ، قَالَ: يَا آدَمُ أَنْبِئْهُمْ بِأَسْمَائِهِمْ، فَأَنْبَأَ كُلَّ صِنْفٍ مِنَ الْخَلْقِ بِاسْمِهِ، وَأَلْجَأَهُ إِلَى جِنْسِهِ.\nحَدَّثَنَا الْقَاسِمُ بْنُ الْحَسَنِ، قَالَ:\nحدثنا الحسين بن داود، قَالَ:",
+      "report_text_sha256": "7a3d006753a4818e7700ae60b4fcb884aab1cc205838296527460e8b488fb033",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "الحسين بن داود",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_f7ca844e3370092d8ab638aa",
+      "terminal_speaker_surface_candidate": "الحسين بن داود",
+      "work_source_id": "SRC-HISTORY-TABARI-ADAM"
+    },
+    {
+      "book_id": 9783,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/9783/volume/1/page/33?database_sha256=3eac670046fd84fefb8ebfe68a2a2f5f37f7716804a599a61555d3ea8a0162cb&segment_id=31"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_ac1c5106ee65030f41bb0795",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابي ظبيان",
+          "narrator_surface_raw": "أبي ظبيان",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابن عباس نحوه.",
+          "narrator_surface_raw": "ابن عباس نَحْوَهُ.",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "حَدَّثَنَا مُحَمَّدُ بْنُ فُضَيْلٍ، عَنِ الأَعْمَشِ، عَنْ أَبِي ظَبْيَانَ، عَنِ ابْنِ عَبَّاسٍ، قَالَ: أَوَّلُ مَا خَلَقَ اللَّهُ مِنْ شَيْءٍ الْقَلَمُ فَقَالَ لَهُ: اكْتُبْ، فَقَالَ: وَمَا أَكْتُبُ يَا رَبِّ؟ قَالَ: اكْتُبِ الْقَدَرَ، قَالَ: فَجَرَى الْقَلَمُ بِمَا هُوَ كَائِنٌ مِنْ ذَلِكَ إِلَى قِيَامِ السَّاعَةِ، ثُمَّ رَفَعَ بُخَارَ الْمَاءِ فَفَتَقَ مِنْهُ السَّمَوَاتِ.\nحَدَّثَنَا وَاصِلُ بْنُ عَبْدِ الأَعْلَى، قَالَ: حَدَّثَنَا وَكِيعٌ، عَنِ الأعمش، عن أبي ظبيان، عن ابن عباس نَحْوَهُ.\nحَدَّثَنَا مُحَمَّدُ بْنُ الْمُثَنَّى، قَالَ:",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_61f266c53ae87478d28b8e3c",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MAWQUF_OR_TAFSIR_REPORT_CANDIDATE",
+      "report_text": "حَدَّثَنَا مُحَمَّدُ بْنُ فُضَيْلٍ، عَنِ الأَعْمَشِ، عَنْ أَبِي ظَبْيَانَ، عَنِ ابْنِ عَبَّاسٍ، قَالَ: أَوَّلُ مَا خَلَقَ اللَّهُ مِنْ شَيْءٍ الْقَلَمُ فَقَالَ لَهُ: اكْتُبْ، فَقَالَ: وَمَا أَكْتُبُ يَا رَبِّ؟ قَالَ: اكْتُبِ الْقَدَرَ، قَالَ: فَجَرَى الْقَلَمُ بِمَا هُوَ كَائِنٌ مِنْ ذَلِكَ إِلَى قِيَامِ السَّاعَةِ، ثُمَّ رَفَعَ بُخَارَ الْمَاءِ فَفَتَقَ مِنْهُ السَّمَوَاتِ.\nحَدَّثَنَا وَاصِلُ بْنُ عَبْدِ الأَعْلَى، قَالَ:\nحَدَّثَنَا وَكِيعٌ، عَنِ الأعمش، عن أبي ظبيان، عن ابن عباس نَحْوَهُ.\nحَدَّثَنَا مُحَمَّدُ بْنُ الْمُثَنَّى، قَالَ:",
+      "report_text_sha256": "dcc6dfd1fc762573b636aacd84a0bb239f0fa417c4f497e4546231884f42c493",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "ابن عباس نَحْوَهُ.",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_4aff01c80130ad15d60ff3db",
+      "terminal_speaker_surface_candidate": "ابن عباس نَحْوَهُ.",
+      "work_source_id": "SRC-HISTORY-TABARI-ADAM"
+    },
+    {
+      "book_id": 9783,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/9783/volume/1/page/84?database_sha256=3eac670046fd84fefb8ebfe68a2a2f5f37f7716804a599a61555d3ea8a0162cb&segment_id=82"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_5b8471292cd042bb15dbccb1",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "عبد الله بن ابي جعفر عن ابيه",
+          "narrator_surface_raw": "عبد الله بن أبي جعفر عَنْ أَبِيهِ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA",
+          "transmission_term_raw": "حدثنا"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "حدثنا عبد الله بن أبي جعفر عَنْ أَبِيهِ، عَنِ الرَّبِيعِ بْنِ أَنَسٍ، قَالَ: إِنَّ اللَّهَ خَلَقَ الْمَلائِكَةَ يَوْمَ الأَرْبِعَاءِ، وَخَلَقَ الْجِنَّ يَوْمَ الْخَمِيسِ، وَخَلَقَ آدَمَ يَوْمَ الْجُمُعَةِ، قَالَ:\nفَكَفَرَ قَوْمٌ مِنَ الْجِنِّ، فَكَانَتِ الْمَلائِكَةُ تهبط اليهم في الارض فتقتلهم فَكَانَتِ الدِّمَاءُ وَكَانَ الْفَسَادُ فِي الأَرْضِ",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_6246be45eb0c8f1535e52da9",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "report_text": "حدثنا عبد الله بن أبي جعفر عَنْ أَبِيهِ، عَنِ الرَّبِيعِ بْنِ أَنَسٍ، قَالَ: إِنَّ اللَّهَ خَلَقَ الْمَلائِكَةَ يَوْمَ الأَرْبِعَاءِ، وَخَلَقَ الْجِنَّ يَوْمَ الْخَمِيسِ، وَخَلَقَ آدَمَ يَوْمَ الْجُمُعَةِ، قَالَ:\nفَكَفَرَ قَوْمٌ مِنَ الْجِنِّ، فَكَانَتِ الْمَلائِكَةُ تهبط اليهم في الارض فتقتلهم فَكَانَتِ الدِّمَاءُ وَكَانَ الْفَسَادُ فِي الأَرْضِ",
+      "report_text_sha256": "d10c6a17e0940cfa602e463a871b46d28deb63c8515cd5133ba49feb576455e5",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "عبد الله بن أبي جعفر عَنْ أَبِيهِ",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_ac1e9a932fdaff9925e4c127",
+      "terminal_speaker_surface_candidate": "عبد الله بن أبي جعفر عَنْ أَبِيهِ",
+      "work_source_id": "SRC-HISTORY-TABARI-ADAM"
+    }
+  ],
+  "schema_version": "siraj-adam-gemini-draft-batch-v1",
+  "task_contract_project_path": "sources/secondary/gemini-semantic-analysis-draft/contracts/chain-interpretation-contract-v1.json",
+  "task_name": "chain-interpretation"
+}

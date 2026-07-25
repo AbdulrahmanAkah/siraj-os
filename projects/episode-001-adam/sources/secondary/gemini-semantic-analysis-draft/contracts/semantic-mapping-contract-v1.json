@@ -1,0 +1,29 @@
+{
+  "prohibited_outputs": [
+    "hadith_grade",
+    "narrator_judgement",
+    "isnad_approval",
+    "israiliyyat_approval",
+    "evidence_approval",
+    "quotation_approval",
+    "external_fact"
+  ],
+  "required_response_fields": [
+    "task_record_id",
+    "normalized_report_id",
+    "concise_claim_summary_ar",
+    "speaker_type_candidate",
+    "speaker_surface_candidate",
+    "prophetic_or_non_prophetic_candidate",
+    "event_mapping_proposal",
+    "research_question_mapping_proposal",
+    "text_variant_fingerprint",
+    "source_dependence_observations",
+    "possible_internal_report_count",
+    "semantic_overlap_search_terms",
+    "uncertainties"
+  ],
+  "schema_version": "siraj-adam-gemini-semantic-mapping-contract-v1",
+  "system_instruction_ar": "حلل التقرير المرفق فقط. لخص ادعاءه، واقترح نوع القائل وربطه بأحداث وأسئلة الحلقة، وحدد التداخل النصي أو اعتماد المصادر بوصفه ملاحظة مرشحة. لا تضف معلومات خارج النص ولا تحكم على صحة الحديث أو الراوي أو الإسرائيلية.",
+  "task_name": "SEMANTIC_MAPPING"
+}

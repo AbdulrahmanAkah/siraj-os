@@ -1,0 +1,398 @@
+{
+  "batch_id": "chain-interpretation-batch-0005",
+  "episode_id": "episode-001-adam",
+  "execution_enabled": false,
+  "execution_status": "BLOCKED_NOT_AUTHORIZED",
+  "generation_config": {
+    "response_mime_type": "application/json",
+    "temperature": 0
+  },
+  "model_id": null,
+  "provider_id": "GEMINI",
+  "record_count": 6,
+  "records": [
+    {
+      "book_id": 41,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/41/volume/3/page/125?database_sha256=3c48f871c4c38193770b4577fe46deb03f9ea6a0b609bd0fec5326673922b86c&segment_id=896"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_154d8055369972fef8dec70d",
+      "chain_nodes_candidate": [],
+      "depends_on_boundary_resolution": false,
+      "isnad_internal_text_candidate": "سُورَةُ\nالْأَنْعَامِ\n\nمَكِّيَّةٌ، وَهِيَ مِائَةٌ وَخَمْسٌ وَسِتُّونَ آيَةً، نَزَلَتْ بِمَكَّةَ [جُمْلَةً]\n(١)\nلَيْلًا مَعَهَا سَبْعُونَ أَلْفَ مَلَكٍ قَدْ سَدُّوا مَا بَيْنَ الْخَافِقَيْنِ، لَهُمْ زَجَلٌ بِالتَّسْبِيحِ وَالتَّحْمِيدِ وَالتَّمْجِيدِ، فَقَالَ النَّبِيُّ ﷺ \"سُبْحَانَ رَبِّيَ الْعَظِيمِ سُبْحَانَ رَبِّيَ الْعَظِيمِ وَخَرَّ سَاجِدًا\" (٢) .",
+      "kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_a2c57f00489c1cbc155d75e0",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MARFU_CONTEXT_CANDIDATE",
+      "report_text": "سُورَةُ\nالْأَنْعَامِ\n\nمَكِّيَّةٌ، وَهِيَ مِائَةٌ وَخَمْسٌ وَسِتُّونَ آيَةً، نَزَلَتْ بِمَكَّةَ [جُمْلَةً]\n(١)\nلَيْلًا مَعَهَا سَبْعُونَ أَلْفَ مَلَكٍ قَدْ سَدُّوا مَا بَيْنَ الْخَافِقَيْنِ، لَهُمْ زَجَلٌ بِالتَّسْبِيحِ وَالتَّحْمِيدِ وَالتَّمْجِيدِ، فَقَالَ النَّبِيُّ ﷺ \"سُبْحَانَ رَبِّيَ الْعَظِيمِ سُبْحَانَ رَبِّيَ الْعَظِيمِ وَخَرَّ سَاجِدًا\" (٢) .",
+      "report_text_sha256": "419d97d600d1fecdf2172238407db297076e00048b48c55cd43e9f2a0e62e6f9",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "PROPHET_WITH_COMPANION_OR_MARFU_TABII",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": null,
+        "prophet_name": "محمد ﷺ",
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_e313fc2d69532b8131a2ed4b",
+      "terminal_speaker_surface_candidate": null,
+      "work_source_id": "SRC-TAFSIR-BAGHAWI-ADAM"
+    },
+    {
+      "book_id": 8658,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/8658/volume/11/page/183?database_sha256=72fa72e670a63139b624db32c1e3752a5b3d10c862b3245339d4eadd5995f23a&segment_id=3645"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_da48c84f312db0e71dd896cb",
+      "chain_nodes_candidate": [],
+      "depends_on_boundary_resolution": false,
+      "isnad_internal_text_candidate": "رَسُول اللَّهِ ﷺ يَقُولُ: «من نفس عن غريمه أو محا عنه كان في ظل العرش يوم القيامة» .\nرواه أحمد (٥/ ٣٠٠، ٣٠٨) والدارمي (٢/ ٢٦٢) والمنثور (١/ ٣٦٩) والكنز (١٥٣٧٩) وشرح السنة (٨/ ١٩٩) وابن كثير (١/ ٤٩١) وابن أبى شيبة (٧/ ١٢، ٢٥٠) .\n٥٥٤: ٢٩٤٤: الأول: ١: تفسير الثوري: (ص/ ٧٣) .\n: ٢٩٤٧: السلم: ٢: في «الأصل» «السلام» وفي «الدرر» (١/ ١١٧) «السلم» .\nوالسلم هو: بيع شيء موصوف في الذمة بثمن معجل والفقهاء تسميه: بيع المحاويج لأنه بيع غائب تدعو إليه ضرورة كل واحد من المتبايعين فإن صاحب رأس المال محتاج إلى أن يشترى السلعة، وصاحب السلعة محتاج إلى ثمنها قبل حصولها عنده لينفقها على نفسه وعلى زرعه حتى ينضج فهو من المصالح الحاجية. والسلم يسمى السلف.\n٥٥٥: ٢٩٥٠: (....) : ١: في «الأصل» طمس، وفي ابن كثير «خلق آدم، مسح ظهره فأخرج منه ما هو في ذارئ إلى يوم القيامة، فجعل يعرض في ذريته عليه» .\nانظر التفسير: (١/ ٣٣٤) .\nوقال ابن كثير: «هذا حديث غريب جدا» .\n: ٢٩٥١: فاكتبوه: ٢: روى عن ابن عباس قال: قدم النبي ﷺ وهم يسلفون في الثمار السنة والسنتين والثلاث، فَقَالَ رَسُولُ اللَّهِ ﷺ: «مِنْ أسلف",
+      "kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_03975c2df6c251bf1f4abbc2",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MARFU_CONTEXT_CANDIDATE",
+      "report_text": "رَسُول اللَّهِ ﷺ يَقُولُ: «من نفس عن غريمه أو محا عنه كان في ظل العرش يوم القيامة» .\nرواه أحمد (٥/ ٣٠٠، ٣٠٨) والدارمي (٢/ ٢٦٢) والمنثور (١/ ٣٦٩) والكنز (١٥٣٧٩) وشرح السنة (٨/ ١٩٩) وابن كثير (١/ ٤٩١) وابن أبى شيبة (٧/ ١٢، ٢٥٠) .\n٥٥٤: ٢٩٤٤: الأول: ١: تفسير الثوري: (ص/ ٧٣) .\n: ٢٩٤٧: السلم: ٢: في «الأصل» «السلام» وفي «الدرر» (١/ ١١٧) «السلم» .\nوالسلم هو: بيع شيء موصوف في الذمة بثمن معجل والفقهاء تسميه: بيع المحاويج لأنه بيع غائب تدعو إليه ضرورة كل واحد من المتبايعين فإن صاحب رأس المال محتاج إلى أن يشترى السلعة، وصاحب السلعة محتاج إلى ثمنها قبل حصولها عنده لينفقها على نفسه وعلى زرعه حتى ينضج فهو من المصالح الحاجية. والسلم يسمى السلف.\n٥٥٥: ٢٩٥٠: (....) : ١: في «الأصل» طمس، وفي ابن كثير «خلق آدم، مسح ظهره فأخرج منه ما هو في ذارئ إلى يوم القيامة، فجعل يعرض في ذريته عليه» .\nانظر التفسير: (١/ ٣٣٤) .",
+      "report_text_sha256": "d081a05eb6d6bf502c6ccd59350e624cd2f48d4246e5997b80049fef72956df4",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "PROPHET_WITH_COMPANION_OR_MARFU_TABII",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": null,
+        "prophet_name": "محمد ﷺ",
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_d2cda9cb665eeec415375a3d",
+      "terminal_speaker_surface_candidate": null,
+      "work_source_id": "SRC-TAFSIR-IBN-ABI-HATIM-ADAM"
+    },
+    {
+      "book_id": 8658,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/8658/volume/5/page/1633?database_sha256=72fa72e670a63139b624db32c1e3752a5b3d10c862b3245339d4eadd5995f23a&segment_id=1623"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_72ffbceaa88727846901777e",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "بن يمان عن سفيان عن ابن ابي نجيح",
+          "narrator_surface_raw": "بْنُ يَمَانٍ عَنْ سُفْيَانَ عَنِ ابْنِ أَبِي نَجِيحٍ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "محمد بن عبد الاعلي الصغاني",
+          "narrator_surface_raw": "مُحَمَّدُ بْنُ عَبْدِ الأَعْلَى الصغاني",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "محمد بن ثور عن معمر قال",
+          "narrator_surface_raw": "مُحَمَّدُ بْنُ ثَوْرٍ عَنْ مَعْمَرٍ قَالَ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "عبيد الله بن محمد",
+          "narrator_surface_raw": "عُبَيْدُ اللَّهِ بْنُ مُحَمَّدٍ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 3,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "عبد الواحد",
+          "narrator_surface_raw": "عَبْدُ الْوَاحِدِ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 4,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "سالم بن ابي حفصة قال",
+          "narrator_surface_raw": "سَالِمُ بْنُ أَبِي حَفْصَةَ قَالَ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 5,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        }
+      ],
+      "depends_on_boundary_resolution": false,
+      "isnad_internal_text_candidate": "وَرُوِيَ عَنْ أَبِي الْبُحْتُرِيِّ. نَحْو ذَلِكَ.\n\n٨٦٤٨ - حَدَّثَنَا الأَشَجُّ، ثنا بْنُ يَمَانٍ عَنْ سُفْيَانَ عَنِ ابْنِ أَبِي نَجِيحٍ، عَنْ مُجَاهِدٍ قَالَ: أَشْفَقْنَا أَنْ لَا يَكُونَ إِنْسَانًا، وَرُوِيَ عَنْ أَبِي مَلَكٍ مِثْلُ ذَلِكَ.\n\n٨٦٤٩ - حَدَّثَنَا أَبِي، ثنا سَهْلُ بْنُ عُثْمَانَ ثنا مِهْرَانُ بْنُ أَبِي عُمَرَ الرَّازِيُّ عَنِ ابْنِ أَبِي خَالِدٍ عَنْ أَبِي صَالِحٍ فِي هَذِهِ الآيَةِ لَئِنْ آتَيْتَنَا صَالِحًا قَالَ: خَشِينَا أَنْ يَكُونَ بَهِيمَةً فَقَالا: لَئِنْ آتَيْتَنَا بَشَرًا سَوِيًّا.\n\n٨٦٥٠ - حَدَّثَنَا أَبِي، ثنا مُحَمَّدُ بْنُ عَبْدِ الأَعْلَى الصغاني، ثنا مُحَمَّدُ بْنُ ثَوْرٍ عَنْ مَعْمَرٍ قَالَ: وَقَالَ الْحَسَنُ: لَئِنْ آتَيْتَنَا صَالِحًا قَالَ: غُلامًا.\n\n٨٦٥١ - حَدَّثَنَا مُحَمَّدُ بْنُ عَمَّارٍ، ثنا عُبَيْدُ اللَّهِ بْنُ مُحَمَّدٍ، ثنا عَبْدُ الْوَاحِدِ، ثنا سَالِمُ بْنُ أَبِي حَفْصَةَ قَالَ: سَمِعْتُ سَعِيدَ بْنَ جُبَيْرٍ فِي هَذِهِ الآيَةِ لَئِنْ آتَيْتَنَا صَالِحًا مِثْلَ خَلْقِنَا لَنَكُونَنَّ مِنَ الشَّاكِرِينَ وَرُوِيَ عَنِ السُّدِّيِّ مِثْلُ قَوْلِ سَعِيدِ بْنِ جُبَيْرٍ\n\nقَوْلُهُ تَعَالَى: لَنَكُونَنَّ مِنَ الشَّاكِرِينَ\n\n٨٦٥٢ - حَدَّثَنَا عَلِيُّ بْنُ الْحُسَيْنِ الْهِسِنْجَانِيُّ، ثنا أَبُو عُمَرَ الْحَوْضِيُّ ثنا خَالِدُ بْنُ عَبْدِ اللَّهِ عَنْ عَطَاءٍ عَنْ سَعِيدِ بْنِ جُبَيْرٍ عَنِ ابْنِ عَبَّاسٍ فِي هَذِهِ الآيَةِ يَعْنِي قَوْلَهُ: لَئِنْ آتَيْتَنَا صَالِحًا لَنَكُونَنَّ مِنَ الشَّاكِرِينَ قَالَ: مَا أَشْرَكَ آدَمُ أَنْ ضَرَبَهُ لِمَنْ بَعْدَهُ «١» .\n\nقَوْلُهُ تَعَالَى فَلَمَّا آتَاهُمَا صَالِحًا جَعَلَا له شركاء فيما آتاهما\n\n٨٦٥٣ - حَدَّثَنَا أَبِي، ثنا أَبُو الْجُمَاهِرِ أَنْبَأَ سَعِيدُ بْنُ بَشِيرٍ عَنْ عُقْبَةَ عَنْ قَتَادَةَ عَنْ مُجَاهِدٍ عَنِ ابْنِ عَبَّاسٍ عَنْ أُبَيِّ بْنِ كَعْبٍ قَالَ: لَمَّا حَمَلَتْ حَوَّاءُ أَتَاهَا الشَّيْطَانُ فَقَالَ:\nأَتُطِيعِينِي وَيَسْلَمْ لَكِ وَلَدُكِ؟ سَمِّيهِ عَبْدَ الْحَارِثِ، فَلَمْ",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_1a539bd56c03b4c256063fa2",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MAWQUF_OR_TAFSIR_REPORT_CANDIDATE",
+      "report_text": "وَرُوِيَ عَنْ أَبِي الْبُحْتُرِيِّ. نَحْو ذَلِكَ.\n\n٨٦٤٨ - حَدَّثَنَا الأَشَجُّ، ثنا بْنُ يَمَانٍ عَنْ سُفْيَانَ عَنِ ابْنِ أَبِي نَجِيحٍ، عَنْ مُجَاهِدٍ قَالَ: أَشْفَقْنَا أَنْ لَا يَكُونَ إِنْسَانًا، وَرُوِيَ عَنْ أَبِي مَلَكٍ مِثْلُ ذَلِكَ.\n\n٨٦٤٩ - حَدَّثَنَا أَبِي، ثنا سَهْلُ بْنُ عُثْمَانَ ثنا مِهْرَانُ بْنُ أَبِي عُمَرَ الرَّازِيُّ عَنِ ابْنِ أَبِي خَالِدٍ عَنْ أَبِي صَالِحٍ فِي هَذِهِ الآيَةِ لَئِنْ آتَيْتَنَا صَالِحًا قَالَ: خَشِينَا أَنْ يَكُونَ بَهِيمَةً فَقَالا: لَئِنْ آتَيْتَنَا بَشَرًا سَوِيًّا.\n\n٨٦٥٠ - حَدَّثَنَا أَبِي، ثنا مُحَمَّدُ بْنُ عَبْدِ الأَعْلَى الصغاني، ثنا مُحَمَّدُ بْنُ ثَوْرٍ عَنْ مَعْمَرٍ قَالَ: وَقَالَ الْحَسَنُ: لَئِنْ آتَيْتَنَا صَالِحًا قَالَ: غُلامًا.\n\n٨٦٥١ - حَدَّثَنَا مُحَمَّدُ بْنُ عَمَّارٍ، ثنا عُبَيْدُ اللَّهِ بْنُ مُحَمَّدٍ، ثنا عَبْدُ الْوَاحِدِ، ثنا سَالِمُ بْنُ أَبِي حَفْصَةَ قَالَ: سَمِعْتُ سَعِيدَ بْنَ جُبَيْرٍ فِي هَذِهِ الآيَةِ لَئِنْ آتَيْتَنَا صَالِحًا مِثْلَ خَلْقِنَا لَنَكُونَنَّ مِنَ الشَّاكِرِينَ وَرُوِيَ عَنِ السُّدِّيِّ مِثْلُ قَوْلِ سَعِيدِ بْنِ جُبَيْرٍ\n\nقَوْلُهُ تَعَالَى: لَنَكُونَنَّ مِنَ الشَّاكِرِينَ\n\n٨٦٥٢ - حَدَّثَنَا عَلِيُّ بْنُ الْحُسَيْنِ الْهِسِنْجَانِيُّ، ثنا أَبُو عُمَرَ الْحَوْضِيُّ ثنا خَالِدُ بْنُ عَبْدِ اللَّهِ عَنْ عَطَاءٍ عَنْ سَعِيدِ بْنِ جُبَيْرٍ عَنِ ابْنِ عَبَّاسٍ فِي هَذِهِ الآيَةِ يَعْنِي قَوْلَهُ: لَئِنْ آتَيْتَنَا صَالِحًا لَنَكُونَنَّ مِنَ الشَّاكِرِينَ قَالَ: مَا أَشْرَكَ آدَمُ أَنْ ضَرَبَهُ لِمَنْ بَعْدَهُ «١» .\n\nقَوْلُهُ تَعَالَى فَلَمَّا آتَاهُمَا صَالِحًا جَعَلَا له شركاء فيما آتاهما\n\n٨٦٥٣ - حَدَّثَنَا أَبِي، ثنا أَبُو الْجُمَاهِرِ أَنْبَأَ سَعِيدُ بْنُ بَشِيرٍ عَنْ عُقْبَةَ عَنْ قَتَادَةَ عَنْ مُجَاهِدٍ عَنِ ابْنِ عَبَّاسٍ عَنْ أُبَيِّ بْنِ كَعْبٍ قَالَ: لَمَّا حَمَلَتْ حَوَّاءُ أَتَاهَا الشَّيْطَانُ فَقَالَ:\nأَتُطِيعِينِي وَيَسْلَمْ لَكِ وَلَدُكِ؟ سَمِّيهِ عَبْدَ الْحَارِثِ، فَلَمْ تَفْعَلْ فَوَلَدَتْ فَمَاتَ، ثُمَّ حَمَلَتْ فَقَالَ لَهَا مِثْلَ ذَلِكَ فَلَمْ تَفْعَلْ، ثُمَّ حَمَلَتِ الثَّالِثَ فَجَاءَهَا فَقَالَ: إِنْ تُطِيعِينِي يَسْلَمْ، وَإِلا فإنه يكون بهيمة فهيبهما فأطاعا «٢» .",
+      "report_text_sha256": "8de18af33917c902a30ce53d53ac7ce1b7768384a73fb34153c8da94ba129a46",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "سَالِمُ بْنُ أَبِي حَفْصَةَ قَالَ",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_7d694222c79e699979192ea8",
+      "terminal_speaker_surface_candidate": "سَالِمُ بْنُ أَبِي حَفْصَةَ قَالَ",
+      "work_source_id": "SRC-TAFSIR-IBN-ABI-HATIM-ADAM"
+    },
+    {
+      "book_id": 8658,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/8658/volume/11/page/29?database_sha256=72fa72e670a63139b624db32c1e3752a5b3d10c862b3245339d4eadd5995f23a&segment_id=3493"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_1e71d56bf0606a1a92d506ec",
+      "chain_nodes_candidate": [],
+      "depends_on_boundary_resolution": false,
+      "isnad_internal_text_candidate": "روى البخاري في صحيحه من حديث أنس- ﵁ عَنِ النَّبِيِّ ﷺ قَالَ:\n«يجتمع المؤمنون يوم القيامة فيقولون: لو استشفعنا إلى ربنا، فيأتون آدم فيقولون:\nأنت أبو الناس. خلقك الله بيده، وأسجد لك ملائكته، وعلمك أسماء كل شيء، فاشفع ل",
+      "kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_36e538ec52f5cabe9917263f",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MARFU_CONTEXT_CANDIDATE",
+      "report_text": "روى البخاري في صحيحه من حديث أنس- ﵁ عَنِ النَّبِيِّ ﷺ قَالَ:\n«يجتمع المؤمنون يوم القيامة فيقولون: لو استشفعنا إلى ربنا، فيأتون آدم فيقولون:\nأنت أبو الناس. خلقك الله بيده، وأسجد لك ملائكته، وعلمك أسماء كل شيء، فاشفع لنا عند ربك حتى يريحنا من مكاننا هذا. فيقول: لست هناكم- ويذكر ذنبه فيستحي- ائتوا نوحا فإنه أول رسول بعثه إلى الأرض. فيأتونه فيقول: لست هناكم- ويذكر سؤاله ربه ما ليس له به علم فيستحى- فيقول: ائتوا خليل الرحمن.\nفيأتونه، فيقول: لست هناكم ائتوا موسى عبدا كلمه الله وأعطاه التوراة، فيأتونه فيقول موسى: لست هناكم- ويذكر قتل النفس بغير نفس فيستحي من ربه- فيقول: ائتوا عيسى عبد الله ورسوله وكلمة الله وروحه، فيقول: لست هناكم، ائتو محمدا ﷺ عبدا غفر الله له ما تقدم من ذنبه وما تأخر، فيأتونى، فأنطلق حتى أستأذن على ربي فيؤذن، فإذا رأيت ربى وقعت ساجدا، فيدعنى ما شاء، ثم يقال: ارفع رأسك، وسل تعطى، وقل يسمع، واشفع تشفع. فأرفع رأسى، فأحمده بتحميد يعلمنيه، ثم أشفع، فيحد لي حدا، فأدخلهم الجنة. ثم أعود إليه. فإذا رأيت ربي- مثله- ثم أشفع، فيحد لي حدا، فأدخلهم الجنة. ثم أعود الثالثة. ثم أعود الرابعة فأقول: ما بقي في",
+      "report_text_sha256": "55cae8ce2c2a8bf6e1c25976d980c95b4c22795a2e80f46f36455c657d668a1a",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "PROPHET_WITH_COMPANION_OR_MARFU_TABII",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": null,
+        "prophet_name": "محمد ﷺ",
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_9809d9d2d7aff4d2ebb86212",
+      "terminal_speaker_surface_candidate": null,
+      "work_source_id": "SRC-TAFSIR-IBN-ABI-HATIM-ADAM"
+    },
+    {
+      "book_id": 8658,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/8658/volume/7/page/2340?database_sha256=72fa72e670a63139b624db32c1e3752a5b3d10c862b3245339d4eadd5995f23a&segment_id=2330"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_35362301cd3151912e02f089",
+      "chain_nodes_candidate": [],
+      "depends_on_boundary_resolution": false,
+      "isnad_internal_text_candidate": "١٣٣٤٩ - عَنْ ابْنِ عَبَّاسٍ ﵄ وَمَنْ كَانَ في الدُّنْيَا أَعْمَى عما يرى مِنْ قدرتي مِنْ خلق السَّمَاء والأرض والجبال والبحار والناس والدواب وأشباه هَذَا فهو عما وصفت لَهُ في الآخرة ولم يره أَعْمَى وَأَضَلُّ سَبِيلا يَقُولُ: أبعد حجة.\n\nقَوْلهُ تَعَالَى: وَإِنْ كَادُوا ليفتنونك الآية\n.\n١٣٣٥٠ - عَنْ ابْنِ عَبَّاسٍ قَالَ: إِنَّ أمية بن خلف وأبا جهل بن هشام ورجالًا مِنْ قريش أَتَوْا رَسُولَ اللَّهِ ﷺ فَقَالُوا: تعال فاستلم آلهتنا وندخل معك في دينك، وَكَانَ رَسُولُ اللَّهِ ﷺ يشتد عليه فراق قَوْمِهِ ويحب إسلامهم فرق لَهُمْ فأنزل الله وَإِنْ كَادُوا لَيَفْتِنُونَكَ إِلَى قَوْلِهِ: نَصِيرًا «١» .\n\n١٣٣٥١ - عَنْ سَعِيدِ بْنِ جُبَيْرٍ",
+      "kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_38b8d0cdd175b2c4fe3d522f",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MARFU_CONTEXT_CANDIDATE",
+      "report_text": "١٣٣٤٩ - عَنْ ابْنِ عَبَّاسٍ ﵄ وَمَنْ كَانَ في الدُّنْيَا أَعْمَى عما يرى مِنْ قدرتي مِنْ خلق السَّمَاء والأرض والجبال والبحار والناس والدواب وأشباه هَذَا فهو عما وصفت لَهُ في الآخرة ولم يره أَعْمَى وَأَضَلُّ سَبِيلا يَقُولُ: أبعد حجة.\n\nقَوْلهُ تَعَالَى: وَإِنْ كَادُوا ليفتنونك الآية\n.\n١٣٣٥٠ - عَنْ ابْنِ عَبَّاسٍ قَالَ: إِنَّ أمية بن خلف وأبا جهل بن هشام ورجالًا مِنْ قريش أَتَوْا رَسُولَ اللَّهِ ﷺ فَقَالُوا: تعال فاستلم آلهتنا وندخل معك في دينك، وَكَانَ رَسُولُ اللَّهِ ﷺ يشتد عليه فراق قَوْمِهِ ويحب إسلامهم فرق لَهُمْ فأنزل الله وَإِنْ كَادُوا لَيَفْتِنُونَكَ إِلَى قَوْلِهِ: نَصِيرًا «١» .\n\n١٣٣٥١ - عَنْ سَعِيدِ بْنِ جُبَيْرٍ قَالَ: «كَانَ رَسُولُ اللَّهِ ﷺ يستلم الحجر فقالوا: لا ندعك تستلمه حتى تستلم آلهتنا فَقَالَ رَسُولُ اللَّهِ ﷺ: وما عليّ لو فعلت والله يعلم مني خلافه؟ فأنزل الله وَإِنْ كَادُوا لَيَفْتِنُونَكَ إلى قوله: نصيرا «٢» .\n\n١٣٣٥٢ - عن ابْنِ شهاب قَالَ: كَانَ رَسُولُ اللَّهِ ﷺ إِذَا طاف يَقُولُ لَهُ المشركون: استلم، استلم آلهتنا كي لا تضرك فكاد يفعل، فأنزل الله وَإِنْ كَادُوا لَيَفْتِنُونَكَ الآية «٣» .\n\n١٣٣٥٣ - عَنْ جبير بن نفير ﵁ إِنَّ قريشًا أتو النَّبِيّ ﷺ فقالوا لَهُ: إِنَّ كنت أرسلت إلينا فاطرد الذين اتبعوك مِنْ سقاط الناس ومواليهم لنكون نحن أصحابك فركن إِلَيْهِمْ فأوحى الله إليه وَإِنْ كادوا ليفتنونك الآية «٤» .\n\n١٣٣٥٤ - عَنْ مُحَمَّدِ بْنِ كَعْبٍ الْقُرَظِيِّ ﵁ قَالَ: أنزل الله وَالنَّجْمِ إِذَا هَوَى فَقَرَأَ عَلَيْهِمْ رَسُولُ اللَّهِ ﷺ هَذِهِ الآية أَفَرَأَيْتُمُ اللاتَ وَالْعُزَّى فألقى عليه الشيطان كلمتين تلك الغرانيق العلى، وإن شفاعتهن لترتجى.\nفقرأ النَّبِيّ ﷺ مَا بقى مِنَ السُورَة وسجد فأنزل الله وَإِنْ كَادُوا لَيَفْتِنُونَكَ عَنِ الذي أوحينا إليك الآية فَمَا زال مغمومًا مهموما حتى أنزل الله تَعَالَى وَمَا أَرْسَلْنَا مِنْ قَبْلِكَ مِنْ رَسُول وَلا نبي الآية.",
+      "report_text_sha256": "93a506308dba1af5b5c1880c2df1e236a0460da7defb338dafa5b5a4f3d0ce2f",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "PROPHET_WITH_COMPANION_OR_MARFU_TABII",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": null,
+        "prophet_name": "محمد ﷺ",
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_a6d1fb9b6c1b26efcf927e41",
+      "terminal_speaker_surface_candidate": null,
+      "work_source_id": "SRC-TAFSIR-IBN-ABI-HATIM-ADAM"
+    },
+    {
+      "book_id": 8658,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/8658/volume/12/page/412?database_sha256=72fa72e670a63139b624db32c1e3752a5b3d10c862b3245339d4eadd5995f23a&segment_id=3870"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_d57f89cae78f2fa02bff9b63",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "القرطبي",
+          "narrator_surface_raw": "القرطبي",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "QALA",
+          "transmission_term_raw": "قال"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "لادم بعد اخراج ابليس من موضعه من السماء",
+          "narrator_surface_raw": "لآدم بعد إخراج إبليس من موضعه من السماء",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "QALA",
+          "transmission_term_raw": "قال"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "القرطبي في قوله تعالي",
+          "narrator_surface_raw": "القرطبي في قوله تعالى",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "QALA",
+          "transmission_term_raw": "قال"
+        }
+      ],
+      "depends_on_boundary_resolution": false,
+      "isnad_internal_text_candidate": "رقم الصفحة: رقم الحديث: لفظ التخريج: أرقام التخريج بالصفحة: التحقيقات: ٨٢٦٦: مقيتا: ٢: تفسير ابن كثير: (٢/ ٢٠٥) .\n١٤٤٧: ٨٢٦٧: صغيرا: ١: تفسير ابن كثير: (٢/ ٢٠٥) .\n: ٨٢٧٠: معيبا: ٢: المصدر السابق.\n: ٨٢٧١: مقيتا: ٣: المصدر السابق.\n١٤٤٨: ٨٢٧٥: الفردوس: ١: قال القرطبي: قال لآدم بعد إخراج إبليس من موضعه من السماء: اسكن أنت وحواء الجنة. وقد تقدم في «البقرة» معنى الإسكان، فأغنى عن إعادته. وقد تقدم معنى «ولا تقربا هذه الشجرة» هناك. والحمد لله.\n١٤٥٠: ٨٢٨٦: الشيطان: ١: قال القرطبي في قوله تعالى: «",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_42d38867736a2f4db6cf1ceb",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "report_text": "رقم الصفحة: رقم الحديث: لفظ التخريج: أرقام التخريج بالصفحة: التحقيقات: ٨٢٦٦: مقيتا: ٢: تفسير ابن كثير: (٢/ ٢٠٥) .\n١٤٤٧: ٨٢٦٧: صغيرا: ١: تفسير ابن كثير: (٢/ ٢٠٥) .\n: ٨٢٧٠: معيبا: ٢: المصدر السابق.\n: ٨٢٧١: مقيتا: ٣: المصدر السابق.\n١٤٤٨: ٨٢٧٥: الفردوس: ١: قال القرطبي: قال لآدم بعد إخراج إبليس من موضعه من السماء: اسكن أنت وحواء الجنة. وقد تقدم في «البقرة» معنى الإسكان، فأغنى عن إعادته. وقد تقدم معنى «ولا تقربا هذه الشجرة» هناك. والحمد لله.\n١٤٥٠: ٨٢٨٦: الشيطان: ١: قال القرطبي في قوله تعالى: «",
+      "report_text_sha256": "0da3e73a4ee17410aaa7942866e182004a2f4500362b751fcbfbbd4f3a0f66cd",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "القرطبي في قوله تعالى",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_bb7a9abe1a6c48a571782bac",
+      "terminal_speaker_surface_candidate": "القرطبي في قوله تعالى",
+      "work_source_id": "SRC-TAFSIR-IBN-ABI-HATIM-ADAM"
+    }
+  ],
+  "schema_version": "siraj-adam-gemini-draft-batch-v1",
+  "task_contract_project_path": "sources/secondary/gemini-semantic-analysis-draft/contracts/chain-interpretation-contract-v1.json",
+  "task_name": "chain-interpretation"
+}

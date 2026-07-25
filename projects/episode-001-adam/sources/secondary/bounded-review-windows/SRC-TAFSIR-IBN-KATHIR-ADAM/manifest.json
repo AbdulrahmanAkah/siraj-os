@@ -1,0 +1,41 @@
+{
+  "attribution_profile_counts": {
+    "KAB_AL_AHBAR": 2,
+    "WAHB_IBN_MUNABBIH": 1
+  },
+  "book_character_limit": 240000,
+  "book_id": 1503,
+  "book_title": "تفسير ابن كثير - ط ابن الجوزي",
+  "excluded_after_tabari_boundary": 0,
+  "excluded_by_book_budget": 154,
+  "input_candidate_count": 561,
+  "outputs": {
+    "gemini_input_draft": {
+      "execution_status": "BLOCKED_PENDING_HUMAN_WINDOW_APPROVAL",
+      "project_path": "sources/secondary/bounded-review-windows/SRC-TAFSIR-IBN-KATHIR-ADAM/gemini-input-draft.jsonl",
+      "rows": 16,
+      "sha256": "d937b72f4f7ced0e2bb0aef11032292671c1acb081069b4dbaed25b7b19226e0"
+    },
+    "review_windows": {
+      "project_path": "sources/secondary/bounded-review-windows/SRC-TAFSIR-IBN-KATHIR-ADAM/review-windows.jsonl",
+      "rows": 16,
+      "sha256": "cf77e52200e868a7fa6e475de214f5cee5795fd3bad870c2a51e69a6ad919432"
+    }
+  },
+  "raw_window_count": 170,
+  "review_window_character_count": 237380,
+  "review_window_count": 16,
+  "review_window_limit": 45,
+  "selected_candidate_count": 272,
+  "tabari_continuation_boundary": {
+    "boundary_sequence_num": null,
+    "status": "NOT_APPLICABLE"
+  },
+  "tier_counts": {
+    "A": 35,
+    "B": 19,
+    "C": 16
+  },
+  "window_character_limit": 18000,
+  "work_source_id": "SRC-TAFSIR-IBN-KATHIR-ADAM"
+}

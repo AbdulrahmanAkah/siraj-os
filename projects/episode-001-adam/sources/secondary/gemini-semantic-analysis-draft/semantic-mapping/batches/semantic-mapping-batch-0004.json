@@ -1,0 +1,398 @@
+{
+  "batch_id": "semantic-mapping-batch-0004",
+  "episode_id": "episode-001-adam",
+  "execution_enabled": false,
+  "execution_status": "BLOCKED_NOT_AUTHORIZED",
+  "generation_config": {
+    "response_mime_type": "application/json",
+    "temperature": 0
+  },
+  "model_id": null,
+  "provider_id": "GEMINI",
+  "record_count": 6,
+  "records": [
+    {
+      "attribution_profiles": [],
+      "book_id": 4445,
+      "book_title": "البداية والنهاية - ت التركي",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/4445/volume/1/page/129?database_sha256=a48b153a0a451ce0f63625bee7fa294a88d8dbbc5db4b9472afa652260b74b3b&segment_id=127"
+      ],
+      "chain_nodes_candidate": [],
+      "event_ids": [
+        "EV-ADAM-001",
+        "EV-ADAM-002",
+        "EV-ADAM-003",
+        "EV-ADAM-004",
+        "EV-ADAM-005",
+        "EV-ADAM-006",
+        "EV-ADAM-007",
+        "EV-ADAM-020",
+        "EV-ADAM-021",
+        "EV-ADAM-022",
+        "EV-ADAM-023",
+        "EV-ADAM-024",
+        "EV-ADAM-050",
+        "EV-ADAM-051",
+        "EV-ADAM-052",
+        "EV-ADAM-053",
+        "EV-ADAM-054",
+        "EV-ADAM-055"
+      ],
+      "footnote_context": "",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_d40f5deb9737d9cfb554bc03",
+      "original_text": "أَبِي صَالِحٍ، عَنِ ابْنِ عَبَّاسٍ، وَعَنْ مُرَّةَ، عَنِ ابْنِ مَسْعُودٍ، وَعَنْ نَاسٍ مِنْ أَصْحَابِ رَسُولِ اللَّهِ ﷺ: لَمَّا فَرَغَ اللَّهُ مِنْ خَلْقِ مَا أَحَبَّ اسْتَوَى عَلَى الْعَرْشِ فَجَعَلَ إِبْلِيسَ عَلَى مُلْكِ سَمَاءِ الدُّنْيَا، وَكَانَ مِنْ قَبِيلَةٍ مِنَ الْمَلَائِكَةِ يُقَالُ لَهُمُ الْجِنُّ، وَإِنَّمَا سُمُّوا الْجِنَّ; لِأَنَّهُمْ خَزَّانُ الْجَنَّةِ، وَكَانَ إِبْلِيسُ مَعَ مُلْكِهِ خَازِنًا فَوَقَعَ فِي صَدْرِهِ: إِنَّمَا أَعْطَانِي اللَّهُ هَذَا لِمَزِيَّةٍ لِي عَلَى الْمَلَائِكَةِ. وَذَكَرَ الضَّحَّاكُ، عَنِ ابْنِ عَبَّاسٍ: أَنَّ الْجِنَّ لَمَّا أَفْسَدُوا فِي الْأَرْضِ وَسَفَكُوا الدِّمَاءَ، بَعَثَ اللَّهُ إِلَيْهِمْ إِبْلِيسَ وَمَعَهُ جُنْدٌ مِنَ الْمَلَائِكَةِ فَقَتَلُوهُمْ وَأَجْلَوْهُمْ عَنِ الْأَرْضِ إِلَى جَزَائِرِ الْبُحُورِ.\nوَقَالَ مُحَمَّدُ بْنُ إِسْحَاقَ، عَنْ خَلَّادٍ، عَنْ عَطَاءٍ، عَنْ طَاوُسٍ، عَنِ ابْنِ عَبَّاسٍ: كَانَ اسْمُ إِبْلِيسَ قَبْلَ أَنْ يَرْتَكِبَ الْمَعْصِيَةَ عَزَازِيلَ، وَكَانَ مِنْ سُكَّانِ الْأَرْضِ، وَمِنْ أَشَدِّ الْمَلَائِكَةِ اجْتِهَادًا وَأَكْثَرِهِمْ عِلْمًا، وَكَانَ مِنْ حَيٍّ يُقَالُ لَهُمُ الْجِنُّ.",
+      "original_text_sha256": "7b86a1d1d7f91e7072646fccb3f906af569900be099a2549258be538af00247b",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "MAWQUF_OR_TAFSIR_REPORT_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [
+        "RQ-ADAM-001",
+        "RQ-ADAM-002",
+        "RQ-ADAM-003",
+        "RQ-ADAM-004",
+        "RQ-ADAM-005",
+        "RQ-ADAM-006",
+        "RQ-ADAM-020",
+        "RQ-ADAM-009",
+        "RQ-ADAM-010",
+        "RQ-ADAM-011",
+        "RQ-ADAM-012",
+        "RQ-ADAM-017",
+        "RQ-ADAM-018",
+        "RQ-ADAM-019"
+      ],
+      "task_record_id": "adam_gemini_semantic_task_e618fce2c8078905f97c9946",
+      "terminal_speaker_surface_candidate": null,
+      "window_id": "842c94a95e3adbcb8b8d7347",
+      "work_source_id": "SRC-HISTORY-BIDAYAH-ADAM"
+    },
+    {
+      "attribution_profiles": [],
+      "book_id": 4445,
+      "book_title": "البداية والنهاية - ت التركي",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/4445/volume/1/page/6?database_sha256=a48b153a0a451ce0f63625bee7fa294a88d8dbbc5db4b9472afa652260b74b3b&segment_id=4"
+      ],
+      "chain_nodes_candidate": [],
+      "event_ids": [],
+      "footnote_context": "",
+      "kind_candidate": "SOURCE_PASSAGE_CONTEXT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_d6f9b0880cc7d37776b68063",
+      "original_text": "الصَّمِيمِ، خَاتَمُ الْأَنْبِيَاءِ، وَصَاحِبُ الْحَوْضِ الْأَكْبَرِ الرَّوَاءِ صَاحِبُ الشَّفَاعَةِ الْعُظْمَى يَوْمَ الْقِيَامَةِ، وَحَامِلُ اللِّوَاءِ الَّذِي يَبْعَثُهُ اللَّهُ الْمَقَامَ الْمَحْمُودَ الَّذِي يَرْغَبُ إِلَيْهِ فِيهِ الْخَلْقُ كُلُّهُمْ حَتَّى الْخَلِيلُ إِبْرَاهِيمُ صَلَّى اللَّهُ عَلَيْهِ وَعَلَى سَائِرِ إِخْوَانِهِ مِنَ النَّبِيِّينَ وَالْمُرْسَلِينَ وَسَلَّمَ وَشَرَّفَ وَكَرَّمَ أَزْكَى صَلَاةٍ وَتَسْلِيمٍ وَأَعْلَى تَشْرِيفٍ وَتَكْرِيمٍ وَرَضِيَ اللَّهُ عَنْ جَمِيعِ أَصْحَابِهِ الْغُرِّ الْكِرَامِ السَّادَةِ النُّجَبَاءِ الْأَعْلَامِ خُلَاصَةِ الْعَالَمِ بَعْدَ الْأَنْبِيَاءِ مَا اخْتَلَطَ الظَّلَامُ بِالضِّيَاءِ وَأَعْلَنَ الدَّاعِي بِالنِّدَاءِ وَمَا نَسَخَ النَّهَارُ ظَلَامَ اللَّيْلِ الْبَهِيمِ.\nأَمَّا بَعْدُ، فَهَذَا الْكِتَابُ أَذْكُرُ فِيهِ بِعَوْنِ اللَّهِ وَحُسْنِ تَوْفِيقِهِ مَا يَسَّرَهُ اللَّهُ تَعَالَى بِحَوْلِهِ وَقُوَّتِهِ مِنْ ذِكْرِ مَبْدَأِ الْمَخْلُوقَاتِ: مِنْ خَلْقِ الْعَرْشِ، وَالْكُرْسِيِّ، وَالسَّمَاوَاتِ وَالْأَرَضِينَ وَمَا فِيهِنَّ وَمَا بَيْنَهُنَّ مِنَ الْمَلَائِكَةِ وَالْجَانِّ وَالشَّيَاطِينِ، وَكَيْفِيَّةِ خَلْقِ آدَمَ ﵇ وَقَصَصِ النَّبِيِّينَ، وَمَا جَرَى مَجْرَى ذَلِكَ إِلَى أَيَّامِ بَنِي إِسْرَائِيلَ وَأَيَّامِ الْجَاهِلِيَّةِ حَتَّى تَنْتَهِيَ النُّبُوَّةُ إِلَى أَيَّامِ نَبِيِّنَا مُحَمَّدٍ صَلَوَاتُ اللَّهِ وَسَلَامُهُ عَلَيْهِ فَنَذْكُرُ سِيرَتَهُ كَمَا يَنْبَغِي فَنَشْفِي الصُّدُورَ وَالْغَلِيلَ وَنُزِيحُ الدَّاءَ عَنِ الْعَلِيلِ، ثُمَّ نَذْكُرُ مَا بَعْدَ ذَلِكَ إِلَى زَمَانِنَا وَنَذْكُرُ الْفِتَنَ وَالْمَلَاحِمَ، وَأَشْرَاطَ السَّاعَةِ، ثُمَّ الْبَعْثَ وَالنُّشُورَ، وَأَهْوَالَ الْقِيَامَةِ، ثُمَّ صِفَةَ ذَلِكَ وَمَا فِي ذَلِكَ الْيَوْمِ وَمَا يَقَعُ فِيهِ مِنَ الْأُمُورِ الْهَائِلَةِ، ثُمَّ صِفَةَ النَّارِ، ثُمَّ صِفَةَ الْجِنَانِ وَمَا فِيهَا مِنَ الْخَيْرَاتِ الْحِسَانِ وَغَيْرِ ذَلِكَ وَمَا يَتَعَلَّقُ بِهِ وَمَا وَرَدَ فِي ذَلِكَ مِنَ الْكِتَابِ وَالسَّنَةِ وَالْآثَارِ وَالْأَخْبَارِ الْمَنْقُولَةِ الْمَقْبُولَةِ عِنْدَ الْعُلَمَاءِ وَوَرَثَةِ الْأَنْبِيَاءِ الْآخِذِينَ مِنْ مِشْكَاةِ النُّبُوَّةِ الْمُصْطَفَوَيَّةِ الْمُحَمَّدِيَّةِ عَلَى مَنْ جَاءَ بِهَا أَفْضَلُ الصَّلَاةِ وَالسَّلَامِ.",
+      "original_text_sha256": "a1b765a796c4614443229d6267ae6697d7dfe97eae081140c6e1b23ebf4e116d",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [],
+      "task_record_id": "adam_gemini_semantic_task_a82f6088707fa2c799ab118f",
+      "terminal_speaker_surface_candidate": null,
+      "window_id": "3445b9e9351d3fa5dc589e6a",
+      "work_source_id": "SRC-HISTORY-BIDAYAH-ADAM"
+    },
+    {
+      "attribution_profiles": [
+        "KAB_AL_AHBAR"
+      ],
+      "book_id": 4445,
+      "book_title": "البداية والنهاية - ت التركي",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/4445/volume/1/page/228?database_sha256=a48b153a0a451ce0f63625bee7fa294a88d8dbbc5db4b9472afa652260b74b3b&segment_id=227"
+      ],
+      "chain_nodes_candidate": [],
+      "event_ids": [
+        "EV-ADAM-030",
+        "EV-ADAM-031",
+        "EV-ADAM-032",
+        "EV-ADAM-033"
+      ],
+      "footnote_context": "",
+      "kind_candidate": "SOURCE_PASSAGE_CONTEXT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_da7c0491e1656c247f88596d",
+      "original_text": "مَرَّ بِآدَمَ وَهُوَ فِي السَّمَاءِ الدُّنْيَا قَالَ لَهُ: مَرْحَبًا بِالِابْنِ الصَّالِحِ وَالنَّبِيِّ الصَّالِحِ. قَالَ: وَإِذَا عَنْ يَمِينِهِ أَسْوِدَةٌ، وَعَنْ يَسَارِهِ أَسْوِدَةٌ، فَإِذَا نَظَرَ عَنْ يَمِينِهِ ضَحِكَ، وَإِذَا نَظَرَ عَنْ شِمَالِهِ بَكَى، فَقُلْتُ: يَا جِبْرِيلُ مَا هَذَا؟. قَالَ: هَذَا آدَمُ وَهَؤُلَاءِ نَسَمُ بَنِيهِ فَإِذَا نَظَرَ قِبَلَ أَهْلِ الْيَمِينِ، وَهُمْ أَهْلُ الْجَنَّةِ ضَحِكَ، وَإِذَا نَظَرَ قِبَلَ أَهْلِ الشِّمَالِ، وَهُمْ أَهْلُ النَّارِ بَكَى. هَذَا مَعْنَى الْحَدِيثِ. وَقَالَ أَبُو بَكْرٍ الْبَزَّارُ:",
+      "original_text_sha256": "1d0d95aa901728f1447c98da533fba16e273a7f2f9e53f67435d5a7aa136c528",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [
+        "RQ-ADAM-013",
+        "RQ-ADAM-014"
+      ],
+      "task_record_id": "adam_gemini_semantic_task_d271abed5e85ff6055c11314",
+      "terminal_speaker_surface_candidate": null,
+      "window_id": "6fa62df965d09ddd459dd5b8",
+      "work_source_id": "SRC-HISTORY-BIDAYAH-ADAM"
+    },
+    {
+      "attribution_profiles": [
+        "KAB_AL_AHBAR"
+      ],
+      "book_id": 4445,
+      "book_title": "البداية والنهاية - ت التركي",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/4445/volume/1/page/235?database_sha256=a48b153a0a451ce0f63625bee7fa294a88d8dbbc5db4b9472afa652260b74b3b&segment_id=234"
+      ],
+      "chain_nodes_candidate": [],
+      "event_ids": [
+        "EV-ADAM-030",
+        "EV-ADAM-031",
+        "EV-ADAM-032",
+        "EV-ADAM-033"
+      ],
+      "footnote_context": "",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_dd91a085e33f97b751f0fde1",
+      "original_text": "جَرِيرِ بْنِ حَازِمٍ، عَنِ الْأَعْمَشِ، عَنْ شِمْرِ بْنِ عَطِيَّةَ، عَنْ هِلَالِ بْنِ يَسَافٍ قَالَ: سَأَلَ ابْنُ عَبَّاسٍ كَعْبًا، وَأَنَا حَاضِرٌ، فَقَالَ لَهُ: مَا قَوْلُ اللَّهِ تَعَالَى لِإِدْرِيسَ: وَرَفَعْنَاهُ مَكَانًا عَلِيًّا؟ قَالَ كَعْبٌ: أَمَّا إِدْرِيسُ فَإِنَّ اللَّهَ أَوْحَى إِلَيْهِ أَنِّي أَرْفَعُ لَكَ كُلَّ يَوْمٍ مِثْلَ جَمِيعِ عَمَلِ بَنِي آدَمَ لَعَلَّهُ مِنْ أَهْلِ زَمَانِهِ، فَأَحَبَّ أَنْ يَزْدَادَ عَمَلًا، فَأَتَاهُ خَلِيلٌ لَهُ مِنَ الْمَلَائِكَةِ، فَقَالَ: إِنِ اللَّهَ أَوْحَى إِلَيَّ كَذَا وَكَذَا، فَكَلِّمْ مَلَكَ الْمَوْتِ فَلْيُؤَخِّرْنِي حَتَّى أَزْدَادَ عَمَلًا فَحَمَلَهُ بَيْنَ جَنَاحَيْهِ، ثُمَّ صَعِدَ بِهِ إِلَى السَّمَاءِ، فَلَمَّا كَانَ فِي السَّمَاءِ الرَّابِعَةِ تَلَقَّاهُ مَلَكُ الْمَوْتِ مُنْحَدِرًا فَكَلَّمَ مَلَكَ الْمَوْتِ فِي الَّذِي كَلَّمَهُ فِيهِ إِدْرِيسُ، فَقَالَ: وَأَيْنَ إِدْرِيسُ؟ قَالَ: هُوَ ذَا عَلَى ظَهْرِي. فَقَالَ مَلَكُ الْمَوْتِ: فَالْعَجَبُ بُعِثْتُ وَقِيلَ لِي: اقْبِضْ رُوحَ إِدْرِيسَ فِي السَّمَاءِ الرَّابِعَةِ. فَجَعَلْتُ أَقُولُ: كَيْفَ أَقْبِضُ رُوحَهُ فِي السَّمَاءِ الرَّابِعَةِ وَهُوَ فِي الْأَرْضِ! فَقَبَضَ رُوحَهُ هُنَاكَ، فَذَلِكَ قَوْلُ اللَّهِ ﷿: وَرَفَعْنَاهُ مَكَانًا عَلِيًّا. وَرَوَاهُ ابْنُ أَبِي حَاتِمٍ عِنْدَ تَفْسِيرِهَا وَعِنْدَهُ. فَقَالَ لِذَلِكَ الْمَلَكِ: سَلْ لِي مَلَكَ الْمَوْتِ كَمْ بَقِيَ مِنْ عُمُرِي؟ فَسَأَلَهُ وَهُوَ مَعَهُ كَمْ بَقِيَ مِنْ عُمُرِهِ، فَقَالَ: لَا أَدْرِي حَتَّى أَنْظُرَ. فَنَظَرَ فَقَالَ: إِنَّكَ لِتَسْأَلُنِي عَنْ رَجُلٍ مَا بَقِيَ مِنْ عُمُرِهِ إِلَّا طَرْفَةُ عَيْنٍ. فَنَظَرَ الْمَلَكُ إِلَى تَحْتِ جَنَاحِهِ إِلَى إِدْرِيسَ فَإِذَا هُوَ قَدْ قُبِضَ وَهُوَ لَا يَشْعُرُ، وَهَذَا مِنَ الْإِسْرَائِيلِيَّاتِ، وَفِي بَعْضِهِ نَكَارَةٌ، وَقَوْلُ ابْنِ أَبِي نَجِيحٍ، عَنْ مُجَاهِدٍ فِي قَوْلِهِ: وَرَفَعْنَاهُ مَكَانًا عَلِيًّا. قَالَ: إِدْرِيسُ رُفِعَ وَلَمْ يَمُتْ، كَمَا رُفِعَ عِيسَى. إِنْ أَرَادَ أَنَّهُ لَمْ يَمُتْ إِلَى الْآنِ فَفِي هَذَا نَظَرٌ. وَإِنْ أَرَادَ أَنَّهُ رُفِعَ حَيًّا إِلَى السَّمَاءِ، ثُمَّ قُبِضَ هُنَاكَ فَلَا يُنَافِي مَا تَقَدَّمَ عَنْ كَعْبِ الْأَحْبَارِ،",
+      "original_text_sha256": "8b2a0497749b3d2be2955141b5135ec4121b8e59408e5a8c697e3537030d1231",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [
+        "RQ-ADAM-013",
+        "RQ-ADAM-014"
+      ],
+      "task_record_id": "adam_gemini_semantic_task_a92f95e1464ab8e99b4a96bf",
+      "terminal_speaker_surface_candidate": null,
+      "window_id": "6fa62df965d09ddd459dd5b8",
+      "work_source_id": "SRC-HISTORY-BIDAYAH-ADAM"
+    },
+    {
+      "attribution_profiles": [],
+      "book_id": 4445,
+      "book_title": "البداية والنهاية - ت التركي",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/4445/volume/1/page/126?database_sha256=a48b153a0a451ce0f63625bee7fa294a88d8dbbc5db4b9472afa652260b74b3b&segment_id=124"
+      ],
+      "chain_nodes_candidate": [],
+      "event_ids": [
+        "EV-ADAM-001",
+        "EV-ADAM-002",
+        "EV-ADAM-003",
+        "EV-ADAM-004",
+        "EV-ADAM-005",
+        "EV-ADAM-006",
+        "EV-ADAM-007",
+        "EV-ADAM-020",
+        "EV-ADAM-021",
+        "EV-ADAM-022",
+        "EV-ADAM-023",
+        "EV-ADAM-024",
+        "EV-ADAM-050",
+        "EV-ADAM-051",
+        "EV-ADAM-052",
+        "EV-ADAM-053",
+        "EV-ADAM-054",
+        "EV-ADAM-055"
+      ],
+      "footnote_context": "",
+      "kind_candidate": "SOURCE_PASSAGE_CONTEXT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_ec35f132ad45bf4114c6cd50",
+      "original_text": "فَصْلٌ\nوَقَدِ اخْتَلَفَ النَّاسُ فِي تَفْضِيلِ الْمَلَائِكَةِ عَلَى الْبَشَرِ عَلَى أَقْوَالٍ: فَأَكْثَرُ مَا تُوجَدُ هَذِهِ الْمَسْأَلَةُ فِي كُتُبِ الْمُتَكَلِّمِينَ، وَالْخِلَافُ فِيهَا مَعَ الْمُعْتَزِلَةِ، وَمَنْ وَافَقَهُمْ. وَأَقْدَمُ كَلَامٍ رَأَيْتُهُ فِي هَذِهِ الْمَسْأَلَةِ مَا ذَكَرَهُ الْحَافِظُ ابْنُ عَسَاكِرَ فِي تَارِيخِهِ فِي تَرْجَمَةِ أُمَيَّةَ بْنِ عَمْرِو بْنِ سَعِيدِ بْنِ الْعَاصِ: أَنَّهُ حَضَرَ مَجْلِسًا لِعُمَرَ بْنِ عَبْدِ الْعَزِيزِ وَعِنْدَهُ جَمَاعَةٌ. فَقَالَ عُمَرُ: مَا أَحَدٌ أَكْرَمُ عَلَى اللَّهِ مِنْ كِرِيمِ بَنِي آدَمَ. وَاسْتَدَلَّ بِقَوْلِهِ تَعَالَى: إِنَّ الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ أُولَئِكَ هُمْ خَيْرُ الْبَرِيَّةِ [الْبَيِّنَةِ: ٧]. وَوَافَقَهُ عَلَى ذَلِكَ أُمَيَّةُ بْنُ عَمْرِو بْنِ سَعِيدٍ. فَقَالَ عِرَاكُ بْنُ مَالِكٍ: مَا أَحَدٌ أَكْرَمُ عَلَى اللَّهِ مِنْ مَلَائِكَتِهِ هُمْ خَدَمَةُ دَارَيْهِ وَرُسُلُهُ إِلَى أَنْبِيَائِهِ. وَاسْتَدَلَّ بِقَوْلِهِ تَعَالَى: مَا نَهَاكُمَا رَبُّكُمَا عَنْ هَذِهِ الشَّجَرَةِ إِلَّا أَنْ تَكُونَا مَلَكَيْنِ أَوْ تَكُونَا مِنَ الْخَالِدِينَ [الْأَعْرَافِ: ٢٠]. فَقَالَ عُمَرُ بْنُ عَبْدِ الْعَزِيزِ لِمُحَمَّدِ بْنِ كَعْبٍ الْقُرَظِيِّ: مَا تَقُولُ أَنْتَ يَا أَبَا حَمْزَةَ؟ فَقَالَ: قَدْ أَكْرَمَ اللَّهُ آدَمَ فَخَلَقَهُ بِيَدِهِ، وَنَفَخَ فِيهِ مِنْ رُوحِهِ، وَأَسْجَدَ لَهُ الْمَلَائِكَةَ، وَجَعَلَ مِنْ ذُرِّيَّتِهِ الْأَنْبِيَاءَ وَالرُّسُلَ، وَمَنْ يَزُورُهُ الْمَلَائِكَةُ. فَوَافَقَ عُمَرَ بْنَ عَبْدِ الْعَزِيزِ فِي الْحُكْمِ، وَاسْتَدَلَّ بِغَيْرِ دَلِيلِهِ، وَأَضْعَفَ دَلَالَةَ مَا صَرَّحَ بِهِ مِنَ الْآيَةِ، وَهُوَ قَوْلُهُ: إِنَّ الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ.",
+      "original_text_sha256": "bce693b12419f28ab2978281f0c93c55d81878428bd490eddc9cc988b0097ebe",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [
+        "RQ-ADAM-001",
+        "RQ-ADAM-002",
+        "RQ-ADAM-003",
+        "RQ-ADAM-004",
+        "RQ-ADAM-005",
+        "RQ-ADAM-006",
+        "RQ-ADAM-020",
+        "RQ-ADAM-009",
+        "RQ-ADAM-010",
+        "RQ-ADAM-011",
+        "RQ-ADAM-012",
+        "RQ-ADAM-017",
+        "RQ-ADAM-018",
+        "RQ-ADAM-019"
+      ],
+      "task_record_id": "adam_gemini_semantic_task_c41276f307843c8e7a44d7af",
+      "terminal_speaker_surface_candidate": null,
+      "window_id": "842c94a95e3adbcb8b8d7347",
+      "work_source_id": "SRC-HISTORY-BIDAYAH-ADAM"
+    },
+    {
+      "attribution_profiles": [
+        "KAB_AL_AHBAR"
+      ],
+      "book_id": 4445,
+      "book_title": "البداية والنهاية - ت التركي",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/4445/volume/1/page/230?database_sha256=a48b153a0a451ce0f63625bee7fa294a88d8dbbc5db4b9472afa652260b74b3b&segment_id=229"
+      ],
+      "chain_nodes_candidate": [],
+      "event_ids": [
+        "EV-ADAM-030",
+        "EV-ADAM-031",
+        "EV-ADAM-032",
+        "EV-ADAM-033"
+      ],
+      "footnote_context": "",
+      "kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_ef529fe1e6fef2a87f274f13",
+      "original_text": "ذِكْرُ وَفَاةِ آدَمَ وَوَصِيَّتِهِ إِلَى ابْنِهِ شِيثَ\n\nوَمَعْنَى شِيثَ: هِبَةُ اللَّهِ، وَسَمَّيَاهُ بِذَلِكَ لِأَنَّهُمَا رُزِقَاهُ بَعْدَ أَنْ قُتِلَ هَابِيلُ. قَالَ أَبُو ذَرٍّ فِي حَدِيثِهِ، عَنْ رَسُولِ اللَّهِ ﷺ: إِنَّ اللَّهَ أَنْزَلَ مِائَةَ صَحِيفَةٍ وَأَرْبَعَ صُحُفٍ عَلَى شِيثَ خَمْسِينَ صَحِيفَةً. قَالَ: مُحَمَّدُ بْنُ إِسْحَاقَ: وَلَمَّا حَضَرَتْ آدَمَ الْوَفَاةُ عَهِدَ إِلَى ابْنِهِ شِيثَ، وَعَلَّمَهُ سَاعَاتِ اللَّيْلِ وَالنَّهَارِ، وَعَلَّمَهُ عِبَادَاتِ تِلْكَ السَّاعَاتِ، وَأَعْلَمَهُ بِوُقُوعِ الطُّوفَانِ بَعْدَ ذَلِكَ. قَالَ: وَيُقَالُ إِنَّ أَنْسَابَ بَنِي آدَمَ الْيَوْمَ كُلُّهَا تَنْتَهِي إِلَى شِيثَ، وَسَائِرُ أَوْلَادِ آدَمَ غَيْرَهُ انْقَرَضُوا وَبَادُوا، وَاللَّهُ أَعْلَمُ.\nوَلِمَا تُوُفِّيَ آدَمُ ﵇، وَكَانَ ذَلِكَ يَوْمَ الْجُمُعَةِ جَاءَتْهُ الْمَلَائِكَةُ بِحَنُوطٍ، وَكَفَنٍ مِنْ عِنْدِ اللَّهِ ﷿ مِنَ الْجَنَّةِ، وَعَزُّوا فِيهِ ابْنَهُ، وَوَصِيَّهُ شِيثَ ﵇ قَالَ ابْنُ إِسْحَاقَ، وَكَسَفَتِ الشَّمْسُ وَالْقَمَرُ سَبْعَةَ أَيَّامٍ بِلَيَالِيهِنَّ. وَقَدْ قَالَ عَبْدُ اللَّهِ بْنُ الْإِمَامِ أَحْمَدَ:",
+      "original_text_sha256": "9056bbddc8050b2d245f0e45fdf74dd333eeb93eb293e713cc128205f5a35ecc",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "MARFU_CONTEXT_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [
+        "RQ-ADAM-013",
+        "RQ-ADAM-014"
+      ],
+      "task_record_id": "adam_gemini_semantic_task_cf7a0f78bd6957a29e9c6d8a",
+      "terminal_speaker_surface_candidate": null,
+      "window_id": "6fa62df965d09ddd459dd5b8",
+      "work_source_id": "SRC-HISTORY-BIDAYAH-ADAM"
+    }
+  ],
+  "schema_version": "siraj-adam-gemini-draft-batch-v1",
+  "task_contract_project_path": "sources/secondary/gemini-semantic-analysis-draft/contracts/semantic-mapping-contract-v1.json",
+  "task_name": "semantic-mapping"
+}

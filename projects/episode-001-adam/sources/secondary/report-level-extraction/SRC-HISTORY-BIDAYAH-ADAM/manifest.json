@@ -1,0 +1,40 @@
+{
+  "boundary_excluded_candidate_count": 86,
+  "episode_id": "episode-001-adam",
+  "included_window_count": 6,
+  "isnad_research_count": 34,
+  "outputs": {
+    "boundary_excluded": {
+      "project_path": "sources/secondary/report-level-extraction/SRC-HISTORY-BIDAYAH-ADAM/boundary-excluded-candidates.jsonl",
+      "rows": 86,
+      "sha256": "1789d51ea27ad56c56c440581cf6da7551cde6c65691ad6b1078b9831d5833ae"
+    },
+    "internal_isnad_research": {
+      "project_path": "sources/secondary/report-level-extraction/SRC-HISTORY-BIDAYAH-ADAM/internal-isnad-research-queue.jsonl",
+      "rows": 34,
+      "sha256": "8e5c47af4e547ac0d8eb0bc58e27b32bfece8b7bc121f55cb672acb67c7e7c89"
+    },
+    "report_candidates": {
+      "project_path": "sources/secondary/report-level-extraction/SRC-HISTORY-BIDAYAH-ADAM/report-candidates.jsonl",
+      "rows": 62,
+      "sha256": "0bdf236ee20d4677f247480dd870385804ae3fa6d9b4ae640c4a9a6f1c36c895"
+    }
+  },
+  "permissions": {
+    "candidate_only": true,
+    "evidence_approval_changed": false,
+    "gemini_execution_enabled": false,
+    "hadith_grading_changed": false,
+    "israiliyyat_classification_changed": false,
+    "quotation_approval_changed": false,
+    "source_approval_changed": false
+  },
+  "report_candidate_count": 62,
+  "report_kind_counts": {
+    "EARLY_REPORT_CANDIDATE": 15,
+    "PROPHETIC_HADITH_CANDIDATE": 28,
+    "UNCLASSIFIED_SOURCE_PASSAGE_CANDIDATE": 19
+  },
+  "schema_version": "siraj-adam-report-level-source-manifest-v1",
+  "work_source_id": "SRC-HISTORY-BIDAYAH-ADAM"
+}

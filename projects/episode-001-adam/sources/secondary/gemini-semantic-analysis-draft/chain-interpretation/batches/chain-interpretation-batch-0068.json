@@ -1,0 +1,433 @@
+{
+  "batch_id": "chain-interpretation-batch-0068",
+  "episode_id": "episode-001-adam",
+  "execution_enabled": false,
+  "execution_status": "BLOCKED_NOT_AUTHORIZED",
+  "generation_config": {
+    "response_mime_type": "application/json",
+    "temperature": 0
+  },
+  "model_id": null,
+  "provider_id": "GEMINI",
+  "record_count": 6,
+  "records": [
+    {
+      "book_id": 7798,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/1/page/532?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=712"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_0e746b7c5e20ac711dacb093",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابيه",
+          "narrator_surface_raw": "أبيه",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "سعيد بن جبير قوله",
+          "narrator_surface_raw": "سعيدِ بنِ جُبَيْرٍ قولَه",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "حدَّثنا عمرُو بنُ ثابتٍ، عن أبيه، عن سعيدِ بنِ جُبَيْرٍ قولَه: ﴿وَأَعْلَمُ مَا تُبْدُونَ وَمَا كُنْتُمْ تَكْتُمُونَ﴾. قال: ما أسَرَّ إبليسُ في نفسِه (¬١).\nحدَّثنا أحمدُ، قال: حدَّثنا أبو أحمدَ، قال:",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_acbc59287ef4d53a290253da",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "report_text": "حدَّثنا عمرُو بنُ ثابتٍ، عن أبيه، عن سعيدِ بنِ جُبَيْرٍ قولَه: ﴿وَأَعْلَمُ مَا تُبْدُونَ وَمَا كُنْتُمْ تَكْتُمُونَ﴾. قال: ما أسَرَّ إبليسُ في نفسِه (¬١).\nحدَّثنا أحمدُ، قال:\nحدَّثنا أبو أحمدَ، قال:",
+      "report_text_sha256": "49988be3cf9bad2d9cea848f2472c288fdaab1d55d02fc3657164871550ea38c",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "سعيدِ بنِ جُبَيْرٍ قولَه",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_bcbc40ee6cd1b159e68e6167",
+      "terminal_speaker_surface_candidate": "سعيدِ بنِ جُبَيْرٍ قولَه",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "book_id": 7798,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/18/page/478?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=12576"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_1eed80eb00387ec766fda1e4",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "سعيد",
+          "narrator_surface_raw": "سعيد",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "قتادة",
+          "narrator_surface_raw": "قتادةَ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "يزيد",
+          "narrator_surface_raw": "يزيدُ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "ثنا سعيد، عن قتادةَ: ﴿وَمِنْ ءَايَاتِهِ أَنْ خَلَقَكُم مِّن تُرَابٍ﴾: خلق آدم ﷺ مع من ترابٍ، ﴿ثُمَّ إِذَا أَنتُم بَشَرٌ تَنتَشِرُونَ﴾. يعني ذُريَّتَه (¬١).\n\nالقول في تأويل قوله تعالى: ﴿وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً إِنَّ فِي ذَلِكَ لَآيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ (٢١)﴾.\n\nيقول تعالى ذكرُه: ومِن حُجَجه وأدلته على ذلك أيضًا خَلْقُه لأبيكم آدمَ مِن نفسه زوجةً؛ ليسكُن إليها. وذلك أنه خلق حوّاءَ مِن ضِلَعِ مِن أضلاعِ آدم.\nكما حدَّثنا بشرٌ، قال: ثنا يزيدُ، قال:",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_acfe7ad0eb037f8b34f7e32c",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "report_text": "ثنا سعيد، عن قتادةَ: ﴿وَمِنْ ءَايَاتِهِ أَنْ خَلَقَكُم مِّن تُرَابٍ﴾: خلق آدم ﷺ مع من ترابٍ، ﴿ثُمَّ إِذَا أَنتُم بَشَرٌ تَنتَشِرُونَ﴾. يعني ذُريَّتَه (¬١).\n\nالقول في تأويل قوله تعالى: ﴿وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً إِنَّ فِي ذَلِكَ لَآيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ (٢١)﴾.\n\nيقول تعالى ذكرُه: ومِن حُجَجه وأدلته على ذلك أيضًا خَلْقُه لأبيكم آدمَ مِن نفسه زوجةً؛ ليسكُن إليها. وذلك أنه خلق حوّاءَ مِن ضِلَعِ مِن أضلاعِ آدم.\nكما حدَّثنا بشرٌ، قال:\nثنا يزيدُ، قال:",
+      "report_text_sha256": "b6aedd6124b04c4623098097a4314337fe50573b10322df218a16f5ab4bb1b59",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "يزيدُ",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_c34174e5b333aa5402cb5f7e",
+      "terminal_speaker_surface_candidate": "يزيدُ",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "book_id": 7798,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/10/page/561?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=7269"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_d23169867618b33c4e6ac0c3",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "محمد بن ثور",
+          "narrator_surface_raw": "محمدُ بنُ ثَورٍ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "الكلبي",
+          "narrator_surface_raw": "الكَلْبيِّ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "ثنا محمدُ بنُ ثَورٍ، عَن مَعْمَرٍ، عن الكَلْبيِّ: ﴿مِنْ ظُهُورِهِمْ ذُرِّيَّتَهُمْ﴾ قال: مسَح الله على صُلْبِ آدم، فأخرَج من صُلْبِه من ذريتِه ما يكونُ إلى يوم القيامةِ، وأخَذ ميثاقَهم أنه ربُّهم، فأَعْطَوْه ذلك، ولا تَسْألُ (¬٤) [أحدًا؛ كافرًا] (¬٥) ولا غيرَه: مَنْ ربُّك؟ إلا قال: الله. وقال الحسنُ مثل ذلك أيضًا (¬٦).",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_ad08ac0a771cbcca2a8457d3",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MAQTU_OR_TAFSIR_REPORT_CANDIDATE",
+      "report_text": "ثنا محمدُ بنُ ثَورٍ، عَن مَعْمَرٍ، عن الكَلْبيِّ: ﴿مِنْ ظُهُورِهِمْ ذُرِّيَّتَهُمْ﴾ قال: مسَح الله على صُلْبِ آدم، فأخرَج من صُلْبِه من ذريتِه ما يكونُ إلى يوم القيامةِ، وأخَذ ميثاقَهم أنه ربُّهم، فأَعْطَوْه ذلك، ولا تَسْألُ (¬٤) [أحدًا؛ كافرًا] (¬٥) ولا غيرَه: مَنْ ربُّك؟ إلا قال: الله. وقال الحسنُ مثل ذلك أيضًا (¬٦).",
+      "report_text_sha256": "37cda3826d6579bb9cf885f0a70a32b1d5a5b0c4fb670cba7bef105adf49831c",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "الكَلْبيِّ",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_3030e52707cad75b4f33a70e",
+      "terminal_speaker_surface_candidate": "الكَلْبيِّ",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "book_id": 7798,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/10/page/551?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=7259"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_6fdc0b35a553eed9dbcfbd38",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ضمرة بن ربيعة",
+          "narrator_surface_raw": "ضَمْرةُ بنُ رَبيعةَ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "أَخْرج الله ذرية آدمَ ﵇ من ظهرِه كهيئةِ الذَّرِّ، وهو في آذيٍّ (¬١) من الماء (¬٢).\nحدَّثني عليُّ بن سهلٍ، قال:\nثنا ضَمْرةُ بنُ رَبيعةَ، قال:",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_ad409ba5fe9874ea316554dc",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "report_text": "أَخْرج الله ذرية آدمَ ﵇ من ظهرِه كهيئةِ الذَّرِّ، وهو في آذيٍّ (¬١) من الماء (¬٢).\nحدَّثني عليُّ بن سهلٍ، قال:\nثنا ضَمْرةُ بنُ رَبيعةَ، قال:",
+      "report_text_sha256": "8d914aa08a73654125269678c39d80bd45584bc577b0f856750a712f4534bbbe",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "ضَمْرةُ بنُ رَبيعةَ",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_d2447538e12e20c221714e70",
+      "terminal_speaker_surface_candidate": "ضَمْرةُ بنُ رَبيعةَ",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "book_id": 7798,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/18/page/600?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=12698",
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/18/page/601?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=12699"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_6a34c2fd3380d552360bbcd5",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "يزيد",
+          "narrator_surface_raw": "يزيدُ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "جَعَل الخَلْقَ نَصْبًا، بمعنى التفسيرِ، كأنه قال: الذي أحسَن كلَّ شيءٍ خَلْقًا منه. وقد كان بعضُهم يقولُ: هو من المُقَدَّمِ الذي معناه التأخيرُ. ويُوجِّهه إلى أنه نظيرُ قولِ الشاعرِ (¬١):\nوَظَعْنى إليك الليل حِضْنَيه إنَّني … لتلك إذا هابَ الهدانُ فَعُولُ\nيعنى: وظَعْنى حِضْنى الليلِ إليك.\nونظيرُ قولِ الآخرِ (¬٢):\nكأن هندًا ثَناياها وبَهْجَتَها … يومَ التَقَيْنا على أدْحالِ (¬٣) دَبَّابٍ\nأي كأن ثَنايا هندٍ وبَهْجتَها.\n\nوقولُه: ﴿وَبَدَأَ خَلْقَ الْإِنْسَانِ مِنْ طِينٍ﴾. يقولُ تعالى ذكرُه: وبدأ خلقَ آدمَ مِن طينٍ، ﴿ثُمَّ جَعَلَ نَسْلَهُ﴾. يعني: ذرِّيتَه مِن سُلالةٍ. يقولُ: من الماءِ الذي انسَلَّ فخرج منه. وإنما يعنى: مِن إراقةٍ من مائه؛ كما قال الشاعرُ (¬٤):\nفجاءتْ به عَضْبَ الأَدِيمِ غَضَنْفَرًا … سُلالَةَ فَرْجٍ كان غيرَ حَصِينِ\nوقولُه: ﴿مِنْ مَاءٍ مَهِينٍ﴾. يقولُ: مِن نُطْفَةٍ ضعيفةٍ رقيقةٍ.\nوبنحوِ الذي قلْنا في تأويلِ ذلك قال أهلُ التأويلِ.\nذكرُ مَن قال ذلك\nحدَّثنا بشرٌ، قال:\nثنا يزيدُ، قال:",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_aeeeded503494a5684dd3e64",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "report_text": "جَعَل الخَلْقَ نَصْبًا، بمعنى التفسيرِ، كأنه قال: الذي أحسَن كلَّ شيءٍ خَلْقًا منه. وقد كان بعضُهم يقولُ: هو من المُقَدَّمِ الذي معناه التأخيرُ. ويُوجِّهه إلى أنه نظيرُ قولِ الشاعرِ (¬١):\nوَظَعْنى إليك الليل حِضْنَيه إنَّني … لتلك إذا هابَ الهدانُ فَعُولُ\nيعنى: وظَعْنى حِضْنى الليلِ إليك.\nونظيرُ قولِ الآخرِ (¬٢):\nكأن هندًا ثَناياها وبَهْجَتَها … يومَ التَقَيْنا على أدْحالِ (¬٣) دَبَّابٍ\nأي كأن ثَنايا هندٍ وبَهْجتَها.\n\nوقولُه: ﴿وَبَدَأَ خَلْقَ الْإِنْسَانِ مِنْ طِينٍ﴾. يقولُ تعالى ذكرُه: وبدأ خلقَ آدمَ مِن طينٍ، ﴿ثُمَّ جَعَلَ نَسْلَهُ﴾. يعني: ذرِّيتَه مِن سُلالةٍ. يقولُ: من الماءِ الذي انسَلَّ فخرج منه. وإنما يعنى: مِن إراقةٍ من مائه؛ كما قال الشاعرُ (¬٤):\nفجاءتْ به عَضْبَ الأَدِيمِ غَضَنْفَرًا … سُلالَةَ فَرْجٍ كان غيرَ حَصِينِ\nوقولُه: ﴿مِنْ مَاءٍ مَهِينٍ﴾. يقولُ: مِن نُطْفَةٍ ضعيفةٍ رقيقةٍ.\nوبنحوِ الذي قلْنا في تأويلِ ذلك قال أهلُ التأويلِ.\nذكرُ مَن قال ذلك\nحدَّثنا بشرٌ، قال:\nثنا يزيدُ، قال:",
+      "report_text_sha256": "67f1523a7a02961d44367d0a03d084781f619116be9203339e0fedd65674092d",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "يزيدُ",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_c13b40c6d0e6205d62e386ca",
+      "terminal_speaker_surface_candidate": "يزيدُ",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "book_id": 7798,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/5/page/459?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=3576"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_5326b270601203cbcb80f6b8",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "عبد الله بن صالح",
+          "narrator_surface_raw": "عبدُ اللهِ بنُ صالحٍ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "علي",
+          "narrator_surface_raw": "عليٍّ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابن عباس قوله",
+          "narrator_surface_raw": "ابن عباسٍ قولَه",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "ثنا عبدُ اللهِ بنُ صالحٍ، قال: ثني معاويةُ بنُ صالحٍ، عن عليٍّ، عن ابن عباسٍ قولَه: ﴿وَالذِّكْرِ﴾. يقولُ: القرآنُ الحكيمُ الذي قد كمَل في حكمتِه (¬١).\n\nالقولُ في تأويلِ قولِه جلَّ ثناؤُه: ﴿إِنَّ مَثَلَ عِيسَى عِنْدَ اللَّهِ كَمَثَلِ آدَمَ خَلَقَهُ مِنْ تُرَابٍ ثُمَّ قَالَ لَهُ كُنْ فَيَكُونُ (٥٩)﴾.\n\nيعْنى جلَّ ثناؤُه: إِن شَبَهَ عيسى في خَلْقِى إياه مِن غيرِ فَحْلٍ - فأخْبِرْ به يا محمدُ الوفدَ مِن نصارَى نَجْرانَ - عندِى كشَبَهِ آدمَ، الذي خلَقْتُه مِن ترابٍ، ثم قلتُ له: كنْ. فكان، مِن غيرِ فَحْلٍ، ولا ذكَرٍ، ولا أُنثى. يقولُ: فليس خَلْقى عيسى مِن أمِّه، مِن غيرِ فحلٍ، بأَعْجَبَ مِن خَلْقِى آدمَ مِن غيرِ ذكرٍ ولا أُنثى، فكان لحمًا، يقولُ: وأَمْرى إذ أمَرْتُه أن يكونَ فكان، فكذلك خَلْقِى عيسى، أَمَرْتُه أن يكونَ فكان.\nوذكَر أهلُ التأويلِ أن الله ﷿ أنْزَل هذه الآيةَ احْتِجاجًا لنبيِّه ﷺ على الوفدِ مِن نصارَى نَجْرانَ الذين حاجُّوه في عيسى.\n\nذكرُ مَن قال ذلك\n\nحدَّثنا ابن حُميدٍ، قال:",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_b0309b49151a5121f7e4f9af",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MAWQUF_OR_TAFSIR_REPORT_CANDIDATE",
+      "report_text": "ثنا عبدُ اللهِ بنُ صالحٍ، قال: ثني معاويةُ بنُ صالحٍ، عن عليٍّ، عن ابن عباسٍ قولَه: ﴿وَالذِّكْرِ﴾. يقولُ: القرآنُ الحكيمُ الذي قد كمَل في حكمتِه (¬١).\n\nالقولُ في تأويلِ قولِه جلَّ ثناؤُه: ﴿إِنَّ مَثَلَ عِيسَى عِنْدَ اللَّهِ كَمَثَلِ آدَمَ خَلَقَهُ مِنْ تُرَابٍ ثُمَّ قَالَ لَهُ كُنْ فَيَكُونُ (٥٩)﴾.\n\nيعْنى جلَّ ثناؤُه: إِن شَبَهَ عيسى في خَلْقِى إياه مِن غيرِ فَحْلٍ - فأخْبِرْ به يا محمدُ الوفدَ مِن نصارَى نَجْرانَ - عندِى كشَبَهِ آدمَ، الذي خلَقْتُه مِن ترابٍ، ثم قلتُ له: كنْ. فكان، مِن غيرِ فَحْلٍ، ولا ذكَرٍ، ولا أُنثى. يقولُ: فليس خَلْقى عيسى مِن أمِّه، مِن غيرِ فحلٍ، بأَعْجَبَ مِن خَلْقِى آدمَ مِن غيرِ ذكرٍ ولا أُنثى، فكان لحمًا، يقولُ: وأَمْرى إذ أمَرْتُه أن يكونَ فكان، فكذلك خَلْقِى عيسى، أَمَرْتُه أن يكونَ فكان.\nوذكَر أهلُ التأويلِ أن الله ﷿ أنْزَل هذه الآيةَ احْتِجاجًا لنبيِّه ﷺ على الوفدِ مِن نصارَى نَجْرانَ الذين حاجُّوه في عيسى.\nذكرُ مَن قال ذلك\nحدَّثنا ابن حُميدٍ، قال:",
+      "report_text_sha256": "a15dfd0c029993af70c181180c6ca8f70719409168bc08638ca1dc110b9645af",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "ابن عباسٍ قولَه",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_1e7827026c6f5a517fb56514",
+      "terminal_speaker_surface_candidate": "ابن عباسٍ قولَه",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    }
+  ],
+  "schema_version": "siraj-adam-gemini-draft-batch-v1",
+  "task_contract_project_path": "sources/secondary/gemini-semantic-analysis-draft/contracts/chain-interpretation-contract-v1.json",
+  "task_name": "chain-interpretation"
+}

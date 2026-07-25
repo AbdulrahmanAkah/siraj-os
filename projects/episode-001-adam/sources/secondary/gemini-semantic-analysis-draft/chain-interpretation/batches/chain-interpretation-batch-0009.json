@@ -1,0 +1,432 @@
+{
+  "batch_id": "chain-interpretation-batch-0009",
+  "episode_id": "episode-001-adam",
+  "execution_enabled": false,
+  "execution_status": "BLOCKED_NOT_AUTHORIZED",
+  "generation_config": {
+    "response_mime_type": "application/json",
+    "temperature": 0
+  },
+  "model_id": null,
+  "provider_id": "GEMINI",
+  "record_count": 6,
+  "records": [
+    {
+      "book_id": 1503,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/1503/volume/1/page/347?database_sha256=e81a1a6fa62cc5dfa224bc326728ab924456e6a77cdb10e17e887ab19a8081d8&segment_id=402"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_c38017d966546e89b163be8b",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "الربيع",
+          "narrator_surface_raw": "الربيع",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابي العالية",
+          "narrator_surface_raw": "أبي العالية",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "depends_on_boundary_resolution": false,
+      "isnad_internal_text_candidate": "حدثنا أبو سعيد الأشج، حدثنا أبو أسامة، حدثنا صالح بن حيان، حدثنا عبد الله بن بريدة - قوله تعالى: ﴿وَكَانَ مِنَ الْكَافِرِينَ﴾ من الذين أبوا فأحرقتهم النار.\nوقال أبو جعفر (¬١١)، عن الربيع، عن أبي العالية: ﴿وَكَانَ مِنَ الْكَافِرِينَ﴾ يعني: من العاصين.\nوقال السدي (¬١٢): ﴿وَكَانَ مِنَ الْكَافِرِينَ﴾ الذين لم يخلقهم الله يومئذ، يكونون بعد.\n[وقال محمد بن كعب (¬١٣) القرظي: ابتدأ الله خلق إبليس على الكفر والضلالة وعمل بعمل] (¬١٤)",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_26d48b4f62df508162d46384",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "report_text": "وقال أبو جعفر (¬١١)، عن الربيع، عن أبي العالية: ﴿وَكَانَ مِنَ الْكَافِرِينَ﴾ يعني: من العاصين.\nوقال السدي (¬١٢): ﴿وَكَانَ مِنَ الْكَافِرِينَ﴾ الذين لم يخلقهم الله يومئذ، يكونون بعد.\n[وقال محمد بن كعب (¬١٣) القرظي: ابتدأ الله خلق إبليس على الكفر والضلالة وعمل بعمل] (¬١٤)",
+      "report_text_sha256": "83e761b8bd5a7c06ba5122195eee8cd9eb3062b06ff662aec7e66aeebc66c02b",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "أبي العالية",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_a750fdccb96ec54ac9d9c8a9",
+      "terminal_speaker_surface_candidate": "أبي العالية",
+      "work_source_id": "SRC-TAFSIR-IBN-KATHIR-ADAM"
+    },
+    {
+      "book_id": 1503,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/1503/volume/5/page/168?database_sha256=e81a1a6fa62cc5dfa224bc326728ab924456e6a77cdb10e17e887ab19a8081d8&segment_id=2746"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_39ea58ab259a3791e180a8e6",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "خلاد بن عطاء",
+          "narrator_surface_raw": "خلاد بن عطاء",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "طاوس",
+          "narrator_surface_raw": "طاوس",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابن عباس قال",
+          "narrator_surface_raw": "ابن عباس قال",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "صالح مولي التوامة وشريك بن ابي نمر - احدهما او كلاهما - عن ابن عباس قال",
+          "narrator_surface_raw": "صالح مولى التوأمة وشريك بن أبي نمر - أحدهما أو كلاهما - عن ابن عباس قال",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 3,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "depends_on_boundary_resolution": false,
+      "isnad_internal_text_candidate": "سماء الدنيا (¬١).\nوقال ابن إسحاق، عن خلاد بن عطاء، عن طاوس، عن ابن عباس قال: كان إبليس قبل أن يركب المعصية من الملائكة اسمه: عزازيل، وكان من سكان الأرض، وكان من أشد الملائكة اجتهادًا وأكثرهم علمًا، فذلك دعاه إلى الكبر، وكان من حي يسمون جنًا (¬٢).\nوقال ابن جريج، عن صالح مولى التوأمة وشريك بن أبي نمر - أحدهما أو كلاهما - عن ابن عباس قال: إن من الملائكة قبيلة من الجن، وكان إبليس منها وكان يسوس ما بين السماء والأرض، فعصى، فسخط الله عليه فمسخه شيطانًا رجيمًا، لعنه الله ممسوخًا، قال: ماذا كانت خطيئة الرجل في كبر فلا ترجه، وإذا كانت في معصية فارجُه (¬٣).\nوعن سعيد بن جبير أنه قال: كان من الجنَّانين الذين يعملون في الجنة (¬٤)، وقد روي في هذا آثار كثيرة عن السلف، وغالبها من الإسرائيليات التي تنقل لينظر فيها، والله أعلم بحال كثير منها، ومنها ما قد يقطع بكذبه لمخالفته للحق الذي بأيدينا، وفي القرآن غنية عن كل ما عداه من الأخبار المتقدمة لأنها لا تكاد تخلو من تبديل وزيادة ونقصان، وقد وضع فيها أشياء كثيرة وليس لهم من الحفاظ المتقنين الذين ينفون عنها تحريف الغالين وانتحال المبطلين، كما لهذه الأمة من الأئمة والعلماء والسادة والأتقياء والبررة والنجباء من الجهابذة النقاد والحفاظ الجياد الذين دونوا الحديث، وحرروه وبينوا صحيحه من حسنه من ضعيفه من منكره، وموضوعه ومتروكه ومكذوبه، وعرفوا الوضاعين والكذابين والمجهولين وغير ذلك من أصناف الرجال، كل ذلك صيانة للجناب النبوي والمقام المحمدي خاتم الرسل وسيد البشر ﷺ أن ينسب إليه كذب أو يحدث عنه بما ليس منه، فرضي الله عنهم وأرضاهم، وجعل جنات الفردوس مأواهم وقد فعل.\nوقوله: ﴿فَفَسَقَ عَنْ أَمْرِ رَبِّهِ﴾ أي: فخرج عن طاعة الله، فإن الفسق هو الخروج، يقال: فسقت الرطبة إذا خرجت من أكمامها، وفسقت الفأرة من جحرها إذا خرجت منه للعيث والفساد، ثم قال تعالى مقرعًا وموبخًا لمن اتبعه وأطاعه ﴿أَفَتَتَّخِذُونَهُ وَذُرِّيَّتَهُ أَوْلِيَاءَ مِنْ دُونِي﴾ الآية، أي بدلًا عني، ولهذا قال: ﴿بِئْسَ لِلظَّالِمِينَ بَدَلًا﴾ وهذا المقام كقوله بعد ذكر القيامة وأهوالها ومصير كل من",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_26f834fd8f977ded3d64cda7",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MAWQUF_OR_TAFSIR_REPORT_CANDIDATE",
+      "report_text": "سماء الدنيا (¬١).\nوقال ابن إسحاق، عن خلاد بن عطاء، عن طاوس، عن ابن عباس قال: كان إبليس قبل أن يركب المعصية من الملائكة اسمه: عزازيل، وكان من سكان الأرض، وكان من أشد الملائكة اجتهادًا وأكثرهم علمًا، فذلك دعاه إلى الكبر، وكان من حي يسمون جنًا (¬٢).\nوقال ابن جريج، عن صالح مولى التوأمة وشريك بن أبي نمر - أحدهما أو كلاهما - عن ابن عباس قال: إن من الملائكة قبيلة من الجن، وكان إبليس منها وكان يسوس ما بين السماء والأرض، فعصى، فسخط الله عليه فمسخه شيطانًا رجيمًا، لعنه الله ممسوخًا، قال: ماذا كانت خطيئة الرجل في كبر فلا ترجه، وإذا كانت في معصية فارجُه (¬٣).\nوعن سعيد بن جبير أنه قال: كان من الجنَّانين الذين يعملون في الجنة (¬٤)، وقد روي في هذا آثار كثيرة عن السلف، وغالبها من الإسرائيليات التي تنقل لينظر فيها، والله أعلم بحال كثير منها، ومنها ما قد يقطع بكذبه لمخالفته للحق الذي بأيدينا، وفي القرآن غنية عن كل ما عداه من الأخبار المتقدمة لأنها لا تكاد تخلو من تبديل وزيادة ونقصان، وقد وضع فيها أشياء كثيرة وليس لهم من الحفاظ المتقنين الذين ينفون عنها تحريف الغالين وانتحال المبطلين، كما لهذه الأمة من الأئمة والعلماء والسادة والأتقياء والبررة والنجباء من الجهابذة النقاد والحفاظ الجياد الذين دونوا الحديث، وحرروه وبينوا صحيحه من حسنه من ضعيفه من منكره، وموضوعه ومتروكه ومكذوبه، وعرفوا الوضاعين والكذابين والمجهولين وغير ذلك من أصناف الرجال، كل ذلك صيانة للجناب النبوي والمقام المحمدي خاتم الرسل وسيد البشر ﷺ أن ينسب إليه كذب أو يحدث عنه بما ليس منه، فرضي الله عنهم وأرضاهم، وجعل جنات الفردوس مأواهم وقد فعل.\nوقوله: ﴿فَفَسَقَ عَنْ أَمْرِ رَبِّهِ﴾ أي: فخرج عن طاعة الله، فإن الفسق هو الخروج، يقال: فسقت الرطبة إذا خرجت من أكمامها، وفسقت الفأرة من جحرها إذا خرجت منه للعيث والفساد، ثم قال تعالى مقرعًا وموبخًا لمن اتبعه وأطاعه ﴿أَفَتَتَّخِذُونَهُ وَذُرِّيَّتَهُ أَوْلِيَاءَ مِنْ دُونِي﴾ الآية، أي بدلًا عني، ولهذا قال: ﴿بِئْسَ لِلظَّالِمِينَ بَدَلًا﴾ وهذا المقام كقوله بعد ذكر القيامة وأهوالها ومصير كل من الفريقين السعداء والأشقياء في سورة يس ﴿وَامْتَازُوا الْيَوْمَ أَيُّهَا الْمُجْرِمُونَ (٥٩) أَلَمْ أَعْهَدْ إِلَيْكُمْ يَابَنِي آدَمَ أَنْ لَا تَعْبُدُوا الشَّيْطَانَ إِنَّهُ لَكُمْ عَدُوٌّ مُبِينٌ (٦٠) وَأَنِ اعْبُدُونِي هَذَا صِرَاطٌ مُسْتَقِيمٌ (٦١) وَلَقَدْ أَضَلَّ مِنْكُمْ جِبِلًّا كَثِيرًا أَفَلَمْ تَكُونُوا تَعْقِلُونَ (٦٢)﴾.\n\n﴿مَا أَشْهَدْتُهُمْ خَلْقَ السَّمَاوَاتِ وَالْأَرْضِ وَلَا خَلْقَ أَنْفُسِهِمْ وَمَا كُنْتُ مُتَّخِذَ الْمُضِلِّينَ عَضُدًا (٥١)﴾.\nيقول تعالى: هؤلاء الذين اتخذتموهم أولياء من دوني عبيد أمثالكم لا يملكون شيئًا، ولا أشهدتهم خلق السماوات والأرض، ولا كانوا إذ ذاك موجودين، يقول تعالى: أنا المستقل بخلق",
+      "report_text_sha256": "14226755ad500dd3be432ba22908f01ee8ecc2b3195a13430cda07c33a0ec87e",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "صالح مولى التوأمة وشريك بن أبي نمر - أحدهما أو كلاهما - عن ابن عباس قال",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_41a569787b5073abfa11feea",
+      "terminal_speaker_surface_candidate": "صالح مولى التوأمة وشريك بن أبي نمر - أحدهما أو كلاهما - عن ابن عباس قال",
+      "work_source_id": "SRC-TAFSIR-IBN-KATHIR-ADAM"
+    },
+    {
+      "book_id": 1503,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/1503/volume/1/page/319?database_sha256=e81a1a6fa62cc5dfa224bc326728ab924456e6a77cdb10e17e887ab19a8081d8&segment_id=374"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_ae6d374c83c262c323b1fd55",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "الربيع بن انس",
+          "narrator_surface_raw": "الربيع بن أنس",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابي العالية - في قوله تعالي",
+          "narrator_surface_raw": "أبي العالية - في قوله تعالى",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "depends_on_boundary_resolution": false,
+      "isnad_internal_text_candidate": "وقال أبو جعفر الرازي (¬١٤)، عن الربيع بن أنس، عن أبي العالية - في قوله تعالى: ﴿الَّذِينَ يَنْقُضُونَ عَهْدَ اللَّهِ مِنْ بَعْدِ مِيثَاقِهِ﴾ إلى قوله: ﴿أُولَئِكَ هُمُ الْخَاسِرُونَ﴾ قال: هي ست خصال من المنافقين؛ إذا كانت فيهم الظهرة على الناس أظهروا هذه الخصال: إذا حدثوا كذبوا، وإذا وعدوا أخلفوا، وإذا أؤتمنوا خانوا، ونقضوا عهد اللّه من بعد ميثاقه، وقطعوا ما أمر الله به أن يوصل، وأفسدوا في الأرض؛ وإذا كانت الظهرة عليهم أظهروا الخصال الثلاث: إذا حدثوا كذبوا، وإذا وعدوا أخلفوا، وإذا أؤتمنوا خانوا.\nوكذا قال الربيع بن أنس (¬١٥) أيضًا.",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_3297fc7863721ab3ef4316f8",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "report_text": "وقال أبو جعفر الرازي (¬١٤)، عن الربيع بن أنس، عن أبي العالية - في قوله تعالى: ﴿الَّذِينَ يَنْقُضُونَ عَهْدَ اللَّهِ مِنْ بَعْدِ مِيثَاقِهِ﴾ إلى قوله: ﴿أُولَئِكَ هُمُ الْخَاسِرُونَ﴾ قال: هي ست خصال من المنافقين؛ إذا كانت فيهم الظهرة على الناس أظهروا هذه الخصال: إذا حدثوا كذبوا، وإذا وعدوا أخلفوا، وإذا أؤتمنوا خانوا، ونقضوا عهد اللّه من بعد ميثاقه، وقطعوا ما أمر الله به أن يوصل، وأفسدوا في الأرض؛ وإذا كانت الظهرة عليهم أظهروا الخصال الثلاث: إذا حدثوا كذبوا، وإذا وعدوا أخلفوا، وإذا أؤتمنوا خانوا.\nوكذا قال الربيع بن أنس (¬١٥) أيضًا.",
+      "report_text_sha256": "d2934be93f77db16486f969c60e071a1b3d0d35583ce343ea5ae1380078e4b5f",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "أبي العالية - في قوله تعالى",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_33c56926ed1b191d5a3d4017",
+      "terminal_speaker_surface_candidate": "أبي العالية - في قوله تعالى",
+      "work_source_id": "SRC-TAFSIR-IBN-KATHIR-ADAM"
+    },
+    {
+      "book_id": 1503,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/1503/volume/4/page/646?database_sha256=e81a1a6fa62cc5dfa224bc326728ab924456e6a77cdb10e17e887ab19a8081d8&segment_id=2505"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_473497963c99ad6148193515",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابن عباس انه قال",
+          "narrator_surface_raw": "ابن عباس أنه قال",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "depends_on_boundary_resolution": false,
+      "isnad_internal_text_candidate": "﴿خَلَقَ الْإِنْسَانَ مِنْ صَلْصَالٍ كَالْفَخَّارِ (١٤) وَخَلَقَ الْجَانَّ مِنْ مَارِجٍ مِنْ نَارٍ (١٥)﴾ [الرحمن].\nوعن مجاهد أيضًا: ﴿صَلْصَالٍ﴾ المنتن (¬١)، وتفسير الآية بالآية أولى.\nقوله: ﴿مِنْ حَمَإٍ مَسْنُونٍ﴾ أي: الصلصال من حمأ، وهو الطين. والمسنون: الأملس، كما قال الشاعر (¬٢):\nثم خاصرتها إلى القبة الخضـ … ــراء تمشي في مرمر مسنون\nأي: أملس صقيل، ولهذا روي، عن ابن عباس أنه قال: هو التراب الرطب (¬٣).\nوعن ابن عباس ومجاهد أيضًا والضحاك: أن الحمأ المسنون هو المنتن (¬٤). وقيل: المراد بالمسنون ههنا المصبوب.\n\nوقوله: ﴿وَالْجَانَّ خَلَقْنَاهُ مِنْ قَبْلُ﴾ أي: من قبل الإنسان ﴿مِنْ نَارِ السَّمُومِ﴾ قال ابن عباس: هي السموم التي تقتل (¬٥)، وقال بعضهم: السموم بالليل والنهار، ومنهم من يقول: السموم بالليل والحرور بالنهار.\nوقال أبو داود الطيالسي:",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_3b125ceb904acfc53b933c1d",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MAWQUF_OR_TAFSIR_REPORT_CANDIDATE",
+      "report_text": "﴿خَلَقَ الْإِنْسَانَ مِنْ صَلْصَالٍ كَالْفَخَّارِ (١٤) وَخَلَقَ الْجَانَّ مِنْ مَارِجٍ مِنْ نَارٍ (١٥)﴾ [الرحمن].\nوعن مجاهد أيضًا: ﴿صَلْصَالٍ﴾ المنتن (¬١)، وتفسير الآية بالآية أولى.\nقوله: ﴿مِنْ حَمَإٍ مَسْنُونٍ﴾ أي: الصلصال من حمأ، وهو الطين. والمسنون: الأملس، كما قال الشاعر (¬٢):\nثم خاصرتها إلى القبة الخضـ … ــراء تمشي في مرمر مسنون\nأي: أملس صقيل، ولهذا روي، عن ابن عباس أنه قال: هو التراب الرطب (¬٣).\nوعن ابن عباس ومجاهد أيضًا والضحاك: أن الحمأ المسنون هو المنتن (¬٤). وقيل: المراد بالمسنون ههنا المصبوب.\n\nوقوله: ﴿وَالْجَانَّ خَلَقْنَاهُ مِنْ قَبْلُ﴾ أي: من قبل الإنسان ﴿مِنْ نَارِ السَّمُومِ﴾ قال ابن عباس: هي السموم التي تقتل (¬٥)، وقال بعضهم: السموم بالليل والنهار، ومنهم من يقول: السموم بالليل والحرور بالنهار.\nوقال أبو داود الطيالسي:",
+      "report_text_sha256": "055f3e8f778ac59508f663bd94f93a3a8b27c98ce9d38bad43cff9fa4bd301b0",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "ابن عباس أنه قال",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_ba5a816bfdbe901c27828e08",
+      "terminal_speaker_surface_candidate": "ابن عباس أنه قال",
+      "work_source_id": "SRC-TAFSIR-IBN-KATHIR-ADAM"
+    },
+    {
+      "book_id": 1503,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/1503/volume/1/page/340?database_sha256=e81a1a6fa62cc5dfa224bc326728ab924456e6a77cdb10e17e887ab19a8081d8&segment_id=395"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_47fd44a5fc0245e4b1c944fd",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "الربيع بن انس",
+          "narrator_surface_raw": "الربيع بن أنس",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "depends_on_boundary_resolution": false,
+      "isnad_internal_text_candidate": "[وقال أبو جعفر الرازي، عن الربيع بن أنس: ﴿وَأَعْلَمُ مَا تُبْدُونَ وَمَا كُنْتُمْ تَكْتُمُونَ﴾ فكان الذي أبدو هو قولهم: ﴿أَتَجْعَلُ فِيهَا مَنْ يُفْسِدُ فِيهَا وَيَسْفِكُ الدِّمَاءَ﴾ [البقرة: ٣٠] وكان الذي كتموا بينهم هو قولهم: لن يخلق ربنا خلقًا إلا كنا أعلم منه وأكرم] (¬١)؛ فعرفوا أن اللّه فضل عليهم آدم في العلم والكرم.",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_3eed1251760f146d5b6d6fb4",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "report_text": "[وقال أبو جعفر الرازي، عن الربيع بن أنس: ﴿وَأَعْلَمُ مَا تُبْدُونَ وَمَا كُنْتُمْ تَكْتُمُونَ﴾ فكان الذي أبدو هو قولهم: ﴿أَتَجْعَلُ فِيهَا مَنْ يُفْسِدُ فِيهَا وَيَسْفِكُ الدِّمَاءَ﴾ [البقرة: ٣٠] وكان الذي كتموا بينهم هو قولهم: لن يخلق ربنا خلقًا إلا كنا أعلم منه وأكرم] (¬١)؛ فعرفوا أن اللّه فضل عليهم آدم في العلم والكرم.",
+      "report_text_sha256": "83aabe769296d01f6ef238378e36e9c545d7b14843a1da4160944df827403208",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "الربيع بن أنس",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_819872840de3ab54055a0897",
+      "terminal_speaker_surface_candidate": "الربيع بن أنس",
+      "work_source_id": "SRC-TAFSIR-IBN-KATHIR-ADAM"
+    },
+    {
+      "book_id": 1503,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/1503/volume/4/page/10?database_sha256=e81a1a6fa62cc5dfa224bc326728ab924456e6a77cdb10e17e887ab19a8081d8&segment_id=1869"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_a3adc4909c77522d878c6d49",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "بعض النحاة في توجيه قوله تعالي",
+          "narrator_surface_raw": "بعض النحاة في توجيه قوله تعالى",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "QALA",
+          "transmission_term_raw": "قال"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "رسول الله صلي الله عليه وسلم",
+          "narrator_surface_raw": "رسول الله ﷺ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "QALA",
+          "transmission_term_raw": "قال"
+        }
+      ],
+      "depends_on_boundary_resolution": false,
+      "isnad_internal_text_candidate": "﴿قَالَ مَا مَنَعَكَ أَلَّا تَسْجُدَ إِذْ أَمَرْتُكَ قَالَ أَنَا خَيْرٌ مِنْهُ خَلَقْتَنِي مِنْ نَارٍ وَخَلَقْتَهُ مِنْ طِينٍ (١٢)﴾.\nقال بعض النحاة في توجيه قوله تعالى: ﴿مَا مَنَعَكَ أَلَّا تَسْجُدَ﴾ (¬١): لا هنا زائدة، وقال بعضهم: زيدت لتأكيد الجحد، كقول الشاعر:\nما إن رأيت ولا سمعت بمثله\nفأدخل \"إن\" وهي للنفي على ما النافية لتأكيد النفي (¬٢)، قالوا: وكذا ههنا ﴿مَا مَنَعَكَ أَلَّا تَسْجُدَ﴾ مع تقدم قوله: ﴿لَمْ يَكُنْ مِنَ السَّاجِدِينَ﴾ [الأعراف: ١١] حكاهما ابن جرير وردهما، واختار أن منعك مضمن معنى فعل آخر، تقديره ما أحرجك وألزمك واضطرك أن لا تسجد إذ أمرتك ونحو هذا، وهذا القول قوي حسن، والله أعلم.\nوقول إبليس لعنه الله: ﴿أَنَا خَيْرٌ مِنْهُ﴾ من العذر الذي هو أكبر من الذنب، كأنه امتنع من الطاعة لأنه لا يؤمر الفاضل بالسجود للمفضول، يعني لعنه الله وأنا خير منه فكيف تأمرني بالسجود له؟ ثم بين أنه خير منه بأنه خلق من نار، والنار أشرف مما خلقته منه وهو الطين، فنظر اللعين إلى أصل العنصر ولم ينظر إلى التشريف العظيم، وهو أن الله تعالى خلق آدم بيده ونفخ فيه من روحه، وقاس قياسًا فاسدًا في مقابلة نص قوله تعالى: ﴿فَقَعُوا لَهُ سَاجِدِينَ﴾ [ص: ٧٢] فشذّ من بين الملائكة لترك السجود فهذا أبلس من الرحمة أي وأيس من الرحمة فأخطأ، قبحه الله في قياسه، ودعواه أن النار أشرف من الطين أيضًا، فإن الطين من شأنه الرزانة والحلم والأناة والتثبت، والطين محل النبات والنمو والزيادة والإصلاح، والنار من شأنها الإحراق والطيش والسرعة، ولهذا خان إبليس عنصره ونفع آدم عنصره بالرجوع والإنابة والاستكانة والانقياد والاستسلام لأمر الله والاعتراف وطلب التوبة والمغفرة.\nوفي صحيح مسلم عن عائشة ﵂ قالت: قال رسول الله ﷺ: \"خلقت الملائكة من نور وخلق إبليس من مارج من نار وخلق آدم مما وصف لكم\" هكذا رواه مسلم (¬٣).\nوقال ابن مردويه:",
+      "kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_46e935d55865a0bb5a31879c",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MARFU_CONTEXT_CANDIDATE",
+      "report_text": "﴿قَالَ مَا مَنَعَكَ أَلَّا تَسْجُدَ إِذْ أَمَرْتُكَ قَالَ أَنَا خَيْرٌ مِنْهُ خَلَقْتَنِي مِنْ نَارٍ وَخَلَقْتَهُ مِنْ طِينٍ (١٢)﴾.\nقال بعض النحاة في توجيه قوله تعالى: ﴿مَا مَنَعَكَ أَلَّا تَسْجُدَ﴾ (¬١): لا هنا زائدة، وقال بعضهم: زيدت لتأكيد الجحد، كقول الشاعر:\nما إن رأيت ولا سمعت بمثله\nفأدخل \"إن\" وهي للنفي على ما النافية لتأكيد النفي (¬٢)، قالوا: وكذا ههنا ﴿مَا مَنَعَكَ أَلَّا تَسْجُدَ﴾ مع تقدم قوله: ﴿لَمْ يَكُنْ مِنَ السَّاجِدِينَ﴾ [الأعراف: ١١] حكاهما ابن جرير وردهما، واختار أن منعك مضمن معنى فعل آخر، تقديره ما أحرجك وألزمك واضطرك أن لا تسجد إذ أمرتك ونحو هذا، وهذا القول قوي حسن، والله أعلم.\nوقول إبليس لعنه الله: ﴿أَنَا خَيْرٌ مِنْهُ﴾ من العذر الذي هو أكبر من الذنب، كأنه امتنع من الطاعة لأنه لا يؤمر الفاضل بالسجود للمفضول، يعني لعنه الله وأنا خير منه فكيف تأمرني بالسجود له؟ ثم بين أنه خير منه بأنه خلق من نار، والنار أشرف مما خلقته منه وهو الطين، فنظر اللعين إلى أصل العنصر ولم ينظر إلى التشريف العظيم، وهو أن الله تعالى خلق آدم بيده ونفخ فيه من روحه، وقاس قياسًا فاسدًا في مقابلة نص قوله تعالى: ﴿فَقَعُوا لَهُ سَاجِدِينَ﴾ [ص: ٧٢] فشذّ من بين الملائكة لترك السجود فهذا أبلس من الرحمة أي وأيس من الرحمة فأخطأ، قبحه الله في قياسه، ودعواه أن النار أشرف من الطين أيضًا، فإن الطين من شأنه الرزانة والحلم والأناة والتثبت، والطين محل النبات والنمو والزيادة والإصلاح، والنار من شأنها الإحراق والطيش والسرعة، ولهذا خان إبليس عنصره ونفع آدم عنصره بالرجوع والإنابة والاستكانة والانقياد والاستسلام لأمر الله والاعتراف وطلب التوبة والمغفرة.\nوفي صحيح مسلم عن عائشة ﵂ قالت: قال رسول الله ﷺ: \"خلقت الملائكة من نور وخلق إبليس من مارج من نار وخلق آدم مما وصف لكم\" هكذا رواه مسلم (¬٣).\nوقال ابن مردويه:",
+      "report_text_sha256": "1d4586aae5130d758fb6e7c8281f5e037333f0f101c874b69f2d9e8172a9a87e",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": "رسول الله ﷺ",
+        "display_mode": "PROPHET_WITH_COMPANION_OR_MARFU_TABII",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": null,
+        "prophet_name": "محمد ﷺ",
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_07ff26f91bcec07275760194",
+      "terminal_speaker_surface_candidate": "رسول الله ﷺ",
+      "work_source_id": "SRC-TAFSIR-IBN-KATHIR-ADAM"
+    }
+  ],
+  "schema_version": "siraj-adam-gemini-draft-batch-v1",
+  "task_contract_project_path": "sources/secondary/gemini-semantic-analysis-draft/contracts/chain-interpretation-contract-v1.json",
+  "task_name": "chain-interpretation"
+}

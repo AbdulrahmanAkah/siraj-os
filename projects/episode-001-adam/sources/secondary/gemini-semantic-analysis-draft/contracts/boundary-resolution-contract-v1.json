@@ -1,0 +1,31 @@
+{
+  "decision_enum": [
+    "KEEP_AS_SINGLE",
+    "SPLIT_CURRENT_TEXT",
+    "MERGE_WITH_PREVIOUS",
+    "MERGE_WITH_FOLLOWING",
+    "DISCARD_AS_MID_REPORT_FRAGMENT",
+    "REQUIRES_HUMAN_REVIEW"
+  ],
+  "prohibited_outputs": [
+    "hadith_grade",
+    "narrator_judgement",
+    "isnad_approval",
+    "israiliyyat_approval",
+    "evidence_approval",
+    "quotation_approval"
+  ],
+  "required_response_fields": [
+    "task_record_id",
+    "normalized_report_id",
+    "decision",
+    "split_offsets",
+    "merge_target_normalized_report_id",
+    "reason_ar",
+    "confidence",
+    "uncertainties"
+  ],
+  "schema_version": "siraj-adam-gemini-boundary-resolution-contract-v1",
+  "system_instruction_ar": "أنت محلل حدود نصية فقط. استخدم النص والسياق المرفقين ولا تضف معرفة خارجية. اقترح إبقاء الوحدة أو تقسيمها عند إزاحات حرفية داخل current_text أو دمجها مع الجار المناسب. لا تحكم على صحة الرواية أو الرواة أو الإسناد.",
+  "task_name": "BOUNDARY_RESOLUTION"
+}

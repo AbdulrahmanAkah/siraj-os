@@ -1,0 +1,42 @@
+{
+  "attribution_profile_counts": {
+    "KAB_AL_AHBAR": 3,
+    "WAHB_IBN_MUNABBIH": 3
+  },
+  "book_character_limit": 240000,
+  "book_id": 12406,
+  "book_title": "المنتظم في تاريخ الملوك والأمم",
+  "excluded_after_tabari_boundary": 0,
+  "excluded_by_book_budget": 86,
+  "input_candidate_count": 193,
+  "outputs": {
+    "gemini_input_draft": {
+      "execution_status": "BLOCKED_PENDING_HUMAN_WINDOW_APPROVAL",
+      "project_path": "sources/secondary/bounded-review-windows/SRC-HISTORY-MUNTAZAM-ADAM/gemini-input-draft.jsonl",
+      "rows": 23,
+      "sha256": "c11eb0c602056cf8bb3c8edd8d33f804a19f101a1f2f5c2ff57d5f99288aadce"
+    },
+    "review_windows": {
+      "project_path": "sources/secondary/bounded-review-windows/SRC-HISTORY-MUNTAZAM-ADAM/review-windows.jsonl",
+      "rows": 23,
+      "sha256": "919495070bf2bab4c189ae6300e2e9b374ce31cb6f6377b170ed6033a850c291"
+    }
+  },
+  "raw_window_count": 109,
+  "review_window_character_count": 239794,
+  "review_window_count": 23,
+  "review_window_limit": 45,
+  "selected_candidate_count": 186,
+  "tabari_continuation_boundary": {
+    "boundary_sequence_num": null,
+    "status": "NOT_APPLICABLE"
+  },
+  "tier_counts": {
+    "A": 8,
+    "B": 37,
+    "C": 47,
+    "D": 1
+  },
+  "window_character_limit": 18000,
+  "work_source_id": "SRC-HISTORY-MUNTAZAM-ADAM"
+}

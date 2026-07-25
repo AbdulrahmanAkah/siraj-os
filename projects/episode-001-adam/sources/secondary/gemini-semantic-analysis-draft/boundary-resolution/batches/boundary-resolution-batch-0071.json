@@ -1,0 +1,537 @@
+{
+  "batch_id": "boundary-resolution-batch-0071",
+  "episode_id": "episode-001-adam",
+  "execution_enabled": false,
+  "execution_status": "BLOCKED_NOT_AUTHORIZED",
+  "generation_config": {
+    "response_mime_type": "application/json",
+    "temperature": 0
+  },
+  "model_id": null,
+  "provider_id": "GEMINI",
+  "record_count": 6,
+  "records": [
+    {
+      "allowed_decisions": [
+        "KEEP_AS_SINGLE",
+        "SPLIT_CURRENT_TEXT",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_FOLLOWING",
+        "DISCARD_AS_MID_REPORT_FRAGMENT",
+        "REQUIRES_HUMAN_REVIEW"
+      ],
+      "book_id": 7798,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/1/page/491?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=671"
+      ],
+      "current_chain_nodes_candidate": [],
+      "current_kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "current_text": "ظننْتُم في أنفسِكم. إنكارًا منه لِقيلِهم ما قالوا مِن ذلك على الجميعِ والعمومِ، وهو مِن صفةِ خاصِّ ذريةِ الخليفةِ منهم. وهذا الذي ذكَرْنا هو صفةٌ منا لتأويلِ الخبرِ لا القولُ الذي نَخْتارُه في تأويلِ الآيةِ.\nومما يَدُلُّ على ما ذكَرْنا مِن توجيهِ مَخرجِ (¬١) خبرِ الملائكةِ عن إفسادِ ذريةِ الخليفةِ وسَفْكِها الدماءَ على العمومِ ما حدَّثنا به أحمدُ (¬٢) بنُ إسحاقَ الأهْوازيُّ، قال:\nحدَّثنا أبو أحمدَ الزُّبَيْريُّ، قال:",
+      "current_text_sha256": "892c100e2db24ac434e2cf53ef91f20381e6cddcb5fafa81508b941c2f5616be",
+      "event_ids": [
+        "EV-ADAM-010",
+        "EV-ADAM-011",
+        "EV-ADAM-020",
+        "EV-ADAM-021",
+        "EV-ADAM-022",
+        "EV-ADAM-023",
+        "EV-ADAM-024",
+        "EV-ADAM-030",
+        "EV-ADAM-031",
+        "EV-ADAM-032",
+        "EV-ADAM-033",
+        "EV-ADAM-040",
+        "EV-ADAM-041",
+        "EV-ADAM-042",
+        "EV-ADAM-050",
+        "EV-ADAM-051",
+        "EV-ADAM-052",
+        "EV-ADAM-053",
+        "EV-ADAM-054",
+        "EV-ADAM-055"
+      ],
+      "following_context": {
+        "normalized_report_id": "adam_normalized_report_5f5819130eb834122d3a7b64",
+        "text_excerpt": "منَّا. فابْتُلوا بخلقِ آدمَ - وكلُّ خلقٍ مُبْتلًى -كما ابْتُلِيَتِ السماواتُ والأرضُ بالطاعةِ، فقال اللهُ: ﴿ائْتِيَا طَوْعًا أَوْ كَرْهًا قَالَتَا أَتَيْنَا طَائِعِينَ﴾ (¬١) [فصلت: ١١]. وهذا الخبرُ عن قتادةَ يَدُلُّ على أن قتادةَ كان يرَى أن الملائكةَ قالت ما قالت مِن قولِها: ﴿أَتَجْعَلُ فِيهَا مَنْ يُفْسِدُ فِيهَا وَيَسْفِكُ الدِّمَاءَ﴾. على غير (¬٢) يقينِ علمٍ تقَدَّم منها بأن ذلك كائنٌ، ولكن على الرأيِ منها والظنِّ، وأن اللهَ جلَّ ثناؤُه أنكَر ذلك مِن قيلِها، وردَّ عليها ما رأَت بقولِه: ﴿إِنِّي أَعْلَمُ مَا لَا تَعْلَمُونَ﴾. مِن أنه يكونُ مِن ذريةِ ذلك الخليفةِ الأنبياءُ والرسلُ والمُجْتَهِدُ في طاعةِ اللهِ. وقد رُوِي عن قتادةَ خلافُ هذا التأويلِ، وهو ما حدَّثنا به الحسنُ بنُ يحيى، قال: أخْبَرَنا عبدُ الرزَّاقِ، قال:"
+      },
+      "normalized_report_id": "adam_normalized_report_d5e9ed14f90f435c8fc1efeb",
+      "permissions": {
+        "candidate_only": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_boundaries": true
+      },
+      "previous_context": {
+        "normalized_report_id": "adam_normalized_report_d0f9790e49633b989d7bb8be",
+        "text_excerpt": "حدَّثنا سعيدٌ، عن قتادةَ قولَه: ﴿وَإِذْ قَالَ رَبُّكَ لِلْمَلَائِكَةِ إِنِّي جَاعِلٌ فِي الْأَرْضِ خَلِيفَةً﴾. فاستشارَ (¬٤) الملائكةَ في خلقِ آدمَ، فقالوا: ﴿أَتَجْعَلُ فِيهَا مَنْ يُفْسِدُ فِيهَا وَيَسْفِكُ الدِّمَاءَ﴾. وقد علِمتِ الملائكةُ مِن علمِ اللهِ أنه لا شيْءَ أكْرَهُ إلى اللهِ مِن سَفْكِ الدماءِ والفسادِ في الأرضِ، ﴿وَنَحْنُ نُسَبِّحُ بِحَمْدِكَ وَنُقَدِّسُ لَكَ قَالَ إِنِّي أَعْلَمُ مَا لَا تَعْلَمُونَ﴾. فكان في علمِ اللهِ أنه سيكونُ مِن تلك (¬٥) الخليفةِ أنبياءُ ورسلٌ، وقومٌ صالحون، وساكِنو (¬٦) الجَنَّةِ. قال: وذُكِر لنا أن ابنَ عباسٍ كان يقولُ: إن اللهَ لما أخَذ في خلقِ آدمَ قالتِ الملائكةُ: ما اللهُ خالقٌ خلقًا أكرمَ عليه منَّا، ولا أعلمَ"
+      },
+      "research_question_ids": [
+        "RQ-ADAM-007",
+        "RQ-ADAM-008",
+        "RQ-ADAM-009",
+        "RQ-ADAM-010",
+        "RQ-ADAM-011",
+        "RQ-ADAM-012",
+        "RQ-ADAM-013",
+        "RQ-ADAM-014",
+        "RQ-ADAM-015",
+        "RQ-ADAM-016",
+        "RQ-ADAM-017",
+        "RQ-ADAM-018",
+        "RQ-ADAM-019",
+        "RQ-ADAM-020"
+      ],
+      "task_record_id": "adam_gemini_boundary_task_0c9dc4777416c5a40ba178d8",
+      "warnings": [
+        "NO_DETERMINISTIC_SPLIT_FOUND",
+        "REQUESTED_RESEGMENTATION_NOT_ACHIEVED"
+      ],
+      "window_id": "c8dd1ab86b1d174f6e88169e",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "allowed_decisions": [
+        "KEEP_AS_SINGLE",
+        "SPLIT_CURRENT_TEXT",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_FOLLOWING",
+        "DISCARD_AS_MID_REPORT_FRAGMENT",
+        "REQUIRES_HUMAN_REVIEW"
+      ],
+      "book_id": 7798,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/1/page/479?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=659"
+      ],
+      "current_chain_nodes_candidate": [],
+      "current_kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "current_text": "يخلُفُ بعضُهم بعضًا، وهم ولدُ آدمَ الذين يَخْلُفون أباهم آدمَ، ويَخْلُفُ كلُّ قرنٍ منهم القرنَ الذي سلَف قبلَه. وهذا قولٌ حُكِي (¬١) عن الحسنِ البصريِّ.\nونظيرٌ له ما حَدَّثَنَا به محمدُ بنُ بشارٍ، قال:\nحَدَّثَنَا أبو أحمدَ الزّبيريُّ، قال:",
+      "current_text_sha256": "a0719cfbd6311f81e537aee42e5fff8df6749e870219f23507231812cfa742e2",
+      "event_ids": [
+        "EV-ADAM-010",
+        "EV-ADAM-011",
+        "EV-ADAM-020",
+        "EV-ADAM-021",
+        "EV-ADAM-022",
+        "EV-ADAM-023",
+        "EV-ADAM-024",
+        "EV-ADAM-030",
+        "EV-ADAM-031",
+        "EV-ADAM-032",
+        "EV-ADAM-033",
+        "EV-ADAM-040",
+        "EV-ADAM-041",
+        "EV-ADAM-042",
+        "EV-ADAM-050",
+        "EV-ADAM-051",
+        "EV-ADAM-052",
+        "EV-ADAM-053",
+        "EV-ADAM-054",
+        "EV-ADAM-055"
+      ],
+      "following_context": {
+        "normalized_report_id": "adam_normalized_report_d6fcae29b2b8119defdb1644",
+        "text_excerpt": "وَيَتَحَاسَدونَ ويَقْتُلُ بعضُهم بعضًا (¬١). فكان تأويلُ الآيةِ على هذه الروايةِ التي ذكَرناها عن ابنِ مسعودٍ وابنِ عباسٍ: إني جاعلٌ في الأرضِ خليفةً منِّي يَخْلُفُني في الحكمِ بمنَ خَلْقِي، وذلك الخليفةُ هو آدمُ وَمَن قامَ مَقامَه في طاعةِ اللهِ، والحكمِ بالعدلِ بينَ خَلْقِه. وأما الإفسادُ وسفكُ الدماءِ بغيرِ حَقِّها فمن غيرِ خلفائِه، ومن غيرِ آدمَ ومَن قام مَقامَه في عبادِ اللهِ؛ لأنهما أخبرَا أن اللهَ تعالى ذِكْرُه قال لملائكتِه إذْ سألوه: ما ذاك الخليفةُ؟: إنه خليفةٌ تكونُ له ذريةٌ يُفْسِدون في الأرضِ ويتحاسَدون ويَقْتُلُ بعضُهم بعضًا. فأضاف الإفسادَ وسفْكَ الدماءِ بغيرِ حقِّها إلى ذريةِ خَليفتِه دونَه، وأخرَج منه خليفتَه. وهذا التأويلُ وإن كان مخالفًا في معنى الخليفةِ ما حُكِي عن الحسنِ من وجهٍ، فموافقٌ له من وجهٍ، فأما موافقتُه إياه فصرْفُ متأوِّلِيه إضافةَ الإفسادِ في الأرضِ وسَفْكِ الدماءِ فيها إلى غيرِ الخليفةِ. وأما مخالفتُه إياه، فإضافتُهم الخلافةَ إلى آدمَ بمعنى استخلافِ اللهِ إياه فيها. وإضافةُ الحسنِ الخلافةَ إلى ولدِه، بمعنى خلافةِ بعضِهم بعضًا، وقيامِ قرْنٍ منهم مَقامَ قَرْنٍ قبلَهم، وإضافةِ الإفسادِ في الأرض وسَفْكِ الدماءِ إلى الخليفةِ. والذي دعَا المتأوِّلين قولَه: ﴿إِنِّي جَاعِلٌ فِي الْأَرْضِ خَلِيفَةً﴾ التأويلَ (¬٢) الذي ذُكِر عن الحسنِ - إلى ما قالوا في ذلك؛ أنّهم قالوا: إن"
+      },
+      "normalized_report_id": "adam_normalized_report_d646d4ee5e7db62f3411ff1b",
+      "permissions": {
+        "candidate_only": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_boundaries": true
+      },
+      "previous_context": {
+        "normalized_report_id": "adam_normalized_report_bf45d1529b744edaf837ab53",
+        "text_excerpt": "حَدَّثَنَا أسباطُ، عن السدِّيِّ في خبرٍ ذكَره عن أبي مالكٍ، وعن أبي صالحٍ [عن ابنِ عباسٍ، وعن مُرَّةَ، عن ابنِ مسعودٍ] (¬٥) وعن ناسٍ مِن أصحابِ النَّبِيِّ ﷺ، أن اللهَ جلَّ ثناؤُه قال للملائكةِ: ﴿إِنِّي جَاعِلٌ فِي الْأَرْضِ خَلِيفَةً﴾. قالوا: ربَّنا وما يَكُونُ ذلك الخليفةُ؟ قال يكونُ له ذريةٌ يُفْسِدُون في الأرضِ"
+      },
+      "research_question_ids": [
+        "RQ-ADAM-007",
+        "RQ-ADAM-008",
+        "RQ-ADAM-009",
+        "RQ-ADAM-010",
+        "RQ-ADAM-011",
+        "RQ-ADAM-012",
+        "RQ-ADAM-013",
+        "RQ-ADAM-014",
+        "RQ-ADAM-015",
+        "RQ-ADAM-016",
+        "RQ-ADAM-017",
+        "RQ-ADAM-018",
+        "RQ-ADAM-019",
+        "RQ-ADAM-020"
+      ],
+      "task_record_id": "adam_gemini_boundary_task_1eef660dccc3b35e3a5bd1f6",
+      "warnings": [
+        "NO_DETERMINISTIC_SPLIT_FOUND",
+        "REQUESTED_RESEGMENTATION_NOT_ACHIEVED"
+      ],
+      "window_id": "c8dd1ab86b1d174f6e88169e",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "allowed_decisions": [
+        "KEEP_AS_SINGLE",
+        "SPLIT_CURRENT_TEXT",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_FOLLOWING",
+        "DISCARD_AS_MID_REPORT_FRAGMENT",
+        "REQUIRES_HUMAN_REVIEW"
+      ],
+      "book_id": 7798,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/1/page/480?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=660"
+      ],
+      "current_chain_nodes_candidate": [],
+      "current_kind_candidate": "QURAN_EXEGESIS_CONTEXT_CANDIDATE",
+      "current_text": "وَيَتَحَاسَدونَ ويَقْتُلُ بعضُهم بعضًا (¬١).\nفكان تأويلُ الآيةِ على هذه الروايةِ التي ذكَرناها عن ابنِ مسعودٍ وابنِ عباسٍ: إني جاعلٌ في الأرضِ خليفةً منِّي يَخْلُفُني في الحكمِ بمنَ خَلْقِي، وذلك الخليفةُ هو آدمُ وَمَن قامَ مَقامَه في طاعةِ اللهِ، والحكمِ بالعدلِ بينَ خَلْقِه. وأما الإفسادُ وسفكُ الدماءِ بغيرِ حَقِّها فمن غيرِ خلفائِه، ومن غيرِ آدمَ ومَن قام مَقامَه في عبادِ اللهِ؛ لأنهما أخبرَا أن اللهَ تعالى ذِكْرُه قال لملائكتِه إذْ سألوه: ما ذاك الخليفةُ؟: إنه خليفةٌ تكونُ له ذريةٌ يُفْسِدون في الأرضِ ويتحاسَدون ويَقْتُلُ بعضُهم بعضًا. فأضاف الإفسادَ وسفْكَ الدماءِ بغيرِ حقِّها إلى ذريةِ خَليفتِه دونَه، وأخرَج منه خليفتَه.\nوهذا التأويلُ وإن كان مخالفًا في معنى الخليفةِ ما حُكِي عن الحسنِ من وجهٍ، فموافقٌ له من وجهٍ، فأما موافقتُه إياه فصرْفُ متأوِّلِيه إضافةَ الإفسادِ في الأرضِ وسَفْكِ الدماءِ فيها إلى غيرِ الخليفةِ. وأما مخالفتُه إياه، فإضافتُهم الخلافةَ إلى آدمَ بمعنى استخلافِ اللهِ إياه فيها. وإضافةُ الحسنِ الخلافةَ إلى ولدِه، بمعنى خلافةِ بعضِهم بعضًا، وقيامِ قرْنٍ منهم مَقامَ قَرْنٍ قبلَهم، وإضافةِ الإفسادِ في الأرض وسَفْكِ الدماءِ إلى الخليفةِ.\nوالذي دعَا المتأوِّلين قولَه: ﴿إِنِّي جَاعِلٌ فِي الْأَرْضِ خَلِيفَةً﴾\nالتأويلَ (¬٢) الذي ذُكِر عن الحسنِ - إلى ما قالوا في ذلك؛ أنّهم قالوا: إن",
+      "current_text_sha256": "aa508ade301c8c1b2f17b1310a26f55b66ad1cdf77df06ab4d6da6bfb74335f6",
+      "event_ids": [
+        "EV-ADAM-010",
+        "EV-ADAM-011",
+        "EV-ADAM-020",
+        "EV-ADAM-021",
+        "EV-ADAM-022",
+        "EV-ADAM-023",
+        "EV-ADAM-024",
+        "EV-ADAM-030",
+        "EV-ADAM-031",
+        "EV-ADAM-032",
+        "EV-ADAM-033",
+        "EV-ADAM-040",
+        "EV-ADAM-041",
+        "EV-ADAM-042",
+        "EV-ADAM-050",
+        "EV-ADAM-051",
+        "EV-ADAM-052",
+        "EV-ADAM-053",
+        "EV-ADAM-054",
+        "EV-ADAM-055"
+      ],
+      "following_context": {
+        "normalized_report_id": "adam_normalized_report_96d1a62cbd0ed7c5d3337972",
+        "text_excerpt": "الملائكةَ إنما قالت لربِّها - إذ قال لهم ربُّهم: ﴿إِنِّي جَاعِلٌ فِي الْأَرْضِ خَلِيفَةً﴾ -: ﴿أَتَجْعَلُ فِيهَا مَنْ يُفْسِدُ فِيهَا وَيَسْفِكُ الدِّمَاءَ﴾. إخبارًا منها بذلك عن الخليفةِ الذي أخبَر اللهُ جلَّ ذِكْرُه أنه جاعِلُه في الأرضِ لا عن (¬١) غيرِه؛ لأنَّ [المحاورةَ بين] (¬٢) الملائكةِ وبين ربِّها عنه جرتْ. قالوا: فإذ كان ذلك كذلك، وكان اللهُ تعالى ذِكْرُه قد برَّأ آدمَ من الإفسادِ في الأرضِ وسفْكِ الدماءِ، وطهَّره من ذلك، عُلِمَ أن الذي عُنِي به غيرُه من ذرِّيتِه. فثبَت أن الخليفةَ الذي يفسِدُ في الأرضِ ويَسفِكُ الدماءَ هو غيرُ آدمَ، وأنهم ولدُه الذين فعلُوا ذلك، وأن معنى الخلافةِ التي ذكَرها اللهُ إنما هي خلافةُ قرْنٍ منهم قرنًا، عندَهم (¬٣)؛ لما وصَفْنا. وأغفَل قائلُو هذه المقالةِ ومتأوِّلو الآيةِ هذا التأويلَ سبيلَ التأويلِ، وذلك أن الملائكةَ - إذ قال لها ربُّها: ﴿إِنِّي جَاعِلٌ فِي الْأَرْضِ خَلِيفَةً﴾ - لَمْ تُضِفِ (¬٤) الإفسادَ وسفْكَ الدماءِ في جوابِها ربَّها إلى خليفتِه في أرضِه، بل قالت: ﴿قَالُوا أَتَجْعَلُ فِيهَا مَنْ يُفْسِدُ فِيهَا﴾. [وغيرُ مُنكرٍ أن يكونَ ربُّها أعلَمَها أنه يكونُ لخليفتِه ذلكَ ذريةٌ يكونُ منهم الإفسادُ وسفكُ الدماءِ [فقالت: يا ربَّنا، أتجعلُ فيها من يفسِدُ فيها ويسفِكُ الدماءَ] (¬٥)] (¬٦). كما قال ابنُ مسعودٍ وابنُ عباسٍ ومَن حكَيْنا ذلك عنه من أهلِ التأويلِ (¬٧)."
+      },
+      "normalized_report_id": "adam_normalized_report_d6fcae29b2b8119defdb1644",
+      "permissions": {
+        "candidate_only": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_boundaries": true
+      },
+      "previous_context": {
+        "normalized_report_id": "adam_normalized_report_d646d4ee5e7db62f3411ff1b",
+        "text_excerpt": "يخلُفُ بعضُهم بعضًا، وهم ولدُ آدمَ الذين يَخْلُفون أباهم آدمَ، ويَخْلُفُ كلُّ قرنٍ منهم القرنَ الذي سلَف قبلَه. وهذا قولٌ حُكِي (¬١) عن الحسنِ البصريِّ. ونظيرٌ له ما حَدَّثَنَا به محمدُ بنُ بشارٍ، قال: حَدَّثَنَا أبو أحمدَ الزّبيريُّ، قال:"
+      },
+      "research_question_ids": [
+        "RQ-ADAM-007",
+        "RQ-ADAM-008",
+        "RQ-ADAM-009",
+        "RQ-ADAM-010",
+        "RQ-ADAM-011",
+        "RQ-ADAM-012",
+        "RQ-ADAM-013",
+        "RQ-ADAM-014",
+        "RQ-ADAM-015",
+        "RQ-ADAM-016",
+        "RQ-ADAM-017",
+        "RQ-ADAM-018",
+        "RQ-ADAM-019",
+        "RQ-ADAM-020"
+      ],
+      "task_record_id": "adam_gemini_boundary_task_a536d1f67a007713c4300fb8",
+      "warnings": [
+        "NO_DETERMINISTIC_SPLIT_FOUND",
+        "REQUESTED_RESEGMENTATION_NOT_ACHIEVED"
+      ],
+      "window_id": "c8dd1ab86b1d174f6e88169e",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "allowed_decisions": [
+        "KEEP_AS_SINGLE",
+        "SPLIT_CURRENT_TEXT",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_FOLLOWING",
+        "DISCARD_AS_MID_REPORT_FRAGMENT",
+        "REQUIRES_HUMAN_REVIEW"
+      ],
+      "book_id": 7798,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/1/page/528?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=708"
+      ],
+      "current_chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابي روق",
+          "narrator_surface_raw": "أبى رَوْقٍ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "الضحاك",
+          "narrator_surface_raw": "الضحاكِ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابن عباس",
+          "narrator_surface_raw": "ابنِ عباسٍ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابو جعفر",
+          "narrator_surface_raw": "أبو جعفرٍ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 3,
+          "transmission_term_canonical": "QALA",
+          "transmission_term_raw": "قال"
+        }
+      ],
+      "current_kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "current_text": "حدَّثنا بشرُ بنُ عُمارةَ، عن أبى رَوْقٍ، عن الضحاكِ، عن ابنِ عباسٍ: ﴿قَالُوا سُبْحَانَكَ﴾ تَنْزِيهًا للهِ مِن أن يكونَ أحدٌ يَعْلَمُ الغيبَ غيرَه، تُبْنا إليك، ﴿لَا عِلْمَ لَنَا إِلَّا مَا عَلَّمْتَنَا﴾ تَبَرِّيًا منهم مِن علمِ الغيبِ، إلَّا ما علَّمتنا كما علَّمْتَ آدمَ (¬٥).\nو\"سبحانَ\" مصدرٌ لا تصَرُّفَ له، ومعناه: تسبيحَكَ (¬٦). كأنهم قالوا: نُسَبِّحُك تَسْبيحًا، ونُنَزِّهُك تَنْزيهًا، ونُبَرِّئُك مِن أن نَعْلَمَ شيئًا غيرَ ما علَّمْتَنا.\n\nالقولُ في تأويل قولِه جلَّ ثناؤُه: ﴿إِنَّكَ أَنْتَ الْعَلِيمُ الْحَكِيمُ (٣٢)﴾.\nقال أبو جعفرٍ: وتأويلُ ذلك: إنك أنت يا ربَّنا العليمُ -مِن غيرِ تَعْليمٍ-",
+      "current_text_sha256": "42893f400b2dc307984cdf713a326c610be3028074303ddbcd2ce15f02d5b890",
+      "event_ids": [
+        "EV-ADAM-040",
+        "EV-ADAM-041",
+        "EV-ADAM-042",
+        "EV-ADAM-050",
+        "EV-ADAM-051",
+        "EV-ADAM-052",
+        "EV-ADAM-053",
+        "EV-ADAM-054",
+        "EV-ADAM-055"
+      ],
+      "following_context": {
+        "normalized_report_id": "adam_normalized_report_2c3389ecd48f55b1c51f06c1",
+        "text_excerpt": "حدَّثنى معاويةُ، عن علىٍّ، عن ابنِ عباسٍ: العليمُ الذى قد كمُل في علمِه، والحكيمُ الذى قد كمُل في حِكْمتِه (¬٢). وقد قيل: إن معنى ﴿الْحَكِيمُ﴾ الحاكمُ، كما (¬٣) العليمُ بمعنى العالمِ، والخبيرُ بمعنى الخابرِ. القولُ في تأويلِ قولِه جلَّ ثناؤُه: ﴿قَالَ يَاآدَمُ أَنْبِئْهُمْ بِأَسْمَائِهِمْ فَلَمَّا أَنْبَأَهُمْ بِأَسْمَائِهِمْ قَالَ أَلَمْ أَقُلْ لَكُمْ إِنِّي أَعْلَمُ غَيْبَ السَّمَاوَاتِ وَالْأَرْضِ﴾."
+      },
+      "normalized_report_id": "adam_normalized_report_dae8c7957cc96f222c21efe9",
+      "permissions": {
+        "candidate_only": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_boundaries": true
+      },
+      "previous_context": {
+        "normalized_report_id": "adam_normalized_report_02cc5ccb0fe44556f605682c",
+        "text_excerpt": "الدلالةِ وأبينُ الحُجَّةِ على كذبِ مَقالةِ كلِّ مَن ادَّعَى شيئًا مِن علومِ الغيبِ، مِن الحُزاةِ (¬١) والكَهَنةِ والعافَةِ (¬٢) والمُتنَجِّمةِ. وذكَّر بها الذين وصَفْنا أمرَهم مِن أهلِ الكتابِ، سَوالفَ نعمِه على آبائِهم، وأياديَه عندَ أسلافِهم، عندَ إنابتِهم إليه، وإقبالِهم إلى طاعتهِ، مُسْتَعْطِفَهم بذلك إلى الرَّشادِ، ومُسْتَعْتِبَهم به إلى النجاة، وحذَّرهم -بالإصرارِ والتمادى في الغَىِّ (¬٣) والضَّلالِ- حلولَ العِقابِ بهم، نظيرَ ما أحلَّ بعدوِّه إبليسَ، إذ تمادَى في الغَىِّ (¬٣) والخَسَارِ (¬٤). وأما تأويلُ قولِه: ﴿سُبْحَانَكَ لَا عِلْمَ لَنَا إِلَّا مَا عَلَّمْتَنَا﴾. فهو كما حدَّثنا أبو كُرَيْبٍ، قال: حدَّثنا عثمانُ بنُ سعيدٍ، قال:"
+      },
+      "research_question_ids": [
+        "RQ-ADAM-015",
+        "RQ-ADAM-016",
+        "RQ-ADAM-017",
+        "RQ-ADAM-018",
+        "RQ-ADAM-019",
+        "RQ-ADAM-020"
+      ],
+      "task_record_id": "adam_gemini_boundary_task_0d3bac200857cb392dced539",
+      "warnings": [
+        "NO_DETERMINISTIC_SPLIT_FOUND",
+        "REQUESTED_RESEGMENTATION_NOT_ACHIEVED"
+      ],
+      "window_id": "77c665c37c70ab8fdc300f09",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "allowed_decisions": [
+        "KEEP_AS_SINGLE",
+        "SPLIT_CURRENT_TEXT",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_FOLLOWING",
+        "DISCARD_AS_MID_REPORT_FRAGMENT",
+        "REQUIRES_HUMAN_REVIEW"
+      ],
+      "book_id": 7798,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/22/page/193?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=14858"
+      ],
+      "current_chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "سعيد",
+          "narrator_surface_raw": "سعيدٌ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "قتادة في قوله",
+          "narrator_surface_raw": "قتادةَ في قولِه",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "current_kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "current_text": "ثنا سعيدٌ، عن قتادةَ في قولِه: ﴿خَلَقَ الْإِنْسَانَ مِنْ صَلْصَالٍ كَالْفَخَّارِ﴾] (¬٢): والصلصالُ الترابُ اليابسُ الذي تُسمعُ له صلصلةٌ، وهو كالفخارِ كما قال اللَّهُ ﷿ (¬٣).\nحدَّثنا ابنُ عبدِ الأعلى، قال:",
+      "current_text_sha256": "779644430370671282f8d7e92724131f2cfdc1679eea9cc1c4812545fc692cec",
+      "event_ids": [],
+      "following_context": {
+        "normalized_report_id": "adam_normalized_report_fd60e8eaad9a0b7038a11b39",
+        "text_excerpt": "ثنا ابنُ ثورٍ، عن معمرٍ، عن قتادةَ في قولِه: ﴿مِنْ صَلْصَالٍ كَالْفَخَّارِ﴾. قال: من طينٍ له صلصلةٌ كان يابسًا، ثم خلَق الإنسانَ منه (¬٤). حدَّثني يونسُ، قال: أخبَرنا ابنُ وهبٍ، قال: قال ابنُ زيدٍ في قولِه:"
+      },
+      "normalized_report_id": "adam_normalized_report_dbd04f3fcc61f91a55c334d0",
+      "permissions": {
+        "candidate_only": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_boundaries": true
+      },
+      "previous_context": {
+        "normalized_report_id": "adam_normalized_report_a876b3c4810c979203dcb397",
+        "text_excerpt": "ثنا أبو صالحٍ، قال: ثنى معاويةُ، عن عليٍّ، عن ابنِ عباسٍ قولَه: ﴿خَلَقَ الْإِنْسَانَ مِنْ صَلْصَالٍ كَالْفَخَّارِ﴾. يقولُ: من الطينِ اليابسِ. حدَّثنا هنادٌ، قال:"
+      },
+      "research_question_ids": [],
+      "task_record_id": "adam_gemini_boundary_task_75d6e389fa0f5a282e2e9ae8",
+      "warnings": [
+        "NO_DETERMINISTIC_SPLIT_FOUND",
+        "REQUESTED_RESEGMENTATION_NOT_ACHIEVED"
+      ],
+      "window_id": "7b0ef97e83f84e937b247d40",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "allowed_decisions": [
+        "KEEP_AS_SINGLE",
+        "SPLIT_CURRENT_TEXT",
+        "MERGE_WITH_PREVIOUS",
+        "MERGE_WITH_FOLLOWING",
+        "DISCARD_AS_MID_REPORT_FRAGMENT",
+        "REQUIRES_HUMAN_REVIEW"
+      ],
+      "book_id": 7798,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/14/page/62?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=9523"
+      ],
+      "current_chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "محمد بن عبد الاعلي",
+          "narrator_surface_raw": "محمد بن عبد الأعلى",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA",
+          "transmission_term_raw": "حدثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "محمد بن ثور",
+          "narrator_surface_raw": "محمد بن ثور",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "معمر [",
+          "narrator_surface_raw": "معمر [",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "قتادة] (¬١) ﴿من حما مسنون﴾ (¬٢). قال",
+          "narrator_surface_raw": "قتادة] (¬١) ﴿مِنْ حَمَإٍ مَسْنُونٍ﴾ (¬٢). قال",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 3,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "المثني",
+          "narrator_surface_raw": "المثنى",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 4,
+          "transmission_term_canonical": "HADDATHANI",
+          "transmission_term_raw": "حدثني"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "عمرو بن عون",
+          "narrator_surface_raw": "عمرُو بنُ عونٍ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 5,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        }
+      ],
+      "current_kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "current_text": "والحَمأُ المسنونُ الذي قد تغيَّر وأنتن.\nحدثنا محمد بن عبد الأعلى، قال:\nثنا محمد بن ثور، عن معمر [، عن قتادة] (¬١) ﴿مِنْ حَمَإٍ مَسْنُونٍ﴾ (¬٢). قال: قد أسِنَ (¬٣). قال: منتنة (¬٤).\nحدثني المثنى، قال:\nثنا عمرُو بنُ عونٍ، قال:",
+      "current_text_sha256": "3ffdff5daceb21e9596667d7070f0c1b521294208e96d44b663b3332ec1a58b2",
+      "event_ids": [],
+      "following_context": {
+        "normalized_report_id": "adam_normalized_report_f2e5cd155e0bff9e6216b3bb",
+        "text_excerpt": "ثنا عبيد بن سليمان، قال: سمِعتُ الضحاك يقولُ في قوله: ﴿مِنْ حَمَإٍ مَسْنُونٍ﴾: هو (¬٥) الحَمأُ المنتن. وقال آخرون منهم في ذلك: هو الطينُ الرَّطْبُ. ذكرُ مَن قال ذلك حدثني المثنى، قال:"
+      },
+      "normalized_report_id": "adam_normalized_report_dc214ac2f2dffa375f595367",
+      "permissions": {
+        "candidate_only": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_boundaries": true
+      },
+      "previous_context": {
+        "normalized_report_id": "adam_normalized_report_06c4e221de71846254894df2",
+        "text_excerpt": "ثنا عبدُ اللَّهِ، قال: ثني معاوية، عن علي، عن ابن عباس في قوله: ﴿مِنْ حَمَإٍ مَسْنُونٍ﴾. يقولُ: مِن طين رَطْبٍ (¬٦). القول في تأويل قوله تعالى: ﴿وَالْجَانَّ خَلَقْنَاهُ مِنْ قَبْلُ مِنْ نَارِ السَّمُومِ (٢٧)﴾. يقول تعالى ذكره: ﴿وَالْجَانَّ﴾. وقد بينا فيما مضى معنى الجانّ (¬٧)، ولم قيل"
+      },
+      "research_question_ids": [],
+      "task_record_id": "adam_gemini_boundary_task_943d0bbedf4b2a19734c1479",
+      "warnings": [
+        "MULTIPLE_STRONG_STARTS_REMAIN",
+        "NO_DETERMINISTIC_SPLIT_FOUND",
+        "REQUESTED_RESEGMENTATION_NOT_ACHIEVED"
+      ],
+      "window_id": "157dfa2875c5eef0d63593e7",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    }
+  ],
+  "schema_version": "siraj-adam-gemini-draft-batch-v1",
+  "task_contract_project_path": "sources/secondary/gemini-semantic-analysis-draft/contracts/boundary-resolution-contract-v1.json",
+  "task_name": "boundary-resolution"
+}

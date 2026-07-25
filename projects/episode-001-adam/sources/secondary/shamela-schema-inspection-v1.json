@@ -1,0 +1,1134 @@
+{
+  "asset_count": 9,
+  "created_at": "2026-07-24T12:40:36.789927Z",
+  "episode_id": "episode-001-adam",
+  "items": [
+    {
+      "asset_path": "C:\\SIRAJ\\Repositories\\siraj-os\\projects\\episode-001-adam\\sources\\secondary\\assets\\raw\\SRC-TAFSIR-TABARI-ADAM\\7798.db",
+      "asset_sha256": "59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3",
+      "inspection_status": "PASS",
+      "selected_book_id": 7798,
+      "tables": [
+        {
+          "candidate_text_columns": [
+            "page"
+          ],
+          "columns": [
+            {
+              "cid": 0,
+              "name": "id",
+              "notnull": false,
+              "primary_key_position": 1,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 1,
+              "name": "part",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "TEXT"
+            },
+            {
+              "cid": 2,
+              "name": "page",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 3,
+              "name": "number",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 4,
+              "name": "services",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "TEXT"
+            }
+          ],
+          "create_sql": "CREATE TABLE page (id INTEGER PRIMARY KEY, part TEXT, page INTEGER, number INTEGER, services TEXT)",
+          "name": "page",
+          "object_type": "table",
+          "sample_rows": [
+            {
+              "id": 1,
+              "number": null,
+              "page": 5,
+              "part": "المقدمة",
+              "services": null
+            },
+            {
+              "id": 2,
+              "number": null,
+              "page": 6,
+              "part": "المقدمة",
+              "services": null
+            },
+            {
+              "id": 3,
+              "number": null,
+              "page": 7,
+              "part": "المقدمة",
+              "services": null
+            }
+          ]
+        },
+        {
+          "candidate_text_columns": [
+            "page"
+          ],
+          "columns": [
+            {
+              "cid": 0,
+              "name": "id",
+              "notnull": false,
+              "primary_key_position": 1,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 1,
+              "name": "page",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 2,
+              "name": "parent",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "INTEGER"
+            }
+          ],
+          "create_sql": "CREATE TABLE title (id INTEGER PRIMARY KEY, page INTEGER, parent INTEGER)",
+          "name": "title",
+          "object_type": "table",
+          "sample_rows": [
+            {
+              "id": 1,
+              "page": 1,
+              "parent": 0
+            },
+            {
+              "id": 2,
+              "page": 6,
+              "parent": 1
+            },
+            {
+              "id": 3,
+              "page": 6,
+              "parent": 2
+            }
+          ]
+        }
+      ],
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "asset_path": "C:\\SIRAJ\\Repositories\\siraj-os\\projects\\episode-001-adam\\sources\\secondary\\assets\\raw\\SRC-TAFSIR-IBN-ABI-HATIM-ADAM\\8658.db",
+      "asset_sha256": "72fa72e670a63139b624db32c1e3752a5b3d10c862b3245339d4eadd5995f23a",
+      "inspection_status": "PASS",
+      "selected_book_id": 8658,
+      "tables": [
+        {
+          "candidate_text_columns": [
+            "page"
+          ],
+          "columns": [
+            {
+              "cid": 0,
+              "name": "id",
+              "notnull": false,
+              "primary_key_position": 1,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 1,
+              "name": "part",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "TEXT"
+            },
+            {
+              "cid": 2,
+              "name": "page",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 3,
+              "name": "number",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 4,
+              "name": "services",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "TEXT"
+            }
+          ],
+          "create_sql": "CREATE TABLE page (id INTEGER PRIMARY KEY, part TEXT, page INTEGER, number INTEGER, services TEXT)",
+          "name": "page",
+          "object_type": "table",
+          "sample_rows": [
+            {
+              "id": 1,
+              "number": null,
+              "page": null,
+              "part": "1",
+              "services": null
+            },
+            {
+              "id": 2,
+              "number": null,
+              "page": 3,
+              "part": "1",
+              "services": null
+            },
+            {
+              "id": 3,
+              "number": null,
+              "page": 4,
+              "part": "1",
+              "services": null
+            }
+          ]
+        },
+        {
+          "candidate_text_columns": [
+            "page"
+          ],
+          "columns": [
+            {
+              "cid": 0,
+              "name": "id",
+              "notnull": false,
+              "primary_key_position": 1,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 1,
+              "name": "page",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 2,
+              "name": "parent",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "INTEGER"
+            }
+          ],
+          "create_sql": "CREATE TABLE title (id INTEGER PRIMARY KEY, page INTEGER, parent INTEGER)",
+          "name": "title",
+          "object_type": "table",
+          "sample_rows": [
+            {
+              "id": 1,
+              "page": 2,
+              "parent": 0
+            },
+            {
+              "id": 2,
+              "page": 4,
+              "parent": 0
+            },
+            {
+              "id": 3,
+              "page": 6,
+              "parent": 0
+            }
+          ]
+        }
+      ],
+      "work_source_id": "SRC-TAFSIR-IBN-ABI-HATIM-ADAM"
+    },
+    {
+      "asset_path": "C:\\SIRAJ\\Repositories\\siraj-os\\projects\\episode-001-adam\\sources\\secondary\\assets\\raw\\SRC-TAFSIR-BAGHAWI-ADAM\\41.db",
+      "asset_sha256": "3c48f871c4c38193770b4577fe46deb03f9ea6a0b609bd0fec5326673922b86c",
+      "inspection_status": "PASS",
+      "selected_book_id": 41,
+      "tables": [
+        {
+          "candidate_text_columns": [
+            "page"
+          ],
+          "columns": [
+            {
+              "cid": 0,
+              "name": "id",
+              "notnull": false,
+              "primary_key_position": 1,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 1,
+              "name": "part",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "TEXT"
+            },
+            {
+              "cid": 2,
+              "name": "page",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 3,
+              "name": "number",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 4,
+              "name": "services",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "TEXT"
+            }
+          ],
+          "create_sql": "CREATE TABLE page (id INTEGER PRIMARY KEY, part TEXT, page INTEGER, number INTEGER, services TEXT)",
+          "name": "page",
+          "object_type": "table",
+          "sample_rows": [
+            {
+              "id": 1,
+              "number": null,
+              "page": 5,
+              "part": "1",
+              "services": null
+            },
+            {
+              "id": 2,
+              "number": null,
+              "page": 6,
+              "part": "1",
+              "services": null
+            },
+            {
+              "id": 3,
+              "number": null,
+              "page": 7,
+              "part": "1",
+              "services": null
+            }
+          ]
+        },
+        {
+          "candidate_text_columns": [
+            "page"
+          ],
+          "columns": [
+            {
+              "cid": 0,
+              "name": "id",
+              "notnull": false,
+              "primary_key_position": 1,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 1,
+              "name": "page",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 2,
+              "name": "parent",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "INTEGER"
+            }
+          ],
+          "create_sql": "CREATE TABLE title (id INTEGER PRIMARY KEY, page INTEGER, parent INTEGER)",
+          "name": "title",
+          "object_type": "table",
+          "sample_rows": [
+            {
+              "id": 1,
+              "page": 1,
+              "parent": 0
+            },
+            {
+              "id": 2,
+              "page": 4,
+              "parent": 1
+            },
+            {
+              "id": 3,
+              "page": 8,
+              "parent": 1
+            }
+          ]
+        }
+      ],
+      "work_source_id": "SRC-TAFSIR-BAGHAWI-ADAM"
+    },
+    {
+      "asset_path": "C:\\SIRAJ\\Repositories\\siraj-os\\projects\\episode-001-adam\\sources\\secondary\\assets\\raw\\SRC-TAFSIR-IBN-KATHIR-ADAM\\1503.db",
+      "asset_sha256": "e81a1a6fa62cc5dfa224bc326728ab924456e6a77cdb10e17e887ab19a8081d8",
+      "inspection_status": "PASS",
+      "selected_book_id": 1503,
+      "tables": [
+        {
+          "candidate_text_columns": [
+            "page"
+          ],
+          "columns": [
+            {
+              "cid": 0,
+              "name": "id",
+              "notnull": false,
+              "primary_key_position": 1,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 1,
+              "name": "part",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "TEXT"
+            },
+            {
+              "cid": 2,
+              "name": "page",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 3,
+              "name": "number",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 4,
+              "name": "services",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "TEXT"
+            }
+          ],
+          "create_sql": "CREATE TABLE page (id INTEGER PRIMARY KEY, part TEXT, page INTEGER, number INTEGER, services TEXT)",
+          "name": "page",
+          "object_type": "table",
+          "sample_rows": [
+            {
+              "id": 1,
+              "number": null,
+              "page": 3,
+              "part": "المقدمة",
+              "services": null
+            },
+            {
+              "id": 2,
+              "number": null,
+              "page": 4,
+              "part": "المقدمة",
+              "services": null
+            },
+            {
+              "id": 3,
+              "number": null,
+              "page": 5,
+              "part": "المقدمة",
+              "services": null
+            }
+          ]
+        },
+        {
+          "candidate_text_columns": [
+            "page"
+          ],
+          "columns": [
+            {
+              "cid": 0,
+              "name": "id",
+              "notnull": false,
+              "primary_key_position": 1,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 1,
+              "name": "page",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 2,
+              "name": "parent",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "INTEGER"
+            }
+          ],
+          "create_sql": "CREATE TABLE title (id INTEGER PRIMARY KEY, page INTEGER, parent INTEGER)",
+          "name": "title",
+          "object_type": "table",
+          "sample_rows": [
+            {
+              "id": 1,
+              "page": 1,
+              "parent": 0
+            },
+            {
+              "id": 2,
+              "page": 3,
+              "parent": 0
+            },
+            {
+              "id": 3,
+              "page": 16,
+              "parent": 2
+            }
+          ]
+        }
+      ],
+      "work_source_id": "SRC-TAFSIR-IBN-KATHIR-ADAM"
+    },
+    {
+      "asset_path": "C:\\SIRAJ\\Repositories\\siraj-os\\projects\\episode-001-adam\\sources\\secondary\\assets\\raw\\SRC-TAFSIR-SAADI-ADAM\\42.db",
+      "asset_sha256": "afaa57ca7290c648083328f67adfa34d73fd1bab16e3e82a72af1e5af6294401",
+      "inspection_status": "PASS",
+      "selected_book_id": 42,
+      "tables": [
+        {
+          "candidate_text_columns": [
+            "page"
+          ],
+          "columns": [
+            {
+              "cid": 0,
+              "name": "id",
+              "notnull": false,
+              "primary_key_position": 1,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 1,
+              "name": "part",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "TEXT"
+            },
+            {
+              "cid": 2,
+              "name": "page",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 3,
+              "name": "number",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 4,
+              "name": "services",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "TEXT"
+            }
+          ],
+          "create_sql": "CREATE TABLE page (id INTEGER PRIMARY KEY, part TEXT, page INTEGER, number INTEGER, services TEXT)",
+          "name": "page",
+          "object_type": "table",
+          "sample_rows": [
+            {
+              "id": 1,
+              "number": null,
+              "page": 5,
+              "part": null,
+              "services": null
+            },
+            {
+              "id": 2,
+              "number": null,
+              "page": 9,
+              "part": null,
+              "services": null
+            },
+            {
+              "id": 3,
+              "number": null,
+              "page": 10,
+              "part": null,
+              "services": null
+            }
+          ]
+        },
+        {
+          "candidate_text_columns": [
+            "page"
+          ],
+          "columns": [
+            {
+              "cid": 0,
+              "name": "id",
+              "notnull": false,
+              "primary_key_position": 1,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 1,
+              "name": "page",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 2,
+              "name": "parent",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "INTEGER"
+            }
+          ],
+          "create_sql": "CREATE TABLE title (id INTEGER PRIMARY KEY, page INTEGER, parent INTEGER)",
+          "name": "title",
+          "object_type": "table",
+          "sample_rows": [
+            {
+              "id": 1,
+              "page": 1,
+              "parent": 0
+            },
+            {
+              "id": 2,
+              "page": 1,
+              "parent": 1
+            },
+            {
+              "id": 3,
+              "page": 2,
+              "parent": 1
+            }
+          ]
+        }
+      ],
+      "work_source_id": "SRC-TAFSIR-SAADI-ADAM"
+    },
+    {
+      "asset_path": "C:\\SIRAJ\\Repositories\\siraj-os\\projects\\episode-001-adam\\sources\\secondary\\assets\\raw\\SRC-HISTORY-TABARI-ADAM\\9783.db",
+      "asset_sha256": "3eac670046fd84fefb8ebfe68a2a2f5f37f7716804a599a61555d3ea8a0162cb",
+      "inspection_status": "PASS",
+      "selected_book_id": 9783,
+      "tables": [
+        {
+          "candidate_text_columns": [
+            "page"
+          ],
+          "columns": [
+            {
+              "cid": 0,
+              "name": "id",
+              "notnull": false,
+              "primary_key_position": 1,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 1,
+              "name": "part",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "TEXT"
+            },
+            {
+              "cid": 2,
+              "name": "page",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 3,
+              "name": "number",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 4,
+              "name": "services",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "TEXT"
+            }
+          ],
+          "create_sql": "CREATE TABLE page (id INTEGER PRIMARY KEY, part TEXT, page INTEGER, number INTEGER, services TEXT)",
+          "name": "page",
+          "object_type": "table",
+          "sample_rows": [
+            {
+              "id": 1,
+              "number": null,
+              "page": 3,
+              "part": "1",
+              "services": null
+            },
+            {
+              "id": 2,
+              "number": null,
+              "page": 4,
+              "part": "1",
+              "services": null
+            },
+            {
+              "id": 3,
+              "number": null,
+              "page": 5,
+              "part": "1",
+              "services": null
+            }
+          ]
+        },
+        {
+          "candidate_text_columns": [
+            "page"
+          ],
+          "columns": [
+            {
+              "cid": 0,
+              "name": "id",
+              "notnull": false,
+              "primary_key_position": 1,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 1,
+              "name": "page",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 2,
+              "name": "parent",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "INTEGER"
+            }
+          ],
+          "create_sql": "CREATE TABLE title (id INTEGER PRIMARY KEY, page INTEGER, parent INTEGER)",
+          "name": "title",
+          "object_type": "table",
+          "sample_rows": [
+            {
+              "id": 1,
+              "page": 1,
+              "parent": 0
+            },
+            {
+              "id": 2,
+              "page": 7,
+              "parent": 1
+            },
+            {
+              "id": 3,
+              "page": 8,
+              "parent": 2
+            }
+          ]
+        }
+      ],
+      "work_source_id": "SRC-HISTORY-TABARI-ADAM"
+    },
+    {
+      "asset_path": "C:\\SIRAJ\\Repositories\\siraj-os\\projects\\episode-001-adam\\sources\\secondary\\assets\\raw\\SRC-HISTORY-BIDAYAH-ADAM\\4445.db",
+      "asset_sha256": "a48b153a0a451ce0f63625bee7fa294a88d8dbbc5db4b9472afa652260b74b3b",
+      "inspection_status": "PASS",
+      "selected_book_id": 4445,
+      "tables": [
+        {
+          "candidate_text_columns": [
+            "page"
+          ],
+          "columns": [
+            {
+              "cid": 0,
+              "name": "id",
+              "notnull": false,
+              "primary_key_position": 1,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 1,
+              "name": "part",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "TEXT"
+            },
+            {
+              "cid": 2,
+              "name": "page",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 3,
+              "name": "number",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 4,
+              "name": "services",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "TEXT"
+            }
+          ],
+          "create_sql": "CREATE TABLE page (id INTEGER PRIMARY KEY, part TEXT, page INTEGER, number INTEGER, services TEXT)",
+          "name": "page",
+          "object_type": "table",
+          "sample_rows": [
+            {
+              "id": 1,
+              "number": null,
+              "page": 3,
+              "part": "1",
+              "services": null
+            },
+            {
+              "id": 2,
+              "number": null,
+              "page": 4,
+              "part": "1",
+              "services": null
+            },
+            {
+              "id": 3,
+              "number": null,
+              "page": 5,
+              "part": "1",
+              "services": null
+            }
+          ]
+        },
+        {
+          "candidate_text_columns": [
+            "page"
+          ],
+          "columns": [
+            {
+              "cid": 0,
+              "name": "id",
+              "notnull": false,
+              "primary_key_position": 1,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 1,
+              "name": "page",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 2,
+              "name": "parent",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "INTEGER"
+            }
+          ],
+          "create_sql": "CREATE TABLE title (id INTEGER PRIMARY KEY, page INTEGER, parent INTEGER)",
+          "name": "title",
+          "object_type": "table",
+          "sample_rows": [
+            {
+              "id": 1,
+              "page": 1,
+              "parent": 0
+            },
+            {
+              "id": 2,
+              "page": 9,
+              "parent": 0
+            },
+            {
+              "id": 3,
+              "page": 9,
+              "parent": 2
+            }
+          ]
+        }
+      ],
+      "work_source_id": "SRC-HISTORY-BIDAYAH-ADAM"
+    },
+    {
+      "asset_path": "C:\\SIRAJ\\Repositories\\siraj-os\\projects\\episode-001-adam\\sources\\secondary\\assets\\raw\\SRC-HISTORY-MUNTAZAM-ADAM\\12406.db",
+      "asset_sha256": "c0a44e43dc6d655a4d5725fc88aafb8ad0077e0ec2e8214f6c0dec6e9f4e31ab",
+      "inspection_status": "PASS",
+      "selected_book_id": 12406,
+      "tables": [
+        {
+          "candidate_text_columns": [
+            "page"
+          ],
+          "columns": [
+            {
+              "cid": 0,
+              "name": "id",
+              "notnull": false,
+              "primary_key_position": 1,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 1,
+              "name": "part",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "TEXT"
+            },
+            {
+              "cid": 2,
+              "name": "page",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 3,
+              "name": "number",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 4,
+              "name": "services",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "TEXT"
+            }
+          ],
+          "create_sql": "CREATE TABLE page (id INTEGER PRIMARY KEY, part TEXT, page INTEGER, number INTEGER, services TEXT)",
+          "name": "page",
+          "object_type": "table",
+          "sample_rows": [
+            {
+              "id": 1,
+              "number": null,
+              "page": 3,
+              "part": "1",
+              "services": null
+            },
+            {
+              "id": 2,
+              "number": null,
+              "page": 5,
+              "part": "1",
+              "services": null
+            },
+            {
+              "id": 3,
+              "number": null,
+              "page": 6,
+              "part": "1",
+              "services": null
+            }
+          ]
+        },
+        {
+          "candidate_text_columns": [
+            "page"
+          ],
+          "columns": [
+            {
+              "cid": 0,
+              "name": "id",
+              "notnull": false,
+              "primary_key_position": 1,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 1,
+              "name": "page",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 2,
+              "name": "parent",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "INTEGER"
+            }
+          ],
+          "create_sql": "CREATE TABLE title (id INTEGER PRIMARY KEY, page INTEGER, parent INTEGER)",
+          "name": "title",
+          "object_type": "table",
+          "sample_rows": [
+            {
+              "id": 1,
+              "page": 2,
+              "parent": 0
+            },
+            {
+              "id": 2,
+              "page": 2,
+              "parent": 1
+            },
+            {
+              "id": 3,
+              "page": 5,
+              "parent": 2
+            }
+          ]
+        }
+      ],
+      "work_source_id": "SRC-HISTORY-MUNTAZAM-ADAM"
+    },
+    {
+      "asset_path": "C:\\SIRAJ\\Repositories\\siraj-os\\projects\\episode-001-adam\\sources\\secondary\\assets\\raw\\SRC-HISTORY-KAMIL-ADAM\\21712.db",
+      "asset_sha256": "bf0c4379d2d3f7f5a4c30da7a96623019a120d1b198940dbd2c7fa45ed27b4cb",
+      "inspection_status": "PASS",
+      "selected_book_id": 21712,
+      "tables": [
+        {
+          "candidate_text_columns": [
+            "page"
+          ],
+          "columns": [
+            {
+              "cid": 0,
+              "name": "id",
+              "notnull": false,
+              "primary_key_position": 1,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 1,
+              "name": "part",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "TEXT"
+            },
+            {
+              "cid": 2,
+              "name": "page",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 3,
+              "name": "number",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 4,
+              "name": "services",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "TEXT"
+            }
+          ],
+          "create_sql": "CREATE TABLE page (id INTEGER PRIMARY KEY, part TEXT, page INTEGER, number INTEGER, services TEXT)",
+          "name": "page",
+          "object_type": "table",
+          "sample_rows": [
+            {
+              "id": 1,
+              "number": null,
+              "page": 5,
+              "part": "1",
+              "services": null
+            },
+            {
+              "id": 2,
+              "number": null,
+              "page": 6,
+              "part": "1",
+              "services": null
+            },
+            {
+              "id": 3,
+              "number": null,
+              "page": 7,
+              "part": "1",
+              "services": null
+            }
+          ]
+        },
+        {
+          "candidate_text_columns": [
+            "page"
+          ],
+          "columns": [
+            {
+              "cid": 0,
+              "name": "id",
+              "notnull": false,
+              "primary_key_position": 1,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 1,
+              "name": "page",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "INTEGER"
+            },
+            {
+              "cid": 2,
+              "name": "parent",
+              "notnull": false,
+              "primary_key_position": 0,
+              "type": "INTEGER"
+            }
+          ],
+          "create_sql": "CREATE TABLE title (id INTEGER PRIMARY KEY, page INTEGER, parent INTEGER)",
+          "name": "title",
+          "object_type": "table",
+          "sample_rows": [
+            {
+              "id": 1,
+              "page": 1,
+              "parent": 0
+            },
+            {
+              "id": 2,
+              "page": 8,
+              "parent": 0
+            },
+            {
+              "id": 3,
+              "page": 10,
+              "parent": 0
+            }
+          ]
+        }
+      ],
+      "work_source_id": "SRC-HISTORY-KAMIL-ADAM"
+    }
+  ],
+  "schema_version": "siraj-shamela-schema-inspection-v1",
+  "status": "PASS_REVIEW_REQUIRED_BEFORE_EXPORT"
+}

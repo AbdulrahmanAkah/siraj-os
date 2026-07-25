@@ -1,0 +1,462 @@
+{
+  "batch_id": "chain-interpretation-batch-0031",
+  "episode_id": "episode-001-adam",
+  "execution_enabled": false,
+  "execution_status": "BLOCKED_NOT_AUTHORIZED",
+  "generation_config": {
+    "response_mime_type": "application/json",
+    "temperature": 0
+  },
+  "model_id": null,
+  "provider_id": "GEMINI",
+  "record_count": 6,
+  "records": [
+    {
+      "book_id": 9783,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/9783/volume/1/page/87?database_sha256=3eac670046fd84fefb8ebfe68a2a2f5f37f7716804a599a61555d3ea8a0162cb&segment_id=85"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_59bc84656d06806c282b2713",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "شهر بن حوشب",
+          "narrator_surface_raw": "شهر بن حوشب",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "حَدَّثَنِي سوار بن الجعد اليحمدي، عن شهر بن حوشب، قوله: «كانَ مِنَ الْجِنِّ» ، قال:\nكان إبليس من الجن الذين طردتهم الملائكة، فأسره بعض الملائكة فذهب به إلى السماء.\nحَدَّثَنِي علي بن الحسن، قال: حَدَّثَنِي أبو نصر أحمد بن محمد الخلال، قال: حَدَّثَنِي سنيد بن داود، قال: حَدَّثَنَا هشيم، قال:",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_2a651d61db8c6fdb98737a91",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "report_text": "حَدَّثَنِي سوار بن الجعد اليحمدي، عن شهر بن حوشب، قوله: «كانَ مِنَ الْجِنِّ» ، قال:\nكان إبليس من الجن الذين طردتهم الملائكة، فأسره بعض الملائكة فذهب به إلى السماء.\nحَدَّثَنِي علي بن الحسن، قال:\nحَدَّثَنِي أبو نصر أحمد بن محمد الخلال، قال:\nحَدَّثَنِي سنيد بن داود، قال:\nحَدَّثَنَا هشيم، قال:",
+      "report_text_sha256": "311a939046565f18e3e20d7e89a4eb93d6df64d99e2eac427ac5541bb4886e02",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "شهر بن حوشب",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_c76865aba9e869a133276a6a",
+      "terminal_speaker_surface_candidate": "شهر بن حوشب",
+      "work_source_id": "SRC-HISTORY-TABARI-ADAM"
+    },
+    {
+      "book_id": 9783,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/9783/volume/1/page/94?database_sha256=3eac670046fd84fefb8ebfe68a2a2f5f37f7716804a599a61555d3ea8a0162cb&segment_id=92"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_0d7ebd893332d8fc0c15f80b",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "موسي بن هارون",
+          "narrator_surface_raw": "موسى بن هارون",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANI",
+          "transmission_term_raw": "حدثني"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "عمرو بن حماد",
+          "narrator_surface_raw": "عمرو بن حماد",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "HADDATHANA",
+          "transmission_term_raw": "حدثنا"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "مَضَى لَهُ مِنَ الْمُدَّةِ مَا مَضَى وَهُوَ طِينٌ صَلْصَالٌ كَالْفَخَّارِ، وَأَرَادَ ﷿ أَنْ يَنْفُخَ فِيهِ الرُّوحَ، تَقَدَّمَ إِلَى الْمَلائِكَةِ فَقَالَ لَهُمْ: إِذَا نَفَخْتُ فِيهِ مِنْ رُوحِي فَقَعُوا لَهُ سَاجِدِينَ.\nفَلَمَّا نَفَخَ فِيهِ الرُّوحَ أَتَتْهُ الرُّوحُ مِنْ قِبَلِ رَأْسِهِ، فِيمَا ذُكِرَ عَنِ السَّلَفِ قَبْلِنَا أَنَّهُمْ قَالُوهُ.\nذِكْرُ مَنْ قَالَ ذلك:\nحدثني موسى بن هارون، قال:\nحدثنا عمرو بن حماد، قال:",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_329c0e9b5c9f1de2de2a752b",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "report_text": "مَضَى لَهُ مِنَ الْمُدَّةِ مَا مَضَى وَهُوَ طِينٌ صَلْصَالٌ كَالْفَخَّارِ، وَأَرَادَ ﷿ أَنْ يَنْفُخَ فِيهِ الرُّوحَ، تَقَدَّمَ إِلَى الْمَلائِكَةِ فَقَالَ لَهُمْ: إِذَا نَفَخْتُ فِيهِ مِنْ رُوحِي فَقَعُوا لَهُ سَاجِدِينَ.\nفَلَمَّا نَفَخَ فِيهِ الرُّوحَ أَتَتْهُ الرُّوحُ مِنْ قِبَلِ رَأْسِهِ، فِيمَا ذُكِرَ عَنِ السَّلَفِ قَبْلِنَا أَنَّهُمْ قَالُوهُ.\nذِكْرُ مَنْ قَالَ ذلك:\nحدثني موسى بن هارون، قال:\nحدثنا عمرو بن حماد، قال:",
+      "report_text_sha256": "c4f580ebeda73f3bc2feccd0a9f4f1b19712ef74d713f249f48e183fc212d6d6",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "عمرو بن حماد",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_6ef11b2a5b997d9c6050fef3",
+      "terminal_speaker_surface_candidate": "عمرو بن حماد",
+      "work_source_id": "SRC-HISTORY-TABARI-ADAM"
+    },
+    {
+      "book_id": 9783,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/9783/volume/1/page/86?database_sha256=3eac670046fd84fefb8ebfe68a2a2f5f37f7716804a599a61555d3ea8a0162cb&segment_id=84"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_9321bd59ff93ef4fec872579",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "شيبان",
+          "narrator_surface_raw": "شيبان",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA",
+          "transmission_term_raw": "حدثنا"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "حَدَّثَنَا سَلَمَةُ، عَنِ ابْنِ إِسْحَاقَ، عَنْ خَلادِ بْنِ عَطَاءٍ، عَنْ طَاوُسٍ- أَوْ مُجَاهِدٍ أَبِي الْحَجَّاجِ- عَنِ ابْنِ عَبَّاسٍ وَغَيْرِهِ بِنَحْوِهِ، إِلا أَنَّهُ قَالَ: كَانَ مَلَكًا مِنَ الْمَلائِكَةِ اسْمُهُ عَزَازِيلُ، وَكَانَ مِنْ سُكَّانِ الأَرْضِ وَعُمَّارِهَا، وَكَانَ سُكَّانُ الأَرْضِ فِيهِمْ يُسَمُّونَ الْجِنَّ مِنْ بَيْنِ الْمَلائِكَةِ.\nحَدَّثَنَا ابْنُ الْمُثَنَّى، قال: حدثنا شيبان، قال:",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_36b7fe2012b4248f85725c9f",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MAWQUF_OR_TAFSIR_REPORT_CANDIDATE",
+      "report_text": "حَدَّثَنَا سَلَمَةُ، عَنِ ابْنِ إِسْحَاقَ، عَنْ خَلادِ بْنِ عَطَاءٍ، عَنْ طَاوُسٍ- أَوْ مُجَاهِدٍ أَبِي الْحَجَّاجِ- عَنِ ابْنِ عَبَّاسٍ وَغَيْرِهِ بِنَحْوِهِ، إِلا أَنَّهُ قَالَ: كَانَ مَلَكًا مِنَ الْمَلائِكَةِ اسْمُهُ عَزَازِيلُ، وَكَانَ مِنْ سُكَّانِ الأَرْضِ وَعُمَّارِهَا، وَكَانَ سُكَّانُ الأَرْضِ فِيهِمْ يُسَمُّونَ الْجِنَّ مِنْ بَيْنِ الْمَلائِكَةِ.\nحَدَّثَنَا ابْنُ الْمُثَنَّى، قال:\nحدثنا شيبان، قال:",
+      "report_text_sha256": "ffc17c724b882201be5d0659ab8cfd68215d7b1e980aaf4c4203b0fc5f7d2353",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "شيبان",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_91fd2780ebd8aa4a7d1ea543",
+      "terminal_speaker_surface_candidate": "شيبان",
+      "work_source_id": "SRC-HISTORY-TABARI-ADAM"
+    },
+    {
+      "book_id": 9783,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/9783/volume/1/page/98?database_sha256=3eac670046fd84fefb8ebfe68a2a2f5f37f7716804a599a61555d3ea8a0162cb&segment_id=96"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_bf1ba0a84ca68103d249f5fc",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "الحسن وابي بكر",
+          "narrator_surface_raw": "الحسن وأبي بكر",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "الحسن وقتادة",
+          "narrator_surface_raw": "الحسن وَقَتَادَةَ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "حَدَّثَنَا حَجَّاجٌ، عَنْ جَرِيرِ بْنِ حَازِمٍ ومبارك، عن الحسن وأبي بكر، عن الحسن وَقَتَادَةَ، قَالا: عَلَّمَهُ اسْمَ كُلِّ شَيْءٍ، هَذِهِ الخيل، وهذه البغال، والإبل، والجن، والوحش، وجعل يسمي كل شيء برسمه.\nوقال آخرون: بل إنما علم اسما خاصا من الأسماء، قالوا: والذي علمه أسماء الملائكة.\nذِكْرُ مَنْ قَالَ ذلك:",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_3a613c93043044cd84a7af8f",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "report_text": "حَدَّثَنَا حَجَّاجٌ، عَنْ جَرِيرِ بْنِ حَازِمٍ ومبارك، عن الحسن وأبي بكر، عن الحسن وَقَتَادَةَ، قَالا: عَلَّمَهُ اسْمَ كُلِّ شَيْءٍ، هَذِهِ الخيل، وهذه البغال، والإبل، والجن، والوحش، وجعل يسمي كل شيء برسمه.\nوقال آخرون: بل إنما علم اسما خاصا من الأسماء، قالوا: والذي علمه أسماء الملائكة.\nذِكْرُ مَنْ قَالَ ذلك:",
+      "report_text_sha256": "010a5f7dc18f3d0a636a0e6a875c1bf2bdda5c93f508329440f50d35c0aaa67e",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "الحسن وَقَتَادَةَ",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_aac0061a2ca0e32b6a67cb95",
+      "terminal_speaker_surface_candidate": "الحسن وَقَتَادَةَ",
+      "work_source_id": "SRC-HISTORY-TABARI-ADAM"
+    },
+    {
+      "book_id": 9783,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/9783/volume/1/page/56?database_sha256=3eac670046fd84fefb8ebfe68a2a2f5f37f7716804a599a61555d3ea8a0162cb&segment_id=54"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_6560f8e5a1116982fba3d12d",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "عكرمة",
+          "narrator_surface_raw": "عكرمة",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابن عباس",
+          "narrator_surface_raw": "ابن عباس",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "النبي ص- قال",
+          "narrator_surface_raw": "النبي ص- قَالَ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "حجاج",
+          "narrator_surface_raw": "حجاج",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 3,
+          "transmission_term_canonical": "HADDATHANA",
+          "transmission_term_raw": "حدثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابن جريج",
+          "narrator_surface_raw": "ابن جريج",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 4,
+          "transmission_term_canonical": "QALA",
+          "transmission_term_raw": "قال"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "حَدَّثَنَا أَبُو بَكْرِ بْنُ عَيَّاشٍ، عَنِ أبي سعد البقال، عن عكرمة، عن ابن عباس، عن النبي ص- قَالَ:\nهَنَّادٌ، وَقَرَأْتُ سَائِرَ الْحَدِيثِ- قَالَ: وَخَلَقَ يَوْمَ الْخَمِيسِ السَّمَاءَ، وَخَلَقَ يَوْمَ الْجُمُعَةِ النُّجُومَ وَالشَّمْسَ وَالْقَمَرَ وَالْمَلائِ",
+      "kind_candidate": "PROPHETIC_HADITH_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_3ab137b626f01649a386de17",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "MARFU_CONTEXT_CANDIDATE",
+      "report_text": "حَدَّثَنَا أَبُو بَكْرِ بْنُ عَيَّاشٍ، عَنِ أبي سعد البقال، عن عكرمة، عن ابن عباس، عن النبي ص- قَالَ:\nهَنَّادٌ، وَقَرَأْتُ سَائِرَ الْحَدِيثِ- قَالَ: وَخَلَقَ يَوْمَ الْخَمِيسِ السَّمَاءَ، وَخَلَقَ يَوْمَ الْجُمُعَةِ النُّجُومَ وَالشَّمْسَ وَالْقَمَرَ وَالْمَلائِكَةَ إِلَى ثَلاثِ سَاعَاتٍ بَقِيَتْ مِنْهُ، فَخَلَقَ فِي أَوَّلِ سَاعَةٍ مِنْ هَذِهِ الثَّلاثِ سَاعَاتِ الآجَالَ، مَنْ يَحْيَا وَمَنْ يَمُوتُ، وَفِي الثَّانِيَةِ أَلْقَى الآفَةَ عَلَى كُلِّ شَيْءٍ مِمَّا يَنْتَفِعُ بِهِ النَّاسُ، وَفِي الثَّالِثَةِ آدَمَ وَأَسْكَنَهُ الْجَنَّةَ، وَأَمَرَ إِبْلِيسَ بِالسُّجُودِ، وَأَخْرَجَهُ مِنْهَا فِي آخِرِ سَاعَةٍ.\nحَدَّثَنِي الْقَاسِمُ بْنُ بِشْرِ بن معروف، والحسين بن علي الصدائي، قالا:\nحدثنا حجاج، قال ابن جريج:",
+      "report_text_sha256": "fb0d9ffd351becb0169daf7df0f4dc3369735a49fe83b1a9c002606a94dd45b9",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": "ابن جريج",
+        "display_mode": "PROPHET_WITH_COMPANION_OR_MARFU_TABII",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": null,
+        "prophet_name": "محمد ﷺ",
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_c526a70b7a53b8331c0f5c50",
+      "terminal_speaker_surface_candidate": "ابن جريج",
+      "work_source_id": "SRC-HISTORY-TABARI-ADAM"
+    },
+    {
+      "book_id": 9783,
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/9783/volume/1/page/105?database_sha256=3eac670046fd84fefb8ebfe68a2a2f5f37f7716804a599a61555d3ea8a0162cb&segment_id=103"
+      ],
+      "chain_candidate_id": "adam_chain_candidate_8db0704a474e2065cc336235",
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابو حذيفة",
+          "narrator_surface_raw": "أبو حذيفة",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA",
+          "transmission_term_raw": "حدثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "شبل",
+          "narrator_surface_raw": "شبل",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "HADDATHANA",
+          "transmission_term_raw": "حدثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابن ابي نجيح",
+          "narrator_surface_raw": "ابن أبي نجيح",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "مجاهد مثله.",
+          "narrator_surface_raw": "مجاهد مثله.",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 3,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "depends_on_boundary_resolution": true,
+      "isnad_internal_text_candidate": "زَوْجَها» قال: حواء من قصيرى آدم، وهو ناعم فَاسْتَيْقَظَ فَقَالَ:\nأثا بِالنَّبَطِيَّةِ، امْرَأَةٌ.\nحَدَّثَنَا المثنى، قال:\nحدثنا أبو حذيفة، قال:\nحدثنا شبل، عن ابن أبي نجيح، عن مجاهد مثله.\nحَدَّثَنَا بِشْرُ بْنُ مُعَاذٍ، قَالَ:\nحَدَّثَنَا يَزِيدُ بْنُ زُرَيْعٍ، قَالَ:",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_4e3d753c95f9a21d3f69a3e3",
+      "permissions": {
+        "candidate_only": true,
+        "full_isnad_in_script": false,
+        "full_isnad_internal_retention": true,
+        "may_not_approve_chain_continuity": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrator": true,
+        "may_not_resolve_narrator_identity_final": true,
+        "may_parse_chain_surfaces": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "report_text": "زَوْجَها» قال: حواء من قصيرى آدم، وهو ناعم فَاسْتَيْقَظَ فَقَالَ:\nأثا بِالنَّبَطِيَّةِ، امْرَأَةٌ.\nحَدَّثَنَا المثنى، قال:\nحدثنا أبو حذيفة، قال:\nحدثنا شبل، عن ابن أبي نجيح، عن مجاهد مثله.\nحَدَّثَنَا بِشْرُ بْنُ مُعَاذٍ، قَالَ:\nحَدَّثَنَا يَزِيدُ بْنُ زُرَيْعٍ، قَالَ:",
+      "report_text_sha256": "faae09b3f24b5f93870eef8be1df9ff40c48a2c92064a8814ea1a24fe4540a8d",
+      "requested_outputs": [
+        "ordered_chain_surface_proposal",
+        "transmission_term_proposal",
+        "terminal_speaker_surface_proposal",
+        "prophet_reference_present",
+        "companion_surface_candidate",
+        "marfu_tabii_surface_candidate",
+        "possible_chain_break_locations",
+        "pronoun_or_alias_resolution_notes",
+        "uncertainties"
+      ],
+      "script_attribution_candidate": {
+        "companion_or_marfu_tabii_surface_candidate": null,
+        "display_mode": "NON_PROPHET_SPEAKER_ONLY",
+        "full_isnad_in_script": false,
+        "non_prophet_speaker_surface_candidate": "مجاهد مثله.",
+        "prophet_name": null,
+        "resolution_status": "HUMAN_REVIEW_REQUIRED"
+      },
+      "task_record_id": "adam_gemini_chain_task_629ffeacb9684deef82bee21",
+      "terminal_speaker_surface_candidate": "مجاهد مثله.",
+      "work_source_id": "SRC-HISTORY-TABARI-ADAM"
+    }
+  ],
+  "schema_version": "siraj-adam-gemini-draft-batch-v1",
+  "task_contract_project_path": "sources/secondary/gemini-semantic-analysis-draft/contracts/chain-interpretation-contract-v1.json",
+  "task_name": "chain-interpretation"
+}

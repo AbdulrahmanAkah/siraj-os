@@ -1,0 +1,480 @@
+{
+  "batch_id": "semantic-mapping-batch-0037",
+  "episode_id": "episode-001-adam",
+  "execution_enabled": false,
+  "execution_status": "BLOCKED_NOT_AUTHORIZED",
+  "generation_config": {
+    "response_mime_type": "application/json",
+    "temperature": 0
+  },
+  "model_id": null,
+  "provider_id": "GEMINI",
+  "record_count": 6,
+  "records": [
+    {
+      "attribution_profiles": [],
+      "book_id": 42,
+      "book_title": "تفسير السعدي = تيسير الكريم الرحمن",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/42/volume/0/page/900?database_sha256=afaa57ca7290c648083328f67adfa34d73fd1bab16e3e82a72af1e5af6294401&segment_id=2048"
+      ],
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "الله في هذه السورة الكريمة اول حالة الانسان ومبتداها ومتوسطها ومنتهاها.",
+          "narrator_surface_raw": "الله في هذه السورة الكريمة أول حالة الإنسان ومبتدأها ومتوسطها ومنتهاها.",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "DHUKIRA",
+          "transmission_term_raw": "ذكر"
+        }
+      ],
+      "event_ids": [],
+      "footnote_context": "(١) في ب: الطريق الموصلة إليه وبينها.",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_f58e44fa4638fc6e444d265b",
+      "original_text": "﴿١\n- ٣﴾ ﴿بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ هَلْ أَتَى عَلَى\nالإنْسَانِ\nحِينٌ مِنَ الدَّهْرِ لَمْ يَكُنْ شَيْئًا مَذْكُورًا * إِنَّا خَلَقْنَا الإنْسَانَ مِنْ نُطْفَةٍ أَمْشَاجٍ نَبْتَلِيهِ فَجَعَلْنَاهُ سَمِيعًا بَصِيرًا * إِنَّا هَدَيْنَاهُ السَّبِيلَ إِمَّا شَاكِرًا وَإِمَّا كَفُورًا﴾ .\nذكر الله في هذه السورة الكريمة أول حالة الإنسان ومبتدأها ومتوسطها ومنتهاها.\nفذكر أنه مر عليه دهر طويل وهو الذي قبل وجوده، وهو معدوم بل ليس مذكورا.\nثم لما أراد الله تعالى خلقه، خلق [أباه] آدم من طين، ثم جعل نسله متسلسلا ﴿مِنْ نُطْفَةٍ أَمْشَاجٍ﴾ أي: ماء مهين مستقذر ﴿نَبْتَلِيهِ﴾ بذلك لنعلم هل يرى حاله الأولى ويتفطن لها أم ينساها وتغره نفسه؟\nفأنشأه الله، وخلق له القوى الباطنة والظاهرة، كالسمع والبصر، وسائر الأعضاء، فأتمها له وجعلها سالمة يتمكن بها من تحصيل مقاصده.\nثم أرسل إليه الرسل، وأنزل عليه الكتب، وهداه الطريق الموصلة ⦗٩٠١⦘ إلى الله (١) ، ورغبه فيها، وأخبره بما له عند الوصول إلى الله.\nثم أخبره بالطريق الموصلة إلى الهلاك، ورهبه منها، وأخبره بما له إذا سلكها، وابتلاه بذلك، فانقسم الناس إلى شاكر لنعمة الله عليه، قائم بما حمله الله من حقوقه، وإلى كفور لنعمة الله عليه، أنعم الله عليه بالنعم الدينية والدنيوية، فردها، وكفر بربه، وسلك الطريق الموصلة إلى الهلاك.\nثم ذكر تعالى حال الفريقين عند الجزاء فقال:",
+      "original_text_sha256": "93bc8c0c1a1a94db04d71a1e73c37ee5b29b5aaa9ff952f511f184b24c18a1d1",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [],
+      "task_record_id": "adam_gemini_semantic_task_1b01eb732afeb18d24a7a58e",
+      "terminal_speaker_surface_candidate": "الله في هذه السورة الكريمة أول حالة الإنسان ومبتدأها ومتوسطها ومنتهاها.",
+      "window_id": "1b3694394cb6da667c6ed0bc",
+      "work_source_id": "SRC-TAFSIR-SAADI-ADAM"
+    },
+    {
+      "attribution_profiles": [
+        "WAHB_IBN_MUNABBIH"
+      ],
+      "book_id": 7798,
+      "book_title": "تفسير الطبري جامع البيان - ت التركي",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/14/page/62?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=9523"
+      ],
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "هشيم",
+          "narrator_surface_raw": "هُشَيمٌ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "جويبر",
+          "narrator_surface_raw": "جويبر",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "الضحاك في قوله",
+          "narrator_surface_raw": "الضحاكِ في قوله",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابا معاذ يقول",
+          "narrator_surface_raw": "أبا معاذ يقولُ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 3,
+          "transmission_term_canonical": "SAMI_TU",
+          "transmission_term_raw": "سمعت"
+        }
+      ],
+      "event_ids": [],
+      "footnote_context": "(¬١) سقط من النسخ، والمثبت مما تقدم في ص ٢٧، فهذا تمام الأثر المتقدم، وهو أيضًا إسناد دائر.\n(¬٢) بعده في ت ٢: \"والحمأ المسنون\".\n(¬٣) في م، ت ٢: \"أنتن\".\n(¬٤) تقدم تخريجه في ص ٥٧.\n(¬٥) في م: \"قال\".\n(¬٦) عزاه السيوطي في الدر المنثور ٤/ ٩٨ إلى المصنف وابن المنذر وابن أبي حاتم.\n(¬٧) ينظر ما تقدم في ١/ ٥٣٥ وما بعدها.",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_062a0389c96989bdf79b6f63",
+      "original_text": "ثنا هُشَيمٌ، عن جويبر، عن الضحاكِ في قوله: ﴿مِنْ حَمَإٍ مَسْنُونٍ﴾. قال: من طين لازبٍ، وهو اللازقُ من الكثيب، وهو الرمل.\nحدثت عن الحسين، قال: سمعت أبا معاذ يقولُ:",
+      "original_text_sha256": "08624193a70e28de0399a2ef775c68279aa797930aefc406d1e7f83c149b3ec5",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [],
+      "task_record_id": "adam_gemini_semantic_task_0217d4894a965254ed9985ab",
+      "terminal_speaker_surface_candidate": "أبا معاذ يقولُ",
+      "window_id": "157dfa2875c5eef0d63593e7",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "attribution_profiles": [],
+      "book_id": 7798,
+      "book_title": "تفسير الطبري جامع البيان - ت التركي",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/10/page/554?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=7262",
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/10/page/555?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=7263"
+      ],
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "عبد الله بن صالح",
+          "narrator_surface_raw": "عبدُ الله بنُ صالحٍ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "علي",
+          "narrator_surface_raw": "عليٍّ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابن عباس قوله",
+          "narrator_surface_raw": "ابن عباسٍ قولَه",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "event_ids": [
+        "EV-ADAM-060",
+        "EV-ADAM-061"
+      ],
+      "footnote_context": "= وأبو داود (٤٧٠٣)، والترمذى (٣٠٧٥)، والنسائى في الكبرى (١١١٩٠)، وابن أبي عاصم في السنة (١٩٦)، الفريابي في القدر (٢٧، ٢٨)، وابن حبان (٦١٦٦)، والآجرى في الشريعة (٣٢٤)، وابن منده في الرد على الجهمية ص ٥٦ (٢٨)، والحاكم ١/ ٢٧، ٢/ ٣٢٤، ٥٤٤، واللالكائي (٩٩٠)، والبيهقي في الأسماء والصفات (٧١٠)، والبغوى في شرح السنة (٧٧)، وفي التفسير ٣/ ٢٩٧. وعزاه السيوطي في الدر المنثور ٣/ ١٤٢ إلى عبد بن حميد وابن المنذر وأبى الشيخ، وابن مردويه.\n(¬١) في م: \"عمرو\". وينظر تهذيب الكمال ٢١/ ٢٨٧.\n(¬٢) في ص، ت ١، ت ٢، س، ف: \"جعفر\".\n(¬٣) أخرجه أبو داود (٤٧٠٤) عن محمد بن المصفى به. وأخرجه البخارى في تاريخه ٨/ ٩٦، وابن أبي عاصم في السنة (٢٠١)، ومحمد بن نصر في كتاب الرد على ابن محمد بن الحنفية - كما في النكت الظراف ٨/ ١١٣ - والطحاوى في المشكل (٣٨٨٧، ٣٨٨٨)، وابن عبد البر في التمهيد ٦/ ٤، ٥ من طريق زيد بن أبي أنيسة به.\n(¬٤) ذكره ابن عبد البر في التمهيد ١٨/ ٨١ - معلقا - من طريق حكام به بنحوه، وأخرجه ابن منده في الرد على الجهمية (٢٥) من طريق عمارة به.\n\n(¬١) أخرجه ابن أبي حاتم في تفسيره ٥/ ١٦١٤، واللالكائى في شرح أصول الاعتقاد (٩٩٢) من طريق عبد الله بن صالح به.\n(¬٢) سقط من النسخ، والمثبت من تاريخ المصنف.\n(¬٣) ليست في: ص، م، ت ١، ت ٢، س.\n(¬٤) بعده في م: \"قال\".",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_06ad5cbbc3924fdc46718cad",
+      "original_text": "ثنا عبدُ الله بنُ صالحٍ، قال: ثني معاويةُ، عن عليٍّ، عن\n\nابن عباسٍ قولَه: ﴿وَإِذْ أَخَذَ رَبُّكَ مِنْ بَنِي آدَمَ مِنْ ظُهُورِهِمْ ذُرِّيَّتَهُمْ﴾. قال: إِن اللَّهَ خلَق آدمَ، ثم أخرَج ذريتَه من صلبِه مثلَ الذَّرِّ، فقال لهم: من ربُّكم؟ قالوا: اللَّهُ ربُّنا. ثم أعادَهم في صلبِه، حتى يُولَدَ كلُّ مَن أخَذ ميثاقَه، لا يُزادُ فيهم ولا يُنقَصُ منهم إلى أن تَقُومَ الساعةُ (¬١).",
+      "original_text_sha256": "c971e0a57228d48de8695a00a828a2aaed65fee24397bb746a4b4fee0a277b1c",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "MAWQUF_OR_TAFSIR_REPORT_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [
+        "RQ-ADAM-021",
+        "RQ-ADAM-022",
+        "RQ-ADAM-023",
+        "RQ-ADAM-024"
+      ],
+      "task_record_id": "adam_gemini_semantic_task_828a484012e2ac839758ad9f",
+      "terminal_speaker_surface_candidate": "ابن عباسٍ قولَه",
+      "window_id": "b9cdee4a9fc424c4ecccbc4c",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "attribution_profiles": [
+        "WAHB_IBN_MUNABBIH"
+      ],
+      "book_id": 7798,
+      "book_title": "تفسير الطبري جامع البيان - ت التركي",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/14/page/62?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=9523"
+      ],
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "عبد الله",
+          "narrator_surface_raw": "عبدُ اللَّهِ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "علي",
+          "narrator_surface_raw": "علي",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابن عباس في قوله",
+          "narrator_surface_raw": "ابن عباس في قوله",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "event_ids": [],
+      "footnote_context": "(¬١) سقط من النسخ، والمثبت مما تقدم في ص ٢٧، فهذا تمام الأثر المتقدم، وهو أيضًا إسناد دائر.\n(¬٢) بعده في ت ٢: \"والحمأ المسنون\".\n(¬٣) في م، ت ٢: \"أنتن\".\n(¬٤) تقدم تخريجه في ص ٥٧.\n(¬٥) في م: \"قال\".\n(¬٦) عزاه السيوطي في الدر المنثور ٤/ ٩٨ إلى المصنف وابن المنذر وابن أبي حاتم.\n(¬٧) ينظر ما تقدم في ١/ ٥٣٥ وما بعدها.",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_06c4e221de71846254894df2",
+      "original_text": "ثنا عبدُ اللَّهِ، قال: ثني معاوية، عن علي، عن ابن عباس في قوله: ﴿مِنْ حَمَإٍ مَسْنُونٍ﴾. يقولُ: مِن طين رَطْبٍ (¬٦).\n\nالقول في تأويل قوله تعالى: ﴿وَالْجَانَّ خَلَقْنَاهُ مِنْ قَبْلُ مِنْ نَارِ السَّمُومِ (٢٧)﴾.\n\nيقول تعالى ذكره: ﴿وَالْجَانَّ﴾. وقد بينا فيما مضى معنى الجانّ (¬٧)، ولم قيل",
+      "original_text_sha256": "bc6d5b5d87d6cc8878e6c9fa53cd9ef5a465790afd1f75bf57ce62a11e3b3ce1",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "MAWQUF_OR_TAFSIR_REPORT_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [],
+      "task_record_id": "adam_gemini_semantic_task_d174cc6d6888fd76435bfb2a",
+      "terminal_speaker_surface_candidate": "ابن عباس في قوله",
+      "window_id": "157dfa2875c5eef0d63593e7",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "attribution_profiles": [],
+      "book_id": 7798,
+      "book_title": "تفسير الطبري جامع البيان - ت التركي",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/10/page/75?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=6783",
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/10/page/76?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=6784"
+      ],
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "عبد الله",
+          "narrator_surface_raw": "عبدُ اللهِ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "علي",
+          "narrator_surface_raw": "عليٍّ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "ابن عباس قوله",
+          "narrator_surface_raw": "ابن عباسٍ قولَه",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 2,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "event_ids": [],
+      "footnote_context": "(¬١) سقط من: ص م ت ١، ت ٢، ت ٣، س، ف.\n(¬٢) بعده في م: \"يعني\".\n(¬٣) أخرجه ابن أبي حاتم في تفسيره ٥/ ١٤٤٢ (٨٢٣٣، ٨٢٣٦) من طريق عبد الله به.\n\n(¬١) أخرجه ابن أبي حاتم في تفسيره ٥/ ١٤٤٢ عقب أثر (٨٢٣٤) من طريق أبي جعفر به، مقتصرًا على آخره.\n(¬٢) أخرجه ابن أبي حاتم في تفسيره ٥/ ١٤٤٢ عقب أثر (٨٢٣٣، ٨٢٣٤) من طريق عمرو بن حماد، عن أسباط، عن السدى.\n(¬٣) بعده في ص م ت ١، ت ٢، ت ٣، س، ف: \"بن آدم\".\n(¬٤) في م: \"صورناكم\".\n(¬٥) عزاه السيوطي في الدر المنثور ٣/ ٧٢ إلى المصنف وعبد بن حميد وابن المنذر.",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_078aff9b9f3528404bf8fbba",
+      "original_text": "ثنا عبدُ اللهِ، قال: ثني معاويةُ، عن عليٍّ، عن ابن عباسٍ قولَه: ﴿وَلَقَدْ خَلَقْنَاكُمْ ثُمَّ صَوَّرْنَاكُمْ﴾: قولَه: ﴿خَلَقْنَاكُمْ﴾ (¬٢) آدمَ، وأما ﴿صَوَّرْنَاكُمْ﴾ فذرِّيتَه (¬٣).",
+      "original_text_sha256": "553bb826eb664d9c3fbe23558b2fae2913a532ae17553f557968a66a028bf51c",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "MAWQUF_OR_TAFSIR_REPORT_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [],
+      "task_record_id": "adam_gemini_semantic_task_7d1545231537ba0af1eec1c2",
+      "terminal_speaker_surface_candidate": "ابن عباسٍ قولَه",
+      "window_id": "2127ebd7b399733a041d7f6c",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    },
+    {
+      "attribution_profiles": [],
+      "book_id": 7798,
+      "book_title": "تفسير الطبري جامع البيان - ت التركي",
+      "canonical_locators": [
+        "shamela://local/5ac170a3045185ccf78e81ebd473cafb8069279b898836fd768c78de76a3d8e5/book/7798/volume/20/page/141?database_sha256=59b3debd44645d1e86afcdc276a7a43239ad3509581c303aa6bca23fc272e3f3&segment_id=13539"
+      ],
+      "chain_nodes_candidate": [
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "اسباط",
+          "narrator_surface_raw": "أسباطُ",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 0,
+          "transmission_term_canonical": "HADDATHANA_ABBREVIATED",
+          "transmission_term_raw": "ثنا"
+        },
+        {
+          "identity_resolution_status": "NOT_RESOLVED",
+          "narrator_identity_id": null,
+          "narrator_surface_normalized": "السدي قوله",
+          "narrator_surface_raw": "السديِّ قولَه",
+          "role_candidate": "CHAIN_NARRATOR_SURFACE",
+          "sequence_index": 1,
+          "transmission_term_canonical": "AN",
+          "transmission_term_raw": "عن"
+        }
+      ],
+      "event_ids": [],
+      "footnote_context": "(¬١) ذكره البغوي في تفسيره ٧/ ١٠١ وابن كثير في تفسيره ٧/ ٧١، وعزاه السيوطي في الدر المنثور ٥/ ٣١٩ إلى الفريابي وعبد بن حميد وابن المنذر وأبي نصر السجزي في الإبانة.\n(¬٢) ذكره ابن كثير في تفسيره ٧/ ٧١.\n(¬٣) سقط من: م.\n(¬٤) ليست في: ص، ت ١.",
+      "kind_candidate": "EARLY_REPORT_CANDIDATE",
+      "normalized_report_id": "adam_normalized_report_0afe655878c41e3a4e9c8506",
+      "original_text": "ثنا أسباطُ، عن السديِّ قولَه: ﴿قُلْ هُوَ نَبَأٌ عَظِيمٌ (٦٧) أَنْتُمْ عَنْهُ مُعْرِضُونَ﴾. قال: القرآنُ (¬٢).\n\nوقولُه: ﴿أَنْتُمْ عَنْهُ مُعْرِضُونَ﴾. يقولُ: أنتم عنه منصرِفون، لا تعمَلون به، ولا تُصدِّقون بما فيه من حُججِ الله وآياتِه.\n\nوقولُه: ﴿مَا كَانَ لِيَ مِنْ عِلْمٍ بِالْمَلَإِ الْأَعْلَى﴾. يقولُ لنبيِّه محمدٍ ﷺ: قل يا محمدُ لمشرِكي قومِك: ﴿مَا كَانَ لِيَ مِنْ عِلْمٍ بِالْمَلَإِ الْأَعْلَى﴾ [من الملائكةِ] (¬٣)، ﴿إِذْ يَخْتَصِمُونَ﴾ في شأنِ آدمَ مِن قبلِ أن يوحِىَ إليَّ ربِّي، فيُعلِمَنى ذلك. يقولُ: ففى إخبارى لكم عن (¬٤) ذلك، دليل واضحٌ على أن هذا القرآنَ وحىٌ مِن اللهِ، وتنزيلٌ مِن عنده؛ لأنكم تعلَمون أن علمَ ذلك لم يكن عندى قبلَ نزولِ هذا القرآنِ، ولا هو مما شاهدتُه فعاينتُه، ولكنى علِمتُ ذلك بإخبارِ اللهِ إيَّاي به.",
+      "original_text_sha256": "cd5db078add80e168020684d9a984b70cea122b91bf90c74aa3fb0e8154f06a0",
+      "permissions": {
+        "candidate_only": true,
+        "may_compare_supplied_texts": true,
+        "may_not_add_external_facts": true,
+        "may_not_approve_evidence": true,
+        "may_not_approve_isnad": true,
+        "may_not_approve_israiliyyat": true,
+        "may_not_approve_quotation": true,
+        "may_not_grade_hadith": true,
+        "may_not_judge_narrators": true,
+        "may_propose_semantic_mappings": true,
+        "may_summarize_supplied_text": true
+      },
+      "report_form_candidate": "UNRESOLVED_REPORT_FORM_CANDIDATE",
+      "requested_outputs": [
+        "concise_claim_summary_ar",
+        "speaker_type_candidate",
+        "speaker_surface_candidate",
+        "prophetic_or_non_prophetic_candidate",
+        "event_mapping_proposal",
+        "research_question_mapping_proposal",
+        "text_variant_fingerprint",
+        "source_dependence_observations",
+        "possible_internal_report_count",
+        "semantic_overlap_search_terms",
+        "uncertainties"
+      ],
+      "research_question_ids": [],
+      "task_record_id": "adam_gemini_semantic_task_6f96097b1dd13abc224186f6",
+      "terminal_speaker_surface_candidate": "السديِّ قولَه",
+      "window_id": "69606a01829c587de9b3a1ae",
+      "work_source_id": "SRC-TAFSIR-TABARI-ADAM"
+    }
+  ],
+  "schema_version": "siraj-adam-gemini-draft-batch-v1",
+  "task_contract_project_path": "sources/secondary/gemini-semantic-analysis-draft/contracts/semantic-mapping-contract-v1.json",
+  "task_name": "semantic-mapping"
+}

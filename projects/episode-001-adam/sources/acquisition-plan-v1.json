@@ -1,0 +1,209 @@
+{
+  "asset_family_count": 5,
+  "asset_targets": [
+    {
+      "acceptable_fallback": "Tanzil Uthmani text matching the Medina Mushaf",
+      "acceptance_checks": [
+        "FILE_INSIDE_EPISODE_PROJECT",
+        "SHA256_RECORDED",
+        "UTF8_DECODABLE",
+        "REQUIRED_LOCATORS_PRESENT",
+        "ARABIC_TEXT_NOT_EMPTY",
+        "NO_COMMENTARY_MIXED_WITH_SOURCE_TEXT",
+        "EDITION_OR_EXPORT_PROVENANCE_RECORDED"
+      ],
+      "acquisition_method": "LOCAL_LIBRARY_EXPORT_OR_AUTHORIZED_DOWNLOAD",
+      "asset_key": "QURAN_HAFS_UTHMANI",
+      "normalized_target_path": "sources/normalized/quran/quran-uthmani-hafs-v1.jsonl",
+      "preferred_authority": "King Fahd Glorious Qur'an Printing Complex developer platform",
+      "priority": "CRITICAL",
+      "record_count": 11,
+      "required_fields": [
+        "document_id",
+        "work_title",
+        "book",
+        "chapter",
+        "canonical_number",
+        "arabic_text",
+        "isnad",
+        "matn",
+        "source_locator"
+      ],
+      "required_normalized_format": "UTF8_JSONL",
+      "status": "PENDING",
+      "title": "Qur'an Uthmani Hafs corpus"
+    },
+    {
+      "acceptable_fallback": "A rights-cleared, edition-identified Arabic digital text",
+      "acceptance_checks": [
+        "FILE_INSIDE_EPISODE_PROJECT",
+        "SHA256_RECORDED",
+        "UTF8_DECODABLE",
+        "REQUIRED_LOCATORS_PRESENT",
+        "ARABIC_TEXT_NOT_EMPTY",
+        "NO_COMMENTARY_MIXED_WITH_SOURCE_TEXT",
+        "EDITION_OR_EXPORT_PROVENANCE_RECORDED"
+      ],
+      "acquisition_method": "LOCAL_LIBRARY_EXPORT_OR_AUTHORIZED_DOWNLOAD",
+      "asset_key": "SAHIH_AL_BUKHARI",
+      "normalized_target_path": "sources/normalized/hadith/sahih-al-bukhari-v1.jsonl",
+      "preferred_authority": "Verified local Shamela or authenticated Arabic edition export",
+      "priority": "CRITICAL",
+      "record_count": 3,
+      "required_fields": [
+        "document_id",
+        "work_title",
+        "book",
+        "chapter",
+        "canonical_number",
+        "arabic_text",
+        "isnad",
+        "matn",
+        "source_locator"
+      ],
+      "required_normalized_format": "UTF8_JSONL",
+      "status": "PENDING",
+      "title": "Sahih al-Bukhari Arabic text"
+    },
+    {
+      "acceptable_fallback": "A rights-cleared, edition-identified Arabic digital text",
+      "acceptance_checks": [
+        "FILE_INSIDE_EPISODE_PROJECT",
+        "SHA256_RECORDED",
+        "UTF8_DECODABLE",
+        "REQUIRED_LOCATORS_PRESENT",
+        "ARABIC_TEXT_NOT_EMPTY",
+        "NO_COMMENTARY_MIXED_WITH_SOURCE_TEXT",
+        "EDITION_OR_EXPORT_PROVENANCE_RECORDED"
+      ],
+      "acquisition_method": "LOCAL_LIBRARY_EXPORT_OR_AUTHORIZED_DOWNLOAD",
+      "asset_key": "SAHIH_MUSLIM",
+      "normalized_target_path": "sources/normalized/hadith/sahih-muslim-v1.jsonl",
+      "preferred_authority": "Verified local Shamela or authenticated Arabic edition export",
+      "priority": "CRITICAL",
+      "record_count": 2,
+      "required_fields": [
+        "document_id",
+        "work_title",
+        "book",
+        "chapter",
+        "canonical_number",
+        "arabic_text",
+        "isnad",
+        "matn",
+        "source_locator"
+      ],
+      "required_normalized_format": "UTF8_JSONL",
+      "status": "PENDING",
+      "title": "Sahih Muslim Arabic text"
+    },
+    {
+      "acceptable_fallback": "A rights-cleared, edition-identified Arabic digital text",
+      "acceptance_checks": [
+        "FILE_INSIDE_EPISODE_PROJECT",
+        "SHA256_RECORDED",
+        "UTF8_DECODABLE",
+        "REQUIRED_LOCATORS_PRESENT",
+        "ARABIC_TEXT_NOT_EMPTY",
+        "NO_COMMENTARY_MIXED_WITH_SOURCE_TEXT",
+        "EDITION_OR_EXPORT_PROVENANCE_RECORDED"
+      ],
+      "acquisition_method": "LOCAL_LIBRARY_EXPORT_OR_AUTHORIZED_DOWNLOAD",
+      "asset_key": "SUNAN_ABI_DAWUD",
+      "normalized_target_path": "sources/normalized/hadith/sunan-abi-dawud-v1.jsonl",
+      "preferred_authority": "Verified local Shamela or authenticated Arabic edition export",
+      "priority": "HIGH",
+      "record_count": 2,
+      "required_fields": [
+        "document_id",
+        "work_title",
+        "book",
+        "chapter",
+        "canonical_number",
+        "arabic_text",
+        "isnad",
+        "matn",
+        "source_locator"
+      ],
+      "required_normalized_format": "UTF8_JSONL",
+      "status": "PENDING",
+      "title": "Sunan Abi Dawud Arabic text"
+    },
+    {
+      "acceptable_fallback": "A rights-cleared, edition-identified Arabic digital text",
+      "acceptance_checks": [
+        "FILE_INSIDE_EPISODE_PROJECT",
+        "SHA256_RECORDED",
+        "UTF8_DECODABLE",
+        "REQUIRED_LOCATORS_PRESENT",
+        "ARABIC_TEXT_NOT_EMPTY",
+        "NO_COMMENTARY_MIXED_WITH_SOURCE_TEXT",
+        "EDITION_OR_EXPORT_PROVENANCE_RECORDED"
+      ],
+      "acquisition_method": "LOCAL_LIBRARY_EXPORT_OR_AUTHORIZED_DOWNLOAD",
+      "asset_key": "JAMI_AL_TIRMIDHI",
+      "normalized_target_path": "sources/normalized/hadith/jami-al-tirmidhi-v1.jsonl",
+      "preferred_authority": "Verified local Shamela or authenticated Arabic edition export",
+      "priority": "HIGH",
+      "record_count": 2,
+      "required_fields": [
+        "document_id",
+        "work_title",
+        "book",
+        "chapter",
+        "canonical_number",
+        "arabic_text",
+        "isnad",
+        "matn",
+        "source_locator"
+      ],
+      "required_normalized_format": "UTF8_JSONL",
+      "status": "PENDING",
+      "title": "Jami al-Tirmidhi Arabic text"
+    }
+  ],
+  "batches": [
+    {
+      "asset_keys": [
+        "QURAN_HAFS_UTHMANI"
+      ],
+      "batch_id": "BATCH-01-QURAN",
+      "gate": "QURAN_TEXT_INTEGRITY",
+      "order": 10
+    },
+    {
+      "asset_keys": [
+        "SAHIH_AL_BUKHARI",
+        "SAHIH_MUSLIM"
+      ],
+      "batch_id": "BATCH-02-SAHIHAYN",
+      "gate": "HADITH_LOCATOR_COVERAGE",
+      "order": 20
+    },
+    {
+      "asset_keys": [
+        "SUNAN_ABI_DAWUD",
+        "JAMI_AL_TIRMIDHI"
+      ],
+      "batch_id": "BATCH-03-SUNAN",
+      "gate": "AUTHORIZED_HADITH_GRADING_POLICY_REQUIRED_BEFORE_FINAL_USAGE",
+      "order": 30
+    }
+  ],
+  "created_at": "2026-07-24T11:28:20.764085Z",
+  "episode_id": "episode-001-adam",
+  "exact_record_count": 20,
+  "input_fingerprint": "6c730452d7991b17eabac14bc97e674158b58a990236d134fdcd0210b9ba556b",
+  "plan_id": "adam-01-source-acquisition-plan-v1",
+  "prohibitions": [
+    "NO_AUTOMATIC_SOURCE_APPROVAL",
+    "NO_AUTOMATIC_HADITH_GRADING",
+    "NO_DORAR_HADITH_GRADING",
+    "NO_GEMINI_WEB_SEARCH_AS_EVIDENCE",
+    "NO_EXTRACTION_BEFORE_LOCAL_PATH_AND_CHECKSUM"
+  ],
+  "schema_version": "siraj-source-acquisition-plan-v1",
+  "scope": "PHASE_1_QURAN_AND_HADITH",
+  "status": "READY_FOR_LOCAL_ASSET_ACQUISITION",
+  "updated_at": "2026-07-24T11:28:20.764085Z"
+}
