@@ -16,6 +16,20 @@ from .cinematic_series import (
     SpectacleLevel,
     validate_episode_handoff,
 )
+from .cinematic_compiler import (
+    CINEMATIC_COMPILER_SCHEMA_VERSION,
+    DEFAULT_EPISODE_SECONDS,
+    DEFAULT_GENERATED_VIDEO_TARGET_SECONDS,
+    MAX_EPISODE_SECONDS,
+    MIN_COMPILABLE_FRAMES,
+    MIN_EPISODE_SECONDS,
+    CinematicBudgetEnvelope,
+    CinematicCompilationPolicy,
+    CinematicSeriesCompiler,
+    CompiledCinematicEpisode,
+    CompiledFrameAssignment,
+    MediaTreatment,
+)
 
 __all__=[
     "StoryboardArchitectRuntime",
@@ -36,4 +50,16 @@ __all__=[
     "CinematicStoryboardPlan",
     "CinematicSeriesRuntime",
     "validate_episode_handoff",
+    "CINEMATIC_COMPILER_SCHEMA_VERSION",
+    "MIN_EPISODE_SECONDS",
+    "DEFAULT_EPISODE_SECONDS",
+    "MAX_EPISODE_SECONDS",
+    "DEFAULT_GENERATED_VIDEO_TARGET_SECONDS",
+    "MIN_COMPILABLE_FRAMES",
+    "MediaTreatment",
+    "CinematicBudgetEnvelope",
+    "CinematicCompilationPolicy",
+    "CompiledFrameAssignment",
+    "CompiledCinematicEpisode",
+    "CinematicSeriesCompiler",
 ]
