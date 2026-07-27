@@ -1,0 +1,58 @@
+schema_version: siraj-episode-definition-v1
+episode_id: adam-01
+status: preparation
+language: ar
+
+title:
+  working: "آدم عليه السلام: الخلق والتكريم والسكن في الجنة"
+  final: null
+
+central_question: >
+  ماذا ثبت عن حال الكون قبيل خلق آدم، وكيف خلقه الله وكرمه بالعلم،
+  وأمر الملائكة بالسجود له، ثم خلق زوجه وأسكنهما الجنة؟
+
+scope:
+  starts_with: "حال الكون والمخلوقات قبل خلق آدم"
+  ends_with: "النهي عن الشجرة قبل وقوع الوسوسة"
+  may_be_revised_by_storyboard: true
+  requires_human_approval_for_revision: true
+
+duration:
+  standard_min_minutes: 18
+  target_minutes: 22
+  standard_max_minutes: 25
+  segment_timings_are_estimates: true
+  final_timing_determined_by:
+    - storyboard
+    - evidence_density
+    - production_system
+    - human_approval
+
+required_story_units:
+  - ADAM-U01
+  - ADAM-U02
+  - ADAM-U03
+  - ADAM-U04
+  - ADAM-U05
+  - ADAM-U06
+
+possible_overflow_units:
+  - ADAM-U05
+  - ADAM-U06
+
+verification:
+  status: deferred
+  reason: >
+    التحقق الحديثي النهائي مؤجل إلى حين اعتماد قائمة مراجع التصحيح
+    والتضعيف وتشغيل مرحلة التحقق المستقلة.
+
+live_providers:
+  narrative: deferred
+  tts: deferred
+  visuals: deferred
+  video: deferred
+  render: deferred
+
+editorial_policy_ref: "../../config/editorial_policy.yaml"
+historical_backbone_ref: "../../series/historical_era_backbone.yaml"
+story_units_ref: "../../series/provisional_story_units.yaml"
