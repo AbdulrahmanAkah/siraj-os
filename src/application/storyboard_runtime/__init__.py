@@ -189,3 +189,35 @@ __all__ += [
     "canonical_json_sha256",
     "write_evidence_bound_blueprint",
 ]
+
+from .evidence_recovery import (
+    AUTOMATIC_APPROVAL_STATUS,
+    EVIDENCE_GATE_STATUS,
+    LIVE_EXECUTION_STATUS as EVIDENCE_RECOVERY_LIVE_EXECUTION_STATUS,
+    RECOVERED_EVIDENCE_KNOWLEDGE_SCHEMA_VERSION,
+    RECOVERY_STATUS,
+    AdamEvidenceKnowledgeRecovery,
+    EvidenceRecoveryError,
+    RecoveredEvidenceKnowledge,
+    RecoveredSourceSummary,
+    ReviewArtifactSummary,
+    StructuredFileSummary,
+    validate_recovered_manifest,
+    write_recovered_evidence_knowledge,
+)
+
+__all__ += [
+    "RECOVERED_EVIDENCE_KNOWLEDGE_SCHEMA_VERSION",
+    "RECOVERY_STATUS",
+    "EVIDENCE_GATE_STATUS",
+    "AUTOMATIC_APPROVAL_STATUS",
+    "EVIDENCE_RECOVERY_LIVE_EXECUTION_STATUS",
+    "EvidenceRecoveryError",
+    "StructuredFileSummary",
+    "RecoveredSourceSummary",
+    "ReviewArtifactSummary",
+    "RecoveredEvidenceKnowledge",
+    "AdamEvidenceKnowledgeRecovery",
+    "validate_recovered_manifest",
+    "write_recovered_evidence_knowledge",
+]
