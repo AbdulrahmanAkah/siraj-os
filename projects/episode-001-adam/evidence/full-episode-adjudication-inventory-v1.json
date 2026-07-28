@@ -1,0 +1,1068 @@
+{
+  "automatic_evidence_approval": "FORBIDDEN",
+  "binding_readiness": {
+    "approved_evidence_package_complete": false,
+    "full_episode_adjudication_complete": false,
+    "ready": false,
+    "source_and_excerpt_checksums_complete": false
+  },
+  "coverage": {
+    "events_with_classified_source_records": 3,
+    "events_with_local_artifact_mentions": 0,
+    "human_decision_recorded_events": 3,
+    "readiness_counts": {
+      "HUMAN_DECISION_RECORDED_BINDING_PENDING": 3,
+      "QURAN_SOURCE_BINDING_PENDING": 19,
+      "RESEARCH_OR_EDITORIAL_DECISION_PENDING": 14,
+      "SOURCE_DISCOVERY_PENDING": 1
+    }
+  },
+  "episode_id": "episode-001-adam",
+  "event_count": 37,
+  "event_map_sha256": "1f785030c671c19ef6058421a2c2b8d7bc6b8c262b219108d9aad4b42c9f0494",
+  "events": [
+    {
+      "approved_gap_disposition": null,
+      "artifact_file_count": 0,
+      "artifact_mention_count": 0,
+      "artifact_paths_sample": [],
+      "blocking_reasons": [
+        "event map verification status is pending"
+      ],
+      "chronology_type": "explicit_or_supported",
+      "duration_weight": "brief",
+      "event_id": "EV-ADAM-001",
+      "human_gap_decision_recorded": false,
+      "importance": "context",
+      "order": 10,
+      "question_ids": [
+        "RQ-ADAM-001"
+      ],
+      "readiness": "RESEARCH_OR_EDITORIAL_DECISION_PENDING",
+      "section": "حال الكون قبل آدم",
+      "source_record_count": 0,
+      "source_record_ids": [],
+      "title": "وجود الله قبل الخلق",
+      "verification_status": "pending"
+    },
+    {
+      "approved_gap_disposition": null,
+      "artifact_file_count": 0,
+      "artifact_mention_count": 0,
+      "artifact_paths_sample": [],
+      "blocking_reasons": [
+        "event map verification status is pending"
+      ],
+      "chronology_type": "pending_verification",
+      "duration_weight": "brief",
+      "event_id": "EV-ADAM-002",
+      "human_gap_decision_recorded": false,
+      "importance": "context",
+      "order": 20,
+      "question_ids": [
+        "RQ-ADAM-001",
+        "RQ-ADAM-003"
+      ],
+      "readiness": "RESEARCH_OR_EDITORIAL_DECISION_PENDING",
+      "section": "حال الكون قبل آدم",
+      "source_record_count": 0,
+      "source_record_ids": [],
+      "title": "العرش على الماء",
+      "verification_status": "pending"
+    },
+    {
+      "approved_gap_disposition": null,
+      "artifact_file_count": 0,
+      "artifact_mention_count": 0,
+      "artifact_paths_sample": [],
+      "blocking_reasons": [
+        "event map verification status is pending"
+      ],
+      "chronology_type": "pending_verification",
+      "duration_weight": "brief",
+      "event_id": "EV-ADAM-003",
+      "human_gap_decision_recorded": false,
+      "importance": "context",
+      "order": 30,
+      "question_ids": [
+        "RQ-ADAM-002",
+        "RQ-ADAM-003"
+      ],
+      "readiness": "RESEARCH_OR_EDITORIAL_DECISION_PENDING",
+      "section": "حال الكون قبل آدم",
+      "source_record_count": 0,
+      "source_record_ids": [],
+      "title": "القلم وكتابة المقادير",
+      "verification_status": "pending"
+    },
+    {
+      "approved_gap_disposition": null,
+      "artifact_file_count": 0,
+      "artifact_mention_count": 0,
+      "artifact_paths_sample": [],
+      "blocking_reasons": [
+        "event map marks claim Quran-explicit",
+        "exact verse locator and source/excerpt checksums still required"
+      ],
+      "chronology_type": "explicit",
+      "duration_weight": "brief",
+      "event_id": "EV-ADAM-004",
+      "human_gap_decision_recorded": false,
+      "importance": "context",
+      "order": 40,
+      "question_ids": [
+        "RQ-ADAM-004"
+      ],
+      "readiness": "QURAN_SOURCE_BINDING_PENDING",
+      "section": "حال الكون قبل آدم",
+      "source_record_count": 0,
+      "source_record_ids": [],
+      "title": "خلق السماوات والأرض",
+      "verification_status": "quran_explicit"
+    },
+    {
+      "approved_gap_disposition": null,
+      "artifact_file_count": 0,
+      "artifact_mention_count": 0,
+      "artifact_paths_sample": [],
+      "blocking_reasons": [
+        "event map verification status is pending"
+      ],
+      "chronology_type": "strongly_inferred",
+      "duration_weight": "brief",
+      "event_id": "EV-ADAM-005",
+      "human_gap_decision_recorded": false,
+      "importance": "context",
+      "order": 50,
+      "question_ids": [
+        "RQ-ADAM-005"
+      ],
+      "readiness": "RESEARCH_OR_EDITORIAL_DECISION_PENDING",
+      "section": "حال الكون قبل آدم",
+      "source_record_count": 0,
+      "source_record_ids": [],
+      "title": "خلق الملائكة",
+      "verification_status": "pending"
+    },
+    {
+      "approved_gap_disposition": null,
+      "artifact_file_count": 0,
+      "artifact_mention_count": 0,
+      "artifact_paths_sample": [],
+      "blocking_reasons": [
+        "event map marks claim Quran-explicit",
+        "exact verse locator and source/excerpt checksums still required"
+      ],
+      "chronology_type": "explicit",
+      "duration_weight": "brief",
+      "event_id": "EV-ADAM-006",
+      "human_gap_decision_recorded": false,
+      "importance": "supporting",
+      "order": 60,
+      "question_ids": [
+        "RQ-ADAM-005",
+        "RQ-ADAM-006"
+      ],
+      "readiness": "QURAN_SOURCE_BINDING_PENDING",
+      "section": "حال الكون قبل آدم",
+      "source_record_count": 0,
+      "source_record_ids": [],
+      "title": "خلق الجن قبل آدم",
+      "verification_status": "quran_explicit"
+    },
+    {
+      "approved_gap_disposition": null,
+      "artifact_file_count": 0,
+      "artifact_mention_count": 0,
+      "artifact_paths_sample": [],
+      "blocking_reasons": [
+        "event map verification status is pending"
+      ],
+      "chronology_type": "explicit_or_strongly_inferred",
+      "duration_weight": "brief",
+      "event_id": "EV-ADAM-007",
+      "human_gap_decision_recorded": false,
+      "importance": "supporting",
+      "order": 70,
+      "question_ids": [
+        "RQ-ADAM-018",
+        "RQ-ADAM-020"
+      ],
+      "readiness": "RESEARCH_OR_EDITORIAL_DECISION_PENDING",
+      "section": "حال الكون قبل آدم",
+      "source_record_count": 0,
+      "source_record_ids": [],
+      "title": "وجود إبليس قبل خلق آدم",
+      "verification_status": "pending"
+    },
+    {
+      "approved_gap_disposition": null,
+      "artifact_file_count": 0,
+      "artifact_mention_count": 0,
+      "artifact_paths_sample": [],
+      "blocking_reasons": [
+        "event map marks claim Quran-explicit",
+        "exact verse locator and source/excerpt checksums still required"
+      ],
+      "chronology_type": "explicit",
+      "duration_weight": "normal",
+      "event_id": "EV-ADAM-010",
+      "human_gap_decision_recorded": false,
+      "importance": "core",
+      "order": 100,
+      "question_ids": [
+        "RQ-ADAM-007"
+      ],
+      "readiness": "QURAN_SOURCE_BINDING_PENDING",
+      "section": "إعلان خلق آدم",
+      "source_record_count": 0,
+      "source_record_ids": [],
+      "title": "إعلان خلق خليفة في الأرض",
+      "verification_status": "quran_explicit"
+    },
+    {
+      "approved_gap_disposition": null,
+      "artifact_file_count": 0,
+      "artifact_mention_count": 0,
+      "artifact_paths_sample": [],
+      "blocking_reasons": [
+        "event map marks claim Quran-explicit",
+        "exact verse locator and source/excerpt checksums still required"
+      ],
+      "chronology_type": "explicit",
+      "duration_weight": "normal",
+      "event_id": "EV-ADAM-011",
+      "human_gap_decision_recorded": false,
+      "importance": "core",
+      "order": 110,
+      "question_ids": [
+        "RQ-ADAM-008"
+      ],
+      "readiness": "QURAN_SOURCE_BINDING_PENDING",
+      "section": "إعلان خلق آدم",
+      "source_record_count": 0,
+      "source_record_ids": [],
+      "title": "سؤال الملائكة عن الإفساد وسفك الدماء",
+      "verification_status": "quran_explicit"
+    },
+    {
+      "approved_gap_disposition": null,
+      "artifact_file_count": 0,
+      "artifact_mention_count": 0,
+      "artifact_paths_sample": [],
+      "blocking_reasons": [
+        "event map marks claim Quran-explicit",
+        "exact verse locator and source/excerpt checksums still required"
+      ],
+      "chronology_type": "explicit",
+      "duration_weight": "normal",
+      "event_id": "EV-ADAM-020",
+      "human_gap_decision_recorded": false,
+      "importance": "core",
+      "order": 200,
+      "question_ids": [
+        "RQ-ADAM-009",
+        "RQ-ADAM-010"
+      ],
+      "readiness": "QURAN_SOURCE_BINDING_PENDING",
+      "section": "خلق آدم",
+      "source_record_count": 0,
+      "source_record_ids": [],
+      "title": "خلق آدم من التراب",
+      "verification_status": "quran_explicit"
+    },
+    {
+      "approved_gap_disposition": null,
+      "artifact_file_count": 0,
+      "artifact_mention_count": 0,
+      "artifact_paths_sample": [],
+      "blocking_reasons": [
+        "event map verification status is pending_interpretation"
+      ],
+      "chronology_type": "interpretive_sequence",
+      "duration_weight": "expanded",
+      "event_id": "EV-ADAM-021",
+      "human_gap_decision_recorded": false,
+      "importance": "core",
+      "order": 210,
+      "question_ids": [
+        "RQ-ADAM-009",
+        "RQ-ADAM-010"
+      ],
+      "readiness": "RESEARCH_OR_EDITORIAL_DECISION_PENDING",
+      "section": "خلق آدم",
+      "source_record_count": 0,
+      "source_record_ids": [],
+      "title": "أطوار الطين والحمأ والصلصال",
+      "verification_status": "pending_interpretation"
+    },
+    {
+      "approved_gap_disposition": null,
+      "artifact_file_count": 0,
+      "artifact_mention_count": 0,
+      "artifact_paths_sample": [],
+      "blocking_reasons": [
+        "event map marks claim Quran-explicit",
+        "exact verse locator and source/excerpt checksums still required"
+      ],
+      "chronology_type": "explicit",
+      "duration_weight": "normal",
+      "event_id": "EV-ADAM-022",
+      "human_gap_decision_recorded": false,
+      "importance": "core",
+      "order": 220,
+      "question_ids": [
+        "RQ-ADAM-012"
+      ],
+      "readiness": "QURAN_SOURCE_BINDING_PENDING",
+      "section": "خلق آدم",
+      "source_record_count": 0,
+      "source_record_ids": [],
+      "title": "تسوية جسد آدم",
+      "verification_status": "quran_explicit"
+    },
+    {
+      "approved_gap_disposition": null,
+      "artifact_file_count": 0,
+      "artifact_mention_count": 0,
+      "artifact_paths_sample": [],
+      "blocking_reasons": [
+        "event map verification status is deferred"
+      ],
+      "chronology_type": "pending_verification",
+      "duration_weight": "normal",
+      "event_id": "EV-ADAM-023",
+      "human_gap_decision_recorded": false,
+      "importance": "supporting",
+      "order": 230,
+      "question_ids": [
+        "RQ-ADAM-012"
+      ],
+      "readiness": "RESEARCH_OR_EDITORIAL_DECISION_PENDING",
+      "section": "خلق آدم",
+      "source_record_count": 0,
+      "source_record_ids": [],
+      "title": "بقاء جسد آدم قبل نفخ الروح",
+      "verification_status": "deferred"
+    },
+    {
+      "approved_gap_disposition": null,
+      "artifact_file_count": 0,
+      "artifact_mention_count": 0,
+      "artifact_paths_sample": [],
+      "blocking_reasons": [
+        "event map verification status is deferred"
+      ],
+      "chronology_type": "pending_verification",
+      "duration_weight": "normal",
+      "event_id": "EV-ADAM-024",
+      "human_gap_decision_recorded": false,
+      "importance": "supporting",
+      "order": 240,
+      "question_ids": [
+        "RQ-ADAM-012"
+      ],
+      "readiness": "RESEARCH_OR_EDITORIAL_DECISION_PENDING",
+      "section": "خلق آدم",
+      "source_record_count": 0,
+      "source_record_ids": [],
+      "title": "مرور إبليس بجسد آدم",
+      "verification_status": "deferred"
+    },
+    {
+      "approved_gap_disposition": null,
+      "artifact_file_count": 0,
+      "artifact_mention_count": 0,
+      "artifact_paths_sample": [],
+      "blocking_reasons": [
+        "event map marks claim Quran-explicit",
+        "exact verse locator and source/excerpt checksums still required"
+      ],
+      "chronology_type": "explicit",
+      "duration_weight": "normal",
+      "event_id": "EV-ADAM-030",
+      "human_gap_decision_recorded": false,
+      "importance": "core",
+      "order": 300,
+      "question_ids": [
+        "RQ-ADAM-013"
+      ],
+      "readiness": "QURAN_SOURCE_BINDING_PENDING",
+      "section": "بدء حياة آدم",
+      "source_record_count": 0,
+      "source_record_ids": [],
+      "title": "نفخ الروح في آدم",
+      "verification_status": "quran_explicit"
+    },
+    {
+      "approved_gap_disposition": "include_assertive",
+      "artifact_file_count": 0,
+      "artifact_mention_count": 0,
+      "artifact_paths_sample": [],
+      "blocking_reasons": [
+        "limited human decision recorded",
+        "full evidence item checksums still missing"
+      ],
+      "chronology_type": "pending_verification",
+      "duration_weight": "normal",
+      "event_id": "EV-ADAM-031",
+      "human_gap_decision_recorded": true,
+      "importance": "supporting",
+      "order": 310,
+      "question_ids": [
+        "RQ-ADAM-013"
+      ],
+      "readiness": "HUMAN_DECISION_RECORDED_BINDING_PENDING",
+      "section": "بدء حياة آدم",
+      "source_record_count": 2,
+      "source_record_ids": [
+        "SRCREC-ADAM-SNEEZE-TIRMIDHI-3368",
+        "SRCREC-SUDDI-COMPOSITE-ADAM-SEQUENCE"
+      ],
+      "title": "أول حركة وعطاس وكلام لآدم",
+      "verification_status": "deferred"
+    },
+    {
+      "approved_gap_disposition": null,
+      "artifact_file_count": 0,
+      "artifact_mention_count": 0,
+      "artifact_paths_sample": [],
+      "blocking_reasons": [
+        "event map verification status is pending"
+      ],
+      "chronology_type": "pending_verification",
+      "duration_weight": "normal",
+      "event_id": "EV-ADAM-032",
+      "human_gap_decision_recorded": false,
+      "importance": "supporting",
+      "order": 320,
+      "question_ids": [
+        "RQ-ADAM-014"
+      ],
+      "readiness": "RESEARCH_OR_EDITORIAL_DECISION_PENDING",
+      "section": "بدء حياة آدم",
+      "source_record_count": 0,
+      "source_record_ids": [],
+      "title": "طول آدم وصفته الأولى",
+      "verification_status": "pending"
+    },
+    {
+      "approved_gap_disposition": null,
+      "artifact_file_count": 0,
+      "artifact_mention_count": 0,
+      "artifact_paths_sample": [],
+      "blocking_reasons": [
+        "event map verification status is pending"
+      ],
+      "chronology_type": "chronologically_uncertain",
+      "duration_weight": "normal",
+      "event_id": "EV-ADAM-033",
+      "human_gap_decision_recorded": false,
+      "importance": "supporting",
+      "order": 330,
+      "question_ids": [
+        "RQ-ADAM-014",
+        "RQ-ADAM-031"
+      ],
+      "readiness": "RESEARCH_OR_EDITORIAL_DECISION_PENDING",
+      "section": "بدء حياة آدم",
+      "source_record_count": 0,
+      "source_record_ids": [],
+      "title": "تعليم آدم تحية السلام",
+      "verification_status": "pending"
+    },
+    {
+      "approved_gap_disposition": null,
+      "artifact_file_count": 0,
+      "artifact_mention_count": 0,
+      "artifact_paths_sample": [],
+      "blocking_reasons": [
+        "event map marks claim Quran-explicit",
+        "exact verse locator and source/excerpt checksums still required"
+      ],
+      "chronology_type": "explicit",
+      "duration_weight": "expanded",
+      "event_id": "EV-ADAM-040",
+      "human_gap_decision_recorded": false,
+      "importance": "core",
+      "order": 400,
+      "question_ids": [
+        "RQ-ADAM-015",
+        "RQ-ADAM-016"
+      ],
+      "readiness": "QURAN_SOURCE_BINDING_PENDING",
+      "section": "تعليم آدم",
+      "source_record_count": 0,
+      "source_record_ids": [],
+      "title": "تعليم آدم الأسماء كلها",
+      "verification_status": "quran_explicit"
+    },
+    {
+      "approved_gap_disposition": null,
+      "artifact_file_count": 0,
+      "artifact_mention_count": 0,
+      "artifact_paths_sample": [],
+      "blocking_reasons": [
+        "event map marks claim Quran-explicit",
+        "exact verse locator and source/excerpt checksums still required"
+      ],
+      "chronology_type": "explicit",
+      "duration_weight": "normal",
+      "event_id": "EV-ADAM-041",
+      "human_gap_decision_recorded": false,
+      "importance": "core",
+      "order": 410,
+      "question_ids": [
+        "RQ-ADAM-015",
+        "RQ-ADAM-016"
+      ],
+      "readiness": "QURAN_SOURCE_BINDING_PENDING",
+      "section": "تعليم آدم",
+      "source_record_count": 0,
+      "source_record_ids": [],
+      "title": "عرض المسميات على الملائكة",
+      "verification_status": "quran_explicit"
+    },
+    {
+      "approved_gap_disposition": null,
+      "artifact_file_count": 0,
+      "artifact_mention_count": 0,
+      "artifact_paths_sample": [],
+      "blocking_reasons": [
+        "event map verification status is pending_interpretation"
+      ],
+      "chronology_type": "explicit_and_interpretive",
+      "duration_weight": "normal",
+      "event_id": "EV-ADAM-042",
+      "human_gap_decision_recorded": false,
+      "importance": "core",
+      "order": 420,
+      "question_ids": [
+        "RQ-ADAM-016"
+      ],
+      "readiness": "RESEARCH_OR_EDITORIAL_DECISION_PENDING",
+      "section": "تعليم آدم",
+      "source_record_count": 0,
+      "source_record_ids": [],
+      "title": "إظهار فضل آدم بالعلم",
+      "verification_status": "pending_interpretation"
+    },
+    {
+      "approved_gap_disposition": null,
+      "artifact_file_count": 0,
+      "artifact_mention_count": 0,
+      "artifact_paths_sample": [],
+      "blocking_reasons": [
+        "event map marks claim Quran-explicit",
+        "exact verse locator and source/excerpt checksums still required"
+      ],
+      "chronology_type": "explicit",
+      "duration_weight": "normal",
+      "event_id": "EV-ADAM-050",
+      "human_gap_decision_recorded": false,
+      "importance": "core",
+      "order": 500,
+      "question_ids": [
+        "RQ-ADAM-017"
+      ],
+      "readiness": "QURAN_SOURCE_BINDING_PENDING",
+      "section": "السجود وامتناع إبليس",
+      "source_record_count": 0,
+      "source_record_ids": [],
+      "title": "الأمر بالسجود لآدم",
+      "verification_status": "quran_explicit"
+    },
+    {
+      "approved_gap_disposition": null,
+      "artifact_file_count": 0,
+      "artifact_mention_count": 0,
+      "artifact_paths_sample": [],
+      "blocking_reasons": [
+        "event map marks claim Quran-explicit",
+        "exact verse locator and source/excerpt checksums still required"
+      ],
+      "chronology_type": "explicit",
+      "duration_weight": "normal",
+      "event_id": "EV-ADAM-051",
+      "human_gap_decision_recorded": false,
+      "importance": "core",
+      "order": 510,
+      "question_ids": [
+        "RQ-ADAM-017"
+      ],
+      "readiness": "QURAN_SOURCE_BINDING_PENDING",
+      "section": "السجود وامتناع إبليس",
+      "source_record_count": 0,
+      "source_record_ids": [],
+      "title": "سجود الملائكة",
+      "verification_status": "quran_explicit"
+    },
+    {
+      "approved_gap_disposition": null,
+      "artifact_file_count": 0,
+      "artifact_mention_count": 0,
+      "artifact_paths_sample": [],
+      "blocking_reasons": [
+        "event map marks claim Quran-explicit",
+        "exact verse locator and source/excerpt checksums still required"
+      ],
+      "chronology_type": "explicit",
+      "duration_weight": "expanded",
+      "event_id": "EV-ADAM-052",
+      "human_gap_decision_recorded": false,
+      "importance": "core",
+      "order": 520,
+      "question_ids": [
+        "RQ-ADAM-018",
+        "RQ-ADAM-019"
+      ],
+      "readiness": "QURAN_SOURCE_BINDING_PENDING",
+      "section": "السجود وامتناع إبليس",
+      "source_record_count": 0,
+      "source_record_ids": [],
+      "title": "امتناع إبليس واستكباره",
+      "verification_status": "quran_explicit"
+    },
+    {
+      "approved_gap_disposition": null,
+      "artifact_file_count": 0,
+      "artifact_mention_count": 0,
+      "artifact_paths_sample": [],
+      "blocking_reasons": [
+        "event map marks claim Quran-explicit",
+        "exact verse locator and source/excerpt checksums still required"
+      ],
+      "chronology_type": "explicit",
+      "duration_weight": "normal",
+      "event_id": "EV-ADAM-053",
+      "human_gap_decision_recorded": false,
+      "importance": "core",
+      "order": 530,
+      "question_ids": [
+        "RQ-ADAM-019"
+      ],
+      "readiness": "QURAN_SOURCE_BINDING_PENDING",
+      "section": "السجود وامتناع إبليس",
+      "source_record_count": 0,
+      "source_record_ids": [],
+      "title": "احتجاج إبليس بالنار والطين",
+      "verification_status": "quran_explicit"
+    },
+    {
+      "approved_gap_disposition": null,
+      "artifact_file_count": 0,
+      "artifact_mention_count": 0,
+      "artifact_paths_sample": [],
+      "blocking_reasons": [
+        "event map marks claim Quran-explicit",
+        "exact verse locator and source/excerpt checksums still required"
+      ],
+      "chronology_type": "explicit",
+      "duration_weight": "normal",
+      "event_id": "EV-ADAM-054",
+      "human_gap_decision_recorded": false,
+      "importance": "core",
+      "order": 540,
+      "question_ids": [
+        "RQ-ADAM-019",
+        "RQ-ADAM-020"
+      ],
+      "readiness": "QURAN_SOURCE_BINDING_PENDING",
+      "section": "السجود وامتناع إبليس",
+      "source_record_count": 0,
+      "source_record_ids": [],
+      "title": "طرد إبليس وطلب الإنظار",
+      "verification_status": "quran_explicit"
+    },
+    {
+      "approved_gap_disposition": null,
+      "artifact_file_count": 0,
+      "artifact_mention_count": 0,
+      "artifact_paths_sample": [],
+      "blocking_reasons": [
+        "event map marks claim Quran-explicit",
+        "exact verse locator and source/excerpt checksums still required"
+      ],
+      "chronology_type": "explicit",
+      "duration_weight": "normal",
+      "event_id": "EV-ADAM-055",
+      "human_gap_decision_recorded": false,
+      "importance": "core",
+      "order": 550,
+      "question_ids": [
+        "RQ-ADAM-019"
+      ],
+      "readiness": "QURAN_SOURCE_BINDING_PENDING",
+      "section": "السجود وامتناع إبليس",
+      "source_record_count": 0,
+      "source_record_ids": [],
+      "title": "إعلان إبليس عداوته لذرية آدم",
+      "verification_status": "quran_explicit"
+    },
+    {
+      "approved_gap_disposition": null,
+      "artifact_file_count": 0,
+      "artifact_mention_count": 0,
+      "artifact_paths_sample": [],
+      "blocking_reasons": [
+        "event map verification status is deferred"
+      ],
+      "chronology_type": "chronologically_uncertain",
+      "duration_weight": "normal",
+      "event_id": "EV-ADAM-060",
+      "human_gap_decision_recorded": false,
+      "importance": "core",
+      "order": 600,
+      "question_ids": [
+        "RQ-ADAM-021",
+        "RQ-ADAM-023",
+        "RQ-ADAM-024"
+      ],
+      "readiness": "RESEARCH_OR_EDITORIAL_DECISION_PENDING",
+      "section": "ميثاق الذر",
+      "source_record_count": 0,
+      "source_record_ids": [],
+      "title": "ميثاق بني آدم",
+      "verification_status": "deferred"
+    },
+    {
+      "approved_gap_disposition": null,
+      "artifact_file_count": 0,
+      "artifact_mention_count": 0,
+      "artifact_paths_sample": [],
+      "blocking_reasons": [
+        "event map verification status is deferred"
+      ],
+      "chronology_type": "chronologically_uncertain",
+      "duration_weight": "normal",
+      "event_id": "EV-ADAM-061",
+      "human_gap_decision_recorded": false,
+      "importance": "core",
+      "order": 610,
+      "question_ids": [
+        "RQ-ADAM-022",
+        "RQ-ADAM-023",
+        "RQ-ADAM-024"
+      ],
+      "readiness": "RESEARCH_OR_EDITORIAL_DECISION_PENDING",
+      "section": "ميثاق الذر",
+      "source_record_count": 0,
+      "source_record_ids": [],
+      "title": "استخراج ذرية آدم من ظهره",
+      "verification_status": "deferred"
+    },
+    {
+      "approved_gap_disposition": null,
+      "artifact_file_count": 0,
+      "artifact_mention_count": 0,
+      "artifact_paths_sample": [],
+      "blocking_reasons": [
+        "event map verification status is pending"
+      ],
+      "chronology_type": "chronologically_uncertain",
+      "duration_weight": "normal",
+      "event_id": "EV-ADAM-070",
+      "human_gap_decision_recorded": false,
+      "importance": "core",
+      "order": 700,
+      "question_ids": [
+        "RQ-ADAM-025",
+        "RQ-ADAM-026",
+        "RQ-ADAM-027",
+        "RQ-ADAM-031"
+      ],
+      "readiness": "RESEARCH_OR_EDITORIAL_DECISION_PENDING",
+      "section": "خلق الزوج",
+      "source_record_count": 0,
+      "source_record_ids": [],
+      "title": "خلق زوج آدم",
+      "verification_status": "pending"
+    },
+    {
+      "approved_gap_disposition": "include_qualified",
+      "artifact_file_count": 0,
+      "artifact_mention_count": 0,
+      "artifact_paths_sample": [],
+      "blocking_reasons": [
+        "limited human decision recorded",
+        "full evidence item checksums still missing"
+      ],
+      "chronology_type": "pending_verification",
+      "duration_weight": "brief",
+      "event_id": "EV-ADAM-071",
+      "human_gap_decision_recorded": true,
+      "importance": "supporting",
+      "order": 710,
+      "question_ids": [
+        "RQ-ADAM-026",
+        "RQ-ADAM-027"
+      ],
+      "readiness": "HUMAN_DECISION_RECORDED_BINDING_PENDING",
+      "section": "خلق الزوج",
+      "source_record_count": 6,
+      "source_record_ids": [
+        "SRCREC-BAYHAQI-820-SUDDI-LONELINESS",
+        "SRCREC-HAWA-NAME-BUKHARI-3330-MUSLIM-1470",
+        "SRCREC-IBN-ABI-HATIM-8276-SUDDI-LONELINESS",
+        "SRCREC-TABARI-8406-SUDDI-LONELINESS",
+        "SRCREC-TABARI-8407-IBN-ISHAQ-AHL-AL-KITAB",
+        "SRCREC-WOMAN-RIB-BUKHARI-3331-MUSLIM-1468"
+      ],
+      "title": "اسم حواء والتفاصيل المنقولة عن خلقها",
+      "verification_status": "deferred"
+    },
+    {
+      "approved_gap_disposition": null,
+      "artifact_file_count": 0,
+      "artifact_mention_count": 0,
+      "artifact_paths_sample": [],
+      "blocking_reasons": [
+        "event map marks claim Quran-explicit",
+        "exact verse locator and source/excerpt checksums still required"
+      ],
+      "chronology_type": "explicit",
+      "duration_weight": "normal",
+      "event_id": "EV-ADAM-080",
+      "human_gap_decision_recorded": false,
+      "importance": "core",
+      "order": 800,
+      "question_ids": [
+        "RQ-ADAM-028"
+      ],
+      "readiness": "QURAN_SOURCE_BINDING_PENDING",
+      "section": "السكن في الجنة",
+      "source_record_count": 0,
+      "source_record_ids": [],
+      "title": "إسكان آدم وزوجه الجنة",
+      "verification_status": "quran_explicit"
+    },
+    {
+      "approved_gap_disposition": null,
+      "artifact_file_count": 0,
+      "artifact_mention_count": 0,
+      "artifact_paths_sample": [],
+      "blocking_reasons": [
+        "event map marks claim Quran-explicit",
+        "exact verse locator and source/excerpt checksums still required"
+      ],
+      "chronology_type": "explicit",
+      "duration_weight": "normal",
+      "event_id": "EV-ADAM-081",
+      "human_gap_decision_recorded": false,
+      "importance": "supporting",
+      "order": 810,
+      "question_ids": [
+        "RQ-ADAM-028"
+      ],
+      "readiness": "QURAN_SOURCE_BINDING_PENDING",
+      "section": "السكن في الجنة",
+      "source_record_count": 0,
+      "source_record_ids": [],
+      "title": "نعيم الجنة وعدم الجوع والعري والعطش والضحى",
+      "verification_status": "quran_explicit"
+    },
+    {
+      "approved_gap_disposition": null,
+      "artifact_file_count": 0,
+      "artifact_mention_count": 0,
+      "artifact_paths_sample": [],
+      "blocking_reasons": [
+        "event map marks claim Quran-explicit",
+        "exact verse locator and source/excerpt checksums still required"
+      ],
+      "chronology_type": "explicit",
+      "duration_weight": "normal",
+      "event_id": "EV-ADAM-082",
+      "human_gap_decision_recorded": false,
+      "importance": "core",
+      "order": 820,
+      "question_ids": [
+        "RQ-ADAM-019"
+      ],
+      "readiness": "QURAN_SOURCE_BINDING_PENDING",
+      "section": "السكن في الجنة",
+      "source_record_count": 0,
+      "source_record_ids": [],
+      "title": "التحذير من إبليس",
+      "verification_status": "quran_explicit"
+    },
+    {
+      "approved_gap_disposition": null,
+      "artifact_file_count": 0,
+      "artifact_mention_count": 0,
+      "artifact_paths_sample": [],
+      "blocking_reasons": [
+        "event map marks claim Quran-explicit",
+        "exact verse locator and source/excerpt checksums still required"
+      ],
+      "chronology_type": "explicit",
+      "duration_weight": "normal",
+      "event_id": "EV-ADAM-090",
+      "human_gap_decision_recorded": false,
+      "importance": "core",
+      "order": 900,
+      "question_ids": [
+        "RQ-ADAM-029",
+        "RQ-ADAM-030"
+      ],
+      "readiness": "QURAN_SOURCE_BINDING_PENDING",
+      "section": "الاختبار الأول",
+      "source_record_count": 0,
+      "source_record_ids": [],
+      "title": "النهي عن الشجرة",
+      "verification_status": "quran_explicit"
+    },
+    {
+      "approved_gap_disposition": "include_qualified",
+      "artifact_file_count": 0,
+      "artifact_mention_count": 0,
+      "artifact_paths_sample": [],
+      "blocking_reasons": [
+        "limited human decision recorded",
+        "full evidence item checksums still missing"
+      ],
+      "chronology_type": "not_applicable",
+      "duration_weight": "brief",
+      "event_id": "EV-ADAM-091",
+      "human_gap_decision_recorded": true,
+      "importance": "supporting",
+      "order": 910,
+      "question_ids": [
+        "RQ-ADAM-029",
+        "RQ-ADAM-030"
+      ],
+      "readiness": "HUMAN_DECISION_RECORDED_BINDING_PENDING",
+      "section": "الاختبار الأول",
+      "source_record_count": 2,
+      "source_record_ids": [
+        "SRCREC-IBN-KATHIR-TREE-NONDETERMINATION",
+        "SRCREC-TABARI-TREE-NONDETERMINATION"
+      ],
+      "title": "الأقوال في نوع الشجرة",
+      "verification_status": "deferred"
+    },
+    {
+      "approved_gap_disposition": null,
+      "artifact_file_count": 0,
+      "artifact_mention_count": 0,
+      "artifact_paths_sample": [],
+      "blocking_reasons": [
+        "no binding-ready evidence trace found"
+      ],
+      "chronology_type": "editorial_arrangement",
+      "duration_weight": "brief",
+      "event_id": "EV-ADAM-099",
+      "human_gap_decision_recorded": false,
+      "importance": "core",
+      "order": 990,
+      "question_ids": [
+        "RQ-ADAM-032"
+      ],
+      "readiness": "SOURCE_DISCOVERY_PENDING",
+      "section": "خاتمة الحلقة",
+      "source_record_count": 0,
+      "source_record_ids": [],
+      "title": "التمهيد لبدء الوسوسة",
+      "verification_status": "editorial"
+    }
+  ],
+  "evidence_gate_status": "WITHHELD_PENDING_APPROVED_EVIDENCE_PACKAGE",
+  "human_approval_effect": "NONE_BEYOND_ALREADY_RECORDED_THREE_GAP_DECISIONS",
+  "human_gap_approval_sha256": "907f9d341edaa98167503ed6444704f2bcaf0881e1e3cbd222394ae1a9a70e47",
+  "inventory_id": "adam_full_episode_inventory_c904aa754025a815",
+  "live_provider_execution": "BLOCKED",
+  "recommended_next_batch": [
+    {
+      "event_id": "EV-ADAM-010",
+      "readiness": "QURAN_SOURCE_BINDING_PENDING",
+      "recommended_action": "bind exact Quran verse locator and compute source/excerpt checksums",
+      "section": "إعلان خلق آدم",
+      "title": "إعلان خلق خليفة في الأرض"
+    },
+    {
+      "event_id": "EV-ADAM-011",
+      "readiness": "QURAN_SOURCE_BINDING_PENDING",
+      "recommended_action": "bind exact Quran verse locator and compute source/excerpt checksums",
+      "section": "إعلان خلق آدم",
+      "title": "سؤال الملائكة عن الإفساد وسفك الدماء"
+    },
+    {
+      "event_id": "EV-ADAM-006",
+      "readiness": "QURAN_SOURCE_BINDING_PENDING",
+      "recommended_action": "bind exact Quran verse locator and compute source/excerpt checksums",
+      "section": "حال الكون قبل آدم",
+      "title": "خلق الجن قبل آدم"
+    },
+    {
+      "event_id": "EV-ADAM-020",
+      "readiness": "QURAN_SOURCE_BINDING_PENDING",
+      "recommended_action": "bind exact Quran verse locator and compute source/excerpt checksums",
+      "section": "خلق آدم",
+      "title": "خلق آدم من التراب"
+    },
+    {
+      "event_id": "EV-ADAM-022",
+      "readiness": "QURAN_SOURCE_BINDING_PENDING",
+      "recommended_action": "bind exact Quran verse locator and compute source/excerpt checksums",
+      "section": "خلق آدم",
+      "title": "تسوية جسد آدم"
+    },
+    {
+      "event_id": "EV-ADAM-004",
+      "readiness": "QURAN_SOURCE_BINDING_PENDING",
+      "recommended_action": "bind exact Quran verse locator and compute source/excerpt checksums",
+      "section": "حال الكون قبل آدم",
+      "title": "خلق السماوات والأرض"
+    },
+    {
+      "event_id": "EV-ADAM-030",
+      "readiness": "QURAN_SOURCE_BINDING_PENDING",
+      "recommended_action": "bind exact Quran verse locator and compute source/excerpt checksums",
+      "section": "بدء حياة آدم",
+      "title": "نفخ الروح في آدم"
+    },
+    {
+      "event_id": "EV-ADAM-040",
+      "readiness": "QURAN_SOURCE_BINDING_PENDING",
+      "recommended_action": "bind exact Quran verse locator and compute source/excerpt checksums",
+      "section": "تعليم آدم",
+      "title": "تعليم آدم الأسماء كلها"
+    },
+    {
+      "event_id": "EV-ADAM-041",
+      "readiness": "QURAN_SOURCE_BINDING_PENDING",
+      "recommended_action": "bind exact Quran verse locator and compute source/excerpt checksums",
+      "section": "تعليم آدم",
+      "title": "عرض المسميات على الملائكة"
+    },
+    {
+      "event_id": "EV-ADAM-050",
+      "readiness": "QURAN_SOURCE_BINDING_PENDING",
+      "recommended_action": "bind exact Quran verse locator and compute source/excerpt checksums",
+      "section": "السجود وامتناع إبليس",
+      "title": "الأمر بالسجود لآدم"
+    },
+    {
+      "event_id": "EV-ADAM-051",
+      "readiness": "QURAN_SOURCE_BINDING_PENDING",
+      "recommended_action": "bind exact Quran verse locator and compute source/excerpt checksums",
+      "section": "السجود وامتناع إبليس",
+      "title": "سجود الملائكة"
+    },
+    {
+      "event_id": "EV-ADAM-052",
+      "readiness": "QURAN_SOURCE_BINDING_PENDING",
+      "recommended_action": "bind exact Quran verse locator and compute source/excerpt checksums",
+      "section": "السجود وامتناع إبليس",
+      "title": "امتناع إبليس واستكباره"
+    }
+  ],
+  "scan_summary": {
+    "files_scanned": 0,
+    "large_files_skipped": 0,
+    "raw_text_retained": false
+  },
+  "schema_version": "siraj-full-episode-adjudication-inventory-v1",
+  "source_classification_sha256": "d370890691ea25161f3e2abf80b82d14b2ba078378f9e8c26c8b696f1d06b44d",
+  "status": "INVENTORY_READY_REVIEW_AND_BINDING_PENDING"
+}
