@@ -385,3 +385,41 @@ __all__ += [
     "load_and_validate_source_origin_bundle",
     "write_source_origin_validation_manifest",
 ]
+
+from .gap_human_review import (
+    APPROVAL_TEMPLATE_SCHEMA as GAP_HUMAN_APPROVAL_TEMPLATE_SCHEMA,
+    APPROVAL_TEMPLATE_STATUS as GAP_HUMAN_APPROVAL_TEMPLATE_STATUS,
+    AUTOMATIC_APPROVAL_STATUS as GAP_HUMAN_REVIEW_AUTOMATIC_APPROVAL_STATUS,
+    EVIDENCE_GATE_STATUS as GAP_HUMAN_REVIEW_EVIDENCE_GATE_STATUS,
+    LIVE_EXECUTION_STATUS as GAP_HUMAN_REVIEW_LIVE_EXECUTION_STATUS,
+    REVIEW_PACKET_SCHEMA as GAP_HUMAN_REVIEW_PACKET_SCHEMA,
+    REVIEW_PACKET_STATUS as GAP_HUMAN_REVIEW_PACKET_STATUS,
+    TARGET_EVENT_IDS as GAP_HUMAN_REVIEW_TARGET_EVENT_IDS,
+    GapHumanReviewError,
+    approval_template as gap_human_approval_template,
+    build_review_packet as build_gap_human_review_packet,
+    canonical_json_sha256 as gap_human_review_canonical_json_sha256,
+    load_and_build as load_and_build_gap_human_review,
+    validate_approval_template as validate_gap_human_approval_template,
+    validate_review_packet as validate_gap_human_review_packet,
+    write_json as write_gap_human_review_json,
+)
+
+__all__ += [
+    "GAP_HUMAN_REVIEW_PACKET_SCHEMA",
+    "GAP_HUMAN_APPROVAL_TEMPLATE_SCHEMA",
+    "GAP_HUMAN_REVIEW_PACKET_STATUS",
+    "GAP_HUMAN_APPROVAL_TEMPLATE_STATUS",
+    "GAP_HUMAN_REVIEW_EVIDENCE_GATE_STATUS",
+    "GAP_HUMAN_REVIEW_AUTOMATIC_APPROVAL_STATUS",
+    "GAP_HUMAN_REVIEW_LIVE_EXECUTION_STATUS",
+    "GAP_HUMAN_REVIEW_TARGET_EVENT_IDS",
+    "GapHumanReviewError",
+    "gap_human_review_canonical_json_sha256",
+    "build_gap_human_review_packet",
+    "gap_human_approval_template",
+    "validate_gap_human_review_packet",
+    "validate_gap_human_approval_template",
+    "load_and_build_gap_human_review",
+    "write_gap_human_review_json",
+]

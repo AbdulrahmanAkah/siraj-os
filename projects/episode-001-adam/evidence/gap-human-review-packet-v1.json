@@ -1,0 +1,154 @@
+{
+  "automatic_evidence_approval": "FORBIDDEN",
+  "binding": false,
+  "classification_id": "adam-source-origin-classification-v1",
+  "classification_sha256": "d370890691ea25161f3e2abf80b82d14b2ba078378f9e8c26c8b696f1d06b44d",
+  "episode_id": "episode-001-adam",
+  "evidence_binding_readiness": {
+    "blocking_requirements": [
+      "explicit human approval of each event decision",
+      "approved source package",
+      "source file checksum for each approved evidence item",
+      "excerpt checksum for each approved evidence item",
+      "complete adjudication for every required episode event before gate opening"
+    ],
+    "ready": false
+  },
+  "evidence_gate_status": "WITHHELD_PENDING_APPROVED_EVIDENCE_PACKAGE",
+  "human_evidence_approval": false,
+  "live_provider_execution": "BLOCKED",
+  "packet_id": "adam_gap_human_review_1c9585b98db3e5ad",
+  "proposal_id": "adam-gap-adjudication-proposal-v1",
+  "proposal_sha256": "363f5b91c62dd9d141c22f8f00093053913ab41e52d7a4134b34c000e20c75d2",
+  "review_items": [
+    {
+      "event_id": "EV-ADAM-031",
+      "human_decision": false,
+      "human_review_question": "هل تعتمد إدراج عطاس آدم وحمده لله بصيغة جازمة ضمن حدود الحديث الصحيح، مع منع أي ادعاء بالأولية؟",
+      "proposed_disposition": "include_assertive",
+      "proposed_narration": "ولما خلق الله آدم ونفخ فيه الروح عطس، فحمد الله، فقال له ربه ما ثبت في الحديث.",
+      "reviewer_notes": "",
+      "source_record_ids": [
+        "SRCREC-ADAM-SNEEZE-TIRMIDHI-3368"
+      ],
+      "source_summaries": [
+        {
+          "automatic_grade": false,
+          "origin_classification": "AUTHENTIC_SUNNAH",
+          "record": "3368",
+          "references": [
+            "جامع الترمذي 3368",
+            "الدرر السنية: شرح الحديث 83069"
+          ],
+          "source_record_id": "SRCREC-ADAM-SNEEZE-TIRMIDHI-3368",
+          "work": "جامع الترمذي"
+        }
+      ]
+    },
+    {
+      "event_id": "EV-ADAM-071",
+      "human_decision": false,
+      "human_review_question": "هل تعتمد أن حواء خُلقت من ضلع آدم استنتاجًا من المقدمتين الثابتتين، وإيراد خبر الوحدة منسوبًا إلى بعض روايات التفسير، مع حذف التفاصيل الإسرائيلية افتراضيًا؟",
+      "proposed_disposition": "include_qualified",
+      "proposed_narration": "وخلق الله لآدم زوجه حواء من ضلع منه، ليسكن إليها. وورد في بعض روايات التفسير أن آدم كان في الجنة وحيدًا لا زوج له يسكن إليها.",
+      "reviewer_notes": "",
+      "source_record_ids": [
+        "SRCREC-HAWA-NAME-BUKHARI-3330-MUSLIM-1470",
+        "SRCREC-WOMAN-RIB-BUKHARI-3331-MUSLIM-1468",
+        "SRCREC-TABARI-8406-SUDDI-LONELINESS",
+        "SRCREC-IBN-ABI-HATIM-8276-SUDDI-LONELINESS",
+        "SRCREC-BAYHAQI-820-SUDDI-LONELINESS"
+      ],
+      "source_summaries": [
+        {
+          "automatic_grade": false,
+          "origin_classification": "AUTHENTIC_SUNNAH",
+          "record": "البخاري 3330؛ مسلم 1470",
+          "references": [
+            "صحيح البخاري 3330",
+            "صحيح مسلم 1470"
+          ],
+          "source_record_id": "SRCREC-HAWA-NAME-BUKHARI-3330-MUSLIM-1470",
+          "work": "صحيح البخاري وصحيح مسلم"
+        },
+        {
+          "automatic_grade": false,
+          "origin_classification": "AUTHENTIC_SUNNAH",
+          "record": "البخاري 3331؛ مسلم 1468",
+          "references": [
+            "صحيح البخاري 3331",
+            "صحيح مسلم 1468"
+          ],
+          "source_record_id": "SRCREC-WOMAN-RIB-BUKHARI-3331-MUSLIM-1468",
+          "work": "صحيح البخاري وصحيح مسلم"
+        },
+        {
+          "automatic_grade": false,
+          "origin_classification": "TAFSIR_REPORT_COMPOSITE_CHAIN_NOT_MARFU",
+          "record": "8406 عند تفسير النساء 1",
+          "references": [
+            "تفسير الطبري، النساء 1، الأثر 8406"
+          ],
+          "source_record_id": "SRCREC-TABARI-8406-SUDDI-LONELINESS",
+          "work": "تفسير الطبري"
+        },
+        {
+          "automatic_grade": false,
+          "origin_classification": "TAFSIR_REPORT_COMPOSITE_CHAIN_NOT_MARFU",
+          "record": "8276 عند تفسير الأعراف 19",
+          "references": [
+            "تفسير ابن أبي حاتم، الأعراف 19، الأثر 8276"
+          ],
+          "source_record_id": "SRCREC-IBN-ABI-HATIM-8276-SUDDI-LONELINESS",
+          "work": "تفسير ابن أبي حاتم"
+        },
+        {
+          "automatic_grade": false,
+          "origin_classification": "TAFSIR_REPORT_COMPOSITE_CHAIN_NOT_MARFU",
+          "record": "820",
+          "references": [
+            "الأسماء والصفات للبيهقي، الأثر 820"
+          ],
+          "source_record_id": "SRCREC-BAYHAQI-820-SUDDI-LONELINESS",
+          "work": "الأسماء والصفات للبيهقي"
+        }
+      ]
+    },
+    {
+      "event_id": "EV-ADAM-091",
+      "human_decision": false,
+      "human_review_question": "هل تعتمد صيغة عدم ثبوت تعيين نوع الشجرة، مع إبقائها غير محددة بصريًا؟",
+      "proposed_disposition": "include_qualified",
+      "proposed_narration": "ونهاهما الله عن شجرة في الجنة، وقد اختلف المفسرون في نوعها، ولم يثبت في القرآن ولا في السنة الصحيحة ما يعيّنها.",
+      "reviewer_notes": "",
+      "source_record_ids": [
+        "SRCREC-TABARI-TREE-NONDETERMINATION",
+        "SRCREC-IBN-KATHIR-TREE-NONDETERMINATION"
+      ],
+      "source_summaries": [
+        {
+          "automatic_grade": false,
+          "origin_classification": "DISPUTED_TAFSIR_VIEW",
+          "record": "تفسير النهي عن الشجرة",
+          "references": [
+            "تفسير الطبري عند البقرة 35"
+          ],
+          "source_record_id": "SRCREC-TABARI-TREE-NONDETERMINATION",
+          "work": "تفسير الطبري"
+        },
+        {
+          "automatic_grade": false,
+          "origin_classification": "DISPUTED_TAFSIR_VIEW",
+          "record": "تفسير البقرة 35",
+          "references": [
+            "تفسير ابن كثير، البقرة 35"
+          ],
+          "source_record_id": "SRCREC-IBN-KATHIR-TREE-NONDETERMINATION",
+          "work": "تفسير ابن كثير"
+        }
+      ]
+    }
+  ],
+  "schema_version": "siraj-gap-human-review-packet-v1",
+  "status": "HUMAN_REVIEW_READY"
+}

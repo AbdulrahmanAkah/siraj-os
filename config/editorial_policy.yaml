@@ -206,3 +206,17 @@ source_origin_classification_policy:
       specific_type_assertion: prohibited
       visual_type_identification: prohibited
       qualified_uncertainty_narration: required
+
+gap_human_review_policy:
+  review_packet_file: projects/episode-001-adam/evidence/gap-human-review-packet-v1.json
+  approval_template_file: projects/episode-001-adam/evidence/gap-human-approval-v1.template.json
+  status: human_review_ready
+  target_events:
+    - EV-ADAM-031
+    - EV-ADAM-071
+    - EV-ADAM-091
+  human_evidence_approval: pending
+  automatic_evidence_approval: forbidden
+  evidence_gate_effect: none
+  binding: false
+  full_episode_adjudication_required_before_gate_open: true
