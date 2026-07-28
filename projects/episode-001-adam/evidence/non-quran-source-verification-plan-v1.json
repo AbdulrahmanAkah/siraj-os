@@ -1,0 +1,217 @@
+{
+  "automatic_evidence_approval": "FORBIDDEN",
+  "batch_count": 3,
+  "batches": [
+    {
+      "automatic_adjudication": false,
+      "batch_id": "VERIFY-01-PRE-CREATION",
+      "event_ids": [
+        "EV-ADAM-001",
+        "EV-ADAM-002",
+        "EV-ADAM-003",
+        "EV-ADAM-005",
+        "EV-ADAM-007"
+      ],
+      "events": [
+        {
+          "event_id": "EV-ADAM-001",
+          "question_ids": [
+            "RQ-ADAM-001"
+          ],
+          "title": "وجود الله قبل الخلق"
+        },
+        {
+          "event_id": "EV-ADAM-002",
+          "question_ids": [
+            "RQ-ADAM-001",
+            "RQ-ADAM-003"
+          ],
+          "title": "العرش على الماء"
+        },
+        {
+          "event_id": "EV-ADAM-003",
+          "question_ids": [
+            "RQ-ADAM-002",
+            "RQ-ADAM-003"
+          ],
+          "title": "القلم وكتابة المقادير"
+        },
+        {
+          "event_id": "EV-ADAM-005",
+          "question_ids": [
+            "RQ-ADAM-005"
+          ],
+          "title": "خلق الملائكة"
+        },
+        {
+          "event_id": "EV-ADAM-007",
+          "question_ids": [
+            "RQ-ADAM-018",
+            "RQ-ADAM-020"
+          ],
+          "title": "وجود إبليس قبل خلق آدم"
+        }
+      ],
+      "objective": "الأحداث السابقة لخلق آدم",
+      "required_output_fields": [
+        "candidate_id",
+        "source_title",
+        "author",
+        "edition_or_database",
+        "volume_page_or_record_number",
+        "exact_excerpt",
+        "context_before_after",
+        "source_file_or_url",
+        "source_file_sha256",
+        "excerpt_sha256",
+        "origin_candidate",
+        "authentication_authority",
+        "uncertainties"
+      ]
+    },
+    {
+      "automatic_adjudication": false,
+      "batch_id": "VERIFY-02-CREATION-LIFE-KNOWLEDGE",
+      "event_ids": [
+        "EV-ADAM-021",
+        "EV-ADAM-023",
+        "EV-ADAM-024",
+        "EV-ADAM-032",
+        "EV-ADAM-033",
+        "EV-ADAM-042"
+      ],
+      "events": [
+        {
+          "event_id": "EV-ADAM-021",
+          "question_ids": [
+            "RQ-ADAM-009",
+            "RQ-ADAM-010"
+          ],
+          "title": "أطوار الطين والحمأ والصلصال"
+        },
+        {
+          "event_id": "EV-ADAM-023",
+          "question_ids": [
+            "RQ-ADAM-012"
+          ],
+          "title": "بقاء جسد آدم قبل نفخ الروح"
+        },
+        {
+          "event_id": "EV-ADAM-024",
+          "question_ids": [
+            "RQ-ADAM-012"
+          ],
+          "title": "مرور إبليس بجسد آدم"
+        },
+        {
+          "event_id": "EV-ADAM-032",
+          "question_ids": [
+            "RQ-ADAM-014"
+          ],
+          "title": "طول آدم وصفته الأولى"
+        },
+        {
+          "event_id": "EV-ADAM-033",
+          "question_ids": [
+            "RQ-ADAM-014",
+            "RQ-ADAM-031"
+          ],
+          "title": "تعليم آدم تحية السلام"
+        },
+        {
+          "event_id": "EV-ADAM-042",
+          "question_ids": [
+            "RQ-ADAM-016"
+          ],
+          "title": "إظهار فضل آدم بالعلم"
+        }
+      ],
+      "objective": "خلق آدم وبداية حياته وفضل العلم",
+      "required_output_fields": [
+        "candidate_id",
+        "source_title",
+        "author",
+        "edition_or_database",
+        "volume_page_or_record_number",
+        "exact_excerpt",
+        "context_before_after",
+        "source_file_or_url",
+        "source_file_sha256",
+        "excerpt_sha256",
+        "origin_candidate",
+        "authentication_authority",
+        "uncertainties"
+      ]
+    },
+    {
+      "automatic_adjudication": false,
+      "batch_id": "VERIFY-03-COVENANT-AND-SPOUSE",
+      "event_ids": [
+        "EV-ADAM-060",
+        "EV-ADAM-061",
+        "EV-ADAM-070"
+      ],
+      "events": [
+        {
+          "event_id": "EV-ADAM-060",
+          "question_ids": [
+            "RQ-ADAM-021",
+            "RQ-ADAM-023",
+            "RQ-ADAM-024"
+          ],
+          "title": "ميثاق بني آدم"
+        },
+        {
+          "event_id": "EV-ADAM-061",
+          "question_ids": [
+            "RQ-ADAM-022",
+            "RQ-ADAM-023",
+            "RQ-ADAM-024"
+          ],
+          "title": "استخراج ذرية آدم من ظهره"
+        },
+        {
+          "event_id": "EV-ADAM-070",
+          "question_ids": [
+            "RQ-ADAM-025",
+            "RQ-ADAM-026",
+            "RQ-ADAM-027",
+            "RQ-ADAM-031"
+          ],
+          "title": "خلق زوج آدم"
+        }
+      ],
+      "objective": "الميثاق وخلق الزوج",
+      "required_output_fields": [
+        "candidate_id",
+        "source_title",
+        "author",
+        "edition_or_database",
+        "volume_page_or_record_number",
+        "exact_excerpt",
+        "context_before_after",
+        "source_file_or_url",
+        "source_file_sha256",
+        "excerpt_sha256",
+        "origin_candidate",
+        "authentication_authority",
+        "uncertainties"
+      ]
+    }
+  ],
+  "editorial_event": {
+    "event_id": "EV-ADAM-099",
+    "human_decision_required": true,
+    "proposed_disposition": "editorial_only",
+    "research_required": false
+  },
+  "editorial_event_count": 1,
+  "episode_id": "episode-001-adam",
+  "evidence_gate_status": "WITHHELD_PENDING_APPROVED_EVIDENCE_PACKAGE",
+  "factual_event_count": 14,
+  "human_approval": false,
+  "live_provider_execution": "BLOCKED",
+  "schema_version": "siraj-non-quran-source-verification-plan-v1",
+  "status": "SOURCE_VERIFICATION_PLAN_READY",
+  "triage_policy_id": "adam_non_quran_triage_policy_636bcbc983be5277"
+}

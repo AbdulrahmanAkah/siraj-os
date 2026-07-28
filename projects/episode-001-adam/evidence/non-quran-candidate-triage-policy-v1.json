@@ -1,0 +1,51 @@
+{
+  "automatic_evidence_approval": "FORBIDDEN",
+  "buckets": [
+    "SOURCE_LOCATOR_CANDIDATE",
+    "SOURCE_MENTION_CANDIDATE",
+    "RESEARCH_NOTE_CANDIDATE",
+    "INTERNAL_ECHO",
+    "EDITORIAL_CONTEXT",
+    "MANUAL_REVIEW"
+  ],
+  "episode_id": "episode-001-adam",
+  "evidence_gate_status": "WITHHELD_PENDING_APPROVED_EVIDENCE_PACKAGE",
+  "human_approval": false,
+  "live_provider_execution": "BLOCKED",
+  "policy_id": "adam_non_quran_triage_policy_636bcbc983be5277",
+  "prohibitions": [
+    "automatic hadith grading",
+    "automatic source-origin classification",
+    "automatic evidence approval",
+    "automatic narration disposition",
+    "opening the evidence gate",
+    "provider execution"
+  ],
+  "rules": {
+    "editorial_context": "EV-ADAM-099 remains editorial_only and is excluded from factual source verification",
+    "internal_echo": "schema/policy/generated/editorial content without a precise source locator",
+    "locator_candidate": "source record id, URL, page/volume marker, or recognised source name combined with a number",
+    "mention_candidate": "source hint or source name without a precise locator",
+    "research_note_candidate": "evidence/research artifact lacking a precise source locator"
+  },
+  "schema_version": "siraj-non-quran-candidate-triage-policy-v1",
+  "selection_limit_per_factual_event": 8,
+  "status": "TRIAGE_POLICY_ACTIVE",
+  "target_event_ids": [
+    "EV-ADAM-001",
+    "EV-ADAM-002",
+    "EV-ADAM-003",
+    "EV-ADAM-005",
+    "EV-ADAM-007",
+    "EV-ADAM-021",
+    "EV-ADAM-023",
+    "EV-ADAM-024",
+    "EV-ADAM-032",
+    "EV-ADAM-033",
+    "EV-ADAM-042",
+    "EV-ADAM-060",
+    "EV-ADAM-061",
+    "EV-ADAM-070",
+    "EV-ADAM-099"
+  ]
+}
