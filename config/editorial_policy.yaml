@@ -157,3 +157,27 @@ audio_policy:
     narrator: muted
     ambience: muted
     sound_effects: muted
+
+narration_intent_policy:
+  historical_narration_policy_file: config/historical_narration_policy_v1.json
+  creator_editorial_intent_file: config/creator_editorial_intent_v1.json
+  status: approved
+  unsupported_firstness: prohibited_without_direct_sound_evidence
+  source_origin_trace: required
+  source_names_in_narration: sparing
+  source_trace_internal: always
+  israiliyyat:
+    may_be_used_when_noncontradictory: true
+    explicit_label_required: true
+    assertive_language: false
+  supported_synthesis:
+    allowed: true
+    minimum_established_premises: 2
+    premise_trace_required: true
+    unproved_extensions_forbidden: true
+  unknown_specifics:
+    narrate_disagreement_and_lack_of_sound_determination: true
+    keep_visuals_generic_and_non_identifiable: true
+  future_creator_feedback:
+    persist_and_generalize: true
+    do_not_restart_calibration: true

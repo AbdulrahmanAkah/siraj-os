@@ -1,0 +1,38 @@
+{
+  "automatic_evidence_approval": "FORBIDDEN",
+  "canonical_examples": [
+    {
+      "approved_wording": "ونهاهما الله عن شجرة في الجنة، وقد اختلف المفسرون في نوعها، ولم يثبت في القرآن ولا في السنة الصحيحة ما يعيّنها.",
+      "topic": "unknown_tree_type"
+    },
+    {
+      "approved_rule": "Do not call an act the first movement, first speech, or first word unless sound evidence establishes firstness.",
+      "topic": "unverified_firstness"
+    },
+    {
+      "approved_rule": "Do not silently discard a useful report merely because it is Israiliyyat; identify it as Israiliyyat and narrate it non-assertively when policy permits.",
+      "topic": "israiliyyat"
+    }
+  ],
+  "evidence_gate_effect": "NONE",
+  "owner": "Abdulrahman Akah",
+  "preferences": {
+    "dramatic_quality": "HIGH_WITHOUT_FACTUAL_DISTORTION",
+    "early_episode_feedback": "GENERALIZE_TO_FUTURE_EPISODES",
+    "historical_accuracy": "STRICT",
+    "israiliyyat": "MAY_INCLUDE_WITH_EXPLICIT_LABEL_IF_NONCONTRADICTORY",
+    "nonfoundational_reports": "TRACE_CLASSIFY_AND_USE_WITH_PROPER_CERTAINTY_WHEN_VALUABLE",
+    "repeat_explanations_to_creator": "AVOID",
+    "source_attribution": "MANDATORY_AT_DOCTRINALLY_OR_MORALLY_SENSITIVE_OR_DISPUTED_POINTS",
+    "source_names_in_narration": "SPARING",
+    "supported_synthesis": "ALLOWED_WHEN_PREMISES_ARE_ESTABLISHED_AND_NO_EXTRA_DETAIL_IS_ADDED",
+    "unknown_specifics": "STATE_DISAGREEMENT_AND_LACK_OF_SOUND_DETERMINATION",
+    "unsupported_firstness": "NEVER_ASSERT",
+    "visual_unknowns": "KEEP_GENERIC_AND_NON_IDENTIFIABLE"
+  },
+  "profile_id": "abdulrahman-akah-editorial-intent-v1",
+  "purpose": "Persist creator preferences so future episodes and conversations do not restart editorial calibration.",
+  "schema_version": "siraj-creator-editorial-intent-v1",
+  "scope": "series_global",
+  "status": "approved"
+}

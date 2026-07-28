@@ -311,3 +311,41 @@ __all__ += [
     "build_notebooklm_prompts",
     "write_research_production_outputs",
 ]
+
+from .narration_intent import (
+    ADAM_EDITORIAL_DIRECTION_SCHEMA,
+    AUTOMATIC_APPROVAL_STATUS as NARRATION_INTENT_AUTOMATIC_APPROVAL_STATUS,
+    CREATOR_EDITORIAL_INTENT_SCHEMA,
+    DIRECTION_STATUS as NARRATION_DIRECTION_STATUS,
+    EVIDENCE_GATE_STATUS as NARRATION_INTENT_EVIDENCE_GATE_STATUS,
+    HISTORICAL_NARRATION_POLICY_SCHEMA,
+    LIVE_EXECUTION_STATUS as NARRATION_INTENT_LIVE_EXECUTION_STATUS,
+    POLICY_STATUS as NARRATION_POLICY_STATUS,
+    UNKNOWN_TREE_FORMULA,
+    NarrationIntentError,
+    canonical_json_sha256 as narration_intent_canonical_json_sha256,
+    load_and_validate_bundle as load_and_validate_narration_intent_bundle,
+    validate_adam_editorial_direction,
+    validate_creator_editorial_intent,
+    validate_historical_narration_policy,
+    write_validation_manifest as write_narration_intent_validation_manifest,
+)
+
+__all__ += [
+    "HISTORICAL_NARRATION_POLICY_SCHEMA",
+    "CREATOR_EDITORIAL_INTENT_SCHEMA",
+    "ADAM_EDITORIAL_DIRECTION_SCHEMA",
+    "NARRATION_POLICY_STATUS",
+    "NARRATION_DIRECTION_STATUS",
+    "NARRATION_INTENT_AUTOMATIC_APPROVAL_STATUS",
+    "NARRATION_INTENT_EVIDENCE_GATE_STATUS",
+    "NARRATION_INTENT_LIVE_EXECUTION_STATUS",
+    "UNKNOWN_TREE_FORMULA",
+    "NarrationIntentError",
+    "narration_intent_canonical_json_sha256",
+    "validate_historical_narration_policy",
+    "validate_creator_editorial_intent",
+    "validate_adam_editorial_direction",
+    "load_and_validate_narration_intent_bundle",
+    "write_narration_intent_validation_manifest",
+]

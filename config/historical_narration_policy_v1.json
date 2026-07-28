@@ -1,0 +1,137 @@
+{
+  "automatic_evidence_approval": "FORBIDDEN",
+  "evidence_gate_effect": "NONE",
+  "future_episode_application": {
+    "conflict_resolution": "latest_explicit_creator_direction_wins_unless_it_conflicts_with_verified_evidence_or_global_safety",
+    "new_creator_feedback_updates_profile": true,
+    "required": true,
+    "reuse_without_reasking_creator": true
+  },
+  "israiliyyat_policy": {
+    "assertive_language": false,
+    "contradictory_material": "OMIT",
+    "may_be_used_when_noncontradictory_and_relevant": true,
+    "may_establish_creed": false,
+    "may_establish_law": false,
+    "must_be_explicitly_labeled_in_narration": true,
+    "preferred_forms": [
+      "وتذكر بعض الإسرائيليات",
+      "وجاء في بعض أخبار أهل الكتاب",
+      "ويُروى في الإسرائيليات"
+    ]
+  },
+  "policy_id": "historical-narration-epistemic-style-v1",
+  "principles": {
+    "avoid_repetitive_source_name_overload": true,
+    "creator_feedback_calibrates_future_episodes": true,
+    "label_origin_and_certainty": true,
+    "retain_useful_nonfoundational_reports": true,
+    "truth_before_dramatic_smoothness": true
+  },
+  "qualified_language_policy": {
+    "historical_report": [
+      "ويروي أهل التاريخ",
+      "وجاء في بعض كتب التاريخ"
+    ],
+    "tafsir_or_athar": [
+      "ويذكر بعض المفسرين",
+      "وورد في بعض الآثار",
+      "وتذكر بعض الروايات"
+    ],
+    "uncertain_specific_template": "ونهاهما الله عن شجرة في الجنة، وقد اختلف المفسرون في نوعها، ولم يثبت في القرآن ولا في السنة الصحيحة ما يعيّنها.",
+    "unknown_origin": [
+      "وتذكر بعض الروايات، ولا نجزم بثبوت تفاصيلها",
+      "ويُذكر في بعض المصادر، ويحتاج أصل الخبر إلى مزيد تحقق"
+    ]
+  },
+  "schema_version": "siraj-historical-narration-policy-v1",
+  "scope": "global",
+  "source_mention_policy": {
+    "alternative_surfaces": [
+      "on_screen_reference",
+      "episode_notes",
+      "source appendix"
+    ],
+    "default_narration": "DO_NOT_OVERLOAD_WITH_SOURCE_NAMES",
+    "mandatory_audience_attribution_triggers": [
+      "doctrinal_ambiguity",
+      "serious_moral_or_personal_confusion",
+      "israiliyyat",
+      "weak_report",
+      "material_dispute",
+      "sensitive_inference",
+      "conflicting_reports"
+    ],
+    "optional_audience_attribution": [
+      "ordinary_established_fact",
+      "smooth_narrative_context",
+      "noncontroversial_supporting_detail"
+    ],
+    "source_trace_always_kept_in_evidence_records": true
+  },
+  "source_origin_workflow": {
+    "origin_classes": [
+      "quran_explicit",
+      "authentic_sunnah",
+      "accepted_athar",
+      "tafsir_report",
+      "historical_report",
+      "israiliyyat",
+      "weak_report",
+      "scholarly_interpretation",
+      "supported_synthesis"
+    ],
+    "required_order": [
+      "trace_origin",
+      "classify_origin",
+      "verify_text",
+      "choose_certainty",
+      "write_narration"
+    ],
+    "unclassified_report_narration": "QUALIFIED_PENDING_CLASSIFICATION"
+  },
+  "status": "approved",
+  "supported_synthesis_policy": {
+    "allowed": true,
+    "classification": "supported_synthesis",
+    "conclusion_must_not_add_unproved_detail": true,
+    "example": {
+      "forbidden_extensions": [
+        "الضلع الأيسر",
+        "أقصر ضلع",
+        "خلقها أثناء نوم آدم",
+        "حوار محدد عند خلقها"
+      ],
+      "permitted_conclusion": "حواء خلقت من ضلع آدم",
+      "premises": [
+        "ثبت أن زوج آدم هي حواء",
+        "ثبت أن المرأة خلقت من ضلع"
+      ]
+    },
+    "minimum_independently_established_premises": 2,
+    "premise_trace_required": true
+  },
+  "unsupported_firstness_policy": {
+    "covered_claims": [
+      "first movement",
+      "first speech",
+      "first word",
+      "first action",
+      "earliest occurrence",
+      "exclusive causal sequence"
+    ],
+    "fallback": "state only the narrower fact that is established",
+    "required_proof": "direct sound evidence that establishes the claimed firstness or exclusivity",
+    "status": "PROHIBITED_WITHOUT_DIRECT_SOUND_EVIDENCE"
+  },
+  "visual_correspondence_policy": {
+    "examples": {
+      "israiliyyat_detail": "do not visualize as verified reconstruction",
+      "uncertain_historical_detail": "use non-specific context or symbolic filler",
+      "unknown_tree_type": "show a beautiful non-identifiable tree with no recognizable fruit"
+    },
+    "generic_illustration_allowed": true,
+    "unknown_specifics_must_remain_visually_unspecified": true,
+    "visual_must_not_convert_qualified_claim_to_assertive_fact": true
+  }
+}
