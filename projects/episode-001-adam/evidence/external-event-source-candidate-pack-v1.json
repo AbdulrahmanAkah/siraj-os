@@ -1,0 +1,798 @@
+{
+  "approved_evidence_package_complete": false,
+  "automatic_evidence_approval": "FORBIDDEN",
+  "catalog_id": "adam_external_source_catalog_1b40dce8d2e71c35",
+  "catalog_sha256": "fb0810bac23f935cc3499c1ae76def9b5bb0c8510ae25c0c6736cf667f77e2b0",
+  "episode_id": "episode-001-adam",
+  "event_count": 14,
+  "event_ids": [
+    "EV-ADAM-001",
+    "EV-ADAM-002",
+    "EV-ADAM-003",
+    "EV-ADAM-005",
+    "EV-ADAM-007",
+    "EV-ADAM-021",
+    "EV-ADAM-023",
+    "EV-ADAM-024",
+    "EV-ADAM-032",
+    "EV-ADAM-033",
+    "EV-ADAM-042",
+    "EV-ADAM-060",
+    "EV-ADAM-061",
+    "EV-ADAM-070"
+  ],
+  "event_source_link_count": 28,
+  "events": [
+    {
+      "binding_ready": false,
+      "claim_layers": [
+        {
+          "claim": "كان الله ولم يكن شيء غيره",
+          "support": [
+            "SRC-BUKHARI-3191"
+          ],
+          "treatment": "assertive_candidate"
+        }
+      ],
+      "event_approved": false,
+      "event_id": "EV-ADAM-001",
+      "human_decision": false,
+      "proposed_disposition": "include_assertive",
+      "scope_limitations": [
+        "لا يضاف ترتيب تفصيلي للمخلوقات غير الوارد في النص"
+      ],
+      "source_candidate_count": 1,
+      "source_candidate_ids": [
+        "SRC-BUKHARI-3191"
+      ],
+      "source_links": [
+        {
+          "arabic_anchor_sha256": "afbf5e9ae34cde48d71334067c1b361e47070f6b282acc7fa32633449f986960",
+          "candidate_record_id": "external_source_a2a798ed541dd58f",
+          "human_decision": false,
+          "locator": "Sahih al-Bukhari 3191",
+          "source_candidate_id": "SRC-BUKHARI-3191",
+          "source_candidate_sha256": "d171d95a519937b2fb3477a522c954bfed7414b4bf5c0936bb346b898a51360e",
+          "source_url": "https://sunnah.com/bukhari:3191",
+          "source_verified": false
+        }
+      ],
+      "source_verification_complete": false,
+      "title": "وجود الله قبل الخلق"
+    },
+    {
+      "binding_ready": false,
+      "claim_layers": [
+        {
+          "claim": "كان العرش على الماء قبل خلق السماوات والأرض",
+          "support": [
+            "SRC-BUKHARI-3191",
+            "SRC-MUSLIM-2653B"
+          ],
+          "treatment": "assertive_candidate"
+        }
+      ],
+      "event_approved": false,
+      "event_id": "EV-ADAM-002",
+      "human_decision": false,
+      "proposed_disposition": "include_assertive",
+      "scope_limitations": [
+        "لا يجزم من هذه الحزمة وحدها بترتيب خلق العرش والقلم"
+      ],
+      "source_candidate_count": 2,
+      "source_candidate_ids": [
+        "SRC-BUKHARI-3191",
+        "SRC-MUSLIM-2653B"
+      ],
+      "source_links": [
+        {
+          "arabic_anchor_sha256": "afbf5e9ae34cde48d71334067c1b361e47070f6b282acc7fa32633449f986960",
+          "candidate_record_id": "external_source_a2a798ed541dd58f",
+          "human_decision": false,
+          "locator": "Sahih al-Bukhari 3191",
+          "source_candidate_id": "SRC-BUKHARI-3191",
+          "source_candidate_sha256": "d171d95a519937b2fb3477a522c954bfed7414b4bf5c0936bb346b898a51360e",
+          "source_url": "https://sunnah.com/bukhari:3191",
+          "source_verified": false
+        },
+        {
+          "arabic_anchor_sha256": "dea356d19e3e4ab1db9dbe7441760d244a2509c647bb853d8fa5820fd290c464",
+          "candidate_record_id": "external_source_94f8525d196aa9a3",
+          "human_decision": false,
+          "locator": "Sahih Muslim 2653b",
+          "source_candidate_id": "SRC-MUSLIM-2653B",
+          "source_candidate_sha256": "15993a49cd5e7f4e62a24dd720dcf5794b393e0610f905a4a2aeb1aa6de60417",
+          "source_url": "https://sunnah.com/muslim:2653b",
+          "source_verified": false
+        }
+      ],
+      "source_verification_complete": false,
+      "title": "العرش على الماء"
+    },
+    {
+      "binding_ready": false,
+      "claim_layers": [
+        {
+          "claim": "كتبت مقادير الخلائق قبل خلق السماوات والأرض",
+          "support": [
+            "SRC-MUSLIM-2653B"
+          ],
+          "treatment": "assertive_candidate"
+        },
+        {
+          "claim": "أمر القلم بكتابة المقادير",
+          "support": [
+            "SRC-ABUDAWUD-4700",
+            "SRC-TIRMIDHI-2155"
+          ],
+          "treatment": "assertive_candidate_pending_authority_review"
+        },
+        {
+          "claim": "القلم أول المخلوقات على الإطلاق",
+          "support": [
+            "SRC-ABUDAWUD-4700",
+            "SRC-TIRMIDHI-2155"
+          ],
+          "treatment": "chronology_interpretation_review_required"
+        }
+      ],
+      "event_approved": false,
+      "event_id": "EV-ADAM-003",
+      "human_decision": false,
+      "proposed_disposition": "include_qualified",
+      "scope_limitations": [
+        "تفصل دلالة الحديث عن مسألة ترتيب العرش والماء والقلم",
+        "لا يحسم التعارض الظاهري آليا"
+      ],
+      "source_candidate_count": 3,
+      "source_candidate_ids": [
+        "SRC-MUSLIM-2653B",
+        "SRC-ABUDAWUD-4700",
+        "SRC-TIRMIDHI-2155"
+      ],
+      "source_links": [
+        {
+          "arabic_anchor_sha256": "dea356d19e3e4ab1db9dbe7441760d244a2509c647bb853d8fa5820fd290c464",
+          "candidate_record_id": "external_source_94f8525d196aa9a3",
+          "human_decision": false,
+          "locator": "Sahih Muslim 2653b",
+          "source_candidate_id": "SRC-MUSLIM-2653B",
+          "source_candidate_sha256": "15993a49cd5e7f4e62a24dd720dcf5794b393e0610f905a4a2aeb1aa6de60417",
+          "source_url": "https://sunnah.com/muslim:2653b",
+          "source_verified": false
+        },
+        {
+          "arabic_anchor_sha256": "8320b33fc4cb0f2acdd4a08888744741d8a8ef96b4198cd63a57e151f947d10c",
+          "candidate_record_id": "external_source_45bc192ea9042f8e",
+          "human_decision": false,
+          "locator": "Sunan Abi Dawud 4700",
+          "source_candidate_id": "SRC-ABUDAWUD-4700",
+          "source_candidate_sha256": "c576d02bad2884868aef9387dc6d5f6b619d198890b28fd3be28c1ab559b70be",
+          "source_url": "https://sunnah.com/abudawud:4700",
+          "source_verified": false
+        },
+        {
+          "arabic_anchor_sha256": "b450365399392e36c80f3cc098a25775b7275ad405be09762193388c720f7bc9",
+          "candidate_record_id": "external_source_a7120689f85944e5",
+          "human_decision": false,
+          "locator": "Jami at-Tirmidhi 2155",
+          "source_candidate_id": "SRC-TIRMIDHI-2155",
+          "source_candidate_sha256": "8e42666c2153cb2d83697352c48d200d81366165d53c050e18041bed1c74bd61",
+          "source_url": "https://sunnah.com/tirmidhi:2155",
+          "source_verified": false
+        }
+      ],
+      "source_verification_complete": false,
+      "title": "القلم وكتابة المقادير"
+    },
+    {
+      "binding_ready": false,
+      "claim_layers": [
+        {
+          "claim": "خلقت الملائكة من نور",
+          "support": [
+            "SRC-MUSLIM-2996"
+          ],
+          "treatment": "assertive_candidate"
+        }
+      ],
+      "event_approved": false,
+      "event_id": "EV-ADAM-005",
+      "human_decision": false,
+      "proposed_disposition": "include_assertive",
+      "scope_limitations": [
+        "لا يحدد النص زمن خلق الملائكة تفصيلا بالنسبة إلى العرش والقلم"
+      ],
+      "source_candidate_count": 1,
+      "source_candidate_ids": [
+        "SRC-MUSLIM-2996"
+      ],
+      "source_links": [
+        {
+          "arabic_anchor_sha256": "bc0398b1baa968dbf796f0cb3f02d8d21e4f09d2ebe3ff056d3f521d5483025a",
+          "candidate_record_id": "external_source_28ad5e9b85045fbf",
+          "human_decision": false,
+          "locator": "Sahih Muslim 2996",
+          "source_candidate_id": "SRC-MUSLIM-2996",
+          "source_candidate_sha256": "4c8db91d2d74622e87915bc796d7dbef49d4ab01b397b3bdc618333aecfde502",
+          "source_url": "https://sunnah.com/muslim:2996",
+          "source_verified": false
+        }
+      ],
+      "source_verification_complete": false,
+      "title": "خلق الملائكة"
+    },
+    {
+      "binding_ready": false,
+      "claim_layers": [
+        {
+          "claim": "إبليس كان من الجن وكان حاضرا عند أمر السجود لآدم",
+          "support": [
+            "SRC-QURAN-002-034",
+            "SRC-QURAN-018-050"
+          ],
+          "treatment": "assertive_candidate"
+        },
+        {
+          "claim": "إبليس بعينه كان موجودا قبل بدء خلق آدم",
+          "support": [
+            "SRC-QURAN-018-050",
+            "SRC-QURAN-015-027"
+          ],
+          "treatment": "supported_synthesis_human_review_required"
+        }
+      ],
+      "event_approved": false,
+      "event_id": "EV-ADAM-007",
+      "human_decision": false,
+      "proposed_disposition": "include_qualified",
+      "scope_limitations": [
+        "خلق الجان قبل الإنسان لا يثبت وحده تاريخ كل فرد من الجن",
+        "لا تضاف أخبار اسم إبليس أو منزلته قبل المعصية بلا مصدر مستقل"
+      ],
+      "source_candidate_count": 3,
+      "source_candidate_ids": [
+        "SRC-QURAN-002-034",
+        "SRC-QURAN-018-050",
+        "SRC-QURAN-015-027"
+      ],
+      "source_links": [
+        {
+          "arabic_anchor_sha256": "73c4061b0c5c13bc58fa5b3201c278e43f181ab8f37b349084ac6c6a350a96e8",
+          "candidate_record_id": "external_source_30b8dfd5098a68e7",
+          "human_decision": false,
+          "locator": "Quran 2:34",
+          "source_candidate_id": "SRC-QURAN-002-034",
+          "source_candidate_sha256": "d82589e28cb7b16bbc978a703319164a09ca40d684c35d66224190161f9847ca",
+          "source_url": "https://quran.com/2/34",
+          "source_verified": false
+        },
+        {
+          "arabic_anchor_sha256": "3c9e90294b553f044d6952c7ee418f206a5f0705b6be7228e33204f4d3ccc661",
+          "candidate_record_id": "external_source_ff06154e19438c8f",
+          "human_decision": false,
+          "locator": "Quran 18:50",
+          "source_candidate_id": "SRC-QURAN-018-050",
+          "source_candidate_sha256": "76b5e2d0578c7d62c5810f8ceaeb6aebbe893b811b5373084dc637a78399c00d",
+          "source_url": "https://quran.com/18/50",
+          "source_verified": false
+        },
+        {
+          "arabic_anchor_sha256": "4ad77cbdf349c3a96c0710b2c148983ae3e183d4951a6c048051d9eac4678e67",
+          "candidate_record_id": "external_source_d6957808dafb98e4",
+          "human_decision": false,
+          "locator": "Quran 15:27",
+          "source_candidate_id": "SRC-QURAN-015-027",
+          "source_candidate_sha256": "37b5eb3fb983970e073d2a65de6bdfd78ce1145ee7f575f6e895953556f08f74",
+          "source_url": "https://quran.com/15/27",
+          "source_verified": false
+        }
+      ],
+      "source_verification_complete": false,
+      "title": "وجود إبليس قبل خلق آدم"
+    },
+    {
+      "binding_ready": false,
+      "claim_layers": [
+        {
+          "claim": "وصف القرآن مادة خلق آدم بالتراب والطين اللازب والحمإ والصلصال",
+          "support": [
+            "SRC-QURAN-003-059",
+            "SRC-QURAN-015-026",
+            "SRC-QURAN-037-011",
+            "SRC-QURAN-055-014",
+            "SRC-QURAN-038-071"
+          ],
+          "treatment": "assertive_candidate"
+        },
+        {
+          "claim": "هذه الأوصاف مراحل زمنية مرتبة بهذا التسلسل",
+          "support": [
+            "SRC-QURAN-003-059",
+            "SRC-QURAN-015-026",
+            "SRC-QURAN-037-011",
+            "SRC-QURAN-055-014",
+            "SRC-QURAN-038-071"
+          ],
+          "treatment": "scholarly_interpretation_review_required"
+        }
+      ],
+      "event_approved": false,
+      "event_id": "EV-ADAM-021",
+      "human_decision": false,
+      "proposed_disposition": "include_qualified",
+      "scope_limitations": [
+        "القرآن يثبت الأوصاف ولا ينص في هذه المواضع على مدة كل طور",
+        "أي ترتيب بصري أو زمني يحتاج قرارا تفسيريا بشريا"
+      ],
+      "source_candidate_count": 5,
+      "source_candidate_ids": [
+        "SRC-QURAN-003-059",
+        "SRC-QURAN-015-026",
+        "SRC-QURAN-037-011",
+        "SRC-QURAN-055-014",
+        "SRC-QURAN-038-071"
+      ],
+      "source_links": [
+        {
+          "arabic_anchor_sha256": "817408d7056c059149b4619ec996fd133afd925d24099d13dbc203ae61c0def0",
+          "candidate_record_id": "external_source_3485effed19c7ecc",
+          "human_decision": false,
+          "locator": "Quran 3:59",
+          "source_candidate_id": "SRC-QURAN-003-059",
+          "source_candidate_sha256": "6c000c0995f55c3f1bf5747a0256cdc0bea34209c2e0e939b74e70bd475624e2",
+          "source_url": "https://quran.com/3/59",
+          "source_verified": false
+        },
+        {
+          "arabic_anchor_sha256": "f2f6d5f79249b203a075a5ee44bb177e9a8753685281d1edc4f85b8b074296c4",
+          "candidate_record_id": "external_source_0fa33c9b6c4a3925",
+          "human_decision": false,
+          "locator": "Quran 15:26",
+          "source_candidate_id": "SRC-QURAN-015-026",
+          "source_candidate_sha256": "6ce77a5d7dee233ee0d20e13d5d043d99ca34449be6487ebefe9a5692401cc1d",
+          "source_url": "https://quran.com/15/26",
+          "source_verified": false
+        },
+        {
+          "arabic_anchor_sha256": "43d4c61e20756ee6e16c8a9c9289cdb8396645984ccceaffe0c82a9df63a5ed1",
+          "candidate_record_id": "external_source_56f1917658590272",
+          "human_decision": false,
+          "locator": "Quran 37:11",
+          "source_candidate_id": "SRC-QURAN-037-011",
+          "source_candidate_sha256": "c9d2d5114365076ad53c52d29d06e58ec8e7a57cf1804202a073ccc7bf7b8082",
+          "source_url": "https://quran.com/37/11",
+          "source_verified": false
+        },
+        {
+          "arabic_anchor_sha256": "c0f4b9c7053853b09d2c90289095b58c162bc2f094838235be3e5a4441dba7e3",
+          "candidate_record_id": "external_source_36286115edb437c7",
+          "human_decision": false,
+          "locator": "Quran 55:14",
+          "source_candidate_id": "SRC-QURAN-055-014",
+          "source_candidate_sha256": "235e3112148fb82f06cf6baf81c260d16d05e53edd3584b491f9ede885f9e756",
+          "source_url": "https://quran.com/55/14",
+          "source_verified": false
+        },
+        {
+          "arabic_anchor_sha256": "f3df2d7fe70ef33b6e337dde97daf841410c163c72f3421809581f8e63690f9a",
+          "candidate_record_id": "external_source_2c804faaadfa98d6",
+          "human_decision": false,
+          "locator": "Quran 38:71",
+          "source_candidate_id": "SRC-QURAN-038-071",
+          "source_candidate_sha256": "ab505dc932ad6b1d21d6e9b7b5677b1e162cbc68bc8a385e543f6a672880ee65",
+          "source_url": "https://quran.com/38/71",
+          "source_verified": false
+        }
+      ],
+      "source_verification_complete": false,
+      "title": "أطوار الطين والحمأ والصلصال"
+    },
+    {
+      "binding_ready": false,
+      "claim_layers": [
+        {
+          "claim": "صور الله آدم وتركه مدة شاءها قبل تمام حاله",
+          "support": [
+            "SRC-MUSLIM-2611A"
+          ],
+          "treatment": "assertive_candidate"
+        }
+      ],
+      "event_approved": false,
+      "event_id": "EV-ADAM-023",
+      "human_decision": false,
+      "proposed_disposition": "include_assertive",
+      "scope_limitations": [
+        "لا يحدد النص مقدار المدة",
+        "لا تضاف تفاصيل حركة الروح من هذا الحديث"
+      ],
+      "source_candidate_count": 1,
+      "source_candidate_ids": [
+        "SRC-MUSLIM-2611A"
+      ],
+      "source_links": [
+        {
+          "arabic_anchor_sha256": "88436a0286a62c372a7b49b0e9bd7fbe50b18e332effe06cde42ed72ddf6e85d",
+          "candidate_record_id": "external_source_f76422b01d9530d7",
+          "human_decision": false,
+          "locator": "Sahih Muslim 2611a",
+          "source_candidate_id": "SRC-MUSLIM-2611A",
+          "source_candidate_sha256": "bf5a977fee9fd528b0dc97affa3045ca1e98c0816e789c7b9e999308bd2595dd",
+          "source_url": "https://sunnah.com/muslim:2611a",
+          "source_verified": false
+        }
+      ],
+      "source_verification_complete": false,
+      "title": "بقاء جسد آدم قبل نفخ الروح"
+    },
+    {
+      "binding_ready": false,
+      "claim_layers": [
+        {
+          "claim": "جعل إبليس يطيف بآدم وينظر ما هو قبل نفخ الروح",
+          "support": [
+            "SRC-MUSLIM-2611A"
+          ],
+          "treatment": "assertive_candidate"
+        }
+      ],
+      "event_approved": false,
+      "event_id": "EV-ADAM-024",
+      "human_decision": false,
+      "proposed_disposition": "include_assertive",
+      "scope_limitations": [
+        "لا يضاف حوار أو فعل لم يذكره الحديث",
+        "الوصف البصري يبقى خاضعا لسياسة الغيب وعدم تصوير الأنبياء"
+      ],
+      "source_candidate_count": 1,
+      "source_candidate_ids": [
+        "SRC-MUSLIM-2611A"
+      ],
+      "source_links": [
+        {
+          "arabic_anchor_sha256": "88436a0286a62c372a7b49b0e9bd7fbe50b18e332effe06cde42ed72ddf6e85d",
+          "candidate_record_id": "external_source_f76422b01d9530d7",
+          "human_decision": false,
+          "locator": "Sahih Muslim 2611a",
+          "source_candidate_id": "SRC-MUSLIM-2611A",
+          "source_candidate_sha256": "bf5a977fee9fd528b0dc97affa3045ca1e98c0816e789c7b9e999308bd2595dd",
+          "source_url": "https://sunnah.com/muslim:2611a",
+          "source_verified": false
+        }
+      ],
+      "source_verification_complete": false,
+      "title": "مرور إبليس بجسد آدم"
+    },
+    {
+      "binding_ready": false,
+      "claim_layers": [
+        {
+          "claim": "خلق آدم وطوله ستون ذراعا",
+          "support": [
+            "SRC-BUKHARI-3326",
+            "SRC-MUSLIM-2841"
+          ],
+          "treatment": "assertive_candidate"
+        }
+      ],
+      "event_approved": false,
+      "event_id": "EV-ADAM-032",
+      "human_decision": false,
+      "proposed_disposition": "include_assertive",
+      "scope_limitations": [
+        "لا يحول القياس إلى تصوير مرئي للنبي آدم",
+        "تفاصيل معنى الصورة تبحث مستقلة ولا توسع هنا"
+      ],
+      "source_candidate_count": 2,
+      "source_candidate_ids": [
+        "SRC-BUKHARI-3326",
+        "SRC-MUSLIM-2841"
+      ],
+      "source_links": [
+        {
+          "arabic_anchor_sha256": "f175f853f7ecc5fd03c7acd2810221d051e2b2aa12313ebc531f1848c0bfe0bd",
+          "candidate_record_id": "external_source_ab9c4c2db9a824ca",
+          "human_decision": false,
+          "locator": "Sahih al-Bukhari 3326",
+          "source_candidate_id": "SRC-BUKHARI-3326",
+          "source_candidate_sha256": "1eee474abda27ad832629db8ead5cccb1142a78b1ab709c9aef565579323496b",
+          "source_url": "https://sunnah.com/bukhari:3326",
+          "source_verified": false
+        },
+        {
+          "arabic_anchor_sha256": "8864ea2a260337479c9836385e7142f0a98a1b27f367e9f03b9bfa3af7753cb5",
+          "candidate_record_id": "external_source_3520e2f0779b4613",
+          "human_decision": false,
+          "locator": "Sahih Muslim 2841",
+          "source_candidate_id": "SRC-MUSLIM-2841",
+          "source_candidate_sha256": "7c43a0bacbe0a6b52c72155cc75407c4ff5d6e1ada1d7c44265cace53ff22307",
+          "source_url": "https://sunnah.com/muslim:2841",
+          "source_verified": false
+        }
+      ],
+      "source_verification_complete": false,
+      "title": "طول آدم وصفته الأولى"
+    },
+    {
+      "binding_ready": false,
+      "claim_layers": [
+        {
+          "claim": "أمر آدم أن يسلم على الملائكة فكانت تحيته وتحية ذريته",
+          "support": [
+            "SRC-BUKHARI-3326",
+            "SRC-MUSLIM-2841"
+          ],
+          "treatment": "assertive_candidate"
+        }
+      ],
+      "event_approved": false,
+      "event_id": "EV-ADAM-033",
+      "human_decision": false,
+      "proposed_disposition": "include_assertive",
+      "scope_limitations": [
+        "ينقل الحوار بقدر النص دون إضافات درامية"
+      ],
+      "source_candidate_count": 2,
+      "source_candidate_ids": [
+        "SRC-BUKHARI-3326",
+        "SRC-MUSLIM-2841"
+      ],
+      "source_links": [
+        {
+          "arabic_anchor_sha256": "f175f853f7ecc5fd03c7acd2810221d051e2b2aa12313ebc531f1848c0bfe0bd",
+          "candidate_record_id": "external_source_ab9c4c2db9a824ca",
+          "human_decision": false,
+          "locator": "Sahih al-Bukhari 3326",
+          "source_candidate_id": "SRC-BUKHARI-3326",
+          "source_candidate_sha256": "1eee474abda27ad832629db8ead5cccb1142a78b1ab709c9aef565579323496b",
+          "source_url": "https://sunnah.com/bukhari:3326",
+          "source_verified": false
+        },
+        {
+          "arabic_anchor_sha256": "8864ea2a260337479c9836385e7142f0a98a1b27f367e9f03b9bfa3af7753cb5",
+          "candidate_record_id": "external_source_3520e2f0779b4613",
+          "human_decision": false,
+          "locator": "Sahih Muslim 2841",
+          "source_candidate_id": "SRC-MUSLIM-2841",
+          "source_candidate_sha256": "7c43a0bacbe0a6b52c72155cc75407c4ff5d6e1ada1d7c44265cace53ff22307",
+          "source_url": "https://sunnah.com/muslim:2841",
+          "source_verified": false
+        }
+      ],
+      "source_verification_complete": false,
+      "title": "تعليم آدم تحية السلام"
+    },
+    {
+      "binding_ready": false,
+      "claim_layers": [
+        {
+          "claim": "علم الله آدم الأسماء وأنبأ آدم الملائكة بها",
+          "support": [
+            "SRC-QURAN-002-031-033"
+          ],
+          "treatment": "assertive_candidate"
+        },
+        {
+          "claim": "كان هذا إظهارا لفضل آدم بالعلم",
+          "support": [
+            "SRC-QURAN-002-031-033"
+          ],
+          "treatment": "scholarly_interpretation_review_required"
+        }
+      ],
+      "event_approved": false,
+      "event_id": "EV-ADAM-042",
+      "human_decision": false,
+      "proposed_disposition": "include_qualified",
+      "scope_limitations": [
+        "لا يجزم بتعيين ماهية جميع الأسماء دون تفسير معتمد",
+        "ربط العلم بالاستخلاف استنباط يحتاج نسبة واضحة"
+      ],
+      "source_candidate_count": 1,
+      "source_candidate_ids": [
+        "SRC-QURAN-002-031-033"
+      ],
+      "source_links": [
+        {
+          "arabic_anchor_sha256": "d0214f5330b7b4ade0c904c278f0dfb2aad43b0278898620b46c56bf0738b55f",
+          "candidate_record_id": "external_source_da131eaeda72a363",
+          "human_decision": false,
+          "locator": "Quran 2:31-33",
+          "source_candidate_id": "SRC-QURAN-002-031-033",
+          "source_candidate_sha256": "ee37c0eee6111ffbb552b8be38c101dd4dd162bbe462733d7273cdce749fc2c2",
+          "source_url": "https://quran.com/2/31-33",
+          "source_verified": false
+        }
+      ],
+      "source_verification_complete": false,
+      "title": "إظهار فضل آدم بالعلم"
+    },
+    {
+      "binding_ready": false,
+      "claim_layers": [
+        {
+          "claim": "أخذ الله من بني آدم ذريتهم وأشهدهم على ربوبيته",
+          "support": [
+            "SRC-QURAN-007-172"
+          ],
+          "treatment": "assertive_candidate"
+        }
+      ],
+      "event_approved": false,
+      "event_id": "EV-ADAM-060",
+      "human_decision": false,
+      "proposed_disposition": "include_assertive",
+      "scope_limitations": [
+        "لا يعين النص هنا موضع الحدث الزمني بالنسبة إلى بقية قصة آدم",
+        "لا تدمج تلقائيا جميع روايات الميثاق في واقعة واحدة"
+      ],
+      "source_candidate_count": 1,
+      "source_candidate_ids": [
+        "SRC-QURAN-007-172"
+      ],
+      "source_links": [
+        {
+          "arabic_anchor_sha256": "724e78cdf11a7900009c63a59fb451a96a3f121b30d076b0a29c10b7611b3ebf",
+          "candidate_record_id": "external_source_0937d153515020f8",
+          "human_decision": false,
+          "locator": "Quran 7:172",
+          "source_candidate_id": "SRC-QURAN-007-172",
+          "source_candidate_sha256": "a0cc8335e25b8abb7edec6c676fb46d63873842215f745aa789c7fd87ad45608",
+          "source_url": "https://quran.com/7/172",
+          "source_verified": false
+        }
+      ],
+      "source_verification_complete": false,
+      "title": "ميثاق بني آدم"
+    },
+    {
+      "binding_ready": false,
+      "claim_layers": [
+        {
+          "claim": "أخذت ذرية بني آدم من ظهورهم",
+          "support": [
+            "SRC-QURAN-007-172"
+          ],
+          "treatment": "assertive_candidate"
+        },
+        {
+          "claim": "مسح ظهر آدم وسقطت منه كل نسمة من ذريته",
+          "support": [
+            "SRC-TIRMIDHI-3076"
+          ],
+          "treatment": "hadith_authority_review_required"
+        }
+      ],
+      "event_approved": false,
+      "event_id": "EV-ADAM-061",
+      "human_decision": false,
+      "proposed_disposition": "include_qualified",
+      "scope_limitations": [
+        "لا يساوى آليا بين كل تفاصيل الحديث ودلالة آية الأعراف",
+        "تفاصيل داود والعمر خارج نطاق الحدث ما لم تعتمد مستقلة"
+      ],
+      "source_candidate_count": 2,
+      "source_candidate_ids": [
+        "SRC-QURAN-007-172",
+        "SRC-TIRMIDHI-3076"
+      ],
+      "source_links": [
+        {
+          "arabic_anchor_sha256": "724e78cdf11a7900009c63a59fb451a96a3f121b30d076b0a29c10b7611b3ebf",
+          "candidate_record_id": "external_source_0937d153515020f8",
+          "human_decision": false,
+          "locator": "Quran 7:172",
+          "source_candidate_id": "SRC-QURAN-007-172",
+          "source_candidate_sha256": "a0cc8335e25b8abb7edec6c676fb46d63873842215f745aa789c7fd87ad45608",
+          "source_url": "https://quran.com/7/172",
+          "source_verified": false
+        },
+        {
+          "arabic_anchor_sha256": "b5dc4f4786b35357204573c572e00ccfd8d872ea13edf0b5bddd5599b076f0a2",
+          "candidate_record_id": "external_source_497dbfda28b7e619",
+          "human_decision": false,
+          "locator": "Jami at-Tirmidhi 3076",
+          "source_candidate_id": "SRC-TIRMIDHI-3076",
+          "source_candidate_sha256": "d57a24d5a58b85478ec9d03f2bde3992e8c33743bc25eeaf892e7c720fcd84f2",
+          "source_url": "https://sunnah.com/tirmidhi:3076",
+          "source_verified": false
+        }
+      ],
+      "source_verification_complete": false,
+      "title": "استخراج ذرية آدم من ظهره"
+    },
+    {
+      "binding_ready": false,
+      "claim_layers": [
+        {
+          "claim": "خلق الله من النفس الواحدة زوجها",
+          "support": [
+            "SRC-QURAN-004-001"
+          ],
+          "treatment": "assertive_candidate"
+        },
+        {
+          "claim": "المرأة خلقت من ضلع",
+          "support": [
+            "SRC-BUKHARI-3331",
+            "SRC-MUSLIM-1468A"
+          ],
+          "treatment": "assertive_candidate"
+        },
+        {
+          "claim": "زوج آدم المقصودة هي حواء وأنها خلقت من ضلع آدم",
+          "support": [
+            "SRC-QURAN-004-001",
+            "SRC-BUKHARI-3331",
+            "SRC-MUSLIM-1468A"
+          ],
+          "treatment": "supported_synthesis_human_review_required"
+        }
+      ],
+      "event_approved": false,
+      "event_id": "EV-ADAM-070",
+      "human_decision": false,
+      "proposed_disposition": "include_qualified",
+      "scope_limitations": [
+        "لا يثبت من هذه النصوص تعيين الضلع الأيسر أو وقت النوم",
+        "تفاصيل الحوار والتسمية تبقى ضمن قرار EV-ADAM-071"
+      ],
+      "source_candidate_count": 3,
+      "source_candidate_ids": [
+        "SRC-QURAN-004-001",
+        "SRC-BUKHARI-3331",
+        "SRC-MUSLIM-1468A"
+      ],
+      "source_links": [
+        {
+          "arabic_anchor_sha256": "6246c350f30814d207b13ee1cd75c21b435846e567acadc834b52d3c34eda137",
+          "candidate_record_id": "external_source_bd942682638c999e",
+          "human_decision": false,
+          "locator": "Quran 4:1",
+          "source_candidate_id": "SRC-QURAN-004-001",
+          "source_candidate_sha256": "ff0dd99a4195f43826afc9137f751f6b6e196bd3bd44b03d9151d8488367929f",
+          "source_url": "https://quran.com/4/1",
+          "source_verified": false
+        },
+        {
+          "arabic_anchor_sha256": "e3e486cd1958da58724315357a09a53d696e3f0d370b7782c01a6b3406cc87b2",
+          "candidate_record_id": "external_source_7c6c863457436573",
+          "human_decision": false,
+          "locator": "Sahih al-Bukhari 3331",
+          "source_candidate_id": "SRC-BUKHARI-3331",
+          "source_candidate_sha256": "465750f935f06683ddc25145285f8412ec125576ac25f7ce932e8f012114105d",
+          "source_url": "https://sunnah.com/bukhari:3331",
+          "source_verified": false
+        },
+        {
+          "arabic_anchor_sha256": "c24079c3a3edd10c95254db1eb0e3b31cb50ab3349a60945a7702781cb1e5c83",
+          "candidate_record_id": "external_source_f9bc8c7bd59bce05",
+          "human_decision": false,
+          "locator": "Sahih Muslim 1468a",
+          "source_candidate_id": "SRC-MUSLIM-1468A",
+          "source_candidate_sha256": "a73471f7a5010bb79d13290c5d07a087f9a9758f912438055e6ee30fa66f941b",
+          "source_url": "https://sunnah.com/muslim:1468a",
+          "source_verified": false
+        }
+      ],
+      "source_verification_complete": false,
+      "title": "خلق زوج آدم"
+    }
+  ],
+  "evidence_gate_status": "WITHHELD_PENDING_APPROVED_EVIDENCE_PACKAGE",
+  "full_episode_adjudication_complete": false,
+  "human_approval": false,
+  "live_provider_execution": "BLOCKED",
+  "opens_evidence_gate": false,
+  "pack_id": "adam_external_event_source_pack_c03457d74968e441",
+  "policy_id": "adam_external_source_policy_09c49930eea11229",
+  "policy_sha256": "be79065750052c0a7345dbaf3122800e76c398b6e0d0f4faa8ad1e2cb5e9554a",
+  "proposed_disposition_counts": {
+    "include_assertive": 8,
+    "include_qualified": 6
+  },
+  "schema_version": "siraj-external-event-source-candidate-pack-v1",
+  "source_verification_complete": false,
+  "status": "EXTERNAL_SOURCE_CANDIDATES_MATERIALIZED_HUMAN_VERIFICATION_PENDING"
+}

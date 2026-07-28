@@ -1,0 +1,34 @@
+{
+  "allowed_candidate_kinds": [
+    "QURAN_VERSE",
+    "QURAN_VERSE_RANGE",
+    "HADITH_COLLECTION_RECORD"
+  ],
+  "automatic_evidence_approval": "FORBIDDEN",
+  "candidate_record_schema": "siraj-external-source-candidate-record-v1",
+  "episode_id": "episode-001-adam",
+  "evidence_gate_status": "WITHHELD_PENDING_APPROVED_EVIDENCE_PACKAGE",
+  "human_approval": false,
+  "live_provider_execution": "BLOCKED",
+  "policy_id": "adam_external_source_policy_09c49930eea11229",
+  "prohibitions": [
+    "automatic hadith grading",
+    "automatic source authentication",
+    "automatic source-origin classification",
+    "automatic narration approval",
+    "treating a research anchor as a verified exact excerpt",
+    "opening the evidence gate",
+    "provider execution"
+  ],
+  "research_date": "2026-07-28",
+  "rules": {
+    "event_disposition": "All proposed dispositions are candidates and never human decisions.",
+    "quran_anchor": "Requires human comparison against an authorized Mushaf source before source_verified can become true.",
+    "reference_anchor": "Arabic anchor text is a research locator aid, not a human-compared source excerpt.",
+    "sahih_collection_record": "Collection identity is recorded, but authentication_verified remains false until a qualified human records the decision.",
+    "sunan_record": "Requires explicit human authentication-authority review."
+  },
+  "schema_version": "siraj-external-source-candidate-policy-v1",
+  "source_verification_complete": false,
+  "status": "EXTERNAL_SOURCE_CANDIDATE_POLICY_ACTIVE"
+}
