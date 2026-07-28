@@ -221,3 +221,43 @@ __all__ += [
     "validate_recovered_manifest",
     "write_recovered_evidence_knowledge",
 ]
+
+from .evidence_gap_closure import (
+    AUTOMATIC_APPROVAL_STATUS as GAP_CLOSURE_AUTOMATIC_APPROVAL_STATUS,
+    DOCKET_STATUS,
+    EVIDENCE_GAP_DOCKET_SCHEMA_VERSION,
+    EVIDENCE_GAP_REVIEW_TEMPLATE_SCHEMA_VERSION,
+    EVIDENCE_GATE_STATUS as GAP_CLOSURE_EVIDENCE_GATE_STATUS,
+    LIVE_EXECUTION_STATUS as GAP_CLOSURE_LIVE_EXECUTION_STATUS,
+    TEMPLATE_STATUS as GAP_CLOSURE_TEMPLATE_STATUS,
+    AdamEvidenceGapClosureBuilder,
+    EvidenceGapClosureDocket,
+    EvidenceGapClosureError,
+    EvidenceGapEntry,
+    canonical_json_sha256 as gap_closure_canonical_json_sha256,
+    gap_review_template,
+    validate_gap_docket,
+    validate_gap_review_template,
+    write_gap_docket,
+    write_gap_review_template,
+)
+
+__all__ += [
+    "EVIDENCE_GAP_DOCKET_SCHEMA_VERSION",
+    "EVIDENCE_GAP_REVIEW_TEMPLATE_SCHEMA_VERSION",
+    "DOCKET_STATUS",
+    "GAP_CLOSURE_TEMPLATE_STATUS",
+    "GAP_CLOSURE_EVIDENCE_GATE_STATUS",
+    "GAP_CLOSURE_AUTOMATIC_APPROVAL_STATUS",
+    "GAP_CLOSURE_LIVE_EXECUTION_STATUS",
+    "EvidenceGapClosureError",
+    "EvidenceGapEntry",
+    "EvidenceGapClosureDocket",
+    "AdamEvidenceGapClosureBuilder",
+    "gap_closure_canonical_json_sha256",
+    "gap_review_template",
+    "validate_gap_docket",
+    "validate_gap_review_template",
+    "write_gap_docket",
+    "write_gap_review_template",
+]

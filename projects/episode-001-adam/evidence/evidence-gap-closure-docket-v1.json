@@ -1,0 +1,138 @@
+{
+  "automatic_evidence_approval": "FORBIDDEN",
+  "counts": {
+    "editorial_only_events": 1,
+    "events_with_explicit_candidate_sources": 0,
+    "events_with_explicit_review_artifacts": 0,
+    "factual_review_events": 3,
+    "total_uncovered_events": 4
+  },
+  "docket_id": "evidence_gap_closure_docket_258181da3e12012e",
+  "entries": [
+    {
+      "allowed_dispositions": [
+        "include_assertive",
+        "include_qualified",
+        "omit_unverified"
+      ],
+      "chronology_type": "pending_verification",
+      "event_id": "EV-ADAM-031",
+      "explicit_candidate_source_ids": [],
+      "explicit_review_artifact_paths": [],
+      "human_decision_required": true,
+      "importance": "supporting",
+      "order": 310,
+      "question_ids": [
+        "RQ-ADAM-013"
+      ],
+      "recommendation_status": "NO_DEFAULT_DECISION",
+      "recommended_disposition": null,
+      "research_questions": [
+        "ما الثابت في نفخ الروح وأول حركة أو كلام أو عطاس لآدم؟"
+      ],
+      "resolution_lane": "targeted_human_review",
+      "section": "بدء حياة آدم",
+      "title": "أول حركة وعطاس وكلام لآدم",
+      "verification_status": "deferred"
+    },
+    {
+      "allowed_dispositions": [
+        "include_assertive",
+        "include_qualified",
+        "omit_unverified"
+      ],
+      "chronology_type": "pending_verification",
+      "event_id": "EV-ADAM-071",
+      "explicit_candidate_source_ids": [],
+      "explicit_review_artifact_paths": [],
+      "human_decision_required": true,
+      "importance": "supporting",
+      "order": 710,
+      "question_ids": [
+        "RQ-ADAM-026",
+        "RQ-ADAM-027"
+      ],
+      "recommendation_status": "NO_DEFAULT_DECISION",
+      "recommended_disposition": null,
+      "research_questions": [
+        "ما مصدر اسم حواء وما درجة ثبوته؟",
+        "هل ثبت الضلع الأيسر أو خلقها أثناء نوم آدم؟"
+      ],
+      "resolution_lane": "targeted_human_review",
+      "section": "خلق الزوج",
+      "title": "اسم حواء والتفاصيل المنقولة عن خلقها",
+      "verification_status": "deferred"
+    },
+    {
+      "allowed_dispositions": [
+        "include_assertive",
+        "include_qualified",
+        "omit_unverified"
+      ],
+      "chronology_type": "not_applicable",
+      "event_id": "EV-ADAM-091",
+      "explicit_candidate_source_ids": [],
+      "explicit_review_artifact_paths": [],
+      "human_decision_required": true,
+      "importance": "supporting",
+      "order": 910,
+      "question_ids": [
+        "RQ-ADAM-029",
+        "RQ-ADAM-030"
+      ],
+      "recommendation_status": "NO_DEFAULT_DECISION",
+      "recommended_disposition": null,
+      "research_questions": [
+        "هل ثبت نوع الشجرة المنهي عنها؟",
+        "ما الروايات التاريخية والإسرائيلية الواردة في تعيين الشجرة؟"
+      ],
+      "resolution_lane": "targeted_human_review",
+      "section": "الاختبار الأول",
+      "title": "الأقوال في نوع الشجرة",
+      "verification_status": "deferred"
+    },
+    {
+      "allowed_dispositions": [
+        "editorial_only"
+      ],
+      "chronology_type": "editorial_arrangement",
+      "event_id": "EV-ADAM-099",
+      "explicit_candidate_source_ids": [],
+      "explicit_review_artifact_paths": [],
+      "human_decision_required": true,
+      "importance": "core",
+      "order": 990,
+      "question_ids": [
+        "RQ-ADAM-032"
+      ],
+      "recommendation_status": "RECOMMENDATION_ONLY",
+      "recommended_disposition": "editorial_only",
+      "research_questions": [
+        "ما أفضل نقطة لإنهاء الحلقة قبل بدء الوسوسة وفق كثافة الأدلة والستوريبورد؟"
+      ],
+      "resolution_lane": "editorial_only",
+      "section": "خاتمة الحلقة",
+      "title": "التمهيد لبدء الوسوسة",
+      "verification_status": "editorial"
+    }
+  ],
+  "episode_id": "episode-001-adam",
+  "evidence_gate_status": "WITHHELD_PENDING_APPROVED_EVIDENCE_PACKAGE",
+  "live_provider_execution": "BLOCKED",
+  "normalized_source_ids": [
+    "SRC-HISTORY-BIDAYAH-ADAM",
+    "SRC-HISTORY-KAMIL-ADAM",
+    "SRC-HISTORY-MUNTAZAM-ADAM",
+    "SRC-HISTORY-TABARI-ADAM",
+    "SRC-TAFSIR-BAGHAWI-ADAM",
+    "SRC-TAFSIR-IBN-ABI-HATIM-ADAM",
+    "SRC-TAFSIR-IBN-KATHIR-ADAM",
+    "SRC-TAFSIR-SAADI-ADAM",
+    "SRC-TAFSIR-TABARI-ADAM"
+  ],
+  "raw_source_text_copied": false,
+  "recovery_id": "recovered_evidence_knowledge_45da87457d6b8001",
+  "recovery_manifest_sha256": "a309ead61463d77dd438e2696a4125e63616a96d92385877c378840822c1834a",
+  "schema_version": "siraj-evidence-gap-closure-docket-v1",
+  "status": "HUMAN_REVIEW_PENDING"
+}
