@@ -310,29 +310,81 @@ class EvidenceGapClosureTests(unittest.TestCase):
 
     def test_cli_runs_from_arbitrary_cwd(self):
         repo_root = Path(__file__).resolve().parents[1]
-        episode = repo_root / "projects" / "episode-001-adam"
-        (episode / "evidence").mkdir(parents=True, exist_ok=True)
-        (episode / "editorial").mkdir(parents=True, exist_ok=True)
-        (episode / "contracts").mkdir(parents=True, exist_ok=True)
-        files = {
-            episode / "evidence" / "recovered-evidence-knowledge-v1.json": recovery_fixture(),
-            episode / "editorial" / "event-map.json": EVENTS,
-            episode / "editorial" / "research-questions.json": QUESTIONS,
-            episode / "contracts" / "source-package-v1.draft.json": source_package_fixture(),
-        }
-        for path, payload in files.items():
-            path.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
-        docket_path = episode / "evidence" / "test-docket.json"
-        template_path = episode / "evidence" / "test-template.json"
-        try:
+        script = (
+            repo_root
+            / "scripts"
+            / "fast_track"
+            / "build_adam_evidence_gap_docket_v1.py"
+        )
+        tracked_event_map = (
+            repo_root
+            / "projects"
+            / "episode-001-adam"
+            / "editorial"
+            / "event-map.json"
+        )
+        tracked_event_map_before = tracked_event_map.read_bytes()
+
+        with tempfile.TemporaryDirectory() as fixture_root_raw:
+            fixture_root = Path(fixture_root_raw)
+            episode = (
+                fixture_root
+                / "projects"
+                / "episode-001-adam"
+            )
+            (episode / "evidence").mkdir(
+                parents=True,
+                exist_ok=True,
+            )
+            (episode / "editorial").mkdir(
+                parents=True,
+                exist_ok=True,
+            )
+            (episode / "contracts").mkdir(
+                parents=True,
+                exist_ok=True,
+            )
+            files = {
+                episode
+                / "evidence"
+                / "recovered-evidence-knowledge-v1.json":
+                    recovery_fixture(),
+                episode
+                / "editorial"
+                / "event-map.json":
+                    EVENTS,
+                episode
+                / "editorial"
+                / "research-questions.json":
+                    QUESTIONS,
+                episode
+                / "contracts"
+                / "source-package-v1.draft.json":
+                    source_package_fixture(),
+            }
+            for path, payload in files.items():
+                path.write_text(
+                    json.dumps(
+                        payload,
+                        ensure_ascii=False,
+                    ),
+                    encoding="utf-8",
+                )
+
+            docket_path = (
+                episode / "evidence" / "test-docket.json"
+            )
+            template_path = (
+                episode / "evidence" / "test-template.json"
+            )
             with tempfile.TemporaryDirectory() as cwd:
                 result = subprocess.run(
                     [
                         sys.executable,
                         "-I",
-                        str(repo_root / "scripts/fast_track/build_adam_evidence_gap_docket_v1.py"),
+                        str(script),
                         "--repo-root",
-                        str(repo_root),
+                        str(fixture_root),
                         "--docket-output",
                         str(docket_path),
                         "--review-template-output",
@@ -346,12 +398,18 @@ class EvidenceGapClosureTests(unittest.TestCase):
                     stderr=subprocess.STDOUT,
                     check=True,
                 )
-            self.assertIn("STATUS=PASS_ADAM_EVIDENCE_GAP_DOCKET_BUILT", result.stdout)
+
+            self.assertIn(
+                "STATUS=PASS_ADAM_EVIDENCE_GAP_DOCKET_BUILT",
+                result.stdout,
+            )
             self.assertTrue(docket_path.is_file())
             self.assertTrue(template_path.is_file())
-        finally:
-            docket_path.unlink(missing_ok=True)
-            template_path.unlink(missing_ok=True)
+
+        self.assertEqual(
+            tracked_event_map.read_bytes(),
+            tracked_event_map_before,
+        )
 
     def test_schema_and_status_are_fixed(self):
         manifest = self.build().to_manifest()
