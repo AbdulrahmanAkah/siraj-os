@@ -1,9 +1,38 @@
 from __future__ import annotations
 
 import argparse
+import copy
 import json
 import sys
 from pathlib import Path
+
+
+BINDING_EPISODE_KEYS = (
+    "schema_version",
+    "episode_id",
+    "source_package",
+    "evidence_package",
+    "event_evidence_adjudication",
+    "historical_scope",
+    "production_profile",
+    "format_identity",
+    "cinematic_direction",
+    "timezone_policy",
+    "evidence_gate_status",
+    "live_execution_status",
+    "paid_execution",
+    "updated_at",
+    "updated_at_baghdad",
+    "evidence_binding",
+)
+
+DOWNSTREAM_EPISODE_KEYS = (
+    "cinematic_script",
+    "detailed_storyboard",
+    "script_storyboard_trace",
+    "script_storyboard_approval_request",
+    "production_brief",
+)
 
 
 def json_equal(path: Path, expected: dict) -> bool:
@@ -11,6 +40,48 @@ def json_equal(path: Path, expected: dict) -> bool:
         return False
     actual = json.loads(path.read_text(encoding="utf-8-sig"))
     return actual == expected
+
+
+def read_json_object(path: Path) -> dict:
+    if not path.is_file():
+        raise RuntimeError(f"Tracked JSON file is missing: {path}")
+    actual = json.loads(path.read_text(encoding="utf-8-sig"))
+    if not isinstance(actual, dict):
+        raise RuntimeError(f"Expected JSON object: {path}")
+    return actual
+
+
+def binding_episode_fields_match(
+    actual: dict,
+    expected: dict,
+) -> bool:
+    return all(
+        key in actual
+        and key in expected
+        and actual[key] == expected[key]
+        for key in BINDING_EPISODE_KEYS
+    )
+
+
+def merge_episode_definition(
+    existing: dict,
+    expected: dict,
+) -> dict:
+    has_downstream_progress = any(
+        key in existing for key in DOWNSTREAM_EPISODE_KEYS
+    )
+    if not has_downstream_progress:
+        return copy.deepcopy(expected)
+
+    merged = copy.deepcopy(existing)
+    for key in BINDING_EPISODE_KEYS:
+        if key not in expected:
+            raise RuntimeError(
+                "Binding output is missing critical episode field: "
+                + key
+            )
+        merged[key] = copy.deepcopy(expected[key])
+    return merged
 
 
 def main() -> int:
@@ -84,6 +155,9 @@ def main() -> int:
         editorial_blueprint=editorial_blueprint,
     )
 
+    episode_definition_path = (
+        contracts / "episode-definition-v1.json"
+    )
     project_outputs = {
         episode / FINAL_SOURCE_RELATIVE:
             artifacts["source_package"],
@@ -99,22 +173,40 @@ def main() -> int:
             artifacts["binding_receipt"],
         episode / DIRECTION_RELATIVE:
             artifacts["direction"],
-        contracts / "episode-definition-v1.json":
-            artifacts["episode_definition"],
     }
 
     if args.materialize_project_files:
         for path, payload in project_outputs.items():
             write_json(path, payload)
+        existing_definition = read_json_object(
+            episode_definition_path
+        )
+        write_json(
+            episode_definition_path,
+            merge_episode_definition(
+                existing_definition,
+                artifacts["episode_definition"],
+            ),
+        )
     else:
         missing_or_different = [
             str(path)
             for path, payload in project_outputs.items()
             if not json_equal(path, payload)
         ]
+        actual_definition = read_json_object(
+            episode_definition_path
+        )
+        if not binding_episode_fields_match(
+            actual_definition,
+            artifacts["episode_definition"],
+        ):
+            missing_or_different.append(
+                str(episode_definition_path)
+            )
         if missing_or_different:
             raise RuntimeError(
-                "Tracked final approval/binding files differ: "
+                "Tracked final approval/binding fields differ: "
                 + ", ".join(missing_or_different)
             )
 

@@ -1137,3 +1137,37 @@ __all__ += [
     "build_adam_final_evidence_approval_and_binding",
     "write_final_evidence_binding_report",
 ]
+
+from .prestige_cinematic_script_storyboard import (
+    APPROVAL_PHRASE as ADAM_SCRIPT_STORYBOARD_APPROVAL_PHRASE,
+    APPROVAL_REQUEST_SCHEMA as SCRIPT_STORYBOARD_HUMAN_APPROVAL_REQUEST_SCHEMA,
+    PRODUCTION_BRIEF_SCHEMA as PRESTIGE_PRODUCTION_BRIEF_SCHEMA,
+    SCRIPT_BLUEPRINT_SCHEMA as PRESTIGE_CINEMATIC_SCRIPT_BLUEPRINT_SCHEMA,
+    SCRIPT_SCHEMA as PRESTIGE_CINEMATIC_SCRIPT_SCHEMA,
+    STORYBOARD_SCHEMA as DETAILED_CINEMATIC_STORYBOARD_SCHEMA,
+    TRACE_SCHEMA as SCRIPT_STORYBOARD_EVIDENCE_TRACE_SCHEMA,
+    PrestigeScriptStoryboardError,
+    build_script_and_storyboard as build_adam_prestige_script_storyboard,
+    render_script_markdown,
+    update_episode_definition as update_episode_with_script_storyboard,
+    validate_inputs as validate_prestige_script_storyboard_inputs,
+    validate_outputs as validate_prestige_script_storyboard_outputs,
+    write_outputs as write_prestige_script_storyboard_outputs,
+)
+
+__all__ += [
+    "PRESTIGE_CINEMATIC_SCRIPT_BLUEPRINT_SCHEMA",
+    "PRESTIGE_CINEMATIC_SCRIPT_SCHEMA",
+    "DETAILED_CINEMATIC_STORYBOARD_SCHEMA",
+    "SCRIPT_STORYBOARD_EVIDENCE_TRACE_SCHEMA",
+    "SCRIPT_STORYBOARD_HUMAN_APPROVAL_REQUEST_SCHEMA",
+    "PRESTIGE_PRODUCTION_BRIEF_SCHEMA",
+    "ADAM_SCRIPT_STORYBOARD_APPROVAL_PHRASE",
+    "PrestigeScriptStoryboardError",
+    "validate_prestige_script_storyboard_inputs",
+    "build_adam_prestige_script_storyboard",
+    "validate_prestige_script_storyboard_outputs",
+    "update_episode_with_script_storyboard",
+    "render_script_markdown",
+    "write_prestige_script_storyboard_outputs",
+]

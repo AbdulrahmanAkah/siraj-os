@@ -6,7 +6,22 @@
     "path": "contracts/prestige-historical-cinematic-direction-v1.json",
     "status": "ACTIVE_CREATOR_DIRECTIVE"
   },
+  "cinematic_script": {
+    "human_approval": false,
+    "input_fingerprint": "c187aabf5ee4b245439b3404715e6174fd391c77f4c93a80de8fafe0f4b7ae85",
+    "markdown_path": "editorial/prestige-cinematic-script-v1.md",
+    "path": "editorial/prestige-cinematic-script-v1.json",
+    "script_id": "adam_prestige_cinematic_script_c187aabf5ee4b245",
+    "status": "HUMAN_REVIEW_REQUIRED"
+  },
   "created_at": "2026-07-24T11:28:20.764085Z",
+  "detailed_storyboard": {
+    "human_approval": false,
+    "input_fingerprint": "92caa3306cff1ecb63f5c76b062fb39f5f76c1d94060feab1c906675452ce8b2",
+    "path": "cinematic/detailed-storyboard-v1.json",
+    "status": "HUMAN_REVIEW_REQUIRED",
+    "storyboard_id": "adam_detailed_cinematic_storyboard_92caa3306cff1ecb"
+  },
   "editorial_inputs": {
     "episode_brief": "editorial/episode-brief.yaml",
     "event_map": "editorial/event-map.json",
@@ -128,8 +143,13 @@
   "live_execution_status": "BLOCKED",
   "maximum_duration_minutes": 25,
   "minimum_duration_minutes": 18,
-  "next_stage": "EVIDENCE_BOUND_CINEMATIC_SCRIPT_AND_STORYBOARD_DEVELOPMENT",
+  "next_stage": "HUMAN_REVIEW_OF_PRESTIGE_CINEMATIC_SCRIPT_AND_STORYBOARD",
   "paid_execution": "BLOCKED",
+  "production_brief": {
+    "brief_id": "adam_prestige_production_brief_4f2d6098b19dc972",
+    "path": "cinematic/prestige-production-brief-v1.json",
+    "status": "PLANNING_ONLY_PROVIDER_EXECUTION_BLOCKED"
+  },
   "production_profile": "WORLD_CLASS_PRESTIGE_HISTORICAL_CINEMA_V1",
   "religious_sensitivity": "HUMAN_REVIEW_REQUIRED",
   "requested_outputs": [
@@ -138,6 +158,16 @@
     "video"
   ],
   "schema_version": "siraj-episode-definition-v1",
+  "script_storyboard_approval_request": {
+    "path": "evidence/script-storyboard-human-approval-request-v1.json",
+    "request_id": "adam_script_storyboard_approval_request_c0105f561c76addc",
+    "status": "HUMAN_APPROVAL_REQUIRED"
+  },
+  "script_storyboard_trace": {
+    "path": "evidence/script-storyboard-evidence-trace-v1.json",
+    "status": "PASS_COMPLETE_TRACE",
+    "trace_id": "adam_script_storyboard_trace_13bd8845eef82550"
+  },
   "series_id": "siraj-islamic-history-chronology",
   "source_package": {
     "approval_id": "adam_final_evidence_human_approval_b3743a558e894e1f",
