@@ -1,0 +1,351 @@
+{
+  "approved_evidence_package_complete": false,
+  "automatic_evidence_approval": "FORBIDDEN",
+  "delegated_authentication_accepted_count": 8,
+  "delegated_source_count": 8,
+  "episode_id": "episode-001-adam",
+  "evidence_gate_status": "WITHHELD_PENDING_APPROVED_EVIDENCE_PACKAGE",
+  "full_episode_adjudication_complete": false,
+  "high_importance_source_count": 3,
+  "high_importance_source_decisions_complete": false,
+  "live_provider_execution": "BLOCKED",
+  "opens_evidence_gate": false,
+  "records": [
+    {
+      "authentication_authority": "Al-Albani grading on Sunan Abi Dawud",
+      "authentication_result": "SAHIH_BY_AL_ALBANI",
+      "authentication_verified_by_human": false,
+      "claim_scope": [
+        "أول ما خلق الله القلم",
+        "أمر القلم بكتابة مقادير كل شيء"
+      ],
+      "collection": "Sunan Abi Dawud",
+      "decision": "RESEARCH_COMPLETE_USER_REVIEW_REQUIRED",
+      "delegated_ai_decision": false,
+      "delegated_authentication_accepted": false,
+      "event_ids": [
+        "EV-ADAM-003"
+      ],
+      "final_user_review_required": true,
+      "origin_classification": "MARFU_PROPHETIC_HADITH",
+      "origin_classification_verified_by_human": false,
+      "record_number": "4700",
+      "research_complete": true,
+      "research_date": "2026-07-28",
+      "scope_limitations": [
+        "لا يعتمد تفسير الأولية المطلقة آليا",
+        "يفصل ثبوت الحديث عن الجمع بينه وبين نص العرش على الماء"
+      ],
+      "source_candidate_id": "SRC-ABUDAWUD-4700",
+      "source_text_locator_verified": true,
+      "source_url": "https://sunnah.com/abudawud:4700"
+    },
+    {
+      "authentication_authority": "Sahih al-Bukhari",
+      "authentication_result": "SAHIH_BY_COLLECTION",
+      "authentication_verified_by_human": false,
+      "claim_scope": [
+        "كان الله ولم يكن شيء غيره",
+        "كان عرشه على الماء",
+        "كتب في الذكر كل شيء",
+        "خلق السماوات والأرض"
+      ],
+      "collection": "Sahih al-Bukhari",
+      "decision": "ACCEPT_ROUTINE",
+      "delegated_ai_decision": true,
+      "delegated_authentication_accepted": true,
+      "event_ids": [
+        "EV-ADAM-001",
+        "EV-ADAM-002"
+      ],
+      "final_user_review_required": false,
+      "origin_classification": "MARFU_PROPHETIC_HADITH",
+      "origin_classification_verified_by_human": false,
+      "record_number": "3191",
+      "research_complete": true,
+      "research_date": "2026-07-28",
+      "scope_limitations": [
+        "لا يستنبط من هذا السجل وحده ترتيب جميع المخلوقات",
+        "لا يحسم ترتيب العرش والقلم من هذا السجل وحده"
+      ],
+      "source_candidate_id": "SRC-BUKHARI-3191",
+      "source_text_locator_verified": true,
+      "source_url": "https://sunnah.com/bukhari:3191"
+    },
+    {
+      "authentication_authority": "Sahih al-Bukhari",
+      "authentication_result": "SAHIH_BY_COLLECTION",
+      "authentication_verified_by_human": false,
+      "claim_scope": [
+        "خلق آدم وطوله ستون ذراعا",
+        "تعليم آدم تحية السلام",
+        "رد الملائكة وزيادتهم ورحمة الله"
+      ],
+      "collection": "Sahih al-Bukhari",
+      "decision": "ACCEPT_ROUTINE",
+      "delegated_ai_decision": true,
+      "delegated_authentication_accepted": true,
+      "event_ids": [
+        "EV-ADAM-032",
+        "EV-ADAM-033"
+      ],
+      "final_user_review_required": false,
+      "origin_classification": "MARFU_PROPHETIC_HADITH",
+      "origin_classification_verified_by_human": false,
+      "record_number": "3326",
+      "research_complete": true,
+      "research_date": "2026-07-28",
+      "scope_limitations": [
+        "لا يستخدم لإثبات تفسير عقدي لعبارة الصورة"
+      ],
+      "source_candidate_id": "SRC-BUKHARI-3326",
+      "source_text_locator_verified": true,
+      "source_url": "https://sunnah.com/bukhari:3326"
+    },
+    {
+      "authentication_authority": "Sahih al-Bukhari",
+      "authentication_result": "SAHIH_BY_COLLECTION",
+      "authentication_verified_by_human": false,
+      "claim_scope": [
+        "المرأة خلقت من ضلع",
+        "الوصية بالنساء"
+      ],
+      "collection": "Sahih al-Bukhari",
+      "decision": "ACCEPT_ROUTINE",
+      "delegated_ai_decision": true,
+      "delegated_authentication_accepted": true,
+      "event_ids": [
+        "EV-ADAM-070"
+      ],
+      "final_user_review_required": false,
+      "origin_classification": "MARFU_PROPHETIC_HADITH",
+      "origin_classification_verified_by_human": false,
+      "record_number": "3331",
+      "research_complete": true,
+      "research_date": "2026-07-28",
+      "scope_limitations": [
+        "اللفظ لا يسمي حواء",
+        "ربط الحديث بزوج آدم تركيب استدلالي يحتاج قرار نطاق مستقل"
+      ],
+      "source_candidate_id": "SRC-BUKHARI-3331",
+      "source_text_locator_verified": true,
+      "source_url": "https://sunnah.com/bukhari:3331"
+    },
+    {
+      "authentication_authority": "Sahih Muslim",
+      "authentication_result": "SAHIH_BY_COLLECTION",
+      "authentication_verified_by_human": false,
+      "claim_scope": [
+        "المرأة خلقت من ضلع",
+        "الوصية بالنساء خيرا"
+      ],
+      "collection": "Sahih Muslim",
+      "decision": "ACCEPT_ROUTINE",
+      "delegated_ai_decision": true,
+      "delegated_authentication_accepted": true,
+      "event_ids": [
+        "EV-ADAM-070"
+      ],
+      "final_user_review_required": false,
+      "origin_classification": "MARFU_PROPHETIC_HADITH",
+      "origin_classification_verified_by_human": false,
+      "record_number": "1468a",
+      "research_complete": true,
+      "research_date": "2026-07-28",
+      "scope_limitations": [
+        "اللفظ لا يسمي حواء",
+        "لا يعتمد وحده لإثبات كل تفاصيل خلق زوج آدم"
+      ],
+      "source_candidate_id": "SRC-MUSLIM-1468A",
+      "source_text_locator_verified": true,
+      "source_url": "https://sunnah.com/muslim:1468a"
+    },
+    {
+      "authentication_authority": "Sahih Muslim",
+      "authentication_result": "SAHIH_BY_COLLECTION",
+      "authentication_verified_by_human": false,
+      "claim_scope": [
+        "صور الله آدم في الجنة",
+        "تركه مدة شاءها",
+        "طاف إبليس به ونظر إليه",
+        "كان جسد آدم أجوف"
+      ],
+      "collection": "Sahih Muslim",
+      "decision": "ACCEPT_ROUTINE",
+      "delegated_ai_decision": true,
+      "delegated_authentication_accepted": true,
+      "event_ids": [
+        "EV-ADAM-023",
+        "EV-ADAM-024"
+      ],
+      "final_user_review_required": false,
+      "origin_classification": "MARFU_PROPHETIC_HADITH",
+      "origin_classification_verified_by_human": false,
+      "record_number": "2611a",
+      "research_complete": true,
+      "research_date": "2026-07-28",
+      "scope_limitations": [
+        "لا تحدد مدة الترك",
+        "لا تضاف تفاصيل غير موجودة عن كيفية الجسد أو زمن نفخ الروح"
+      ],
+      "source_candidate_id": "SRC-MUSLIM-2611A",
+      "source_text_locator_verified": true,
+      "source_url": "https://sunnah.com/muslim:2611a"
+    },
+    {
+      "authentication_authority": "Sahih Muslim",
+      "authentication_result": "SAHIH_BY_COLLECTION",
+      "authentication_verified_by_human": false,
+      "claim_scope": [
+        "كتبت مقادير الخلائق قبل خلق السماوات والأرض بخمسين ألف سنة",
+        "كان العرش على الماء"
+      ],
+      "collection": "Sahih Muslim",
+      "decision": "ACCEPT_ROUTINE",
+      "delegated_ai_decision": true,
+      "delegated_authentication_accepted": true,
+      "event_ids": [
+        "EV-ADAM-002",
+        "EV-ADAM-003"
+      ],
+      "final_user_review_required": false,
+      "origin_classification": "MARFU_PROPHETIC_HADITH",
+      "origin_classification_verified_by_human": false,
+      "record_number": "2653b",
+      "research_complete": true,
+      "research_date": "2026-07-28",
+      "scope_limitations": [
+        "لا يحسم وحده تفسير أولية القلم"
+      ],
+      "source_candidate_id": "SRC-MUSLIM-2653B",
+      "source_text_locator_verified": true,
+      "source_url": "https://sunnah.com/muslim:2653b"
+    },
+    {
+      "authentication_authority": "Sahih Muslim",
+      "authentication_result": "SAHIH_BY_COLLECTION",
+      "authentication_verified_by_human": false,
+      "claim_scope": [
+        "طول آدم ستون ذراعا",
+        "تعليم آدم تحية السلام",
+        "عبارة خلق آدم على صورته"
+      ],
+      "collection": "Sahih Muslim",
+      "decision": "RESEARCH_COMPLETE_USER_REVIEW_REQUIRED",
+      "delegated_ai_decision": false,
+      "delegated_authentication_accepted": false,
+      "event_ids": [
+        "EV-ADAM-032",
+        "EV-ADAM-033"
+      ],
+      "final_user_review_required": true,
+      "origin_classification": "MARFU_PROPHETIC_HADITH",
+      "origin_classification_verified_by_human": false,
+      "record_number": "2841",
+      "research_complete": true,
+      "research_date": "2026-07-28",
+      "scope_limitations": [
+        "تفسير الضمير في على صورته مسألة عقدية خارج القرار الآلي",
+        "يمكن الاستغناء عنه في الطول والسلام بصحيح البخاري 3326"
+      ],
+      "source_candidate_id": "SRC-MUSLIM-2841",
+      "source_text_locator_verified": true,
+      "source_url": "https://sunnah.com/muslim:2841"
+    },
+    {
+      "authentication_authority": "Sahih Muslim",
+      "authentication_result": "SAHIH_BY_COLLECTION",
+      "authentication_verified_by_human": false,
+      "claim_scope": [
+        "خلقت الملائكة من نور",
+        "خلق الجان من مارج من نار",
+        "خلق آدم مما وصف في القرآن"
+      ],
+      "collection": "Sahih Muslim",
+      "decision": "ACCEPT_ROUTINE",
+      "delegated_ai_decision": true,
+      "delegated_authentication_accepted": true,
+      "event_ids": [
+        "EV-ADAM-005"
+      ],
+      "final_user_review_required": false,
+      "origin_classification": "MARFU_PROPHETIC_HADITH",
+      "origin_classification_verified_by_human": false,
+      "record_number": "2996",
+      "research_complete": true,
+      "research_date": "2026-07-28",
+      "scope_limitations": [
+        "لا يحدد ترتيب خلق الملائكة بالنسبة إلى العرش والقلم"
+      ],
+      "source_candidate_id": "SRC-MUSLIM-2996",
+      "source_text_locator_verified": true,
+      "source_url": "https://sunnah.com/muslim:2996"
+    },
+    {
+      "authentication_authority": "Al-Tirmidhi route note; Darussalam edition grading",
+      "authentication_result": "GHARIB_FROM_THIS_ROUTE_BY_AL_TIRMIDHI_AND_SAHIH_BY_DARUSSALAM",
+      "authentication_verified_by_human": false,
+      "claim_scope": [
+        "أول ما خلق الله القلم",
+        "أمر القلم بكتابة القدر إلى الأبد"
+      ],
+      "collection": "Jami at-Tirmidhi",
+      "decision": "RESEARCH_COMPLETE_USER_REVIEW_REQUIRED",
+      "delegated_ai_decision": false,
+      "delegated_authentication_accepted": false,
+      "event_ids": [
+        "EV-ADAM-003"
+      ],
+      "final_user_review_required": true,
+      "origin_classification": "MARFU_PROPHETIC_HADITH",
+      "origin_classification_verified_by_human": false,
+      "record_number": "2155",
+      "research_complete": true,
+      "research_date": "2026-07-28",
+      "scope_limitations": [
+        "يثبت اختلاف وصف الطريق عن الحكم النهائي في الطبعات الحديثة",
+        "لا يعتمد تفسير الأولية المطلقة آليا"
+      ],
+      "source_candidate_id": "SRC-TIRMIDHI-2155",
+      "source_text_locator_verified": true,
+      "source_url": "https://sunnah.com/tirmidhi:2155"
+    },
+    {
+      "authentication_authority": "Al-Tirmidhi; Darussalam edition grading",
+      "authentication_result": "HASAN_SAHIH_BY_AL_TIRMIDHI_AND_HASAN_BY_DARUSSALAM",
+      "authentication_verified_by_human": false,
+      "claim_scope": [
+        "مسح ظهر آدم وإظهار ذريته",
+        "قصة آدم وداود في العمر"
+      ],
+      "collection": "Jami at-Tirmidhi",
+      "decision": "ACCEPT_ROUTINE_WITH_GRADE_NOTE",
+      "delegated_ai_decision": true,
+      "delegated_authentication_accepted": true,
+      "event_ids": [
+        "EV-ADAM-061"
+      ],
+      "final_user_review_required": false,
+      "origin_classification": "MARFU_PROPHETIC_HADITH",
+      "origin_classification_verified_by_human": false,
+      "record_number": "3076",
+      "research_complete": true,
+      "research_date": "2026-07-28",
+      "scope_limitations": [
+        "تذكر درجة الترمذي ودرجة دار السلام عند التوثيق",
+        "ربط الحديث بتفسير آية الميثاق يحتاج قرار نطاق مستقل"
+      ],
+      "source_candidate_id": "SRC-TIRMIDHI-3076",
+      "source_text_locator_verified": true,
+      "source_url": "https://sunnah.com/tirmidhi:3076"
+    }
+  ],
+  "research_complete_count": 11,
+  "research_id": "adam_delegated_hadith_research_3e16685e6dabef6e",
+  "routine_source_decisions_complete": true,
+  "schema_version": "siraj-delegated-hadith-authentication-research-v1",
+  "source_authentication_research_complete": true,
+  "source_count": 11,
+  "source_review_ingestion_id": "adam_source_review_ingestion_d5022afb27501c08",
+  "status": "DELEGATED_HADITH_RESEARCH_COMPLETE"
+}

@@ -1091,3 +1091,38 @@ ADAM INGESTION JSON LINE-ENDING HASH FIX V1 — 2026-07-28
 - EVENT_BINDING_COMPLETE = NO
 - CURRENT_EVIDENCE_GATE = WITHHELD
 - RUNWARE_LIVE_EXECUTION = BLOCKED
+
+========================================================
+ADAM DELEGATED EVIDENCE ADJUDICATION V1 — 2026-07-28
+========================================================
+
+تم تنفيذ العمل المشمول بتفويض المستخدم:
+
+✓ إتمام البحث في المصادر الحديثية الـ11.
+✓ اعتماد 8 مصادر حديثية روتينية ضمن التفويض.
+✓ إبقاء 3 مصادر بالغة الأهمية للقرار البشري النهائي.
+✓ اعتماد نطاق 8 أحداث روتينية.
+✓ عزل 6 أحداث تفسيرية/حديثية حساسة في ملف مراجعة مركز.
+✓ إعداد توصيات آمنة مكتملة للمصادر والأحداث الحساسة.
+✓ عدم تعديل ملف الاعتماد البشري الأصلي للمصادر.
+✓ عدم فتح بوابة الأدلة أو تشغيل المزود.
+
+الحالة:
+
+- HADITH_SOURCE_COUNT = 11
+- DELEGATED_SOURCE_COUNT = 8
+- HIGH_IMPORTANCE_SOURCE_COUNT = 3
+- SOURCE_AUTHENTICATION_RESEARCH_COMPLETE = YES
+- ROUTINE_SOURCE_DECISIONS_COMPLETE = YES
+- ROUTINE_EVENT_SCOPE_APPROVED = 8
+- HIGH_IMPORTANCE_EVENT_COUNT = 6
+- HIGH_IMPORTANCE_RECOMMENDATIONS_COMPLETE = YES
+- FINAL_USER_HIGH_IMPORTANCE_DECISIONS_COMPLETE = NO
+- FULL_EPISODE_ADJUDICATION_COMPLETE = NO
+- CURRENT_EVIDENCE_GATE = WITHHELD
+- RUNWARE_LIVE_EXECUTION = BLOCKED
+
+الخطوة التالية:
+
+تحويل ملف المراجعة المركزة إلى اعتماد بشري واحد للمسائل الحساسة الست،
+ثم تركيب حزمة الأدلة النهائية دون إعادة مراجعة الأدلة الروتينية.
