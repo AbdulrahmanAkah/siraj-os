@@ -18,7 +18,7 @@ def main() -> int:
         build_binding_candidate,
         build_escalation_queue,
         build_ingestion,
-        file_sha256,
+        normalized_json_document_sha256,
         read_json,
         validate_delegation_policy,
         validate_external_pack,
@@ -45,8 +45,8 @@ def main() -> int:
     validate_delegation_policy(delegation)
     validate_normalization_audit(
         audit,
-        decision_sha256=file_sha256(
-            evidence / "source-review-human-decision-v1.json"
+        decision_sha256=normalized_json_document_sha256(
+            decision
         ),
     )
     validate_external_pack(external)

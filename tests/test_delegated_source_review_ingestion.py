@@ -21,6 +21,7 @@ from src.application.storyboard_runtime.delegated_source_review_ingestion import
     build_escalation_queue,
     build_ingestion,
     file_sha256,
+    normalized_json_document_sha256,
     read_json,
     validate_delegation_policy,
     validate_external_pack,
@@ -48,7 +49,9 @@ class DelegatedSourceReviewIngestionTests(unittest.TestCase):
         validate_delegation_policy(cls.delegation)
         validate_normalization_audit(
             cls.audit,
-            decision_sha256=file_sha256(DECISION),
+            decision_sha256=normalized_json_document_sha256(
+                cls.decision
+            ),
         )
         validate_external_pack(cls.external)
         cls.ingestion = build_ingestion(
@@ -135,9 +138,40 @@ class DelegatedSourceReviewIngestionTests(unittest.TestCase):
         self.assertEqual(self.audit["rejected_normalizations"], 10)
         self.assertEqual(self.audit["validation_issues"], [])
 
-    def test_audit_matches_decision_file(self):
+    def test_audit_matches_normalized_decision_document(self):
         self.assertEqual(
-            self.audit["output_sha256"], file_sha256(DECISION)
+            self.audit["output_sha256"],
+            normalized_json_document_sha256(self.decision),
+        )
+
+    def test_normalized_hash_ignores_lf_vs_crlf(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            lf = root / "lf.json"
+            crlf = root / "crlf.json"
+            payload = (
+                json.dumps(
+                    self.decision,
+                    ensure_ascii=False,
+                    indent=2,
+                    sort_keys=True,
+                )
+                + "\n"
+            )
+            lf.write_bytes(payload.encode("utf-8"))
+            crlf.write_bytes(
+                payload.replace("\n", "\r\n").encode("utf-8")
+            )
+            self.assertNotEqual(file_sha256(lf), file_sha256(crlf))
+            self.assertEqual(
+                normalized_json_document_sha256(read_json(lf)),
+                normalized_json_document_sha256(read_json(crlf)),
+            )
+
+    def test_normalized_hash_matches_original_audit_hash(self):
+        self.assertEqual(
+            normalized_json_document_sha256(self.decision),
+            "c9399ee483169c18b0421cbe6ecbe1e92b8d329e6c233b77782536d3c9d036e3",
         )
 
     def test_delegation_scope(self):

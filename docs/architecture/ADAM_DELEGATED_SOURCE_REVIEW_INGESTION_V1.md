@@ -18,3 +18,19 @@ ingestion therefore:
 - keeps every event-binding decision unapproved;
 - keeps the episode adjudication incomplete, the evidence gate withheld, and
   provider execution blocked.
+
+
+## JSON line-ending portability correction — 2026-07-28
+
+The first ingestion build validated the normalization audit against the raw
+bytes of `source-review-human-decision-v1.json`. The temporary publication clone
+used LF, while the synchronized Windows checkout could materialize CRLF because
+of Git line-ending settings. The parsed JSON remained identical, but the raw
+SHA-256 changed and prevented local report regeneration after a successful
+publication.
+
+The corrected implementation hashes the deterministic UTF-8 JSON serialization
+with sorted keys, two-space indentation, and a final LF. This preserves the
+existing audit hash while making validation independent of checkout line
+endings. Raw file hashing remains available for byte-integrity use cases but is
+not used for semantic JSON-document validation.

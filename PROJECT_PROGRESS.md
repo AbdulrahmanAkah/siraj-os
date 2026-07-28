@@ -1064,3 +1064,30 @@ ADAM DELEGATED SOURCE REVIEW INGESTION V1 — 2026-07-28
 
 تنفيذ البحث الحديثي المفوض للمصادر الثمانية، ثم إعداد حزمة مراجعة مركزة
 للمصادر الثلاثة بالغة الأهمية دون إعادة المستخدم إلى مراجعة الأدلة الروتينية.
+
+
+
+========================================================
+ADAM INGESTION JSON LINE-ENDING HASH FIX V1 — 2026-07-28
+========================================================
+
+تم إصلاح فشل إعادة إنشاء التقرير المحلي بعد نجاح النشر:
+
+- السبب: مقارنة SHA-256 للبايتات الخام لملف JSON.
+- النسخة المؤقتة استخدمت LF بينما checkout المحلي على Windows قد يستخدم CRLF.
+- محتوى JSON كان متطابقاً، لكن بصمة البايتات اختلفت.
+- أصبحت المقارنة تستخدم تمثيل JSON معيارياً ثابتاً ومستقلاً عن LF/CRLF.
+- بقيت بصمة التدقيق الأصلية والقرارات الـ22 دون تغيير.
+- أضيفت اختبارات صريحة لاختلاف LF وCRLF.
+- لم تتغير سياسة التفويض أو بوابة الأدلة أو حالة تشغيل المزود.
+
+الحالة:
+
+- PUBLISHED_INGESTION_COMMIT = 5b12978cc95dacf0c1dfa85f17bc1a692c0e3e23
+- SOURCE_COUNT = 22
+- JSON_HASH_EOL_INDEPENDENT = YES
+- EVIDENCE_DECISIONS_CHANGED = NO
+- SOURCE_AUTHENTICATION_COMPLETE = NO
+- EVENT_BINDING_COMPLETE = NO
+- CURRENT_EVIDENCE_GATE = WITHHELD
+- RUNWARE_LIVE_EXECUTION = BLOCKED
