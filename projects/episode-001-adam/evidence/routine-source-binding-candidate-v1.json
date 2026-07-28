@@ -1,0 +1,278 @@
+{
+  "approved_evidence_package_complete": false,
+  "automatic_evidence_approval": "FORBIDDEN",
+  "binding_candidate_id": "adam_routine_source_binding_4f80d4cba1b3b197",
+  "episode_id": "episode-001-adam",
+  "event_binding_complete": false,
+  "event_count": 6,
+  "event_scope_review_complete": false,
+  "events": [
+    {
+      "claim_treatments": [
+        "assertive_candidate",
+        "supported_synthesis_human_review_required"
+      ],
+      "event_binding_approved": false,
+      "event_id": "EV-ADAM-007",
+      "event_scope_review_complete": false,
+      "quran_source_candidate_ids": [
+        "SRC-QURAN-002-034",
+        "SRC-QURAN-015-027",
+        "SRC-QURAN-018-050"
+      ],
+      "routine_text_locator_review_complete": true,
+      "title": "وجود إبليس قبل خلق آدم"
+    },
+    {
+      "claim_treatments": [
+        "assertive_candidate",
+        "scholarly_interpretation_review_required"
+      ],
+      "event_binding_approved": false,
+      "event_id": "EV-ADAM-021",
+      "event_scope_review_complete": false,
+      "quran_source_candidate_ids": [
+        "SRC-QURAN-003-059",
+        "SRC-QURAN-015-026",
+        "SRC-QURAN-037-011",
+        "SRC-QURAN-038-071",
+        "SRC-QURAN-055-014"
+      ],
+      "routine_text_locator_review_complete": true,
+      "title": "أطوار الطين والحمأ والصلصال"
+    },
+    {
+      "claim_treatments": [
+        "assertive_candidate",
+        "scholarly_interpretation_review_required"
+      ],
+      "event_binding_approved": false,
+      "event_id": "EV-ADAM-042",
+      "event_scope_review_complete": false,
+      "quran_source_candidate_ids": [
+        "SRC-QURAN-002-031-033"
+      ],
+      "routine_text_locator_review_complete": true,
+      "title": "إظهار فضل آدم بالعلم"
+    },
+    {
+      "claim_treatments": [
+        "assertive_candidate"
+      ],
+      "event_binding_approved": false,
+      "event_id": "EV-ADAM-060",
+      "event_scope_review_complete": false,
+      "quran_source_candidate_ids": [
+        "SRC-QURAN-007-172"
+      ],
+      "routine_text_locator_review_complete": true,
+      "title": "ميثاق بني آدم"
+    },
+    {
+      "claim_treatments": [
+        "assertive_candidate",
+        "hadith_authority_review_required"
+      ],
+      "event_binding_approved": false,
+      "event_id": "EV-ADAM-061",
+      "event_scope_review_complete": false,
+      "quran_source_candidate_ids": [
+        "SRC-QURAN-007-172"
+      ],
+      "routine_text_locator_review_complete": true,
+      "title": "استخراج ذرية آدم من ظهره"
+    },
+    {
+      "claim_treatments": [
+        "assertive_candidate",
+        "supported_synthesis_human_review_required"
+      ],
+      "event_binding_approved": false,
+      "event_id": "EV-ADAM-070",
+      "event_scope_review_complete": false,
+      "quran_source_candidate_ids": [
+        "SRC-QURAN-004-001"
+      ],
+      "routine_text_locator_review_complete": true,
+      "title": "خلق زوج آدم"
+    }
+  ],
+  "evidence_gate_status": "WITHHELD_PENDING_APPROVED_EVIDENCE_PACKAGE",
+  "full_episode_adjudication_complete": false,
+  "human_source_review_approved": true,
+  "live_provider_execution": "BLOCKED",
+  "opens_evidence_gate": false,
+  "routine_delegation_applies": true,
+  "schema_version": "siraj-routine-source-binding-candidate-v1",
+  "source_count": 11,
+  "source_review_ingestion_id": "adam_source_review_ingestion_d5022afb27501c08",
+  "sources": [
+    {
+      "approved_exact_excerpt": "وعلم آدم الأسماء كلها ثم عرضهم على الملائكة فقال أنبئوني بأسماء هؤلاء إن كنتم صادقين ۝ قالوا سبحانك لا علم لنا إلا ما علمتنا إنك أنت العليم الحكيم ۝ قال يا آدم أنبئهم بأسمائهم فلما أنبأهم بأسمائهم قال ألم أقل لكم إني أعلم غيب السماوات والأرض وأعلم ما تبدون وما كنتم تكتمون",
+      "approved_exact_excerpt_sha256": "e0bd1f5cdddd7a1166d059944b333373dea63696021f22a845f952c7ae4485a0",
+      "approved_locator": "القرآن الكريم؛ سورة البقرة، الآيات 31-33 (2:31-33)",
+      "binding_status": "ROUTINE_QURAN_SOURCE_READY_FOR_EVENT_SCOPE_REVIEW",
+      "decision": "confirm_with_correction",
+      "event_binding_approved": false,
+      "event_ids": [
+        "EV-ADAM-042"
+      ],
+      "routine_delegation_applies": true,
+      "source_candidate_id": "SRC-QURAN-002-031-033",
+      "source_kind": "QURAN_VERSE_RANGE",
+      "source_text_locator_verified": true
+    },
+    {
+      "approved_exact_excerpt": "وإذ قلنا للملائكة اسجدوا لآدم فسجدوا إلا إبليس أبى واستكبر وكان من الكافرين",
+      "approved_exact_excerpt_sha256": "73c4061b0c5c13bc58fa5b3201c278e43f181ab8f37b349084ac6c6a350a96e8",
+      "approved_locator": "القرآن الكريم؛ سورة البقرة، الآية 34 (2:34)",
+      "binding_status": "ROUTINE_QURAN_SOURCE_READY_FOR_EVENT_SCOPE_REVIEW",
+      "decision": "defer_authentication",
+      "event_binding_approved": false,
+      "event_ids": [
+        "EV-ADAM-007"
+      ],
+      "routine_delegation_applies": true,
+      "source_candidate_id": "SRC-QURAN-002-034",
+      "source_kind": "QURAN_VERSE",
+      "source_text_locator_verified": true
+    },
+    {
+      "approved_exact_excerpt": "إن مثل عيسى عند الله كمثل آدم خلقه من تراب ثم قال له كن فيكون",
+      "approved_exact_excerpt_sha256": "817408d7056c059149b4619ec996fd133afd925d24099d13dbc203ae61c0def0",
+      "approved_locator": "القرآن الكريم؛ سورة آل عمران، الآية 59 (3:59)",
+      "binding_status": "ROUTINE_QURAN_SOURCE_READY_FOR_EVENT_SCOPE_REVIEW",
+      "decision": "defer_authentication",
+      "event_binding_approved": false,
+      "event_ids": [
+        "EV-ADAM-021"
+      ],
+      "routine_delegation_applies": true,
+      "source_candidate_id": "SRC-QURAN-003-059",
+      "source_kind": "QURAN_VERSE",
+      "source_text_locator_verified": true
+    },
+    {
+      "approved_exact_excerpt": "خلقكم من نفس واحدة وخلق منها زوجها وبث منهما رجالا كثيرا ونساء",
+      "approved_exact_excerpt_sha256": "6246c350f30814d207b13ee1cd75c21b435846e567acadc834b52d3c34eda137",
+      "approved_locator": "القرآن الكريم؛ سورة النساء، الآية 1 (4:1)",
+      "binding_status": "ROUTINE_QURAN_SOURCE_READY_FOR_EVENT_SCOPE_REVIEW",
+      "decision": "defer_authentication",
+      "event_binding_approved": false,
+      "event_ids": [
+        "EV-ADAM-070"
+      ],
+      "routine_delegation_applies": true,
+      "source_candidate_id": "SRC-QURAN-004-001",
+      "source_kind": "QURAN_VERSE",
+      "source_text_locator_verified": true
+    },
+    {
+      "approved_exact_excerpt": "وإذ أخذ ربك من بني آدم من ظهورهم ذريتهم وأشهدهم على أنفسهم ألست بربكم قالوا بلى شهدنا",
+      "approved_exact_excerpt_sha256": "724e78cdf11a7900009c63a59fb451a96a3f121b30d076b0a29c10b7611b3ebf",
+      "approved_locator": "القرآن الكريم؛ سورة الأعراف، الآية 172 (7:172)",
+      "binding_status": "ROUTINE_QURAN_SOURCE_READY_FOR_EVENT_SCOPE_REVIEW",
+      "decision": "defer_authentication",
+      "event_binding_approved": false,
+      "event_ids": [
+        "EV-ADAM-060",
+        "EV-ADAM-061"
+      ],
+      "routine_delegation_applies": true,
+      "source_candidate_id": "SRC-QURAN-007-172",
+      "source_kind": "QURAN_VERSE",
+      "source_text_locator_verified": true
+    },
+    {
+      "approved_exact_excerpt": "ولقد خلقنا الإنسان من صلصال من حمإ مسنون",
+      "approved_exact_excerpt_sha256": "f2f6d5f79249b203a075a5ee44bb177e9a8753685281d1edc4f85b8b074296c4",
+      "approved_locator": "القرآن الكريم؛ سورة الحجر، الآية 26 (15:26)",
+      "binding_status": "ROUTINE_QURAN_SOURCE_READY_FOR_EVENT_SCOPE_REVIEW",
+      "decision": "defer_authentication",
+      "event_binding_approved": false,
+      "event_ids": [
+        "EV-ADAM-021"
+      ],
+      "routine_delegation_applies": true,
+      "source_candidate_id": "SRC-QURAN-015-026",
+      "source_kind": "QURAN_VERSE",
+      "source_text_locator_verified": true
+    },
+    {
+      "approved_exact_excerpt": "والجان خلقناه من قبل من نار السموم",
+      "approved_exact_excerpt_sha256": "4ad77cbdf349c3a96c0710b2c148983ae3e183d4951a6c048051d9eac4678e67",
+      "approved_locator": "القرآن الكريم؛ سورة الحجر، الآية 27 (15:27)",
+      "binding_status": "ROUTINE_QURAN_SOURCE_READY_FOR_EVENT_SCOPE_REVIEW",
+      "decision": "defer_authentication",
+      "event_binding_approved": false,
+      "event_ids": [
+        "EV-ADAM-007"
+      ],
+      "routine_delegation_applies": true,
+      "source_candidate_id": "SRC-QURAN-015-027",
+      "source_kind": "QURAN_VERSE",
+      "source_text_locator_verified": true
+    },
+    {
+      "approved_exact_excerpt": "وإذ قلنا للملائكة اسجدوا لآدم فسجدوا إلا إبليس كان من الجن ففسق عن أمر ربه",
+      "approved_exact_excerpt_sha256": "3c9e90294b553f044d6952c7ee418f206a5f0705b6be7228e33204f4d3ccc661",
+      "approved_locator": "القرآن الكريم؛ سورة الكهف، الآية 50 (18:50)",
+      "binding_status": "ROUTINE_QURAN_SOURCE_READY_FOR_EVENT_SCOPE_REVIEW",
+      "decision": "defer_authentication",
+      "event_binding_approved": false,
+      "event_ids": [
+        "EV-ADAM-007"
+      ],
+      "routine_delegation_applies": true,
+      "source_candidate_id": "SRC-QURAN-018-050",
+      "source_kind": "QURAN_VERSE",
+      "source_text_locator_verified": true
+    },
+    {
+      "approved_exact_excerpt": "فاستفتهم أهم أشد خلقا أم من خلقنا إنا خلقناهم من طين لازب",
+      "approved_exact_excerpt_sha256": "43d4c61e20756ee6e16c8a9c9289cdb8396645984ccceaffe0c82a9df63a5ed1",
+      "approved_locator": "القرآن الكريم؛ سورة الصافات، الآية 11 (37:11)",
+      "binding_status": "ROUTINE_QURAN_SOURCE_READY_FOR_EVENT_SCOPE_REVIEW",
+      "decision": "defer_authentication",
+      "event_binding_approved": false,
+      "event_ids": [
+        "EV-ADAM-021"
+      ],
+      "routine_delegation_applies": true,
+      "source_candidate_id": "SRC-QURAN-037-011",
+      "source_kind": "QURAN_VERSE",
+      "source_text_locator_verified": true
+    },
+    {
+      "approved_exact_excerpt": "إذ قال ربك للملائكة إني خالق بشرا من طين",
+      "approved_exact_excerpt_sha256": "f3df2d7fe70ef33b6e337dde97daf841410c163c72f3421809581f8e63690f9a",
+      "approved_locator": "القرآن الكريم؛ سورة ص، الآية 71 (38:71)",
+      "binding_status": "ROUTINE_QURAN_SOURCE_READY_FOR_EVENT_SCOPE_REVIEW",
+      "decision": "defer_authentication",
+      "event_binding_approved": false,
+      "event_ids": [
+        "EV-ADAM-021"
+      ],
+      "routine_delegation_applies": true,
+      "source_candidate_id": "SRC-QURAN-038-071",
+      "source_kind": "QURAN_VERSE",
+      "source_text_locator_verified": true
+    },
+    {
+      "approved_exact_excerpt": "خلق الإنسان من صلصال كالفخار",
+      "approved_exact_excerpt_sha256": "c0f4b9c7053853b09d2c90289095b58c162bc2f094838235be3e5a4441dba7e3",
+      "approved_locator": "القرآن الكريم؛ سورة الرحمن، الآية 14 (55:14)",
+      "binding_status": "ROUTINE_QURAN_SOURCE_READY_FOR_EVENT_SCOPE_REVIEW",
+      "decision": "defer_authentication",
+      "event_binding_approved": false,
+      "event_ids": [
+        "EV-ADAM-021"
+      ],
+      "routine_delegation_applies": true,
+      "source_candidate_id": "SRC-QURAN-055-014",
+      "source_kind": "QURAN_VERSE",
+      "source_text_locator_verified": true
+    }
+  ],
+  "status": "ROUTINE_QURAN_BINDING_CANDIDATE_READY"
+}

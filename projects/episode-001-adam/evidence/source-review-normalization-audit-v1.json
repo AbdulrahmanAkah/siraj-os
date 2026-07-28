@@ -1,0 +1,81 @@
+{
+  "decision_counts": {
+    "confirm_with_correction": 1,
+    "defer_authentication": 21
+  },
+  "evidence_gate_status": "WITHHELD_PENDING_APPROVED_EVIDENCE_PACKAGE",
+  "human_approval": true,
+  "input_file": "adam-source-review-human-decision-v1.json",
+  "live_provider_execution": "BLOCKED",
+  "normalizations_applied": 0,
+  "output_file": "adam-source-review-human-decision-v1.json",
+  "output_sha256": "c9399ee483169c18b0421cbe6ecbe1e92b8d329e6c233b77782536d3c9d036e3",
+  "rejected_normalizations": 10,
+  "reverted_changes": [
+    {
+      "reason": "AUTHORITATIVE_VALIDATOR_REQUIRES_CONFIRM_WITH_CORRECTION_WHEN_EXCERPT_DIFFERS_FROM_SUGGESTED_TEXT",
+      "restored_to": "defer_authentication",
+      "reverted_from": "confirm_exact_source_text",
+      "source_candidate_id": "SRC-QURAN-002-034"
+    },
+    {
+      "reason": "AUTHORITATIVE_VALIDATOR_REQUIRES_CONFIRM_WITH_CORRECTION_WHEN_EXCERPT_DIFFERS_FROM_SUGGESTED_TEXT",
+      "restored_to": "defer_authentication",
+      "reverted_from": "confirm_exact_source_text",
+      "source_candidate_id": "SRC-QURAN-003-059"
+    },
+    {
+      "reason": "AUTHORITATIVE_VALIDATOR_REQUIRES_CONFIRM_WITH_CORRECTION_WHEN_EXCERPT_DIFFERS_FROM_SUGGESTED_TEXT",
+      "restored_to": "defer_authentication",
+      "reverted_from": "confirm_exact_source_text",
+      "source_candidate_id": "SRC-QURAN-004-001"
+    },
+    {
+      "reason": "AUTHORITATIVE_VALIDATOR_REQUIRES_CONFIRM_WITH_CORRECTION_WHEN_EXCERPT_DIFFERS_FROM_SUGGESTED_TEXT",
+      "restored_to": "defer_authentication",
+      "reverted_from": "confirm_exact_source_text",
+      "source_candidate_id": "SRC-QURAN-007-172"
+    },
+    {
+      "reason": "AUTHORITATIVE_VALIDATOR_REQUIRES_CONFIRM_WITH_CORRECTION_WHEN_EXCERPT_DIFFERS_FROM_SUGGESTED_TEXT",
+      "restored_to": "defer_authentication",
+      "reverted_from": "confirm_exact_source_text",
+      "source_candidate_id": "SRC-QURAN-015-026"
+    },
+    {
+      "reason": "AUTHORITATIVE_VALIDATOR_REQUIRES_CONFIRM_WITH_CORRECTION_WHEN_EXCERPT_DIFFERS_FROM_SUGGESTED_TEXT",
+      "restored_to": "defer_authentication",
+      "reverted_from": "confirm_exact_source_text",
+      "source_candidate_id": "SRC-QURAN-015-027"
+    },
+    {
+      "reason": "AUTHORITATIVE_VALIDATOR_REQUIRES_CONFIRM_WITH_CORRECTION_WHEN_EXCERPT_DIFFERS_FROM_SUGGESTED_TEXT",
+      "restored_to": "defer_authentication",
+      "reverted_from": "confirm_exact_source_text",
+      "source_candidate_id": "SRC-QURAN-018-050"
+    },
+    {
+      "reason": "AUTHORITATIVE_VALIDATOR_REQUIRES_CONFIRM_WITH_CORRECTION_WHEN_EXCERPT_DIFFERS_FROM_SUGGESTED_TEXT",
+      "restored_to": "defer_authentication",
+      "reverted_from": "confirm_exact_source_text",
+      "source_candidate_id": "SRC-QURAN-037-011"
+    },
+    {
+      "reason": "AUTHORITATIVE_VALIDATOR_REQUIRES_CONFIRM_WITH_CORRECTION_WHEN_EXCERPT_DIFFERS_FROM_SUGGESTED_TEXT",
+      "restored_to": "defer_authentication",
+      "reverted_from": "confirm_exact_source_text",
+      "source_candidate_id": "SRC-QURAN-038-071"
+    },
+    {
+      "reason": "AUTHORITATIVE_VALIDATOR_REQUIRES_CONFIRM_WITH_CORRECTION_WHEN_EXCERPT_DIFFERS_FROM_SUGGESTED_TEXT",
+      "restored_to": "defer_authentication",
+      "reverted_from": "confirm_exact_source_text",
+      "source_candidate_id": "SRC-QURAN-055-014"
+    }
+  ],
+  "schema_version": "siraj-source-review-normalization-audit-v1",
+  "source_count": 22,
+  "status": "PASS",
+  "validation_basis": "AUTHORITATIVE_SOURCE_REVIEW_VALIDATOR_COMPATIBLE",
+  "validation_issues": []
+}

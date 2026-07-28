@@ -1,0 +1,334 @@
+{
+  "ai_delegated_source_count": 8,
+  "approved_evidence_package_complete": false,
+  "automatic_evidence_approval": "FORBIDDEN",
+  "complex_event_review_complete": false,
+  "episode_id": "episode-001-adam",
+  "event_item_count": 13,
+  "event_items": [
+    {
+      "claim_treatments": [
+        "assertive_candidate"
+      ],
+      "event_decision_complete": false,
+      "event_id": "EV-ADAM-001",
+      "hadith_source_candidate_ids": [
+        "SRC-BUKHARI-3191"
+      ],
+      "route": "AI_DELEGATED_AUTHENTICATION_RESEARCH",
+      "title": "وجود الله قبل الخلق"
+    },
+    {
+      "claim_treatments": [
+        "assertive_candidate"
+      ],
+      "event_decision_complete": false,
+      "event_id": "EV-ADAM-002",
+      "hadith_source_candidate_ids": [
+        "SRC-BUKHARI-3191",
+        "SRC-MUSLIM-2653B"
+      ],
+      "route": "AI_DELEGATED_AUTHENTICATION_RESEARCH",
+      "title": "العرش على الماء"
+    },
+    {
+      "claim_treatments": [
+        "assertive_candidate",
+        "assertive_candidate_pending_authority_review",
+        "chronology_interpretation_review_required"
+      ],
+      "event_decision_complete": false,
+      "event_id": "EV-ADAM-003",
+      "hadith_source_candidate_ids": [
+        "SRC-ABUDAWUD-4700",
+        "SRC-MUSLIM-2653B",
+        "SRC-TIRMIDHI-2155"
+      ],
+      "route": "USER_REVIEW_REQUIRED_HIGH_IMPORTANCE",
+      "title": "القلم وكتابة المقادير"
+    },
+    {
+      "claim_treatments": [
+        "assertive_candidate"
+      ],
+      "event_decision_complete": false,
+      "event_id": "EV-ADAM-005",
+      "hadith_source_candidate_ids": [
+        "SRC-MUSLIM-2996"
+      ],
+      "route": "AI_DELEGATED_AUTHENTICATION_RESEARCH",
+      "title": "خلق الملائكة"
+    },
+    {
+      "claim_treatments": [
+        "assertive_candidate",
+        "supported_synthesis_human_review_required"
+      ],
+      "event_decision_complete": false,
+      "event_id": "EV-ADAM-007",
+      "hadith_source_candidate_ids": [],
+      "route": "AI_DELEGATED_COMPLEX_REVIEW",
+      "title": "وجود إبليس قبل خلق آدم"
+    },
+    {
+      "claim_treatments": [
+        "assertive_candidate",
+        "scholarly_interpretation_review_required"
+      ],
+      "event_decision_complete": false,
+      "event_id": "EV-ADAM-021",
+      "hadith_source_candidate_ids": [],
+      "route": "AI_DELEGATED_COMPLEX_REVIEW",
+      "title": "أطوار الطين والحمأ والصلصال"
+    },
+    {
+      "claim_treatments": [
+        "assertive_candidate"
+      ],
+      "event_decision_complete": false,
+      "event_id": "EV-ADAM-023",
+      "hadith_source_candidate_ids": [
+        "SRC-MUSLIM-2611A"
+      ],
+      "route": "AI_DELEGATED_AUTHENTICATION_RESEARCH",
+      "title": "بقاء جسد آدم قبل نفخ الروح"
+    },
+    {
+      "claim_treatments": [
+        "assertive_candidate"
+      ],
+      "event_decision_complete": false,
+      "event_id": "EV-ADAM-024",
+      "hadith_source_candidate_ids": [
+        "SRC-MUSLIM-2611A"
+      ],
+      "route": "AI_DELEGATED_AUTHENTICATION_RESEARCH",
+      "title": "مرور إبليس بجسد آدم"
+    },
+    {
+      "claim_treatments": [
+        "assertive_candidate"
+      ],
+      "event_decision_complete": false,
+      "event_id": "EV-ADAM-032",
+      "hadith_source_candidate_ids": [
+        "SRC-BUKHARI-3326",
+        "SRC-MUSLIM-2841"
+      ],
+      "route": "AI_DELEGATED_AUTHENTICATION_RESEARCH",
+      "title": "طول آدم وصفته الأولى"
+    },
+    {
+      "claim_treatments": [
+        "assertive_candidate"
+      ],
+      "event_decision_complete": false,
+      "event_id": "EV-ADAM-033",
+      "hadith_source_candidate_ids": [
+        "SRC-BUKHARI-3326",
+        "SRC-MUSLIM-2841"
+      ],
+      "route": "AI_DELEGATED_AUTHENTICATION_RESEARCH",
+      "title": "تعليم آدم تحية السلام"
+    },
+    {
+      "claim_treatments": [
+        "assertive_candidate",
+        "scholarly_interpretation_review_required"
+      ],
+      "event_decision_complete": false,
+      "event_id": "EV-ADAM-042",
+      "hadith_source_candidate_ids": [],
+      "route": "AI_DELEGATED_COMPLEX_REVIEW",
+      "title": "إظهار فضل آدم بالعلم"
+    },
+    {
+      "claim_treatments": [
+        "assertive_candidate",
+        "hadith_authority_review_required"
+      ],
+      "event_decision_complete": false,
+      "event_id": "EV-ADAM-061",
+      "hadith_source_candidate_ids": [
+        "SRC-TIRMIDHI-3076"
+      ],
+      "route": "AI_DELEGATED_COMPLEX_REVIEW",
+      "title": "استخراج ذرية آدم من ظهره"
+    },
+    {
+      "claim_treatments": [
+        "assertive_candidate",
+        "supported_synthesis_human_review_required"
+      ],
+      "event_decision_complete": false,
+      "event_id": "EV-ADAM-070",
+      "hadith_source_candidate_ids": [
+        "SRC-BUKHARI-3331",
+        "SRC-MUSLIM-1468A"
+      ],
+      "route": "AI_DELEGATED_COMPLEX_REVIEW",
+      "title": "خلق زوج آدم"
+    }
+  ],
+  "evidence_gate_status": "WITHHELD_PENDING_APPROVED_EVIDENCE_PACKAGE",
+  "full_episode_adjudication_complete": false,
+  "hadith_source_count": 11,
+  "live_provider_execution": "BLOCKED",
+  "opens_evidence_gate": false,
+  "queue_id": "adam_delegated_evidence_queue_5c3d893e176ed03d",
+  "schema_version": "siraj-delegated-evidence-escalation-queue-v1",
+  "source_authentication_complete": false,
+  "source_items": [
+    {
+      "approved_exact_excerpt_sha256": "8320b33fc4cb0f2acdd4a08888744741d8a8ef96b4198cd63a57e151f947d10c",
+      "approved_locator": "سنن أبي داود 4700؛ كتاب السنة، باب في القدر، كتاب 42، حديث 105",
+      "authentication_verified": false,
+      "event_ids": [
+        "EV-ADAM-003"
+      ],
+      "origin_classification_verified": false,
+      "reason": "HIGH_IMPORTANCE_HADITH_OR_THEOLOGICAL_INTERPRETATION",
+      "route": "USER_REVIEW_REQUIRED_HIGH_IMPORTANCE",
+      "source_candidate_id": "SRC-ABUDAWUD-4700",
+      "source_text_locator_verified": true
+    },
+    {
+      "approved_exact_excerpt_sha256": "afbf5e9ae34cde48d71334067c1b361e47070f6b282acc7fa32633449f986960",
+      "approved_locator": "صحيح البخاري 3191؛ كتاب بدء الخلق، كتاب 59، حديث 2",
+      "authentication_verified": false,
+      "event_ids": [
+        "EV-ADAM-001",
+        "EV-ADAM-002"
+      ],
+      "origin_classification_verified": false,
+      "reason": "ROUTINE_AUTHENTICATION_AND_CLAIM_SCOPE_RESEARCH",
+      "route": "AI_DELEGATED_AUTHENTICATION_RESEARCH",
+      "source_candidate_id": "SRC-BUKHARI-3191",
+      "source_text_locator_verified": true
+    },
+    {
+      "approved_exact_excerpt_sha256": "f175f853f7ecc5fd03c7acd2810221d051e2b2aa12313ebc531f1848c0bfe0bd",
+      "approved_locator": "صحيح البخاري 3326؛ كتاب أحاديث الأنبياء، كتاب 60، حديث 1",
+      "authentication_verified": false,
+      "event_ids": [
+        "EV-ADAM-032",
+        "EV-ADAM-033"
+      ],
+      "origin_classification_verified": false,
+      "reason": "ROUTINE_AUTHENTICATION_AND_CLAIM_SCOPE_RESEARCH",
+      "route": "AI_DELEGATED_AUTHENTICATION_RESEARCH",
+      "source_candidate_id": "SRC-BUKHARI-3326",
+      "source_text_locator_verified": true
+    },
+    {
+      "approved_exact_excerpt_sha256": "e3e486cd1958da58724315357a09a53d696e3f0d370b7782c01a6b3406cc87b2",
+      "approved_locator": "صحيح البخاري 3331؛ كتاب أحاديث الأنبياء، كتاب 60",
+      "authentication_verified": false,
+      "event_ids": [
+        "EV-ADAM-070"
+      ],
+      "origin_classification_verified": false,
+      "reason": "ROUTINE_AUTHENTICATION_AND_CLAIM_SCOPE_RESEARCH",
+      "route": "AI_DELEGATED_AUTHENTICATION_RESEARCH",
+      "source_candidate_id": "SRC-BUKHARI-3331",
+      "source_text_locator_verified": true
+    },
+    {
+      "approved_exact_excerpt_sha256": "c24079c3a3edd10c95254db1eb0e3b31cb50ab3349a60945a7702781cb1e5c83",
+      "approved_locator": "صحيح مسلم 1468a؛ كتاب الرضاع، باب الوصية بالنساء، كتاب 17",
+      "authentication_verified": false,
+      "event_ids": [
+        "EV-ADAM-070"
+      ],
+      "origin_classification_verified": false,
+      "reason": "ROUTINE_AUTHENTICATION_AND_CLAIM_SCOPE_RESEARCH",
+      "route": "AI_DELEGATED_AUTHENTICATION_RESEARCH",
+      "source_candidate_id": "SRC-MUSLIM-1468A",
+      "source_text_locator_verified": true
+    },
+    {
+      "approved_exact_excerpt_sha256": "88436a0286a62c372a7b49b0e9bd7fbe50b18e332effe06cde42ed72ddf6e85d",
+      "approved_locator": "صحيح مسلم 2611a؛ كتاب البر والصلة والآداب، كتاب 45، حديث 146",
+      "authentication_verified": false,
+      "event_ids": [
+        "EV-ADAM-023",
+        "EV-ADAM-024"
+      ],
+      "origin_classification_verified": false,
+      "reason": "ROUTINE_AUTHENTICATION_AND_CLAIM_SCOPE_RESEARCH",
+      "route": "AI_DELEGATED_AUTHENTICATION_RESEARCH",
+      "source_candidate_id": "SRC-MUSLIM-2611A",
+      "source_text_locator_verified": true
+    },
+    {
+      "approved_exact_excerpt_sha256": "dea356d19e3e4ab1db9dbe7441760d244a2509c647bb853d8fa5820fd290c464",
+      "approved_locator": "صحيح مسلم 2653b؛ كتاب القدر، كتاب 46، حديث 27",
+      "authentication_verified": false,
+      "event_ids": [
+        "EV-ADAM-002",
+        "EV-ADAM-003"
+      ],
+      "origin_classification_verified": false,
+      "reason": "ROUTINE_AUTHENTICATION_AND_CLAIM_SCOPE_RESEARCH",
+      "route": "AI_DELEGATED_AUTHENTICATION_RESEARCH",
+      "source_candidate_id": "SRC-MUSLIM-2653B",
+      "source_text_locator_verified": true
+    },
+    {
+      "approved_exact_excerpt_sha256": "8864ea2a260337479c9836385e7142f0a98a1b27f367e9f03b9bfa3af7753cb5",
+      "approved_locator": "صحيح مسلم 2841؛ كتاب الجنة وصفة نعيمها وأهلها، كتاب 53",
+      "authentication_verified": false,
+      "event_ids": [
+        "EV-ADAM-032",
+        "EV-ADAM-033"
+      ],
+      "origin_classification_verified": false,
+      "reason": "HIGH_IMPORTANCE_HADITH_OR_THEOLOGICAL_INTERPRETATION",
+      "route": "USER_REVIEW_REQUIRED_HIGH_IMPORTANCE",
+      "source_candidate_id": "SRC-MUSLIM-2841",
+      "source_text_locator_verified": true
+    },
+    {
+      "approved_exact_excerpt_sha256": "bc0398b1baa968dbf796f0cb3f02d8d21e4f09d2ebe3ff056d3f521d5483025a",
+      "approved_locator": "صحيح مسلم 2996؛ كتاب الزهد والرقائق، كتاب 55، حديث 78",
+      "authentication_verified": false,
+      "event_ids": [
+        "EV-ADAM-005"
+      ],
+      "origin_classification_verified": false,
+      "reason": "ROUTINE_AUTHENTICATION_AND_CLAIM_SCOPE_RESEARCH",
+      "route": "AI_DELEGATED_AUTHENTICATION_RESEARCH",
+      "source_candidate_id": "SRC-MUSLIM-2996",
+      "source_text_locator_verified": true
+    },
+    {
+      "approved_exact_excerpt_sha256": "b450365399392e36c80f3cc098a25775b7275ad405be09762193388c720f7bc9",
+      "approved_locator": "جامع الترمذي 2155؛ كتاب القدر، كتاب 32، حديث 23",
+      "authentication_verified": false,
+      "event_ids": [
+        "EV-ADAM-003"
+      ],
+      "origin_classification_verified": false,
+      "reason": "HIGH_IMPORTANCE_HADITH_OR_THEOLOGICAL_INTERPRETATION",
+      "route": "USER_REVIEW_REQUIRED_HIGH_IMPORTANCE",
+      "source_candidate_id": "SRC-TIRMIDHI-2155",
+      "source_text_locator_verified": true
+    },
+    {
+      "approved_exact_excerpt_sha256": "b5dc4f4786b35357204573c572e00ccfd8d872ea13edf0b5bddd5599b076f0a2",
+      "approved_locator": "جامع الترمذي 3076؛ كتاب تفسير القرآن، باب من سورة الأعراف، كتاب 47",
+      "authentication_verified": false,
+      "event_ids": [
+        "EV-ADAM-061"
+      ],
+      "origin_classification_verified": false,
+      "reason": "ROUTINE_AUTHENTICATION_AND_CLAIM_SCOPE_RESEARCH",
+      "route": "AI_DELEGATED_AUTHENTICATION_RESEARCH",
+      "source_candidate_id": "SRC-TIRMIDHI-3076",
+      "source_text_locator_verified": true
+    }
+  ],
+  "source_review_ingestion_id": "adam_source_review_ingestion_d5022afb27501c08",
+  "status": "DELEGATED_REVIEW_QUEUE_READY",
+  "user_escalation_source_count": 3
+}

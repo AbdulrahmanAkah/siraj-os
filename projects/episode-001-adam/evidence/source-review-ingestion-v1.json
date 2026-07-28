@@ -1,0 +1,384 @@
+{
+  "approved_evidence_package_complete": false,
+  "automatic_evidence_approval": "FORBIDDEN",
+  "decision_document_sha256": "be3ee8c7ab89e37ca34c3337dce3c18d6954cb27c65fb518402d38f1ee35425e",
+  "delegation_policy_id": "adam_delegated_evidence_review_0fab6cda1b4d539b",
+  "delegation_policy_sha256": "5e792978667407715ab717d64626b7e38a6f9510435dc6b903c6f9589d3a45cf",
+  "episode_id": "episode-001-adam",
+  "event_binding_complete": false,
+  "evidence_gate_status": "WITHHELD_PENDING_APPROVED_EVIDENCE_PACKAGE",
+  "full_episode_adjudication_complete": false,
+  "hadith_source_count": 11,
+  "human_source_review_approved": true,
+  "ingestion_id": "adam_source_review_ingestion_d5022afb27501c08",
+  "live_provider_execution": "BLOCKED",
+  "normalization_audit_sha256": "d14335c8a6ffb92815fd7d0c5976a6ac3a3f314e9e31f75416dfe2c3b1a9c0bb",
+  "opens_evidence_gate": false,
+  "origin_classification_complete": false,
+  "quran_source_count": 11,
+  "records": [
+    {
+      "approved_exact_excerpt_sha256": "8320b33fc4cb0f2acdd4a08888744741d8a8ef96b4198cd63a57e151f947d10c",
+      "approved_locator": "سنن أبي داود 4700؛ كتاب السنة، باب في القدر، كتاب 42، حديث 105",
+      "authentication_verified": false,
+      "decision": "defer_authentication",
+      "event_binding_approved": false,
+      "event_ids": [
+        "EV-ADAM-003"
+      ],
+      "human_compared_to_source": true,
+      "next_route": "USER_REVIEW_REQUIRED_HIGH_IMPORTANCE",
+      "origin_classification_verified": false,
+      "source_candidate_id": "SRC-ABUDAWUD-4700",
+      "source_kind": "HADITH_COLLECTION_RECORD",
+      "source_text_locator_verified": true
+    },
+    {
+      "approved_exact_excerpt_sha256": "afbf5e9ae34cde48d71334067c1b361e47070f6b282acc7fa32633449f986960",
+      "approved_locator": "صحيح البخاري 3191؛ كتاب بدء الخلق، كتاب 59، حديث 2",
+      "authentication_verified": false,
+      "decision": "defer_authentication",
+      "event_binding_approved": false,
+      "event_ids": [
+        "EV-ADAM-001",
+        "EV-ADAM-002"
+      ],
+      "human_compared_to_source": true,
+      "next_route": "AI_DELEGATED_AUTHENTICATION_RESEARCH",
+      "origin_classification_verified": false,
+      "source_candidate_id": "SRC-BUKHARI-3191",
+      "source_kind": "HADITH_COLLECTION_RECORD",
+      "source_text_locator_verified": true
+    },
+    {
+      "approved_exact_excerpt_sha256": "f175f853f7ecc5fd03c7acd2810221d051e2b2aa12313ebc531f1848c0bfe0bd",
+      "approved_locator": "صحيح البخاري 3326؛ كتاب أحاديث الأنبياء، كتاب 60، حديث 1",
+      "authentication_verified": false,
+      "decision": "defer_authentication",
+      "event_binding_approved": false,
+      "event_ids": [
+        "EV-ADAM-032",
+        "EV-ADAM-033"
+      ],
+      "human_compared_to_source": true,
+      "next_route": "AI_DELEGATED_AUTHENTICATION_RESEARCH",
+      "origin_classification_verified": false,
+      "source_candidate_id": "SRC-BUKHARI-3326",
+      "source_kind": "HADITH_COLLECTION_RECORD",
+      "source_text_locator_verified": true
+    },
+    {
+      "approved_exact_excerpt_sha256": "e3e486cd1958da58724315357a09a53d696e3f0d370b7782c01a6b3406cc87b2",
+      "approved_locator": "صحيح البخاري 3331؛ كتاب أحاديث الأنبياء، كتاب 60",
+      "authentication_verified": false,
+      "decision": "defer_authentication",
+      "event_binding_approved": false,
+      "event_ids": [
+        "EV-ADAM-070"
+      ],
+      "human_compared_to_source": true,
+      "next_route": "AI_DELEGATED_AUTHENTICATION_RESEARCH",
+      "origin_classification_verified": false,
+      "source_candidate_id": "SRC-BUKHARI-3331",
+      "source_kind": "HADITH_COLLECTION_RECORD",
+      "source_text_locator_verified": true
+    },
+    {
+      "approved_exact_excerpt_sha256": "c24079c3a3edd10c95254db1eb0e3b31cb50ab3349a60945a7702781cb1e5c83",
+      "approved_locator": "صحيح مسلم 1468a؛ كتاب الرضاع، باب الوصية بالنساء، كتاب 17",
+      "authentication_verified": false,
+      "decision": "defer_authentication",
+      "event_binding_approved": false,
+      "event_ids": [
+        "EV-ADAM-070"
+      ],
+      "human_compared_to_source": true,
+      "next_route": "AI_DELEGATED_AUTHENTICATION_RESEARCH",
+      "origin_classification_verified": false,
+      "source_candidate_id": "SRC-MUSLIM-1468A",
+      "source_kind": "HADITH_COLLECTION_RECORD",
+      "source_text_locator_verified": true
+    },
+    {
+      "approved_exact_excerpt_sha256": "88436a0286a62c372a7b49b0e9bd7fbe50b18e332effe06cde42ed72ddf6e85d",
+      "approved_locator": "صحيح مسلم 2611a؛ كتاب البر والصلة والآداب، كتاب 45، حديث 146",
+      "authentication_verified": false,
+      "decision": "defer_authentication",
+      "event_binding_approved": false,
+      "event_ids": [
+        "EV-ADAM-023",
+        "EV-ADAM-024"
+      ],
+      "human_compared_to_source": true,
+      "next_route": "AI_DELEGATED_AUTHENTICATION_RESEARCH",
+      "origin_classification_verified": false,
+      "source_candidate_id": "SRC-MUSLIM-2611A",
+      "source_kind": "HADITH_COLLECTION_RECORD",
+      "source_text_locator_verified": true
+    },
+    {
+      "approved_exact_excerpt_sha256": "dea356d19e3e4ab1db9dbe7441760d244a2509c647bb853d8fa5820fd290c464",
+      "approved_locator": "صحيح مسلم 2653b؛ كتاب القدر، كتاب 46، حديث 27",
+      "authentication_verified": false,
+      "decision": "defer_authentication",
+      "event_binding_approved": false,
+      "event_ids": [
+        "EV-ADAM-002",
+        "EV-ADAM-003"
+      ],
+      "human_compared_to_source": true,
+      "next_route": "AI_DELEGATED_AUTHENTICATION_RESEARCH",
+      "origin_classification_verified": false,
+      "source_candidate_id": "SRC-MUSLIM-2653B",
+      "source_kind": "HADITH_COLLECTION_RECORD",
+      "source_text_locator_verified": true
+    },
+    {
+      "approved_exact_excerpt_sha256": "8864ea2a260337479c9836385e7142f0a98a1b27f367e9f03b9bfa3af7753cb5",
+      "approved_locator": "صحيح مسلم 2841؛ كتاب الجنة وصفة نعيمها وأهلها، كتاب 53",
+      "authentication_verified": false,
+      "decision": "defer_authentication",
+      "event_binding_approved": false,
+      "event_ids": [
+        "EV-ADAM-032",
+        "EV-ADAM-033"
+      ],
+      "human_compared_to_source": true,
+      "next_route": "USER_REVIEW_REQUIRED_HIGH_IMPORTANCE",
+      "origin_classification_verified": false,
+      "source_candidate_id": "SRC-MUSLIM-2841",
+      "source_kind": "HADITH_COLLECTION_RECORD",
+      "source_text_locator_verified": true
+    },
+    {
+      "approved_exact_excerpt_sha256": "bc0398b1baa968dbf796f0cb3f02d8d21e4f09d2ebe3ff056d3f521d5483025a",
+      "approved_locator": "صحيح مسلم 2996؛ كتاب الزهد والرقائق، كتاب 55، حديث 78",
+      "authentication_verified": false,
+      "decision": "defer_authentication",
+      "event_binding_approved": false,
+      "event_ids": [
+        "EV-ADAM-005"
+      ],
+      "human_compared_to_source": true,
+      "next_route": "AI_DELEGATED_AUTHENTICATION_RESEARCH",
+      "origin_classification_verified": false,
+      "source_candidate_id": "SRC-MUSLIM-2996",
+      "source_kind": "HADITH_COLLECTION_RECORD",
+      "source_text_locator_verified": true
+    },
+    {
+      "approved_exact_excerpt_sha256": "e0bd1f5cdddd7a1166d059944b333373dea63696021f22a845f952c7ae4485a0",
+      "approved_locator": "القرآن الكريم؛ سورة البقرة، الآيات 31-33 (2:31-33)",
+      "authentication_verified": false,
+      "decision": "confirm_with_correction",
+      "event_binding_approved": false,
+      "event_ids": [
+        "EV-ADAM-042"
+      ],
+      "human_compared_to_source": true,
+      "next_route": "AI_DELEGATED_ROUTINE_EVENT_SCOPE_REVIEW",
+      "origin_classification_verified": false,
+      "source_candidate_id": "SRC-QURAN-002-031-033",
+      "source_kind": "QURAN_VERSE_RANGE",
+      "source_text_locator_verified": true
+    },
+    {
+      "approved_exact_excerpt_sha256": "73c4061b0c5c13bc58fa5b3201c278e43f181ab8f37b349084ac6c6a350a96e8",
+      "approved_locator": "القرآن الكريم؛ سورة البقرة، الآية 34 (2:34)",
+      "authentication_verified": false,
+      "decision": "defer_authentication",
+      "event_binding_approved": false,
+      "event_ids": [
+        "EV-ADAM-007"
+      ],
+      "human_compared_to_source": true,
+      "next_route": "AI_DELEGATED_ROUTINE_EVENT_SCOPE_REVIEW",
+      "origin_classification_verified": false,
+      "source_candidate_id": "SRC-QURAN-002-034",
+      "source_kind": "QURAN_VERSE",
+      "source_text_locator_verified": true
+    },
+    {
+      "approved_exact_excerpt_sha256": "817408d7056c059149b4619ec996fd133afd925d24099d13dbc203ae61c0def0",
+      "approved_locator": "القرآن الكريم؛ سورة آل عمران، الآية 59 (3:59)",
+      "authentication_verified": false,
+      "decision": "defer_authentication",
+      "event_binding_approved": false,
+      "event_ids": [
+        "EV-ADAM-021"
+      ],
+      "human_compared_to_source": true,
+      "next_route": "AI_DELEGATED_ROUTINE_EVENT_SCOPE_REVIEW",
+      "origin_classification_verified": false,
+      "source_candidate_id": "SRC-QURAN-003-059",
+      "source_kind": "QURAN_VERSE",
+      "source_text_locator_verified": true
+    },
+    {
+      "approved_exact_excerpt_sha256": "6246c350f30814d207b13ee1cd75c21b435846e567acadc834b52d3c34eda137",
+      "approved_locator": "القرآن الكريم؛ سورة النساء، الآية 1 (4:1)",
+      "authentication_verified": false,
+      "decision": "defer_authentication",
+      "event_binding_approved": false,
+      "event_ids": [
+        "EV-ADAM-070"
+      ],
+      "human_compared_to_source": true,
+      "next_route": "AI_DELEGATED_ROUTINE_EVENT_SCOPE_REVIEW",
+      "origin_classification_verified": false,
+      "source_candidate_id": "SRC-QURAN-004-001",
+      "source_kind": "QURAN_VERSE",
+      "source_text_locator_verified": true
+    },
+    {
+      "approved_exact_excerpt_sha256": "724e78cdf11a7900009c63a59fb451a96a3f121b30d076b0a29c10b7611b3ebf",
+      "approved_locator": "القرآن الكريم؛ سورة الأعراف، الآية 172 (7:172)",
+      "authentication_verified": false,
+      "decision": "defer_authentication",
+      "event_binding_approved": false,
+      "event_ids": [
+        "EV-ADAM-060",
+        "EV-ADAM-061"
+      ],
+      "human_compared_to_source": true,
+      "next_route": "AI_DELEGATED_ROUTINE_EVENT_SCOPE_REVIEW",
+      "origin_classification_verified": false,
+      "source_candidate_id": "SRC-QURAN-007-172",
+      "source_kind": "QURAN_VERSE",
+      "source_text_locator_verified": true
+    },
+    {
+      "approved_exact_excerpt_sha256": "f2f6d5f79249b203a075a5ee44bb177e9a8753685281d1edc4f85b8b074296c4",
+      "approved_locator": "القرآن الكريم؛ سورة الحجر، الآية 26 (15:26)",
+      "authentication_verified": false,
+      "decision": "defer_authentication",
+      "event_binding_approved": false,
+      "event_ids": [
+        "EV-ADAM-021"
+      ],
+      "human_compared_to_source": true,
+      "next_route": "AI_DELEGATED_ROUTINE_EVENT_SCOPE_REVIEW",
+      "origin_classification_verified": false,
+      "source_candidate_id": "SRC-QURAN-015-026",
+      "source_kind": "QURAN_VERSE",
+      "source_text_locator_verified": true
+    },
+    {
+      "approved_exact_excerpt_sha256": "4ad77cbdf349c3a96c0710b2c148983ae3e183d4951a6c048051d9eac4678e67",
+      "approved_locator": "القرآن الكريم؛ سورة الحجر، الآية 27 (15:27)",
+      "authentication_verified": false,
+      "decision": "defer_authentication",
+      "event_binding_approved": false,
+      "event_ids": [
+        "EV-ADAM-007"
+      ],
+      "human_compared_to_source": true,
+      "next_route": "AI_DELEGATED_ROUTINE_EVENT_SCOPE_REVIEW",
+      "origin_classification_verified": false,
+      "source_candidate_id": "SRC-QURAN-015-027",
+      "source_kind": "QURAN_VERSE",
+      "source_text_locator_verified": true
+    },
+    {
+      "approved_exact_excerpt_sha256": "3c9e90294b553f044d6952c7ee418f206a5f0705b6be7228e33204f4d3ccc661",
+      "approved_locator": "القرآن الكريم؛ سورة الكهف، الآية 50 (18:50)",
+      "authentication_verified": false,
+      "decision": "defer_authentication",
+      "event_binding_approved": false,
+      "event_ids": [
+        "EV-ADAM-007"
+      ],
+      "human_compared_to_source": true,
+      "next_route": "AI_DELEGATED_ROUTINE_EVENT_SCOPE_REVIEW",
+      "origin_classification_verified": false,
+      "source_candidate_id": "SRC-QURAN-018-050",
+      "source_kind": "QURAN_VERSE",
+      "source_text_locator_verified": true
+    },
+    {
+      "approved_exact_excerpt_sha256": "43d4c61e20756ee6e16c8a9c9289cdb8396645984ccceaffe0c82a9df63a5ed1",
+      "approved_locator": "القرآن الكريم؛ سورة الصافات، الآية 11 (37:11)",
+      "authentication_verified": false,
+      "decision": "defer_authentication",
+      "event_binding_approved": false,
+      "event_ids": [
+        "EV-ADAM-021"
+      ],
+      "human_compared_to_source": true,
+      "next_route": "AI_DELEGATED_ROUTINE_EVENT_SCOPE_REVIEW",
+      "origin_classification_verified": false,
+      "source_candidate_id": "SRC-QURAN-037-011",
+      "source_kind": "QURAN_VERSE",
+      "source_text_locator_verified": true
+    },
+    {
+      "approved_exact_excerpt_sha256": "f3df2d7fe70ef33b6e337dde97daf841410c163c72f3421809581f8e63690f9a",
+      "approved_locator": "القرآن الكريم؛ سورة ص، الآية 71 (38:71)",
+      "authentication_verified": false,
+      "decision": "defer_authentication",
+      "event_binding_approved": false,
+      "event_ids": [
+        "EV-ADAM-021"
+      ],
+      "human_compared_to_source": true,
+      "next_route": "AI_DELEGATED_ROUTINE_EVENT_SCOPE_REVIEW",
+      "origin_classification_verified": false,
+      "source_candidate_id": "SRC-QURAN-038-071",
+      "source_kind": "QURAN_VERSE",
+      "source_text_locator_verified": true
+    },
+    {
+      "approved_exact_excerpt_sha256": "c0f4b9c7053853b09d2c90289095b58c162bc2f094838235be3e5a4441dba7e3",
+      "approved_locator": "القرآن الكريم؛ سورة الرحمن، الآية 14 (55:14)",
+      "authentication_verified": false,
+      "decision": "defer_authentication",
+      "event_binding_approved": false,
+      "event_ids": [
+        "EV-ADAM-021"
+      ],
+      "human_compared_to_source": true,
+      "next_route": "AI_DELEGATED_ROUTINE_EVENT_SCOPE_REVIEW",
+      "origin_classification_verified": false,
+      "source_candidate_id": "SRC-QURAN-055-014",
+      "source_kind": "QURAN_VERSE",
+      "source_text_locator_verified": true
+    },
+    {
+      "approved_exact_excerpt_sha256": "b450365399392e36c80f3cc098a25775b7275ad405be09762193388c720f7bc9",
+      "approved_locator": "جامع الترمذي 2155؛ كتاب القدر، كتاب 32، حديث 23",
+      "authentication_verified": false,
+      "decision": "defer_authentication",
+      "event_binding_approved": false,
+      "event_ids": [
+        "EV-ADAM-003"
+      ],
+      "human_compared_to_source": true,
+      "next_route": "USER_REVIEW_REQUIRED_HIGH_IMPORTANCE",
+      "origin_classification_verified": false,
+      "source_candidate_id": "SRC-TIRMIDHI-2155",
+      "source_kind": "HADITH_COLLECTION_RECORD",
+      "source_text_locator_verified": true
+    },
+    {
+      "approved_exact_excerpt_sha256": "b5dc4f4786b35357204573c572e00ccfd8d872ea13edf0b5bddd5599b076f0a2",
+      "approved_locator": "جامع الترمذي 3076؛ كتاب تفسير القرآن، باب من سورة الأعراف، كتاب 47",
+      "authentication_verified": false,
+      "decision": "defer_authentication",
+      "event_binding_approved": false,
+      "event_ids": [
+        "EV-ADAM-061"
+      ],
+      "human_compared_to_source": true,
+      "next_route": "AI_DELEGATED_AUTHENTICATION_RESEARCH",
+      "origin_classification_verified": false,
+      "source_candidate_id": "SRC-TIRMIDHI-3076",
+      "source_kind": "HADITH_COLLECTION_RECORD",
+      "source_text_locator_verified": true
+    }
+  ],
+  "schema_version": "siraj-source-review-ingestion-v1",
+  "source_authentication_complete": false,
+  "source_count": 22,
+  "source_text_locator_verification_complete": true,
+  "status": "SOURCE_REVIEW_INGESTED"
+}

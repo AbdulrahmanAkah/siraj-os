@@ -1,0 +1,28 @@
+{
+  "automatic_evidence_approval": "FORBIDDEN_OUTSIDE_DELEGATED_SCOPE",
+  "delegation_scope": {
+    "complex_or_high_importance_evidence": "USER_REVIEW_REQUIRED",
+    "routine_evidence": "AI_DECISION_AUTHORIZED"
+  },
+  "episode_id": "episode-001-adam",
+  "evidence_gate_status": "WITHHELD_PENDING_APPROVED_EVIDENCE_PACKAGE",
+  "human_approval_source": "explicit user instruction in current conversation",
+  "live_provider_execution": "BLOCKED",
+  "mandatory_escalation_examples": [
+    "contested hadith grading or conflicting authentication authorities",
+    "Israiliyyat or weak reports with significant narrative impact",
+    "creedal or theological interpretation",
+    "claims not explicit in Quran or authentic Sunnah",
+    "source conflict that changes chronology or event meaning",
+    "any action that would open the evidence gate or enable providers"
+  ],
+  "policy_id": "adam_delegated_evidence_review_0fab6cda1b4d539b",
+  "routine_examples": [
+    "direct Quran verse locator and exact-text matching",
+    "clear hadith collection locator and exact-text matching",
+    "noncontroversial formatting or composite-anchor correction",
+    "duplicate or redundant source handling"
+  ],
+  "schema_version": "siraj-delegated-evidence-review-policy-v1",
+  "status": "ACTIVE_USER_DELEGATION"
+}
