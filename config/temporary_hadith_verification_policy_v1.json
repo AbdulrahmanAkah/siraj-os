@@ -1,0 +1,21 @@
+{
+  "assistant_manual_verification_required": true,
+  "automatic_hadith_grading": "FORBIDDEN",
+  "dorar_record_locator_required": true,
+  "dorar_status": "TEMPORARILY_ALLOWED",
+  "exact_book_and_source_attribution_required": true,
+  "exact_scholar_attribution_required": true,
+  "exact_verdict_text_required": true,
+  "human_approval_required": true,
+  "may_replace_human_approval": false,
+  "may_support_interim_human_approval": true,
+  "model_may_invent_grade": false,
+  "notebooklm_may_grade_hadith": false,
+  "original_source_crosscheck": "PREFERRED_WHEN_AVAILABLE",
+  "policy_id": "dorar-temporary-hadith-verification-v1",
+  "role": "TEMPORARY_HADITH_VERIFICATION_AUTHORITY",
+  "schema_version": "siraj-temporary-hadith-verification-policy-v1",
+  "snapshot_or_response_fingerprint_required": true,
+  "status": "APPROVED",
+  "verification_timestamp_required": true
+}

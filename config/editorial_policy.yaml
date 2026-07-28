@@ -56,7 +56,13 @@ hadith_policy:
   final_grading_authorities: pending_human_definition
   automatic_hadith_grading: disabled
   dorar_hadith_grading:
-    allowed: false
+    allowed: true
+    status: temporary
+    role: temporary_verification_authority
+    automatic_grading: false
+    exact_scholar_and_source_attribution_required: true
+    human_verification_required: true
+    original_source_crosscheck: preferred_when_available
   dorar_other_domains:
     allowed:
       - aqidah
@@ -132,3 +138,22 @@ verification:
     - verification
     - human_approval
     - approved_evidence_package
+
+production_policy_references:
+  temporary_hadith_verification:
+    file: config/temporary_hadith_verification_policy_v1.json
+    status: approved
+  cinematic_filler:
+    file: config/cinematic_filler_policy_v1.json
+    status: approved
+  quran_recitation_audio:
+    file: config/quran_recitation_audio_policy_v1.json
+    status: approved
+
+audio_policy:
+  music: prohibited
+  quran_recitation:
+    audio_mode: quran_only_exclusive_audio
+    narrator: muted
+    ambience: muted
+    sound_effects: muted
