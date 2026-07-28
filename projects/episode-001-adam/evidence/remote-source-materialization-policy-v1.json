@@ -1,0 +1,42 @@
+{
+  "automatic_evidence_approval": "FORBIDDEN",
+  "episode_id": "episode-001-adam",
+  "evidence_gate_status": "WITHHELD_PENDING_APPROVED_EVIDENCE_PACKAGE",
+  "human_approval": false,
+  "human_verification_required_fields": [
+    "human_compared_to_source",
+    "approved_exact_excerpt",
+    "approved_context_before_after",
+    "source_verified",
+    "verified_by",
+    "verified_at"
+  ],
+  "live_provider_execution": "BLOCKED",
+  "machine_success_statuses": [
+    "FETCHED_EXTRACTED_ANCHOR_MATCH",
+    "FETCHED_EXTRACTED_PARTIAL_MATCH",
+    "FETCHED_EXTRACTED_ANCHOR_MISMATCH"
+  ],
+  "policy_id": "adam_remote_materialization_policy_332f08138eff142c",
+  "prohibitions": [
+    "automatic source verification",
+    "automatic human comparison",
+    "automatic hadith grading",
+    "automatic source authentication",
+    "automatic source-origin classification",
+    "automatic narration disposition",
+    "automatic evidence approval",
+    "opening the evidence gate",
+    "provider execution"
+  ],
+  "rules": {
+    "hadith": "Collection page retrieval does not itself authenticate the report or resolve variant numbering.",
+    "machine_extraction": "Machine-extracted text and anchor similarity are preparation signals, not verified evidence.",
+    "partial_network_failure": "Failures are recorded without silently substituting another source or asserting completion.",
+    "quran": "Uthmani text must be human-compared against an authorized Mushaf source before source_verified.",
+    "raw_archive": "Every successful HTTP response is archived locally with its SHA-256 digest."
+  },
+  "schema_version": "siraj-remote-source-materialization-policy-v1",
+  "source_verification_complete": false,
+  "status": "REMOTE_SOURCE_MATERIALIZATION_POLICY_ACTIVE"
+}
