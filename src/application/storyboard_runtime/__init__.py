@@ -1021,3 +1021,41 @@ __all__ += [
     "build_high_importance_dossier",
     "write_delegated_adjudication_outputs",
 ]
+
+from .high_importance_evidence_resolution import (
+    APPROVAL_SCHEMA as HIGH_IMPORTANCE_EVIDENCE_HUMAN_APPROVAL_SCHEMA,
+    AUTO_APPROVAL as HIGH_IMPORTANCE_RESOLUTION_AUTO_APPROVAL,
+    EVENT_DECISIONS as ADAM_HIGH_IMPORTANCE_EVENT_DECISIONS,
+    FINAL_SCOPE_SCHEMA as EXTERNAL_EVENT_SCOPE_FINAL_ADJUDICATION_SCHEMA,
+    GATE as HIGH_IMPORTANCE_RESOLUTION_GATE,
+    HIGH_IMPORTANCE_EVENT_IDS as RESOLVED_HIGH_IMPORTANCE_EVENT_IDS,
+    HIGH_IMPORTANCE_SOURCE_IDS as RESOLVED_HIGH_IMPORTANCE_SOURCE_IDS,
+    LIVE_EXECUTION as HIGH_IMPORTANCE_RESOLUTION_LIVE_EXECUTION,
+    PROGRESS_SCHEMA as EPISODE_EVIDENCE_ADJUDICATION_PROGRESS_SCHEMA,
+    SOURCE_DECISIONS as ADAM_HIGH_IMPORTANCE_SOURCE_DECISIONS,
+    HighImportanceResolutionError,
+    build_final_external_scope,
+    build_human_approval as build_high_importance_human_approval,
+    build_progress as build_evidence_adjudication_progress,
+    validate_inputs as validate_high_importance_resolution_inputs,
+    write_outputs as write_high_importance_resolution_outputs,
+)
+
+__all__ += [
+    "HIGH_IMPORTANCE_EVIDENCE_HUMAN_APPROVAL_SCHEMA",
+    "EXTERNAL_EVENT_SCOPE_FINAL_ADJUDICATION_SCHEMA",
+    "EPISODE_EVIDENCE_ADJUDICATION_PROGRESS_SCHEMA",
+    "HIGH_IMPORTANCE_RESOLUTION_GATE",
+    "HIGH_IMPORTANCE_RESOLUTION_AUTO_APPROVAL",
+    "HIGH_IMPORTANCE_RESOLUTION_LIVE_EXECUTION",
+    "RESOLVED_HIGH_IMPORTANCE_SOURCE_IDS",
+    "RESOLVED_HIGH_IMPORTANCE_EVENT_IDS",
+    "ADAM_HIGH_IMPORTANCE_SOURCE_DECISIONS",
+    "ADAM_HIGH_IMPORTANCE_EVENT_DECISIONS",
+    "HighImportanceResolutionError",
+    "validate_high_importance_resolution_inputs",
+    "build_high_importance_human_approval",
+    "build_final_external_scope",
+    "build_evidence_adjudication_progress",
+    "write_high_importance_resolution_outputs",
+]

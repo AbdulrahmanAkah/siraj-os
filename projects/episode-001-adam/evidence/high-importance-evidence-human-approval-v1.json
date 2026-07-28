@@ -1,0 +1,140 @@
+{
+  "approval_id": "adam_high_importance_human_approval_a54c8e8601faa515",
+  "approved_at": "2026-07-28",
+  "approved_by": "Abdulrahman Akah",
+  "approved_evidence_package_complete": false,
+  "automatic_evidence_approval": "FORBIDDEN",
+  "dossier_id": "adam_high_importance_dossier_d6a1524a3ca5f249",
+  "episode_id": "episode-001-adam",
+  "event_decision_count": 6,
+  "event_decisions": [
+    {
+      "approved_narration": "إن أول ما خلق الله القلم، فقال له: اكتب، فكتب مقادير كل شيء إلى قيام الساعة. وكتب الله مقادير الخلائق قبل خلق السماوات والأرض بخمسين ألف سنة، وكان عرشه على الماء.",
+      "decision_basis": "اعتماد المستخدم صراحة أولية القلم لورودها بنص الحديث.",
+      "disposition": "include_assertive",
+      "event_id": "EV-ADAM-003",
+      "firstness_claim": "ASSERTIVE_BY_EXPLICIT_HADITH_TEXT",
+      "human_decision": true,
+      "qualified_supplement_policy": "NOT_REQUIRED_FOR_FIRSTNESS"
+    },
+    {
+      "approved_narration": "كان إبليس من الجن، وحضر أمر السجود لآدم فامتنع واستكبر. ويجوز ذكر أنه كان موجودا قبل بدء خلق آدم إذا ورد في بعض روايات التفسير، لكن بصيغة منسوبة وغير جازمة.",
+      "assertive_core": [
+        "إبليس من الجن",
+        "إبليس حضر أمر السجود وامتنع"
+      ],
+      "decision_basis": "اعتماد الذكر بلا جزم في التركيب الزمني.",
+      "disposition": "include_qualified",
+      "event_id": "EV-ADAM-007",
+      "human_decision": true,
+      "qualified_supplements": [
+        "وجود إبليس الفرد قبل بدء خلق آدم"
+      ]
+    },
+    {
+      "approved_narration": "وصف القرآن مادة خلق آدم بالتراب والطين اللازب والحمإ المسنون والصلصال كالفخار. تُذكر الأوصاف بثبوتها، من دون تحويلها إلى مدد أو جدول زمني جازم إلا بنقل تفسيري منسوب.",
+      "decision_basis": "اعتماد المستخدم للتوصية الثالثة.",
+      "disposition": "include_qualified",
+      "event_id": "EV-ADAM-021",
+      "human_decision": true
+    },
+    {
+      "approved_narration": "علّم الله آدم الأسماء كلها، ثم أظهر للملائكة ما خصه به من العلم، فأقروا أن لا علم لهم إلا ما علّمهم الله. ويجوز بعد ذلك ذكر أقوال المفسرين في المراد بالأسماء—كأسماء الأشياء كلها، أو الملائكة، أو الذرية—منسوبةً إلى قائليها من دون الجزم بأن أحدها هو المراد الوحيد.",
+      "decision_basis": "اعتماد النص القرآني جازما، والسماح بأقوال التفسير أو الإسرائيليات بلا جزم.",
+      "disposition": "include_assertive_with_qualified_tafsir_supplement",
+      "documented_tafsir_views": [
+        "أسماء جميع الأشياء",
+        "أسماء الملائكة",
+        "أسماء ذرية آدم",
+        "أسماء الأجناس والمخلوقات"
+      ],
+      "event_id": "EV-ADAM-042",
+      "human_decision": true,
+      "tafsir_supplement_rules": [
+        "ATTRIBUTION_REQUIRED",
+        "NO_EXCLUSIVE_INTERPRETATION_ASSERTION",
+        "ISRAILIYYAT_EXPLICIT_LABEL_REQUIRED",
+        "SOURCE_RECORD_REQUIRED"
+      ]
+    },
+    {
+      "approved_narration": "ورد في الحديث أن الله مسح ظهر آدم فأظهر ذريته له. يُذكر الحديث بدرجته المسجلة، ولا يُجعل التفسير الوحيد لآية الميثاق.",
+      "decision_basis": "اعتماد المستخدم للتوصية الخامسة.",
+      "disposition": "include_qualified",
+      "event_id": "EV-ADAM-061",
+      "human_decision": true
+    },
+    {
+      "approved_narration": "زوج آدم هي حواء، وقد خُلقت من ضلع آدم؛ فاسم حواء ثابت في الحديث الصحيح، وثبت أن المرأة خُلقت من ضلع، ويُعتمد الربط بين المقدمتين كما سبق اعتماده في مراجعة الحلقة. أما الضلع الأيسر، ونوم آدم، والتئام موضع الضلع، والحوار المنقول، وسؤال الملائكة عن اسمها، وتعليل اسم حواء، فتُذكر فقط إذا كانت لها قيمة تحريرية، مع نسبتها إلى بعض المفسرين أو الإسرائيليات وترك الجزم بها.",
+      "authentic_sunnah_premises": [
+        "اسم زوج آدم: حواء — البخاري 3330 ومسلم 1470",
+        "المرأة خلقت من ضلع — البخاري 3331 ومسلم 1468"
+      ],
+      "decision_basis": "استعادة الاعتماد السابق لـ EV-ADAM-071 وربطه بهذا الحدث.",
+      "disposition": "include_assertive_with_qualified_details",
+      "event_id": "EV-ADAM-070",
+      "human_decision": true,
+      "prior_human_approval_event_id": "EV-ADAM-071",
+      "secondary_detail_policy": [
+        "QUALIFIED_TAFSIR_ATTRIBUTION",
+        "EXPLICIT_ISRAILIYYAT_LABEL",
+        "NO_ASSERTIVE_VISUALIZATION"
+      ],
+      "supported_synthesis": "حواء خلقت من ضلع آدم"
+    }
+  ],
+  "evidence_gate_status": "WITHHELD_PENDING_APPROVED_EVIDENCE_PACKAGE",
+  "final_user_high_importance_decisions_complete": true,
+  "full_episode_adjudication_complete": false,
+  "human_approval": true,
+  "live_provider_execution": "BLOCKED",
+  "opens_evidence_gate": false,
+  "origin_classification_id": "adam-source-origin-classification-v1",
+  "prior_gap_approval_id": "adam-gap-human-approval-2ffbbe54aca7799b",
+  "schema_version": "siraj-high-importance-evidence-human-approval-v1",
+  "source_decision_count": 3,
+  "source_decisions": [
+    {
+      "accepted_claims": [
+        "القلم أول مخلوق بنص الحديث",
+        "أمر الله القلم بكتابة مقادير كل شيء"
+      ],
+      "decision": "ACCEPT_ASSERTIVE_WITH_SCOPE",
+      "human_decision": true,
+      "scope_limitations": [
+        "لا يُضعف وضوح لفظ الأولية في السرد",
+        "يمكن ذكر نص الحديث مباشرة"
+      ],
+      "source_candidate_id": "SRC-ABUDAWUD-4700"
+    },
+    {
+      "accepted_claims": [
+        "طول آدم ستون ذراعا",
+        "تعليم آدم تحية السلام"
+      ],
+      "decision": "ACCEPT_WITH_THEOLOGICAL_PHRASE_EXCLUDED",
+      "human_decision": true,
+      "scope_limitations": [
+        "لا تُفسر عبارة على صورته في السرد ضمن هذه الحزمة",
+        "الأحداث الروتينية تعتمد البخاري 3326 استقلالا"
+      ],
+      "source_candidate_id": "SRC-MUSLIM-2841"
+    },
+    {
+      "accepted_claims": [
+        "القلم أول مخلوق بنص الحديث",
+        "أمر الله القلم بكتابة القدر إلى الأبد"
+      ],
+      "decision": "ACCEPT_CORROBORATIVE_WITH_GRADE_NOTE",
+      "human_decision": true,
+      "scope_limitations": [
+        "يُذكر عند التوثيق أن الترمذي وصف الطريق بالغريب من هذا الوجه",
+        "تُسجل درجة دار السلام: صحيح"
+      ],
+      "source_candidate_id": "SRC-TIRMIDHI-2155"
+    }
+  ],
+  "status": "HUMAN_APPROVED_HIGH_IMPORTANCE_SCOPE",
+  "user_decision_text": "القلم هو اول مخلوق بنص الحديث فالدليل فيه واضح ولا يحتاج الى ابهام\n\nالنقطة الثانية اعتمد الذكر بلا جزم\n\nالثالثة تم\n\nالرابعة اذا ذكر المفسرون او الاسرائيليات فيها شيئا فاذكره بدون الجزم فيه\n\nالخامسة تم\n\nالسادسة الاسم وربط الضلع بها واردان في ادلة اخرى اظننا ناقشناها في وقت سابق",
+  "user_decision_text_sha256": "256b287b7d2e22224b6ac0e662acaf72b46b6d0df4a0de96a8f337836a7dbf81"
+}
