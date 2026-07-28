@@ -1101,3 +1101,39 @@ __all__ += [
     "build_final_evidence_approval_request",
     "write_full_episode_candidate_outputs",
 ]
+
+from .final_evidence_approval_binding import (
+    APPROVAL_PHRASE as ADAM_FINAL_EVIDENCE_APPROVAL_PHRASE,
+    APPROVED_AT_BAGHDAD as ADAM_FINAL_APPROVAL_AT_BAGHDAD,
+    APPROVED_AT_UTC as ADAM_FINAL_APPROVAL_AT_UTC,
+    BINDING_RECEIPT_SCHEMA as APPROVED_EVIDENCE_BINDING_RECEIPT_SCHEMA,
+    DIRECTION_SCHEMA as PRESTIGE_HISTORICAL_CINEMATIC_DIRECTION_SCHEMA,
+    FINAL_APPROVAL_SCHEMA as FINAL_EVIDENCE_HUMAN_APPROVAL_SCHEMA,
+    TIMEZONE as SIRAJ_CANONICAL_TIMEZONE,
+    FinalEvidenceApprovalError,
+    build_all as build_adam_final_evidence_approval_and_binding,
+    build_direction_contract as build_prestige_cinematic_direction,
+    build_final_human_approval,
+    build_final_packages,
+    strict_bind as strict_bind_approved_evidence,
+    validate_approval_inputs as validate_final_evidence_approval_inputs,
+    write_report as write_final_evidence_binding_report,
+)
+
+__all__ += [
+    "FINAL_EVIDENCE_HUMAN_APPROVAL_SCHEMA",
+    "PRESTIGE_HISTORICAL_CINEMATIC_DIRECTION_SCHEMA",
+    "APPROVED_EVIDENCE_BINDING_RECEIPT_SCHEMA",
+    "ADAM_FINAL_EVIDENCE_APPROVAL_PHRASE",
+    "ADAM_FINAL_APPROVAL_AT_BAGHDAD",
+    "ADAM_FINAL_APPROVAL_AT_UTC",
+    "SIRAJ_CANONICAL_TIMEZONE",
+    "FinalEvidenceApprovalError",
+    "validate_final_evidence_approval_inputs",
+    "build_final_human_approval",
+    "build_final_packages",
+    "build_prestige_cinematic_direction",
+    "strict_bind_approved_evidence",
+    "build_adam_final_evidence_approval_and_binding",
+    "write_final_evidence_binding_report",
+]

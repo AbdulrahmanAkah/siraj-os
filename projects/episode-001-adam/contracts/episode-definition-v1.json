@@ -1,5 +1,11 @@
 {
   "central_question": "ماذا ثبت عن حال الكون قبيل خلق آدم، وكيف خلقه الله وكرمه بالعلم، وأمر الملائكة بالسجود له، ثم خلق زوجه وأسكنهما الجنة؟",
+  "cinematic_direction": {
+    "anti_documentary_presentation": true,
+    "contract_id": "siraj_prestige_cinematic_direction_75508c212b0893c6",
+    "path": "contracts/prestige-historical-cinematic-direction-v1.json",
+    "status": "ACTIVE_CREATOR_DIRECTIVE"
+  },
   "created_at": "2026-07-24T11:28:20.764085Z",
   "editorial_inputs": {
     "episode_brief": "editorial/episode-brief.yaml",
@@ -12,9 +18,27 @@
     "story_units": "../../series/provisional_story_units.yaml"
   },
   "episode_id": "episode-001-adam",
+  "event_evidence_adjudication": {
+    "approval_id": "adam_final_evidence_human_approval_b3743a558e894e1f",
+    "approval_status": "APPROVED",
+    "input_fingerprint": "5b0915d22d109674ae0f19ef8435701f2ac3ea1642e669fd5dae5bf8419cdf10",
+    "path": "evidence/event-evidence-adjudication-v1.json"
+  },
+  "evidence_binding": {
+    "binding_id": "approved_evidence_binding_1e7a54211dbccb99",
+    "live_execution_status": "BLOCKED",
+    "paid_execution": "BLOCKED",
+    "path": "cinematic/evidence-bound-cinematic-blueprint-v1.json",
+    "receipt_id": "adam_approved_evidence_binding_receipt_e116b7a0e72eafe8",
+    "receipt_path": "evidence/approved-evidence-binding-receipt-v1.json",
+    "status": "BOUND_OFFLINE"
+  },
+  "evidence_gate_status": "OPEN_APPROVED_EVIDENCE_PACKAGE_BOUND",
   "evidence_package": {
-    "input_fingerprint": "",
-    "path": ""
+    "approval_id": "adam_final_evidence_human_approval_b3743a558e894e1f",
+    "approval_status": "APPROVED",
+    "input_fingerprint": "c24d96b67cd9314a4e0e086c4ce63ad59f0c5289d3c114f54abc52555e754f46",
+    "path": "evidence/approved-evidence-package-v1.json"
   },
   "external_provider_policy": {
     "credential_present": false,
@@ -26,6 +50,7 @@
     "request_limit_available": false,
     "stage_permissions": {}
   },
+  "format_identity": "PRESTIGE_HISTORICAL_CINEMATIC_SERIES",
   "generated_video_policy": {
     "allocation_owner": "STORYBOARD_WRITER",
     "allowed_models": [
@@ -83,7 +108,7 @@
       "EV-ADAM-099"
     ],
     "starts_with": "حال الكون والمخلوقات قبل خلق آدم",
-    "status": "PROVISIONAL"
+    "status": "APPROVED"
   },
   "human_approval_policy": {
     "required_gates": [
@@ -100,9 +125,12 @@
   },
   "intended_audience": "general_arabic_documentary",
   "language": "ar",
+  "live_execution_status": "BLOCKED",
   "maximum_duration_minutes": 25,
   "minimum_duration_minutes": 18,
-  "production_profile": "DOCUMENTARY_STANDARD_V1",
+  "next_stage": "EVIDENCE_BOUND_CINEMATIC_SCRIPT_AND_STORYBOARD_DEVELOPMENT",
+  "paid_execution": "BLOCKED",
+  "production_profile": "WORLD_CLASS_PRESTIGE_HISTORICAL_CINEMA_V1",
   "religious_sensitivity": "HUMAN_REVIEW_REQUIRED",
   "requested_outputs": [
     "render_manifest",
@@ -112,12 +140,20 @@
   "schema_version": "siraj-episode-definition-v1",
   "series_id": "siraj-islamic-history-chronology",
   "source_package": {
-    "approval_status": "NOT_REQUESTED",
-    "path": "contracts/source-package-v1.draft.json"
+    "approval_id": "adam_final_evidence_human_approval_b3743a558e894e1f",
+    "approval_status": "APPROVED",
+    "input_fingerprint": "4598d943a1d728db305b24816095c8c1168dc16b2c01c324420ddb9bfbc6ef00",
+    "path": "contracts/source-package-v1.json"
   },
   "subject": "خلق آدم عليه السلام وتكريمه وميثاق ذريته والسكن في الجنة",
   "target_duration_minutes": 22,
+  "timezone_policy": {
+    "approval_time_baghdad": "2026-07-29T01:24:26+03:00",
+    "canonical_local_timezone": "Asia/Baghdad",
+    "machine_timestamp_standard": "UTC_Z"
+  },
   "title": "آدم عليه السلام: الخلق والتكريم والسكن في الجنة",
-  "updated_at": "2026-07-24T11:28:20.764085Z",
+  "updated_at": "2026-07-28T22:24:26Z",
+  "updated_at_baghdad": "2026-07-29T01:24:26+03:00",
   "working_title": "آدم عليه السلام: الخلق والتكريم والسكن في الجنة"
 }

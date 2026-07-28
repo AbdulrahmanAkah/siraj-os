@@ -1,0 +1,38 @@
+{
+  "approval_id": "adam_final_evidence_human_approval_b3743a558e894e1f",
+  "approval_phrase": "أعتمد بشريًا حزمة أدلة حلقة آدم النهائية وتحكيم أحداثها الـ37 وفق البصمات المحددة فقط، وأجيز فتح بوابة الأدلة دون السماح بأي تشغيل مدفوع أو مباشر",
+  "approval_phrase_sha256": "b3743a558e894e1faf204751a01e2ea032b62c3bc068296e7af71df926700477",
+  "approval_status": "APPROVED",
+  "approved_at": "2026-07-28T22:24:26Z",
+  "approved_at_baghdad": "2026-07-29T01:24:26+03:00",
+  "approved_by": "Abdulrahman Akah",
+  "approved_scope": {
+    "event_count": 37,
+    "evidence_item_count": 57,
+    "open_evidence_gate_after_strict_offline_binding": true,
+    "source_count": 44
+  },
+  "automatic_evidence_approval": "FORBIDDEN",
+  "candidate_fingerprints": {
+    "event_adjudication": "4996e91da4f53727f5ccb98c54c02fe58cd26412b597a4f4bc24aa527f83fc31",
+    "evidence_package": "026af41120d56b5269414ca4baff5184286ed5b1b3139f3c87139b4afa1948a7",
+    "source_package": "4598d943a1d728db305b24816095c8c1168dc16b2c01c324420ddb9bfbc6ef00"
+  },
+  "direct_execution": "BLOCKED",
+  "episode_id": "episode-001-adam",
+  "human_approval": true,
+  "live_provider_execution": "BLOCKED",
+  "notes": "Explicit creator approval captured in Asia/Baghdad. Authorization is limited to final evidence approval and offline strict binding. Paid, live, direct, and provider execution remain blocked.",
+  "paid_execution": "BLOCKED",
+  "prohibited_scope": {
+    "automatic_evidence_approval": true,
+    "direct_provider_execution": true,
+    "live_execution": true,
+    "paid_execution": true,
+    "runware_execution": true
+  },
+  "record_fingerprint": "afb4722e86c3c6d10424dbe1cfcb02c9cc224dd6953445a735ea7b0f1ff69fd6",
+  "schema_version": "siraj-final-evidence-human-approval-v1",
+  "status": "APPROVED_OFFLINE_BINDING_AUTHORIZED",
+  "timezone": "Asia/Baghdad"
+}
