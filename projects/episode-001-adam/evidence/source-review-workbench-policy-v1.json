@@ -1,0 +1,34 @@
+{
+  "allowed_decisions": [
+    "confirm_exact_source_text",
+    "confirm_with_correction",
+    "reject_locator",
+    "defer_authentication"
+  ],
+  "automatic_evidence_approval": "FORBIDDEN",
+  "episode_id": "episode-001-adam",
+  "evidence_gate_status": "WITHHELD_PENDING_APPROVED_EVIDENCE_PACKAGE",
+  "final_approval_phrase": "أعتمد بشريًا قرارات مقارنة النصوص والمواضع للمصادر الـ22 ضمن النطاق المحدد فقط",
+  "fixed_false_fields": [
+    "authentication_verified",
+    "origin_classification_verified",
+    "approved_for_event_binding"
+  ],
+  "human_approval": false,
+  "live_provider_execution": "BLOCKED",
+  "policy_id": "adam_source_review_workbench_policy_ac0eb0221a94cb2d",
+  "prohibitions": [
+    "defaulting or auto-selecting a human decision",
+    "automatic source verification",
+    "automatic hadith grading",
+    "automatic source authentication",
+    "automatic source-origin classification",
+    "automatic event-binding approval",
+    "automatic evidence approval",
+    "opening the evidence gate",
+    "provider execution"
+  ],
+  "schema_version": "siraj-source-review-workbench-policy-v1",
+  "source_verification_complete": false,
+  "status": "SOURCE_REVIEW_WORKBENCH_POLICY_ACTIVE"
+}

@@ -1,0 +1,62 @@
+{
+  "$id": "siraj-source-review-human-decision-json-schema-v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "approved_evidence_package_complete": {
+      "const": false
+    },
+    "automatic_evidence_approval": {
+      "const": "FORBIDDEN"
+    },
+    "decisions": {
+      "maxItems": 22,
+      "minItems": 22,
+      "type": "array"
+    },
+    "episode_id": {
+      "const": "episode-001-adam"
+    },
+    "evidence_gate_status": {
+      "const": "WITHHELD_PENDING_APPROVED_EVIDENCE_PACKAGE"
+    },
+    "full_episode_adjudication_complete": {
+      "const": false
+    },
+    "live_provider_execution": {
+      "const": "BLOCKED"
+    },
+    "opens_evidence_gate": {
+      "const": false
+    },
+    "schema_version": {
+      "const": "siraj-source-review-human-decision-v1"
+    },
+    "source_count": {
+      "const": 22
+    }
+  },
+  "required": [
+    "schema_version",
+    "episode_id",
+    "docket_id",
+    "docket_sha256",
+    "policy_id",
+    "policy_sha256",
+    "source_count",
+    "decisions",
+    "approved_by",
+    "approved_at",
+    "approval_phrase",
+    "human_comparison_complete",
+    "source_verification_complete",
+    "human_approval",
+    "full_episode_adjudication_complete",
+    "approved_evidence_package_complete",
+    "opens_evidence_gate",
+    "evidence_gate_status",
+    "automatic_evidence_approval",
+    "live_provider_execution"
+  ],
+  "title": "SIRAJ source-review human decision",
+  "type": "object"
+}
