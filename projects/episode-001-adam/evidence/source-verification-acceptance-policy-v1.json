@@ -1,0 +1,55 @@
+{
+  "accepted_record_schema": "siraj-source-verification-record-template-v1",
+  "additional_fields_for_authenticated_reports": [
+    "authentication_authority",
+    "authentication_result",
+    "authentication_locator"
+  ],
+  "automatic_evidence_approval": "FORBIDDEN",
+  "episode_id": "episode-001-adam",
+  "evidence_gate_status": "WITHHELD_PENDING_APPROVED_EVIDENCE_PACKAGE",
+  "human_approval": false,
+  "live_provider_execution": "BLOCKED",
+  "origin_classification_allowed_values": [
+    "authentic_sunnah",
+    "accepted_athar",
+    "scholarly_interpretation",
+    "disputed_view",
+    "historical_report",
+    "israiliyyat",
+    "weak_report",
+    "unresolved"
+  ],
+  "policy_id": "adam_source_verification_policy_9aa5307509191dcc",
+  "prohibitions": [
+    "accepting internal project summaries as original evidence",
+    "automatic hadith grading",
+    "automatic source authentication",
+    "automatic source-origin classification",
+    "automatic narration disposition",
+    "automatic evidence approval",
+    "opening the evidence gate",
+    "provider execution"
+  ],
+  "required_fields_for_source_verified": [
+    "source_title",
+    "author",
+    "edition_or_database",
+    "volume_page_or_record_number",
+    "exact_excerpt",
+    "context_before_after",
+    "source_file_or_url",
+    "source_material_sha256",
+    "exact_excerpt_sha256",
+    "verification_method",
+    "verified_by",
+    "verified_at"
+  ],
+  "schema_version": "siraj-source-verification-acceptance-policy-v1",
+  "status": "SOURCE_VERIFICATION_POLICY_ACTIVE",
+  "verification_methods": [
+    "authorized_local_source_file",
+    "authorized_database_record",
+    "human_compared_print_edition"
+  ]
+}
