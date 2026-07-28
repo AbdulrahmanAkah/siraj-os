@@ -1,0 +1,32 @@
+{
+  "automatic_evidence_approval": "FORBIDDEN",
+  "episode_id": "episode-001-adam",
+  "evidence_gate_status": "WITHHELD_PENDING_APPROVED_EVIDENCE_PACKAGE",
+  "human_approval": false,
+  "human_confirmation_requirements": [
+    "open the archived response or authorized source",
+    "compare the approved exact excerpt character by character",
+    "record surrounding context sufficient to prevent quotation drift",
+    "confirm the locator and collection identity",
+    "record reviewer identity and review time",
+    "keep authentication and origin classification separate"
+  ],
+  "live_provider_execution": "BLOCKED",
+  "policy_id": "adam_source_human_comparison_policy_245cf53354b90ede",
+  "prohibitions": [
+    "automatic human confirmation",
+    "automatic source verification",
+    "automatic hadith grading",
+    "automatic source authentication",
+    "automatic source-origin classification",
+    "automatic narration disposition",
+    "automatic evidence approval",
+    "opening the evidence gate",
+    "provider execution"
+  ],
+  "ready_status_meaning": "Machine comparison is strong enough to make human confirmation bounded; it is not source verification.",
+  "resolution_status_meaning": "A human must resolve wording, range, page parsing, or locator differences before confirmation.",
+  "schema_version": "siraj-source-human-comparison-policy-v1",
+  "source_verification_complete": false,
+  "status": "SOURCE_HUMAN_COMPARISON_POLICY_ACTIVE"
+}
