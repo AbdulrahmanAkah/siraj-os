@@ -121,3 +121,26 @@ __all__=[
     "PreciseDynamicCinematicBudgetPlanner",
     "manual_test_template",
 ]
+from .editorial_bridge import (
+    EDITORIAL_STORYBOARD_BRIDGE_SCHEMA_VERSION,
+    EDITORIAL_STORYBOARD_PROFILE_SCHEMA_VERSION,
+    EVIDENCE_GATE_WITHHELD,
+    EditorialCinematicBlueprint,
+    EditorialFrameSpec,
+    EditorialStoryboardBridge,
+    EditorialStoryboardProfile,
+    canonical_text_sha256,
+    write_blueprint,
+)
+
+__all__ += [
+    "EDITORIAL_STORYBOARD_BRIDGE_SCHEMA_VERSION",
+    "EDITORIAL_STORYBOARD_PROFILE_SCHEMA_VERSION",
+    "EVIDENCE_GATE_WITHHELD",
+    "EditorialFrameSpec",
+    "EditorialStoryboardProfile",
+    "EditorialCinematicBlueprint",
+    "EditorialStoryboardBridge",
+    "canonical_text_sha256",
+    "write_blueprint",
+]

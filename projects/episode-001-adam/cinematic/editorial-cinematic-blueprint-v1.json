@@ -1,0 +1,982 @@
+{
+  "bridge_id": "editorial_storyboard_bridge_3622f5b1095b657e",
+  "cinematic_compilation": {
+    "anticipation_score": 8,
+    "budget_guardrails_usd": {
+      "hard_total": 45.0,
+      "target_total": 40.0
+    },
+    "compilation_id": "cinematic_compilation_992928246c07229b",
+    "duration": {
+      "generated_video_allocation_status": "DEFERRED_PENDING_PRICED_MEDIA_OPTIONS",
+      "generated_video_hard_limit_seconds": 300,
+      "generated_video_planned_seconds": 0,
+      "planned_episode_seconds": 1320,
+      "target_episode_seconds": 1320
+    },
+    "dynamic_budget_allocation": {
+      "allocated_total_usd": null,
+      "category_totals_usd": null,
+      "status": "DEFERRED_PENDING_PRICED_MEDIA_OPTIONS"
+    },
+    "episode_contract": {
+      "central_question": "ماذا ثبت عن حال الكون قبيل خلق آدم، وكيف خلقه الله وكرمه بالعلم، وأمر الملائكة بالسجود له، ثم خلق زوجه وأسكنهما الجنة؟",
+      "emotional_promise": "مشاهدة لحظة التكريم والاختبار الأول دون تحويل الغيب إلى تجسيد قطعي.",
+      "episode_id": "episode-001-adam",
+      "knowledge_promise": "تمييز ما ثبت صراحة مما بقي مؤجلًا للتحقق أو مختلفًا في ترتيبه.",
+      "next_episode_question": "كيف بدأت الوسوسة، وكيف وقع الاختبار ثم جاءت التوبة والهبوط؟",
+      "season_question": "كيف بدأت قصة الإنسان كما ثبتت في الوحي والمصادر المعتبرة؟",
+      "season_title": "البداية الأولى",
+      "series_title": "سراج: التاريخ الإسلامي",
+      "unresolved_thread_from_previous": null
+    },
+    "frames": [
+      {
+        "allowed_treatments": [
+          "generated_video",
+          "local_animation",
+          "generated_image",
+          "still_led"
+        ],
+        "callback_to_frame_id": null,
+        "evidence_mode": "atmospheric_transition",
+        "frame_id": "editorial_frame_0f1fb7e23f08c704",
+        "generated_video_seconds": 0,
+        "generation_priority": 90,
+        "maximum_generated_video_seconds": 30,
+        "motion_need": "optional",
+        "narrative_function": "cold_open",
+        "narrative_reason": "Establish immediate curiosity and visual identity.",
+        "planned_seconds": 55,
+        "preferred_treatment": "generated_video",
+        "spectacle_level": "controlled"
+      },
+      {
+        "allowed_treatments": [
+          "evidence_led",
+          "document_led",
+          "map_led",
+          "still_led"
+        ],
+        "callback_to_frame_id": null,
+        "evidence_mode": "symbolic_visualization",
+        "frame_id": "editorial_frame_ed879717cabed85e",
+        "generated_video_seconds": 0,
+        "generation_priority": 20,
+        "maximum_generated_video_seconds": 0,
+        "motion_need": "none",
+        "narrative_function": "central_question",
+        "narrative_reason": "Clarify the episode promise with restrained evidence.",
+        "planned_seconds": 71,
+        "preferred_treatment": "evidence_led",
+        "spectacle_level": "quiet"
+      },
+      {
+        "allowed_treatments": [
+          "map_led",
+          "document_led",
+          "evidence_led",
+          "still_led"
+        ],
+        "callback_to_frame_id": null,
+        "evidence_mode": "symbolic_visualization",
+        "frame_id": "editorial_frame_055a0888e40496f1",
+        "generated_video_seconds": 0,
+        "generation_priority": 25,
+        "maximum_generated_video_seconds": 0,
+        "motion_need": "none",
+        "narrative_function": "orientation",
+        "narrative_reason": "Ground time, place, actors, and evidentiary limits.",
+        "planned_seconds": 84,
+        "preferred_treatment": "map_led",
+        "spectacle_level": "quiet"
+      },
+      {
+        "allowed_treatments": [
+          "evidence_led",
+          "document_led",
+          "generated_image",
+          "local_animation",
+          "still_led"
+        ],
+        "callback_to_frame_id": null,
+        "evidence_mode": "symbolic_visualization",
+        "frame_id": "editorial_frame_1fdf1ac491123bb1",
+        "generated_video_seconds": 0,
+        "generation_priority": 45,
+        "maximum_generated_video_seconds": 12,
+        "motion_need": "none",
+        "narrative_function": "discovery",
+        "narrative_reason": "Reward attention with a material evidentiary reveal.",
+        "planned_seconds": 122,
+        "preferred_treatment": "generated_image",
+        "spectacle_level": "controlled"
+      },
+      {
+        "allowed_treatments": [
+          "evidence_led",
+          "document_led",
+          "generated_image",
+          "local_animation",
+          "still_led"
+        ],
+        "callback_to_frame_id": null,
+        "evidence_mode": "symbolic_visualization",
+        "frame_id": "editorial_frame_1984a57a86d64b2b",
+        "generated_video_seconds": 0,
+        "generation_priority": 45,
+        "maximum_generated_video_seconds": 12,
+        "motion_need": "none",
+        "narrative_function": "discovery",
+        "narrative_reason": "Reward attention with a material evidentiary reveal.",
+        "planned_seconds": 122,
+        "preferred_treatment": "generated_image",
+        "spectacle_level": "controlled"
+      },
+      {
+        "allowed_treatments": [
+          "evidence_led",
+          "document_led",
+          "generated_image",
+          "local_animation",
+          "still_led"
+        ],
+        "callback_to_frame_id": null,
+        "evidence_mode": "symbolic_visualization",
+        "frame_id": "editorial_frame_bfc89f5c14600bbe",
+        "generated_video_seconds": 0,
+        "generation_priority": 45,
+        "maximum_generated_video_seconds": 12,
+        "motion_need": "none",
+        "narrative_function": "discovery",
+        "narrative_reason": "Reward attention with a material evidentiary reveal.",
+        "planned_seconds": 122,
+        "preferred_treatment": "generated_image",
+        "spectacle_level": "controlled"
+      },
+      {
+        "allowed_treatments": [
+          "evidence_led",
+          "document_led",
+          "generated_image",
+          "local_animation",
+          "still_led"
+        ],
+        "callback_to_frame_id": null,
+        "evidence_mode": "symbolic_visualization",
+        "frame_id": "editorial_frame_09fd1db251cdabfe",
+        "generated_video_seconds": 0,
+        "generation_priority": 45,
+        "maximum_generated_video_seconds": 12,
+        "motion_need": "none",
+        "narrative_function": "discovery",
+        "narrative_reason": "Reward attention with a material evidentiary reveal.",
+        "planned_seconds": 122,
+        "preferred_treatment": "generated_image",
+        "spectacle_level": "controlled"
+      },
+      {
+        "allowed_treatments": [
+          "evidence_led",
+          "document_led",
+          "local_animation",
+          "generated_video",
+          "still_led"
+        ],
+        "callback_to_frame_id": null,
+        "evidence_mode": "symbolic_visualization",
+        "frame_id": "editorial_frame_1db7c360d118ec2e",
+        "generated_video_seconds": 0,
+        "generation_priority": 85,
+        "maximum_generated_video_seconds": 30,
+        "motion_need": "optional",
+        "narrative_function": "reversal",
+        "narrative_reason": "Reframe the viewer's current understanding.",
+        "planned_seconds": 92,
+        "preferred_treatment": "generated_video",
+        "spectacle_level": "elevated"
+      },
+      {
+        "allowed_treatments": [
+          "local_animation",
+          "generated_video",
+          "generated_image",
+          "still_led"
+        ],
+        "callback_to_frame_id": null,
+        "evidence_mode": "symbolic_visualization",
+        "frame_id": "editorial_frame_d93008e2c4280e2c",
+        "generated_video_seconds": 0,
+        "generation_priority": 70,
+        "maximum_generated_video_seconds": 30,
+        "motion_need": "optional",
+        "narrative_function": "escalation",
+        "narrative_reason": "Increase consequence without reaching the climax early.",
+        "planned_seconds": 114,
+        "preferred_treatment": "local_animation",
+        "spectacle_level": "elevated"
+      },
+      {
+        "allowed_treatments": [
+          "generated_video",
+          "local_animation",
+          "generated_image",
+          "still_led"
+        ],
+        "callback_to_frame_id": null,
+        "evidence_mode": "symbolic_visualization",
+        "frame_id": "editorial_frame_eff3bf8505f19038",
+        "generated_video_seconds": 0,
+        "generation_priority": 100,
+        "maximum_generated_video_seconds": 60,
+        "motion_need": "optional",
+        "narrative_function": "climax",
+        "narrative_reason": "Concentrate the strongest dramatic and visual payoff.",
+        "planned_seconds": 109,
+        "preferred_treatment": "generated_video",
+        "spectacle_level": "peak"
+      },
+      {
+        "allowed_treatments": [
+          "local_animation",
+          "generated_image",
+          "evidence_led",
+          "still_led"
+        ],
+        "callback_to_frame_id": null,
+        "evidence_mode": "symbolic_visualization",
+        "frame_id": "editorial_frame_d79b1d62a75bcaa1",
+        "generated_video_seconds": 0,
+        "generation_priority": 60,
+        "maximum_generated_video_seconds": 20,
+        "motion_need": "optional",
+        "narrative_function": "consequence",
+        "narrative_reason": "Show what the climax changes beyond the event.",
+        "planned_seconds": 84,
+        "preferred_treatment": "local_animation",
+        "spectacle_level": "controlled"
+      },
+      {
+        "allowed_treatments": [
+          "local_animation",
+          "generated_image",
+          "evidence_led",
+          "still_led"
+        ],
+        "callback_to_frame_id": null,
+        "evidence_mode": "symbolic_visualization",
+        "frame_id": "editorial_frame_ad4ea0922f883530",
+        "generated_video_seconds": 0,
+        "generation_priority": 60,
+        "maximum_generated_video_seconds": 20,
+        "motion_need": "optional",
+        "narrative_function": "consequence",
+        "narrative_reason": "Show what the climax changes beyond the event.",
+        "planned_seconds": 84,
+        "preferred_treatment": "local_animation",
+        "spectacle_level": "controlled"
+      },
+      {
+        "allowed_treatments": [
+          "local_animation",
+          "generated_image",
+          "evidence_led",
+          "still_led"
+        ],
+        "callback_to_frame_id": null,
+        "evidence_mode": "symbolic_visualization",
+        "frame_id": "editorial_frame_b4a1e87f0d0e5b08",
+        "generated_video_seconds": 0,
+        "generation_priority": 60,
+        "maximum_generated_video_seconds": 20,
+        "motion_need": "optional",
+        "narrative_function": "consequence",
+        "narrative_reason": "Show what the climax changes beyond the event.",
+        "planned_seconds": 84,
+        "preferred_treatment": "local_animation",
+        "spectacle_level": "controlled"
+      },
+      {
+        "allowed_treatments": [
+          "local_animation",
+          "generated_video",
+          "generated_image",
+          "still_led"
+        ],
+        "callback_to_frame_id": "editorial_frame_0f1fb7e23f08c704",
+        "evidence_mode": "atmospheric_transition",
+        "frame_id": "editorial_frame_adb8e7f2e6d558d6",
+        "generated_video_seconds": 0,
+        "generation_priority": 75,
+        "maximum_generated_video_seconds": 15,
+        "motion_need": "optional",
+        "narrative_function": "next_episode_promise",
+        "narrative_reason": "Open the next necessary question after the climax.",
+        "planned_seconds": 55,
+        "preferred_treatment": "local_animation",
+        "spectacle_level": "quiet"
+      }
+    ],
+    "live_execution_allowed": false,
+    "plan_id": "cinematic_storyboard_plan_844baf4e802e0c55",
+    "provider_price_estimate_status": "UNAVAILABLE_PENDING_MANUAL_PROVIDER_TEST",
+    "runware_execution_status": "BLOCKED_PENDING_MANUAL_PROVIDER_TEST",
+    "schema_version": "siraj-cinematic-compiler-v2",
+    "storyboard_id": "editorial_storyboard_cd8fa1de6cd7001b"
+  },
+  "episode_id": "episode-001-adam",
+  "evidence_gate_status": "WITHHELD_PENDING_APPROVED_EVIDENCE_PACKAGE",
+  "frame_event_coverage": [
+    "EV-ADAM-001",
+    "EV-ADAM-002",
+    "EV-ADAM-003",
+    "EV-ADAM-004",
+    "EV-ADAM-005",
+    "EV-ADAM-006",
+    "EV-ADAM-007",
+    "EV-ADAM-010",
+    "EV-ADAM-011",
+    "EV-ADAM-020",
+    "EV-ADAM-021",
+    "EV-ADAM-022",
+    "EV-ADAM-023",
+    "EV-ADAM-024",
+    "EV-ADAM-030",
+    "EV-ADAM-031",
+    "EV-ADAM-032",
+    "EV-ADAM-033",
+    "EV-ADAM-040",
+    "EV-ADAM-041",
+    "EV-ADAM-042",
+    "EV-ADAM-050",
+    "EV-ADAM-051",
+    "EV-ADAM-052",
+    "EV-ADAM-053",
+    "EV-ADAM-054",
+    "EV-ADAM-055",
+    "EV-ADAM-060",
+    "EV-ADAM-061",
+    "EV-ADAM-070",
+    "EV-ADAM-071",
+    "EV-ADAM-080",
+    "EV-ADAM-081",
+    "EV-ADAM-082",
+    "EV-ADAM-090",
+    "EV-ADAM-091",
+    "EV-ADAM-099"
+  ],
+  "input_fingerprints": {
+    "cinematic/storyboard-profile-v1.json": "bf8d854d78d4d3a4ae78d4f68798a14cc19b88ff108efa36ff871ef07a909c7b",
+    "contracts/episode-definition-v1.json": "fc6727228980ad13403d81e3dea461045f77022729fb7f1c9ebf174ad9682c6e",
+    "contracts/integration-validation-v1.json": "2a74cab4f4b531285a37b273e509e5fc4e27572d3485bfb98694a1c46ac4c585",
+    "contracts/source-package-v1.draft.json": "ee5cd80343a0b616f635f6a32e497d2e486fd2ed359cd249c4ec2830e66d87fa",
+    "editorial/event-map.json": "355ee04d5b1d5be939ba5c72e8a01577835ab4924dc7044534388f0e62799b61",
+    "editorial/human-decisions.json": "fa290658ff56ea2b5feec32eaac13c6efc7f84d082e3e0b1d46d45606f859142"
+  },
+  "live_execution_status": "BLOCKED",
+  "runware_execution_status": "BLOCKED_PENDING_MANUAL_PROVIDER_TEST",
+  "schema_version": "siraj-editorial-storyboard-bridge-v1",
+  "source_approval_status": "NOT_REQUESTED",
+  "storyboard": {
+    "frame_count": 14,
+    "frames": [
+      {
+        "frame_id": "editorial_frame_0f1fb7e23f08c704",
+        "frame_purpose": "افتتاحية رمزية تمهد للفارق بين الامتثال والاستكبار من غير تجسيد قطعي للغيب.",
+        "position": 0,
+        "referenced_evidence_ids": [],
+        "scene_id": "editorial_scene_61c1b53e8a1f8238",
+        "trace_metadata": {
+          "chronology_types": [],
+          "editorial_tease_event_ids": [
+            "EV-ADAM-052",
+            "EV-ADAM-055"
+          ],
+          "event_ids": [],
+          "event_titles": [],
+          "evidence_gate_statuses": [
+            "WITHHELD_PENDING_APPROVED_EVIDENCE_PACKAGE"
+          ],
+          "frame_keys": [
+            "symbolic-cold-open"
+          ],
+          "question_ids": [],
+          "sections": [],
+          "source_approval_statuses": [
+            "NOT_REQUESTED"
+          ],
+          "verification_statuses": []
+        }
+      },
+      {
+        "frame_id": "editorial_frame_ed879717cabed85e",
+        "frame_purpose": "طرح السؤال المركزي للحلقة وتحديد حدود ما ثبت وما ينتظر التحقق.",
+        "position": 1,
+        "referenced_evidence_ids": [],
+        "scene_id": "editorial_scene_0ff15912d494f822",
+        "trace_metadata": {
+          "chronology_types": [],
+          "editorial_tease_event_ids": [],
+          "event_ids": [],
+          "event_titles": [],
+          "evidence_gate_statuses": [
+            "WITHHELD_PENDING_APPROVED_EVIDENCE_PACKAGE"
+          ],
+          "frame_keys": [
+            "central-question"
+          ],
+          "question_ids": [],
+          "sections": [],
+          "source_approval_statuses": [
+            "NOT_REQUESTED"
+          ],
+          "verification_statuses": []
+        }
+      },
+      {
+        "frame_id": "editorial_frame_055a0888e40496f1",
+        "frame_purpose": "إيجاز حال الكون والمخلوقات قبل خلق آدم مع إبقاء المسائل المؤجلة في صيغة غير جازمة.",
+        "position": 2,
+        "referenced_evidence_ids": [],
+        "scene_id": "editorial_scene_0e85bbfd1dda989b",
+        "trace_metadata": {
+          "chronology_types": [
+            "explicit_or_supported",
+            "pending_verification",
+            "explicit",
+            "strongly_inferred",
+            "explicit_or_strongly_inferred"
+          ],
+          "editorial_tease_event_ids": [],
+          "event_ids": [
+            "EV-ADAM-001",
+            "EV-ADAM-002",
+            "EV-ADAM-003",
+            "EV-ADAM-004",
+            "EV-ADAM-005",
+            "EV-ADAM-006",
+            "EV-ADAM-007"
+          ],
+          "event_titles": [
+            "وجود الله قبل الخلق",
+            "العرش على الماء",
+            "القلم وكتابة المقادير",
+            "خلق السماوات والأرض",
+            "خلق الملائكة",
+            "خلق الجن قبل آدم",
+            "وجود إبليس قبل خلق آدم"
+          ],
+          "evidence_gate_statuses": [
+            "WITHHELD_PENDING_APPROVED_EVIDENCE_PACKAGE"
+          ],
+          "frame_keys": [
+            "before-adam"
+          ],
+          "question_ids": [
+            "RQ-ADAM-001",
+            "RQ-ADAM-003",
+            "RQ-ADAM-002",
+            "RQ-ADAM-004",
+            "RQ-ADAM-005",
+            "RQ-ADAM-006",
+            "RQ-ADAM-018",
+            "RQ-ADAM-020"
+          ],
+          "sections": [
+            "حال الكون قبل آدم"
+          ],
+          "source_approval_statuses": [
+            "NOT_REQUESTED"
+          ],
+          "verification_statuses": [
+            "pending",
+            "quran_explicit"
+          ]
+        }
+      },
+      {
+        "frame_id": "editorial_frame_1fdf1ac491123bb1",
+        "frame_purpose": "إعلان خلق الخليفة وسؤال الملائكة ضمن سياقه القرآني.",
+        "position": 3,
+        "referenced_evidence_ids": [],
+        "scene_id": "editorial_scene_e5cd4c32384a2f76",
+        "trace_metadata": {
+          "chronology_types": [
+            "explicit"
+          ],
+          "editorial_tease_event_ids": [],
+          "event_ids": [
+            "EV-ADAM-010",
+            "EV-ADAM-011"
+          ],
+          "event_titles": [
+            "إعلان خلق خليفة في الأرض",
+            "سؤال الملائكة عن الإفساد وسفك الدماء"
+          ],
+          "evidence_gate_statuses": [
+            "WITHHELD_PENDING_APPROVED_EVIDENCE_PACKAGE"
+          ],
+          "frame_keys": [
+            "creation-announcement"
+          ],
+          "question_ids": [
+            "RQ-ADAM-007",
+            "RQ-ADAM-008"
+          ],
+          "sections": [
+            "إعلان خلق آدم"
+          ],
+          "source_approval_statuses": [
+            "NOT_REQUESTED"
+          ],
+          "verification_statuses": [
+            "quran_explicit"
+          ]
+        }
+      },
+      {
+        "frame_id": "editorial_frame_1984a57a86d64b2b",
+        "frame_purpose": "عرض خلق آدم وأطوار مادته وتسوية جسده مع الفصل بين الصريح والتفسير المؤجل.",
+        "position": 4,
+        "referenced_evidence_ids": [],
+        "scene_id": "editorial_scene_9122c0fd2ead1795",
+        "trace_metadata": {
+          "chronology_types": [
+            "explicit",
+            "interpretive_sequence",
+            "pending_verification"
+          ],
+          "editorial_tease_event_ids": [],
+          "event_ids": [
+            "EV-ADAM-020",
+            "EV-ADAM-021",
+            "EV-ADAM-022",
+            "EV-ADAM-023",
+            "EV-ADAM-024"
+          ],
+          "event_titles": [
+            "خلق آدم من التراب",
+            "أطوار الطين والحمأ والصلصال",
+            "تسوية جسد آدم",
+            "بقاء جسد آدم قبل نفخ الروح",
+            "مرور إبليس بجسد آدم"
+          ],
+          "evidence_gate_statuses": [
+            "WITHHELD_PENDING_APPROVED_EVIDENCE_PACKAGE"
+          ],
+          "frame_keys": [
+            "formation-of-adam"
+          ],
+          "question_ids": [
+            "RQ-ADAM-009",
+            "RQ-ADAM-010",
+            "RQ-ADAM-012"
+          ],
+          "sections": [
+            "خلق آدم"
+          ],
+          "source_approval_statuses": [
+            "NOT_REQUESTED"
+          ],
+          "verification_statuses": [
+            "quran_explicit",
+            "pending_interpretation",
+            "deferred"
+          ]
+        }
+      },
+      {
+        "frame_id": "editorial_frame_bfc89f5c14600bbe",
+        "frame_purpose": "بدء حياة آدم وما يتصل بأول حركته وصفته وتعليم السلام وفق درجات التحقق المسجلة.",
+        "position": 5,
+        "referenced_evidence_ids": [],
+        "scene_id": "editorial_scene_864e38c84eaa2a1d",
+        "trace_metadata": {
+          "chronology_types": [
+            "explicit",
+            "pending_verification",
+            "chronologically_uncertain"
+          ],
+          "editorial_tease_event_ids": [],
+          "event_ids": [
+            "EV-ADAM-030",
+            "EV-ADAM-031",
+            "EV-ADAM-032",
+            "EV-ADAM-033"
+          ],
+          "event_titles": [
+            "نفخ الروح في آدم",
+            "أول حركة وعطاس وكلام لآدم",
+            "طول آدم وصفته الأولى",
+            "تعليم آدم تحية السلام"
+          ],
+          "evidence_gate_statuses": [
+            "WITHHELD_PENDING_APPROVED_EVIDENCE_PACKAGE"
+          ],
+          "frame_keys": [
+            "beginning-of-life"
+          ],
+          "question_ids": [
+            "RQ-ADAM-013",
+            "RQ-ADAM-014",
+            "RQ-ADAM-031"
+          ],
+          "sections": [
+            "بدء حياة آدم"
+          ],
+          "source_approval_statuses": [
+            "NOT_REQUESTED"
+          ],
+          "verification_statuses": [
+            "quran_explicit",
+            "deferred",
+            "pending"
+          ]
+        }
+      },
+      {
+        "frame_id": "editorial_frame_09fd1db251cdabfe",
+        "frame_purpose": "تعليم آدم الأسماء وإظهار فضله بالعلم بوصفه محور التكريم المعرفي.",
+        "position": 6,
+        "referenced_evidence_ids": [],
+        "scene_id": "editorial_scene_c62f3ebe2ecedff1",
+        "trace_metadata": {
+          "chronology_types": [
+            "explicit",
+            "explicit_and_interpretive"
+          ],
+          "editorial_tease_event_ids": [],
+          "event_ids": [
+            "EV-ADAM-040",
+            "EV-ADAM-041",
+            "EV-ADAM-042"
+          ],
+          "event_titles": [
+            "تعليم آدم الأسماء كلها",
+            "عرض المسميات على الملائكة",
+            "إظهار فضل آدم بالعلم"
+          ],
+          "evidence_gate_statuses": [
+            "WITHHELD_PENDING_APPROVED_EVIDENCE_PACKAGE"
+          ],
+          "frame_keys": [
+            "knowledge-and-honor"
+          ],
+          "question_ids": [
+            "RQ-ADAM-015",
+            "RQ-ADAM-016"
+          ],
+          "sections": [
+            "تعليم آدم"
+          ],
+          "source_approval_statuses": [
+            "NOT_REQUESTED"
+          ],
+          "verification_statuses": [
+            "quran_explicit",
+            "pending_interpretation"
+          ]
+        }
+      },
+      {
+        "frame_id": "editorial_frame_1db7c360d118ec2e",
+        "frame_purpose": "الانتقال إلى أمر السجود بوصفه لحظة تحول واختبار للطاعة.",
+        "position": 7,
+        "referenced_evidence_ids": [],
+        "scene_id": "editorial_scene_afc4850ce4a42074",
+        "trace_metadata": {
+          "chronology_types": [
+            "explicit"
+          ],
+          "editorial_tease_event_ids": [],
+          "event_ids": [
+            "EV-ADAM-050"
+          ],
+          "event_titles": [
+            "الأمر بالسجود لآدم"
+          ],
+          "evidence_gate_statuses": [
+            "WITHHELD_PENDING_APPROVED_EVIDENCE_PACKAGE"
+          ],
+          "frame_keys": [
+            "command-to-prostrate"
+          ],
+          "question_ids": [
+            "RQ-ADAM-017"
+          ],
+          "sections": [
+            "السجود وامتناع إبليس"
+          ],
+          "source_approval_statuses": [
+            "NOT_REQUESTED"
+          ],
+          "verification_statuses": [
+            "quran_explicit"
+          ]
+        }
+      },
+      {
+        "frame_id": "editorial_frame_d93008e2c4280e2c",
+        "frame_purpose": "إظهار امتثال الملائكة قبل كشف الاستثناء الذي يقلب مسار الحلقة.",
+        "position": 8,
+        "referenced_evidence_ids": [],
+        "scene_id": "editorial_scene_c4c567ee3f4fd3f2",
+        "trace_metadata": {
+          "chronology_types": [
+            "explicit"
+          ],
+          "editorial_tease_event_ids": [],
+          "event_ids": [
+            "EV-ADAM-051"
+          ],
+          "event_titles": [
+            "سجود الملائكة"
+          ],
+          "evidence_gate_statuses": [
+            "WITHHELD_PENDING_APPROVED_EVIDENCE_PACKAGE"
+          ],
+          "frame_keys": [
+            "angels-prostrate"
+          ],
+          "question_ids": [
+            "RQ-ADAM-017"
+          ],
+          "sections": [
+            "السجود وامتناع إبليس"
+          ],
+          "source_approval_statuses": [
+            "NOT_REQUESTED"
+          ],
+          "verification_statuses": [
+            "quran_explicit"
+          ]
+        }
+      },
+      {
+        "frame_id": "editorial_frame_eff3bf8505f19038",
+        "frame_purpose": "ذروة الحلقة: امتناع إبليس واستكباره واحتجاجه ثم طرده وإعلانه العداوة.",
+        "position": 9,
+        "referenced_evidence_ids": [],
+        "scene_id": "editorial_scene_bda0df5da0a95d07",
+        "trace_metadata": {
+          "chronology_types": [
+            "explicit"
+          ],
+          "editorial_tease_event_ids": [],
+          "event_ids": [
+            "EV-ADAM-052",
+            "EV-ADAM-053",
+            "EV-ADAM-054",
+            "EV-ADAM-055"
+          ],
+          "event_titles": [
+            "امتناع إبليس واستكباره",
+            "احتجاج إبليس بالنار والطين",
+            "طرد إبليس وطلب الإنظار",
+            "إعلان إبليس عداوته لذرية آدم"
+          ],
+          "evidence_gate_statuses": [
+            "WITHHELD_PENDING_APPROVED_EVIDENCE_PACKAGE"
+          ],
+          "frame_keys": [
+            "iblis-refusal-climax"
+          ],
+          "question_ids": [
+            "RQ-ADAM-018",
+            "RQ-ADAM-019",
+            "RQ-ADAM-020"
+          ],
+          "sections": [
+            "السجود وامتناع إبليس"
+          ],
+          "source_approval_statuses": [
+            "NOT_REQUESTED"
+          ],
+          "verification_statuses": [
+            "quran_explicit"
+          ]
+        }
+      },
+      {
+        "frame_id": "editorial_frame_d79b1d62a75bcaa1",
+        "frame_purpose": "إدراج ميثاق بني آدم واستخراج الذرية مع وسم عدم اليقين الزمني وتأجيل الجزم.",
+        "position": 10,
+        "referenced_evidence_ids": [],
+        "scene_id": "editorial_scene_f2f9d8776fdeb769",
+        "trace_metadata": {
+          "chronology_types": [
+            "chronologically_uncertain"
+          ],
+          "editorial_tease_event_ids": [],
+          "event_ids": [
+            "EV-ADAM-060",
+            "EV-ADAM-061"
+          ],
+          "event_titles": [
+            "ميثاق بني آدم",
+            "استخراج ذرية آدم من ظهره"
+          ],
+          "evidence_gate_statuses": [
+            "WITHHELD_PENDING_APPROVED_EVIDENCE_PACKAGE"
+          ],
+          "frame_keys": [
+            "covenant-withheld"
+          ],
+          "question_ids": [
+            "RQ-ADAM-021",
+            "RQ-ADAM-023",
+            "RQ-ADAM-024",
+            "RQ-ADAM-022"
+          ],
+          "sections": [
+            "ميثاق الذر"
+          ],
+          "source_approval_statuses": [
+            "NOT_REQUESTED"
+          ],
+          "verification_statuses": [
+            "deferred"
+          ]
+        }
+      },
+      {
+        "frame_id": "editorial_frame_ad4ea0922f883530",
+        "frame_purpose": "خلق زوج آدم وإسكانهما الجنة وبيان النعيم والتحذير من إبليس ضمن الحدود المثبتة.",
+        "position": 11,
+        "referenced_evidence_ids": [],
+        "scene_id": "editorial_scene_f1148f80c0ded88e",
+        "trace_metadata": {
+          "chronology_types": [
+            "chronologically_uncertain",
+            "pending_verification",
+            "explicit"
+          ],
+          "editorial_tease_event_ids": [],
+          "event_ids": [
+            "EV-ADAM-070",
+            "EV-ADAM-071",
+            "EV-ADAM-080",
+            "EV-ADAM-081",
+            "EV-ADAM-082"
+          ],
+          "event_titles": [
+            "خلق زوج آدم",
+            "اسم حواء والتفاصيل المنقولة عن خلقها",
+            "إسكان آدم وزوجه الجنة",
+            "نعيم الجنة وعدم الجوع والعري والعطش والضحى",
+            "التحذير من إبليس"
+          ],
+          "evidence_gate_statuses": [
+            "WITHHELD_PENDING_APPROVED_EVIDENCE_PACKAGE"
+          ],
+          "frame_keys": [
+            "spouse-and-garden"
+          ],
+          "question_ids": [
+            "RQ-ADAM-025",
+            "RQ-ADAM-026",
+            "RQ-ADAM-027",
+            "RQ-ADAM-031",
+            "RQ-ADAM-028",
+            "RQ-ADAM-019"
+          ],
+          "sections": [
+            "خلق الزوج",
+            "السكن في الجنة"
+          ],
+          "source_approval_statuses": [
+            "NOT_REQUESTED"
+          ],
+          "verification_statuses": [
+            "pending",
+            "deferred",
+            "quran_explicit"
+          ]
+        }
+      },
+      {
+        "frame_id": "editorial_frame_b4a1e87f0d0e5b08",
+        "frame_purpose": "إغلاق قوس الحلقة بالنهي عن الشجرة دون الجزم بنوعها أو الدخول في الوسوسة.",
+        "position": 12,
+        "referenced_evidence_ids": [],
+        "scene_id": "editorial_scene_f699de2b51a9d965",
+        "trace_metadata": {
+          "chronology_types": [
+            "explicit",
+            "not_applicable"
+          ],
+          "editorial_tease_event_ids": [],
+          "event_ids": [
+            "EV-ADAM-090",
+            "EV-ADAM-091"
+          ],
+          "event_titles": [
+            "النهي عن الشجرة",
+            "الأقوال في نوع الشجرة"
+          ],
+          "evidence_gate_statuses": [
+            "WITHHELD_PENDING_APPROVED_EVIDENCE_PACKAGE"
+          ],
+          "frame_keys": [
+            "tree-prohibition"
+          ],
+          "question_ids": [
+            "RQ-ADAM-029",
+            "RQ-ADAM-030"
+          ],
+          "sections": [
+            "الاختبار الأول"
+          ],
+          "source_approval_statuses": [
+            "NOT_REQUESTED"
+          ],
+          "verification_statuses": [
+            "quran_explicit",
+            "deferred"
+          ]
+        }
+      },
+      {
+        "frame_id": "editorial_frame_adb8e7f2e6d558d6",
+        "frame_purpose": "وعد الحلقة التالية ببدء الوسوسة والمعصية ثم التوبة والهبوط.",
+        "position": 13,
+        "referenced_evidence_ids": [],
+        "scene_id": "editorial_scene_3a2188f92c38583c",
+        "trace_metadata": {
+          "chronology_types": [
+            "editorial_arrangement"
+          ],
+          "editorial_tease_event_ids": [],
+          "event_ids": [
+            "EV-ADAM-099"
+          ],
+          "event_titles": [
+            "التمهيد لبدء الوسوسة"
+          ],
+          "evidence_gate_statuses": [
+            "WITHHELD_PENDING_APPROVED_EVIDENCE_PACKAGE"
+          ],
+          "frame_keys": [
+            "next-episode-promise"
+          ],
+          "question_ids": [
+            "RQ-ADAM-032"
+          ],
+          "sections": [
+            "خاتمة الحلقة"
+          ],
+          "source_approval_statuses": [
+            "NOT_REQUESTED"
+          ],
+          "verification_statuses": [
+            "editorial"
+          ]
+        }
+      }
+    ],
+    "scene_plan_id": "editorial_scene_plan_4be958170d5d6f69",
+    "storyboard_id": "editorial_storyboard_cd8fa1de6cd7001b",
+    "validation_state": "VALID"
+  },
+  "verification_status": "deferred"
+}
