@@ -1,0 +1,51 @@
+{
+  "allowed_human_decisions": [
+    "confirm_exact_source_text",
+    "confirm_with_correction",
+    "reject_locator",
+    "defer_authentication"
+  ],
+  "automatic_evidence_approval": "FORBIDDEN",
+  "decision_meanings": {
+    "confirm_exact_source_text": "The human compared the archived/authorized source and confirms the exact excerpt and locator.",
+    "confirm_with_correction": "The human corrected machine text or locator and records the corrected exact excerpt and context.",
+    "defer_authentication": "Text and locator may be recorded, but authentication or origin classification remains unresolved.",
+    "reject_locator": "The candidate locator or extracted text is not accepted for this source claim."
+  },
+  "episode_id": "episode-001-adam",
+  "evidence_gate_status": "WITHHELD_PENDING_APPROVED_EVIDENCE_PACKAGE",
+  "human_approval": false,
+  "live_provider_execution": "BLOCKED",
+  "policy_id": "adam_source_review_policy_a0c6105b56401828",
+  "prohibitions": [
+    "automatic human confirmation",
+    "automatic source verification",
+    "automatic hadith grading",
+    "automatic source authentication",
+    "automatic source-origin classification",
+    "automatic narration disposition",
+    "automatic evidence approval",
+    "opening the evidence gate",
+    "provider execution"
+  ],
+  "required_human_fields_for_confirmation": [
+    "decision",
+    "approved_locator",
+    "approved_exact_excerpt",
+    "approved_exact_excerpt_sha256",
+    "approved_context_before_after",
+    "human_compared_to_source",
+    "verified_by",
+    "verified_at"
+  ],
+  "schema_version": "siraj-source-review-policy-v1",
+  "separate_decision_layers": [
+    "exact source text and locator",
+    "hadith authentication",
+    "source-origin classification",
+    "event narration disposition",
+    "episode evidence approval"
+  ],
+  "source_verification_complete": false,
+  "status": "SOURCE_REVIEW_POLICY_ACTIVE"
+}
