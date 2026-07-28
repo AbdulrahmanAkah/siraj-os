@@ -1,0 +1,63 @@
+{
+  "approval_id": "adam-gap-human-approval-2ffbbe54aca7799b",
+  "approval_text": "أعتمد بشريًا قرارات مراجعة فجوات حلقة آدم التالية:\n\n1. EV-ADAM-031 — include_assertive\nيُعتمد ثبوت عطاس آدم بعد نفخ الروح، وحمده لله، وما خاطبه الله به وفق الحديث الصحيح.\nيُمنع الجزم بأن العطاس كان أول حركة، أو أن الحمد كان أول كلام على سبيل الجزم، اذا كان هناك روايات في غير الكتاب والسنة فتذكر على سبيل الاستئناس لا الجزم، كما لا تُذكر تفاصيل انتقال الروح بين الأعضاء بصيغة الجزم.\n\n2. EV-ADAM-071 — include_qualified\nيُعتمد أن زوج آدم هي حواء، وأن المرأة خُلقت من ضلع، ويُعتمد الاستنتاج المدعوم بأن حواء خُلقت من ضلع آدم دون إضافة تفاصيل غير ثابتة.\nيُذكر خبر وحدة آدم قبل خلق حواء بصيغة مؤهلة ومنسوبة إلى بعض روايات التفسير، لا بوصفه حديثًا صحيحًا مرفوعًا.\nلا تُحذف افتراضيًا تفاصيل الضلع الأيسر، ونوم آدم أثناء خلق حواء، والتئام موضع الضلع، والحوار المنقول، وسؤال الملائكة عن اسمها، وتعليل اسم حواء على سبيل الجزم لكن تذكر في سياق انها مذكورة عند بعض العلماء او الاسرائيليات. ولا يذكر شيء من الإسرائيليات إلا بوسم صريح وعند وجود قيمة تحريرية حقيقية.\n\n3. EV-ADAM-091 — include_qualified\nتُعتمد الصياغة: «ونهاهما الله عن شجرة في الجنة، وقد اختلف المفسرون في نوعها، ولم يثبت في القرآن ولا في السنة الصحيحة ما يعيّنها».\nيُمنع تعيين نوع الشجرة سرديًا أو بصريًا، وتُعرض كشجرة جميلة جذابة غير قابلة لتحديد نوعها.\n\nهذه الموافقة تخص القرارات الثلاثة المذكورة فقط، ولا تعني اعتماد جميع أدلة الحلقة، ولا فتح بوابة الأدلة، ولا السماح بالتنفيذ عبر مزودات الإنتاج.",
+  "approval_text_sha256": "2ffbbe54aca7799b722edd81a649a6219e7aa788a7a45a678fc32e0160ff9f9e",
+  "approved_at": "2026-07-28T13:26:49Z",
+  "approved_by": "Abdulrahman Akah",
+  "automatic_evidence_approval": "FORBIDDEN",
+  "binding": false,
+  "decisions": [
+    {
+      "approved": true,
+      "conditions": [
+        "منع الجزم بالأولية دون دليل",
+        "الروايات الأخرى للاستئناس لا للجزم",
+        "تفاصيل انتقال الروح لا تذكر جزمًا"
+      ],
+      "disposition": "include_assertive",
+      "event_id": "EV-ADAM-031",
+      "human_decision": true
+    },
+    {
+      "approved": true,
+      "conditions": [
+        "حواء خلقت من ضلع آدم استنتاج مدعوم",
+        "خبر الوحدة منسوب لروايات التفسير",
+        "التفاصيل غير الثابتة لا تذكر جزمًا",
+        "يجوز ذكرها منسوبة لبعض العلماء أو الإسرائيليات",
+        "الإسرائيليات تحتاج وسمًا صريحًا وقيمة تحريرية"
+      ],
+      "disposition": "include_qualified",
+      "event_id": "EV-ADAM-071",
+      "human_decision": true
+    },
+    {
+      "approved": true,
+      "approved_narration": "ونهاهما الله عن شجرة في الجنة، وقد اختلف المفسرون في نوعها، ولم يثبت في القرآن ولا في السنة الصحيحة ما يعيّنها.",
+      "disposition": "include_qualified",
+      "event_id": "EV-ADAM-091",
+      "human_decision": true,
+      "specific_type_assertion": "PROHIBITED",
+      "visual_rule": "شجرة جميلة جذابة غير قابلة لتحديد نوعها"
+    }
+  ],
+  "episode_id": "episode-001-adam",
+  "evidence_gate_status": "WITHHELD_PENDING_APPROVED_EVIDENCE_PACKAGE",
+  "human_approval": true,
+  "live_provider_execution": "BLOCKED",
+  "review_packet_id": "adam_gap_human_review_1c9585b98db3e5ad",
+  "review_packet_sha256": "33fde68b257360e345916d6b16c40d733cb0e2321b3b7dc8b9de74d9fdb39301",
+  "schema_version": "siraj-gap-human-approval-v1",
+  "scope": {
+    "all_episode_evidence_approved": false,
+    "event_ids": [
+      "EV-ADAM-031",
+      "EV-ADAM-071",
+      "EV-ADAM-091"
+    ],
+    "full_episode_adjudication_complete": false,
+    "opens_evidence_gate": false,
+    "provider_execution_allowed": false
+  },
+  "status": "HUMAN_APPROVED_LIMITED_SCOPE"
+}
