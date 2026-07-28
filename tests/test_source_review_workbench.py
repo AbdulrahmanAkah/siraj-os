@@ -533,5 +533,56 @@ class SourceReviewWorkbenchTests(unittest.TestCase):
             self.assertTrue(raw.endswith(b"\n"))
 
 
+    def test_html_helpers_are_initialized_before_load(self):
+        text = render_workbench_html(
+            manifest=self.manifest,
+            template=self.template,
+            policy=self.policy,
+        )
+        helper_position = text.index(
+            'const $=x=>document.getElementById(x),clone='
+        )
+        load_position = text.index('let D=load();')
+        self.assertLess(helper_position, load_position)
+
+    def test_html_rejects_incomplete_saved_state(self):
+        text = render_workbench_html(
+            manifest=self.manifest,
+            template=self.template,
+            policy=self.policy,
+        )
+        self.assertIn(
+            'Array.isArray(x.decisions)&&x.decisions.length===22',
+            text,
+        )
+
+    def test_html_has_visible_runtime_failure_handler(self):
+        text = render_workbench_html(
+            manifest=self.manifest,
+            template=self.template,
+            policy=self.policy,
+        )
+        self.assertIn('function showFatal(error)', text)
+        self.assertIn(
+            'window.addEventListener("error"',
+            text,
+        )
+        self.assertIn(
+            'تعذر تشغيل منضدة المراجعة',
+            text,
+        )
+
+    def test_html_does_not_use_broken_bootstrap_order(self):
+        text = render_workbench_html(
+            manifest=self.manifest,
+            template=self.template,
+            policy=self.policy,
+        )
+        broken = (
+            'const key="siraj-source-review-"+M.docket_id;'
+            'let D=load(),i=0;'
+        )
+        self.assertNotIn(broken, text)
+
 if __name__ == "__main__":
     unittest.main()
