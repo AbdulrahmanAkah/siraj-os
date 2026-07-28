@@ -17,7 +17,9 @@ CREATOR_EDITORIAL_INTENT_SCHEMA = "siraj-creator-editorial-intent-v1"
 ADAM_EDITORIAL_DIRECTION_SCHEMA = "siraj-adam-editorial-direction-v1"
 
 POLICY_STATUS = "approved"
-DIRECTION_STATUS = "HUMAN_EDITORIAL_DIRECTION_RECORDED"
+LEGACY_DIRECTION_STATUS = "HUMAN_EDITORIAL_DIRECTION_RECORDED"
+DIRECTION_STATUS = "HUMAN_EDITORIAL_DIRECTION_AND_SOURCE_ORIGINS_RECORDED"
+ALLOWED_DIRECTION_STATUSES = (LEGACY_DIRECTION_STATUS, DIRECTION_STATUS)
 AUTOMATIC_APPROVAL_STATUS = "FORBIDDEN"
 EVIDENCE_GATE_STATUS = "WITHHELD_PENDING_APPROVED_EVIDENCE_PACKAGE"
 LIVE_EXECUTION_STATUS = "BLOCKED"
@@ -282,7 +284,8 @@ def validate_adam_editorial_direction(
     _assert_no_secret_like_keys(payload)
     if payload.get("schema_version") != ADAM_EDITORIAL_DIRECTION_SCHEMA:
         raise NarrationIntentError("Unexpected Adam editorial direction schema.")
-    if payload.get("status") != DIRECTION_STATUS:
+    direction_status = payload.get("status")
+    if direction_status not in ALLOWED_DIRECTION_STATUSES:
         raise NarrationIntentError("Adam editorial direction status changed.")
     if payload.get("episode_id") != "episode-001-adam":
         raise NarrationIntentError("Adam direction episode id changed.")
@@ -325,12 +328,44 @@ def validate_adam_editorial_direction(
     if synthesis.get("conclusion") != "حواء خلقت من ضلع آدم":
         raise NarrationIntentError("EV-ADAM-071 synthesis conclusion changed.")
     loneliness = _object(event_071.get("loneliness_report"), "loneliness_report")
-    if loneliness.get("status") != "SOURCE_ORIGIN_CLASSIFICATION_PENDING":
-        raise NarrationIntentError("Loneliness report must remain origin-pending.")
-    if loneliness.get("narration_until_classified") != "QUALIFIED_ONLY":
-        raise NarrationIntentError("Loneliness report must remain qualified.")
-    if loneliness.get("if_israiliyyat") != "EXPLICIT_ISRAILIYYAT_LABEL_REQUIRED":
-        raise NarrationIntentError("Israiliyyat origin must be labeled.")
+    loneliness_status = loneliness.get("status")
+    if loneliness_status == "SOURCE_ORIGIN_CLASSIFICATION_PENDING":
+        if direction_status != LEGACY_DIRECTION_STATUS:
+            raise NarrationIntentError(
+                "Current Adam direction cannot regress to origin-pending loneliness."
+            )
+        if loneliness.get("narration_until_classified") != "QUALIFIED_ONLY":
+            raise NarrationIntentError("Loneliness report must remain qualified.")
+        if loneliness.get("if_israiliyyat") != "EXPLICIT_ISRAILIYYAT_LABEL_REQUIRED":
+            raise NarrationIntentError("Israiliyyat origin must be labeled.")
+    elif loneliness_status == "SOURCE_ORIGIN_CLASSIFIED_REVIEW_PENDING":
+        if direction_status != DIRECTION_STATUS:
+            raise NarrationIntentError(
+                "Classified loneliness requires the classified direction status."
+            )
+        if loneliness.get("origin_classification") != (
+            "TAFSIR_REPORT_COMPOSITE_CHAIN_NOT_MARFU"
+        ):
+            raise NarrationIntentError("Loneliness origin classification changed.")
+        if loneliness.get("narration_mode") != "QUALIFIED_TAFSIR_ATTRIBUTION":
+            raise NarrationIntentError(
+                "Classified loneliness must use qualified tafsir attribution."
+            )
+        if loneliness.get("definite_israiliyyat_label") is not False:
+            raise NarrationIntentError(
+                "Loneliness must not be mislabeled as definite Israiliyyat."
+            )
+        if loneliness.get("possible_israiliyyat_mixture") is not True:
+            raise NarrationIntentError(
+                "Composite tafsir report must preserve possible Israiliyyat mixture."
+            )
+        preferred = _required_text(loneliness, "preferred_narration")
+        if not preferred.startswith("وورد في بعض روايات التفسير"):
+            raise NarrationIntentError(
+                "Qualified loneliness wording must attribute the report to tafsir."
+            )
+    else:
+        raise NarrationIntentError("Unknown loneliness source-origin status.")
     excluded = set(
         _strings(
             event_071.get("details_requiring_origin_label_or_omission"),

@@ -1,0 +1,65 @@
+{
+  "automatic_evidence_approval": "FORBIDDEN",
+  "binding": false,
+  "classification_id": "adam-source-origin-classification-v1",
+  "classification_sha256": "d370890691ea25161f3e2abf80b82d14b2ba078378f9e8c26c8b696f1d06b44d",
+  "decisions": [
+    {
+      "assertive_claim_scope": [
+        "عطس آدم بعد نفخ الروح",
+        "حمد آدم الله",
+        "خاطبه الله بما ثبت في الحديث الصحيح"
+      ],
+      "event_id": "EV-ADAM-031",
+      "evidence_ids": [],
+      "human_decision": false,
+      "prohibited_claims": [
+        "كان العطاس أول حركة",
+        "كان الحمد أول كلام",
+        "تفاصيل انتقال الروح بين الأعضاء بصيغة الجزم"
+      ],
+      "proposed_disposition": "include_assertive",
+      "proposed_narration": "ولما خلق الله آدم ونفخ فيه الروح عطس، فحمد الله، فقال له ربه ما ثبت في الحديث."
+    },
+    {
+      "assertive_claim_scope": [
+        "زوج آدم هي حواء",
+        "المرأة خلقت من ضلع",
+        "حواء خلقت من ضلع آدم بوصفه استنتاجًا مدعومًا من المقدمتين"
+      ],
+      "default_omissions": [
+        "الضلع الأيسر",
+        "خلقها أثناء نوم آدم",
+        "التئام موضع الضلع لحمًا",
+        "الحوار المنقول",
+        "سؤال الملائكة عن اسمها",
+        "تعليل الاسم بأنها خلقت من حي"
+      ],
+      "event_id": "EV-ADAM-071",
+      "evidence_ids": [],
+      "human_decision": false,
+      "proposed_disposition": "include_qualified",
+      "proposed_narration": "وخلق الله لآدم زوجه حواء من ضلع منه، ليسكن إليها. وورد في بعض روايات التفسير أن آدم كان في الجنة وحيدًا لا زوج له يسكن إليها.",
+      "qualified_claim_scope": [
+        "خبر وحشة آدم ووحدته من روايات التفسير غير المرفوعة"
+      ]
+    },
+    {
+      "event_id": "EV-ADAM-091",
+      "evidence_ids": [],
+      "human_decision": false,
+      "proposed_disposition": "include_qualified",
+      "proposed_narration": "ونهاهما الله عن شجرة في الجنة، وقد اختلف المفسرون في نوعها، ولم يثبت في القرآن ولا في السنة الصحيحة ما يعيّنها.",
+      "specific_type_assertion": "PROHIBITED",
+      "visual_direction": "شجرة جميلة غير قابلة لتعيين نوعها ولا تحمل ثمرًا معروفًا بوضوح"
+    }
+  ],
+  "episode_id": "episode-001-adam",
+  "evidence_gate_status": "WITHHELD_PENDING_APPROVED_EVIDENCE_PACKAGE",
+  "human_approval": false,
+  "live_provider_execution": "BLOCKED",
+  "opens_evidence_gate": false,
+  "proposal_id": "adam-gap-adjudication-proposal-v1",
+  "schema_version": "siraj-proposed-gap-adjudication-v1",
+  "status": "HUMAN_EVIDENCE_APPROVAL_PENDING"
+}

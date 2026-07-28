@@ -15,6 +15,7 @@ from src.application.storyboard_runtime.narration_intent import (
     DIRECTION_STATUS,
     EVIDENCE_GATE_STATUS,
     HISTORICAL_NARRATION_POLICY_SCHEMA,
+    LEGACY_DIRECTION_STATUS,
     LIVE_EXECUTION_STATUS,
     UNKNOWN_TREE_FORMULA,
     NarrationIntentError,
@@ -239,17 +240,50 @@ class NarrationIntentTests(unittest.TestCase):
         self.assertEqual(len(synthesis["premises"]), 2)
         self.assertEqual(synthesis["conclusion"], "حواء خلقت من ضلع آدم")
 
-    def test_loneliness_report_remains_qualified_until_classified(self) -> None:
+    def test_loneliness_report_is_qualified_after_classification(self) -> None:
         report = self.direction["decisions"][1]["loneliness_report"]
         self.assertEqual(
             report["status"],
-            "SOURCE_ORIGIN_CLASSIFICATION_PENDING",
+            "SOURCE_ORIGIN_CLASSIFIED_REVIEW_PENDING",
         )
-        self.assertEqual(report["narration_until_classified"], "QUALIFIED_ONLY")
         self.assertEqual(
-            report["if_israiliyyat"],
-            "EXPLICIT_ISRAILIYYAT_LABEL_REQUIRED",
+            report["origin_classification"],
+            "TAFSIR_REPORT_COMPOSITE_CHAIN_NOT_MARFU",
         )
+        self.assertEqual(
+            report["narration_mode"],
+            "QUALIFIED_TAFSIR_ATTRIBUTION",
+        )
+        self.assertFalse(report["definite_israiliyyat_label"])
+        self.assertTrue(report["possible_israiliyyat_mixture"])
+        self.assertTrue(
+            report["preferred_narration"].startswith(
+                "وورد في بعض روايات التفسير"
+            )
+        )
+
+    def test_legacy_pending_direction_remains_valid(self) -> None:
+        changed = copy.deepcopy(self.direction)
+        changed["status"] = LEGACY_DIRECTION_STATUS
+        changed["decisions"][1]["loneliness_report"] = {
+            "claim": (
+                "كان آدم في الجنة مستوحشًا أو وحيدًا "
+                "فخلق الله له حواء ليسكن إليها"
+            ),
+            "if_accepted_athar_or_supported_tafsir": (
+                "USE_CERTAINTY_MATCHING_CLASSIFICATION"
+            ),
+            "if_israiliyyat": "EXPLICIT_ISRAILIYYAT_LABEL_REQUIRED",
+            "narration_until_classified": "QUALIFIED_ONLY",
+            "status": "SOURCE_ORIGIN_CLASSIFICATION_PENDING",
+        }
+        validate_adam_editorial_direction(changed, event_map=self.event_map)
+
+    def test_unknown_direction_status_is_rejected(self) -> None:
+        changed = copy.deepcopy(self.direction)
+        changed["status"] = "UNKNOWN_DIRECTION_STATUS"
+        with self.assertRaises(NarrationIntentError):
+            validate_adam_editorial_direction(changed)
 
     def test_left_rib_sleep_and_dialogue_require_origin_or_omission(self) -> None:
         details = set(

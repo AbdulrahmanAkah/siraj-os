@@ -349,3 +349,39 @@ __all__ += [
     "load_and_validate_narration_intent_bundle",
     "write_narration_intent_validation_manifest",
 ]
+
+from .source_origin_classification import (
+    AUTOMATIC_APPROVAL_STATUS as SOURCE_ORIGIN_AUTOMATIC_APPROVAL_STATUS,
+    CLASSIFICATION_STATUS as SOURCE_ORIGIN_CLASSIFICATION_STATUS,
+    EVIDENCE_GATE_STATUS as SOURCE_ORIGIN_EVIDENCE_GATE_STATUS,
+    LIVE_EXECUTION_STATUS as SOURCE_ORIGIN_LIVE_EXECUTION_STATUS,
+    PROPOSAL_STATUS as SOURCE_ORIGIN_PROPOSAL_STATUS,
+    PROPOSED_GAP_ADJUDICATION_SCHEMA,
+    SOURCE_ORIGIN_CLASSIFICATION_SCHEMA,
+    TARGET_EVENT_IDS as SOURCE_ORIGIN_TARGET_EVENT_IDS,
+    UNKNOWN_TREE_FORMULA as SOURCE_ORIGIN_UNKNOWN_TREE_FORMULA,
+    SourceOriginClassificationError,
+    canonical_json_sha256 as source_origin_canonical_json_sha256,
+    load_and_validate_bundle as load_and_validate_source_origin_bundle,
+    validate_proposed_gap_adjudication,
+    validate_source_origin_classification,
+    write_validation_manifest as write_source_origin_validation_manifest,
+)
+
+__all__ += [
+    "SOURCE_ORIGIN_CLASSIFICATION_SCHEMA",
+    "PROPOSED_GAP_ADJUDICATION_SCHEMA",
+    "SOURCE_ORIGIN_CLASSIFICATION_STATUS",
+    "SOURCE_ORIGIN_PROPOSAL_STATUS",
+    "SOURCE_ORIGIN_EVIDENCE_GATE_STATUS",
+    "SOURCE_ORIGIN_AUTOMATIC_APPROVAL_STATUS",
+    "SOURCE_ORIGIN_LIVE_EXECUTION_STATUS",
+    "SOURCE_ORIGIN_TARGET_EVENT_IDS",
+    "SOURCE_ORIGIN_UNKNOWN_TREE_FORMULA",
+    "SourceOriginClassificationError",
+    "source_origin_canonical_json_sha256",
+    "validate_source_origin_classification",
+    "validate_proposed_gap_adjudication",
+    "load_and_validate_source_origin_bundle",
+    "write_source_origin_validation_manifest",
+]

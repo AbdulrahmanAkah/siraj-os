@@ -17,7 +17,9 @@
         "كان العطاس أول فعل لآدم",
         "كان الحمد أول كلام آدم"
       ],
-      "report_origin_rule": "Trace any added sequence or firstness detail; if it is Israiliyyat, label it explicitly and do not narrate it assertively."
+      "report_origin_rule": "Trace any added sequence or firstness detail; if it is Israiliyyat, label it explicitly and do not narrate it assertively.",
+      "source_origin_classification_file": "evidence/source-origin-classification-v1.json",
+      "source_origin_status": "CLASSIFIED_REVIEW_PENDING"
     },
     {
       "assertive_supported_synthesis_after_source_binding": {
@@ -40,14 +42,22 @@
       "event_id": "EV-ADAM-071",
       "event_title_override_for_narration": "خلق حواء من ضلع آدم وما ورد في سبب خلقها",
       "evidence_approval": false,
+      "explicit_israiliyyat_details": [
+        "الضلع الأيسر",
+        "خلق حواء أثناء نوم آدم",
+        "التئام موضع الضلع لحمًا"
+      ],
       "loneliness_report": {
         "claim": "كان آدم في الجنة مستوحشًا أو وحيدًا فخلق الله له حواء ليسكن إليها",
-        "if_accepted_athar_or_supported_tafsir": "USE_CERTAINTY_MATCHING_CLASSIFICATION",
-        "if_israiliyyat": "EXPLICIT_ISRAILIYYAT_LABEL_REQUIRED",
-        "narration_until_classified": "QUALIFIED_ONLY",
-        "status": "SOURCE_ORIGIN_CLASSIFICATION_PENDING"
+        "definite_israiliyyat_label": false,
+        "narration_mode": "QUALIFIED_TAFSIR_ATTRIBUTION",
+        "origin_classification": "TAFSIR_REPORT_COMPOSITE_CHAIN_NOT_MARFU",
+        "possible_israiliyyat_mixture": true,
+        "preferred_narration": "وورد في بعض روايات التفسير أن آدم كان في الجنة وحيدًا لا زوج له يسكن إليها، فخلق الله له حواء.",
+        "status": "SOURCE_ORIGIN_CLASSIFIED_REVIEW_PENDING"
       },
-      "source_mentions_in_narration": "SPARING_EXCEPT_WHEN_CONFUSION_OR_ORIGIN_CLASSIFICATION_REQUIRES_IT"
+      "source_mentions_in_narration": "SPARING_EXCEPT_WHEN_CONFUSION_OR_ORIGIN_CLASSIFICATION_REQUIRES_IT",
+      "source_origin_classification_file": "evidence/source-origin-classification-v1.json"
     },
     {
       "approved_narration_formula": "ونهاهما الله عن شجرة في الجنة، وقد اختلف المفسرون في نوعها، ولم يثبت في القرآن ولا في السنة الصحيحة ما يعيّنها.",
@@ -56,6 +66,8 @@
       "event_title_override_for_narration": "عدم ثبوت تعيين نوع الشجرة",
       "evidence_approval": false,
       "reported_types_may_be_mentioned": "ONLY_AS_DIFFERING_NON_ASSERTIVE_OPINIONS_WHEN_EDITORIALLY_USEFUL",
+      "source_origin_classification_file": "evidence/source-origin-classification-v1.json",
+      "source_origin_status": "CLASSIFIED_REVIEW_PENDING",
       "specific_type_assertion": "PROHIBITED",
       "visual_rule": "Use a beautiful non-identifiable tree without recognizable wheat, grape, fig, or other type-specific fruit."
     }
@@ -65,8 +77,9 @@
   "evidence_gate_status": "WITHHELD_PENDING_APPROVED_EVIDENCE_PACKAGE",
   "global_application_note": "Apply the same reasoning pattern to analogous claims in all future episodes.",
   "live_provider_execution": "BLOCKED",
-  "recorded_from": "explicit_creator_feedback",
+  "proposed_gap_adjudication_file": "evidence/proposed-gap-adjudication-v1.json",
+  "recorded_from": "explicit_creator_feedback_and_manual_source_origin_classification",
   "schema_version": "siraj-adam-editorial-direction-v1",
   "source_overload_policy": "Do not repeatedly name sources in narration; preserve full trace internally and name sources when doctrinal, moral, disputed, weak, or Israiliyyat ambiguity requires it.",
-  "status": "HUMAN_EDITORIAL_DIRECTION_RECORDED"
+  "status": "HUMAN_EDITORIAL_DIRECTION_AND_SOURCE_ORIGINS_RECORDED"
 }

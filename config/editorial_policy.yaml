@@ -181,3 +181,28 @@ narration_intent_policy:
   future_creator_feedback:
     persist_and_generalize: true
     do_not_restart_calibration: true
+
+source_origin_classification_policy:
+  classification_file: projects/episode-001-adam/evidence/source-origin-classification-v1.json
+  proposed_adjudication_file: projects/episode-001-adam/evidence/proposed-gap-adjudication-v1.json
+  status: source_origin_classified_review_pending
+  evidence_gate_effect: none
+  automatic_evidence_approval: forbidden
+  human_evidence_approval: pending
+  adam:
+    unsupported_firstness: prohibited
+    loneliness_report:
+      origin: tafsir_report_composite_chain_not_marfu
+      narration: qualified_tafsir_attribution
+      definite_israiliyyat_label: false
+    explicit_israiliyyat_details:
+      - left_rib
+      - sleep_during_creation
+      - place_filled_with_flesh
+    supported_synthesis:
+      conclusion: حواء خلقت من ضلع آدم
+      premise_trace_required: true
+    tree:
+      specific_type_assertion: prohibited
+      visual_type_identification: prohibited
+      qualified_uncertainty_narration: required

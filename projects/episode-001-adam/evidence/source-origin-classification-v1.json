@@ -1,0 +1,287 @@
+{
+  "automatic_evidence_approval": "FORBIDDEN",
+  "classification_id": "adam-source-origin-classification-v1",
+  "episode_id": "episode-001-adam",
+  "events": [
+    {
+      "claims": [
+        {
+          "claim": "عطس آدم بعد نفخ الروح وحمد الله فقال الله له ما ثبت في الحديث",
+          "claim_id": "ADAM-031-SNEEZE-PRAISE",
+          "narration_mode": "ASSERTIVE_AFTER_EVIDENCE_BINDING",
+          "origin_classification": "AUTHENTIC_SUNNAH",
+          "source_record_ids": [
+            "SRCREC-ADAM-SNEEZE-TIRMIDHI-3368"
+          ]
+        },
+        {
+          "claim": "العطاس كان أول حركة أو الحمد كان أول كلام",
+          "claim_id": "ADAM-031-FIRSTNESS",
+          "narration_mode": "PROHIBITED",
+          "origin_classification": "UNSUPPORTED_FIRSTNESS",
+          "source_record_ids": []
+        },
+        {
+          "claim": "تفاصيل انتقال الروح بين الرأس والعينين والجوف والرجلين",
+          "claim_id": "ADAM-031-SEQUENCE-DETAILS",
+          "narration_mode": "QUALIFIED_OR_OMIT",
+          "origin_classification": "TAFSIR_REPORT_COMPOSITE_CHAIN_NOT_MARFU",
+          "source_record_ids": [
+            "SRCREC-SUDDI-COMPOSITE-ADAM-SEQUENCE"
+          ]
+        }
+      ],
+      "event_id": "EV-ADAM-031",
+      "event_title_for_narration": "عطاس آدم وحمده لله",
+      "firstness_claim": "PROHIBITED_UNLESS_DIRECTLY_PROVEN"
+    },
+    {
+      "event_id": "EV-ADAM-071",
+      "event_title_for_narration": "خلق حواء من ضلع آدم وما ورد في سبب خلقها",
+      "loneliness_report": {
+        "assertive_narration_allowed": false,
+        "chain_character": "COMPOSITE_AL_SUDDI_TAFSIR_CHAIN_WITH_MIXED_UNDISTINGUISHED_ORIGINS",
+        "claim": "كان آدم في الجنة وحيدًا لا زوج له يسكن إليها فخلق الله له حواء",
+        "definite_israiliyyat_label": false,
+        "narration_mode": "QUALIFIED_TAFSIR_ATTRIBUTION",
+        "origin_classification": "TAFSIR_REPORT_COMPOSITE_CHAIN_NOT_MARFU",
+        "possible_israiliyyat_mixture": true,
+        "preferred_narration": "وورد في بعض روايات التفسير أن آدم كان في الجنة وحيدًا لا زوج له يسكن إليها، فخلق الله له حواء.",
+        "source_mention_required_here": true,
+        "source_record_ids": [
+          "SRCREC-TABARI-8406-SUDDI-LONELINESS",
+          "SRCREC-IBN-ABI-HATIM-8276-SUDDI-LONELINESS",
+          "SRCREC-BAYHAQI-820-SUDDI-LONELINESS"
+        ]
+      },
+      "secondary_details": [
+        {
+          "allowed_if_editorially_needed": "EXPLICIT_ISRAILIYYAT_LABEL_ONLY",
+          "claim": "خلق حواء من ضلع آدم الأيسر",
+          "default_narration": "OMIT",
+          "detail_id": "left_rib",
+          "origin_classification": "ISRAILIYYAT_EXPLICIT_ORIGIN",
+          "source_record_ids": [
+            "SRCREC-TABARI-8407-IBN-ISHAQ-AHL-AL-KITAB"
+          ]
+        },
+        {
+          "allowed_if_editorially_needed": "EXPLICIT_ISRAILIYYAT_LABEL_ONLY",
+          "claim": "خلق حواء أثناء نوم آدم",
+          "default_narration": "OMIT",
+          "detail_id": "sleep_during_creation",
+          "origin_classification": "ISRAILIYYAT_EXPLICIT_ORIGIN",
+          "source_record_ids": [
+            "SRCREC-TABARI-8407-IBN-ISHAQ-AHL-AL-KITAB"
+          ]
+        },
+        {
+          "allowed_if_editorially_needed": "EXPLICIT_ISRAILIYYAT_LABEL_ONLY",
+          "claim": "التأم موضع الضلع لحمًا",
+          "default_narration": "OMIT",
+          "detail_id": "place_filled_with_flesh",
+          "origin_classification": "ISRAILIYYAT_EXPLICIT_ORIGIN",
+          "source_record_ids": [
+            "SRCREC-TABARI-8407-IBN-ISHAQ-AHL-AL-KITAB"
+          ]
+        },
+        {
+          "allowed_if_editorially_needed": "QUALIFIED_TAFSIR_ATTRIBUTION",
+          "claim": "الحوار المنقول بين آدم وحواء",
+          "default_narration": "OMIT",
+          "detail_id": "adam_hawa_dialogue",
+          "origin_classification": "TAFSIR_REPORT_COMPOSITE_CHAIN_NOT_MARFU",
+          "source_record_ids": [
+            "SRCREC-TABARI-8406-SUDDI-LONELINESS"
+          ]
+        },
+        {
+          "allowed_if_editorially_needed": "QUALIFIED_TAFSIR_ATTRIBUTION",
+          "claim": "سؤال الملائكة آدم عن اسم حواء",
+          "default_narration": "OMIT",
+          "detail_id": "angels_name_question",
+          "origin_classification": "TAFSIR_REPORT_COMPOSITE_CHAIN_NOT_MARFU",
+          "source_record_ids": [
+            "SRCREC-TABARI-8406-SUDDI-LONELINESS"
+          ]
+        },
+        {
+          "allowed_if_editorially_needed": "QUALIFIED_TAFSIR_ATTRIBUTION",
+          "claim": "سميت حواء لأنها خلقت من حي",
+          "default_narration": "OMIT",
+          "detail_id": "name_reason_created_from_living",
+          "origin_classification": "TAFSIR_REPORT_COMPOSITE_CHAIN_NOT_MARFU",
+          "source_record_ids": [
+            "SRCREC-TABARI-8406-SUDDI-LONELINESS"
+          ]
+        }
+      ],
+      "supported_synthesis": {
+        "adds_unproved_detail": false,
+        "conclusion": "حواء خلقت من ضلع آدم",
+        "narration_mode": "ASSERTIVE_AFTER_PREMISE_BINDING",
+        "origin_classification": "SUPPORTED_SYNTHESIS",
+        "premise_source_record_ids": [
+          "SRCREC-HAWA-NAME-BUKHARI-3330-MUSLIM-1470",
+          "SRCREC-WOMAN-RIB-BUKHARI-3331-MUSLIM-1468"
+        ],
+        "premises": [
+          "زوج آدم هي حواء",
+          "المرأة خلقت من ضلع"
+        ]
+      }
+    },
+    {
+      "approved_narration_formula": "ونهاهما الله عن شجرة في الجنة، وقد اختلف المفسرون في نوعها، ولم يثبت في القرآن ولا في السنة الصحيحة ما يعيّنها.",
+      "event_id": "EV-ADAM-091",
+      "event_title_for_narration": "عدم ثبوت تعيين نوع الشجرة",
+      "narration_mode": "QUALIFIED_UNCERTAINTY",
+      "origin_classification": "DISPUTED_TAFSIR_VIEW",
+      "reported_types": [
+        "البر أو الحنطة",
+        "الكرم أو العنب",
+        "التين",
+        "أقوال أخرى"
+      ],
+      "source_record_ids": [
+        "SRCREC-TABARI-TREE-NONDETERMINATION",
+        "SRCREC-IBN-KATHIR-TREE-NONDETERMINATION"
+      ],
+      "specific_tree_type_assertion": "PROHIBITED",
+      "visual_type_identification": "PROHIBITED"
+    }
+  ],
+  "evidence_approval": false,
+  "evidence_gate_status": "WITHHELD_PENDING_APPROVED_EVIDENCE_PACKAGE",
+  "human_evidence_approval": false,
+  "live_provider_execution": "BLOCKED",
+  "recorded_from": [
+    "creator editorial direction",
+    "manual review of local Adam extraction windows",
+    "manual source-origin verification",
+    "temporary Dorar hadith verification"
+  ],
+  "schema_version": "siraj-source-origin-classification-v1",
+  "source_names_in_narration": "SPARING_EXCEPT_WHEN_ORIGIN_OR_CONFUSION_REQUIRES_IT",
+  "source_records": [
+    {
+      "automatic_grade": false,
+      "origin_classification": "AUTHENTIC_SUNNAH",
+      "record": "3368",
+      "references": [
+        "جامع الترمذي 3368",
+        "الدرر السنية: شرح الحديث 83069"
+      ],
+      "source_record_id": "SRCREC-ADAM-SNEEZE-TIRMIDHI-3368",
+      "temporary_verification": "الدرر السنية؛ نُسب الحكم إلى الترمذي والألباني في سجل التحقق",
+      "work": "جامع الترمذي"
+    },
+    {
+      "automatic_grade": false,
+      "claim_scope": "يثبت اسم حواء ولا يثبت سبب التسمية",
+      "origin_classification": "AUTHENTIC_SUNNAH",
+      "record": "البخاري 3330؛ مسلم 1470",
+      "references": [
+        "صحيح البخاري 3330",
+        "صحيح مسلم 1470"
+      ],
+      "source_record_id": "SRCREC-HAWA-NAME-BUKHARI-3330-MUSLIM-1470",
+      "work": "صحيح البخاري وصحيح مسلم"
+    },
+    {
+      "automatic_grade": false,
+      "claim_scope": "يثبت أن المرأة خلقت من ضلع دون تعيين اليسار أو النوم",
+      "origin_classification": "AUTHENTIC_SUNNAH",
+      "record": "البخاري 3331؛ مسلم 1468",
+      "references": [
+        "صحيح البخاري 3331",
+        "صحيح مسلم 1468"
+      ],
+      "source_record_id": "SRCREC-WOMAN-RIB-BUKHARI-3331-MUSLIM-1468",
+      "work": "صحيح البخاري وصحيح مسلم"
+    },
+    {
+      "automatic_grade": false,
+      "chain_summary": "موسى بن هارون عن عمرو بن حماد عن أسباط عن السدي",
+      "origin_classification": "TAFSIR_REPORT_COMPOSITE_CHAIN_NOT_MARFU",
+      "origin_note": "خبر تفسيري عن السدي؛ ليس حديثًا مرفوعًا",
+      "record": "8406 عند تفسير النساء 1",
+      "references": [
+        "تفسير الطبري، النساء 1، الأثر 8406"
+      ],
+      "source_record_id": "SRCREC-TABARI-8406-SUDDI-LONELINESS",
+      "work": "تفسير الطبري"
+    },
+    {
+      "automatic_grade": false,
+      "chain_summary": "أبو زرعة عن عمرو بن حماد عن أسباط عن السدي",
+      "origin_classification": "TAFSIR_REPORT_COMPOSITE_CHAIN_NOT_MARFU",
+      "origin_note": "خبر تفسيري عن السدي؛ ليس حديثًا مرفوعًا",
+      "record": "8276 عند تفسير الأعراف 19",
+      "references": [
+        "تفسير ابن أبي حاتم، الأعراف 19، الأثر 8276"
+      ],
+      "source_record_id": "SRCREC-IBN-ABI-HATIM-8276-SUDDI-LONELINESS",
+      "work": "تفسير ابن أبي حاتم"
+    },
+    {
+      "automatic_grade": false,
+      "chain_summary": "أسباط عن السدي عن أبي مالك وأبي صالح عن ابن عباس وعن مرة عن ابن مسعود وعن ناس من الصحابة",
+      "origin_classification": "TAFSIR_REPORT_COMPOSITE_CHAIN_NOT_MARFU",
+      "origin_note": "نسخة تفسيرية مركبة لا يتميز فيها المقبول من الضعيف ولا يجزم بجميع تفاصيلها",
+      "record": "820",
+      "references": [
+        "الأسماء والصفات للبيهقي، الأثر 820"
+      ],
+      "source_record_id": "SRCREC-BAYHAQI-820-SUDDI-LONELINESS",
+      "work": "الأسماء والصفات للبيهقي"
+    },
+    {
+      "automatic_grade": false,
+      "chain_summary": "ابن حميد عن سلمة عن ابن إسحاق",
+      "origin_classification": "ISRAILIYYAT_EXPLICIT_ORIGIN",
+      "origin_note": "صرح ابن إسحاق: فيما بلغنا عن أهل الكتاب من أهل التوراة وغيرهم",
+      "record": "8407 عند تفسير النساء 1",
+      "references": [
+        "تفسير الطبري، النساء 1، الأثر 8407"
+      ],
+      "source_record_id": "SRCREC-TABARI-8407-IBN-ISHAQ-AHL-AL-KITAB",
+      "work": "تفسير الطبري"
+    },
+    {
+      "automatic_grade": false,
+      "origin_classification": "TAFSIR_REPORT_COMPOSITE_CHAIN_NOT_MARFU",
+      "origin_note": "تفاصيل تفسيرية في النسخة المركبة؛ لا تثبت صفة الأولية",
+      "record": "سياق خلق آدم ونفخ الروح",
+      "references": [
+        "تفسير ابن كثير عند البقرة 30 وما بعدها",
+        "البداية والنهاية، خلق آدم"
+      ],
+      "source_record_id": "SRCREC-SUDDI-COMPOSITE-ADAM-SEQUENCE",
+      "work": "تفسير السدي كما نقلته كتب التفسير"
+    },
+    {
+      "automatic_grade": false,
+      "origin_classification": "DISPUTED_TAFSIR_VIEW",
+      "origin_note": "اختلاف في التعيين مع عدم دليل ملزم على نوع بعينه",
+      "record": "تفسير النهي عن الشجرة",
+      "references": [
+        "تفسير الطبري عند البقرة 35"
+      ],
+      "source_record_id": "SRCREC-TABARI-TREE-NONDETERMINATION",
+      "work": "تفسير الطبري"
+    },
+    {
+      "automatic_grade": false,
+      "origin_classification": "DISPUTED_TAFSIR_VIEW",
+      "origin_note": "نقل ترجيح عدم التعيين لغياب الدليل من القرآن والسنة الصحيحة",
+      "record": "تفسير البقرة 35",
+      "references": [
+        "تفسير ابن كثير، البقرة 35"
+      ],
+      "source_record_id": "SRCREC-IBN-KATHIR-TREE-NONDETERMINATION",
+      "work": "تفسير ابن كثير"
+    }
+  ],
+  "status": "SOURCE_ORIGIN_CLASSIFIED_REVIEW_PENDING"
+}
