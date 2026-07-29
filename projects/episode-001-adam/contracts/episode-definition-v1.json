@@ -236,7 +236,35 @@
   "maximum_duration_minutes": 25,
   "minimum_duration_minutes": 18,
   "next_stage": "NON_PAID_MASTER_STYLE_FRAMES_AND_KEYFRAME_PROTOTYPING_V1",
+  "operational_next_stage": "NON_PAID_SINGLE_SHOT_MOTION_PROTOTYPE_V1",
   "paid_execution": "BLOCKED",
+  "preliminary_style_frame_human_approval": {
+    "approval_id": "adam_preliminary_style_frame_human_approval_v1_e1915f045630c5cc",
+    "binding_id": "adam_preliminary_style_frame_human_approval_binding_v1_bd3ca762cf08bf59",
+    "binding_path": "contracts/preliminary-style-frame-human-approval-binding-v1.json",
+    "final_master_visual_approval": false,
+    "path": "evidence/preliminary-style-frame-human-approval-v1.json",
+    "receipt_id": "adam_preliminary_style_frame_human_approval_receipt_v1_83ecc2a528dd06ab",
+    "receipt_path": "evidence/preliminary-style-frame-human-approval-receipt-v1.json",
+    "status": "RECORDED_HUMAN_PRELIMINARY_STYLE_FRAME_APPROVAL"
+  },
+  "preliminary_style_frame_reference_set": {
+    "approval_scope": "PRELIMINARY_VISUAL_DIRECTION_REFERENCE_SET_ONLY",
+    "human_approval_binding_id": "adam_preliminary_style_frame_human_approval_binding_v1_bd3ca762cf08bf59",
+    "human_approval_id": "adam_preliminary_style_frame_human_approval_v1_e1915f045630c5cc",
+    "master_visual_approval": false,
+    "path": "cinematic/preliminary-style-frame-reference-set-v1.json",
+    "reference_asset_count": 8,
+    "reference_set_id": "adam_preliminary_style_frame_reference_set_v1_5c1526c5bfbe5234",
+    "status": "HUMAN_APPROVED_PRELIMINARY_VISUAL_DIRECTION_REFERENCE_SET",
+    "storyboard_binding_status": "NOT_FINAL_SHOT_BINDING"
+  },
+  "preliminary_visual_safety_policy": {
+    "blocking_rule_count": 8,
+    "path": "cinematic/preliminary-style-frame-visual-safety-policy-v1.json",
+    "policy_id": "adam_preliminary_visual_safety_policy_v1_3636efcfaa1010ec",
+    "status": "HUMAN_DIRECTIVES_ACTIVE"
+  },
   "production_brief": {
     "brief_id": "adam_prestige_production_brief_v2_1_c8e7e9b9ccd7cadd",
     "path": "cinematic/prestige-production-brief-v2-1.json",
@@ -277,6 +305,20 @@
     "trace_id": "adam_script_storyboard_trace_v2_1_a77f4d5de33416a7"
   },
   "series_id": "siraj-islamic-history-chronology",
+  "single_shot_motion_prototype_gate": {
+    "audio_generation": "BLOCKED",
+    "duration_window_seconds": [
+      8,
+      12
+    ],
+    "full_episode_video_generation": "BLOCKED",
+    "gate_id": "adam_non_paid_single_shot_motion_prototype_gate_v1_b020338351ae6479",
+    "output_count_limit": 1,
+    "path": "cinematic/non-paid-single-shot-motion-prototype-gate-v1.json",
+    "source_asset_id": "ADAM-PREF-001",
+    "status": "OPEN_SINGLE_NON_PAID_ENVIRONMENT_SHOT_MOTION_PROTOTYPE_ONLY",
+    "video_prototype_authorisation": "AUTHORISED_SINGLE_NON_PAID_ENVIRONMENT_SHOT_ONLY"
+  },
   "source_package": {
     "approval_id": "adam_final_evidence_human_approval_b3743a558e894e1f",
     "approval_status": "APPROVED",

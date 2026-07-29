@@ -1,0 +1,50 @@
+{
+  "episode_id": "episode-001-adam",
+  "final_master_visual_approval": false,
+  "master_visual_approval": false,
+  "policy_id": "adam_preliminary_visual_safety_policy_v1_3636efcfaa1010ec",
+  "rules": [
+    {
+      "directive_ar": "يمنع تجسيد الملائكة بأي هيئة بشرية أو جسمية.",
+      "rule_id": "NO_ANGEL_DEPICTION",
+      "severity": "BLOCKING"
+    },
+    {
+      "directive_ar": "يمنع ظهور بشرة المرأة أو مفاتنها؛ حواء مستورة بالكامل في كل إطار.",
+      "rule_id": "NO_FEMALE_SKIN_OR_FORM_DISPLAY",
+      "severity": "BLOCKING"
+    },
+    {
+      "directive_ar": "عند السماح بإظهار آدم في المرجع يكون ذا بشرة داكنة، ولا تظهر ملامحه بوضوح.",
+      "rule_id": "ADAM_DARK_SKIN_WHEN_DEPICTED",
+      "severity": "BLOCKING"
+    },
+    {
+      "directive_ar": "يمنع إظهار ملامح وجه النبي بوضوح.",
+      "rule_id": "NO_CLEAR_PROPHET_FACE",
+      "severity": "BLOCKING"
+    },
+    {
+      "directive_ar": "بعد الهبوط إلى الأرض يمنع تصوير الأنبياء كأجساد كاملة؛ لا يظهر عضو إلا لضرورة نصية ذات أهمية سياقية.",
+      "rule_id": "NO_FULL_PROPHET_BODY_AFTER_DESCENT",
+      "severity": "BLOCKING"
+    },
+    {
+      "directive_ar": "يمنع تصوير الجنة بجفاف أو فناء أو بقعة توحي بنفاد النعيم أو نقصه.",
+      "rule_id": "PARADISE_NO_DECAY_BARRENNESS_OR_DEPLETION",
+      "severity": "BLOCKING"
+    },
+    {
+      "directive_ar": "لا يعين نوع الشجرة بصريًا على أنه حقيقة ثابتة.",
+      "rule_id": "TREE_SPECIES_NOT_ASSERTED",
+      "severity": "BLOCKING"
+    },
+    {
+      "directive_ar": "اعتماد الصور مبدئي وقابل للتعديل عند التشغيل الفعلي، ولا يساوي اعتماد الهوية البصرية النهائية.",
+      "rule_id": "PRELIMINARY_REFERENCE_NOT_FINAL_IDENTITY",
+      "severity": "BLOCKING"
+    }
+  ],
+  "schema_version": "siraj-adam-preliminary-style-frame-visual-safety-policy-v1",
+  "status": "HUMAN_DIRECTIVES_ACTIVE"
+}
