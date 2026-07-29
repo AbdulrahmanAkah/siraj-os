@@ -18,6 +18,10 @@ from src.application.storyboard_runtime.master_visual_human_review_v1 import (
     write_outputs,
 )
 
+from src.application.storyboard_runtime.master_visual_human_approval_binding_v1 import (
+    STYLE_FRAME_AUTHORISATION,
+)
+
 ROOT = Path(__file__).resolve().parents[1]
 EPISODE = ROOT / "projects/episode-001-adam"
 CINEMATIC = EPISODE / "cinematic"
@@ -124,10 +128,15 @@ class AdamMasterVisualHumanReviewV1Tests(unittest.TestCase):
             self.prototype_plan["anchor_shot_ids"], list(ANCHOR_SHOT_IDS)
         )
 
-    def test_prototype_images_are_not_authorised_automatically(self):
+    def test_prototype_image_authorisation_matches_stage(self):
+        expected = (
+            STYLE_FRAME_AUTHORISATION
+            if self.definition.get("next_stage") == APPROVED_NEXT_STAGE
+            else "PENDING_HUMAN_APPROVAL"
+        )
         self.assertEqual(
             self.prototype_plan["image_generation_authorisation"],
-            "PENDING_HUMAN_APPROVAL",
+            expected,
         )
 
     def test_prototype_video_is_blocked(self):
@@ -177,7 +186,10 @@ class AdamMasterVisualHumanReviewV1Tests(unittest.TestCase):
         self.assertEqual(self.review_binding["next_stage"], NEXT_STAGE)
 
     def test_episode_advances_to_human_decision(self):
-        self.assertEqual(self.updated_definition["next_stage"], NEXT_STAGE)
+        self.assertIn(
+            self.updated_definition["next_stage"],
+            (NEXT_STAGE, APPROVED_NEXT_STAGE),
+        )
 
     def test_episode_binds_review_package(self):
         self.assertEqual(

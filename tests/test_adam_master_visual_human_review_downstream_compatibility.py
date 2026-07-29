@@ -73,7 +73,7 @@ class AdamMasterVisualHumanReviewDownstreamCompatibilityTests(unittest.TestCase)
                 encoding="utf-8",
             )
         self.assertIn(
-            "NEXT_STAGE=HUMAN_DECISION_ON_MASTER_VISUAL_DEVELOPMENT_REVIEW_V1",
+            f"NEXT_STAGE={self.definition['next_stage']}",
             result.stdout,
         )
         self.assertEqual(
@@ -119,7 +119,7 @@ class AdamMasterVisualHumanReviewDownstreamCompatibilityTests(unittest.TestCase)
                 encoding="utf-8",
             )
         self.assertIn(
-            "NEXT_STAGE=HUMAN_DECISION_ON_MASTER_VISUAL_DEVELOPMENT_REVIEW_V1",
+            f"NEXT_STAGE={self.definition['next_stage']}",
             result.stdout,
         )
         self.assertEqual(definition_path.read_bytes(), before)

@@ -149,6 +149,56 @@ def _validate_execution_blocks(artifact: Mapping[str, object], label: str) -> No
             )
 
 
+def approved_prototype_stage_is_active(
+    episode_definition: Mapping[str, object],
+    production_brief: Mapping[str, object],
+) -> bool:
+    approval = episode_definition.get("master_visual_human_approval")
+    plan_ref = episode_definition.get("master_style_frame_prototype_plan")
+    gate_ref = episode_definition.get("style_frame_prototyping_gate")
+    gate_id = gate_ref.get("gate_id") if isinstance(gate_ref, Mapping) else None
+    return (
+        isinstance(approval, Mapping)
+        and approval.get("development_baseline_approval") is True
+        and approval.get("human_decision")
+        == "APPROVE_DEVELOPMENT_BASELINE_FOR_NON_PAID_STYLE_FRAMES"
+        and approval.get("style_frame_image_authorisation")
+        == "AUTHORIZED_NON_PAID_EIGHT_ANCHOR_PROTOTYPES_ONLY"
+        and approval.get("master_visual_approval") is False
+        and isinstance(plan_ref, Mapping)
+        and plan_ref.get("prototype_plan_id")
+        == "adam_master_style_frame_prototype_plan_v1_1c4d8ae331ea3dd6"
+        and plan_ref.get("prototype_count") == 8
+        and plan_ref.get("image_generation_authorisation")
+        == "AUTHORIZED_NON_PAID_EIGHT_ANCHOR_PROTOTYPES_ONLY"
+        and isinstance(gate_id, str)
+        and bool(gate_id)
+        and plan_ref.get("prototyping_gate_id") == gate_id
+        and isinstance(gate_ref, Mapping)
+        and gate_ref.get("approved_prototype_count") == 8
+        and gate_ref.get("image_generation_authorisation")
+        == "AUTHORIZED_NON_PAID_EIGHT_ANCHOR_PROTOTYPES_ONLY"
+        and gate_ref.get("video_generation") == "BLOCKED"
+        and gate_ref.get("master_visual_approval") is False
+        and episode_definition.get("next_stage") == APPROVED_NEXT_STAGE
+        and episode_definition.get("master_visual_approval") is False
+        and production_brief.get("status")
+        == "NON_PAID_STYLE_FRAME_PROTOTYPING_AUTHORISED_PROVIDER_EXECUTION_BLOCKED"
+        and production_brief.get("style_frame_prototyping_status")
+        == "AUTHORISED_EIGHT_NON_PAID_ANCHOR_PROTOTYPES_ONLY"
+        and production_brief.get("style_frame_image_authorisation")
+        == "AUTHORIZED_NON_PAID_EIGHT_ANCHOR_PROTOTYPES_ONLY"
+        and production_brief.get("style_frame_prototyping_gate_id") == gate_id
+        and production_brief.get("next_non_paid_stage") == APPROVED_NEXT_STAGE
+        and production_brief.get("master_visual_approval") is False
+        and production_brief.get("generated_video_planned_seconds") == 0
+        and production_brief.get("live_provider_execution") == LIVE_EXECUTION
+        and production_brief.get("paid_execution") == PAID_EXECUTION
+        and production_brief.get("direct_execution") == DIRECT_EXECUTION
+        and production_brief.get("runware_execution") == RUNWARE_EXECUTION
+    )
+
+
 def validate_inputs(
     *,
     storyboard: Mapping[str, object],
@@ -245,7 +295,7 @@ def validate_inputs(
     )
     if development.get("binding_id") != DEVELOPMENT_BINDING_ID:
         raise MasterVisualHumanReviewError("Episode does not bind the development package.")
-    if episode_definition.get("next_stage") not in (SOURCE_STAGE, NEXT_STAGE):
+    if episode_definition.get("next_stage") not in (SOURCE_STAGE, NEXT_STAGE, APPROVED_NEXT_STAGE):
         raise MasterVisualHumanReviewError("Episode is not in the human-review state.")
     if episode_definition.get("storyboard_completion_status") != "COMPLETE_HUMAN_APPROVED":
         raise MasterVisualHumanReviewError("Storyboard approval is no longer active.")
@@ -647,6 +697,18 @@ def update_episode_definition(
     review_binding: Mapping[str, object],
 ) -> dict:
     definition = copy.deepcopy(dict(episode_definition))
+    existing_approval = definition.get("master_visual_human_approval")
+    downstream_approved = (
+        isinstance(existing_approval, Mapping)
+        and existing_approval.get("development_baseline_approval") is True
+        and existing_approval.get("human_decision")
+        == "APPROVE_DEVELOPMENT_BASELINE_FOR_NON_PAID_STYLE_FRAMES"
+        and existing_approval.get("master_visual_approval") is False
+        and definition.get("next_stage") == APPROVED_NEXT_STAGE
+        and definition.get("master_visual_approval") is False
+    )
+    if downstream_approved:
+        return definition
     existing = definition.get("master_visual_human_review")
     if isinstance(existing, Mapping):
         existing_binding = existing.get("review_binding_id")
@@ -704,6 +766,21 @@ def update_production_brief(
     review_binding: Mapping[str, object],
 ) -> dict:
     brief = copy.deepcopy(dict(production_brief))
+    downstream_approved = (
+        brief.get("style_frame_prototyping_status")
+        == "AUTHORISED_EIGHT_NON_PAID_ANCHOR_PROTOTYPES_ONLY"
+        and brief.get("style_frame_image_authorisation")
+        == "AUTHORIZED_NON_PAID_EIGHT_ANCHOR_PROTOTYPES_ONLY"
+        and brief.get("next_non_paid_stage") == APPROVED_NEXT_STAGE
+        and brief.get("master_visual_approval") is False
+        and brief.get("generated_video_planned_seconds") == 0
+        and brief.get("live_provider_execution") == LIVE_EXECUTION
+        and brief.get("paid_execution") == PAID_EXECUTION
+        and brief.get("direct_execution") == DIRECT_EXECUTION
+        and brief.get("runware_execution") == RUNWARE_EXECUTION
+    )
+    if downstream_approved:
+        return brief
     brief.update(
         {
             "status": "MASTER_VISUAL_HUMAN_REVIEW_READY_PROVIDER_EXECUTION_BLOCKED",
@@ -849,8 +926,28 @@ def validate_outputs(
     )
     if review.get("review_binding_id") != review_binding.get("review_binding_id"):
         raise MasterVisualHumanReviewError("Episode does not bind review package.")
-    if episode_definition.get("next_stage") != NEXT_STAGE:
-        raise MasterVisualHumanReviewError("Episode did not advance to human decision.")
+    if episode_definition.get("next_stage") not in (NEXT_STAGE, APPROVED_NEXT_STAGE):
+        raise MasterVisualHumanReviewError("Episode human-review stage changed.")
+    approval = episode_definition.get("master_visual_human_approval")
+    downstream_approved = (
+        isinstance(approval, Mapping)
+        and approval.get("development_baseline_approval") is True
+        and approval.get("master_visual_approval") is False
+        and episode_definition.get("next_stage") == APPROVED_NEXT_STAGE
+    )
+    if not downstream_approved and review.get("human_approval") is not False:
+        raise MasterVisualHumanReviewError("Pending review approval state changed.")
+    if downstream_approved:
+        if prototype_plan.get("image_generation_authorisation") != (
+            "AUTHORIZED_NON_PAID_EIGHT_ANCHOR_PROTOTYPES_ONLY"
+        ):
+            raise MasterVisualHumanReviewError(
+                "Approved review did not preserve authorised prototype scope."
+            )
+        if prototype_plan.get("human_approval") is not True:
+            raise MasterVisualHumanReviewError(
+                "Approved review lost prototype human approval."
+            )
     if episode_definition.get("master_visual_approval") is not False:
         raise MasterVisualHumanReviewError("Episode visual approval opened prematurely.")
     if production_brief.get("master_visual_human_review_binding_id") != review_binding.get(
@@ -911,6 +1008,25 @@ def build_all(
         dossier=dossier,
         critical_review=critical_review,
     )
+    if approved_prototype_stage_is_active(episode_definition, production_brief):
+        from src.application.storyboard_runtime.master_visual_human_approval_binding_v1 import (
+            build_approval_record,
+            build_binding,
+            build_prototyping_gate,
+            build_receipt,
+            update_prototype_plan,
+        )
+
+        existing_approval = build_approval_record()
+        existing_receipt = build_receipt(existing_approval)
+        existing_binding = build_binding(existing_approval, existing_receipt)
+        existing_gate = build_prototyping_gate(existing_binding)
+        prototype_plan = update_prototype_plan(
+            prototype_plan,
+            existing_approval,
+            existing_binding,
+            existing_gate,
+        )
     approval_request = build_human_approval_request(
         dossier=dossier,
         critical_review=critical_review,

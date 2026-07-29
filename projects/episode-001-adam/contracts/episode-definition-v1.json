@@ -167,11 +167,13 @@
   "language": "ar",
   "live_execution_status": "BLOCKED",
   "master_style_frame_prototype_plan": {
-    "image_generation_authorisation": "PENDING_HUMAN_APPROVAL",
+    "human_approval_id": "adam_master_visual_human_approval_v1_0310e12b2b682b88",
+    "image_generation_authorisation": "AUTHORIZED_NON_PAID_EIGHT_ANCHOR_PROTOTYPES_ONLY",
     "path": "cinematic/master-style-frame-prototype-plan-v1.json",
     "prototype_count": 8,
     "prototype_plan_id": "adam_master_style_frame_prototype_plan_v1_1c4d8ae331ea3dd6",
-    "status": "PLANNED_AWAITING_HUMAN_DEVELOPMENT_BASELINE_APPROVAL"
+    "prototyping_gate_id": "adam_non_paid_master_style_frame_prototyping_gate_v1_3c36b23723726078",
+    "status": "HUMAN_APPROVED_READY_FOR_NON_PAID_PROTOTYPE_EXECUTION"
   },
   "master_visual_approval": false,
   "master_visual_development": {
@@ -189,14 +191,35 @@
     "visual_bible_id": "adam_master_visual_bible_v1_0790d2e2e5fed178",
     "visual_bible_path": "cinematic/master-visual-bible-v1.json"
   },
+  "master_visual_human_approval": {
+    "approval_date_baghdad": "2026-07-29",
+    "approval_id": "adam_master_visual_human_approval_v1_0310e12b2b682b88",
+    "approval_request_id": "adam_master_visual_human_approval_request_v1_a53844369a6cb0fc",
+    "binding_id": "adam_master_visual_human_approval_binding_v1_28648755f2b7324e",
+    "binding_path": "contracts/master-visual-human-approval-binding-v1.json",
+    "development_baseline_approval": true,
+    "final_master_visual_approval": false,
+    "human_decision": "APPROVE_DEVELOPMENT_BASELINE_FOR_NON_PAID_STYLE_FRAMES",
+    "master_visual_approval": false,
+    "path": "evidence/master-visual-human-approval-v1.json",
+    "receipt_id": "adam_master_visual_human_approval_receipt_v1_429f99d8751dfb0b",
+    "receipt_path": "evidence/master-visual-human-approval-receipt-v1.json",
+    "review_binding_id": "adam_master_visual_human_review_binding_v1_4527afce21be895f",
+    "status": "APPROVED_DEVELOPMENT_BASELINE_FOR_NON_PAID_STYLE_FRAME_PROTOTYPING",
+    "style_frame_image_authorisation": "AUTHORIZED_NON_PAID_EIGHT_ANCHOR_PROTOTYPES_ONLY"
+  },
   "master_visual_human_review": {
+    "approval_date_baghdad": "2026-07-29",
     "approval_request_id": "adam_master_visual_human_approval_request_v1_a53844369a6cb0fc",
     "approval_request_path": "evidence/master-visual-human-approval-request-v1.json",
     "critical_review_id": "adam_master_visual_critical_review_v1_02e5776297bed398",
     "critical_review_path": "cinematic/master-visual-critical-review-v1.json",
     "final_master_visual_approval_eligible": false,
-    "human_approval": false,
-    "human_decision": "PENDING",
+    "human_approval": true,
+    "human_approval_binding_id": "adam_master_visual_human_approval_binding_v1_28648755f2b7324e",
+    "human_approval_id": "adam_master_visual_human_approval_v1_0310e12b2b682b88",
+    "human_approval_receipt_id": "adam_master_visual_human_approval_receipt_v1_429f99d8751dfb0b",
+    "human_decision": "APPROVE_DEVELOPMENT_BASELINE_FOR_NON_PAID_STYLE_FRAMES",
     "master_visual_approval": false,
     "prototype_plan_id": "adam_master_style_frame_prototype_plan_v1_1c4d8ae331ea3dd6",
     "prototype_plan_path": "cinematic/master-style-frame-prototype-plan-v1.json",
@@ -206,12 +229,13 @@
     "review_binding_path": "contracts/master-visual-human-review-binding-v1.json",
     "review_dossier_id": "adam_master_visual_human_review_dossier_v1_5dd9d62e194cd5b4",
     "review_dossier_path": "cinematic/master-visual-human-review-dossier-v1.json",
-    "status": "READY_FOR_HUMAN_DECISION"
+    "status": "HUMAN_APPROVED_DEVELOPMENT_BASELINE_ONLY",
+    "style_frame_image_authorisation": "AUTHORIZED_NON_PAID_EIGHT_ANCHOR_PROTOTYPES_ONLY"
   },
-  "master_visual_status": "HUMAN_REVIEW_PACKAGE_READY_FINAL_APPROVAL_STILL_BLOCKED",
+  "master_visual_status": "DEVELOPMENT_BASELINE_HUMAN_APPROVED_STYLE_FRAME_PROTOTYPING_AUTHORISED_FINAL_APPROVAL_BLOCKED",
   "maximum_duration_minutes": 25,
   "minimum_duration_minutes": 18,
-  "next_stage": "HUMAN_DECISION_ON_MASTER_VISUAL_DEVELOPMENT_REVIEW_V1",
+  "next_stage": "NON_PAID_MASTER_STYLE_FRAMES_AND_KEYFRAME_PROTOTYPING_V1",
   "paid_execution": "BLOCKED",
   "production_brief": {
     "brief_id": "adam_prestige_production_brief_v2_1_c8e7e9b9ccd7cadd",
@@ -219,7 +243,7 @@
     "status": "PLANNING_ONLY_PROVIDER_EXECUTION_BLOCKED"
   },
   "production_profile": "WORLD_CLASS_PRESTIGE_HISTORICAL_CINEMA_V1",
-  "religious_sensitivity": "FINAL_SCRIPT_V2_1_HUMAN_APPROVED; VISUAL_DEVELOPMENT_REVIEW_READY; FINAL_MASTER_VISUAL_REMAINS_HUMAN_REVIEW_REQUIRED",
+  "religious_sensitivity": "FINAL_SCRIPT_V2_1_HUMAN_APPROVED; VISUAL_DEVELOPMENT_BASELINE_HUMAN_APPROVED; EIGHT_NON_PAID_STYLE_FRAME_PROTOTYPES_AUTHORISED; FINAL_MASTER_VISUAL_REMAINS_UNAPPROVED",
   "requested_outputs": [
     "render_manifest",
     "subtitles",
@@ -264,6 +288,15 @@
     "audit_id": "adam_storyboard_master_directorial_audit_v2_1_8e592ccb2937446c",
     "path": "cinematic/storyboard-master-directorial-audit-v2-1.json",
     "status": "PASS_FINAL_STORYBOARD_MASTER_CANDIDATE"
+  },
+  "style_frame_prototyping_gate": {
+    "approved_prototype_count": 8,
+    "gate_id": "adam_non_paid_master_style_frame_prototyping_gate_v1_3c36b23723726078",
+    "image_generation_authorisation": "AUTHORIZED_NON_PAID_EIGHT_ANCHOR_PROTOTYPES_ONLY",
+    "master_visual_approval": false,
+    "path": "cinematic/non-paid-master-style-frame-prototyping-gate-v1.json",
+    "status": "OPEN_EIGHT_NON_PAID_STYLE_FRAME_PROTOTYPES_ONLY",
+    "video_generation": "BLOCKED"
   },
   "subject": "خلق آدم عليه السلام وتكريمه وميثاق ذريته والسكن في الجنة",
   "superseded_directors_cut_v2": {

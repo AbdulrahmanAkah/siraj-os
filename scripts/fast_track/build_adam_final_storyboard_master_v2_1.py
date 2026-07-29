@@ -31,6 +31,7 @@ FINAL_APPROVED_DOWNSTREAM_STAGES = (
     FINAL_APPROVED_NEXT_STAGE,
     "HUMAN_REVIEW_OF_MASTER_VISUAL_BIBLE_COLOR_SCRIPT_AND_NON_PAID_ANIMATIC_V1",
     "HUMAN_DECISION_ON_MASTER_VISUAL_DEVELOPMENT_REVIEW_V1",
+    "NON_PAID_MASTER_STYLE_FRAMES_AND_KEYFRAME_PROTOTYPING_V1",
 )
 
 
@@ -129,13 +130,22 @@ def visual_review_state_is_active(definition: dict) -> bool:
         and definition.get("next_stage")
         == "HUMAN_DECISION_ON_MASTER_VISUAL_DEVELOPMENT_REVIEW_V1"
     )
+    human_approval = definition.get("master_visual_human_approval")
+    prototype_stage_active = (
+        isinstance(human_approval, dict)
+        and human_approval.get("development_baseline_approval") is True
+        and human_approval.get("master_visual_approval") is False
+        and definition.get("next_stage")
+        == "NON_PAID_MASTER_STYLE_FRAMES_AND_KEYFRAME_PROTOTYPING_V1"
+        and definition.get("master_visual_approval") is False
+    )
     return (
         final_approval_binding_is_active(definition)
         and isinstance(development, dict)
         and development.get("status")
         == "DEVELOPED_AWAITING_HUMAN_MASTER_VISUAL_APPROVAL"
         and development.get("master_visual_approval") is False
-        and (development_review_active or human_decision_active)
+        and (development_review_active or human_decision_active or prototype_stage_active)
     )
 
 
@@ -169,8 +179,8 @@ def master_candidate_production_brief_compatible(
         and actual.get("visual_development_binding_id")
         == development.get("binding_id")
         and actual.get("generated_video_planned_seconds") == 0
-        and actual.get("provider_selection") == "DEFERRED"
-        and actual.get("budget_allocation") == "DEFERRED"
+        and actual.get("provider_selection") in ("DEFERRED", "DEFERRED_NON_PAID_PROTOTYPE_TOOLING")
+        and actual.get("budget_allocation") in ("DEFERRED", "ZERO_PAID_BUDGET")
         and actual.get("live_provider_execution") == "BLOCKED"
         and actual.get("paid_execution") == "BLOCKED"
         and actual.get("direct_execution") == "BLOCKED"
@@ -190,6 +200,18 @@ def master_candidate_production_brief_compatible(
             == "DEVELOPED_AWAITING_HUMAN_APPROVAL"
         )
     human_review = definition.get("master_visual_human_review")
+    if definition.get("next_stage") == "NON_PAID_MASTER_STYLE_FRAMES_AND_KEYFRAME_PROTOTYPING_V1":
+        approval = definition.get("master_visual_human_approval")
+        return (
+            isinstance(approval, dict)
+            and approval.get("development_baseline_approval") is True
+            and actual.get("status")
+            == "NON_PAID_STYLE_FRAME_PROTOTYPING_AUTHORISED_PROVIDER_EXECUTION_BLOCKED"
+            and actual.get("style_frame_prototyping_status")
+            == "AUTHORISED_EIGHT_NON_PAID_ANCHOR_PROTOTYPES_ONLY"
+            and actual.get("style_frame_image_authorisation")
+            == "AUTHORIZED_NON_PAID_EIGHT_ANCHOR_PROTOTYPES_ONLY"
+        )
     return (
         isinstance(human_review, dict)
         and actual.get("status")

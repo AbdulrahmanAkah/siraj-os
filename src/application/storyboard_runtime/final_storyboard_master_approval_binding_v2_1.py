@@ -55,10 +55,14 @@ DOWNSTREAM_VISUAL_REVIEW_STAGE = (
 DOWNSTREAM_VISUAL_DECISION_STAGE = (
     "HUMAN_DECISION_ON_MASTER_VISUAL_DEVELOPMENT_REVIEW_V1"
 )
+DOWNSTREAM_STYLE_FRAME_PROTOTYPE_STAGE = (
+    "NON_PAID_MASTER_STYLE_FRAMES_AND_KEYFRAME_PROTOTYPING_V1"
+)
 ALLOWED_DOWNSTREAM_STAGES = (
     NEXT_STAGE,
     DOWNSTREAM_VISUAL_REVIEW_STAGE,
     DOWNSTREAM_VISUAL_DECISION_STAGE,
+    DOWNSTREAM_STYLE_FRAME_PROTOTYPE_STAGE,
 )
 ALLOWED_NON_PAID_STAGES = (
     "MASTER_VISUAL_BIBLE",
@@ -98,7 +102,18 @@ def _downstream_visual_state_is_active(definition: Mapping[str, object]) -> bool
         and definition.get("master_visual_status")
         == "HUMAN_REVIEW_PACKAGE_READY_FINAL_APPROVAL_STILL_BLOCKED"
     )
-    return development_review_active or human_decision_active
+    human_approval = definition.get("master_visual_human_approval")
+    prototype_stage_active = (
+        isinstance(development, Mapping)
+        and development.get("status")
+        == "DEVELOPED_AWAITING_HUMAN_MASTER_VISUAL_APPROVAL"
+        and isinstance(human_approval, Mapping)
+        and human_approval.get("development_baseline_approval") is True
+        and human_approval.get("master_visual_approval") is False
+        and definition.get("next_stage") == DOWNSTREAM_STYLE_FRAME_PROTOTYPE_STAGE
+        and definition.get("master_visual_approval") is False
+    )
+    return development_review_active or human_decision_active or prototype_stage_active
 
 
 class ApprovalBindingError(ValueError):

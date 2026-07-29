@@ -40,10 +40,14 @@ NEXT_STAGE = (
 DOWNSTREAM_REVIEW_DECISION_STAGE = (
     "HUMAN_DECISION_ON_MASTER_VISUAL_DEVELOPMENT_REVIEW_V1"
 )
+DOWNSTREAM_STYLE_FRAME_PROTOTYPE_STAGE = (
+    "NON_PAID_MASTER_STYLE_FRAMES_AND_KEYFRAME_PROTOTYPING_V1"
+)
 ALLOWED_EPISODE_STAGES = (
     SOURCE_STAGE,
     NEXT_STAGE,
     DOWNSTREAM_REVIEW_DECISION_STAGE,
+    DOWNSTREAM_STYLE_FRAME_PROTOTYPE_STAGE,
 )
 LIVE_EXECUTION = "BLOCKED"
 PAID_EXECUTION = "BLOCKED"
@@ -584,6 +588,7 @@ def update_episode_definition(
         "generated_video_planned_seconds": 0,
     }
     human_review = definition.get("master_visual_human_review")
+    human_approval = definition.get("master_visual_human_approval")
     downstream_review_active = (
         isinstance(human_review, Mapping)
         and human_review.get("status") == "READY_FOR_HUMAN_DECISION"
@@ -593,7 +598,14 @@ def update_episode_definition(
         and definition.get("master_visual_status")
         == "HUMAN_REVIEW_PACKAGE_READY_FINAL_APPROVAL_STILL_BLOCKED"
     )
-    if not downstream_review_active:
+    downstream_prototype_active = (
+        isinstance(human_approval, Mapping)
+        and human_approval.get("development_baseline_approval") is True
+        and human_approval.get("master_visual_approval") is False
+        and definition.get("next_stage") == DOWNSTREAM_STYLE_FRAME_PROTOTYPE_STAGE
+        and definition.get("master_visual_approval") is False
+    )
+    if not (downstream_review_active or downstream_prototype_active):
         definition["master_visual_status"] = (
             "DEVELOPED_AWAITING_HUMAN_APPROVAL"
         )
@@ -625,7 +637,18 @@ def update_production_brief(
         and brief.get("direct_execution") == DIRECT_EXECUTION
         and brief.get("runware_execution") == RUNWARE_EXECUTION
     )
-    if downstream_review_active:
+    downstream_prototype_active = (
+        brief.get("style_frame_prototyping_status")
+        == "AUTHORISED_EIGHT_NON_PAID_ANCHOR_PROTOTYPES_ONLY"
+        and brief.get("next_non_paid_stage") == DOWNSTREAM_STYLE_FRAME_PROTOTYPE_STAGE
+        and brief.get("master_visual_approval") is False
+        and brief.get("generated_video_planned_seconds") == 0
+        and brief.get("live_provider_execution") == LIVE_EXECUTION
+        and brief.get("paid_execution") == PAID_EXECUTION
+        and brief.get("direct_execution") == DIRECT_EXECUTION
+        and brief.get("runware_execution") == RUNWARE_EXECUTION
+    )
+    if downstream_review_active or downstream_prototype_active:
         return brief
     brief.update(
         {
@@ -692,6 +715,7 @@ def validate_outputs(
     if episode_definition.get("next_stage") not in (
         NEXT_STAGE,
         DOWNSTREAM_REVIEW_DECISION_STAGE,
+        DOWNSTREAM_STYLE_FRAME_PROTOTYPE_STAGE,
     ):
         raise MasterVisualDevelopmentError("Episode visual-review stage changed.")
     human_review = episode_definition.get("master_visual_human_review")
@@ -703,7 +727,15 @@ def validate_outputs(
         and episode_definition.get("master_visual_status")
         == "HUMAN_REVIEW_PACKAGE_READY_FINAL_APPROVAL_STILL_BLOCKED"
     )
-    if not downstream_review_active and episode_definition.get(
+    human_approval = episode_definition.get("master_visual_human_approval")
+    downstream_prototype_active = (
+        isinstance(human_approval, Mapping)
+        and human_approval.get("development_baseline_approval") is True
+        and episode_definition.get("next_stage")
+        == DOWNSTREAM_STYLE_FRAME_PROTOTYPE_STAGE
+        and episode_definition.get("master_visual_approval") is False
+    )
+    if not (downstream_review_active or downstream_prototype_active) and episode_definition.get(
         "master_visual_status"
     ) != "DEVELOPED_AWAITING_HUMAN_APPROVAL":
         raise MasterVisualDevelopmentError("Master visual status changed.")
