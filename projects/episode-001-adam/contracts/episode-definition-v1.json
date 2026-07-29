@@ -166,10 +166,25 @@
   "intended_audience": "general_arabic_documentary",
   "language": "ar",
   "live_execution_status": "BLOCKED",
-  "master_visual_status": "NOT_STARTED_HUMAN_APPROVAL_REQUIRED",
+  "master_visual_development": {
+    "animatic_development_id": "adam_non_paid_animatic_development_v1_df9bfe3614040947",
+    "animatic_path": "cinematic/non-paid-animatic-development-v1.json",
+    "audit_id": "adam_master_visual_development_audit_v1_7fefb6449a10cbe9",
+    "audit_path": "cinematic/master-visual-development-audit-v1.json",
+    "binding_id": "adam_master_visual_development_binding_v1_aadea96d4b8935c5",
+    "binding_path": "contracts/master-visual-development-binding-v1.json",
+    "color_script_id": "adam_color_script_v1_fe7ad6202e323835",
+    "color_script_path": "cinematic/color-script-v1.json",
+    "human_review_required": true,
+    "master_visual_approval": false,
+    "status": "DEVELOPED_AWAITING_HUMAN_MASTER_VISUAL_APPROVAL",
+    "visual_bible_id": "adam_master_visual_bible_v1_0790d2e2e5fed178",
+    "visual_bible_path": "cinematic/master-visual-bible-v1.json"
+  },
+  "master_visual_status": "DEVELOPED_AWAITING_HUMAN_APPROVAL",
   "maximum_duration_minutes": 25,
   "minimum_duration_minutes": 18,
-  "next_stage": "MASTER_VISUAL_BIBLE_COLOR_SCRIPT_AND_NON_PAID_ANIMATIC_DEVELOPMENT",
+  "next_stage": "HUMAN_REVIEW_OF_MASTER_VISUAL_BIBLE_COLOR_SCRIPT_AND_NON_PAID_ANIMATIC_V1",
   "paid_execution": "BLOCKED",
   "production_brief": {
     "brief_id": "adam_prestige_production_brief_v2_1_c8e7e9b9ccd7cadd",
@@ -285,6 +300,12 @@
     "master_visual_approval": false,
     "path": "cinematic/non-paid-visual-development-gate-v1.json",
     "status": "OPEN_NON_PAID_VISUAL_DEVELOPMENT_ONLY"
+  },
+  "visual_development_gate_usage": {
+    "gate_id": "adam_non_paid_visual_development_gate_a1431674b6976d87",
+    "generated_video_planned_seconds": 0,
+    "media_assets_created": 0,
+    "status": "CONSUMED_FOR_NON_PAID_DEVELOPMENT_WITHOUT_EXECUTION"
   },
   "working_title": "آدم عليه السلام: الخلق والتكريم والسكن في الجنة"
 }

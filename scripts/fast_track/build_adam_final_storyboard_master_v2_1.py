@@ -27,6 +27,10 @@ FINAL_APPROVED_STORYBOARD_FINGERPRINT = (
 FINAL_APPROVED_NEXT_STAGE = (
     "MASTER_VISUAL_BIBLE_COLOR_SCRIPT_AND_NON_PAID_ANIMATIC_DEVELOPMENT"
 )
+FINAL_APPROVED_DOWNSTREAM_STAGES = (
+    FINAL_APPROVED_NEXT_STAGE,
+    "HUMAN_REVIEW_OF_MASTER_VISUAL_BIBLE_COLOR_SCRIPT_AND_NON_PAID_ANIMATIC_V1",
+)
 
 
 def final_approval_binding_is_active(
@@ -54,7 +58,7 @@ def final_approval_binding_is_active(
         and definition.get("storyboard_completion_status")
         == "COMPLETE_HUMAN_APPROVED"
         and definition.get("next_stage")
-        == FINAL_APPROVED_NEXT_STAGE
+        in FINAL_APPROVED_DOWNSTREAM_STAGES
         and definition.get("live_execution_status") == "BLOCKED"
         and definition.get("paid_execution") == "BLOCKED"
     )
@@ -104,6 +108,86 @@ def merge_master_candidate_definition(
     return expected_candidate
 
 
+
+def visual_review_state_is_active(definition: dict) -> bool:
+    development = definition.get("master_visual_development")
+    return (
+        final_approval_binding_is_active(definition)
+        and isinstance(development, dict)
+        and development.get("status")
+        == "DEVELOPED_AWAITING_HUMAN_MASTER_VISUAL_APPROVAL"
+        and development.get("master_visual_approval") is False
+        and definition.get("master_visual_status")
+        == "DEVELOPED_AWAITING_HUMAN_APPROVAL"
+        and definition.get("next_stage")
+        == "HUMAN_REVIEW_OF_MASTER_VISUAL_BIBLE_COLOR_SCRIPT_AND_NON_PAID_ANIMATIC_V1"
+    )
+
+
+def master_candidate_production_brief_compatible(
+    actual: dict,
+    expected_candidate: dict,
+    definition: dict,
+) -> bool:
+    if not visual_review_state_is_active(definition):
+        return actual == expected_candidate
+    development = definition["master_visual_development"]
+    script = definition.get("cinematic_script")
+    storyboard = definition.get("detailed_storyboard")
+    return (
+        isinstance(script, dict)
+        and isinstance(storyboard, dict)
+        and actual.get("schema_version")
+        == "siraj-prestige-production-brief-v2.1"
+        and str(actual.get("director_cut_version")) == "2.1"
+        and actual.get("script_id") == script.get("script_id")
+        and actual.get("storyboard_id") == storyboard.get("storyboard_id")
+        and actual.get("storyboard_master_status") == "COMPLETE_HUMAN_APPROVED"
+        and actual.get("status")
+        == "NON_PAID_VISUAL_DEVELOPMENT_COMPLETE_PROVIDER_EXECUTION_BLOCKED"
+        and actual.get("animatic_status")
+        == "NON_PAID_DEVELOPMENT_COMPLETE_AWAITING_HUMAN_MASTER_VISUAL_APPROVAL"
+        and actual.get("master_visual_status")
+        == "DEVELOPED_AWAITING_HUMAN_APPROVAL"
+        and actual.get("master_visual_approval") is False
+        and actual.get("next_non_paid_stage") == definition.get("next_stage")
+        and actual.get("master_visual_bible_id")
+        == development.get("visual_bible_id")
+        and actual.get("color_script_id")
+        == development.get("color_script_id")
+        and actual.get("animatic_development_id")
+        == development.get("animatic_development_id")
+        and actual.get("visual_development_binding_id")
+        == development.get("binding_id")
+        and actual.get("generated_video_planned_seconds") == 0
+        and actual.get("provider_selection") == "DEFERRED"
+        and actual.get("budget_allocation") == "DEFERRED"
+        and actual.get("live_provider_execution") == "BLOCKED"
+        and actual.get("paid_execution") == "BLOCKED"
+        and actual.get("direct_execution") == "BLOCKED"
+        and actual.get("runware_execution") == "BLOCKED"
+    )
+
+
+def merge_master_candidate_production_brief(
+    existing: dict,
+    expected_candidate: dict,
+    definition: dict,
+) -> dict:
+    if visual_review_state_is_active(definition):
+        if not master_candidate_production_brief_compatible(
+            existing,
+            expected_candidate,
+            definition,
+        ):
+            raise RuntimeError(
+                "Downstream visual production brief is incompatible with "
+                "the approved storyboard master."
+            )
+        return existing
+    return expected_candidate
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--repo-root", type=Path, required=True)
@@ -135,6 +219,9 @@ def main() -> int:
     approval_v2 = read_json(evidence / "script-storyboard-human-approval-request-v2.json")
     brief_v2 = read_json(cinematic / "prestige-production-brief-v2.json")
     definition = read_json(contracts / "episode-definition-v1.json")
+    current_brief = read_json(
+        cinematic / "prestige-production-brief-v2-1.json"
+    )
 
     validate_inputs(
         script_v2=script_v2,
@@ -161,6 +248,15 @@ def main() -> int:
         audit=audit,
     )
     markdown = render_script_markdown(script)
+    effective_definition = merge_master_candidate_definition(
+        definition,
+        updated,
+    )
+    effective_brief = merge_master_candidate_production_brief(
+        current_brief,
+        brief,
+        definition,
+    )
 
     definition_path = contracts / "episode-definition-v1.json"
     project_outputs = {
@@ -168,7 +264,7 @@ def main() -> int:
         cinematic / "detailed-storyboard-v2-1.json": storyboard,
         evidence / "script-storyboard-evidence-trace-v2-1.json": trace,
         evidence / "script-storyboard-human-approval-request-v2-1.json": approval,
-        cinematic / "prestige-production-brief-v2-1.json": brief,
+        cinematic / "prestige-production-brief-v2-1.json": effective_brief,
         cinematic / "storyboard-master-directorial-audit-v2-1.json": audit,
     }
     markdown_path = editorial / "prestige-cinematic-script-v2-1.md"
@@ -179,10 +275,7 @@ def main() -> int:
             write_json(path, payload)
         write_json(
             definition_path,
-            merge_master_candidate_definition(
-                definition,
-                updated,
-            ),
+            effective_definition,
         )
         markdown_path.write_text(markdown, encoding="utf-8", newline="\n")
         with csv_path.open("w", encoding="utf-8-sig", newline="") as stream:
@@ -215,15 +308,18 @@ def main() -> int:
         storyboard=storyboard,
         trace=trace,
         approval_request=approval,
-        production_brief=brief,
+        production_brief=effective_brief,
         audit=audit,
-        episode_definition=updated,
+        episode_definition=effective_definition,
     )
     print("STATUS=PASS_ADAM_FINAL_STORYBOARD_MASTER_V2_1")
     print("CANONICAL_TIMEZONE=Asia/Baghdad")
     print("FORMAT_IDENTITY=PRESTIGE_HISTORICAL_CINEMATIC_SERIES")
     print("DIRECTORS_CUT_VERSION=2.1")
-    print("STORYBOARD_COMPLETION_STATUS=COMPLETE_AWAITING_HUMAN_APPROVAL")
+    print(
+        f"STORYBOARD_COMPLETION_STATUS="
+        f"{effective_definition['storyboard_completion_status']}"
+    )
     print("EXACT_COVENANT_VERSE=PASS")
     print("DESCENDANTS_EMERGENCE=ASSERTIVE")
     print("CHRONOLOGICAL_LINKAGE=QUALIFIED_ONLY")
@@ -240,9 +336,33 @@ def main() -> int:
     print("ACCEPTANCE_CRITERIA_COVERAGE=70/70")
     print("GENERIC_PLACEHOLDER_SHOTS=0")
     print("UNRESOLVED_DIRECTORIAL_DECISIONS=0")
-    print("HUMAN_SCRIPT_APPROVAL=NO")
-    print("RELIGIOUS_SAFETY_APPROVAL=NO")
-    print("HUMAN_STORYBOARD_APPROVAL=NO")
+    script_definition = effective_definition.get("cinematic_script", {})
+    storyboard_definition = effective_definition.get("detailed_storyboard", {})
+    approval_state = effective_definition.get(
+        "script_storyboard_human_approval",
+        {},
+    )
+    print(
+        "HUMAN_SCRIPT_APPROVAL="
+        + ("YES" if script_definition.get("human_approval") is True else "NO")
+    )
+    print(
+        "RELIGIOUS_SAFETY_APPROVAL="
+        + (
+            "YES"
+            if approval_state.get("religious_safety_approval")
+            == "APPROVED_FOR_FINAL_SCRIPT_V2_1"
+            else "NO"
+        )
+    )
+    print(
+        "HUMAN_STORYBOARD_APPROVAL="
+        + (
+            "YES"
+            if storyboard_definition.get("human_approval") is True
+            else "NO"
+        )
+    )
     print("MASTER_VISUAL_APPROVAL=NO")
     print("LIVE_EXECUTION_STATUS=BLOCKED")
     print("PAID_EXECUTION=BLOCKED")
@@ -255,7 +375,7 @@ def main() -> int:
     print(f"DIRECTORIAL_AUDIT_ID={audit['audit_id']}")
     print(f"APPROVAL_REQUEST_ID={approval['request_id']}")
     print(f"APPROVAL_PHRASE_SHA256={approval['exact_approval_phrase_sha256']}")
-    print("NEXT_STAGE=HUMAN_REVIEW_OF_FINAL_STORYBOARD_MASTER_V2_1")
+    print(f"NEXT_STAGE={effective_definition['next_stage']}")
     print(f"OUTPUT_ROOT={args.output_root.resolve()}")
     print(f"ARCHIVE={outputs['archive']}")
     return 0

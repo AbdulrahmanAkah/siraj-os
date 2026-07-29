@@ -49,6 +49,13 @@ EXACT_APPROVAL_PHRASE_SHA256 = (
 NEXT_STAGE = (
     "MASTER_VISUAL_BIBLE_COLOR_SCRIPT_AND_NON_PAID_ANIMATIC_DEVELOPMENT"
 )
+DOWNSTREAM_VISUAL_REVIEW_STAGE = (
+    "HUMAN_REVIEW_OF_MASTER_VISUAL_BIBLE_COLOR_SCRIPT_AND_NON_PAID_ANIMATIC_V1"
+)
+ALLOWED_DOWNSTREAM_STAGES = (
+    NEXT_STAGE,
+    DOWNSTREAM_VISUAL_REVIEW_STAGE,
+)
 ALLOWED_NON_PAID_STAGES = (
     "MASTER_VISUAL_BIBLE",
     "COLOR_SCRIPT",
@@ -228,7 +235,7 @@ def validate_inputs(
     approved_state = (
         script_definition.get("human_approval") is True
         and storyboard_definition.get("human_approval") is True
-        and episode_definition.get("next_stage") == NEXT_STAGE
+        and episode_definition.get("next_stage") in ALLOWED_DOWNSTREAM_STAGES
         and isinstance(approval_state, Mapping)
         and approval_state.get("script_fingerprint")
         == SCRIPT_FINGERPRINT
@@ -465,10 +472,20 @@ def update_episode_definition(
         "FINAL_SCRIPT_V2_1_HUMAN_APPROVED; "
         "MASTER_VISUAL_REMAINS_HUMAN_REVIEW_REQUIRED"
     )
-    definition["master_visual_status"] = (
-        "NOT_STARTED_HUMAN_APPROVAL_REQUIRED"
+    development = definition.get("master_visual_development")
+    downstream_active = (
+        isinstance(development, Mapping)
+        and development.get("status")
+        == "DEVELOPED_AWAITING_HUMAN_MASTER_VISUAL_APPROVAL"
+        and definition.get("next_stage") == DOWNSTREAM_VISUAL_REVIEW_STAGE
+        and definition.get("master_visual_status")
+        == "DEVELOPED_AWAITING_HUMAN_APPROVAL"
     )
-    definition["next_stage"] = NEXT_STAGE
+    if not downstream_active:
+        definition["master_visual_status"] = (
+            "NOT_STARTED_HUMAN_APPROVAL_REQUIRED"
+        )
+        definition["next_stage"] = NEXT_STAGE
     definition["live_execution_status"] = LIVE_EXECUTION
     definition["paid_execution"] = PAID_EXECUTION
     return definition
@@ -504,12 +521,25 @@ def validate_outputs(
         "COMPLETE_HUMAN_APPROVED"
     ):
         raise ApprovalBindingError("Episode storyboard approval is not active.")
-    if episode_definition.get("next_stage") != NEXT_STAGE:
-        raise ApprovalBindingError("Episode next stage did not advance.")
-    if episode_definition.get("master_visual_status") != (
-        "NOT_STARTED_HUMAN_APPROVAL_REQUIRED"
-    ):
-        raise ApprovalBindingError("Master visual approval was opened incorrectly.")
+    development = episode_definition.get("master_visual_development")
+    downstream_active = (
+        isinstance(development, Mapping)
+        and development.get("status")
+        == "DEVELOPED_AWAITING_HUMAN_MASTER_VISUAL_APPROVAL"
+        and episode_definition.get("next_stage")
+        == DOWNSTREAM_VISUAL_REVIEW_STAGE
+        and episode_definition.get("master_visual_status")
+        == "DEVELOPED_AWAITING_HUMAN_APPROVAL"
+    )
+    if not downstream_active:
+        if episode_definition.get("next_stage") != NEXT_STAGE:
+            raise ApprovalBindingError("Episode next stage did not advance.")
+        if episode_definition.get("master_visual_status") != (
+            "NOT_STARTED_HUMAN_APPROVAL_REQUIRED"
+        ):
+            raise ApprovalBindingError(
+                "Master visual approval was opened incorrectly."
+            )
     for artifact in (approval, receipt, binding, visual_gate):
         if artifact.get("live_provider_execution") != LIVE_EXECUTION:
             raise ApprovalBindingError("Live execution must remain blocked.")

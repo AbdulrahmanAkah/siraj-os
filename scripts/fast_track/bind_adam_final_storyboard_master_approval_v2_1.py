@@ -113,10 +113,7 @@ def main() -> int:
     print(f"SCRIPT_FINGERPRINT={binding['script_fingerprint']}")
     print(f"STORYBOARD_ID={binding['storyboard_id']}")
     print(f"STORYBOARD_FINGERPRINT={binding['storyboard_fingerprint']}")
-    print(
-        "NEXT_STAGE="
-        "MASTER_VISUAL_BIBLE_COLOR_SCRIPT_AND_NON_PAID_ANIMATIC_DEVELOPMENT"
-    )
+    print(f"NEXT_STAGE={updated['next_stage']}")
     print(f"OUTPUT_ROOT={args.output_root.resolve()}")
     print(f"ARCHIVE={outputs['archive']}")
     return 0

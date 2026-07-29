@@ -6,6 +6,7 @@ import tempfile
 import unittest
 
 from src.application.storyboard_runtime.final_storyboard_master_approval_binding_v2_1 import (
+    ALLOWED_DOWNSTREAM_STAGES,
     ALLOWED_NON_PAID_STAGES,
     APPROVAL_REQUEST_ID,
     DIRECTORIAL_AUDIT_ID,
@@ -325,12 +326,15 @@ class FinalStoryboardMasterApprovalBindingV21Tests(unittest.TestCase):
         )
 
     def test_next_stage_is_visual_development(self):
-        self.assertEqual(self.updated["next_stage"], NEXT_STAGE)
+        self.assertIn(self.updated["next_stage"], ALLOWED_DOWNSTREAM_STAGES)
 
     def test_master_visual_approval_remains_pending(self):
-        self.assertEqual(
+        self.assertIn(
             self.updated["master_visual_status"],
-            "NOT_STARTED_HUMAN_APPROVAL_REQUIRED",
+            (
+                "NOT_STARTED_HUMAN_APPROVAL_REQUIRED",
+                "DEVELOPED_AWAITING_HUMAN_APPROVAL",
+            ),
         )
 
     def test_episode_update_is_idempotent(self):
