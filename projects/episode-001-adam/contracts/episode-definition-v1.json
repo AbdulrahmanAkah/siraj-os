@@ -7,33 +7,41 @@
     "status": "ACTIVE_CREATOR_DIRECTIVE"
   },
   "cinematic_script": {
+    "approval_id": "adam_final_storyboard_master_human_approval_v2_1_264f49c20f5c1500",
+    "approval_receipt_id": "adam_final_storyboard_master_approval_receipt_v2_1_f32512a6492fab19",
     "director_cut_version": "2.1",
-    "human_approval": false,
+    "human_approval": true,
     "input_fingerprint": "ff540783ec519581bd902caf81145c3f77819a7351f2bd5d07e9f84705a4fb27",
     "markdown_path": "editorial/prestige-cinematic-script-v2-1.md",
     "path": "editorial/prestige-cinematic-script-v2-1.json",
     "script_id": "adam_prestige_cinematic_script_v2_1_ff540783ec519581",
-    "status": "HUMAN_REVIEW_REQUIRED_FINAL_MASTER_CANDIDATE"
+    "status": "HUMAN_APPROVED_FINAL_MASTER_V2_1"
   },
   "created_at": "2026-07-24T11:28:20.764085Z",
   "detailed_storyboard": {
+    "approval_id": "adam_final_storyboard_master_human_approval_v2_1_264f49c20f5c1500",
+    "approval_receipt_id": "adam_final_storyboard_master_approval_receipt_v2_1_f32512a6492fab19",
     "csv_path": "cinematic/detailed-storyboard-v2-1.csv",
     "director_cut_version": "2.1",
-    "human_approval": false,
+    "human_approval": true,
     "input_fingerprint": "867b88ade164ebe444aeaaeeb9f60accef122f59cf8b45b020223f3ca8788bf8",
     "path": "cinematic/detailed-storyboard-v2-1.json",
-    "status": "HUMAN_REVIEW_REQUIRED_FINAL_MASTER_CANDIDATE",
+    "status": "HUMAN_APPROVED_FINAL_MASTER_V2_1",
     "storyboard_id": "adam_detailed_cinematic_storyboard_v2_1_867b88ade164ebe4"
   },
   "director_cut_revision": {
     "adaptation_policy": "MEANING_PRESERVED_WORDING_CINEMATICALLY_ADAPTED",
+    "approval_binding_id": "adam_final_storyboard_master_approval_binding_v2_1_d7e21a0b1d9d0cff",
+    "approval_id": "adam_final_storyboard_master_human_approval_v2_1_264f49c20f5c1500",
+    "approval_receipt_id": "adam_final_storyboard_master_approval_receipt_v2_1_f32512a6492fab19",
     "chronological_linkage": "QUALIFIED_ONLY",
     "covenant_verse_text": "﴿أَلَسْتُ بِرَبِّكُمْ قَالُوا بَلَىٰ شَهِدْنَا﴾",
     "descendants_emergence": "ASSERTIVE",
+    "human_approval": true,
     "research_meta_language": "REMOVED",
     "script_fingerprint": "ff540783ec519581bd902caf81145c3f77819a7351f2bd5d07e9f84705a4fb27",
     "source_context_literalism": "REMOVED",
-    "status": "FINAL_MASTER_CANDIDATE_AWAITING_HUMAN_APPROVAL",
+    "status": "HUMAN_APPROVED_FINAL_MASTER_V2_1",
     "storyboard_fingerprint": "867b88ade164ebe444aeaaeeb9f60accef122f59cf8b45b020223f3ca8788bf8",
     "supersedes_script_fingerprint": "614069fbe5a5c5f9baf8d1325a0c96929df30449203e19e835b84506259ff9e7",
     "supersedes_storyboard_fingerprint": "c4722dcdff04d534243e9469fc30510a02ef1e067e9bfafee757d445ac9577b2",
@@ -158,9 +166,10 @@
   "intended_audience": "general_arabic_documentary",
   "language": "ar",
   "live_execution_status": "BLOCKED",
+  "master_visual_status": "NOT_STARTED_HUMAN_APPROVAL_REQUIRED",
   "maximum_duration_minutes": 25,
   "minimum_duration_minutes": 18,
-  "next_stage": "HUMAN_REVIEW_OF_FINAL_STORYBOARD_MASTER_V2_1",
+  "next_stage": "MASTER_VISUAL_BIBLE_COLOR_SCRIPT_AND_NON_PAID_ANIMATIC_DEVELOPMENT",
   "paid_execution": "BLOCKED",
   "production_brief": {
     "brief_id": "adam_prestige_production_brief_v2_1_c8e7e9b9ccd7cadd",
@@ -168,7 +177,7 @@
     "status": "PLANNING_ONLY_PROVIDER_EXECUTION_BLOCKED"
   },
   "production_profile": "WORLD_CLASS_PRESTIGE_HISTORICAL_CINEMA_V1",
-  "religious_sensitivity": "HUMAN_REVIEW_REQUIRED",
+  "religious_sensitivity": "FINAL_SCRIPT_V2_1_HUMAN_APPROVED; MASTER_VISUAL_REMAINS_HUMAN_REVIEW_REQUIRED",
   "requested_outputs": [
     "render_manifest",
     "subtitles",
@@ -176,9 +185,25 @@
   ],
   "schema_version": "siraj-episode-definition-v1",
   "script_storyboard_approval_request": {
+    "approval_id": "adam_final_storyboard_master_human_approval_v2_1_264f49c20f5c1500",
+    "approval_path": "evidence/final-storyboard-master-human-approval-v2-1.json",
+    "binding_id": "adam_final_storyboard_master_approval_binding_v2_1_d7e21a0b1d9d0cff",
+    "binding_path": "contracts/final-storyboard-master-approval-binding-v2-1.json",
     "path": "evidence/script-storyboard-human-approval-request-v2-1.json",
+    "receipt_id": "adam_final_storyboard_master_approval_receipt_v2_1_f32512a6492fab19",
+    "receipt_path": "evidence/final-storyboard-master-approval-receipt-v2-1.json",
     "request_id": "adam_final_storyboard_master_approval_request_v2_1_81ce8c14dfa69ebf",
-    "status": "HUMAN_APPROVAL_REQUIRED"
+    "status": "HUMAN_APPROVED_AND_BOUND"
+  },
+  "script_storyboard_human_approval": {
+    "approval_binding_id": "adam_final_storyboard_master_approval_binding_v2_1_d7e21a0b1d9d0cff",
+    "approval_date_baghdad": "2026-07-29",
+    "approval_id": "adam_final_storyboard_master_human_approval_v2_1_264f49c20f5c1500",
+    "approval_receipt_id": "adam_final_storyboard_master_approval_receipt_v2_1_f32512a6492fab19",
+    "religious_safety_approval": "APPROVED_FOR_FINAL_SCRIPT_V2_1",
+    "script_fingerprint": "ff540783ec519581bd902caf81145c3f77819a7351f2bd5d07e9f84705a4fb27",
+    "status": "APPROVED_EXACT_FINGERPRINT_BINDING",
+    "storyboard_fingerprint": "867b88ade164ebe444aeaaeeb9f60accef122f59cf8b45b020223f3ca8788bf8"
   },
   "script_storyboard_trace": {
     "path": "evidence/script-storyboard-evidence-trace-v2-1.json",
@@ -192,7 +217,7 @@
     "input_fingerprint": "4598d943a1d728db305b24816095c8c1168dc16b2c01c324420ddb9bfbc6ef00",
     "path": "contracts/source-package-v1.json"
   },
-  "storyboard_completion_status": "COMPLETE_AWAITING_HUMAN_APPROVAL",
+  "storyboard_completion_status": "COMPLETE_HUMAN_APPROVED",
   "storyboard_directorial_audit": {
     "audit_id": "adam_storyboard_master_directorial_audit_v2_1_8e592ccb2937446c",
     "path": "cinematic/storyboard-master-directorial-audit-v2-1.json",
@@ -255,5 +280,11 @@
   "title": "آدم عليه السلام: الخلق والتكريم والسكن في الجنة",
   "updated_at": "2026-07-28T22:24:26Z",
   "updated_at_baghdad": "2026-07-29T01:24:26+03:00",
+  "visual_development_gate": {
+    "gate_id": "adam_non_paid_visual_development_gate_a1431674b6976d87",
+    "master_visual_approval": false,
+    "path": "cinematic/non-paid-visual-development-gate-v1.json",
+    "status": "OPEN_NON_PAID_VISUAL_DEVELOPMENT_ONLY"
+  },
   "working_title": "آدم عليه السلام: الخلق والتكريم والسكن في الجنة"
 }

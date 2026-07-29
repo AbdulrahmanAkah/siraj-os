@@ -1243,3 +1243,39 @@ __all__ += [
     "render_adam_storyboard_master_markdown_v2_1",
     "write_storyboard_master_v2_1_outputs",
 ]
+
+from .final_storyboard_master_approval_binding_v2_1 import (
+    ALLOWED_NON_PAID_STAGES as ADAM_APPROVED_NON_PAID_VISUAL_STAGES_V2_1,
+    EXACT_APPROVAL_PHRASE as ADAM_FINAL_STORYBOARD_APPROVAL_PHRASE_V2_1,
+    EXACT_APPROVAL_PHRASE_SHA256 as ADAM_FINAL_STORYBOARD_APPROVAL_PHRASE_SHA256_V2_1,
+    FORBIDDEN_EXECUTION_MODES as ADAM_APPROVAL_FORBIDDEN_EXECUTION_MODES_V2_1,
+    NEXT_STAGE as ADAM_POST_STORYBOARD_APPROVAL_NEXT_STAGE_V2_1,
+    ApprovalBindingError,
+    build_all as build_adam_final_storyboard_approval_binding_v2_1,
+    build_approval_binding as build_adam_storyboard_approval_contract_v2_1,
+    build_approval_record as build_adam_storyboard_human_approval_v2_1,
+    build_binding_receipt as build_adam_storyboard_approval_receipt_v2_1,
+    build_visual_development_gate as build_adam_non_paid_visual_gate_v1,
+    update_episode_definition as update_episode_for_storyboard_approval_v2_1,
+    validate_inputs as validate_adam_storyboard_approval_inputs_v2_1,
+    validate_outputs as validate_adam_storyboard_approval_outputs_v2_1,
+    write_outputs as write_adam_storyboard_approval_outputs_v2_1,
+)
+
+__all__ += [
+    "ADAM_APPROVED_NON_PAID_VISUAL_STAGES_V2_1",
+    "ADAM_FINAL_STORYBOARD_APPROVAL_PHRASE_V2_1",
+    "ADAM_FINAL_STORYBOARD_APPROVAL_PHRASE_SHA256_V2_1",
+    "ADAM_APPROVAL_FORBIDDEN_EXECUTION_MODES_V2_1",
+    "ADAM_POST_STORYBOARD_APPROVAL_NEXT_STAGE_V2_1",
+    "ApprovalBindingError",
+    "validate_adam_storyboard_approval_inputs_v2_1",
+    "validate_adam_storyboard_approval_outputs_v2_1",
+    "build_adam_storyboard_human_approval_v2_1",
+    "build_adam_storyboard_approval_receipt_v2_1",
+    "build_adam_storyboard_approval_contract_v2_1",
+    "build_adam_non_paid_visual_gate_v1",
+    "build_adam_final_storyboard_approval_binding_v2_1",
+    "update_episode_for_storyboard_approval_v2_1",
+    "write_adam_storyboard_approval_outputs_v2_1",
+]

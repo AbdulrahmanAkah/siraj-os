@@ -18,6 +18,92 @@ def text_equal(path: Path, expected: str) -> bool:
     return path.read_text(encoding="utf-8-sig").replace("\r\n", "\n").replace("\r", "\n") == expected
 
 
+FINAL_APPROVED_SCRIPT_FINGERPRINT = (
+    "ff540783ec519581bd902caf81145c3f77819a7351f2bd5d07e9f84705a4fb27"
+)
+FINAL_APPROVED_STORYBOARD_FINGERPRINT = (
+    "867b88ade164ebe444aeaaeeb9f60accef122f59cf8b45b020223f3ca8788bf8"
+)
+FINAL_APPROVED_NEXT_STAGE = (
+    "MASTER_VISUAL_BIBLE_COLOR_SCRIPT_AND_NON_PAID_ANIMATIC_DEVELOPMENT"
+)
+
+
+def final_approval_binding_is_active(
+    definition: dict,
+) -> bool:
+    script = definition.get("cinematic_script")
+    storyboard = definition.get("detailed_storyboard")
+    approval = definition.get("script_storyboard_human_approval")
+    return (
+        isinstance(script, dict)
+        and script.get("human_approval") is True
+        and script.get("input_fingerprint")
+        == FINAL_APPROVED_SCRIPT_FINGERPRINT
+        and isinstance(storyboard, dict)
+        and storyboard.get("human_approval") is True
+        and storyboard.get("input_fingerprint")
+        == FINAL_APPROVED_STORYBOARD_FINGERPRINT
+        and isinstance(approval, dict)
+        and approval.get("status")
+        == "APPROVED_EXACT_FINGERPRINT_BINDING"
+        and approval.get("script_fingerprint")
+        == FINAL_APPROVED_SCRIPT_FINGERPRINT
+        and approval.get("storyboard_fingerprint")
+        == FINAL_APPROVED_STORYBOARD_FINGERPRINT
+        and definition.get("storyboard_completion_status")
+        == "COMPLETE_HUMAN_APPROVED"
+        and definition.get("next_stage")
+        == FINAL_APPROVED_NEXT_STAGE
+        and definition.get("live_execution_status") == "BLOCKED"
+        and definition.get("paid_execution") == "BLOCKED"
+    )
+
+
+def master_candidate_definition_compatible(
+    actual: dict,
+    expected_candidate: dict,
+) -> bool:
+    if not final_approval_binding_is_active(actual):
+        return actual == expected_candidate
+
+    actual_script = actual.get("cinematic_script")
+    actual_storyboard = actual.get("detailed_storyboard")
+    expected_script = expected_candidate.get("cinematic_script")
+    expected_storyboard = expected_candidate.get("detailed_storyboard")
+    return (
+        isinstance(actual_script, dict)
+        and isinstance(actual_storyboard, dict)
+        and isinstance(expected_script, dict)
+        and isinstance(expected_storyboard, dict)
+        and actual_script.get("input_fingerprint")
+        == expected_script.get("input_fingerprint")
+        == FINAL_APPROVED_SCRIPT_FINGERPRINT
+        and actual_storyboard.get("input_fingerprint")
+        == expected_storyboard.get("input_fingerprint")
+        == FINAL_APPROVED_STORYBOARD_FINGERPRINT
+        and str(actual_script.get("director_cut_version")) == "2.1"
+        and str(actual_storyboard.get("director_cut_version")) == "2.1"
+        and actual.get("evidence_gate_status")
+        == expected_candidate.get("evidence_gate_status")
+        and actual.get("live_execution_status")
+        == expected_candidate.get("live_execution_status")
+        == "BLOCKED"
+        and actual.get("paid_execution")
+        == expected_candidate.get("paid_execution")
+        == "BLOCKED"
+    )
+
+
+def merge_master_candidate_definition(
+    existing: dict,
+    expected_candidate: dict,
+) -> dict:
+    if final_approval_binding_is_active(existing):
+        return existing
+    return expected_candidate
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--repo-root", type=Path, required=True)
@@ -76,6 +162,7 @@ def main() -> int:
     )
     markdown = render_script_markdown(script)
 
+    definition_path = contracts / "episode-definition-v1.json"
     project_outputs = {
         editorial / "prestige-cinematic-script-v2-1.json": script,
         cinematic / "detailed-storyboard-v2-1.json": storyboard,
@@ -83,7 +170,6 @@ def main() -> int:
         evidence / "script-storyboard-human-approval-request-v2-1.json": approval,
         cinematic / "prestige-production-brief-v2-1.json": brief,
         cinematic / "storyboard-master-directorial-audit-v2-1.json": audit,
-        contracts / "episode-definition-v1.json": updated,
     }
     markdown_path = editorial / "prestige-cinematic-script-v2-1.md"
     csv_path = cinematic / "detailed-storyboard-v2-1.csv"
@@ -91,6 +177,13 @@ def main() -> int:
     if args.materialize_project_files:
         for path, payload in project_outputs.items():
             write_json(path, payload)
+        write_json(
+            definition_path,
+            merge_master_candidate_definition(
+                definition,
+                updated,
+            ),
+        )
         markdown_path.write_text(markdown, encoding="utf-8", newline="\n")
         with csv_path.open("w", encoding="utf-8-sig", newline="") as stream:
             import csv
@@ -101,12 +194,20 @@ def main() -> int:
                 writer.writerow({key: shot[key] for key in fields})
     else:
         different = [str(path) for path, payload in project_outputs.items() if not json_equal(path, payload)]
+        actual_definition = json.loads(
+            definition_path.read_text(encoding="utf-8-sig")
+        )
+        if not master_candidate_definition_compatible(
+            actual_definition,
+            updated,
+        ):
+            different.append(str(definition_path))
         if not text_equal(markdown_path, markdown):
             different.append(str(markdown_path))
         if not csv_path.is_file():
             different.append(str(csv_path))
         if different:
-            raise RuntimeError("Tracked final storyboard master files differ: " + ", ".join(different))
+            raise RuntimeError("Tracked final storyboard master audit differs: " + ", ".join(different))
 
     outputs = write_outputs(
         output_root=args.output_root.resolve(),
