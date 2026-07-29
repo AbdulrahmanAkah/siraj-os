@@ -24,63 +24,6 @@ def text_equal(path: Path, expected: str) -> bool:
     return actual == expected
 
 
-def has_directors_cut_v2(
-    definition: dict,
-) -> bool:
-    revision = definition.get("director_cut_revision")
-    script = definition.get("cinematic_script")
-    storyboard = definition.get("detailed_storyboard")
-    return (
-        isinstance(revision, dict)
-        and revision.get("version") == 2
-        and isinstance(script, dict)
-        and script.get("path")
-        == "editorial/prestige-cinematic-script-v2.json"
-        and isinstance(storyboard, dict)
-        and storyboard.get("path")
-        == "cinematic/detailed-storyboard-v2.json"
-    )
-
-
-def v1_episode_definition_compatible(
-    actual: dict,
-    expected_v1: dict,
-) -> bool:
-    if not has_directors_cut_v2(actual):
-        return actual == expected_v1
-
-    superseded = actual.get("superseded_script_storyboard_v1")
-    expected_script = expected_v1.get("cinematic_script")
-    expected_storyboard = expected_v1.get("detailed_storyboard")
-    if not (
-        isinstance(superseded, dict)
-        and isinstance(expected_script, dict)
-        and isinstance(expected_storyboard, dict)
-    ):
-        return False
-    return (
-        superseded.get("script_fingerprint")
-        == expected_script.get("input_fingerprint")
-        and superseded.get("storyboard_fingerprint")
-        == expected_storyboard.get("input_fingerprint")
-        and actual.get("evidence_gate_status")
-        == expected_v1.get("evidence_gate_status")
-        and actual.get("live_execution_status")
-        == expected_v1.get("live_execution_status")
-        and actual.get("paid_execution")
-        == expected_v1.get("paid_execution")
-    )
-
-
-def merge_v1_episode_definition(
-    existing: dict,
-    expected_v1: dict,
-) -> dict:
-    if has_directors_cut_v2(existing):
-        return existing
-    return expected_v1
-
-
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--repo-root", type=Path, required=True)
@@ -94,13 +37,14 @@ def main() -> int:
     repo = args.repo_root.resolve()
     sys.path.insert(0, str(repo))
 
-    from src.application.storyboard_runtime.prestige_cinematic_script_storyboard import (
+    from src.application.storyboard_runtime.prestige_cinematic_directors_cut_v2 import (
         build_script_and_storyboard,
         read_json,
         read_json_list,
         render_script_markdown,
         update_episode_definition,
         validate_inputs,
+        validate_superseded_artifacts,
         write_json,
         write_outputs,
     )
@@ -112,7 +56,7 @@ def main() -> int:
     cinematic = episode / "cinematic"
 
     creative = read_json(
-        editorial / "prestige-cinematic-script-blueprint-v1.json"
+        editorial / "prestige-cinematic-directors-cut-blueprint-v2.json"
     )
     bound = read_json(
         cinematic / "evidence-bound-cinematic-blueprint-v1.json"
@@ -129,6 +73,16 @@ def main() -> int:
     )
     definition = read_json(
         contracts / "episode-definition-v1.json"
+    )
+    script_v1 = read_json(
+        editorial / "prestige-cinematic-script-v1.json"
+    )
+    storyboard_v1 = read_json(
+        cinematic / "detailed-storyboard-v1.json"
+    )
+    validate_superseded_artifacts(
+        script_v1=script_v1,
+        storyboard_v1=storyboard_v1,
     )
 
     validate_inputs(
@@ -164,29 +118,23 @@ def main() -> int:
     )
     markdown = render_script_markdown(script)
 
-    definition_path = contracts / "episode-definition-v1.json"
     project_outputs = {
-        editorial / "prestige-cinematic-script-v1.json": script,
-        cinematic / "detailed-storyboard-v1.json": storyboard,
-        evidence / "script-storyboard-evidence-trace-v1.json": trace,
+        editorial / "prestige-cinematic-script-v2.json": script,
+        cinematic / "detailed-storyboard-v2.json": storyboard,
+        evidence / "script-storyboard-evidence-trace-v2.json": trace,
         evidence
-        / "script-storyboard-human-approval-request-v1.json":
+        / "script-storyboard-human-approval-request-v2.json":
             approval_request,
-        cinematic / "prestige-production-brief-v1.json":
+        cinematic / "prestige-production-brief-v2.json":
             production_brief,
+        contracts / "episode-definition-v1.json":
+            updated_definition,
     }
-    markdown_path = editorial / "prestige-cinematic-script-v1.md"
+    markdown_path = editorial / "prestige-cinematic-script-v2.md"
 
     if args.materialize_project_files:
         for path, payload in project_outputs.items():
             write_json(path, payload)
-        write_json(
-            definition_path,
-            merge_v1_episode_definition(
-                definition,
-                updated_definition,
-            ),
-        )
         markdown_path.write_text(
             markdown,
             encoding="utf-8",
@@ -198,19 +146,11 @@ def main() -> int:
             for path, payload in project_outputs.items()
             if not json_equal(path, payload)
         ]
-        actual_definition = json.loads(
-            definition_path.read_text(encoding="utf-8-sig")
-        )
-        if not v1_episode_definition_compatible(
-            actual_definition,
-            updated_definition,
-        ):
-            different.append(str(definition_path))
         if not text_equal(markdown_path, markdown):
             different.append(str(markdown_path))
         if different:
             raise RuntimeError(
-                "Tracked v1 script/storyboard audit differs: "
+                "Tracked script/storyboard files differ: "
                 + ", ".join(different)
             )
 
@@ -224,13 +164,29 @@ def main() -> int:
         episode_definition=updated_definition,
     )
 
-    print("STATUS=PASS_ADAM_PRESTIGE_CINEMATIC_SCRIPT_STORYBOARD")
+    print("STATUS=PASS_ADAM_PRESTIGE_CINEMATIC_DIRECTORS_CUT_V2")
     print("CANONICAL_TIMEZONE=Asia/Baghdad")
     print("FORMAT_IDENTITY=PRESTIGE_HISTORICAL_CINEMATIC_SERIES")
+    print("DIRECTORS_CUT_VERSION=2")
+    print(
+        "ADAPTATION_POLICY="
+        "MEANING_PRESERVED_WORDING_CINEMATICALLY_ADAPTED"
+    )
+    print("SOURCE_CONTEXT_LITERALISM=REMOVED")
+    print("RESEARCH_META_LANGUAGE_IN_NARRATION=REMOVED")
     print("EPISODE_DURATION_SECONDS=1320")
     print("SEQUENCE_COUNT=14")
     print("SHOT_COUNT=70")
     print(f"NARRATION_WORD_COUNT={script['narration_word_count']}")
+    material_count = sum(
+        shot["treatment"] in {
+            "cinematic_matte_painting",
+            "environment_vfx_plan",
+            "practical_macro_reference",
+        }
+        for shot in storyboard["shots"]
+    )
+    print(f"MATERIAL_ENVIRONMENT_SHOT_COUNT={material_count}")
     print("EVENT_TRACE_COUNT=37")
     print("EVIDENCE_TRACE_COUNT=57")
     print("QUALIFIED_EVENT_COUNT=7")
@@ -265,7 +221,7 @@ def main() -> int:
     )
     print(
         "NEXT_STAGE="
-        "HUMAN_REVIEW_OF_PRESTIGE_CINEMATIC_SCRIPT_AND_STORYBOARD"
+        "HUMAN_REVIEW_OF_PRESTIGE_CINEMATIC_DIRECTORS_CUT_V2"
     )
     print(f"OUTPUT_ROOT={args.output_root.resolve()}")
     print(f"ARCHIVE={outputs['archive']}")

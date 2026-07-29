@@ -1171,3 +1171,37 @@ __all__ += [
     "render_script_markdown",
     "write_prestige_script_storyboard_outputs",
 ]
+
+from .prestige_cinematic_directors_cut_v2 import (
+    APPROVAL_PHRASE as ADAM_DIRECTORS_CUT_V2_APPROVAL_PHRASE,
+    SCRIPT_BLUEPRINT_SCHEMA as PRESTIGE_DIRECTORS_CUT_BLUEPRINT_SCHEMA_V2,
+    SCRIPT_SCHEMA as PRESTIGE_CINEMATIC_SCRIPT_SCHEMA_V2,
+    STORYBOARD_SCHEMA as DETAILED_CINEMATIC_STORYBOARD_SCHEMA_V2,
+    TRACE_SCHEMA as SCRIPT_STORYBOARD_EVIDENCE_TRACE_SCHEMA_V2,
+    APPROVAL_REQUEST_SCHEMA as SCRIPT_STORYBOARD_APPROVAL_REQUEST_SCHEMA_V2,
+    PRODUCTION_BRIEF_SCHEMA as PRESTIGE_PRODUCTION_BRIEF_SCHEMA_V2,
+    DirectorsCutError,
+    build_script_and_storyboard as build_prestige_directors_cut_v2,
+    render_script_markdown as render_prestige_directors_cut_v2_markdown,
+    update_episode_definition as update_episode_for_directors_cut_v2,
+    validate_inputs as validate_prestige_directors_cut_v2_inputs,
+    validate_superseded_artifacts as validate_directors_cut_v1_predecessor,
+    write_outputs as write_prestige_directors_cut_v2_outputs,
+)
+
+__all__ += [
+    "ADAM_DIRECTORS_CUT_V2_APPROVAL_PHRASE",
+    "PRESTIGE_DIRECTORS_CUT_BLUEPRINT_SCHEMA_V2",
+    "PRESTIGE_CINEMATIC_SCRIPT_SCHEMA_V2",
+    "DETAILED_CINEMATIC_STORYBOARD_SCHEMA_V2",
+    "SCRIPT_STORYBOARD_EVIDENCE_TRACE_SCHEMA_V2",
+    "SCRIPT_STORYBOARD_APPROVAL_REQUEST_SCHEMA_V2",
+    "PRESTIGE_PRODUCTION_BRIEF_SCHEMA_V2",
+    "DirectorsCutError",
+    "validate_prestige_directors_cut_v2_inputs",
+    "validate_directors_cut_v1_predecessor",
+    "build_prestige_directors_cut_v2",
+    "update_episode_for_directors_cut_v2",
+    "render_prestige_directors_cut_v2_markdown",
+    "write_prestige_directors_cut_v2_outputs",
+]

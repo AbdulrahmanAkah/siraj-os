@@ -7,20 +7,33 @@
     "status": "ACTIVE_CREATOR_DIRECTIVE"
   },
   "cinematic_script": {
+    "director_cut_version": 2,
     "human_approval": false,
-    "input_fingerprint": "c187aabf5ee4b245439b3404715e6174fd391c77f4c93a80de8fafe0f4b7ae85",
-    "markdown_path": "editorial/prestige-cinematic-script-v1.md",
-    "path": "editorial/prestige-cinematic-script-v1.json",
-    "script_id": "adam_prestige_cinematic_script_c187aabf5ee4b245",
+    "input_fingerprint": "614069fbe5a5c5f9baf8d1325a0c96929df30449203e19e835b84506259ff9e7",
+    "markdown_path": "editorial/prestige-cinematic-script-v2.md",
+    "path": "editorial/prestige-cinematic-script-v2.json",
+    "script_id": "adam_prestige_cinematic_script_v2_614069fbe5a5c5f9",
     "status": "HUMAN_REVIEW_REQUIRED"
   },
   "created_at": "2026-07-24T11:28:20.764085Z",
   "detailed_storyboard": {
+    "director_cut_version": 2,
     "human_approval": false,
-    "input_fingerprint": "92caa3306cff1ecb63f5c76b062fb39f5f76c1d94060feab1c906675452ce8b2",
-    "path": "cinematic/detailed-storyboard-v1.json",
+    "input_fingerprint": "c4722dcdff04d534243e9469fc30510a02ef1e067e9bfafee757d445ac9577b2",
+    "path": "cinematic/detailed-storyboard-v2.json",
     "status": "HUMAN_REVIEW_REQUIRED",
-    "storyboard_id": "adam_detailed_cinematic_storyboard_92caa3306cff1ecb"
+    "storyboard_id": "adam_detailed_cinematic_storyboard_v2_c4722dcdff04d534"
+  },
+  "director_cut_revision": {
+    "adaptation_policy": "MEANING_PRESERVED_WORDING_CINEMATICALLY_ADAPTED",
+    "meaning_change": "FORBIDDEN",
+    "script_fingerprint": "614069fbe5a5c5f9baf8d1325a0c96929df30449203e19e835b84506259ff9e7",
+    "source_context_literalism": "REMOVED",
+    "status": "HUMAN_REVIEW_REQUIRED",
+    "storyboard_fingerprint": "c4722dcdff04d534243e9469fc30510a02ef1e067e9bfafee757d445ac9577b2",
+    "supersedes_script_fingerprint": "c187aabf5ee4b245439b3404715e6174fd391c77f4c93a80de8fafe0f4b7ae85",
+    "supersedes_storyboard_fingerprint": "92caa3306cff1ecb63f5c76b062fb39f5f76c1d94060feab1c906675452ce8b2",
+    "version": 2
   },
   "editorial_inputs": {
     "episode_brief": "editorial/episode-brief.yaml",
@@ -143,11 +156,11 @@
   "live_execution_status": "BLOCKED",
   "maximum_duration_minutes": 25,
   "minimum_duration_minutes": 18,
-  "next_stage": "HUMAN_REVIEW_OF_PRESTIGE_CINEMATIC_SCRIPT_AND_STORYBOARD",
+  "next_stage": "HUMAN_REVIEW_OF_PRESTIGE_CINEMATIC_DIRECTORS_CUT_V2",
   "paid_execution": "BLOCKED",
   "production_brief": {
-    "brief_id": "adam_prestige_production_brief_4f2d6098b19dc972",
-    "path": "cinematic/prestige-production-brief-v1.json",
+    "brief_id": "adam_prestige_production_brief_v2_0bb79cb14ca04053",
+    "path": "cinematic/prestige-production-brief-v2.json",
     "status": "PLANNING_ONLY_PROVIDER_EXECUTION_BLOCKED"
   },
   "production_profile": "WORLD_CLASS_PRESTIGE_HISTORICAL_CINEMA_V1",
@@ -159,14 +172,14 @@
   ],
   "schema_version": "siraj-episode-definition-v1",
   "script_storyboard_approval_request": {
-    "path": "evidence/script-storyboard-human-approval-request-v1.json",
-    "request_id": "adam_script_storyboard_approval_request_c0105f561c76addc",
+    "path": "evidence/script-storyboard-human-approval-request-v2.json",
+    "request_id": "adam_script_storyboard_approval_request_v2_c14c49a604cb4a05",
     "status": "HUMAN_APPROVAL_REQUIRED"
   },
   "script_storyboard_trace": {
-    "path": "evidence/script-storyboard-evidence-trace-v1.json",
+    "path": "evidence/script-storyboard-evidence-trace-v2.json",
     "status": "PASS_COMPLETE_TRACE",
-    "trace_id": "adam_script_storyboard_trace_13bd8845eef82550"
+    "trace_id": "adam_script_storyboard_trace_v2_bebe280b14944c2e"
   },
   "series_id": "siraj-islamic-history-chronology",
   "source_package": {
@@ -176,6 +189,28 @@
     "path": "contracts/source-package-v1.json"
   },
   "subject": "خلق آدم عليه السلام وتكريمه وميثاق ذريته والسكن في الجنة",
+  "superseded_script_storyboard_v1": {
+    "cinematic_script": {
+      "human_approval": false,
+      "input_fingerprint": "c187aabf5ee4b245439b3404715e6174fd391c77f4c93a80de8fafe0f4b7ae85",
+      "markdown_path": "editorial/prestige-cinematic-script-v1.md",
+      "path": "editorial/prestige-cinematic-script-v1.json",
+      "script_id": "adam_prestige_cinematic_script_c187aabf5ee4b245",
+      "status": "HUMAN_REVIEW_REQUIRED"
+    },
+    "detailed_storyboard": {
+      "human_approval": false,
+      "input_fingerprint": "92caa3306cff1ecb63f5c76b062fb39f5f76c1d94060feab1c906675452ce8b2",
+      "path": "cinematic/detailed-storyboard-v1.json",
+      "status": "HUMAN_REVIEW_REQUIRED",
+      "storyboard_id": "adam_detailed_cinematic_storyboard_92caa3306cff1ecb"
+    },
+    "script_fingerprint": "c187aabf5ee4b245439b3404715e6174fd391c77f4c93a80de8fafe0f4b7ae85",
+    "script_id": "adam_prestige_cinematic_script_c187aabf5ee4b245",
+    "status": "SUPERSEDED_BY_DIRECTORS_CUT_V2",
+    "storyboard_fingerprint": "92caa3306cff1ecb63f5c76b062fb39f5f76c1d94060feab1c906675452ce8b2",
+    "storyboard_id": "adam_detailed_cinematic_storyboard_92caa3306cff1ecb"
+  },
   "target_duration_minutes": 22,
   "timezone_policy": {
     "approval_time_baghdad": "2026-07-29T01:24:26+03:00",
