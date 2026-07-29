@@ -1205,3 +1205,41 @@ __all__ += [
     "render_prestige_directors_cut_v2_markdown",
     "write_prestige_directors_cut_v2_outputs",
 ]
+
+from .prestige_storyboard_master_v2_1 import (
+    APPROVAL_PHRASE as ADAM_FINAL_STORYBOARD_MASTER_APPROVAL_PHRASE_V2_1,
+    EXACT_COVENANT_VERSE as ADAM_COVENANT_VERSE_TEXT_V2_1,
+    SCRIPT_SCHEMA as PRESTIGE_CINEMATIC_SCRIPT_SCHEMA_V2_1,
+    STORYBOARD_SCHEMA as DETAILED_CINEMATIC_STORYBOARD_SCHEMA_V2_1,
+    TRACE_SCHEMA as SCRIPT_STORYBOARD_EVIDENCE_TRACE_SCHEMA_V2_1,
+    APPROVAL_REQUEST_SCHEMA as SCRIPT_STORYBOARD_APPROVAL_REQUEST_SCHEMA_V2_1,
+    PRODUCTION_BRIEF_SCHEMA as PRESTIGE_PRODUCTION_BRIEF_SCHEMA_V2_1,
+    DIRECTORIAL_AUDIT_SCHEMA as STORYBOARD_MASTER_DIRECTORIAL_AUDIT_SCHEMA_V2_1,
+    StoryboardMasterError,
+    build_master_candidate as build_adam_storyboard_master_v2_1,
+    build_directorial_audit as build_adam_directorial_audit_v2_1,
+    render_script_markdown as render_adam_storyboard_master_markdown_v2_1,
+    update_episode_definition as update_episode_for_storyboard_master_v2_1,
+    validate_inputs as validate_storyboard_master_v2_1_inputs,
+    validate_outputs as validate_storyboard_master_v2_1_outputs,
+    write_outputs as write_storyboard_master_v2_1_outputs,
+)
+
+__all__ += [
+    "ADAM_FINAL_STORYBOARD_MASTER_APPROVAL_PHRASE_V2_1",
+    "ADAM_COVENANT_VERSE_TEXT_V2_1",
+    "PRESTIGE_CINEMATIC_SCRIPT_SCHEMA_V2_1",
+    "DETAILED_CINEMATIC_STORYBOARD_SCHEMA_V2_1",
+    "SCRIPT_STORYBOARD_EVIDENCE_TRACE_SCHEMA_V2_1",
+    "SCRIPT_STORYBOARD_APPROVAL_REQUEST_SCHEMA_V2_1",
+    "PRESTIGE_PRODUCTION_BRIEF_SCHEMA_V2_1",
+    "STORYBOARD_MASTER_DIRECTORIAL_AUDIT_SCHEMA_V2_1",
+    "StoryboardMasterError",
+    "validate_storyboard_master_v2_1_inputs",
+    "validate_storyboard_master_v2_1_outputs",
+    "build_adam_storyboard_master_v2_1",
+    "build_adam_directorial_audit_v2_1",
+    "update_episode_for_storyboard_master_v2_1",
+    "render_adam_storyboard_master_markdown_v2_1",
+    "write_storyboard_master_v2_1_outputs",
+]

@@ -748,7 +748,7 @@ def update_episode_definition(
     )
     already_v2 = (
         isinstance(existing_revision, Mapping)
-        and existing_revision.get("version") == 2
+        and str(existing_revision.get("version")) in {"2", "2.1"}
     )
 
     if already_v2:

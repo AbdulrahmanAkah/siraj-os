@@ -79,9 +79,9 @@ class PrestigeScriptV1DirectorsCutCompatibilityTests(
             self.expected_v1,
         )
         self.assertEqual(merged, self.current)
-        self.assertEqual(
-            merged["director_cut_revision"]["version"],
-            2,
+        self.assertIn(
+            str(merged["director_cut_revision"]["version"]),
+            {"2", "2.1"},
         )
 
     def test_v1_cli_audit_does_not_regress_definition(self):

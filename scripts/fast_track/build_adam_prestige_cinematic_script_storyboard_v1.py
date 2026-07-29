@@ -30,15 +30,31 @@ def has_directors_cut_v2(
     revision = definition.get("director_cut_revision")
     script = definition.get("cinematic_script")
     storyboard = definition.get("detailed_storyboard")
-    return (
+    if not (
         isinstance(revision, dict)
-        and revision.get("version") == 2
         and isinstance(script, dict)
-        and script.get("path")
-        == "editorial/prestige-cinematic-script-v2.json"
         and isinstance(storyboard, dict)
-        and storyboard.get("path")
-        == "cinematic/detailed-storyboard-v2.json"
+    ):
+        return False
+
+    version = str(revision.get("version"))
+    script_path = script.get("path")
+    storyboard_path = storyboard.get("path")
+    return (
+        (
+            version == "2"
+            and script_path
+            == "editorial/prestige-cinematic-script-v2.json"
+            and storyboard_path
+            == "cinematic/detailed-storyboard-v2.json"
+        )
+        or (
+            version == "2.1"
+            and script_path
+            == "editorial/prestige-cinematic-script-v2-1.json"
+            and storyboard_path
+            == "cinematic/detailed-storyboard-v2-1.json"
+        )
     )
 
 

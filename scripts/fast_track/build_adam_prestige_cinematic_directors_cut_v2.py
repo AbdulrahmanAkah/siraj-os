@@ -24,6 +24,63 @@ def text_equal(path: Path, expected: str) -> bool:
     return actual == expected
 
 
+def has_storyboard_master_v2_1(
+    definition: dict,
+) -> bool:
+    revision = definition.get("director_cut_revision")
+    script = definition.get("cinematic_script")
+    storyboard = definition.get("detailed_storyboard")
+    return (
+        isinstance(revision, dict)
+        and str(revision.get("version")) == "2.1"
+        and isinstance(script, dict)
+        and script.get("path")
+        == "editorial/prestige-cinematic-script-v2-1.json"
+        and isinstance(storyboard, dict)
+        and storyboard.get("path")
+        == "cinematic/detailed-storyboard-v2-1.json"
+    )
+
+
+def v2_episode_definition_compatible(
+    actual: dict,
+    expected_v2: dict,
+) -> bool:
+    if not has_storyboard_master_v2_1(actual):
+        return actual == expected_v2
+
+    predecessor = actual.get("superseded_directors_cut_v2")
+    expected_script = expected_v2.get("cinematic_script")
+    expected_storyboard = expected_v2.get("detailed_storyboard")
+    if not (
+        isinstance(predecessor, dict)
+        and isinstance(expected_script, dict)
+        and isinstance(expected_storyboard, dict)
+    ):
+        return False
+    return (
+        predecessor.get("script_fingerprint")
+        == expected_script.get("input_fingerprint")
+        and predecessor.get("storyboard_fingerprint")
+        == expected_storyboard.get("input_fingerprint")
+        and actual.get("evidence_gate_status")
+        == expected_v2.get("evidence_gate_status")
+        and actual.get("live_execution_status")
+        == expected_v2.get("live_execution_status")
+        and actual.get("paid_execution")
+        == expected_v2.get("paid_execution")
+    )
+
+
+def merge_v2_episode_definition(
+    existing: dict,
+    expected_v2: dict,
+) -> dict:
+    if has_storyboard_master_v2_1(existing):
+        return existing
+    return expected_v2
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--repo-root", type=Path, required=True)
@@ -118,6 +175,7 @@ def main() -> int:
     )
     markdown = render_script_markdown(script)
 
+    definition_path = contracts / "episode-definition-v1.json"
     project_outputs = {
         editorial / "prestige-cinematic-script-v2.json": script,
         cinematic / "detailed-storyboard-v2.json": storyboard,
@@ -127,14 +185,19 @@ def main() -> int:
             approval_request,
         cinematic / "prestige-production-brief-v2.json":
             production_brief,
-        contracts / "episode-definition-v1.json":
-            updated_definition,
     }
     markdown_path = editorial / "prestige-cinematic-script-v2.md"
 
     if args.materialize_project_files:
         for path, payload in project_outputs.items():
             write_json(path, payload)
+        write_json(
+            definition_path,
+            merge_v2_episode_definition(
+                definition,
+                updated_definition,
+            ),
+        )
         markdown_path.write_text(
             markdown,
             encoding="utf-8",
@@ -146,11 +209,19 @@ def main() -> int:
             for path, payload in project_outputs.items()
             if not json_equal(path, payload)
         ]
+        actual_definition = json.loads(
+            definition_path.read_text(encoding="utf-8-sig")
+        )
+        if not v2_episode_definition_compatible(
+            actual_definition,
+            updated_definition,
+        ):
+            different.append(str(definition_path))
         if not text_equal(markdown_path, markdown):
             different.append(str(markdown_path))
         if different:
             raise RuntimeError(
-                "Tracked script/storyboard files differ: "
+                "Tracked Director's Cut v2 audit differs: "
                 + ", ".join(different)
             )
 
