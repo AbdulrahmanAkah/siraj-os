@@ -30,6 +30,7 @@ FINAL_APPROVED_NEXT_STAGE = (
 FINAL_APPROVED_DOWNSTREAM_STAGES = (
     FINAL_APPROVED_NEXT_STAGE,
     "HUMAN_REVIEW_OF_MASTER_VISUAL_BIBLE_COLOR_SCRIPT_AND_NON_PAID_ANIMATIC_V1",
+    "HUMAN_DECISION_ON_MASTER_VISUAL_DEVELOPMENT_REVIEW_V1",
 )
 
 
@@ -111,16 +112,30 @@ def merge_master_candidate_definition(
 
 def visual_review_state_is_active(definition: dict) -> bool:
     development = definition.get("master_visual_development")
+    human_review = definition.get("master_visual_human_review")
+    development_review_active = (
+        definition.get("master_visual_status")
+        == "DEVELOPED_AWAITING_HUMAN_APPROVAL"
+        and definition.get("next_stage")
+        == "HUMAN_REVIEW_OF_MASTER_VISUAL_BIBLE_COLOR_SCRIPT_AND_NON_PAID_ANIMATIC_V1"
+    )
+    human_decision_active = (
+        isinstance(human_review, dict)
+        and human_review.get("status") == "READY_FOR_HUMAN_DECISION"
+        and human_review.get("human_approval") is False
+        and human_review.get("master_visual_approval") is False
+        and definition.get("master_visual_status")
+        == "HUMAN_REVIEW_PACKAGE_READY_FINAL_APPROVAL_STILL_BLOCKED"
+        and definition.get("next_stage")
+        == "HUMAN_DECISION_ON_MASTER_VISUAL_DEVELOPMENT_REVIEW_V1"
+    )
     return (
         final_approval_binding_is_active(definition)
         and isinstance(development, dict)
         and development.get("status")
         == "DEVELOPED_AWAITING_HUMAN_MASTER_VISUAL_APPROVAL"
         and development.get("master_visual_approval") is False
-        and definition.get("master_visual_status")
-        == "DEVELOPED_AWAITING_HUMAN_APPROVAL"
-        and definition.get("next_stage")
-        == "HUMAN_REVIEW_OF_MASTER_VISUAL_BIBLE_COLOR_SCRIPT_AND_NON_PAID_ANIMATIC_V1"
+        and (development_review_active or human_decision_active)
     )
 
 
@@ -134,7 +149,7 @@ def master_candidate_production_brief_compatible(
     development = definition["master_visual_development"]
     script = definition.get("cinematic_script")
     storyboard = definition.get("detailed_storyboard")
-    return (
+    common = (
         isinstance(script, dict)
         and isinstance(storyboard, dict)
         and actual.get("schema_version")
@@ -143,12 +158,6 @@ def master_candidate_production_brief_compatible(
         and actual.get("script_id") == script.get("script_id")
         and actual.get("storyboard_id") == storyboard.get("storyboard_id")
         and actual.get("storyboard_master_status") == "COMPLETE_HUMAN_APPROVED"
-        and actual.get("status")
-        == "NON_PAID_VISUAL_DEVELOPMENT_COMPLETE_PROVIDER_EXECUTION_BLOCKED"
-        and actual.get("animatic_status")
-        == "NON_PAID_DEVELOPMENT_COMPLETE_AWAITING_HUMAN_MASTER_VISUAL_APPROVAL"
-        and actual.get("master_visual_status")
-        == "DEVELOPED_AWAITING_HUMAN_APPROVAL"
         and actual.get("master_visual_approval") is False
         and actual.get("next_non_paid_stage") == definition.get("next_stage")
         and actual.get("master_visual_bible_id")
@@ -166,6 +175,41 @@ def master_candidate_production_brief_compatible(
         and actual.get("paid_execution") == "BLOCKED"
         and actual.get("direct_execution") == "BLOCKED"
         and actual.get("runware_execution") == "BLOCKED"
+    )
+    if not common:
+        return False
+    if definition.get("next_stage") == (
+        "HUMAN_REVIEW_OF_MASTER_VISUAL_BIBLE_COLOR_SCRIPT_AND_NON_PAID_ANIMATIC_V1"
+    ):
+        return (
+            actual.get("status")
+            == "NON_PAID_VISUAL_DEVELOPMENT_COMPLETE_PROVIDER_EXECUTION_BLOCKED"
+            and actual.get("animatic_status")
+            == "NON_PAID_DEVELOPMENT_COMPLETE_AWAITING_HUMAN_MASTER_VISUAL_APPROVAL"
+            and actual.get("master_visual_status")
+            == "DEVELOPED_AWAITING_HUMAN_APPROVAL"
+        )
+    human_review = definition.get("master_visual_human_review")
+    return (
+        isinstance(human_review, dict)
+        and actual.get("status")
+        == "MASTER_VISUAL_HUMAN_REVIEW_READY_PROVIDER_EXECUTION_BLOCKED"
+        and actual.get("master_visual_review_status")
+        == "READY_FOR_HUMAN_DECISION"
+        and actual.get("master_visual_status")
+        == "HUMAN_REVIEW_PACKAGE_READY_FINAL_APPROVAL_STILL_BLOCKED"
+        and actual.get("master_visual_review_dossier_id")
+        == human_review.get("review_dossier_id")
+        and actual.get("master_visual_critical_review_id")
+        == human_review.get("critical_review_id")
+        and actual.get("master_style_frame_prototype_plan_id")
+        == human_review.get("prototype_plan_id")
+        and actual.get("master_visual_human_approval_request_id")
+        == human_review.get("approval_request_id")
+        and actual.get("master_visual_human_review_binding_id")
+        == human_review.get("review_binding_id")
+        and actual.get("style_frame_prototyping_status")
+        == "PENDING_HUMAN_BASELINE_APPROVAL"
     )
 
 

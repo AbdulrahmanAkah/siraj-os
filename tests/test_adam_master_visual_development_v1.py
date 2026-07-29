@@ -5,6 +5,7 @@ import tempfile
 import unittest
 
 from src.application.storyboard_runtime.master_visual_development_v1 import (
+    ALLOWED_EPISODE_STAGES,
     APPROVAL_BINDING_ID,
     APPROVAL_ID,
     NEXT_STAGE,
@@ -138,7 +139,10 @@ class AdamMasterVisualDevelopmentV1Tests(unittest.TestCase):
         self.assertEqual(self.binding["next_stage"], NEXT_STAGE)
 
     def test_episode_advances_to_human_visual_review(self):
-        self.assertEqual(self.updated_definition["next_stage"], NEXT_STAGE)
+        self.assertIn(
+            self.updated_definition["next_stage"],
+            ALLOWED_EPISODE_STAGES,
+        )
 
     def test_episode_binds_package(self):
         self.assertEqual(

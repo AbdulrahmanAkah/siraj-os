@@ -119,10 +119,7 @@ def main() -> int:
     print(f"ANIMATIC_DEVELOPMENT_ID={animatic['animatic_development_id']}")
     print(f"DEVELOPMENT_AUDIT_ID={audit['audit_id']}")
     print(f"DEVELOPMENT_BINDING_ID={binding['binding_id']}")
-    print(
-        "NEXT_STAGE="
-        "HUMAN_REVIEW_OF_MASTER_VISUAL_BIBLE_COLOR_SCRIPT_AND_NON_PAID_ANIMATIC_V1"
-    )
+    print(f"NEXT_STAGE={updated_definition['next_stage']}")
     print(f"OUTPUT_ROOT={args.output_root.resolve()}")
     print(f"ARCHIVE={outputs['archive']}")
     return 0

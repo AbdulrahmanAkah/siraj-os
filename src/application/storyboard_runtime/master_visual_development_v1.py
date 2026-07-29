@@ -37,6 +37,14 @@ SOURCE_STAGE = "MASTER_VISUAL_BIBLE_COLOR_SCRIPT_AND_NON_PAID_ANIMATIC_DEVELOPME
 NEXT_STAGE = (
     "HUMAN_REVIEW_OF_MASTER_VISUAL_BIBLE_COLOR_SCRIPT_AND_NON_PAID_ANIMATIC_V1"
 )
+DOWNSTREAM_REVIEW_DECISION_STAGE = (
+    "HUMAN_DECISION_ON_MASTER_VISUAL_DEVELOPMENT_REVIEW_V1"
+)
+ALLOWED_EPISODE_STAGES = (
+    SOURCE_STAGE,
+    NEXT_STAGE,
+    DOWNSTREAM_REVIEW_DECISION_STAGE,
+)
 LIVE_EXECUTION = "BLOCKED"
 PAID_EXECUTION = "BLOCKED"
 DIRECT_EXECUTION = "BLOCKED"
@@ -246,7 +254,7 @@ def validate_inputs(
         raise MasterVisualDevelopmentError("Episode storyboard fingerprint changed.")
     if episode_definition.get("storyboard_completion_status") != "COMPLETE_HUMAN_APPROVED":
         raise MasterVisualDevelopmentError("Storyboard is not human approved.")
-    if episode_definition.get("next_stage") not in (SOURCE_STAGE, NEXT_STAGE):
+    if episode_definition.get("next_stage") not in ALLOWED_EPISODE_STAGES:
         raise MasterVisualDevelopmentError("Episode is not at an allowed visual-development state.")
     if episode_definition.get("live_execution_status") != LIVE_EXECUTION:
         raise MasterVisualDevelopmentError("Episode live execution must remain blocked.")
@@ -575,10 +583,21 @@ def update_episode_definition(
         "media_assets_created": 0,
         "generated_video_planned_seconds": 0,
     }
-    definition["master_visual_status"] = (
-        "DEVELOPED_AWAITING_HUMAN_APPROVAL"
+    human_review = definition.get("master_visual_human_review")
+    downstream_review_active = (
+        isinstance(human_review, Mapping)
+        and human_review.get("status") == "READY_FOR_HUMAN_DECISION"
+        and human_review.get("human_approval") is False
+        and human_review.get("master_visual_approval") is False
+        and definition.get("next_stage") == DOWNSTREAM_REVIEW_DECISION_STAGE
+        and definition.get("master_visual_status")
+        == "HUMAN_REVIEW_PACKAGE_READY_FINAL_APPROVAL_STILL_BLOCKED"
     )
-    definition["next_stage"] = NEXT_STAGE
+    if not downstream_review_active:
+        definition["master_visual_status"] = (
+            "DEVELOPED_AWAITING_HUMAN_APPROVAL"
+        )
+        definition["next_stage"] = NEXT_STAGE
     definition["live_execution_status"] = LIVE_EXECUTION
     definition["paid_execution"] = PAID_EXECUTION
     return definition
@@ -593,6 +612,21 @@ def update_production_brief(
     binding: Mapping[str, object],
 ) -> dict:
     brief = copy.deepcopy(dict(production_brief))
+    downstream_review_active = (
+        brief.get("master_visual_review_status") == "READY_FOR_HUMAN_DECISION"
+        and brief.get("master_visual_status")
+        == "HUMAN_REVIEW_PACKAGE_READY_FINAL_APPROVAL_STILL_BLOCKED"
+        and brief.get("master_visual_approval") is False
+        and brief.get("next_non_paid_stage") == DOWNSTREAM_REVIEW_DECISION_STAGE
+        and brief.get("visual_development_binding_id") == binding["binding_id"]
+        and brief.get("generated_video_planned_seconds") == 0
+        and brief.get("live_provider_execution") == LIVE_EXECUTION
+        and brief.get("paid_execution") == PAID_EXECUTION
+        and brief.get("direct_execution") == DIRECT_EXECUTION
+        and brief.get("runware_execution") == RUNWARE_EXECUTION
+    )
+    if downstream_review_active:
+        return brief
     brief.update(
         {
             "status": "NON_PAID_VISUAL_DEVELOPMENT_COMPLETE_PROVIDER_EXECUTION_BLOCKED",
@@ -655,11 +689,23 @@ def validate_outputs(
     )
     if development.get("binding_id") != binding.get("binding_id"):
         raise MasterVisualDevelopmentError("Episode does not bind visual package.")
-    if episode_definition.get("next_stage") != NEXT_STAGE:
-        raise MasterVisualDevelopmentError("Episode did not advance to visual review.")
-    if episode_definition.get("master_visual_status") != (
-        "DEVELOPED_AWAITING_HUMAN_APPROVAL"
+    if episode_definition.get("next_stage") not in (
+        NEXT_STAGE,
+        DOWNSTREAM_REVIEW_DECISION_STAGE,
     ):
+        raise MasterVisualDevelopmentError("Episode visual-review stage changed.")
+    human_review = episode_definition.get("master_visual_human_review")
+    downstream_review_active = (
+        isinstance(human_review, Mapping)
+        and human_review.get("status") == "READY_FOR_HUMAN_DECISION"
+        and episode_definition.get("next_stage")
+        == DOWNSTREAM_REVIEW_DECISION_STAGE
+        and episode_definition.get("master_visual_status")
+        == "HUMAN_REVIEW_PACKAGE_READY_FINAL_APPROVAL_STILL_BLOCKED"
+    )
+    if not downstream_review_active and episode_definition.get(
+        "master_visual_status"
+    ) != "DEVELOPED_AWAITING_HUMAN_APPROVAL":
         raise MasterVisualDevelopmentError("Master visual status changed.")
     if production_brief.get("visual_development_binding_id") != binding.get(
         "binding_id"

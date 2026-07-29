@@ -52,9 +52,13 @@ NEXT_STAGE = (
 DOWNSTREAM_VISUAL_REVIEW_STAGE = (
     "HUMAN_REVIEW_OF_MASTER_VISUAL_BIBLE_COLOR_SCRIPT_AND_NON_PAID_ANIMATIC_V1"
 )
+DOWNSTREAM_VISUAL_DECISION_STAGE = (
+    "HUMAN_DECISION_ON_MASTER_VISUAL_DEVELOPMENT_REVIEW_V1"
+)
 ALLOWED_DOWNSTREAM_STAGES = (
     NEXT_STAGE,
     DOWNSTREAM_VISUAL_REVIEW_STAGE,
+    DOWNSTREAM_VISUAL_DECISION_STAGE,
 )
 ALLOWED_NON_PAID_STAGES = (
     "MASTER_VISUAL_BIBLE",
@@ -69,6 +73,32 @@ FORBIDDEN_EXECUTION_MODES = (
     "DIRECT_PROVIDER_EXECUTION",
     "RUNWARE_EXECUTION",
 )
+
+
+def _downstream_visual_state_is_active(definition: Mapping[str, object]) -> bool:
+    development = definition.get("master_visual_development")
+    development_review_active = (
+        isinstance(development, Mapping)
+        and development.get("status")
+        == "DEVELOPED_AWAITING_HUMAN_MASTER_VISUAL_APPROVAL"
+        and definition.get("next_stage") == DOWNSTREAM_VISUAL_REVIEW_STAGE
+        and definition.get("master_visual_status")
+        == "DEVELOPED_AWAITING_HUMAN_APPROVAL"
+    )
+    human_review = definition.get("master_visual_human_review")
+    human_decision_active = (
+        isinstance(development, Mapping)
+        and development.get("status")
+        == "DEVELOPED_AWAITING_HUMAN_MASTER_VISUAL_APPROVAL"
+        and isinstance(human_review, Mapping)
+        and human_review.get("status") == "READY_FOR_HUMAN_DECISION"
+        and human_review.get("human_approval") is False
+        and human_review.get("master_visual_approval") is False
+        and definition.get("next_stage") == DOWNSTREAM_VISUAL_DECISION_STAGE
+        and definition.get("master_visual_status")
+        == "HUMAN_REVIEW_PACKAGE_READY_FINAL_APPROVAL_STILL_BLOCKED"
+    )
+    return development_review_active or human_decision_active
 
 
 class ApprovalBindingError(ValueError):
@@ -468,20 +498,12 @@ def update_episode_definition(
         "master_visual_approval": False,
     }
     definition["storyboard_completion_status"] = "COMPLETE_HUMAN_APPROVED"
-    definition["religious_sensitivity"] = (
-        "FINAL_SCRIPT_V2_1_HUMAN_APPROVED; "
-        "MASTER_VISUAL_REMAINS_HUMAN_REVIEW_REQUIRED"
-    )
-    development = definition.get("master_visual_development")
-    downstream_active = (
-        isinstance(development, Mapping)
-        and development.get("status")
-        == "DEVELOPED_AWAITING_HUMAN_MASTER_VISUAL_APPROVAL"
-        and definition.get("next_stage") == DOWNSTREAM_VISUAL_REVIEW_STAGE
-        and definition.get("master_visual_status")
-        == "DEVELOPED_AWAITING_HUMAN_APPROVAL"
-    )
+    downstream_active = _downstream_visual_state_is_active(definition)
     if not downstream_active:
+        definition["religious_sensitivity"] = (
+            "FINAL_SCRIPT_V2_1_HUMAN_APPROVED; "
+            "MASTER_VISUAL_REMAINS_HUMAN_REVIEW_REQUIRED"
+        )
         definition["master_visual_status"] = (
             "NOT_STARTED_HUMAN_APPROVAL_REQUIRED"
         )
@@ -521,15 +543,8 @@ def validate_outputs(
         "COMPLETE_HUMAN_APPROVED"
     ):
         raise ApprovalBindingError("Episode storyboard approval is not active.")
-    development = episode_definition.get("master_visual_development")
-    downstream_active = (
-        isinstance(development, Mapping)
-        and development.get("status")
-        == "DEVELOPED_AWAITING_HUMAN_MASTER_VISUAL_APPROVAL"
-        and episode_definition.get("next_stage")
-        == DOWNSTREAM_VISUAL_REVIEW_STAGE
-        and episode_definition.get("master_visual_status")
-        == "DEVELOPED_AWAITING_HUMAN_APPROVAL"
+    downstream_active = _downstream_visual_state_is_active(
+        episode_definition
     )
     if not downstream_active:
         if episode_definition.get("next_stage") != NEXT_STAGE:

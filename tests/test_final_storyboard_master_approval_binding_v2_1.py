@@ -334,6 +334,7 @@ class FinalStoryboardMasterApprovalBindingV21Tests(unittest.TestCase):
             (
                 "NOT_STARTED_HUMAN_APPROVAL_REQUIRED",
                 "DEVELOPED_AWAITING_HUMAN_APPROVAL",
+                "HUMAN_REVIEW_PACKAGE_READY_FINAL_APPROVAL_STILL_BLOCKED",
             ),
         )
 

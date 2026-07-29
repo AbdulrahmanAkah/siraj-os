@@ -1,0 +1,76 @@
+{
+  "critical_review_id": "adam_master_visual_critical_review_v1_02e5776297bed398",
+  "development_baseline_blocker_count": 0,
+  "direct_execution": "BLOCKED",
+  "episode_id": "episode-001-adam",
+  "final_master_visual_approval_blocker_count": 3,
+  "final_master_visual_approval_eligible": false,
+  "finding_count": 6,
+  "findings": [
+    {
+      "area": "STYLE_FRAME_PROOF",
+      "finding": "No rendered master style frames exist.",
+      "finding_id": "MVHR-001",
+      "required_action": "Produce the approved non-paid anchor style frames.",
+      "severity": "BLOCKING_FINAL_MASTER_VISUAL_APPROVAL",
+      "status": "OPEN_BY_DESIGN"
+    },
+    {
+      "area": "COLOR_CALIBRATION",
+      "finding": "The Color Script is descriptive text rather than calibrated swatches.",
+      "finding_id": "MVHR-002",
+      "required_action": "Lock swatches, value hierarchy, contrast, and colour continuity in style-frame proofs.",
+      "severity": "BLOCKING_FINAL_MASTER_VISUAL_APPROVAL",
+      "status": "OPEN_BY_DESIGN"
+    },
+    {
+      "area": "ANIMATIC_MEDIA_TIMING",
+      "finding": "The animatic is a 70-shot text/geometric plan, not timed media.",
+      "finding_id": "MVHR-003",
+      "required_action": "Build a non-paid visual timing prototype only after human approval.",
+      "severity": "BLOCKING_FINAL_MASTER_VISUAL_APPROVAL",
+      "status": "OPEN_BY_DESIGN"
+    },
+    {
+      "area": "ASSET_IDENTITY_REGISTRY",
+      "finding": "Environment, material, title, and recurring motif identities are not yet locked through visual specimens.",
+      "finding_id": "MVHR-004",
+      "required_action": "Create a cross-shot identity registry from the selected anchor frames.",
+      "severity": "MANDATORY_STYLE_FRAME_STAGE_ACTION",
+      "status": "OPEN_BY_DESIGN"
+    },
+    {
+      "area": "TYPOGRAPHY_AND_TITLE_SYSTEM",
+      "finding": "Title typography and evidence-plate behaviour are described but not visually proven.",
+      "finding_id": "MVHR-005",
+      "required_action": "Prototype the Siraj and episode-title treatments without expository plate aesthetics.",
+      "severity": "MANDATORY_STYLE_FRAME_STAGE_ACTION",
+      "status": "OPEN_BY_DESIGN"
+    },
+    {
+      "area": "RELIGIOUS_VISUAL_SAFETY",
+      "finding": "The written safety rules are strong; generated or illustrated outputs must still be inspected frame by frame.",
+      "finding_id": "MVHR-006",
+      "required_action": "Apply human religious-safety review to every prototype image before reuse.",
+      "severity": "VALIDATION_REQUIRED_NOT_A_RULESET_FAILURE",
+      "status": "PASS_RULESET"
+    }
+  ],
+  "generated_video_planned_seconds": 0,
+  "live_provider_execution": "BLOCKED",
+  "mandatory_style_frame_action_count": 2,
+  "master_visual_approval": false,
+  "media_assets_created": 0,
+  "paid_execution": "BLOCKED",
+  "recommendation": "APPROVE_DEVELOPMENT_BASELINE_FOR_NON_PAID_STYLE_FRAME_PROTOTYPING",
+  "religious_rule_failure_count": 0,
+  "review_dossier_id": "adam_master_visual_human_review_dossier_v1_5dd9d62e194cd5b4",
+  "runware_execution": "BLOCKED",
+  "schema_version": "siraj-master-visual-critical-review-v1",
+  "script_fingerprint": "ff540783ec519581bd902caf81145c3f77819a7351f2bd5d07e9f84705a4fb27",
+  "source_development_binding_id": "adam_master_visual_development_binding_v1_aadea96d4b8935c5",
+  "status": "PASS_REVIEW_READY_WITH_FINAL_APPROVAL_BLOCKERS",
+  "storyboard_fingerprint": "867b88ade164ebe444aeaaeeb9f60accef122f59cf8b45b020223f3ca8788bf8",
+  "unresolved_human_decisions": 1,
+  "unresolved_technical_package_decisions": 0
+}

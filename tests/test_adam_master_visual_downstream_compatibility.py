@@ -16,6 +16,7 @@ from src.application.storyboard_runtime.final_storyboard_master_approval_binding
     read_json,
 )
 from src.application.storyboard_runtime.master_visual_development_v1 import (
+    DOWNSTREAM_REVIEW_DECISION_STAGE,
     NEXT_STAGE,
 )
 
@@ -59,7 +60,10 @@ class AdamMasterVisualDownstreamCompatibilityTests(unittest.TestCase):
             episode_definition=self.definition,
         )
         updated_definition = rebuilt[-1]
-        self.assertEqual(updated_definition["next_stage"], NEXT_STAGE)
+        self.assertEqual(
+            updated_definition["next_stage"],
+            self.definition["next_stage"],
+        )
         self.assertEqual(
             updated_definition["master_visual_development"],
             self.definition["master_visual_development"],
@@ -107,7 +111,10 @@ class AdamMasterVisualDownstreamCompatibilityTests(unittest.TestCase):
             "STATUS=PASS_ADAM_FINAL_STORYBOARD_MASTER_V2_1",
             result.stdout,
         )
-        self.assertIn(f"NEXT_STAGE={NEXT_STAGE}", result.stdout)
+        self.assertIn(
+            f"NEXT_STAGE={self.definition['next_stage']}",
+            result.stdout,
+        )
         self.assertEqual(definition_path.read_bytes(), before_definition)
         self.assertEqual(brief_path.read_bytes(), before_brief)
 

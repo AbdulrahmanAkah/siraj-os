@@ -166,6 +166,14 @@
   "intended_audience": "general_arabic_documentary",
   "language": "ar",
   "live_execution_status": "BLOCKED",
+  "master_style_frame_prototype_plan": {
+    "image_generation_authorisation": "PENDING_HUMAN_APPROVAL",
+    "path": "cinematic/master-style-frame-prototype-plan-v1.json",
+    "prototype_count": 8,
+    "prototype_plan_id": "adam_master_style_frame_prototype_plan_v1_1c4d8ae331ea3dd6",
+    "status": "PLANNED_AWAITING_HUMAN_DEVELOPMENT_BASELINE_APPROVAL"
+  },
+  "master_visual_approval": false,
   "master_visual_development": {
     "animatic_development_id": "adam_non_paid_animatic_development_v1_df9bfe3614040947",
     "animatic_path": "cinematic/non-paid-animatic-development-v1.json",
@@ -181,10 +189,29 @@
     "visual_bible_id": "adam_master_visual_bible_v1_0790d2e2e5fed178",
     "visual_bible_path": "cinematic/master-visual-bible-v1.json"
   },
-  "master_visual_status": "DEVELOPED_AWAITING_HUMAN_APPROVAL",
+  "master_visual_human_review": {
+    "approval_request_id": "adam_master_visual_human_approval_request_v1_a53844369a6cb0fc",
+    "approval_request_path": "evidence/master-visual-human-approval-request-v1.json",
+    "critical_review_id": "adam_master_visual_critical_review_v1_02e5776297bed398",
+    "critical_review_path": "cinematic/master-visual-critical-review-v1.json",
+    "final_master_visual_approval_eligible": false,
+    "human_approval": false,
+    "human_decision": "PENDING",
+    "master_visual_approval": false,
+    "prototype_plan_id": "adam_master_style_frame_prototype_plan_v1_1c4d8ae331ea3dd6",
+    "prototype_plan_path": "cinematic/master-style-frame-prototype-plan-v1.json",
+    "readable_review_path": "cinematic/master-visual-human-review-v1.md",
+    "recommended_decision": "APPROVE_DEVELOPMENT_BASELINE_FOR_NON_PAID_STYLE_FRAMES",
+    "review_binding_id": "adam_master_visual_human_review_binding_v1_4527afce21be895f",
+    "review_binding_path": "contracts/master-visual-human-review-binding-v1.json",
+    "review_dossier_id": "adam_master_visual_human_review_dossier_v1_5dd9d62e194cd5b4",
+    "review_dossier_path": "cinematic/master-visual-human-review-dossier-v1.json",
+    "status": "READY_FOR_HUMAN_DECISION"
+  },
+  "master_visual_status": "HUMAN_REVIEW_PACKAGE_READY_FINAL_APPROVAL_STILL_BLOCKED",
   "maximum_duration_minutes": 25,
   "minimum_duration_minutes": 18,
-  "next_stage": "HUMAN_REVIEW_OF_MASTER_VISUAL_BIBLE_COLOR_SCRIPT_AND_NON_PAID_ANIMATIC_V1",
+  "next_stage": "HUMAN_DECISION_ON_MASTER_VISUAL_DEVELOPMENT_REVIEW_V1",
   "paid_execution": "BLOCKED",
   "production_brief": {
     "brief_id": "adam_prestige_production_brief_v2_1_c8e7e9b9ccd7cadd",
@@ -192,7 +219,7 @@
     "status": "PLANNING_ONLY_PROVIDER_EXECUTION_BLOCKED"
   },
   "production_profile": "WORLD_CLASS_PRESTIGE_HISTORICAL_CINEMA_V1",
-  "religious_sensitivity": "FINAL_SCRIPT_V2_1_HUMAN_APPROVED; MASTER_VISUAL_REMAINS_HUMAN_REVIEW_REQUIRED",
+  "religious_sensitivity": "FINAL_SCRIPT_V2_1_HUMAN_APPROVED; VISUAL_DEVELOPMENT_REVIEW_READY; FINAL_MASTER_VISUAL_REMAINS_HUMAN_REVIEW_REQUIRED",
   "requested_outputs": [
     "render_manifest",
     "subtitles",
