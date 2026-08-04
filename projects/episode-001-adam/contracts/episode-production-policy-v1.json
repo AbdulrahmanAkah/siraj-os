@@ -1,0 +1,93 @@
+{
+  "applies_to": "ALL_SIRAJ_EPISODES",
+  "audio": {
+    "allowed_examples": [
+      "NATURAL_AMBIENCE",
+      "FOLEY",
+      "IMPACTS",
+      "RUMBLES",
+      "WINDS",
+      "WATER",
+      "FIRE",
+      "STONE",
+      "METALLIC_TEXTURES",
+      "DESIGNED_SYNTHETIC_EFFECTS",
+      "TRANSITION_EFFECTS",
+      "LOW_FREQUENCY_PRESSURE",
+      "ABSTRACT_NON_MUSICAL_TONES"
+    ],
+    "authored_silence": "ALLOWED",
+    "music": "FORBIDDEN",
+    "musical_score": "FORBIDDEN",
+    "narration": "ALLOWED",
+    "songs": "FORBIDDEN",
+    "sound_design": "REQUIRED",
+    "sound_effect_type_restriction": "NONE_WHEN_SCENE_APPROPRIATE",
+    "sound_effects": "ALLOWED"
+  },
+  "budget": {
+    "all_paid_media_and_repairs_included": true,
+    "cap_override": "FORBIDDEN",
+    "each_paid_attempt_requires_explicit_desktop_click": true,
+    "episode_hard_cap_usd": 40.0,
+    "headroom_usd": 0.0,
+    "hidden_paid_retry": "FORBIDDEN",
+    "preflight_required_before_each_paid_request": true,
+    "stop_before_predicted_cap_breach": true
+  },
+  "canonical_timezone": "Asia/Baghdad",
+  "editorial": {
+    "beauty_alone_is_sufficient": false,
+    "camera_motion_must_be_motivated": true,
+    "every_shot_must_change": [
+      "DRAMATIC_INFORMATION",
+      "EMOTIONAL_PRESSURE",
+      "SPATIAL_UNDERSTANDING",
+      "THEMATIC_MEANING"
+    ],
+    "historical_and_religious_safety_remains_blocking": true,
+    "transitions_must_carry_visual_motion_sound_or_theme": true
+  },
+  "effective_date_baghdad": "2026-08-05",
+  "execution": {
+    "api_key_storage": "WINDOWS_CREDENTIAL_MANAGER_ONLY",
+    "automatic_background_paid_generation": false,
+    "automatic_submission_poll_download_after_click": true,
+    "record_actual_cost": true,
+    "record_output_sha256": true,
+    "record_prompt": true,
+    "record_seed": true,
+    "record_task_uuid": true,
+    "recover_existing_task_without_resubmission": true,
+    "surface": "SIRAJ_DESKTOP_UI_ONLY"
+  },
+  "media_mix": {
+    "decorative_video_without_narrative_need": "FORBIDDEN",
+    "flat_slideshow": "FORBIDDEN",
+    "generated_video_default_plan_seconds": 160,
+    "generated_video_safety_ceiling_is_quota": false,
+    "generated_video_safety_ceiling_seconds": 300,
+    "generated_video_target_max_seconds": 180,
+    "generated_video_target_min_seconds": 120,
+    "production_mode": "HYBRID_GENERATED_VIDEO_AND_ANIMATED_STILLS",
+    "remaining_episode_duration": [
+      "ANIMATED_STILL",
+      "MULTIPLANE_PARALLAX",
+      "LOCAL_ELEMENT_ANIMATION",
+      "COMPOSITING",
+      "MAP_OR_DIAGRAM",
+      "GRAPHICS"
+    ]
+  },
+  "policy_id": "siraj_episode_production_policy_v1_20260805",
+  "review": {
+    "category_scores_required": false,
+    "notes_required": false,
+    "pass_threshold": 80,
+    "required_human_input": "ONE_INTEGER_ONLY_0_TO_100",
+    "score_0_to_79": "FAIL",
+    "score_80_to_100": "PASS"
+  },
+  "schema_version": "siraj-episode-production-policy-v1",
+  "status": "HUMAN_DIRECTIVES_ACTIVE"
+}

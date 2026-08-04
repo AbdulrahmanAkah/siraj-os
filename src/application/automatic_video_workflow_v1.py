@@ -11,6 +11,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Callable, Mapping
 
+from src.application.episode_production_control_v1 import (
+    assert_budget_allows_new_paid_request,
+)
 from src.application.runware_execution_v1 import (
     RUNWARE_API_URL,
     ProductionGateError,
@@ -739,6 +742,10 @@ def generate_or_resume(
             max_wait_seconds,
         )
 
+    assert_budget_allows_new_paid_request(
+        spec.repo_root,
+        MAX_COST_PER_ATTEMPT_USD,
+    )
     task_uuid = str(uuid.uuid4())
     payload = build_attempt_payload(spec, plan, task_uuid)
     _write_lock(spec, plan, task_uuid, payload)
@@ -842,7 +849,7 @@ def save_final_score(repo_root: Path, score: int) -> dict[str, Any]:
     if decision == "PASS":
         state["status"] = "ACCEPTED"
         state["accepted_output_path_relative"] = relative
-        next_stage = "AUTHOR_NEXT_BEAT_FROM_ACCEPTED_OUTPUT"
+        next_stage = "EPISODE_QUEUE_SELECT_NEXT_VIDEO_SHOT"
     elif attempt_number < MAX_ATTEMPTS:
         state["current_attempt"] = attempt_number + 1
         state["status"] = "READY_TO_GENERATE"

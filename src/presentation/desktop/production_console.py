@@ -2,13 +2,13 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
-from typing import Any
 
 from PySide6.QtCore import QDir, QProcess, QThread, QUrl, Signal, Qt
 from PySide6.QtGui import QDesktopServices
 from PySide6.QtWidgets import (
     QDialog,
     QFormLayout,
+    QHeaderView,
     QHBoxLayout,
     QInputDialog,
     QLabel,
@@ -17,6 +17,9 @@ from PySide6.QtWidgets import (
     QProgressBar,
     QPushButton,
     QSpinBox,
+    QTabWidget,
+    QTableWidget,
+    QTableWidgetItem,
     QVBoxLayout,
     QWidget,
 )
@@ -31,14 +34,20 @@ from src.application.automatic_video_workflow_v1 import (
     load_state,
     save_final_score,
 )
+from src.application.episode_production_control_v1 import (
+    EpisodeProductionPolicyError,
+    episode_progress,
+    load_episode_plan,
+    queue_rows,
+    scan_actual_paid_spend,
+)
 from src.application.windows_credentials_v1 import (
     CredentialStoreError,
-    delete_runware_api_key,
     read_runware_api_key,
     save_runware_api_key,
 )
 
-PRODUCTION_CONSOLE_RELEASE = "SIRAJ_DESKTOP_AUTOMATIC_VIDEO_V1"
+PRODUCTION_CONSOLE_RELEASE = "SIRAJ_EPISODE_PRODUCTION_CONTROL_V1"
 
 # Historical source-contract compatibility markers retained:
 # paidExecutionConfirmation
@@ -92,34 +101,115 @@ class ProductionConsoleDialog(QDialog):
         self.worker: AutomaticGenerationThread | None = None
         self.last_output: Path | None = None
         self.setObjectName("productionConsoleDialog")
-        self.setWindowTitle("سراج — إنشاء الفيديو التلقائي")
-        self.resize(760, 560)
-        self.setMinimumSize(680, 500)
+        self.setWindowTitle("سراج — إدارة إنتاج حلقة آدم")
+        self.resize(1080, 720)
+        self.setMinimumSize(900, 620)
         self.setLayoutDirection(Qt.LayoutDirection.RightToLeft)
         self._build_ui()
         self._refresh_state()
 
     def _build_ui(self) -> None:
-        layout = QVBoxLayout(self)
-        layout.setContentsMargins(18, 18, 18, 18)
-        layout.setSpacing(12)
+        root = QVBoxLayout(self)
+        root.setContentsMargins(16, 16, 16, 16)
+        root.setSpacing(10)
 
-        title = QLabel("إنشاء الفيديو التلقائي")
+        title = QLabel("إدارة إنتاج حلقة آدم")
         title.setObjectName("pageTitle")
         subtitle = QLabel(
-            "اضغط «إنشاء الفيديو». يتولى سراج الإرسال والمتابعة والتنزيل "
-            "تلقائيًا. بعد اكتماله شاهد الملف وأدخل تقييمًا نهائيًا واحدًا "
-            "من 0 إلى 100."
+            "الخطة الهجينة الملزمة: سقف 40$، فيديو مولد 120–180 ثانية، "
+            "والباقي صور متحركة وتركيب بصري. الموسيقى ممنوعة والمؤثرات "
+            "الصوتية المناسبة للمشهد مسموحة."
         )
         subtitle.setObjectName("muted")
         subtitle.setWordWrap(True)
-        layout.addWidget(title)
-        layout.addWidget(subtitle)
+        root.addWidget(title)
+        root.addWidget(subtitle)
 
-        self.status_label = QLabel("جارٍ قراءة حالة الإنتاج…")
+        self.tabs = QTabWidget()
+        self.tabs.setObjectName("episodeProductionTabs")
+        root.addWidget(self.tabs, 1)
+
+        self.plan_tab = QWidget()
+        self.plan_tab.setObjectName("episodePlanTab")
+        self.tabs.addTab(self.plan_tab, "خطة الحلقة")
+        self._build_plan_tab()
+
+        self.clip_tab = QWidget()
+        self.clip_tab.setObjectName("clipProductionTab")
+        self.tabs.addTab(self.clip_tab, "إنتاج المقطع")
+        self._build_clip_tab()
+
+        footer = QHBoxLayout()
+        self.refresh_button = QPushButton("تحديث الحالة")
+        self.refresh_button.setObjectName("refreshEpisodeProductionButton")
+        self.refresh_button.clicked.connect(self._refresh_state)
+        footer.addWidget(self.refresh_button)
+        footer.addStretch(1)
+        close_button = QPushButton("إغلاق")
+        close_button.clicked.connect(self.reject)
+        footer.addWidget(close_button)
+        root.addLayout(footer)
+
+    def _build_plan_tab(self) -> None:
+        layout = QVBoxLayout(self.plan_tab)
+        layout.setContentsMargins(12, 12, 12, 12)
+        layout.setSpacing(10)
+
+        self.policy_summary_label = QLabel("")
+        self.policy_summary_label.setObjectName("episodePolicySummary")
+        self.policy_summary_label.setWordWrap(True)
+        layout.addWidget(self.policy_summary_label)
+
+        self.budget_summary_label = QLabel("")
+        self.budget_summary_label.setObjectName("episodeBudgetSummary")
+        self.budget_summary_label.setWordWrap(True)
+        layout.addWidget(self.budget_summary_label)
+
+        self.next_item_label = QLabel("")
+        self.next_item_label.setObjectName("nextEpisodeQueueItem")
+        self.next_item_label.setWordWrap(True)
+        layout.addWidget(self.next_item_label)
+
+        self.queue_table = QTableWidget()
+        self.queue_table.setObjectName("episodeProductionQueueTable")
+        self.queue_table.setColumnCount(7)
+        self.queue_table.setHorizontalHeaderLabels(
+            [
+                "#",
+                "المعرّف",
+                "اللقطة",
+                "المعالجة",
+                "مدة المونتاج",
+                "فيديو مولد",
+                "الحالة",
+            ]
+        )
+        self.queue_table.setEditTriggers(
+            QTableWidget.EditTrigger.NoEditTriggers
+        )
+        self.queue_table.setSelectionBehavior(
+            QTableWidget.SelectionBehavior.SelectRows
+        )
+        self.queue_table.setAlternatingRowColors(True)
+        header = self.queue_table.horizontalHeader()
+        header.setSectionResizeMode(0, QHeaderView.ResizeMode.ResizeToContents)
+        header.setSectionResizeMode(1, QHeaderView.ResizeMode.ResizeToContents)
+        header.setSectionResizeMode(2, QHeaderView.ResizeMode.Stretch)
+        header.setSectionResizeMode(3, QHeaderView.ResizeMode.ResizeToContents)
+        header.setSectionResizeMode(4, QHeaderView.ResizeMode.ResizeToContents)
+        header.setSectionResizeMode(5, QHeaderView.ResizeMode.ResizeToContents)
+        header.setSectionResizeMode(6, QHeaderView.ResizeMode.ResizeToContents)
+        layout.addWidget(self.queue_table, 1)
+
+    def _build_clip_tab(self) -> None:
+        layout = QVBoxLayout(self.clip_tab)
+        layout.setContentsMargins(12, 12, 12, 12)
+        layout.setSpacing(10)
+
+        self.status_label = QLabel("جارٍ قراءة حالة إنتاج المقطع…")
         self.status_label.setObjectName("automaticVideoStatus")
         self.status_label.setWordWrap(True)
-        self.status_label.setMinimumHeight(52)
+        self.status_label.setMinimumHeight(48)
         layout.addWidget(self.status_label)
 
         self.details_label = QLabel("")
@@ -159,7 +249,9 @@ class ProductionConsoleDialog(QDialog):
 
         self.show_location_button = QPushButton("عرض مكانه في الجهاز")
         self.show_location_button.setObjectName("showVideoLocationButton")
-        self.show_location_button.clicked.connect(self._show_video_location)
+        self.show_location_button.clicked.connect(
+            self._show_video_location
+        )
         output_row.addWidget(self.show_location_button)
         output_row.addStretch(1)
         layout.addLayout(output_row)
@@ -180,7 +272,7 @@ class ProductionConsoleDialog(QDialog):
 
         review_hint = QLabel(
             f"{PASS_THRESHOLD} فأعلى: قبول. أقل من {PASS_THRESHOLD}: "
-            "رفض وتجهيز المحاولة التالية تلقائيًا."
+            "رفض وتجهيز المحاولة التالية، من دون إعادة مدفوعة خفية."
         )
         review_hint.setObjectName("muted")
         review_hint.setWordWrap(True)
@@ -191,18 +283,7 @@ class ProductionConsoleDialog(QDialog):
         self.save_score_button.setMinimumHeight(42)
         self.save_score_button.clicked.connect(self._save_score)
         layout.addWidget(self.save_score_button)
-
         layout.addStretch(1)
-
-        footer = QHBoxLayout()
-        self.refresh_button = QPushButton("تحديث الحالة")
-        self.refresh_button.clicked.connect(self._refresh_state)
-        footer.addWidget(self.refresh_button)
-        footer.addStretch(1)
-        close_button = QPushButton("إغلاق")
-        close_button.clicked.connect(self.reject)
-        footer.addWidget(close_button)
-        layout.addLayout(footer)
 
     def _stored_api_key(self) -> str | None:
         try:
@@ -251,11 +332,91 @@ class ProductionConsoleDialog(QDialog):
             return None
         return value.strip()
 
+    def _refresh_episode_plan(self) -> None:
+        try:
+            plan = load_episode_plan(self.repo_root)
+            budget = scan_actual_paid_spend(self.repo_root)
+            progress = episode_progress(self.repo_root)
+            rows = queue_rows(self.repo_root)
+        except EpisodeProductionPolicyError as exc:
+            self.policy_summary_label.setText(
+                "تعذر تحميل سياسة الحلقة: " + str(exc)
+            )
+            self.queue_table.setRowCount(0)
+            return
+
+        counts = plan["treatment_counts"]
+        self.policy_summary_label.setText(
+            "الخطة الملزمة: "
+            f"{progress.total_shots} لقطة مونتاجية — "
+            f"{counts['GENERATED_VIDEO']} فيديوهات × 8 ثوانٍ = "
+            f"{progress.planned_video_seconds} ثانية — "
+            f"{counts['ANIMATED_STILL_COMPOSITING']} صورة متحركة/تركيب — "
+            f"{counts['GRAPHICS']} جرافيك. "
+            "الموسيقى: ممنوعة. المؤثرات الصوتية: مسموحة بأي نوع مناسب للمشهد."
+        )
+        self.budget_summary_label.setText(
+            f"الميزانية: صُرف ${budget.actual_spent_usd:.4f} من "
+            f"${budget.hard_cap_usd:.2f} — المتبقي "
+            f"${budget.remaining_usd:.4f}. "
+            "أي طلب يتجاوز السقف سيُحجب قبل الإرسال."
+        )
+        if progress.next_video_shot_id:
+            self.next_item_label.setText(
+                "الفيديو التالي في طابور الخطة: "
+                f"{progress.next_video_shot_id} — "
+                f"{progress.next_video_label_ar}. "
+                "يبدأ بعد إعداد حزمة اللقطة واعتماد المقطع الحالي."
+            )
+        else:
+            self.next_item_label.setText(
+                "لا يوجد فيديو تالٍ غير مكتمل في الخطة."
+            )
+
+        treatment_ar = {
+            "GENERATED_VIDEO": "فيديو مولد",
+            "ANIMATED_STILL_COMPOSITING": "صورة متحركة/تركيب",
+            "GRAPHICS": "جرافيك",
+        }
+        status_ar = {
+            "ACCEPTED": "مقبول",
+            "ACCEPTED_REFERENCE_EXISTS": "مرجع مقبول",
+            "PLANNED_NOT_PRODUCED": "مخطط",
+        }
+        self.queue_table.setRowCount(len(rows))
+        for row_index, row in enumerate(rows):
+            values = [
+                str(row["queue_index"]),
+                str(row["shot_id"]),
+                str(row["label_ar"]),
+                treatment_ar.get(
+                    str(row["final_budget_treatment"]),
+                    str(row["final_budget_treatment"]),
+                ),
+                f"{row['editorial_duration_seconds']} ث",
+                (
+                    f"{row['planned_generated_video_seconds']} ث"
+                    if row["planned_generated_video_seconds"]
+                    else "—"
+                ),
+                status_ar.get(
+                    str(row["production_status"]),
+                    str(row["production_status"]),
+                ),
+            ]
+            for column, value in enumerate(values):
+                item = QTableWidgetItem(value)
+                if column in {0, 4, 5}:
+                    item.setTextAlignment(Qt.AlignmentFlag.AlignCenter)
+                self.queue_table.setItem(row_index, column, item)
+
     def _refresh_state(self) -> None:
+        self._refresh_episode_plan()
         try:
             spec = load_automatic_video_spec(self.repo_root)
             state = load_state(spec)
             self.last_output = current_output_path(self.repo_root)
+            budget = scan_actual_paid_spend(self.repo_root)
         except Exception as exc:
             self.status_label.setText("تعذر قراءة الحالة: " + str(exc))
             self.generate_button.setEnabled(False)
@@ -279,18 +440,20 @@ class ProductionConsoleDialog(QDialog):
                 f"المحاولة {attempt} قيد التوليد.",
             "RECOVERY_REQUIRED":
                 "توجد مهمة سابقة تحتاج استعادة. زر إنشاء الفيديو سيستعيدها "
-                "تلقائيًا دون إرسال طلب جديد.",
+                "دون إرسال طلب جديد.",
             "AWAITING_SCORE":
                 "اكتمل الفيديو. اعرضه أو افتح مكانه ثم أدخل درجة واحدة.",
             "ACCEPTED":
-                "تم قبول المقطع وأصبح جاهزًا للمرحلة التالية.",
+                "تم قبول المقطع. انتقل إلى خطة الحلقة لمعرفة العنصر التالي.",
             "REQUIRES_PROMPT_REDESIGN":
                 "اكتملت المحاولات المتاحة دون قبول. يلزم تصميم Prompt جديد.",
         }
         self.status_label.setText(descriptions.get(status, status))
         self.details_label.setText(
             f"{spec.beat_id} — {spec.model} — "
-            f"{spec.width}×{spec.height} — {spec.duration}s — {key_status}"
+            f"{spec.width}×{spec.height} — {spec.duration}s — "
+            f"{key_status} — المتبقي من سقف الحلقة "
+            f"${budget.remaining_usd:.4f}"
         )
 
         running = self.worker is not None and self.worker.isRunning()
@@ -371,8 +534,7 @@ class ProductionConsoleDialog(QDialog):
             self,
             "تعذر إنشاء الفيديو",
             error
-            + "\n\nاضغط إنشاء الفيديو لاحقًا؛ سيستعيد سراج المهمة نفسها "
-            "عند وجود قفل، ولن يكرر الإرسال.",
+            + "\n\nعند وجود قفل سيستعيد سراج المهمة نفسها، ولن يكرر الإرسال.",
         )
         self._refresh_state()
 
@@ -415,7 +577,7 @@ class ProductionConsoleDialog(QDialog):
         if decision == "PASS":
             message = (
                 f"تم حفظ {score}/100 وقبول المقطع. "
-                "سراج جاهز لبناء المرحلة التالية."
+                "راجع تبويب خطة الحلقة للعنصر التالي."
             )
         else:
             message = (
