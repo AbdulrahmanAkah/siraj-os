@@ -1,0 +1,33 @@
+{
+  "api_key_policy": "IN_MEMORY_ONLY_NOT_PERSISTED",
+  "approved_at_baghdad": "2026-08-04T22:47:36+03:00",
+  "approved_at_utc": "2026-08-04T19:47:36Z",
+  "approved_by": "Abdulrahman Akah",
+  "attempt_policy": {
+    "automatic_retry": "BLOCKED",
+    "beat_02_execution": "BLOCKED_UNTIL_BEAT_01_HUMAN_REVIEW",
+    "full_episode_bulk_generation": "BLOCKED",
+    "maximum_submission_attempts": 1,
+    "recovery_policy": "POLL_EXISTING_TASK_UUID_ONLY_NO_RESUBMISSION"
+  },
+  "authorization_id": "adam_runware_beat_01_execution_authorization_v1",
+  "beat_id": "ADAM-DC2-S02-SH03-B01",
+  "duration_seconds": 8,
+  "episode_id": "episode-001-adam",
+  "execution_surface": "SIRAJ_DESKTOP_UI_ONLY",
+  "height": 720,
+  "human_approval": true,
+  "human_direction_summary": "Accepted SHOT-PACK-001 and authorized exactly one paid Beat 01 videoInference submission through the API key.",
+  "maximum_authorised_cost_usd": 0.4,
+  "model": "google:veo@3.1-lite",
+  "number_results": 1,
+  "provider": "RUNWARE",
+  "schema_version": "siraj-runware-beat-execution-authorization-v1",
+  "seed": 3256281284,
+  "shot_id": "ADAM-DC2-S02-SH03",
+  "shot_package_id": "adam_veo_shot_pack_001_v1_afe8d586bc5cf23c",
+  "shot_package_sha256": "3a8e48d5400ee786b4521495ddc4dd3317dd593ce68aa6ce151ab68fe886cb41",
+  "status": "AUTHORIZED_EXACTLY_ONE_DESKTOP_SUBMISSION",
+  "task_type": "videoInference",
+  "width": 1280
+}

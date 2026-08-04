@@ -33,6 +33,7 @@ from PySide6.QtWidgets import (
 from .icons import icon
 from .models import DashboardSnapshot, EpisodeRecord, EpisodeStage
 from .repository import build_dashboard_snapshot
+from .production_console import ProductionConsoleDialog
 from .theme import APP_STYLESHEET, COLORS
 from .widgets import MetricCard, Panel, PreviewCanvas, StatusPill, WorkflowStrip
 
@@ -786,6 +787,12 @@ class SirajDesktopWindow(QMainWindow):
         self.workflow_strip.set_episode(episode)
 
     def _episode_action(self, episode: EpisodeRecord) -> None:
+        if (
+            episode.episode_id == "episode-001-adam"
+            and episode.final_video_path is None
+        ):
+            self._open_production_console()
+            return
         if episode.conversion_ready:
             QMessageBox.information(
                 self,
@@ -862,8 +869,16 @@ class SirajDesktopWindow(QMainWindow):
     def _open_repo_root(self) -> None:
         self._open_path(self.repo_root)
 
+    def _open_production_console(self) -> None:
+        dialog = ProductionConsoleDialog(self.repo_root, self)
+        dialog.exec()
+        self._refresh()
+
     def _show_placeholder(self, label: str) -> None:
         if label == "لوحة التحكم":
+            return
+        if label == "الفيديو":
+            self._open_production_console()
             return
         QMessageBox.information(
             self,
