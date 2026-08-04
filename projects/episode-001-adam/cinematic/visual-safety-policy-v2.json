@@ -1,0 +1,128 @@
+{
+  "canonical_timezone": "Asia/Baghdad",
+  "effective_date_baghdad": "2026-08-04",
+  "episode_id": "episode-001-adam",
+  "final_master_visual_approval": false,
+  "human_direction_sha256": "1251d4eeba1e3b6e7bb3e07bda9899f8712ba144a609124ab2a6b5f0516ec410",
+  "master_visual_approval": false,
+  "policy_id": "adam_visual_safety_policy_v2_2a7c860f00834840",
+  "rules": [
+    {
+      "acceptance": [
+        "ملابس ساترة غير شفافة",
+        "عدم إبراز تفاصيل الجسد أو المفاتن",
+        "حركة جسدية غير استعراضية وغير مثيرة"
+      ],
+      "directive_ar": "يمنع تبرج النساء منعًا باتًا، ويجب أن يكون اللباس ساترًا غير شفاف وغير ضيق ولا يبرز مفاتن الجسد.",
+      "rejection": [
+        "ملابس شفافة أو ضيقة أو كاشفة",
+        "إبراز الصدر أو الخصر أو الساقين أو الذراعين",
+        "وضعيات أو حركة ذات طابع استعراضي أو مثير"
+      ],
+      "rule_id": "NO_TABARRUJ_FOR_WOMEN",
+      "severity": "BLOCKING"
+    },
+    {
+      "acceptance": [
+        "غطاء رأس كامل وثابت زمنيًا"
+      ],
+      "directive_ar": "يمنع ظهور شعر حواء أو أي امرأة في جميع اللقطات.",
+      "rejection": [
+        "ظهور الشعر كليًا أو جزئيًا",
+        "انزلاق الغطاء أثناء الحركة"
+      ],
+      "rule_id": "WOMEN_HAIR_MUST_REMAIN_COVERED",
+      "severity": "BLOCKING"
+    },
+    {
+      "allowed_only_when_necessary": [
+        "الكفان",
+        "القدمان",
+        "جزء محدود غير مكتمل من ملامح الوجه"
+      ],
+      "directive_ar": "يجوز عند الضرورة البصرية أو السردية إظهار الكفين أو القدمين، ويجوز إظهار جزء محدود من ملامح الوجه من دون تصوير الوجه كاملًا أو إظهار ملامحه الكاملة.",
+      "forbidden": [
+        "الشعر",
+        "الذراعان أو الساعدان",
+        "الساقان",
+        "العنق",
+        "الصدر أو الظهر أو الخصر",
+        "الوجه كاملًا بملامحه الواضحة"
+      ],
+      "rule_id": "WOMEN_LIMITED_EXPOSURE_NECESSITY_ONLY",
+      "severity": "BLOCKING"
+    },
+    {
+      "allowed_treatments": [
+        "الظهور من الخلف",
+        "قص جزء من الوجه خارج الكادر",
+        "حجب جزء جوهري بالظل أو القماش أو عنصر بيئي",
+        "زاوية جانبية جزئية لا تكشف الوجه كاملًا",
+        "عمق ميدان يمنع اكتمال الملامح",
+        "إظهار بعض الملامح دون اكتمال الوجه"
+      ],
+      "applies_to": [
+        "آدم",
+        "حواء",
+        "الأنبياء",
+        "الشخصيات العادية",
+        "كل شخصية بشرية"
+      ],
+      "directive_ar": "يمنع تصوير وجه أي شخصية كاملًا بملامحه الواضحة أو القابلة للتعرف.",
+      "rejection": [
+        "وجه أمامي كامل",
+        "لقطة بورتريه كاملة الملامح",
+        "التفات الشخصية حتى اكتمال الوجه",
+        "ملامح مستقرة قابلة للتعرف عبر الإطارات"
+      ],
+      "rule_id": "NO_COMPLETE_IDENTIFIABLE_FACE_FOR_ANY_CHARACTER",
+      "severity": "BLOCKING"
+    },
+    {
+      "directive_ar": "يجوز إظهار آدم ضمن معالجة غير كاشفة للوجه الكامل؛ يكون ذا بشرة داكنة في مشاهد ما قبل الهبوط، ولا تظهر ملامحه كاملة أو قابلة للتعرف.",
+      "face_rule": "NO_COMPLETE_IDENTIFIABLE_FACE",
+      "post_descent_full_body": "BLOCKED_EXCEPT_NARROW_TEXTUAL_NECESSITY",
+      "pre_descent_skin_tone": "DARK_SKIN_CLEARLY_VISIBLE_WHEN_SKIN_IS_SHOWN",
+      "rule_id": "ADAM_DEPICTION_CONSTRAINTS",
+      "severity": "BLOCKING"
+    },
+    {
+      "directive_ar": "يمنع تجسيد الملائكة بأي هيئة بشرية أو جسمية.",
+      "rule_id": "NO_ANGEL_DEPICTION",
+      "severity": "BLOCKING"
+    },
+    {
+      "directive_ar": "يمنع تصوير الله تعالى أو تجسيد الذات أو الكيفية الغيبية؛ يسمح بالرمز البيئي غير القطعي من دون الادعاء أن الضوء أو الأثر هو ذات غيبية.",
+      "rule_id": "NO_ALLAH_OR_UNSEEN_ESSENCE_DEPICTION",
+      "severity": "BLOCKING"
+    },
+    {
+      "directive_ar": "يمنع تصوير إبليس كجسد أو وجه؛ تستخدم آثار بيئية غير قطعية مثل الحرارة أو الظل غير المتشكل.",
+      "rule_id": "NO_IBLIS_BODY_OR_FACE_DEPICTION",
+      "severity": "BLOCKING"
+    },
+    {
+      "directive_ar": "يمنع تصوير الجنة بجفاف أو فناء أو بقعة توحي بنفاد النعيم أو نقصه.",
+      "rule_id": "PARADISE_NO_DECAY_BARRENNESS_OR_DEPLETION",
+      "severity": "BLOCKING"
+    },
+    {
+      "directive_ar": "لا يعين نوع الشجرة أو الثمرة بصريًا على أنه حقيقة ثابتة.",
+      "rule_id": "TREE_SPECIES_NOT_ASSERTED",
+      "severity": "BLOCKING"
+    },
+    {
+      "directive_ar": "لا يُرسل أي مصدر إلى توليد الفيديو إذا كان يحتوي أصلًا على مخالفة؛ إصلاح المصدر يسبق محاولة البرومبت.",
+      "rule_id": "SOURCE_IMAGE_CONTROLS_VIDEO",
+      "severity": "BLOCKING"
+    },
+    {
+      "directive_ar": "اعتماد الصور والمقاطع التطويرية مبدئي وقابل للتعديل، ولا يساوي اعتماد الهوية البصرية النهائية.",
+      "rule_id": "PRELIMINARY_REFERENCE_NOT_FINAL_IDENTITY",
+      "severity": "BLOCKING"
+    }
+  ],
+  "schema_version": "siraj-adam-visual-safety-policy-v2",
+  "status": "HUMAN_DIRECTIVES_ACTIVE",
+  "supersedes_policy_id": "adam_preliminary_visual_safety_policy_v1_3636efcfaa1010ec"
+}

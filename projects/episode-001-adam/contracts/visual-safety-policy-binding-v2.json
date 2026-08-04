@@ -1,0 +1,27 @@
+{
+  "automatic_paid_execution": "BLOCKED",
+  "binding_id": "adam_visual_safety_policy_binding_v2_d70eccdd4ffca1b6",
+  "episode_id": "episode-001-adam",
+  "final_master_visual_approval": false,
+  "full_episode_generation": "NOT_YET_AUTHORISED",
+  "human_direction_evidence_id": "adam_visual_safety_human_direction_v2_e5875735fb8ada90",
+  "legacy_rule_resolution": {
+    "preliminary_policy_zero_female_skin": "SUPERSEDED: HANDS_AND_FEET_ALLOWED_WHEN_NECESSARY; LIMITED_PARTIAL_FACE_FEATURES_ALLOWED; HAIR_AND_ALL_OTHER_BODY_EXPOSURE_BLOCKED; NO_TABARRUJ",
+    "storyboard_rule_prophet_face_or_body_depiction_forbidden": "FOR_EPISODE_001_PRODUCTION_THIS_IS_RESOLVED_BY_HUMAN_DIRECTION_V2: NO_COMPLETE_IDENTIFIABLE_FACE; CONTROLLED_REAR_OR_PARTIAL_DEPICTION_ALLOWED_PRE_DESCENT; FULL_PROPHET_BODY_AFTER_DESCENT_BLOCKED_EXCEPT_NARROW_TEXTUAL_NECESSITY"
+  },
+  "manual_user_operated_provider_execution": "ALLOWED_ONLY_PER_REVIEWED_SHOT_PACKAGE",
+  "master_visual_approval": false,
+  "policy_id": "adam_visual_safety_policy_v2_2a7c860f00834840",
+  "policy_scope": [
+    "SOURCE_IMAGE_REVIEW",
+    "TEXT_TO_VIDEO_PROMPTING",
+    "IMAGE_TO_VIDEO_PROMPTING",
+    "COMPOSITING",
+    "HUMAN_VISUAL_REVIEW"
+  ],
+  "schema_version": "siraj-adam-visual-safety-policy-binding-v2",
+  "script_fingerprint": "ff540783ec519581bd902caf81145c3f77819a7351f2bd5d07e9f84705a4fb27",
+  "status": "BOUND_HUMAN_VISUAL_SAFETY_POLICY_V2",
+  "storyboard_fingerprint": "867b88ade164ebe444aeaaeeb9f60accef122f59cf8b45b020223f3ca8788bf8",
+  "supersedes_policy_id": "adam_preliminary_visual_safety_policy_v1_3636efcfaa1010ec"
+}
