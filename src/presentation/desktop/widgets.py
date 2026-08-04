@@ -37,8 +37,8 @@ class MetricCard(Panel):
         super().__init__(parent=parent)
         self.setMinimumWidth(0)
         layout = QVBoxLayout(self)
-        layout.setContentsMargins(12, 10, 12, 10)
-        layout.setSpacing(4)
+        layout.setContentsMargins(11, 9, 11, 9)
+        layout.setSpacing(3)
 
         title_label = QLabel(title)
         title_label.setObjectName("muted")
@@ -56,7 +56,7 @@ class MetricCard(Panel):
             bar.setRange(0, 100)
             bar.setValue(max(0, min(100, progress)))
             bar.setTextVisible(False)
-            bar.setFixedHeight(8)
+            bar.setFixedHeight(7)
             layout.addWidget(bar)
         layout.addWidget(caption_label)
 
@@ -84,7 +84,7 @@ class StatusPill(QFrame):
             "QLabel {"
             f"color: {foreground};"
             "font-weight: 600;"
-            "padding: 3px 8px;"
+            "padding: 3px 7px;"
             "}"
         )
         layout = QHBoxLayout(self)
@@ -100,13 +100,16 @@ class StatusPill(QFrame):
 
 
 class PreviewCanvas(QWidget):
-    """Cinematic 16:9 preview placeholder until a real frame is available."""
+    """Visible cinematic 16:9 preview placeholder for every dashboard size."""
+
+    MIN_PREVIEW_HEIGHT = 169
+    MAX_PREVIEW_HEIGHT = 232
 
     def __init__(self, parent: QWidget | None = None) -> None:
         super().__init__(parent)
-        self.setMinimumSize(280, 158)
-        self.setMaximumHeight(340)
-        policy = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred)
+        self.setMinimumSize(300, self.MIN_PREVIEW_HEIGHT)
+        self.setMaximumHeight(self.MAX_PREVIEW_HEIGHT)
+        policy = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
         policy.setHeightForWidth(True)
         self.setSizePolicy(policy)
         self.overlay_text = "لا توجد معاينة فيديو بعد"
@@ -114,14 +117,23 @@ class PreviewCanvas(QWidget):
         self.beat_text = "—"
         self.state_text = "غير مولد"
 
-    def hasHeightForWidth(self) -> bool:  # noqa: N802 - Qt API
+    def hasHeightForWidth(self) -> bool:  # noqa: N802
         return True
 
-    def heightForWidth(self, width: int) -> int:  # noqa: N802 - Qt API
-        return max(158, min(340, round(max(1, width) * 9 / 16)))
+    def heightForWidth(self, width: int) -> int:  # noqa: N802
+        return max(
+            self.MIN_PREVIEW_HEIGHT,
+            min(self.MAX_PREVIEW_HEIGHT, round(max(1, width) * 9 / 16)),
+        )
 
-    def sizeHint(self) -> QSize:  # noqa: N802 - Qt API
-        return QSize(480, 270)
+    def sizeHint(self) -> QSize:  # noqa: N802
+        return QSize(360, 203)
+
+    def resizeEvent(self, event) -> None:  # noqa: N802
+        super().resizeEvent(event)
+        target = self.heightForWidth(self.width())
+        if abs(self.height() - target) > 1:
+            self.setFixedHeight(target)
 
     def set_context(
         self,
@@ -140,7 +152,7 @@ class PreviewCanvas(QWidget):
         self.updateGeometry()
         self.update()
 
-    def paintEvent(self, event) -> None:  # noqa: N802 - Qt API
+    def paintEvent(self, event) -> None:  # noqa: N802
         painter = QPainter(self)
         painter.setRenderHint(QPainter.RenderHint.Antialiasing)
         rect = self.rect()
@@ -184,10 +196,10 @@ class PreviewCanvas(QWidget):
         painter.drawText(state_rect, Qt.AlignmentFlag.AlignCenter, self.state_text)
 
         painter.setPen(QColor("#ffffff"))
-        font.setPointSize(12)
+        font.setPointSize(11)
         painter.setFont(font)
         painter.drawText(
-            rect.adjusted(20, 42, -20, -56),
+            rect.adjusted(18, 40, -18, -54),
             Qt.AlignmentFlag.AlignCenter | Qt.TextFlag.TextWordWrap,
             self.overlay_text,
         )
@@ -218,20 +230,20 @@ class WorkflowStrip(Panel):
     def __init__(self, parent: QWidget | None = None) -> None:
         super().__init__(parent=parent)
         layout = QVBoxLayout(self)
-        layout.setContentsMargins(14, 10, 14, 12)
+        layout.setContentsMargins(13, 9, 13, 11)
         title = QLabel("سير العمل الإنتاجي للحلقة")
         title.setObjectName("sectionTitle")
         layout.addWidget(title)
 
         self.stage_labels: list[QLabel] = []
         row = QGridLayout()
-        row.setHorizontalSpacing(7)
-        row.setVerticalSpacing(7)
+        row.setHorizontalSpacing(6)
+        row.setVerticalSpacing(6)
         for index, label in enumerate(self._LABELS):
             stage = QLabel(label)
             stage.setWordWrap(True)
             stage.setAlignment(Qt.AlignmentFlag.AlignCenter)
-            stage.setMinimumHeight(48)
+            stage.setMinimumHeight(46)
             stage.setMinimumWidth(0)
             self.stage_labels.append(stage)
             row.addWidget(stage, 0, index)
@@ -253,7 +265,7 @@ class WorkflowStrip(Panel):
         label.setText(f"{marker}  {base_text}")
         label.setStyleSheet(
             f"color: {color}; background: {background}; border: 1px solid {color};"
-            "border-radius: 9px; padding: 6px; font-weight: 600;"
+            "border-radius: 9px; padding: 5px; font-weight: 600;"
         )
 
     def set_episode(self, episode: EpisodeRecord | None) -> None:
