@@ -1,0 +1,34 @@
+{
+  "approved_at_baghdad": "2026-08-05T01:26:00+03:00",
+  "approved_by": "Abdulrahman Akah",
+  "authorization_id": "adam_automatic_video_user_authorization_v1",
+  "beat_id": "ADAM-DC2-S02-SH03-B01",
+  "credential_storage": "WINDOWS_CREDENTIAL_MANAGER_ONLY",
+  "episode_id": "episode-001-adam",
+  "execution_surface": "SIRAJ_DESKTOP_UI_ONLY",
+  "generation_policy": {
+    "automatic_submission_monitor_download": "ENABLED",
+    "background_paid_retry_without_click": "BLOCKED",
+    "maximum_attempts": 3,
+    "maximum_cost_per_attempt_usd": 0.4,
+    "resume_existing_task_without_resubmission": "ENABLED",
+    "submission_trigger": "ONE_EXPLICIT_CREATE_VIDEO_BUTTON_CLICK"
+  },
+  "human_direction": "Make video generation automatic after pressing Create Video. After completion show View Video and Show Location buttons. The only review input is one final integer score from 0 to 100.",
+  "output_actions": [
+    "VIEW_VIDEO",
+    "SHOW_VIDEO_LOCATION_ON_DEVICE"
+  ],
+  "review_policy": {
+    "blocking_failures_required": false,
+    "category_scores_required": false,
+    "notes_required": false,
+    "pass_threshold": 80,
+    "required_input": "ONE_INTEGER_ONLY_0_TO_100",
+    "score_0_to_79": "FAIL_AND_PREPARE_NEXT_ATTEMPT",
+    "score_80_to_100": "PASS"
+  },
+  "schema_version": "siraj-automatic-video-user-authorization-v1",
+  "shot_id": "ADAM-DC2-S02-SH03",
+  "status": "AUTHORIZED"
+}
