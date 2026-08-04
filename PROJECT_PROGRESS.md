@@ -1605,3 +1605,35 @@ adam_veo_production_manifest_v1_83ce0eb05bd48993
 المرحلة التالية:
 VEO_SHOT_PACKAGE_AUTHORING_V1
 
+
+============================================================
+ADAM VEO SHOT PACK 001 — 2026-08-04
+============================================================
+
+تم تأليف حزمة اللقطة الأولى لمسار Veo:
+
+Shot:
+ADAM-DC2-S02-SH03
+
+Package:
+adam_veo_shot_pack_001_v1_afe8d586bc5cf23c
+
+Binding:
+adam_veo_shot_pack_001_binding_v1_fd0f2e91dfe37fc4
+
+الحالة:
+
+✓ تم ربط الحزمة ببيان إنتاج Veo وسياسة السلامة البصرية v2.
+✓ تم تأليف Beat 01 فقط بوضع Text-to-Video ومدته 8 ثوانٍ.
+✓ تم إبقاء Beat 02 مؤجلًا حتى مراجعة ناتج Beat 01 بشريًا.
+✓ تم منع التنفيذ المدفوع الآلي واليدوي حتى اعتماد الحزمة بشريًا.
+✓ تم تحديد بوابة قبول بدرجة 80/100 مع فشل مانع لأي تجسيد أو تشوه مخالف.
+✓ تم استعادة scripts/project_progress/pre_commit_progress_guard.py.
+✓ لم يتم توليد أي فيديو ولم يُصرف أي رصيد.
+
+النموذج:
+google:veo@3.1-lite
+
+المرحلة التالية:
+HUMAN_REVIEW_ADAM_VEO_SHOT_PACK_001_V1
+

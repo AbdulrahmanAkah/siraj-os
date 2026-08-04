@@ -1,0 +1,163 @@
+{
+  "acceptance_gate": {
+    "blocking_rules": [
+      "NO_PERSON_HUMAN_BODY_FACE_LIMBS_CREATURE_OR_ANIMAL",
+      "NO_HUMANOID_FORM_EMERGING_FROM_CLAY",
+      "NO_SUPERNATURAL_BEING_OR_UNSEEN_ESSENCE_DEPICTION",
+      "NO_MAGICAL_ENERGY_GLOWING_SYMBOLS_OR_FANTASY_VORTEX",
+      "NO_TEXT_LOGO_OR_WATERMARK",
+      "NO_LARGE_DRAMATIC_WHIRLPOOL",
+      "NO_CUT_CAMERA_SHAKE_ZOOM_PULSE_OR_SPEED_RAMP",
+      "NO_PHYSICALLY_IMPLAUSIBLE_WATER_OR_CLAY_MOTION"
+    ],
+    "human_review_outputs_required": [
+      "PASS_FAIL",
+      "SCORE_0_TO_100",
+      "BLOCKING_FAILURES",
+      "CAMERA_NOTES",
+      "MATERIAL_PHYSICS_NOTES",
+      "TEMPORAL_STABILITY_NOTES",
+      "ACTUAL_COST_USD",
+      "RETURNED_SEED",
+      "OUTPUT_FILENAME_AND_SHA256"
+    ],
+    "required_visual_events": [
+      {
+        "event": "CLEAR_RAINWATER_ENTERS_DRY_CRACKED_SOIL",
+        "time_window_seconds": "0-2"
+      },
+      {
+        "event": "GRAINS_DARKEN_ABSORB_AND_BIND_INTO_LAYERED_CLAY",
+        "time_window_seconds": "2-6"
+      },
+      {
+        "event": "ONE_SMALL_NATURAL_EDDY_BEGINS_TO_SETTLE_AND_FINAL_FRAME_STABILISES",
+        "time_window_seconds": "6-8"
+      }
+    ],
+    "scoring": {
+      "blocking_failure_overrides_score": true,
+      "camera_control_and_composition": 15,
+      "material_transformation_and_narrative_function": 25,
+      "maximum_score": 100,
+      "pass_threshold": 80,
+      "temporal_texture_and_geometry_stability": 15,
+      "visual_safety_and_absence_of_forbidden_forms": 20,
+      "water_and_clay_physical_coherence": 25
+    }
+  },
+  "bindings": {
+    "script_fingerprint": "ff540783ec519581bd902caf81145c3f77819a7351f2bd5d07e9f84705a4fb27",
+    "storyboard_fingerprint": "867b88ade164ebe444aeaaeeb9f60accef122f59cf8b45b020223f3ca8788bf8",
+    "veo_production_manifest_id": "adam_veo_production_manifest_v1_83ce0eb05bd48993",
+    "visual_safety_policy_id": "adam_visual_safety_policy_v2_2a7c860f00834840"
+  },
+  "created_date_baghdad": "2026-08-04",
+  "episode_id": "episode-001-adam",
+  "execution_authorization": {
+    "automatic_provider_execution": "BLOCKED",
+    "currently_authored_generation_beat": "ADAM-DC2-S02-SH03-B01",
+    "full_shot_generation": "BLOCKED",
+    "manual_user_execution": "BLOCKED_UNTIL_HUMAN_SHOT_PACKAGE_APPROVAL",
+    "second_generation_beat": "DEFERRED_UNTIL_BEAT_01_HUMAN_REVIEW"
+  },
+  "generation_beats": [
+    {
+      "beat_id": "ADAM-DC2-S02-SH03-B01",
+      "cost_control": {
+        "manual_ui_cost_must_be_checked_before_run": true,
+        "maximum_authorised_cost_usd": 0.4,
+        "past_observed_discounted_costs_may_differ": true,
+        "public_720p_usd_per_second": 0.05,
+        "public_expected_cost_usd": 0.4,
+        "public_price_checked_date_baghdad": "2026-08-04"
+      },
+      "duration_seconds": 8,
+      "execution_status": "NOT_AUTHORISED",
+      "motion_contract": {
+        "camera": "ONE_STABILISED_SLOW_FORWARD_MACRO_GLIDE",
+        "camera_speed": "LOW",
+        "cuts": 0,
+        "final_state": "STABLE_WET_LAYERED_CLAY_WITH_CALMING_WATER",
+        "material_motion": "RAINWATER_ABSORPTION_SEDIMENT_FLOW_CLAY_BINDING_ONE_SMALL_EDDY_SETTLING",
+        "speed_ramps": 0,
+        "zoom_pulses": 0
+      },
+      "negative_prompt": {
+        "field_usage": "NOT_USED_MODEL_SCHEMA_DOES_NOT_LIST_NEGATIVE_PROMPT",
+        "strategy": "ALL_PROHIBITIONS_EMBEDDED_IN_POSITIVE_PROMPT"
+      },
+      "positive_prompt": "One continuous photorealistic cinematic macro shot at ground level inside an untouched rain-soaked earthen fissure. The camera glides slowly and steadily forward through a miniature ravine only a few centimeters wide, following a thin stream of clear rainwater as it enters dry, cracked soil. In real time, the grains darken, absorb water, loosen, and bind into dense layered clay; fine sediment moves naturally along the channel and settles into shallow ridges. Near the final third of the shot, the current curls once around one small ordinary stone, forming a subtle, physically plausible eddy, then gradually calms. End on a stable close macro view of richly textured wet clay layers and slowly settling water. Soft overcast daylight beneath rain clouds, restrained earth tones—deep brown, umber, charcoal, and muted amber—realistic surface tension, capillary movement, moisture, grain scale, shallow depth of field, tactile natural detail, and grounded physics. The camera movement is motivated only by following the water and remains perfectly stabilized, with no cuts, no speed ramp, no sudden zoom, and no handheld shake. This is an ordinary material process only: no person, no human figure, no body shape, no face, no limbs, no creature, no animal, no supernatural being, no magical energy, no luminous symbols, no writing, no text, no logo, and no watermark. The clay never forms a humanoid shape. Do not create a large dramatic whirlpool; create only one small natural eddy that settles.",
+      "settings": {
+        "duration": 8,
+        "height": 720,
+        "model": "google:veo@3.1-lite",
+        "number_results": 1,
+        "output_format": "MP4",
+        "provider_settings": {
+          "google": {
+            "generateAudio": false,
+            "personGeneration": "dont_allow"
+          }
+        },
+        "resolution_parameter": "OMIT_FOR_TEXT_TO_VIDEO_WITH_WIDTH_HEIGHT",
+        "seed": 3256281284,
+        "task_type": "videoInference",
+        "width": 1280
+      },
+      "source_image": "NONE_TEXT_TO_VIDEO",
+      "status": "READY_FOR_HUMAN_REVIEW"
+    },
+    {
+      "authoring_dependency": "BEAT_01_HUMAN_ACCEPTANCE_AND_OUTPUT_ANALYSIS",
+      "beat_id": "ADAM-DC2-S02-SH03-B02",
+      "duration_seconds": 8,
+      "execution_status": "BLOCKED",
+      "prompt": "NOT_YET_AUTHORED",
+      "settings": "NOT_YET_AUTHORED",
+      "status": "DEFERRED"
+    }
+  ],
+  "next_stage_if_human_approved": "MANUAL_RUNWARE_EXECUTION_OF_BEAT_01",
+  "next_stage_if_rejected": "REVISE_SHOT_PACKAGE_ONCE_WITHOUT_GENERATING_BEAT_02",
+  "production_design": {
+    "beat_01_role": "DISCOVER_WATER_ENTERING_SOIL_AND_FORMING_LAYERED_CLAY",
+    "beat_02_authoring_rule": "AUTHOR_ONLY_AFTER_BEAT_01_OUTPUT_IS_HUMAN_REVIEWED",
+    "beat_02_role": "CONTINUE_MATERIAL_PROCESS_AND_COMPLETE_SUBTLE_EDDY_SETTLING",
+    "continuity_strategy": "USE_BEAT_01_ACCEPTED_OUTPUT_AS_VISUAL_GROUND_TRUTH_FOR_BEAT_02_AUTHORING; DO_NOT_PRETEND_SEPARATE_TEXT_GENERATIONS_ARE_CONTINUOUS",
+    "editorial_generation_plan_seconds": [
+      8,
+      8
+    ],
+    "model": "google:veo@3.1-lite",
+    "primary_mode": "TEXT_TO_VIDEO",
+    "provider": "RUNWARE"
+  },
+  "provider_execution_receipt": {
+    "actual_cost_usd": null,
+    "human_review": null,
+    "output_filename": null,
+    "output_sha256": null,
+    "returned_seed": null,
+    "status": "NOT_GENERATED"
+  },
+  "schema_version": "siraj-veo-shot-package-v1",
+  "sequence_id": "ADAM-SEQUENCE-02",
+  "shot_id": "ADAM-DC2-S02-SH03",
+  "shot_package_id": "adam_veo_shot_pack_001_v1_afe8d586bc5cf23c",
+  "shot_package_number": 1,
+  "status": "READY_FOR_HUMAN_SHOT_PACKAGE_REVIEW",
+  "storyboard_source": {
+    "camera_ar": "ماكرو متحرك داخل الأخاديد الدقيقة.",
+    "composition_ar": "الماء يدخل شقوق التراب ويصنع طبقات طين متفاوتة.",
+    "continuity_anchor_ar": "المطر الذي يمحو آثار الحضارة",
+    "dramatic_beat_ar": "كشف الأرض قبل الإنسان",
+    "dramatic_stage": "pressure",
+    "editorial_duration_seconds": 16,
+    "religious_visual_safety_ar": "لا هيئة بشرية.",
+    "screen_action_ar": "تتشكل دوامة صغيرة ثم تستقر.",
+    "sound_detail_ar": "قطرات مكبرة واحتكاك حبيبات.",
+    "transition_role_ar": "زرع مادة آدم قبل ذكرها.",
+    "visual_subtext_ar": "المكان ينتظر صاحبه قبل ظهوره"
+  }
+}
