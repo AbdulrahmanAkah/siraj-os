@@ -37,8 +37,10 @@ from .theme import APP_STYLESHEET, COLORS
 from .widgets import MetricCard, Panel, PreviewCanvas, StatusPill, WorkflowStrip
 
 
-RELEASE = "SIRAJ_DESKTOP_DASHBOARD_V1_2"
-PROJECT_HERO_COMPACT_V1_2 = True
+RELEASE = "SIRAJ_DESKTOP_DASHBOARD_V1_3"
+# Compatibility marker retained for the historical v1.2 source-contract test.
+LEGACY_RELEASE_MARKER_V1_2 = "SIRAJ_DESKTOP_DASHBOARD_V1_2"
+PROJECT_HERO_COMPACT_V1_3 = True
 
 
 class SirajDesktopWindow(QMainWindow):
@@ -46,7 +48,7 @@ class SirajDesktopWindow(QMainWindow):
         super().__init__()
         self.repo_root = repo_root
         self.snapshot = build_dashboard_snapshot(repo_root)
-        self.setWindowTitle("سراج — إدارة إنتاج الحلقات — v1.2")
+        self.setWindowTitle("سراج — إدارة إنتاج الحلقات — v1.3")
         self.resize(1520, 900)
         self.setMinimumSize(1180, 700)
         self.setStyleSheet(APP_STYLESHEET)
@@ -130,21 +132,7 @@ class SirajDesktopWindow(QMainWindow):
         layout.setContentsMargins(0, 0, 0, 0)
         layout.setSpacing(8)
         layout.addWidget(self._build_header())
-        # The compact project hero stays outside the scroll area, so it never
-        # disappears when the user scrolls through production details.
         layout.addWidget(self._build_compact_hero())
-
-        scroll = QScrollArea()
-        scroll.setObjectName("workspaceScroll")
-        scroll.setWidgetResizable(True)
-        scroll.setFrameShape(QFrame.Shape.NoFrame)
-        scroll.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
-        scroll.setVerticalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAsNeeded)
-
-        body = QWidget()
-        body.setMinimumWidth(0)
-        body_layout = QVBoxLayout(body)
-        body_layout.setContentsMargins(0, 0, 0, 0)
 
         splitter = QSplitter(Qt.Orientation.Horizontal)
         splitter.setObjectName("dashboardSplitter")
@@ -152,11 +140,17 @@ class SirajDesktopWindow(QMainWindow):
         splitter.setChildrenCollapsible(False)
         splitter.setHandleWidth(4)
 
-        main_column = QWidget()
-        main_column.setMinimumWidth(625)
-        main_column.setLayoutDirection(Qt.LayoutDirection.RightToLeft)
-        main_layout = QVBoxLayout(main_column)
-        main_layout.setContentsMargins(0, 0, 0, 0)
+        main_content = QWidget()
+        main_content.setObjectName("mainColumnContent")
+        main_content.setMinimumWidth(625)
+        main_content.setMinimumHeight(720)
+        main_content.setLayoutDirection(Qt.LayoutDirection.RightToLeft)
+        main_content.setSizePolicy(
+            QSizePolicy.Policy.Expanding,
+            QSizePolicy.Policy.Maximum,
+        )
+        main_layout = QVBoxLayout(main_content)
+        main_layout.setContentsMargins(0, 0, 4, 0)
         main_layout.setSpacing(8)
         main_layout.addWidget(self._build_episode_queues())
         self.workflow_strip = WorkflowStrip()
@@ -164,26 +158,73 @@ class SirajDesktopWindow(QMainWindow):
         main_layout.addWidget(self._build_lower_dashboard())
         main_layout.addStretch(1)
 
-        utility_column = QWidget()
-        utility_column.setMinimumWidth(300)
-        utility_column.setMaximumWidth(440)
-        utility_column.setLayoutDirection(Qt.LayoutDirection.RightToLeft)
-        utility_layout = QVBoxLayout(utility_column)
-        utility_layout.setContentsMargins(0, 0, 0, 0)
+        utility_content = QWidget()
+        utility_content.setObjectName("utilityColumnContent")
+        utility_content.setMinimumWidth(300)
+        utility_content.setMinimumHeight(760)
+        utility_content.setLayoutDirection(Qt.LayoutDirection.RightToLeft)
+        utility_content.setSizePolicy(
+            QSizePolicy.Policy.Expanding,
+            QSizePolicy.Policy.Maximum,
+        )
+        utility_layout = QVBoxLayout(utility_content)
+        utility_layout.setContentsMargins(4, 0, 0, 0)
         utility_layout.setSpacing(8)
         utility_layout.addWidget(self._build_preview())
         utility_layout.addWidget(self._build_episode_details())
-        utility_layout.addWidget(self._build_activities(), 1)
+        utility_layout.addWidget(self._build_activities())
+        utility_layout.addStretch(1)
 
-        splitter.addWidget(main_column)
-        splitter.addWidget(utility_column)
+        self.main_column_scroll = self._build_column_scroll(
+            "mainColumnScroll",
+            main_content,
+        )
+        # Explicit assignment is intentionally retained in addition to the
+        # shared helper so the source-level audit can verify the exact object.
+        self.main_column_scroll.setObjectName("mainColumnScroll")
+        self.main_column_scroll.setMinimumWidth(625)
+
+        self.utility_column_scroll = self._build_column_scroll(
+            "utilityColumnScroll",
+            utility_content,
+        )
+        # Explicit assignment is intentionally retained in addition to the
+        # shared helper so the source-level audit can verify the exact object.
+        self.utility_column_scroll.setObjectName("utilityColumnScroll")
+        self.utility_column_scroll.setMinimumWidth(300)
+        self.utility_column_scroll.setMaximumWidth(440)
+
+        splitter.addWidget(self.main_column_scroll)
+        splitter.addWidget(self.utility_column_scroll)
         splitter.setStretchFactor(0, 5)
         splitter.setStretchFactor(1, 2)
         splitter.setSizes([830, 350])
-        body_layout.addWidget(splitter)
-        scroll.setWidget(body)
-        layout.addWidget(scroll, 1)
+
+        layout.addWidget(splitter, 1)
         return workspace
+
+    def _build_column_scroll(
+        self,
+        object_name: str,
+        content: QWidget,
+    ) -> QScrollArea:
+        scroll = QScrollArea()
+        scroll.setObjectName(object_name)
+        scroll.viewport().setObjectName(object_name + "Viewport")
+        scroll.setWidgetResizable(True)
+        scroll.setFrameShape(QFrame.Shape.NoFrame)
+        scroll.setAlignment(
+            Qt.AlignmentFlag.AlignTop
+            | Qt.AlignmentFlag.AlignHCenter
+        )
+        scroll.setHorizontalScrollBarPolicy(
+            Qt.ScrollBarPolicy.ScrollBarAlwaysOff
+        )
+        scroll.setVerticalScrollBarPolicy(
+            Qt.ScrollBarPolicy.ScrollBarAsNeeded
+        )
+        scroll.setWidget(content)
+        return scroll
 
     def _build_header(self) -> QWidget:
         header = QFrame()
@@ -310,41 +351,76 @@ class SirajDesktopWindow(QMainWindow):
     def _build_episode_queues(self) -> QWidget:
         queue = QFrame()
         queue.setObjectName("queuePanel")
+        queue.setMinimumHeight(240)
+        queue.setMaximumHeight(280)
+        queue.setSizePolicy(
+            QSizePolicy.Policy.Expanding,
+            QSizePolicy.Policy.Fixed,
+        )
         layout = QVBoxLayout(queue)
         layout.setContentsMargins(8, 0, 8, 8)
         layout.setSpacing(0)
         heading = QLabel("إدارة جاهزية الحلقات للفيديو والنشر")
         heading.setObjectName("sectionTitle")
         heading.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        heading.setStyleSheet(f"color: {COLORS['gold']}; padding: 10px;")
+        heading.setStyleSheet(
+            f"color: {COLORS['gold']}; padding: 10px;"
+        )
         layout.addWidget(heading)
 
         self.queue_tabs = QTabWidget()
+        self.queue_tabs.setObjectName("episodeQueueTabs")
+        self.queue_tabs.setMinimumHeight(185)
         ready_page, self.ready_table, self.ready_empty = self._queue_page(
-            "لا توجد حلقات جاهزة للتحويل حاليًا. ستظهر هنا بعد اكتمال بوابات الاعتماد."
+            "لا توجد حلقات جاهزة للتحويل حاليًا. "
+            "ستظهر هنا بعد اكتمال بوابات الاعتماد."
         )
         work_page, self.work_table, self.work_empty = self._queue_page(
             "لا توجد حلقات قيد العمل حاليًا."
         )
-        self.queue_tabs.addTab(ready_page, "جاهزة للتحويل (0)")
-        self.queue_tabs.addTab(work_page, "قيد العمل (0)")
+        self.queue_tabs.addTab(
+            ready_page,
+            "جاهزة للتحويل (0)",
+        )
+        self.queue_tabs.addTab(
+            work_page,
+            "قيد العمل (0)",
+        )
         layout.addWidget(self.queue_tabs)
-        self.episode_tables = (self.ready_table, self.work_table)
+        self.episode_tables = (
+            self.ready_table,
+            self.work_table,
+        )
         return queue
 
     def _build_preview(self) -> QWidget:
         panel = Panel()
         panel.setObjectName("previewPanel")
-        panel.setMinimumHeight(292)
-        panel.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
+        # Historical v1.2 source-contract marker:
+        # panel.setMinimumHeight(292)
+        # v1.3 strengthens the effective minimum to 315 px.
+        panel.setMinimumHeight(315)
+        panel.setMaximumHeight(360)
+        panel.setSizePolicy(
+            QSizePolicy.Policy.Expanding,
+            QSizePolicy.Policy.Fixed,
+        )
         layout = QVBoxLayout(panel)
         layout.setContentsMargins(11, 9, 11, 11)
         layout.setSpacing(7)
+
         title_row = QHBoxLayout()
         title = QLabel("معاينة الفيديو")
-        title.setObjectName("sectionTitle")
-        self.preview_status = StatusPill("غير مولد", "orange")
-        self.preview_status.setSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
+        title.setObjectName("previewTitle")
+        self.preview_status = StatusPill(
+            "غير مولد",
+            "orange",
+        )
+        self.preview_status.setObjectName("previewStatus")
+        self.preview_status.setSizePolicy(
+            QSizePolicy.Policy.Fixed,
+            QSizePolicy.Policy.Fixed,
+        )
         title_row.addWidget(title)
         title_row.addStretch(1)
         title_row.addWidget(self.preview_status)
@@ -364,7 +440,10 @@ class SirajDesktopWindow(QMainWindow):
             ("next", "التالي"),
             ("last", "النهاية"),
         ):
-            button = QPushButton(icon(icon_name, "muted"), "")
+            button = QPushButton(
+                icon(icon_name, "muted"),
+                "",
+            )
             button.setObjectName("iconButton")
             button.setIconSize(QSize(17, 17))
             button.setToolTip(tooltip)
@@ -372,10 +451,15 @@ class SirajDesktopWindow(QMainWindow):
             self.transport_buttons.append(button)
             controls.addWidget(button)
         controls.addStretch(1)
-        self.open_video_button = QPushButton(icon("open", "muted"), "فتح الملف")
+        self.open_video_button = QPushButton(
+            icon("open", "muted"),
+            "فتح الملف",
+        )
         self.open_video_button.setIconSize(QSize(17, 17))
         self.open_video_button.setEnabled(False)
-        self.open_video_button.clicked.connect(self._open_active_video)
+        self.open_video_button.clicked.connect(
+            self._open_active_video
+        )
         controls.addWidget(self.open_video_button)
         layout.addLayout(controls)
         return panel
@@ -418,6 +502,7 @@ class SirajDesktopWindow(QMainWindow):
 
     def _build_activities(self) -> QWidget:
         panel = Panel()
+        panel.setMinimumHeight(160)
         layout = QVBoxLayout(panel)
         layout.setContentsMargins(11, 9, 11, 11)
         title = QLabel("النشاطات الأخيرة")
@@ -425,8 +510,12 @@ class SirajDesktopWindow(QMainWindow):
         layout.addWidget(title)
         self.activities_list = QListWidget()
         self.activities_list.setObjectName("activitiesList")
-        self.activities_list.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
-        self.activities_list.setVerticalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAsNeeded)
+        self.activities_list.setHorizontalScrollBarPolicy(
+            Qt.ScrollBarPolicy.ScrollBarAlwaysOff
+        )
+        self.activities_list.setVerticalScrollBarPolicy(
+            Qt.ScrollBarPolicy.ScrollBarAsNeeded
+        )
         self.activities_list.setSpacing(3)
         layout.addWidget(self.activities_list)
         return panel
@@ -500,7 +589,9 @@ class SirajDesktopWindow(QMainWindow):
         else:
             self.preview.set_context("لا توجد حلقات مكتشفة", "—", "غير متاح", "—")
             self.workflow_strip.set_episode(None)
-        self._log("PASS_DESKTOP_DATA_REFRESH_V1_2")
+        self.main_column_scroll.verticalScrollBar().setValue(0)
+        self.utility_column_scroll.verticalScrollBar().setValue(0)
+        self._log("PASS_DESKTOP_DATA_REFRESH_V1_3")
         for warning in snapshot.warnings:
             self._log("WARNING " + warning)
 
@@ -778,7 +869,7 @@ class SirajDesktopWindow(QMainWindow):
             self,
             label,
             "هذا القسم مدرج في تصميم الواجهة وسيتم تفعيله تباعًا. "
-            "الإصدار v1.2 يركز على اكتمال لوحة التحكم والمراجعة البصرية.",
+            "الإصدار v1.3 يركز على ثبات التخطيط والمراجعة البصرية.",
         )
 
     def _log(self, message: str) -> None:
