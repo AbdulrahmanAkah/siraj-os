@@ -1,9 +1,10 @@
 from __future__ import annotations
 
-from PySide6.QtCore import QPointF, Qt
+from PySide6.QtCore import QPointF, QRectF, QSize, Qt
 from PySide6.QtGui import QColor, QLinearGradient, QPainter, QPainterPath, QPen
 from PySide6.QtWidgets import (
     QFrame,
+    QGridLayout,
     QHBoxLayout,
     QLabel,
     QProgressBar,
@@ -12,6 +13,7 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
+from .models import EpisodeRecord, EpisodeStage
 from .theme import COLORS
 
 
@@ -33,16 +35,19 @@ class MetricCard(Panel):
         parent: QWidget | None = None,
     ) -> None:
         super().__init__(parent=parent)
+        self.setMinimumWidth(0)
         layout = QVBoxLayout(self)
-        layout.setContentsMargins(14, 12, 14, 12)
-        layout.setSpacing(5)
+        layout.setContentsMargins(12, 10, 12, 10)
+        layout.setSpacing(4)
 
         title_label = QLabel(title)
         title_label.setObjectName("muted")
+        title_label.setWordWrap(True)
         value_label = QLabel(value)
         value_label.setObjectName("metricValue")
         caption_label = QLabel(caption)
         caption_label.setObjectName("metricCaption")
+        caption_label.setWordWrap(True)
 
         layout.addWidget(title_label)
         layout.addWidget(value_label)
@@ -59,6 +64,8 @@ class MetricCard(Panel):
 class StatusPill(QFrame):
     def __init__(self, text: str, tone: str = "muted", parent: QWidget | None = None):
         super().__init__(parent)
+        self.setMinimumWidth(0)
+        self.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
         colors = {
             "green": ("#103325", COLORS["green"]),
             "gold": ("#332714", COLORS["gold"]),
@@ -82,22 +89,55 @@ class StatusPill(QFrame):
         )
         layout = QHBoxLayout(self)
         layout.setContentsMargins(0, 0, 0, 0)
-        layout.addWidget(QLabel(text))
+        self.label = QLabel(text)
+        self.label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.label.setTextInteractionFlags(Qt.TextInteractionFlag.TextSelectableByMouse)
+        layout.addWidget(self.label)
+
+    def set_text(self, text: str) -> None:
+        self.label.setText(text)
+        self.label.setToolTip(text)
 
 
 class PreviewCanvas(QWidget):
-    """A dependency-free cinematic placeholder until a real frame is available."""
+    """Cinematic 16:9 preview placeholder until a real frame is available."""
 
     def __init__(self, parent: QWidget | None = None) -> None:
         super().__init__(parent)
-        self.setMinimumHeight(250)
-        self.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
+        self.setMinimumSize(280, 158)
+        self.setMaximumHeight(340)
+        policy = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred)
+        policy.setHeightForWidth(True)
+        self.setSizePolicy(policy)
         self.overlay_text = "لا توجد معاينة فيديو بعد"
         self.shot_text = "—"
+        self.beat_text = "—"
+        self.state_text = "غير مولد"
 
-    def set_context(self, overlay_text: str, shot_text: str) -> None:
+    def hasHeightForWidth(self) -> bool:  # noqa: N802 - Qt API
+        return True
+
+    def heightForWidth(self, width: int) -> int:  # noqa: N802 - Qt API
+        return max(158, min(340, round(max(1, width) * 9 / 16)))
+
+    def sizeHint(self) -> QSize:  # noqa: N802 - Qt API
+        return QSize(480, 270)
+
+    def set_context(
+        self,
+        overlay_text: str,
+        shot_text: str,
+        state_text: str = "غير مولد",
+        beat_text: str = "—",
+    ) -> None:
         self.overlay_text = overlay_text
         self.shot_text = shot_text
+        self.state_text = state_text
+        self.beat_text = beat_text
+        self.setToolTip(
+            f"الحالة: {state_text}\nاللقطة: {shot_text}\nالوحدة: {beat_text}"
+        )
+        self.updateGeometry()
         self.update()
 
     def paintEvent(self, event) -> None:  # noqa: N802 - Qt API
@@ -132,58 +172,108 @@ class PreviewCanvas(QWidget):
         painter.setPen(QPen(QColor("#e8ad35"), 2))
         painter.drawLine(0, rect.height() - 5, rect.width(), rect.height() - 5)
 
-        painter.setPen(QColor("#ffffff"))
+        state_rect = QRectF(12, 12, min(135, rect.width() * 0.43), 28)
+        painter.setPen(QPen(QColor("#e8ad35"), 1))
+        painter.setBrush(QColor(7, 16, 25, 210))
+        painter.drawRoundedRect(state_rect, 8, 8)
+        painter.setPen(QColor("#e8ad35"))
         font = painter.font()
-        font.setPointSize(13)
+        font.setPointSize(9)
         font.setBold(True)
         painter.setFont(font)
+        painter.drawText(state_rect, Qt.AlignmentFlag.AlignCenter, self.state_text)
+
+        painter.setPen(QColor("#ffffff"))
+        font.setPointSize(12)
+        painter.setFont(font)
         painter.drawText(
-            rect.adjusted(20, 20, -20, -45),
-            Qt.AlignmentFlag.AlignCenter,
+            rect.adjusted(20, 42, -20, -56),
+            Qt.AlignmentFlag.AlignCenter | Qt.TextFlag.TextWordWrap,
             self.overlay_text,
         )
 
-        font.setPointSize(9)
+        font.setPointSize(8)
         font.setBold(False)
         painter.setFont(font)
         painter.setPen(QColor("#e5e9ec"))
+        footer = f"{self.shot_text}  •  {self.beat_text}"
         painter.drawText(
-            rect.adjusted(16, 16, -16, -14),
+            rect.adjusted(14, 14, -14, -12),
             Qt.AlignmentFlag.AlignBottom | Qt.AlignmentFlag.AlignLeft,
-            self.shot_text,
+            footer,
         )
 
 
 class WorkflowStrip(Panel):
+    _LABELS = (
+        "النص",
+        "الستوريبورد",
+        "المراجعة الشرعية والبصرية",
+        "حزم اللقطات",
+        "توليد الفيديو",
+        "المونتاج",
+        "جاهز للنشر",
+    )
+
     def __init__(self, parent: QWidget | None = None) -> None:
         super().__init__(parent=parent)
         layout = QVBoxLayout(self)
-        layout.setContentsMargins(16, 12, 16, 14)
+        layout.setContentsMargins(14, 10, 14, 12)
         title = QLabel("سير العمل الإنتاجي للحلقة")
         title.setObjectName("sectionTitle")
         layout.addWidget(title)
 
-        row = QHBoxLayout()
-        row.setSpacing(8)
-        stages = (
-            ("النص", True),
-            ("الستوريبورد", True),
-            ("المراجعة الشرعية والبصرية", True),
-            ("حزم اللقطات", False),
-            ("توليد الفيديو", False),
-            ("المونتاج", False),
-            ("جاهز للنشر", False),
-        )
-        for index, (label, complete) in enumerate(stages):
-            stage = QLabel(("✓  " if complete else "○  ") + label)
+        self.stage_labels: list[QLabel] = []
+        row = QGridLayout()
+        row.setHorizontalSpacing(7)
+        row.setVerticalSpacing(7)
+        for index, label in enumerate(self._LABELS):
+            stage = QLabel(label)
+            stage.setWordWrap(True)
             stage.setAlignment(Qt.AlignmentFlag.AlignCenter)
-            stage.setMinimumHeight(42)
-            color = COLORS["green"] if complete else COLORS["muted"]
-            if index == 3:
-                color = COLORS["gold"]
-            stage.setStyleSheet(
-                f"color: {color}; background: #0a141d; border: 1px solid #2b3a47;"
-                "border-radius: 9px; padding: 6px; font-weight: 600;"
-            )
-            row.addWidget(stage, 1)
+            stage.setMinimumHeight(48)
+            stage.setMinimumWidth(0)
+            self.stage_labels.append(stage)
+            row.addWidget(stage, 0, index)
+            row.setColumnStretch(index, 1)
         layout.addLayout(row)
+        self.set_episode(None)
+
+    def _style_stage(self, label: QLabel, state: str) -> None:
+        styles = {
+            "complete": ("✓", COLORS["green"], "#0d2a1f"),
+            "active": ("●", COLORS["gold"], "#2a2415"),
+            "waiting": ("○", COLORS["blue"], "#0d2230"),
+            "blocked": ("○", COLORS["muted"], "#0a141d"),
+            "failed": ("!", COLORS["red"], "#2a1212"),
+        }
+        marker, color, background = styles[state]
+        base_text = label.property("stageText") or label.text().lstrip("✓●○! ")
+        label.setProperty("stageText", base_text)
+        label.setText(f"{marker}  {base_text}")
+        label.setStyleSheet(
+            f"color: {color}; background: {background}; border: 1px solid {color};"
+            "border-radius: 9px; padding: 6px; font-weight: 600;"
+        )
+
+    def set_episode(self, episode: EpisodeRecord | None) -> None:
+        if episode is None:
+            states = ["blocked"] * len(self.stage_labels)
+        else:
+            has_manifest = episode.manifest_path is not None
+            has_package = episode.current_shot_id != "—"
+            has_generated = episode.generated_shot_count > 0
+            has_final = episode.final_video_path is not None
+            states = [
+                "complete" if has_manifest else "active",
+                "complete" if has_manifest else "waiting",
+                "complete" if has_manifest else "waiting",
+                "complete" if has_package and has_generated else ("active" if has_package else "waiting"),
+                "complete" if has_final else ("active" if has_generated else "waiting"),
+                "complete" if has_final else "blocked",
+                "complete" if episode.stage == EpisodeStage.PUBLISH_READY else (
+                    "active" if episode.stage == EpisodeStage.VIDEO_REVIEW else "blocked"
+                ),
+            ]
+        for label, state in zip(self.stage_labels, states, strict=True):
+            self._style_stage(label, state)

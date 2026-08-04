@@ -37,6 +37,7 @@ class EpisodeRecord:
     provider: str = "—"
     model: str = "—"
     current_shot_id: str = "—"
+    current_beat_id: str = "—"
     next_action_ar: str = "فتح الحلقة"
     final_video_path: Path | None = None
     manifest_path: Path | None = None
@@ -57,6 +58,10 @@ class EpisodeRecord:
     @property
     def publish_ready(self) -> bool:
         return self.stage == EpisodeStage.PUBLISH_READY
+
+    @property
+    def work_in_progress(self) -> bool:
+        return not (self.conversion_ready or self.publish_ready)
 
     @property
     def progress_fraction(self) -> float:
@@ -101,6 +106,22 @@ class DashboardSnapshot:
             episode
             for episode in self.episodes
             if episode.publish_ready
+        )
+
+    @property
+    def ready_queue(self) -> tuple[EpisodeRecord, ...]:
+        return tuple(
+            episode
+            for episode in self.episodes
+            if episode.conversion_ready or episode.publish_ready
+        )
+
+    @property
+    def work_queue(self) -> tuple[EpisodeRecord, ...]:
+        return tuple(
+            episode
+            for episode in self.episodes
+            if episode.work_in_progress
         )
 
     @property

@@ -21,10 +21,14 @@ QWidget {{
     color: {COLORS['text']};
     background: transparent;
     font-family: "Segoe UI", "Tahoma", "Arial";
-    font-size: 13px;
+    font-size: 12px;
 }}
 QMainWindow, QWidget#root {{
     background-color: {COLORS['background']};
+}}
+QScrollArea {{
+    border: 0;
+    background: transparent;
 }}
 QFrame#sidebar, QFrame#panel, QFrame#headerPanel, QFrame#heroPanel {{
     background-color: {COLORS['surface']};
@@ -39,6 +43,11 @@ QFrame#queuePanel {{
     border: 1px solid {COLORS['gold']};
     border-radius: 12px;
 }}
+QFrame#emptyState {{
+    background-color: #09131b;
+    border: 1px dashed {COLORS['border']};
+    border-radius: 10px;
+}}
 QLabel#brand {{
     color: {COLORS['gold']};
     font-family: "Georgia";
@@ -47,21 +56,26 @@ QLabel#brand {{
 }}
 QLabel#pageTitle {{
     color: {COLORS['gold']};
-    font-size: 24px;
+    font-size: 23px;
     font-weight: 700;
 }}
 QLabel#sectionTitle {{
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 700;
 }}
+QLabel#queueEmpty {{
+    color: {COLORS['muted']};
+    font-size: 14px;
+    padding: 26px;
+}}
 QLabel#muted {{ color: {COLORS['muted']}; }}
-QLabel#metricValue {{ font-size: 28px; font-weight: 700; }}
-QLabel#metricCaption {{ color: {COLORS['muted']}; }}
+QLabel#metricValue {{ font-size: 25px; font-weight: 700; }}
+QLabel#metricCaption {{ color: {COLORS['muted']}; font-size: 11px; }}
 QPushButton {{
     background-color: {COLORS['surface_alt']};
     border: 1px solid {COLORS['border']};
     border-radius: 8px;
-    padding: 9px 12px;
+    padding: 8px 11px;
 }}
 QPushButton:hover {{
     background-color: {COLORS['surface_hover']};
@@ -75,10 +89,17 @@ QPushButton#primaryButton {{
     color: #72e3a5;
     font-weight: 700;
 }}
+QPushButton#iconButton {{
+    min-width: 34px;
+    max-width: 34px;
+    min-height: 32px;
+    max-height: 32px;
+    padding: 0;
+}}
 QPushButton#navButton {{
     border: 0;
     border-radius: 9px;
-    padding: 11px 14px;
+    padding: 10px 13px;
     text-align: right;
     background-color: transparent;
 }}
@@ -92,7 +113,7 @@ QLineEdit, QComboBox {{
     background-color: {COLORS['surface']};
     border: 1px solid {COLORS['border']};
     border-radius: 8px;
-    padding: 9px 12px;
+    padding: 8px 11px;
     selection-background-color: {COLORS['gold_soft']};
 }}
 QComboBox::drop-down {{ border: 0; width: 28px; }}
@@ -103,13 +124,31 @@ QTableWidget {{
     gridline-color: {COLORS['border']};
     selection-background-color: #17344a;
 }}
+QTableWidget::item {{ padding: 6px; }}
 QHeaderView::section {{
     background-color: #0b151e;
     color: {COLORS['muted']};
     border: 0;
     border-bottom: 1px solid {COLORS['border']};
-    padding: 8px;
+    padding: 7px;
     font-weight: 600;
+}}
+QTabWidget::pane {{
+    border: 0;
+    border-top: 1px solid {COLORS['border']};
+}}
+QTabBar::tab {{
+    background-color: #0a141d;
+    color: {COLORS['muted']};
+    border: 1px solid {COLORS['border']};
+    border-bottom: 0;
+    padding: 8px 16px;
+    min-width: 130px;
+}}
+QTabBar::tab:selected {{
+    background-color: #13202b;
+    color: {COLORS['gold']};
+    border-color: {COLORS['gold_soft']};
 }}
 QListWidget, QPlainTextEdit {{
     background-color: #09131b;
@@ -128,17 +167,24 @@ QProgressBar::chunk {{
     background-color: {COLORS['gold']};
     border-radius: 5px;
 }}
+QSplitter::handle {{
+    background-color: {COLORS['border']};
+    margin: 8px 1px;
+    border-radius: 2px;
+}}
+QSplitter::handle:hover {{ background-color: {COLORS['gold_soft']}; }}
 QScrollBar:vertical {{
     background: transparent;
-    width: 10px;
+    width: 9px;
     margin: 2px;
 }}
 QScrollBar::handle:vertical {{
     background: #334554;
     min-height: 24px;
-    border-radius: 5px;
+    border-radius: 4px;
 }}
 QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {{ height: 0; }}
+QScrollBar:horizontal {{ height: 0; background: transparent; }}
 QToolTip {{
     background-color: #111d27;
     color: {COLORS['text']};

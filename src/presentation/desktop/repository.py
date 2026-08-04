@@ -30,6 +30,13 @@ _FINAL_RECEIPT_CANDIDATES = (
     "contracts/youtube-publish-readiness-v1.json",
 )
 
+_GENERATED_VIDEO_PATTERNS = (
+    "cinematic/shot-packages/**/*.mp4",
+    "generated/**/*.mp4",
+    "outputs/**/*.mp4",
+    "video/**/*.mp4",
+)
+
 
 def find_repo_root(start: Path | None = None) -> Path:
     candidate = (start or Path.cwd()).resolve()
@@ -105,14 +112,56 @@ def _receipt_is_approved(project_path: Path) -> bool:
     return False
 
 
-def _current_shot(project_path: Path) -> str:
+def _current_package_context(project_path: Path) -> tuple[str, str]:
     package_root = project_path / "cinematic" / "shot-packages"
     packages = sorted(package_root.glob("**/*.json")) if package_root.is_dir() else []
     for package in reversed(packages):
         payload = _read_json(package)
-        if payload and isinstance(payload.get("shot_id"), str):
-            return payload["shot_id"]
-    return "—"
+        if payload is None:
+            continue
+        shot_id = payload.get("shot_id")
+        if not isinstance(shot_id, str):
+            continue
+        beat_id = "—"
+        execution = payload.get("execution_authorization")
+        if isinstance(execution, dict):
+            candidate = execution.get("currently_authored_generation_beat")
+            if isinstance(candidate, str) and candidate:
+                beat_id = candidate
+        if beat_id == "—":
+            beats = payload.get("generation_beats")
+            if isinstance(beats, list):
+                for beat in beats:
+                    if not isinstance(beat, dict):
+                        continue
+                    candidate = beat.get("beat_id")
+                    status = str(beat.get("status", "")).upper()
+                    if isinstance(candidate, str) and status not in {"DEFERRED", "BLOCKED"}:
+                        beat_id = candidate
+                        break
+        return shot_id, beat_id
+    return "—", "—"
+
+
+def _status_is_approved(status: str) -> bool:
+    normalized = status.strip().upper()
+    return (
+        normalized in {"PASS", "ACCEPTED", "APPROVED"}
+        or "APPROVED" in normalized
+    )
+
+
+def _status_is_generated(status: str) -> bool:
+    normalized = status.strip().upper()
+    if not normalized:
+        return False
+    if "NOT_GENERATED" in normalized or normalized.startswith("PLANNED"):
+        return False
+    return (
+        normalized in {"GENERATED", "RENDERED"}
+        or "GENERATED" in normalized
+        or "RENDERED" in normalized
+    )
 
 
 def _count_shots(shots: Iterable[Any]) -> tuple[int, int, int]:
@@ -121,12 +170,26 @@ def _count_shots(shots: Iterable[Any]) -> tuple[int, int, int]:
         if not isinstance(item, dict):
             continue
         total += 1
-        status = str(item.get("status", "")).upper()
-        if "APPROVED" in status or status in {"PASS", "ACCEPTED"}:
+        status = str(item.get("status", ""))
+        if _status_is_approved(status):
             approved += 1
-        if "GENERATED" in status or "RENDERED" in status:
+        if _status_is_generated(status):
             generated += 1
     return total, approved, generated
+
+
+def _count_generated_video_files(project_path: Path) -> int:
+    unique: set[Path] = set()
+    final_video = _find_final_video(project_path)
+    for pattern in _GENERATED_VIDEO_PATTERNS:
+        for path in project_path.glob(pattern):
+            if not path.is_file():
+                continue
+            resolved = path.resolve()
+            if final_video is not None and resolved == final_video.resolve():
+                continue
+            unique.add(resolved)
+    return len(unique)
 
 
 def _derive_stage(
@@ -184,13 +247,16 @@ def load_episode_record(project_path: Path) -> EpisodeRecord:
     )
 
     shots = manifest.get("shots", []) if manifest else []
-    total, approved, generated = _count_shots(shots)
+    total, approved, generated_by_status = _count_shots(shots)
+    generated_by_files = _count_generated_video_files(project_path)
+    generated = max(generated_by_status, generated_by_files)
     declared_count = int(manifest.get("shot_count", total) or total) if manifest else 0
     shot_count = max(total, declared_count)
     duration = int(manifest.get("editorial_duration_seconds", 0) or 0) if manifest else 0
     model_payload = manifest.get("primary_video_model", {}) if manifest else {}
     if not isinstance(model_payload, dict):
         model_payload = {}
+    current_shot, current_beat = _current_package_context(project_path)
 
     return EpisodeRecord(
         episode_id=project_path.name,
@@ -203,7 +269,8 @@ def load_episode_record(project_path: Path) -> EpisodeRecord:
         generated_shot_count=generated,
         provider=str(model_payload.get("provider", "—")),
         model=str(model_payload.get("model", "—")),
-        current_shot_id=_current_shot(project_path),
+        current_shot_id=current_shot,
+        current_beat_id=current_beat,
         next_action_ar=next_action,
         final_video_path=final_video,
         manifest_path=manifest_path,
@@ -228,13 +295,16 @@ def _collect_outputs(repo_root: Path) -> tuple[Path, ...]:
     for episode in sorted((repo_root / "projects").glob("episode-*")):
         for pattern in (
             "cinematic/*.json",
+            "cinematic/shot-packages/**/*.json",
             "contracts/*.json",
             "evidence/*.json",
             "publish/*.mp4",
-            "outputs/*.mp4",
+            "outputs/**/*.mp4",
+            "generated/**/*.mp4",
         ):
             candidates.extend(sorted(episode.glob(pattern)))
-    return tuple(candidates[-8:])
+    unique = sorted(set(path for path in candidates if path.is_file()))
+    return tuple(unique[-10:])
 
 
 def build_dashboard_snapshot(repo_root: Path) -> DashboardSnapshot:
