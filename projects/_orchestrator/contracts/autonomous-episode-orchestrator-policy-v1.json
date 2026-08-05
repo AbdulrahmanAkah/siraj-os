@@ -1,0 +1,90 @@
+{
+  "schema_version": "siraj-autonomous-episode-orchestrator-policy-v1",
+  "policy_id": "siraj_autonomous_episode_orchestrator_v1_20260805",
+  "status": "HUMAN_DIRECTIVES_ACTIVE",
+  "effective_date_baghdad": "2026-08-05",
+  "single_start_command": "PRODUCE_NEXT_EPISODE",
+  "editorial_provider": {
+    "provider": "OPENAI",
+    "model": "gpt-5.6-luna",
+    "api": "RESPONSES_API",
+    "web_search": "REQUIRED_FOR_SCOPE_AND_RESEARCH",
+    "structured_outputs": "REQUIRED",
+    "credential_storage": "WINDOWS_CREDENTIAL_MANAGER_ONLY",
+    "pricing_snapshot": {
+      "source": "HUMAN_VERIFIED_PUBLIC_ANNOUNCEMENT_2026_07_30",
+      "input_usd_per_million_tokens": 0.2,
+      "output_usd_per_million_tokens": 1.2,
+      "provider_billing_is_source_of_truth": true
+    }
+  },
+  "media_providers": {
+    "images": "RUNWARE",
+    "video": "RUNWARE",
+    "tts": "ELEVENLABS",
+    "sfx": "LOCAL_OR_EXTERNAL_SCENE_APPROPRIATE_EFFECTS",
+    "montage": "LOCAL_STRUCTURAL_RUNTIME"
+  },
+  "human_gates": [
+    {
+      "gate": "HUMAN_SCOPE_REVIEW",
+      "required_before": "EVIDENCE_RESEARCH",
+      "discussion_with_luna": true,
+      "approval_required": true
+    },
+    {
+      "gate": "HUMAN_FINAL_REVIEW",
+      "required_before": "READY_TO_PUBLISH",
+      "approval_required": true
+    }
+  ],
+  "automatic_after_scope_approval": true,
+  "manual_youtube_upload": true,
+  "episode_budget_hard_cap_usd": 40.0,
+  "budget_override": "FORBIDDEN",
+  "generated_video_target_seconds": {
+    "minimum": 120,
+    "maximum": 180
+  },
+  "music": "FORBIDDEN",
+  "sound_effects": "ALLOWED_ANY_SCENE_APPROPRIATE_TYPE",
+  "partial_rebuild": {
+    "required": true,
+    "regenerate_entire_episode_for_local_defect": "FORBIDDEN",
+    "preserve_unaffected_paid_assets": true,
+    "dependency_chain": [
+      "EVENT",
+      "EVIDENCE_PACKAGE",
+      "SCRIPT_SEGMENT",
+      "SHOT_PLAN",
+      "IMAGE_OR_VIDEO",
+      "TTS_SEGMENT",
+      "SFX_SEGMENT",
+      "TIMELINE_RANGE",
+      "FINAL_MASTER"
+    ]
+  },
+  "v1_delivery_boundary": {
+    "implemented": [
+      "SECURE_OPENAI_AND_ELEVENLABS_KEYS",
+      "ONE_CLICK_LUNA_SCOPE_PROPOSAL",
+      "WEB_SEARCH_BACKED_EVENT_PROPOSAL",
+      "HUMAN_LUNA_DISCUSSION_GATE",
+      "HUMAN_SCOPE_APPROVAL",
+      "NEW_EPISODE_WORKSPACE_CREATION",
+      "STAGE_LEDGER",
+      "ARTIFACT_DEPENDENCY_GRAPH",
+      "PARTIAL_REBUILD_FOUNDATION"
+    ],
+    "queued_next": [
+      "AUTOMATIC_EVIDENCE_RESEARCH",
+      "AUTOMATIC_SCRIPT_WRITING",
+      "AUTOMATIC_STORYBOARD_AND_MEDIA_PLAN",
+      "RUNWARE_IMAGE_QUEUE",
+      "GENERALIZED_RUNWARE_VIDEO_QUEUE",
+      "ELEVENLABS_SEGMENTED_TTS",
+      "SFX_AND_MONTAGE_EXECUTION",
+      "FINAL_QA_AND_REVIEW"
+    ]
+  }
+}

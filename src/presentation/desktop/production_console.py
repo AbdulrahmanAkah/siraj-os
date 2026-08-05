@@ -15,6 +15,7 @@ from PySide6.QtWidgets import (
     QLineEdit,
     QMessageBox,
     QProgressBar,
+    QPlainTextEdit,
     QPushButton,
     QSpinBox,
     QTabWidget,
@@ -24,6 +25,22 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
+from src.application.autonomous_episode_orchestrator_v1 import (
+    AutonomousOrchestratorError,
+    approve_scope,
+    current_scope_proposal,
+    discuss_and_revise_scope,
+    generate_next_episode_scope,
+    load_orchestrator_state,
+    provider_readiness,
+)
+from src.application.provider_credentials_v1 import (
+    ProviderCredentialError,
+    read_elevenlabs_api_key,
+    read_openai_api_key,
+    save_elevenlabs_api_key,
+    save_openai_api_key,
+)
 from src.application.automatic_video_workflow_v1 import (
     AutomaticVideoResult,
     PASS_THRESHOLD,
@@ -47,7 +64,7 @@ from src.application.windows_credentials_v1 import (
     save_runware_api_key,
 )
 
-PRODUCTION_CONSOLE_RELEASE = "SIRAJ_EPISODE_PRODUCTION_CONTROL_V1"
+PRODUCTION_CONSOLE_RELEASE = "SIRAJ_AUTONOMOUS_EPISODE_ORCHESTRATOR_V1"
 
 # Historical source-contract compatibility markers retained:
 # paidExecutionConfirmation
@@ -55,6 +72,52 @@ PRODUCTION_CONSOLE_RELEASE = "SIRAJ_EPISODE_PRODUCTION_CONTROL_V1"
 # recoverBeat01Button
 # saveBeat01ReviewButton
 # QMessageBox.warning
+
+
+class ScopeGenerationThread(QThread):
+    progress_changed = Signal(str, object)
+    generation_succeeded = Signal(object)
+    generation_failed = Signal(str)
+
+    def __init__(
+        self,
+        repo_root: Path,
+        api_key: str,
+        instruction: str,
+        revision: bool,
+        parent: QWidget | None = None,
+    ) -> None:
+        super().__init__(parent)
+        self.repo_root = repo_root
+        self._api_key = api_key
+        self.instruction = instruction
+        self.revision = revision
+
+    def run(self) -> None:
+        def progress(message: str, value: int | None) -> None:
+            self.progress_changed.emit(message, value)
+
+        try:
+            if self.revision:
+                result = discuss_and_revise_scope(
+                    self.repo_root,
+                    self._api_key,
+                    self.instruction,
+                    progress=progress,
+                )
+            else:
+                result = generate_next_episode_scope(
+                    self.repo_root,
+                    self._api_key,
+                    instruction=self.instruction,
+                    progress=progress,
+                )
+        except Exception as exc:
+            self.generation_failed.emit(str(exc))
+        else:
+            self.generation_succeeded.emit(result)
+        finally:
+            self._api_key = ""
 
 
 class AutomaticGenerationThread(QThread):
@@ -99,9 +162,10 @@ class ProductionConsoleDialog(QDialog):
         super().__init__(parent)
         self.repo_root = repo_root.resolve()
         self.worker: AutomaticGenerationThread | None = None
+        self.scope_worker: ScopeGenerationThread | None = None
         self.last_output: Path | None = None
         self.setObjectName("productionConsoleDialog")
-        self.setWindowTitle("سراج — إدارة إنتاج حلقة آدم")
+        self.setWindowTitle("سراج — الإنتاج الذاتي للحلقات")
         self.resize(1080, 720)
         self.setMinimumSize(900, 620)
         self.setLayoutDirection(Qt.LayoutDirection.RightToLeft)
@@ -113,7 +177,7 @@ class ProductionConsoleDialog(QDialog):
         root.setContentsMargins(16, 16, 16, 16)
         root.setSpacing(10)
 
-        title = QLabel("إدارة إنتاج حلقة آدم")
+        title = QLabel("الإنتاج الذاتي للحلقات")
         title.setObjectName("pageTitle")
         subtitle = QLabel(
             "الخطة الهجينة الملزمة: سقف 40$، فيديو مولد 120–180 ثانية، "
@@ -128,6 +192,11 @@ class ProductionConsoleDialog(QDialog):
         self.tabs = QTabWidget()
         self.tabs.setObjectName("episodeProductionTabs")
         root.addWidget(self.tabs, 1)
+
+        self.orchestrator_tab = QWidget()
+        self.orchestrator_tab.setObjectName("autonomousOrchestratorTab")
+        self.tabs.addTab(self.orchestrator_tab, "الإنتاج الذاتي")
+        self._build_orchestrator_tab()
 
         self.plan_tab = QWidget()
         self.plan_tab.setObjectName("episodePlanTab")
@@ -149,6 +218,119 @@ class ProductionConsoleDialog(QDialog):
         close_button.clicked.connect(self.reject)
         footer.addWidget(close_button)
         root.addLayout(footer)
+
+    def _build_orchestrator_tab(self) -> None:
+        layout = QVBoxLayout(self.orchestrator_tab)
+        layout.setContentsMargins(12, 12, 12, 12)
+        layout.setSpacing(10)
+
+        self.orchestrator_status_label = QLabel("")
+        self.orchestrator_status_label.setObjectName("orchestratorStatusLabel")
+        self.orchestrator_status_label.setWordWrap(True)
+        layout.addWidget(self.orchestrator_status_label)
+
+        self.provider_readiness_label = QLabel("")
+        self.provider_readiness_label.setObjectName("providerReadinessLabel")
+        self.provider_readiness_label.setWordWrap(True)
+        layout.addWidget(self.provider_readiness_label)
+
+        key_row = QHBoxLayout()
+        self.configure_openai_button = QPushButton("إعداد مفتاح OpenAI / Luna")
+        self.configure_openai_button.setObjectName("configureOpenAIKeyButton")
+        self.configure_openai_button.clicked.connect(self._configure_openai_key)
+        key_row.addWidget(self.configure_openai_button)
+        self.configure_elevenlabs_button = QPushButton("إعداد مفتاح ElevenLabs")
+        self.configure_elevenlabs_button.setObjectName("configureElevenLabsKeyButton")
+        self.configure_elevenlabs_button.clicked.connect(
+            self._configure_elevenlabs_key
+        )
+        key_row.addWidget(self.configure_elevenlabs_button)
+        layout.addLayout(key_row)
+
+        instruction_label = QLabel("تعليمات اختيار الحلقة — اختيارية")
+        instruction_label.setObjectName("sectionTitle")
+        layout.addWidget(instruction_label)
+        self.next_episode_instruction = QPlainTextEdit()
+        self.next_episode_instruction.setObjectName("nextEpisodeInstructionInput")
+        self.next_episode_instruction.setPlaceholderText(
+            "مثال: اجعل الحلقة متصلة مباشرة بنهاية حلقة آدم، ولا تتجاوز 8 أحداث."
+        )
+        self.next_episode_instruction.setMaximumHeight(78)
+        layout.addWidget(self.next_episode_instruction)
+
+        self.produce_next_episode_button = QPushButton("إنتاج الحلقة التالية")
+        self.produce_next_episode_button.setObjectName("produceNextEpisodeButton")
+        self.produce_next_episode_button.setMinimumHeight(46)
+        self.produce_next_episode_button.clicked.connect(
+            self._produce_next_episode
+        )
+        layout.addWidget(self.produce_next_episode_button)
+
+        self.scope_progress = QProgressBar()
+        self.scope_progress.setObjectName("scopeGenerationProgress")
+        self.scope_progress.setRange(0, 100)
+        self.scope_progress.setValue(0)
+        layout.addWidget(self.scope_progress)
+        self.scope_progress_label = QLabel("جاهز.")
+        self.scope_progress_label.setObjectName("scopeGenerationProgressLabel")
+        self.scope_progress_label.setWordWrap(True)
+        layout.addWidget(self.scope_progress_label)
+
+        proposal_label = QLabel("مقترح الموضوع والأحداث")
+        proposal_label.setObjectName("sectionTitle")
+        layout.addWidget(proposal_label)
+        self.scope_proposal_view = QPlainTextEdit()
+        self.scope_proposal_view.setObjectName("scopeProposalView")
+        self.scope_proposal_view.setReadOnly(True)
+        self.scope_proposal_view.setMaximumHeight(145)
+        layout.addWidget(self.scope_proposal_view)
+
+        self.scope_events_table = QTableWidget()
+        self.scope_events_table.setObjectName("scopeEventsTable")
+        self.scope_events_table.setColumnCount(5)
+        self.scope_events_table.setHorizontalHeaderLabels(
+            ["#", "الحدث", "الموقف الدليلي", "الثقة", "المراجع"]
+        )
+        self.scope_events_table.setEditTriggers(
+            QTableWidget.EditTrigger.NoEditTriggers
+        )
+        self.scope_events_table.setSelectionBehavior(
+            QTableWidget.SelectionBehavior.SelectRows
+        )
+        self.scope_events_table.setMaximumHeight(185)
+        scope_header = self.scope_events_table.horizontalHeader()
+        scope_header.setSectionResizeMode(0, QHeaderView.ResizeMode.ResizeToContents)
+        scope_header.setSectionResizeMode(1, QHeaderView.ResizeMode.Stretch)
+        scope_header.setSectionResizeMode(2, QHeaderView.ResizeMode.ResizeToContents)
+        scope_header.setSectionResizeMode(3, QHeaderView.ResizeMode.ResizeToContents)
+        scope_header.setSectionResizeMode(4, QHeaderView.ResizeMode.ResizeToContents)
+        layout.addWidget(self.scope_events_table)
+
+        discussion_row = QHBoxLayout()
+        self.scope_discussion_input = QPlainTextEdit()
+        self.scope_discussion_input.setObjectName("scopeDiscussionInput")
+        self.scope_discussion_input.setPlaceholderText(
+            "ناقش المقترح مع Luna: احذف حدثًا، أضف حدثًا، غيّر الموضوع أو اطلب مصادر أقوى."
+        )
+        self.scope_discussion_input.setMaximumHeight(72)
+        discussion_row.addWidget(self.scope_discussion_input, 3)
+        self.send_scope_discussion_button = QPushButton("إرسال إلى Luna")
+        self.send_scope_discussion_button.setObjectName(
+            "sendScopeDiscussionButton"
+        )
+        self.send_scope_discussion_button.clicked.connect(
+            self._send_scope_discussion
+        )
+        discussion_row.addWidget(self.send_scope_discussion_button, 1)
+        layout.addLayout(discussion_row)
+
+        self.approve_scope_button = QPushButton(
+            "اعتماد الموضوع والأحداث وفتح الإنتاج الآلي"
+        )
+        self.approve_scope_button.setObjectName("approveEpisodeScopeButton")
+        self.approve_scope_button.setMinimumHeight(44)
+        self.approve_scope_button.clicked.connect(self._approve_episode_scope)
+        layout.addWidget(self.approve_scope_button)
 
     def _build_plan_tab(self) -> None:
         layout = QVBoxLayout(self.plan_tab)
@@ -285,6 +467,215 @@ class ProductionConsoleDialog(QDialog):
         layout.addWidget(self.save_score_button)
         layout.addStretch(1)
 
+    def _stored_openai_key(self) -> str | None:
+        try:
+            return read_openai_api_key()
+        except ProviderCredentialError as exc:
+            self.scope_progress_label.setText(str(exc))
+            return None
+
+    def _stored_elevenlabs_key(self) -> str | None:
+        try:
+            return read_elevenlabs_api_key()
+        except ProviderCredentialError as exc:
+            self.scope_progress_label.setText(str(exc))
+            return None
+
+    def _configure_openai_key(self) -> None:
+        value, accepted = QInputDialog.getText(
+            self,
+            "إعداد مفتاح OpenAI",
+            "ألصق OpenAI API Key الخاص بـGPT-5.6 Luna. سيُحفظ في Windows Credential Manager فقط:",
+            QLineEdit.EchoMode.Password,
+        )
+        if not accepted:
+            return
+        try:
+            save_openai_api_key(value)
+        except ProviderCredentialError as exc:
+            QMessageBox.critical(self, "تعذر حفظ المفتاح", str(exc))
+            return
+        QMessageBox.information(self, "تم حفظ المفتاح", "تم حفظ مفتاح OpenAI بأمان.")
+        self._refresh_state()
+
+    def _configure_elevenlabs_key(self) -> None:
+        value, accepted = QInputDialog.getText(
+            self,
+            "إعداد مفتاح ElevenLabs",
+            "ألصق ElevenLabs API Key. سيُحفظ في Windows Credential Manager ويظل جاهزًا حتى شحن الرصيد:",
+            QLineEdit.EchoMode.Password,
+        )
+        if not accepted:
+            return
+        try:
+            save_elevenlabs_api_key(value)
+        except ProviderCredentialError as exc:
+            QMessageBox.critical(self, "تعذر حفظ المفتاح", str(exc))
+            return
+        QMessageBox.information(self, "تم حفظ المفتاح", "تم حفظ مفتاح ElevenLabs بأمان.")
+        self._refresh_state()
+
+    def _ensure_openai_key(self) -> str | None:
+        key = self._stored_openai_key()
+        if key:
+            return key
+        self._configure_openai_key()
+        return self._stored_openai_key()
+
+    def _start_scope_worker(self, instruction: str, revision: bool) -> None:
+        key = self._ensure_openai_key()
+        if not key:
+            return
+        self.scope_worker = ScopeGenerationThread(
+            self.repo_root,
+            key,
+            instruction,
+            revision,
+            self,
+        )
+        self.scope_worker.progress_changed.connect(self._on_scope_progress)
+        self.scope_worker.generation_succeeded.connect(self._on_scope_success)
+        self.scope_worker.generation_failed.connect(self._on_scope_failure)
+        self.scope_worker.finished.connect(self._on_scope_finished)
+        self.scope_progress.setRange(0, 0)
+        self.scope_progress_label.setText("بدء بحث Luna…")
+        self.scope_worker.start()
+        self._refresh_state()
+
+    def _produce_next_episode(self) -> None:
+        instruction = self.next_episode_instruction.toPlainText().strip()
+        self._start_scope_worker(instruction, revision=False)
+
+    def _send_scope_discussion(self) -> None:
+        message = self.scope_discussion_input.toPlainText().strip()
+        if not message:
+            QMessageBox.information(self, "رسالة مطلوبة", "اكتب التعديل المطلوب أولًا.")
+            return
+        self._start_scope_worker(message, revision=True)
+
+    def _on_scope_progress(self, message: str, value: object) -> None:
+        self.scope_progress_label.setText(message)
+        if isinstance(value, int):
+            self.scope_progress.setRange(0, 100)
+            self.scope_progress.setValue(value)
+        else:
+            self.scope_progress.setRange(0, 0)
+
+    def _on_scope_success(self, result: object) -> None:
+        self.scope_progress.setRange(0, 100)
+        self.scope_progress.setValue(100)
+        self.scope_progress_label.setText(
+            "اكتمل المقترح. ناقشه أو اعتمد الموضوع والأحداث."
+        )
+        self.scope_discussion_input.clear()
+        self._refresh_state()
+
+    def _on_scope_failure(self, error: str) -> None:
+        self.scope_progress.setRange(0, 100)
+        self.scope_progress.setValue(0)
+        self.scope_progress_label.setText("توقفت العملية: " + error)
+        QMessageBox.critical(self, "تعذر إنشاء مقترح الحلقة", error)
+        self._refresh_state()
+
+    def _on_scope_finished(self) -> None:
+        if self.scope_worker is not None:
+            self.scope_worker.deleteLater()
+        self.scope_worker = None
+        self._refresh_state()
+
+    def _approve_episode_scope(self) -> None:
+        try:
+            state = approve_scope(self.repo_root)
+        except AutonomousOrchestratorError as exc:
+            QMessageBox.critical(self, "تعذر اعتماد النطاق", str(exc))
+            return
+        QMessageBox.information(
+            self,
+            "تم اعتماد النطاق",
+            "تم إنشاء " + str(state.get("current_episode_id"))
+            + " وربط مخطط الاعتماديات. المرحلة التالية هي تشغيل البحث والنص والستوريبورد الآلي.",
+        )
+        self._refresh_state()
+
+    def _refresh_orchestrator_state(self) -> None:
+        try:
+            state = load_orchestrator_state(self.repo_root)
+            proposal = current_scope_proposal(self.repo_root)
+            readiness = provider_readiness(
+                self.repo_root,
+                openai_key_present=bool(self._stored_openai_key()),
+                elevenlabs_key_present=bool(self._stored_elevenlabs_key()),
+                runware_key_present=bool(self._stored_api_key()),
+            )
+        except Exception as exc:
+            self.orchestrator_status_label.setText("تعذر قراءة حالة المنسق: " + str(exc))
+            return
+
+        status = str(state.get("status", "UNKNOWN"))
+        status_text = {
+            "IDLE_READY_FOR_NEXT_EPISODE": "جاهز. اضغط «إنتاج الحلقة التالية» ليختار Luna الموضوع والأحداث.",
+            "GENERATING_SCOPE_WITH_LUNA": "Luna يبحث الآن ويُنشئ مقترح الموضوع والأحداث.",
+            "AWAITING_HUMAN_SCOPE_REVIEW": "بوابة المراجعة البشرية مفتوحة: ناقش المقترح ثم اعتمده.",
+            "SCOPE_PROVIDER_ERROR": "توقف مزود Luna. أصلح المفتاح أو الرصيد ثم أعد المحاولة.",
+            "SCOPE_APPROVED_AUTOMATIC_PIPELINE_QUEUED": "تم اعتماد النطاق وإنشاء الحلقة ومخطط الاعتماديات. البحث والنص والستوريبورد الآلي هي المرحلة البرمجية التالية.",
+        }.get(status, status)
+        self.orchestrator_status_label.setText(status_text)
+        self.provider_readiness_label.setText(
+            "المزودون: Luna=" + readiness["openai_luna"]
+            + " | Runware=" + readiness["runware"]
+            + " | ElevenLabs=" + readiness["elevenlabs"]
+            + " | المونتاج=" + readiness["montage"]
+            + " | المؤثرات=" + readiness["sfx"]
+        )
+
+        if proposal:
+            self.scope_proposal_view.setPlainText(
+                "الموضوع: " + str(proposal.get("topic_title_ar", ""))
+                + "\nالعنوان: " + str(proposal.get("working_title_ar", ""))
+                + "\nالسؤال المركزي: " + str(proposal.get("central_question_ar", ""))
+                + "\nالملخص: " + str(proposal.get("episode_summary_ar", ""))
+                + "\nالمدة المتوقعة: "
+                + str(proposal.get("estimated_duration_minutes", ""))
+                + " دقيقة"
+            )
+            events = proposal.get("events")
+            if not isinstance(events, list):
+                events = []
+            self.scope_events_table.setRowCount(len(events))
+            for row_index, event in enumerate(events):
+                refs = event.get("source_refs") if isinstance(event, dict) else []
+                values = [
+                    str(event.get("chronology_order", row_index + 1)),
+                    str(event.get("title_ar", "")),
+                    str(event.get("evidence_posture", "")),
+                    str(event.get("confidence", "")),
+                    str(len(refs) if isinstance(refs, list) else 0),
+                ]
+                for column, value in enumerate(values):
+                    self.scope_events_table.setItem(
+                        row_index,
+                        column,
+                        QTableWidgetItem(value),
+                    )
+        else:
+            self.scope_proposal_view.setPlainText("لا يوجد مقترح بعد.")
+            self.scope_events_table.setRowCount(0)
+
+        running = self.scope_worker is not None and self.scope_worker.isRunning()
+        self.produce_next_episode_button.setEnabled(
+            not running
+            and status in {
+                "IDLE_READY_FOR_NEXT_EPISODE",
+                "SCOPE_PROVIDER_ERROR",
+            }
+        )
+        review_open = status == "AWAITING_HUMAN_SCOPE_REVIEW"
+        self.send_scope_discussion_button.setEnabled(not running and review_open)
+        self.scope_discussion_input.setEnabled(not running and review_open)
+        self.approve_scope_button.setEnabled(not running and review_open)
+        self.configure_openai_button.setEnabled(not running)
+        self.configure_elevenlabs_button.setEnabled(not running)
+
     def _stored_api_key(self) -> str | None:
         try:
             return read_runware_api_key()
@@ -411,6 +802,7 @@ class ProductionConsoleDialog(QDialog):
                 self.queue_table.setItem(row_index, column, item)
 
     def _refresh_state(self) -> None:
+        self._refresh_orchestrator_state()
         self._refresh_episode_plan()
         try:
             spec = load_automatic_video_spec(self.repo_root)
@@ -589,6 +981,13 @@ class ProductionConsoleDialog(QDialog):
         self._refresh_state()
 
     def reject(self) -> None:
+        if self.scope_worker is not None and self.scope_worker.isRunning():
+            QMessageBox.information(
+                self,
+                "البحث مستمر",
+                "اترك النافذة مفتوحة حتى ينتهي Luna من المقترح بأمان.",
+            )
+            return
         if self.worker is not None and self.worker.isRunning():
             QMessageBox.information(
                 self,
