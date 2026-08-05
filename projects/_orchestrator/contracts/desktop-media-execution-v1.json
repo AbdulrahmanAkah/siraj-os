@@ -1,0 +1,37 @@
+{
+  "schema_version": "siraj-desktop-media-execution-v1",
+  "release": "DESKTOP_MEDIA_EXECUTION_V1",
+  "status": "HUMAN_DIRECTIVES_ACTIVE",
+  "episode_hard_cap_usd": 40.0,
+  "paid_authorization": "ONE_EXPLICIT_DESKTOP_AUTHORIZATION_PER_ATTEMPT",
+  "lock_before_network": true,
+  "hidden_paid_retry": "FORBIDDEN",
+  "runware": {
+    "endpoint": "https://api.runware.ai/v1",
+    "image_execution": true,
+    "video_execution": true,
+    "task_uuid": "UUID_V4_CREATED_AND_PERSISTED_AT_FIRST_SUBMISSION",
+    "recovery": "GET_RESPONSE_SAME_TASK_UUID_NO_RESUBMISSION",
+    "include_cost": true,
+    "video_audio": "DISABLED",
+    "human_video_person_generation": "ALLOW_ADULT",
+    "nonhuman_video_person_generation": "DONT_ALLOW"
+  },
+  "elevenlabs": {
+    "endpoint": "POST_/v1/text-to-speech/:voice_id",
+    "output_format": "mp3_44100_128",
+    "selected_roster_only": true,
+    "network_unknown_result": "NO_AUTOMATIC_RESUBMISSION",
+    "cost_tracking": "CHARACTER_COST_HEADER_PLUS_PROTECTIVE_USD_ESTIMATE"
+  },
+  "local_graphics": {
+    "renderer": "PYSIDE6_QT_QUICK_QML_FFMPEG",
+    "api_cost_usd": 0.0,
+    "bulk_local_render_allowed": true
+  },
+  "completion": {
+    "all_assets_complete_status": "MEDIA_ASSETS_COMPLETE",
+    "next_stage": "STRUCTURAL_MONTAGE_V1"
+  },
+  "paid_provider_requests_during_release": 0
+}

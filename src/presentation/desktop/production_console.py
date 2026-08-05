@@ -47,6 +47,13 @@ from src.application.graphics_storyboard_media_queue_v1 import (
     GraphicsMediaQueueResult,
     integrate_graphics_and_build_media_queue,
 )
+from src.application.desktop_media_execution_v1 import (
+    DesktopMediaExecutionError,
+    execute_elevenlabs_item,
+    execute_runware_item,
+    media_queue_rows,
+    render_all_pending_local_graphics,
+)
 from src.application.provider_credentials_v1 import (
     ProviderCredentialError,
     read_elevenlabs_api_key,
@@ -169,6 +176,80 @@ class EditorialPipelineThread(QThread):
             self._api_key = ""
 
 
+class MediaExecutionThread(QThread):
+    progress_changed = Signal(str, object)
+    execution_succeeded = Signal(object)
+    execution_failed = Signal(str)
+
+    def __init__(
+        self,
+        repo_root: Path,
+        mode: str,
+        queue_id: str | None,
+        api_key: str,
+        maximum_authorized_usd: float,
+        parent: QWidget | None = None,
+    ) -> None:
+        super().__init__(parent)
+        self.repo_root = repo_root
+        self.mode = mode
+        self.queue_id = queue_id
+        self._api_key = api_key
+        self.maximum_authorized_usd = maximum_authorized_usd
+
+    def run(self) -> None:
+        def progress(message: str, value: int | None) -> None:
+            self.progress_changed.emit(message, value)
+
+        try:
+            if self.mode == "LOCAL_ALL":
+                result = render_all_pending_local_graphics(
+                    self.repo_root,
+                    progress=progress,
+                )
+            elif self.mode == "RUNWARE":
+                result = execute_runware_item(
+                    self.repo_root,
+                    str(self.queue_id),
+                    self._api_key,
+                    confirmed_maximum_usd=(
+                        self.maximum_authorized_usd
+                    ),
+                    progress=progress,
+                )
+            elif self.mode == "RECOVER_RUNWARE":
+                result = execute_runware_item(
+                    self.repo_root,
+                    str(self.queue_id),
+                    self._api_key,
+                    confirmed_maximum_usd=(
+                        self.maximum_authorized_usd
+                    ),
+                    recovery_only=True,
+                    progress=progress,
+                )
+            elif self.mode == "ELEVENLABS":
+                result = execute_elevenlabs_item(
+                    self.repo_root,
+                    str(self.queue_id),
+                    self._api_key,
+                    confirmed_maximum_usd=(
+                        self.maximum_authorized_usd
+                    ),
+                    progress=progress,
+                )
+            else:
+                raise DesktopMediaExecutionError(
+                    "UNKNOWN_MEDIA_EXECUTION_MODE"
+                )
+        except Exception as exc:
+            self.execution_failed.emit(str(exc))
+        else:
+            self.execution_succeeded.emit(result)
+        finally:
+            self._api_key = ""
+
+
 class AutomaticGenerationThread(QThread):
     progress_changed = Signal(str, object)
     generation_succeeded = Signal(object)
@@ -213,6 +294,8 @@ class ProductionConsoleDialog(QDialog):
         self.worker: AutomaticGenerationThread | None = None
         self.scope_worker: ScopeGenerationThread | None = None
         self.editorial_worker: EditorialPipelineThread | None = None
+        self.media_execution_worker: MediaExecutionThread | None = None
+        self._media_execution_rows = {}
         self.last_output: Path | None = None
         self.setObjectName("productionConsoleDialog")
         self.setWindowTitle("سراج — الإنتاج الذاتي للحلقات")
@@ -252,6 +335,16 @@ class ProductionConsoleDialog(QDialog):
         self.plan_tab.setObjectName("episodePlanTab")
         self.tabs.addTab(self.plan_tab, "خطة الحلقة")
         self._build_plan_tab()
+
+        self.media_execution_tab = QWidget()
+        self.media_execution_tab.setObjectName(
+            "desktopMediaExecutionTab"
+        )
+        self.tabs.addTab(
+            self.media_execution_tab,
+            "تنفيذ الوسائط",
+        )
+        self._build_media_execution_tab()
 
         self.clip_tab = QWidget()
         self.clip_tab.setObjectName("clipProductionTab")
@@ -551,6 +644,120 @@ class ProductionConsoleDialog(QDialog):
         header.setSectionResizeMode(5, QHeaderView.ResizeMode.ResizeToContents)
         header.setSectionResizeMode(6, QHeaderView.ResizeMode.ResizeToContents)
         layout.addWidget(self.queue_table, 1)
+
+    def _build_media_execution_tab(self) -> None:
+        layout = QVBoxLayout(self.media_execution_tab)
+        layout.setContentsMargins(12, 12, 12, 12)
+        layout.setSpacing(8)
+
+        self.media_execution_status_label = QLabel(
+            "بانتظار طابور الوسائط."
+        )
+        self.media_execution_status_label.setObjectName(
+            "mediaExecutionStatusLabel"
+        )
+        self.media_execution_status_label.setWordWrap(True)
+        layout.addWidget(self.media_execution_status_label)
+
+        self.media_execution_progress = QProgressBar()
+        self.media_execution_progress.setObjectName(
+            "mediaExecutionProgress"
+        )
+        self.media_execution_progress.setRange(0, 100)
+        self.media_execution_progress.setValue(0)
+        layout.addWidget(self.media_execution_progress)
+
+        self.media_execution_table = QTableWidget()
+        self.media_execution_table.setObjectName(
+            "mediaExecutionQueueTable"
+        )
+        self.media_execution_table.setColumnCount(8)
+        self.media_execution_table.setHorizontalHeaderLabels(
+            [
+                "Queue ID",
+                "#",
+                "النوع",
+                "المصدر",
+                "المزود",
+                "النموذج/الصوت",
+                "الحالة",
+                "الحد الأقصى",
+            ]
+        )
+        self.media_execution_table.setEditTriggers(
+            QTableWidget.EditTrigger.NoEditTriggers
+        )
+        self.media_execution_table.setSelectionBehavior(
+            QTableWidget.SelectionBehavior.SelectRows
+        )
+        self.media_execution_table.setSelectionMode(
+            QTableWidget.SelectionMode.SingleSelection
+        )
+        self.media_execution_table.setAlternatingRowColors(True)
+        header = self.media_execution_table.horizontalHeader()
+        header.setSectionResizeMode(0, QHeaderView.ResizeMode.ResizeToContents)
+        header.setSectionResizeMode(1, QHeaderView.ResizeMode.ResizeToContents)
+        header.setSectionResizeMode(2, QHeaderView.ResizeMode.ResizeToContents)
+        header.setSectionResizeMode(3, QHeaderView.ResizeMode.ResizeToContents)
+        header.setSectionResizeMode(4, QHeaderView.ResizeMode.ResizeToContents)
+        header.setSectionResizeMode(5, QHeaderView.ResizeMode.Stretch)
+        header.setSectionResizeMode(6, QHeaderView.ResizeMode.ResizeToContents)
+        header.setSectionResizeMode(7, QHeaderView.ResizeMode.ResizeToContents)
+        layout.addWidget(self.media_execution_table, 1)
+
+        actions = QHBoxLayout()
+        self.execute_selected_media_button = QPushButton(
+            "تفويض وتنفيذ العنصر المحدد"
+        )
+        self.execute_selected_media_button.setObjectName(
+            "executeSelectedMediaButton"
+        )
+        self.execute_selected_media_button.clicked.connect(
+            self._execute_selected_media
+        )
+        actions.addWidget(self.execute_selected_media_button)
+
+        self.recover_selected_runware_button = QPushButton(
+            "استعادة مهمة Runware المحددة"
+        )
+        self.recover_selected_runware_button.setObjectName(
+            "recoverSelectedRunwareButton"
+        )
+        self.recover_selected_runware_button.clicked.connect(
+            self._recover_selected_runware
+        )
+        actions.addWidget(self.recover_selected_runware_button)
+
+        self.render_local_graphics_button = QPushButton(
+            "رندر جميع الجرافيك المحلي"
+        )
+        self.render_local_graphics_button.setObjectName(
+            "renderLocalGraphicsButton"
+        )
+        self.render_local_graphics_button.clicked.connect(
+            self._render_local_graphics
+        )
+        actions.addWidget(self.render_local_graphics_button)
+
+        self.open_media_output_button = QPushButton(
+            "فتح ملف العنصر المحدد"
+        )
+        self.open_media_output_button.setObjectName(
+            "openSelectedMediaOutputButton"
+        )
+        self.open_media_output_button.clicked.connect(
+            self._open_selected_media_output
+        )
+        actions.addWidget(self.open_media_output_button)
+        layout.addLayout(actions)
+
+        note = QLabel(
+            "كل صورة أو فيديو أو ملف TTS يحتاج تفويضًا صريحًا لمحاولة "
+            "واحدة محددة. الجرافيك المحلي لا يستهلك رصيد API."
+        )
+        note.setObjectName("muted")
+        note.setWordWrap(True)
+        layout.addWidget(note)
 
     def _build_clip_tab(self) -> None:
         layout = QVBoxLayout(self.clip_tab)
@@ -1105,6 +1312,304 @@ class ProductionConsoleDialog(QDialog):
         self.configure_openai_button.setEnabled(not running)
         self.configure_elevenlabs_button.setEnabled(not running)
 
+    def _refresh_media_execution(self) -> None:
+        try:
+            rows = media_queue_rows(self.repo_root)
+        except DesktopMediaExecutionError as exc:
+            self.media_execution_status_label.setText(
+                "طابور التنفيذ غير جاهز: " + str(exc)
+            )
+            self.media_execution_table.setRowCount(0)
+            self.execute_selected_media_button.setEnabled(False)
+            self.recover_selected_runware_button.setEnabled(False)
+            self.render_local_graphics_button.setEnabled(False)
+            self.open_media_output_button.setEnabled(False)
+            return
+
+        self._media_execution_rows = {
+            row.queue_id: row for row in rows
+        }
+        completed = sum(row.status == "COMPLETE" for row in rows)
+        self.media_execution_status_label.setText(
+            f"طابور الوسائط: {completed}/{len(rows)} مكتمل. "
+            "لا تنفذ أي محاولة مدفوعة دون رسالة التفويض الصريحة."
+        )
+        self.media_execution_table.setRowCount(len(rows))
+        kind_ar = {
+            "RUNWARE_IMAGE": "صورة",
+            "RUNWARE_VIDEO": "فيديو",
+            "LOCAL_GRAPHICS": "جرافيك محلي",
+            "ELEVENLABS_TTS": "تعليق صوتي",
+        }
+        for row_index, row in enumerate(rows):
+            values = (
+                row.queue_id,
+                str(row.queue_index),
+                kind_ar.get(row.media_kind, row.media_kind),
+                row.source_id,
+                row.provider,
+                row.model_or_voice,
+                row.status,
+                (
+                    "$0.0000"
+                    if row.maximum_authorized_usd <= 0
+                    else f"${row.maximum_authorized_usd:.6f}"
+                ),
+            )
+            for column, value in enumerate(values):
+                item = QTableWidgetItem(value)
+                if column in {1, 7}:
+                    item.setTextAlignment(
+                        Qt.AlignmentFlag.AlignCenter
+                    )
+                self.media_execution_table.setItem(
+                    row_index,
+                    column,
+                    item,
+                )
+
+        running = (
+            self.media_execution_worker is not None
+            and self.media_execution_worker.isRunning()
+        )
+        self.execute_selected_media_button.setEnabled(
+            not running and bool(rows)
+        )
+        self.recover_selected_runware_button.setEnabled(
+            not running and bool(rows)
+        )
+        self.render_local_graphics_button.setEnabled(
+            not running
+            and any(
+                row.media_kind == "LOCAL_GRAPHICS"
+                and row.status != "COMPLETE"
+                for row in rows
+            )
+        )
+        self.open_media_output_button.setEnabled(not running)
+
+    def _selected_media_row(self):
+        selected = self.media_execution_table.selectionModel().selectedRows()
+        if not selected:
+            QMessageBox.warning(
+                self,
+                "لم يُحدد عنصر",
+                "حدد صفًا واحدًا من طابور الوسائط.",
+            )
+            return None
+        item = self.media_execution_table.item(
+            selected[0].row(),
+            0,
+        )
+        if item is None:
+            return None
+        return self._media_execution_rows.get(item.text())
+
+    def _start_media_worker(
+        self,
+        mode: str,
+        queue_id: str | None,
+        api_key: str,
+        maximum_authorized_usd: float,
+    ) -> None:
+        self.media_execution_worker = MediaExecutionThread(
+            self.repo_root,
+            mode,
+            queue_id,
+            api_key,
+            maximum_authorized_usd,
+            self,
+        )
+        self.media_execution_worker.progress_changed.connect(
+            self._on_media_execution_progress
+        )
+        self.media_execution_worker.execution_succeeded.connect(
+            self._on_media_execution_success
+        )
+        self.media_execution_worker.execution_failed.connect(
+            self._on_media_execution_failure
+        )
+        self.media_execution_worker.finished.connect(
+            self._on_media_execution_finished
+        )
+        self.media_execution_progress.setRange(0, 100)
+        self.media_execution_progress.setValue(0)
+        self.media_execution_worker.start()
+        self._refresh_media_execution()
+
+    def _execute_selected_media(self) -> None:
+        row = self._selected_media_row()
+        if row is None:
+            return
+        if row.status == "COMPLETE":
+            QMessageBox.information(
+                self,
+                "العنصر مكتمل",
+                "هذا العنصر مكتمل بالفعل.",
+            )
+            return
+        if row.media_kind == "LOCAL_GRAPHICS":
+            self._start_media_worker(
+                "LOCAL_ALL",
+                None,
+                "",
+                0.0,
+            )
+            return
+
+        answer = QMessageBox.question(
+            self,
+            "تفويض محاولة مدفوعة واحدة",
+            "العنصر: "
+            + row.queue_id
+            + "\nالنوع: "
+            + row.media_kind
+            + "\nالمزود: "
+            + row.provider
+            + "\nالحد الأقصى المصرح لهذه المحاولة: $"
+            + f"{row.maximum_authorized_usd:.6f}"
+            + "\n\nالموافقة ترسل محاولة مدفوعة واحدة فقط. "
+            "لا توجد إعادة محاولة خفية.",
+            QMessageBox.StandardButton.Yes
+            | QMessageBox.StandardButton.No,
+            QMessageBox.StandardButton.No,
+        )
+        if answer != QMessageBox.StandardButton.Yes:
+            return
+
+        if row.media_kind in {"RUNWARE_IMAGE", "RUNWARE_VIDEO"}:
+            try:
+                key = read_runware_api_key()
+            except CredentialStoreError as exc:
+                QMessageBox.critical(
+                    self,
+                    "مفتاح Runware",
+                    str(exc),
+                )
+                return
+            if not key:
+                QMessageBox.warning(
+                    self,
+                    "مفتاح Runware مطلوب",
+                    "اضبط مفتاح Runware من تبويب إنتاج المقطع.",
+                )
+                return
+            mode = "RUNWARE"
+        elif row.media_kind == "ELEVENLABS_TTS":
+            try:
+                key = read_elevenlabs_api_key()
+            except ProviderCredentialError as exc:
+                QMessageBox.critical(
+                    self,
+                    "مفتاح ElevenLabs",
+                    str(exc),
+                )
+                return
+            if not key:
+                QMessageBox.warning(
+                    self,
+                    "مفتاح ElevenLabs مطلوب",
+                    "اضبط مفتاح ElevenLabs من تبويب الإنتاج الذاتي.",
+                )
+                return
+            mode = "ELEVENLABS"
+        else:
+            return
+
+        self._start_media_worker(
+            mode,
+            row.queue_id,
+            key,
+            row.maximum_authorized_usd,
+        )
+
+    def _recover_selected_runware(self) -> None:
+        row = self._selected_media_row()
+        if row is None:
+            return
+        if row.media_kind not in {"RUNWARE_IMAGE", "RUNWARE_VIDEO"}:
+            QMessageBox.warning(
+                self,
+                "الاستعادة غير متاحة",
+                "الاستعادة بنفس taskUUID مخصصة لعناصر Runware.",
+            )
+            return
+        try:
+            key = read_runware_api_key()
+        except CredentialStoreError as exc:
+            QMessageBox.critical(self, "مفتاح Runware", str(exc))
+            return
+        if not key:
+            QMessageBox.warning(
+                self,
+                "مفتاح Runware مطلوب",
+                "اضبط مفتاح Runware أولًا.",
+            )
+            return
+        self._start_media_worker(
+            "RECOVER_RUNWARE",
+            row.queue_id,
+            key,
+            row.maximum_authorized_usd,
+        )
+
+    def _render_local_graphics(self) -> None:
+        self._start_media_worker("LOCAL_ALL", None, "", 0.0)
+
+    def _open_selected_media_output(self) -> None:
+        row = self._selected_media_row()
+        if row is None:
+            return
+        path = self.repo_root / row.output_path_relative
+        if not path.is_file():
+            QMessageBox.warning(
+                self,
+                "الملف غير موجود",
+                "لم يُنتج ملف هذا العنصر بعد.",
+            )
+            return
+        QDesktopServices.openUrl(QUrl.fromLocalFile(str(path)))
+
+    def _on_media_execution_progress(
+        self,
+        message: str,
+        value: object,
+    ) -> None:
+        self.media_execution_status_label.setText(message)
+        if isinstance(value, int):
+            self.media_execution_progress.setRange(0, 100)
+            self.media_execution_progress.setValue(value)
+        else:
+            self.media_execution_progress.setRange(0, 0)
+
+    def _on_media_execution_success(self, result: object) -> None:
+        count = len(result) if isinstance(result, tuple) else 1
+        QMessageBox.information(
+            self,
+            "اكتمل التنفيذ",
+            f"اكتمل {count} عنصر وحُفظت الملفات والإيصالات.",
+        )
+        self.media_execution_progress.setRange(0, 100)
+        self.media_execution_progress.setValue(100)
+        self._refresh_state()
+
+    def _on_media_execution_failure(self, error: str) -> None:
+        self.media_execution_status_label.setText(
+            "توقف التنفيذ: " + error
+        )
+        QMessageBox.critical(
+            self,
+            "توقف تنفيذ الوسائط",
+            error,
+        )
+        self._refresh_state()
+
+    def _on_media_execution_finished(self) -> None:
+        if self.media_execution_worker is not None:
+            self.media_execution_worker.deleteLater()
+        self.media_execution_worker = None
+        self._refresh_state()
+
     def _stored_api_key(self) -> str | None:
         try:
             return read_runware_api_key()
@@ -1269,6 +1774,7 @@ class ProductionConsoleDialog(QDialog):
     def _refresh_state(self) -> None:
         self._refresh_orchestrator_state()
         self._refresh_episode_plan()
+        self._refresh_media_execution()
         try:
             spec = load_automatic_video_spec(self.repo_root)
             state = load_state(spec)
