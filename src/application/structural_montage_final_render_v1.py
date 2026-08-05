@@ -1447,7 +1447,18 @@ def load_structural_montage_status(repo_root: Path) -> dict[str, Any]:
     run_state = _read(run_state_path) if run_state_path.is_file() else {}
     final_master = episode_root / FINAL_MASTER_REL
     status = str(state.get("status", "UNKNOWN"))
-    complete = final_master.is_file() and run_state.get("status") == "COMPLETE"
+    downstream = {
+        "AUTOMATIC_QA_ACTIVE",
+        "AUTOMATIC_QA_FAILED",
+        "AUTOMATIC_QA_BLOCKED",
+        "AWAITING_HUMAN_FINAL_REVIEW",
+        "READY_TO_PUBLISH",
+    }
+    complete = final_master.is_file() and (
+        run_state.get("status") == "COMPLETE"
+        or status == "FINAL_RENDER_READY_FOR_QA"
+        or status in downstream
+    )
     return {
         "episode_id": episode_id,
         "status": status,
@@ -1457,6 +1468,7 @@ def load_structural_montage_status(repo_root: Path) -> dict[str, Any]:
             "SFX_MIX_READY",
             "STRUCTURAL_MONTAGE_FAILED",
             "FINAL_RENDER_READY_FOR_QA",
+            *downstream,
         },
         "complete": complete,
         "final_master_path": str(final_master),

@@ -1,0 +1,46 @@
+{
+  "schema_version": "siraj-automatic-qa-partial-repair-v1",
+  "release": "AUTOMATIC_QA_AND_PARTIAL_REPAIR_V1",
+  "status": "HUMAN_DIRECTIVES_ACTIVE",
+  "shot_count": 70,
+  "technical_checks": {
+    "receipt_and_sha256_integrity": true,
+    "source_hash_integrity": true,
+    "duration_and_stream_profile": true,
+    "resolution": "1920X1080",
+    "fps": 30,
+    "pixel_format": "YUV420P",
+    "video_codec": "H264",
+    "final_audio": "AAC_48KHZ_STEREO_MIN_160K",
+    "black_detection": true,
+    "freeze_detection": true,
+    "silence_detection": true,
+    "integrated_loudness_measurement": true,
+    "true_peak_measurement": true,
+    "adjacent_identical_output_warning": true
+  },
+  "audio_contract": {
+    "target_lufs": -16.0,
+    "tolerance_lu": 2.0,
+    "maximum_true_peak_dbtp": -0.8,
+    "maximum_continuous_silence_seconds": 15.0
+  },
+  "repair": {
+    "granularity": "TARGETED_SHOT_OR_FINAL_REMUX",
+    "reuse_valid_shot_receipts": true,
+    "maximum_local_repair_passes": 2,
+    "full_regeneration_for_local_defect": "FORBIDDEN",
+    "upstream_source_defect": "STOP_AND_REQUIRE_EXPLICIT_ACTION"
+  },
+  "maximum_local_repair_passes": 2,
+  "automatic_paid_regeneration": "FORBIDDEN",
+  "paid_provider_requests_during_qa": 0,
+  "local_api_cost_usd": 0.0,
+  "music": "FORBIDDEN",
+  "semantic_claim": "HUMAN_FINAL_REVIEW_REQUIRED",
+  "completion": {
+    "pass_status": "AWAITING_HUMAN_FINAL_REVIEW",
+    "blocked_status": "AUTOMATIC_QA_BLOCKED",
+    "next_stage": "HUMAN_FINAL_REVIEW_AND_PUBLISHING_V1"
+  }
+}

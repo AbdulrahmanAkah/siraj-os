@@ -66,6 +66,12 @@ from src.application.structural_montage_final_render_v1 import (
     load_structural_montage_status,
     run_structural_montage_final_render,
 )
+from src.application.automatic_qa_partial_repair_v1 import (
+    AutomaticQAError,
+    AutomaticQAResult,
+    load_automatic_qa_status,
+    run_automatic_qa_and_partial_repair,
+)
 from src.application.provider_credentials_v1 import (
     ProviderCredentialError,
     read_elevenlabs_api_key,
@@ -99,7 +105,7 @@ from src.application.windows_credentials_v1 import (
     save_runware_api_key,
 )
 
-PRODUCTION_CONSOLE_RELEASE = "STRUCTURAL_MONTAGE_AND_FINAL_RENDER_V1"
+PRODUCTION_CONSOLE_RELEASE = "AUTOMATIC_QA_AND_PARTIAL_REPAIR_V1"
 
 # Historical source-contract compatibility markers retained:
 # paidExecutionConfirmation
@@ -318,6 +324,34 @@ class StructuralMontageThread(QThread):
             self.render_succeeded.emit(result)
 
 
+class AutomaticQAThread(QThread):
+    progress_changed = Signal(str, object)
+    qa_succeeded = Signal(object)
+    qa_failed = Signal(str)
+
+    def __init__(
+        self,
+        repo_root: Path,
+        parent: QWidget | None = None,
+    ) -> None:
+        super().__init__(parent)
+        self.repo_root = repo_root
+
+    def run(self) -> None:
+        def progress(message: str, value: int | None) -> None:
+            self.progress_changed.emit(message, value)
+
+        try:
+            result = run_automatic_qa_and_partial_repair(
+                self.repo_root,
+                progress=progress,
+            )
+        except Exception as exc:
+            self.qa_failed.emit(str(exc))
+        else:
+            self.qa_succeeded.emit(result)
+
+
 class AutomaticGenerationThread(QThread):
     progress_changed = Signal(str, object)
     generation_succeeded = Signal(object)
@@ -365,6 +399,7 @@ class ProductionConsoleDialog(QDialog):
         self.media_execution_worker: MediaExecutionThread | None = None
         self.sfx_audio_worker: SfxAudioMixThread | None = None
         self.structural_montage_worker: StructuralMontageThread | None = None
+        self.automatic_qa_worker: AutomaticQAThread | None = None
         self._media_execution_rows = {}
         self.last_output: Path | None = None
         self.setObjectName("productionConsoleDialog")
@@ -430,6 +465,16 @@ class ProductionConsoleDialog(QDialog):
             "المونتاج النهائي",
         )
         self._build_structural_montage_tab()
+
+        self.automatic_qa_tab = QWidget()
+        self.automatic_qa_tab.setObjectName(
+            "automaticQaPartialRepairTab"
+        )
+        self.tabs.addTab(
+            self.automatic_qa_tab,
+            "الفحص والإصلاح",
+        )
+        self._build_automatic_qa_tab()
 
         self.clip_tab = QWidget()
         self.clip_tab.setObjectName("clipProductionTab")
@@ -978,6 +1023,75 @@ class ProductionConsoleDialog(QDialog):
         layout.addWidget(note)
         layout.addStretch(1)
 
+    def _build_automatic_qa_tab(self) -> None:
+        layout = QVBoxLayout(self.automatic_qa_tab)
+        layout.setContentsMargins(12, 12, 12, 12)
+        layout.setSpacing(10)
+
+        self.automatic_qa_status_label = QLabel(
+            "بانتظار اكتمال ملف الحلقة النهائي."
+        )
+        self.automatic_qa_status_label.setObjectName(
+            "automaticQaStatusLabel"
+        )
+        self.automatic_qa_status_label.setWordWrap(True)
+        layout.addWidget(self.automatic_qa_status_label)
+
+        self.automatic_qa_progress = QProgressBar()
+        self.automatic_qa_progress.setObjectName(
+            "automaticQaProgress"
+        )
+        self.automatic_qa_progress.setRange(0, 100)
+        self.automatic_qa_progress.setValue(0)
+        layout.addWidget(self.automatic_qa_progress)
+
+        self.run_automatic_qa_button = QPushButton(
+            "تشغيل الفحص الآلي والإصلاح الجزئي"
+        )
+        self.run_automatic_qa_button.setObjectName(
+            "runAutomaticQaButton"
+        )
+        self.run_automatic_qa_button.setMinimumHeight(46)
+        self.run_automatic_qa_button.clicked.connect(
+            self._start_automatic_qa
+        )
+        layout.addWidget(self.run_automatic_qa_button)
+
+        actions = QHBoxLayout()
+        self.open_automatic_qa_report_button = QPushButton(
+            "فتح تقرير الفحص"
+        )
+        self.open_automatic_qa_report_button.setObjectName(
+            "openAutomaticQaReportButton"
+        )
+        self.open_automatic_qa_report_button.clicked.connect(
+            self._open_automatic_qa_report
+        )
+        actions.addWidget(self.open_automatic_qa_report_button)
+
+        self.open_qa_final_episode_button = QPushButton(
+            "عرض الحلقة المفحوصة"
+        )
+        self.open_qa_final_episode_button.setObjectName(
+            "openQaFinalEpisodeButton"
+        )
+        self.open_qa_final_episode_button.clicked.connect(
+            self._open_qa_final_episode
+        )
+        actions.addWidget(self.open_qa_final_episode_button)
+        actions.addStretch(1)
+        layout.addLayout(actions)
+
+        note = QLabel(
+            "يفحص سراج الإيصالات وSHA-256 والمواصفات والسواد والتجمد "
+            "والصمت والجهارة. يصلح اللقطة المحلية أو الـmux فقط؛ أي "
+            "إعادة مدفوعة تبقى ممنوعة دون تفويض صريح."
+        )
+        note.setObjectName("muted")
+        note.setWordWrap(True)
+        layout.addWidget(note)
+        layout.addStretch(1)
+
     def _build_clip_tab(self) -> None:
         layout = QVBoxLayout(self.clip_tab)
         layout.setContentsMargins(12, 12, 12, 12)
@@ -1402,7 +1516,11 @@ class ProductionConsoleDialog(QDialog):
             "SFX_MIX_READY": "اكتمل الماستر الصوتي؛ يبدأ المونتاج والإخراج النهائي تلقائيًا.",
             "STRUCTURAL_MONTAGE_ACTIVE": "يجري تركيب اللقطات السبعين وإخراج الحلقة محليًا.",
             "STRUCTURAL_MONTAGE_FAILED": "توقف المونتاج ويمكن استئناف اللقطات غير المكتملة.",
-            "FINAL_RENDER_READY_FOR_QA": "اكتمل ملف الحلقة؛ الفحص الآلي والإصلاح الجزئي هما التاليان.",
+            "FINAL_RENDER_READY_FOR_QA": "اكتمل ملف الحلقة؛ يبدأ الفحص الآلي والإصلاح الجزئي تلقائيًا.",
+            "AUTOMATIC_QA_ACTIVE": "يجري فحص اللقطات والصوت والإيصالات محليًا.",
+            "AUTOMATIC_QA_FAILED": "توقف الفحص الآلي ويمكن استئنافه دون طلب مدفوع.",
+            "AUTOMATIC_QA_BLOCKED": "كشف الفحص عيبًا مصدريًا أو بشريًا لا يجوز إصلاحه تلقائيًا.",
+            "AWAITING_HUMAN_FINAL_REVIEW": "نجح الفحص الآلي؛ بوابة المراجعة البشرية النهائية مفتوحة.",
         }.get(status, status)
         self.orchestrator_status_label.setText(status_text)
         self.provider_readiness_label.setText(
@@ -1410,6 +1528,7 @@ class ProductionConsoleDialog(QDialog):
             + " | Runware=" + readiness["runware"]
             + " | ElevenLabs=" + readiness["elevenlabs"]
             + " | المونتاج=" + readiness["montage"]
+            + " | الفحص=" + readiness["qa"]
             + " | المؤثرات=" + readiness["sfx"]
         )
 
@@ -1973,6 +2092,18 @@ class ProductionConsoleDialog(QDialog):
             "FINAL_RENDER_READY_FOR_QA": (
                 "الماستر الصوتي محفوظ داخل ملف الحلقة النهائي."
             ),
+            "AUTOMATIC_QA_ACTIVE": (
+                "الماستر الصوتي محفوظ ويخضع الآن للفحص الآلي."
+            ),
+            "AUTOMATIC_QA_FAILED": (
+                "الماستر الصوتي محفوظ؛ يمكن استئناف الفحص دون إعادة المكساج."
+            ),
+            "AUTOMATIC_QA_BLOCKED": (
+                "كشف الفحص عيبًا يحتاج مراجعة المصدر أو الصوت."
+            ),
+            "AWAITING_HUMAN_FINAL_REVIEW": (
+                "اجتاز الصوت الفحص الآلي وهو جاهز للمراجعة البشرية."
+            ),
         }
         self.sfx_audio_status_label.setText(
             messages.get(state, "بانتظار اكتمال أصول الوسائط.")
@@ -2000,6 +2131,10 @@ class ProductionConsoleDialog(QDialog):
                 "STRUCTURAL_MONTAGE_ACTIVE",
                 "STRUCTURAL_MONTAGE_FAILED",
                 "FINAL_RENDER_READY_FOR_QA",
+                "AUTOMATIC_QA_ACTIVE",
+                "AUTOMATIC_QA_FAILED",
+                "AUTOMATIC_QA_BLOCKED",
+                "AWAITING_HUMAN_FINAL_REVIEW",
             }
         )
 
@@ -2076,6 +2211,7 @@ class ProductionConsoleDialog(QDialog):
         self.structural_montage_status_label.setText(
             "اكتملت الحلقة وانتقلت إلى الفحص الآلي."
         )
+        self._start_automatic_qa(automatic=True)
         QMessageBox.information(
             self,
             "اكتمل المونتاج النهائي",
@@ -2137,6 +2273,18 @@ class ProductionConsoleDialog(QDialog):
             "FINAL_RENDER_READY_FOR_QA": (
                 "ملف الحلقة مكتمل وجاهز للفحص الآلي."
             ),
+            "AUTOMATIC_QA_ACTIVE": (
+                "ملف الحلقة قيد الفحص الآلي المحلي."
+            ),
+            "AUTOMATIC_QA_FAILED": (
+                "ملف الحلقة محفوظ ويمكن استئناف الفحص."
+            ),
+            "AUTOMATIC_QA_BLOCKED": (
+                "ملف الحلقة محفوظ مع تقرير عيوب يحتاج معالجة محددة."
+            ),
+            "AWAITING_HUMAN_FINAL_REVIEW": (
+                "ملف الحلقة اجتاز الفحص الآلي وجاهز للمراجعة البشرية."
+            ),
         }
         self.structural_montage_status_label.setText(
             messages.get(state, "بانتظار اكتمال الماستر الصوتي.")
@@ -2159,6 +2307,10 @@ class ProductionConsoleDialog(QDialog):
             ready or state in {
                 "STRUCTURAL_MONTAGE_FAILED",
                 "FINAL_RENDER_READY_FOR_QA",
+                "AUTOMATIC_QA_ACTIVE",
+                "AUTOMATIC_QA_FAILED",
+                "AUTOMATIC_QA_BLOCKED",
+                "AWAITING_HUMAN_FINAL_REVIEW",
             }
         )
 
@@ -2172,6 +2324,176 @@ class ProductionConsoleDialog(QDialog):
         status = load_structural_montage_status(self.repo_root)
         path = Path(str(status.get("final_master_path", ""))).parent
         if path.is_dir():
+            QDesktopServices.openUrl(QUrl.fromLocalFile(str(path)))
+
+    def _start_automatic_qa(
+        self,
+        checked: bool = False,
+        *,
+        automatic: bool = False,
+    ) -> None:
+        del checked
+        if (
+            self.automatic_qa_worker is not None
+            and self.automatic_qa_worker.isRunning()
+        ):
+            return
+        self.automatic_qa_worker = AutomaticQAThread(
+            self.repo_root,
+            self,
+        )
+        self.automatic_qa_worker.progress_changed.connect(
+            self._on_automatic_qa_progress
+        )
+        self.automatic_qa_worker.qa_succeeded.connect(
+            self._on_automatic_qa_success
+        )
+        self.automatic_qa_worker.qa_failed.connect(
+            self._on_automatic_qa_failure
+        )
+        self.automatic_qa_worker.finished.connect(
+            self._on_automatic_qa_finished
+        )
+        self.automatic_qa_progress.setRange(0, 100)
+        self.automatic_qa_progress.setValue(0)
+        self.automatic_qa_status_label.setText(
+            "بدأ الفحص تلقائيًا بعد اكتمال المونتاج."
+            if automatic
+            else "بدأ الفحص الآلي والإصلاح الجزئي."
+        )
+        self.automatic_qa_worker.start()
+        self._refresh_automatic_qa()
+
+    def _on_automatic_qa_progress(
+        self,
+        message: str,
+        value: object,
+    ) -> None:
+        self.automatic_qa_status_label.setText(message)
+        if isinstance(value, int):
+            self.automatic_qa_progress.setRange(0, 100)
+            self.automatic_qa_progress.setValue(value)
+        else:
+            self.automatic_qa_progress.setRange(0, 0)
+
+    def _on_automatic_qa_success(self, result: object) -> None:
+        if not isinstance(result, AutomaticQAResult):
+            self._on_automatic_qa_failure("INVALID_AUTOMATIC_QA_RESULT")
+            return
+        self.automatic_qa_progress.setRange(0, 100)
+        self.automatic_qa_progress.setValue(100)
+        if result.status == "AWAITING_HUMAN_FINAL_REVIEW":
+            self.automatic_qa_status_label.setText(
+                "نجح الفحص الآلي؛ الحلقة جاهزة للمراجعة البشرية النهائية."
+            )
+            QMessageBox.information(
+                self,
+                "اجتاز الفحص الآلي",
+                "لا توجد عيوب تقنية مانعة."
+                + "\nمرات الإصلاح المحلي: "
+                + str(result.repair_passes)
+                + "\nاللقطات التي أُصلحت: "
+                + str(result.repaired_shot_count)
+                + "\nالتحذيرات غير المانعة: "
+                + str(result.warning_count)
+                + "\nتكلفة API: $0.00."
+                + "\nالمرحلة التالية: المراجعة البشرية النهائية.",
+            )
+        else:
+            self.automatic_qa_status_label.setText(
+                "توقف الفحص عند عيب مصدري أو بشري موثق في التقرير."
+            )
+            QMessageBox.warning(
+                self,
+                "الفحص يحتاج معالجة محددة",
+                "بقيت "
+                + str(result.blocking_issue_count)
+                + " مشكلة مانعة. لم يُرسل أي طلب مدفوع. افتح التقرير "
+                + "لمعرفة اللقطة أو مرحلة الصوت المطلوبة.",
+            )
+        self._refresh_state()
+
+    def _on_automatic_qa_failure(self, error: str) -> None:
+        self.automatic_qa_progress.setRange(0, 100)
+        self.automatic_qa_progress.setValue(0)
+        self.automatic_qa_status_label.setText(
+            "توقف الفحص الآلي: " + error
+        )
+        QMessageBox.critical(
+            self,
+            "توقف الفحص الآلي",
+            error
+            + "\n\nلم يُرسل أي طلب مدفوع ويمكن استئناف الفحص محليًا.",
+        )
+        self._refresh_state()
+
+    def _on_automatic_qa_finished(self) -> None:
+        if self.automatic_qa_worker is not None:
+            self.automatic_qa_worker.deleteLater()
+        self.automatic_qa_worker = None
+        self._refresh_state()
+
+    def _refresh_automatic_qa(self) -> None:
+        try:
+            status = load_automatic_qa_status(self.repo_root)
+        except AutomaticQAError as exc:
+            self.automatic_qa_status_label.setText(
+                "تعذر قراءة حالة الفحص: " + str(exc)
+            )
+            self.run_automatic_qa_button.setEnabled(False)
+            self.open_automatic_qa_report_button.setEnabled(False)
+            self.open_qa_final_episode_button.setEnabled(False)
+            return
+        state = str(status.get("status", "UNKNOWN"))
+        messages = {
+            "FINAL_RENDER_READY_FOR_QA": (
+                "ملف الحلقة جاهز ويبدأ الفحص تلقائيًا."
+            ),
+            "AUTOMATIC_QA_ACTIVE": (
+                "يجري فحص 70 لقطة والصوت والإيصالات محليًا."
+            ),
+            "AUTOMATIC_QA_FAILED": (
+                "توقف الفحص ويمكن استئنافه دون تكلفة API: "
+                + str(status.get("last_error") or "")
+            ),
+            "AUTOMATIC_QA_BLOCKED": (
+                "بقيت مشاكل مانعة موثقة. أصلح المصدر المحدد ثم أعد الفحص."
+            ),
+            "AWAITING_HUMAN_FINAL_REVIEW": (
+                "اجتازت الحلقة الفحص الآلي وهي بانتظار المراجعة البشرية."
+            ),
+        }
+        self.automatic_qa_status_label.setText(
+            messages.get(state, "بانتظار اكتمال ملف الحلقة النهائي.")
+        )
+        running = (
+            self.automatic_qa_worker is not None
+            and self.automatic_qa_worker.isRunning()
+        )
+        self.run_automatic_qa_button.setEnabled(
+            not running
+            and state in {
+                "FINAL_RENDER_READY_FOR_QA",
+                "AUTOMATIC_QA_FAILED",
+                "AUTOMATIC_QA_BLOCKED",
+                "AWAITING_HUMAN_FINAL_REVIEW",
+            }
+        )
+        report = Path(str(status.get("report_path", "")))
+        final = Path(str(status.get("final_master_path", "")))
+        self.open_automatic_qa_report_button.setEnabled(report.is_file())
+        self.open_qa_final_episode_button.setEnabled(final.is_file())
+
+    def _open_automatic_qa_report(self) -> None:
+        status = load_automatic_qa_status(self.repo_root)
+        path = Path(str(status.get("report_path", "")))
+        if path.is_file():
+            QDesktopServices.openUrl(QUrl.fromLocalFile(str(path)))
+
+    def _open_qa_final_episode(self) -> None:
+        status = load_automatic_qa_status(self.repo_root)
+        path = Path(str(status.get("final_master_path", "")))
+        if path.is_file():
             QDesktopServices.openUrl(QUrl.fromLocalFile(str(path)))
 
     def _stored_api_key(self) -> str | None:
@@ -2341,6 +2663,7 @@ class ProductionConsoleDialog(QDialog):
         self._refresh_media_execution()
         self._refresh_sfx_audio()
         self._refresh_structural_montage()
+        self._refresh_automatic_qa()
         try:
             spec = load_automatic_video_spec(self.repo_root)
             state = load_state(spec)
@@ -2550,6 +2873,16 @@ class ProductionConsoleDialog(QDialog):
                 self,
                 "المونتاج مستمر",
                 "اترك النافذة مفتوحة حتى يكتمل ملف الحلقة بأمان.",
+            )
+            return
+        if (
+            self.automatic_qa_worker is not None
+            and self.automatic_qa_worker.isRunning()
+        ):
+            QMessageBox.information(
+                self,
+                "الفحص مستمر",
+                "اترك النافذة مفتوحة حتى يكتمل الفحص والإصلاح بأمان.",
             )
             return
         super().reject()
