@@ -872,9 +872,21 @@ class SirajDesktopWindow(QMainWindow):
         self._open_path(self.repo_root)
 
     def _open_production_console(self) -> None:
-        dialog = ProductionConsoleDialog(self.repo_root, self)
-        dialog.exec()
-        self._refresh()
+        try:
+            dialog = ProductionConsoleDialog(self.repo_root, self)
+            dialog.setModal(True)
+            dialog.show()
+            dialog.raise_()
+            dialog.activateWindow()
+            dialog.exec()
+        except Exception as exc:
+            QMessageBox.critical(
+                self,
+                "تعذر فتح استكمال الحلقة",
+                str(exc),
+            )
+        finally:
+            self._refresh()
 
     def _navigate(self, section: str) -> None:
         if not self.complete_workspace.show_section(section):

@@ -2191,3 +2191,12 @@ SIRAJ END-TO-END PRODUCTION AND YOUTUBE HANDOFF V1 — 2026-08-05
 
 NEXT_STAGE=END_TO_END_ACCEPTANCE_RUN
 
+============================================================
+SIRAJ ACCEPTANCE RESUME BUTTON RECOVERY V1 — 2026-08-05
+============================================================
+
+✓ إصلاح زر استكمال الحلقة الصامت.
+✓ استعادة الحالة العالقة من الملفات مع نسخة احتياطية.
+✓ منع أي طلب مدفوع أثناء الاستعادة.
+
+NEXT_STAGE=END_TO_END_ACCEPTANCE_RUN_RETRY

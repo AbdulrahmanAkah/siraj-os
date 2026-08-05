@@ -6,6 +6,7 @@ from pathlib import Path
 from PySide6.QtCore import QDir, QProcess, QThread, QUrl, Signal, Qt
 from PySide6.QtGui import QDesktopServices
 from PySide6.QtWidgets import (
+    QApplication,
     QDialog,
     QFormLayout,
     QFrame,
@@ -87,6 +88,10 @@ from src.application.end_to_end_production_v1 import (
     inspect_end_to_end_plan,
     run_to_next_human_gate,
 )
+from src.application.runtime_state_recovery_v1 import (
+    diagnose_runtime_state,
+    recover_runtime_state_from_artifacts,
+)
 from src.application.provider_credentials_v1 import (
     ProviderCredentialError,
     read_elevenlabs_api_key,
@@ -120,7 +125,7 @@ from src.application.windows_credentials_v1 import (
     save_runware_api_key,
 )
 
-PRODUCTION_CONSOLE_RELEASE = "SIRAJ_END_TO_END_PRODUCTION_AND_YOUTUBE_HANDOFF_V1"
+PRODUCTION_CONSOLE_RELEASE = "SIRAJ_ACCEPTANCE_RESUME_BUTTON_RECOVERY_V1"
 
 # Historical source-contract compatibility markers retained:
 # paidExecutionConfirmation
@@ -508,13 +513,13 @@ class ProductionConsoleDialog(QDialog):
         )
         self.continue_episode_button.setMinimumHeight(46)
         self.continue_episode_button.clicked.connect(
-            self._continue_episode_to_publish
+            lambda checked=False: self._continue_episode_to_publish()
         )
         resume_actions.addWidget(self.continue_episode_button, 3)
         self.resume_refresh_button = QPushButton("تحديث الموجّه")
         self.resume_refresh_button.setObjectName("refreshResumeDirectiveButton")
         self.resume_refresh_button.clicked.connect(
-            self._refresh_resume_directive
+            lambda checked=False: self._refresh_resume_directive()
         )
         resume_actions.addWidget(self.resume_refresh_button, 1)
         resume_layout.addLayout(resume_actions)
@@ -659,13 +664,15 @@ class ProductionConsoleDialog(QDialog):
             self.resume_status_label.setText(
                 "تعذر تحديد المرحلة التالية: " + str(exc)
             )
-            self.continue_episode_button.setEnabled(False)
+            self.continue_episode_button.setText(
+                "تشخيص وإصلاح الاستكمال"
+            )
+            self.continue_episode_button.setEnabled(True)
             return
         self._resume_directive = directive
         self.resume_status_label.setText(
             directive.label_ar + "\n" + directive.detail_ar
         )
-        self.continue_episode_button.setText(directive.label_ar)
         running = any(
             worker is not None and worker.isRunning()
             for worker in (
@@ -679,29 +686,94 @@ class ProductionConsoleDialog(QDialog):
                 self.end_to_end_worker,
             )
         )
-        self.continue_episode_button.setEnabled(
-            not running and directive.action != "WAIT"
-        )
-
+        if directive.action == "WAIT" and not running:
+            self.continue_episode_button.setText(
+                "فحص واستعادة المرحلة العالقة"
+            )
+            self.resume_status_label.setText(
+                directive.label_ar
+                + "\n"
+                + directive.detail_ar
+                + "\nلا توجد عملية داخل هذه النافذة الآن؛ اضغط الزر لفحص الحالة واستعادتها من الملفات."
+            )
+        elif directive.action in {"REFRESH", "INSPECT_BLOCKER"}:
+            self.continue_episode_button.setText(
+                "تشخيص وإصلاح الاستكمال"
+            )
+        else:
+            self.continue_episode_button.setText(directive.label_ar)
+        self.continue_episode_button.setEnabled(not running)
 
     def _continue_episode_to_publish(self) -> None:
+        if (
+            self.end_to_end_worker is not None
+            and self.end_to_end_worker.isRunning()
+        ):
+            QMessageBox.information(
+                self,
+                "الاستكمال يعمل",
+                "خط الإنتاج يعمل بالفعل. راقب شريط التقدم وانتظر اكتمال المرحلة الحالية.",
+            )
+            return
+
+        self.end_to_end_progress_label.setText(
+            "استلم سراج أمر الاستكمال؛ جارٍ فحص الحالة والملفات…"
+        )
+        self.end_to_end_progress.setRange(0, 0)
+        QApplication.processEvents()
+
         try:
             directive = resolve_resume_directive(self.repo_root)
             plan = inspect_end_to_end_plan(self.repo_root)
         except Exception as exc:
+            self.end_to_end_progress.setRange(0, 100)
+            self.end_to_end_progress.setValue(0)
+            self.end_to_end_progress_label.setText(
+                "تعذر قراءة خطة الاستكمال: " + str(exc)
+            )
             QMessageBox.critical(
                 self,
                 "تعذر استكمال الحلقة",
                 str(exc),
             )
             return
+
+        if directive.action in {"WAIT", "REFRESH", "INSPECT_BLOCKER"}:
+            recovered = self._recover_resume_runtime_state(
+                force=directive.action == "WAIT"
+            )
+            if not recovered:
+                self.end_to_end_progress.setRange(0, 100)
+                self.end_to_end_progress.setValue(0)
+                self.end_to_end_progress_label.setText(
+                    "لم يبدأ أي تنفيذ؛ راجع رسالة التشخيص الظاهرة."
+                )
+                return
+            try:
+                directive = resolve_resume_directive(self.repo_root)
+                plan = inspect_end_to_end_plan(self.repo_root)
+            except Exception as exc:
+                QMessageBox.critical(
+                    self,
+                    "تعذر قراءة الحالة بعد الاستعادة",
+                    str(exc),
+                )
+                return
+
         self._resume_directive = directive
         self.tabs.setCurrentIndex(
             self._tab_index_for_key(directive.target_tab)
         )
         self._resize_tabs_for_scroll(self.tabs.currentIndex())
+        self.end_to_end_progress.setRange(0, 100)
+        self.end_to_end_progress.setValue(0)
 
         action = directive.action
+        self.end_to_end_progress_label.setText(
+            "الإجراء المحدد: " + directive.label_ar
+        )
+        QApplication.processEvents()
+
         if action == "GENERATE_SCOPE":
             self._produce_next_episode()
         elif action == "RUN_EDITORIAL":
@@ -728,16 +800,111 @@ class ProductionConsoleDialog(QDialog):
                 "بوابة اعتماد النطاق",
                 directive.detail_ar,
             )
-        elif action == "INSPECT_BLOCKER":
+        else:
             QMessageBox.warning(
                 self,
-                "توقف يحتاج معالجة",
-                directive.detail_ar,
+                "لا يوجد إجراء تنفيذي",
+                "الحالة: "
+                + plan.status
+                + "\nالمرحلة: "
+                + plan.stage
+                + "\nالإجراء: "
+                + action
+                + "\n\nاستخدم زر تشخيص وإصلاح الاستكمال.",
             )
-        elif action == "REFRESH":
-            self._refresh_state()
         self._refresh_resume_directive()
 
+    def _recover_resume_runtime_state(self, *, force: bool = False) -> bool:
+        try:
+            diagnosis = diagnose_runtime_state(self.repo_root)
+        except Exception as exc:
+            QMessageBox.critical(
+                self,
+                "تعذر تشخيص الاستكمال",
+                str(exc),
+            )
+            return False
+
+        details = (
+            "الحالة المخزنة: "
+            + diagnosis.stored_status
+            + " / "
+            + diagnosis.stored_stage
+            + "\nالإجراء المخزن: "
+            + diagnosis.stored_action
+            + "\n\nالحالة المستنتجة من الملفات: "
+            + diagnosis.inferred_status
+            + " / "
+            + diagnosis.inferred_stage
+            + "\nالإجراء المستنتج: "
+            + diagnosis.inferred_action
+            + "\nالسبب: "
+            + diagnosis.reason
+        )
+        if diagnosis.evidence_paths:
+            details += "\n\nالأدلة:\n- " + "\n- ".join(
+                diagnosis.evidence_paths
+            )
+
+        if not diagnosis.needs_recovery and not force:
+            QMessageBox.information(
+                self,
+                "حالة الاستكمال سليمة",
+                details,
+            )
+            return False
+
+        answer = QMessageBox.question(
+            self,
+            "استعادة حالة الاستكمال",
+            details
+            + "\n\nسيحفظ سراج نسخة احتياطية من ملف الحالة، ثم يصحح مؤشرات المرحلة فقط. "
+            "لن يحذف أي أصل، ولن يرسل أي طلب مدفوع. هل تريد المتابعة؟",
+            QMessageBox.StandardButton.Yes
+            | QMessageBox.StandardButton.No,
+            QMessageBox.StandardButton.Yes,
+        )
+        if answer != QMessageBox.StandardButton.Yes:
+            self.end_to_end_progress_label.setText(
+                "أُلغي تصحيح الحالة؛ لم يتغير أي ملف."
+            )
+            return False
+
+        try:
+            result = recover_runtime_state_from_artifacts(
+                self.repo_root,
+                force=force,
+            )
+        except Exception as exc:
+            QMessageBox.critical(
+                self,
+                "تعذر استعادة الحالة",
+                str(exc),
+            )
+            return False
+
+        backup = str(result.backup_path) if result.backup_path else "لم تكن هناك حالة سابقة"
+        QMessageBox.information(
+            self,
+            "تمت استعادة حالة الاستكمال",
+            "الحالة السابقة: "
+            + result.previous_status
+            + " / "
+            + result.previous_stage
+            + "\nالحالة الجديدة: "
+            + result.recovered_status
+            + " / "
+            + result.recovered_stage
+            + "\nالإجراء التالي: "
+            + result.recovered_action
+            + "\nالنسخة الاحتياطية: "
+            + backup,
+        )
+        self.end_to_end_progress_label.setText(
+            "تم تصحيح الحالة. اضغط استكمال مرة أخرى إذا لم يبدأ الإجراء تلقائيًا."
+        )
+        self._refresh_state()
+        return result.changed
 
     def _start_end_to_end_completion(self, plan: object) -> None:
         if not isinstance(plan, EndToEndPlan):

@@ -36,7 +36,7 @@ from src.application.production_resume_router_v1 import (
 from .models import DashboardSnapshot, EpisodeRecord
 from .widgets import MetricCard, Panel, StatusPill
 
-RELEASE = "SIRAJ_DESKTOP_COMPLETE_WORKSPACE_AND_RESUME_V1"
+RELEASE = "SIRAJ_ACCEPTANCE_RESUME_BUTTON_RECOVERY_V1"
 
 OpenProduction = Callable[[], None]
 OpenPath = Callable[[Path], None]
@@ -205,7 +205,7 @@ class EpisodeCataloguePage(_PageBase):
         self.continue_button = QPushButton("استكمال إنتاج الحلقة")
         self.continue_button.setObjectName("workspaceContinueEpisodeButton")
         self.continue_button.setMinimumHeight(44)
-        self.continue_button.clicked.connect(self._open_production)
+        self.continue_button.clicked.connect(lambda checked=False: self._open_production())
         actions.addWidget(self.continue_button)
         self.open_folder_button = QPushButton("فتح مجلد الحلقة")
         self.open_folder_button.setObjectName("workspaceOpenEpisodeFolderButton")
@@ -448,7 +448,7 @@ class ApprovalPage(_PageBase):
         actions = QHBoxLayout()
         continue_button = QPushButton("فتح المرحلة المطلوبة")
         continue_button.setMinimumHeight(44)
-        continue_button.clicked.connect(self._open_production)
+        continue_button.clicked.connect(lambda checked=False: self._open_production())
         actions.addWidget(continue_button)
         self.open_evidence_button = QPushButton("فتح دليل الاعتماد")
         self.open_evidence_button.clicked.connect(self._open_evidence)
@@ -569,7 +569,7 @@ class VideoPublishPage(_PageBase):
         continue_button = QPushButton("استكمال الحلقة حتى حزمة النشر")
         continue_button.setObjectName("workspaceFinishToPublishButton")
         continue_button.setMinimumHeight(46)
-        continue_button.clicked.connect(self._open_production)
+        continue_button.clicked.connect(lambda checked=False: self._open_production())
         actions.addWidget(continue_button)
         self.open_video_button = QPushButton("عرض الحلقة النهائية")
         self.open_video_button.clicked.connect(self._open_video)
@@ -668,7 +668,7 @@ class SettingsPage(_PageBase):
 
         actions = QHBoxLayout()
         production = QPushButton("فتح إعدادات الإنتاج والمفاتيح")
-        production.clicked.connect(self._open_production)
+        production.clicked.connect(lambda checked=False: self._open_production())
         actions.addWidget(production)
         repo = QPushButton("فتح المستودع")
         repo.clicked.connect(lambda: self._open_path(self.repo_root))

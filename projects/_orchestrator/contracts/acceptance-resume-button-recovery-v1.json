@@ -1,0 +1,20 @@
+{
+  "schema_version": "siraj-acceptance-resume-button-recovery-v1",
+  "release": "SIRAJ_ACCEPTANCE_RESUME_BUTTON_RECOVERY_V1",
+  "status": "ACCEPTANCE_FIX",
+  "fixes": {
+    "continue_button_never_silent": true,
+    "wait_state_button_enabled": true,
+    "artifact_based_state_recovery": true,
+    "state_backup_before_recovery": true,
+    "qt_clicked_signature_adapter": true
+  },
+  "safety": {
+    "provider_requests_during_recovery": 0,
+    "paid_authorization_bypass": "FORBIDDEN",
+    "human_scope_gate": "REQUIRED",
+    "human_final_review_gate": "REQUIRED",
+    "automatic_youtube_upload": "FORBIDDEN"
+  },
+  "next_stage": "END_TO_END_ACCEPTANCE_RUN_RETRY"
+}
