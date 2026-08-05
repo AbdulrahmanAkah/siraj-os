@@ -21,6 +21,11 @@ from src.application.runware_execution_v1 import (
     _post_json,
     _response_error,
 )
+from src.application.runware_seedream_negative_prompt_recovery_v1 import (
+    classify_seedream_negative_prompt_rejection,
+    prepare_runware_task_for_submission,
+    reset_terminal_rejected_attempt_for_explicit_reauthorization,
+)
 
 RELEASE = "DESKTOP_MEDIA_EXECUTION_V1"
 ORCHESTRATOR_STATE_REL = Path(
@@ -444,13 +449,45 @@ def execute_runware_item(
         if not lock_path.is_file():
             raise DesktopMediaExecutionError("RUNWARE_RECOVERY_LOCK_NOT_FOUND")
         lock = _read(lock_path)
+        rejection = classify_seedream_negative_prompt_rejection(
+            {
+                "last_error": lock.get("last_error"),
+                "provider_acknowledgement": lock.get("provider_acknowledgement"),
+                "provider_rejection_code": lock.get("provider_rejection_code"),
+            },
+            (lock.get("request_payload") or [{}])[0]
+            if isinstance(lock.get("request_payload"), list)
+            and lock.get("request_payload")
+            else {},
+        )
+        if rejection is not None:
+            raise DesktopMediaExecutionError(
+                "RUNWARE_TERMINAL_REJECTION_REQUIRES_NEW_EXPLICIT_AUTHORIZATION:"
+                + str(rejection["code"])
+            )
         task_uuid = str(lock.get("task_uuid", ""))
         if not task_uuid:
             raise DesktopMediaExecutionError("RUNWARE_RECOVERY_TASK_UUID_MISSING")
         result = _poll_runware(api_key, task_uuid, kind, progress=progress)
     else:
         if lock_path.exists():
-            raise DesktopMediaExecutionError("ATTEMPT_ALREADY_LOCKED_USE_RECOVERY")
+            archived = (
+                reset_terminal_rejected_attempt_for_explicit_reauthorization(
+                    lock_path
+                )
+            )
+            if archived is None:
+                raise DesktopMediaExecutionError(
+                    "ATTEMPT_ALREADY_LOCKED_USE_RECOVERY"
+                )
+            item["status"] = (
+                "READY_EXPLICIT_PAID_AUTHORIZATION_REQUIRED"
+            )
+            item.pop("task_uuid", None)
+            item["rejected_lock_archive_path_relative"] = str(
+                archived.resolve().relative_to(repo)
+            ).replace("\\", "/")
+            _write(queue_path, queue)
         task_uuid = str(uuid.uuid4())
         task = dict(item.get("task_draft") or {})
         task["taskUUID"] = task_uuid
@@ -461,6 +498,7 @@ def execute_runware_item(
             "outputFormat",
             "JPG" if kind == "RUNWARE_IMAGE" else "MP4",
         )
+        task = prepare_runware_task_for_submission(task)
         if kind == "RUNWARE_VIDEO":
             google = task.setdefault("providerSettings", {}).setdefault(
                 "google", {}
@@ -500,7 +538,24 @@ def execute_runware_item(
         try:
             response = _post_json(api_key, [task])
         except ProductionGateError as exc:
-            lock["status"] = "NETWORK_RESULT_UNKNOWN_USE_RECOVERY"
+            rejection = classify_seedream_negative_prompt_rejection(
+                str(exc),
+                task,
+            )
+            if rejection is not None:
+                lock["status"] = (
+                    "PROVIDER_REJECTED_TERMINAL_REAUTHORIZATION_REQUIRED"
+                )
+                lock["provider_rejection_code"] = rejection["code"]
+                lock["safe_to_reauthorize"] = rejection[
+                    "safe_to_reauthorize"
+                ]
+                item["status"] = (
+                    "FAILED_PROVIDER_REJECTED_REAUTHORIZATION_REQUIRED"
+                )
+                _write(queue_path, queue)
+            else:
+                lock["status"] = "NETWORK_RESULT_UNKNOWN_USE_RECOVERY"
             lock["last_error"] = str(exc)
             lock["updated_at_utc"] = _now()
             _write(lock_path, lock)

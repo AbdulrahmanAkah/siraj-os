@@ -6,6 +6,7 @@ RELEASE = "RUNWARE_IMAGE_MODEL_SELECTION_AND_LOCK_V1"
 SEEDREAM_MODEL = "bytedance:seedream@5.0-pro"
 NANO_BANANA_MODEL = "google:4@3"
 FLUX_2_PRO_MODEL = "bfl:5@1"
+NEGATIVE_PROMPT_UNSUPPORTED_MODELS = frozenset({SEEDREAM_MODEL})
 
 PRIMARY_ROLES = frozenset({"DEFAULT","ENVIRONMENT_WIDE","INTERIOR_ATMOSPHERE","SYMBOLIC_SAFE","DYNAMIC_ACTION","MATERIAL_OBJECTS"})
 SECONDARY_ROLES = frozenset({"HUMAN_CLOSEUP","HUMAN_CROWD_COMPLEX","CHARACTER_CONSISTENCY","REFERENCE_EDIT","HUMAN_INTERACTION_COMPLEX"})
@@ -106,7 +107,7 @@ def build_runware_image_task(shot: Mapping[str, Any], task_uuid: str) -> dict[st
     route=route_image_shot(shot)
     task={"taskType":"imageInference","taskUUID":task_uuid.strip(),"model":route.model,"positivePrompt":prompt,"width":route.width,"height":route.height,"numberResults":1,"outputFormat":"JPG","outputType":"URL","includeCost":True}
     negative=str(shot.get("runware_negative_prompt_en","")).strip()
-    if negative:
+    if negative and route.model not in NEGATIVE_PROMPT_UNSUPPORTED_MODELS:
         task["negativePrompt"]=negative
     refs=_references(shot)
     if refs:

@@ -2213,3 +2213,15 @@ SIRAJ EPISODE 001 PIPELINE ADOPTION V1 — 2026-08-06
 ✓ إبقاء تفويض التكلفة والمراجعة البشرية النهائية إلزاميين.
 
 NEXT_STAGE=AUTHORIZE_AND_EXECUTE_EPISODE_001_MEDIA_QUEUE
+
+============================================================
+SIRAJ RUNWARE SEEDREAM NEGATIVE PROMPT RECOVERY V1 — 2026-08-06
+============================================================
+
+✓ تحديد أول عطل فعلي في تشغيل الوسائط: Seedream 5 Pro يرفض negativePrompt.
+✓ حذف الحقل غير المدعوم عند بناء الطلب وعند الإرسال كحماية مزدوجة.
+✓ تصنيف HTTP 400 المحدد كرفض نهائي بدل محاولة polling غير صحيحة.
+✓ أرشفة قفل IMG-SH-001 الفاشل وإعادته إلى الطابور لتفويض جديد صريح.
+✓ عدم إرسال أي طلب إلى Runware أثناء الإصلاح.
+
+NEXT_STAGE=REAUTHORIZE_AND_RESUME_EPISODE_001_MEDIA_QUEUE
