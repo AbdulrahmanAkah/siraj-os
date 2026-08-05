@@ -1,0 +1,48 @@
+{
+  "schema_version": "siraj-sfx-audio-mix-v1",
+  "release": "SFX_AND_AUDIO_MIX_V1",
+  "status": "HUMAN_DIRECTIVES_ACTIVE",
+  "provider_mode": "LOCAL_ONLY_V1",
+  "music": "FORBIDDEN",
+  "allowed_audio": [
+    "NARRATION",
+    "SCENE_APPROPRIATE_SOUND_EFFECTS",
+    "FOLEY",
+    "AMBIENCE",
+    "AUTHORED_SILENCE"
+  ],
+  "sfx_sources": {
+    "priority_1": "LICENSED_LOCAL_LIBRARY",
+    "priority_2": "DETERMINISTIC_PROCEDURAL_FFMPEG_FALLBACK",
+    "automatic_web_download": "FORBIDDEN",
+    "unlicensed_asset": "FORBIDDEN"
+  },
+  "audio_timeline": {
+    "source": "STORYBOARD_SHOT_DURATIONS_AND_SCRIPT_SEGMENTS",
+    "episode_duration_seconds": [
+      1080,
+      1500
+    ],
+    "sample_rate_hz": 48000,
+    "channels": 2
+  },
+  "mix": {
+    "narration_target_lufs": -18.0,
+    "sfx_sidechain_ducking": true,
+    "duck_ratio": 7.0,
+    "attack_ms": 18,
+    "release_ms": 360
+  },
+  "audio_master": {
+    "integrated_lufs": -16.0,
+    "true_peak_dbtp": -1.5,
+    "loudness_range": 11.0,
+    "wav": "PCM_24BIT_48KHZ_STEREO",
+    "delivery": "AAC_M4A_192K"
+  },
+  "local_api_cost_usd": 0.0,
+  "paid_provider_requests_during_release": 0,
+  "automatic_after_media_assets_complete": true,
+  "completion_status": "SFX_MIX_READY",
+  "next_stage": "STRUCTURAL_MONTAGE_AND_FINAL_RENDER_V1"
+}

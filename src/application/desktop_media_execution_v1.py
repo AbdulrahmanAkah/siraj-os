@@ -401,10 +401,10 @@ def _write_receipt_and_complete(
                 else "DESKTOP_MEDIA_EXECUTION_ACTIVE"
             ),
             "stage": (
-                "STRUCTURAL_MONTAGE" if all_complete else "DESKTOP_MEDIA_EXECUTION"
+                "SFX_DESIGN" if all_complete else "DESKTOP_MEDIA_EXECUTION"
             ),
             "next_stage": (
-                "STRUCTURAL_MONTAGE_V1"
+                "SFX_AND_AUDIO_MIX_V1"
                 if all_complete
                 else "DESKTOP_MEDIA_EXECUTION_V1"
             ),

@@ -54,6 +54,12 @@ from src.application.desktop_media_execution_v1 import (
     media_queue_rows,
     render_all_pending_local_graphics,
 )
+from src.application.sfx_audio_mix_v1 import (
+    SfxAudioMixError,
+    SfxAudioMixResult,
+    load_sfx_audio_mix_status,
+    run_sfx_audio_mix,
+)
 from src.application.provider_credentials_v1 import (
     ProviderCredentialError,
     read_elevenlabs_api_key,
@@ -87,7 +93,7 @@ from src.application.windows_credentials_v1 import (
     save_runware_api_key,
 )
 
-PRODUCTION_CONSOLE_RELEASE = "AUTOMATIC_RESEARCH_SCRIPT_STORYBOARD_RUNNER_V1"
+PRODUCTION_CONSOLE_RELEASE = "SFX_AND_AUDIO_MIX_V1"
 
 # Historical source-contract compatibility markers retained:
 # paidExecutionConfirmation
@@ -250,6 +256,34 @@ class MediaExecutionThread(QThread):
             self._api_key = ""
 
 
+class SfxAudioMixThread(QThread):
+    progress_changed = Signal(str, object)
+    mix_succeeded = Signal(object)
+    mix_failed = Signal(str)
+
+    def __init__(
+        self,
+        repo_root: Path,
+        parent: QWidget | None = None,
+    ) -> None:
+        super().__init__(parent)
+        self.repo_root = repo_root
+
+    def run(self) -> None:
+        def progress(message: str, value: int | None) -> None:
+            self.progress_changed.emit(message, value)
+
+        try:
+            result = run_sfx_audio_mix(
+                self.repo_root,
+                progress=progress,
+            )
+        except Exception as exc:
+            self.mix_failed.emit(str(exc))
+        else:
+            self.mix_succeeded.emit(result)
+
+
 class AutomaticGenerationThread(QThread):
     progress_changed = Signal(str, object)
     generation_succeeded = Signal(object)
@@ -295,6 +329,7 @@ class ProductionConsoleDialog(QDialog):
         self.scope_worker: ScopeGenerationThread | None = None
         self.editorial_worker: EditorialPipelineThread | None = None
         self.media_execution_worker: MediaExecutionThread | None = None
+        self.sfx_audio_worker: SfxAudioMixThread | None = None
         self._media_execution_rows = {}
         self.last_output: Path | None = None
         self.setObjectName("productionConsoleDialog")
@@ -345,6 +380,11 @@ class ProductionConsoleDialog(QDialog):
             "تنفيذ الوسائط",
         )
         self._build_media_execution_tab()
+
+        self.sfx_audio_tab = QWidget()
+        self.sfx_audio_tab.setObjectName("sfxAudioMixTab")
+        self.tabs.addTab(self.sfx_audio_tab, "الصوت والمؤثرات")
+        self._build_sfx_audio_tab()
 
         self.clip_tab = QWidget()
         self.clip_tab.setObjectName("clipProductionTab")
@@ -758,6 +798,72 @@ class ProductionConsoleDialog(QDialog):
         note.setObjectName("muted")
         note.setWordWrap(True)
         layout.addWidget(note)
+
+    def _build_sfx_audio_tab(self) -> None:
+        layout = QVBoxLayout(self.sfx_audio_tab)
+        layout.setContentsMargins(12, 12, 12, 12)
+        layout.setSpacing(10)
+
+        self.sfx_audio_status_label = QLabel(
+            "بانتظار اكتمال جميع أصول الوسائط."
+        )
+        self.sfx_audio_status_label.setObjectName(
+            "sfxAudioMixStatusLabel"
+        )
+        self.sfx_audio_status_label.setWordWrap(True)
+        layout.addWidget(self.sfx_audio_status_label)
+
+        self.sfx_audio_progress = QProgressBar()
+        self.sfx_audio_progress.setObjectName("sfxAudioMixProgress")
+        self.sfx_audio_progress.setRange(0, 100)
+        self.sfx_audio_progress.setValue(0)
+        layout.addWidget(self.sfx_audio_progress)
+
+        self.build_sfx_audio_button = QPushButton(
+            "بناء المؤثرات والمكساج الآلي"
+        )
+        self.build_sfx_audio_button.setObjectName(
+            "buildSfxAudioMixButton"
+        )
+        self.build_sfx_audio_button.setMinimumHeight(46)
+        self.build_sfx_audio_button.clicked.connect(
+            self._start_sfx_audio_mix
+        )
+        layout.addWidget(self.build_sfx_audio_button)
+
+        actions = QHBoxLayout()
+        self.open_audio_master_button = QPushButton(
+            "فتح الماستر الصوتي"
+        )
+        self.open_audio_master_button.setObjectName(
+            "openAudioMasterButton"
+        )
+        self.open_audio_master_button.clicked.connect(
+            self._open_audio_master
+        )
+        actions.addWidget(self.open_audio_master_button)
+
+        self.open_audio_folder_button = QPushButton(
+            "فتح مجلد الصوت"
+        )
+        self.open_audio_folder_button.setObjectName(
+            "openAudioMixFolderButton"
+        )
+        self.open_audio_folder_button.clicked.connect(
+            self._open_audio_folder
+        )
+        actions.addWidget(self.open_audio_folder_button)
+        actions.addStretch(1)
+        layout.addLayout(actions)
+
+        note = QLabel(
+            "المرحلة محلية بالكامل: مؤثرات مناسبة للمشهد، خفض تلقائي "
+            "تحت الكلام، وماستر -16 LUFS. الموسيقى ممنوعة وتكلفة API صفر."
+        )
+        note.setObjectName("muted")
+        note.setWordWrap(True)
+        layout.addWidget(note)
+        layout.addStretch(1)
 
     def _build_clip_tab(self) -> None:
         layout = QVBoxLayout(self.clip_tab)
@@ -1176,6 +1282,11 @@ class ProductionConsoleDialog(QDialog):
             "EDITORIAL_PIPELINE_COMPLETE_BUDGET_PREFLIGHT_QUEUED": "اكتمل البحث والنص والستوريبورد؛ مواصفات الجرافيك وطابور الوسائط هي المرحلة التالية.",
             "GRAPHICS_MEDIA_QUEUE_FAILED": "توقف بناء الجرافيك أو طابور الوسائط ويمكن استئنافه دون طلب مدفوع.",
             "MEDIA_QUEUE_READY": "مواصفات الجرافيك وطابور الوسائط جاهزة؛ طاقم ElevenLabs مثبت والتنفيذ المكتبي هو التالي.",
+            "DESKTOP_MEDIA_EXECUTION_ACTIVE": "يجري تنفيذ أصول الصور والفيديو والجرافيك والتعليق الصوتي.",
+            "MEDIA_ASSETS_COMPLETE": "اكتملت الأصول؛ تبدأ المؤثرات والمكساج المحلي تلقائيًا.",
+            "SFX_DESIGN_ACTIVE": "يجري تصميم المؤثرات وبناء الماستر الصوتي محليًا.",
+            "SFX_AUDIO_MIX_FAILED": "توقفت المؤثرات أو المكساج ويمكن استئنافها محليًا.",
+            "SFX_MIX_READY": "اكتمل الماستر الصوتي؛ المونتاج والإخراج النهائي هما التاليان.",
         }.get(status, status)
         self.orchestrator_status_label.setText(status_text)
         self.provider_readiness_label.setText(
@@ -1592,6 +1703,12 @@ class ProductionConsoleDialog(QDialog):
         self.media_execution_progress.setRange(0, 100)
         self.media_execution_progress.setValue(100)
         self._refresh_state()
+        try:
+            state = load_orchestrator_state(self.repo_root)
+        except Exception:
+            return
+        if state.get("status") == "MEDIA_ASSETS_COMPLETE":
+            self._start_sfx_audio_mix(automatic=True)
 
     def _on_media_execution_failure(self, error: str) -> None:
         self.media_execution_status_label.setText(
@@ -1609,6 +1726,160 @@ class ProductionConsoleDialog(QDialog):
             self.media_execution_worker.deleteLater()
         self.media_execution_worker = None
         self._refresh_state()
+
+    def _start_sfx_audio_mix(
+        self,
+        checked: bool = False,
+        *,
+        automatic: bool = False,
+    ) -> None:
+        del checked
+        if (
+            self.sfx_audio_worker is not None
+            and self.sfx_audio_worker.isRunning()
+        ):
+            return
+        self.sfx_audio_worker = SfxAudioMixThread(
+            self.repo_root,
+            self,
+        )
+        self.sfx_audio_worker.progress_changed.connect(
+            self._on_sfx_audio_progress
+        )
+        self.sfx_audio_worker.mix_succeeded.connect(
+            self._on_sfx_audio_success
+        )
+        self.sfx_audio_worker.mix_failed.connect(
+            self._on_sfx_audio_failure
+        )
+        self.sfx_audio_worker.finished.connect(
+            self._on_sfx_audio_finished
+        )
+        self.sfx_audio_progress.setRange(0, 100)
+        self.sfx_audio_progress.setValue(0)
+        self.sfx_audio_status_label.setText(
+            "بدأ بناء المؤثرات والمكساج تلقائيًا."
+            if automatic
+            else "بدأ بناء المؤثرات والمكساج."
+        )
+        self.sfx_audio_worker.start()
+        self._refresh_sfx_audio()
+
+    def _on_sfx_audio_progress(
+        self,
+        message: str,
+        value: object,
+    ) -> None:
+        self.sfx_audio_status_label.setText(message)
+        if isinstance(value, int):
+            self.sfx_audio_progress.setRange(0, 100)
+            self.sfx_audio_progress.setValue(value)
+        else:
+            self.sfx_audio_progress.setRange(0, 0)
+
+    def _on_sfx_audio_success(self, result: object) -> None:
+        if not isinstance(result, SfxAudioMixResult):
+            self._on_sfx_audio_failure(
+                "INVALID_SFX_AUDIO_MIX_RESULT"
+            )
+            return
+        self.sfx_audio_progress.setRange(0, 100)
+        self.sfx_audio_progress.setValue(100)
+        self.sfx_audio_status_label.setText(
+            "اكتمل الماستر الصوتي وانتقل سراج إلى المونتاج."
+        )
+        QMessageBox.information(
+            self,
+            "اكتمل الصوت والمؤثرات",
+            "تم إنشاء "
+            + str(result.event_count)
+            + " مؤثرًا و"
+            + str(result.narration_clip_count)
+            + " مقطع تعليق صوتي داخل ماستر مدته "
+            + f"{result.duration_seconds:.1f} ثانية."
+            + "\nتكلفة API لهذه المرحلة: $0.00."
+            + "\nالمرحلة التالية: المونتاج والإخراج النهائي.",
+        )
+        self._refresh_state()
+
+    def _on_sfx_audio_failure(self, error: str) -> None:
+        self.sfx_audio_progress.setRange(0, 100)
+        self.sfx_audio_progress.setValue(0)
+        self.sfx_audio_status_label.setText(
+            "توقفت مرحلة الصوت: " + error
+        )
+        QMessageBox.critical(
+            self,
+            "توقف الصوت والمؤثرات",
+            error
+            + "\n\nلم يُرسل أي طلب مدفوع ويمكن استئناف المرحلة محليًا.",
+        )
+        self._refresh_state()
+
+    def _on_sfx_audio_finished(self) -> None:
+        if self.sfx_audio_worker is not None:
+            self.sfx_audio_worker.deleteLater()
+        self.sfx_audio_worker = None
+        self._refresh_state()
+
+    def _refresh_sfx_audio(self) -> None:
+        try:
+            status = load_sfx_audio_mix_status(self.repo_root)
+        except SfxAudioMixError as exc:
+            self.sfx_audio_status_label.setText(
+                "تعذر قراءة حالة الصوت: " + str(exc)
+            )
+            self.build_sfx_audio_button.setEnabled(False)
+            self.open_audio_master_button.setEnabled(False)
+            self.open_audio_folder_button.setEnabled(False)
+            return
+        state = str(status.get("status", "UNKNOWN"))
+        messages = {
+            "MEDIA_ASSETS_COMPLETE": (
+                "اكتملت الأصول؛ مرحلة المؤثرات والمكساج جاهزة وتبدأ "
+                "تلقائيًا بعد آخر عنصر."
+            ),
+            "SFX_DESIGN_ACTIVE": "المؤثرات والمكساج قيد التنفيذ المحلي.",
+            "SFX_AUDIO_MIX_FAILED": (
+                "توقفت المرحلة ويمكن استئنافها دون تكلفة API. "
+                + str(status.get("last_error") or "")
+            ),
+            "SFX_MIX_READY": (
+                "الماستر الصوتي مكتمل. المرحلة التالية: المونتاج النهائي."
+            ),
+        }
+        self.sfx_audio_status_label.setText(
+            messages.get(state, "بانتظار اكتمال أصول الوسائط.")
+        )
+        running = (
+            self.sfx_audio_worker is not None
+            and self.sfx_audio_worker.isRunning()
+        )
+        self.build_sfx_audio_button.setEnabled(
+            not running
+            and state in {
+                "MEDIA_ASSETS_COMPLETE",
+                "SFX_AUDIO_MIX_FAILED",
+            }
+        )
+        master = Path(str(status.get("master_wav_path", "")))
+        ready = master.is_file()
+        self.open_audio_master_button.setEnabled(ready)
+        self.open_audio_folder_button.setEnabled(
+            ready or state in {"SFX_AUDIO_MIX_FAILED", "SFX_MIX_READY"}
+        )
+
+    def _open_audio_master(self) -> None:
+        status = load_sfx_audio_mix_status(self.repo_root)
+        path = Path(str(status.get("master_wav_path", "")))
+        if path.is_file():
+            QDesktopServices.openUrl(QUrl.fromLocalFile(str(path)))
+
+    def _open_audio_folder(self) -> None:
+        status = load_sfx_audio_mix_status(self.repo_root)
+        path = Path(str(status.get("master_wav_path", ""))).parent
+        if path.is_dir():
+            QDesktopServices.openUrl(QUrl.fromLocalFile(str(path)))
 
     def _stored_api_key(self) -> str | None:
         try:
@@ -1775,6 +2046,7 @@ class ProductionConsoleDialog(QDialog):
         self._refresh_orchestrator_state()
         self._refresh_episode_plan()
         self._refresh_media_execution()
+        self._refresh_sfx_audio()
         try:
             spec = load_automatic_video_spec(self.repo_root)
             state = load_state(spec)
@@ -1964,6 +2236,16 @@ class ProductionConsoleDialog(QDialog):
                 self,
                 "التوليد مستمر",
                 "اترك النافذة مفتوحة حتى تنتهي العملية بأمان.",
+            )
+            return
+        if (
+            self.sfx_audio_worker is not None
+            and self.sfx_audio_worker.isRunning()
+        ):
+            QMessageBox.information(
+                self,
+                "المكساج مستمر",
+                "اترك النافذة مفتوحة حتى يكتمل الماستر الصوتي بأمان.",
             )
             return
         super().reject()
