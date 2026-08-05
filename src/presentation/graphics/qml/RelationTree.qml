@@ -23,7 +23,6 @@ Rectangle {
         font.pixelSize: 68
         font.weight: Font.DemiBold
         horizontalAlignment: Text.AlignRight
-        layoutDirection: Qt.RightToLeft
     }
     Canvas {
         id: lines
@@ -93,7 +92,6 @@ Rectangle {
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 wrapMode: Text.WordWrap
-                layoutDirection: Qt.RightToLeft
             }
         }
     }

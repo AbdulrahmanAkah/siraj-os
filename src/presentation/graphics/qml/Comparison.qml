@@ -23,7 +23,6 @@ Rectangle {
         font.pixelSize: 68
         font.weight: Font.DemiBold
         horizontalAlignment: Text.AlignRight
-        layoutDirection: Qt.RightToLeft
     }
     Repeater {
         model: Math.min(entries.length, 2)
@@ -31,7 +30,6 @@ Rectangle {
             required property int index
             property var entry: entries[index]
             x: index === 0 ? safe : root.width / 2 + 28
-            y: 250
             width: root.width / 2 - safe - 28
             height: 650
             radius: 28
@@ -56,7 +54,6 @@ Rectangle {
                 font.pixelSize: 48
                 font.weight: Font.DemiBold
                 horizontalAlignment: Text.AlignRight
-                layoutDirection: Qt.RightToLeft
             }
             Text {
                 x: 42
@@ -68,7 +65,6 @@ Rectangle {
                 font.pixelSize: 30
                 horizontalAlignment: Text.AlignRight
                 wrapMode: Text.WordWrap
-                layoutDirection: Qt.RightToLeft
             }
             Text {
                 x: 42
@@ -80,7 +76,6 @@ Rectangle {
                 font.pixelSize: 35
                 horizontalAlignment: Text.AlignRight
                 wrapMode: Text.WordWrap
-                layoutDirection: Qt.RightToLeft
             }
         }
     }

@@ -46,7 +46,6 @@ Rectangle {
         font.weight: Font.DemiBold
         opacity: reveal
         horizontalAlignment: Text.AlignRight
-        layoutDirection: Qt.RightToLeft
     }
     Text {
         x: safe + 72
@@ -59,7 +58,6 @@ Rectangle {
         font.weight: Font.DemiBold
         opacity: Math.max(0, Math.min(1, (frameProgress - 0.14) * 2.1))
         horizontalAlignment: Text.AlignRight
-        layoutDirection: Qt.RightToLeft
     }
     Text {
         x: safe + 72
@@ -72,6 +70,5 @@ Rectangle {
         opacity: Math.max(0, Math.min(1, (frameProgress - 0.27) * 2.0))
         horizontalAlignment: Text.AlignRight
         wrapMode: Text.WordWrap
-        layoutDirection: Qt.RightToLeft
     }
 }

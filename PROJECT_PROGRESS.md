@@ -2225,3 +2225,16 @@ SIRAJ RUNWARE SEEDREAM NEGATIVE PROMPT RECOVERY V1 — 2026-08-06
 ✓ عدم إرسال أي طلب إلى Runware أثناء الإصلاح.
 
 NEXT_STAGE=REAUTHORIZE_AND_RESUME_EPISODE_001_MEDIA_QUEUE
+
+============================================================
+SIRAJ LOCAL GRAPHICS QML TEXT DIRECTION RECOVERY V1 — 2026-08-06
+============================================================
+
+✓ إصلاح خاصية layoutDirection غير المدعومة في قوالب Qt Quick الستة.
+✓ إصلاح ربط y المكرر داخل قالب Comparison.
+✓ تحميل القوالب الستة والتقاط إطار تجريبي من كل قالب.
+✓ الحفاظ على جميع الوسائط المدفوعة المكتملة دون إعادة إرسال.
+✓ إعادة عناصر الجرافيك المحلية غير المكتملة فقط.
+✓ عدم إرسال أي طلب إلى Runware أو ElevenLabs أثناء الاستعادة.
+
+NEXT_STAGE=RESUME_EPISODE_001_MEDIA_QUEUE_FROM_PENDING_LOCAL_GRAPHICS

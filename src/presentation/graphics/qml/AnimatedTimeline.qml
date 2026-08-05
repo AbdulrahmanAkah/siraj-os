@@ -51,7 +51,6 @@ Rectangle {
         font.pixelSize: 72
         font.weight: Font.DemiBold
         horizontalAlignment: Text.AlignRight
-        layoutDirection: Qt.RightToLeft
     }
     Text {
         x: safe
@@ -62,7 +61,6 @@ Rectangle {
         font.family: graphicsSpec.design.font_family
         font.pixelSize: 34
         horizontalAlignment: Text.AlignRight
-        layoutDirection: Qt.RightToLeft
     }
     Repeater {
         model: entries
@@ -101,7 +99,6 @@ Rectangle {
                 font.weight: Font.DemiBold
                 horizontalAlignment: Text.AlignHCenter
                 wrapMode: Text.WordWrap
-                layoutDirection: Qt.RightToLeft
             }
             Text {
                 y: 176
@@ -112,7 +109,6 @@ Rectangle {
                 font.pixelSize: 25
                 horizontalAlignment: Text.AlignHCenter
                 wrapMode: Text.WordWrap
-                layoutDirection: Qt.RightToLeft
             }
         }
     }

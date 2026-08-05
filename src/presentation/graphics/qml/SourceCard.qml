@@ -43,7 +43,6 @@ Rectangle {
             font.pixelSize: 62
             font.weight: Font.DemiBold
             horizontalAlignment: Text.AlignRight
-            layoutDirection: Qt.RightToLeft
         }
         Text {
             x: 70
@@ -55,7 +54,6 @@ Rectangle {
             font.pixelSize: 46
             font.weight: Font.DemiBold
             horizontalAlignment: Text.AlignRight
-            layoutDirection: Qt.RightToLeft
         }
         Text {
             x: 70
@@ -66,7 +64,6 @@ Rectangle {
             font.family: graphicsSpec.design.font_family
             font.pixelSize: 32
             horizontalAlignment: Text.AlignRight
-            layoutDirection: Qt.RightToLeft
         }
         Text {
             x: 100
@@ -79,7 +76,6 @@ Rectangle {
             horizontalAlignment: Text.AlignRight
             verticalAlignment: Text.AlignVCenter
             wrapMode: Text.WordWrap
-            layoutDirection: Qt.RightToLeft
         }
     }
 }
