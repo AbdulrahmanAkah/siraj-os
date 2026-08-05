@@ -1,0 +1,25 @@
+{
+  "schema_version": "siraj-thumbnail-era-policy-v1",
+  "release": "SIRAJ_END_TO_END_PRODUCTION_AND_YOUTUBE_HANDOFF_V1",
+  "selection_policy": "STATIC_TEMPLATE_PER_HISTORICAL_ERA",
+  "default_era_id": "UNASSIGNED",
+  "custom_thumbnail_required_before_publication": false,
+  "design_status": "DEFERRED_BY_CREATOR",
+  "eras": [
+    {
+      "era_id": "ADAM_TO_FLOOD",
+      "label_ar": "من خلق آدم إلى الطوفان",
+      "thumbnail_path_relative": null,
+      "status": "DESIGN_DEFERRED"
+    },
+    {
+      "era_id": "POST_FLOOD_TO_ABRAHAM",
+      "label_ar": "من بعد الطوفان إلى إبراهيم",
+      "thumbnail_path_relative": null,
+      "status": "DESIGN_DEFERRED"
+    }
+  ],
+  "assignment_rule": "SET thumbnail_era_id IN EACH EPISODE DEFINITION AFTER ERA BOUNDARIES ARE APPROVED",
+  "fallback": "YOUTUBE_GENERATED_THUMBNAIL_ALLOWED_UNTIL_TEMPLATE_CONFIGURED",
+  "updated_at_utc": "2026-08-05T20:23:00Z"
+}

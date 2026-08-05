@@ -1,0 +1,44 @@
+{
+  "schema_version": "siraj-end-to-end-production-youtube-handoff-v1",
+  "release": "SIRAJ_END_TO_END_PRODUCTION_AND_YOUTUBE_HANDOFF_V1",
+  "status": "HUMAN_DIRECTIVES_ACTIVE",
+  "start": "TOPIC_AND_EVENT_PROPOSAL",
+  "completion": "READY_FOR_MANUAL_YOUTUBE_UPLOAD",
+  "human_gates": [
+    "HUMAN_SCOPE_REVIEW",
+    "HUMAN_FINAL_REVIEW"
+  ],
+  "single_consolidated_media_authorization": true,
+  "paid_provider_execution": {
+    "explicit_confirmation": "REQUIRED",
+    "confirmation_scope": "ALL_REMAINING_MEDIA_QUEUE_ITEMS",
+    "maximum_must_match_current_queue": true,
+    "hidden_paid_retry": "FORBIDDEN",
+    "runware_existing_task_recovery": "ALLOWED_WITHOUT_RESUBMISSION",
+    "elevenlabs_locked_attempt_resubmission": "FORBIDDEN"
+  },
+  "automatic_local_chain": [
+    "SFX_DESIGN",
+    "STRUCTURAL_MONTAGE",
+    "AUTOMATIC_QA"
+  ],
+  "youtube_handoff_assets": {
+    "title": true,
+    "description": true,
+    "tags": true,
+    "chapters": true,
+    "arabic_srt": true,
+    "altered_content_disclosure": "YES",
+    "audience_default": "NOT_MADE_FOR_KIDS",
+    "language": "ar",
+    "checksums": true,
+    "upload_sheet": true,
+    "youtube_studio_shortcut": true
+  },
+  "thumbnail_policy": "STATIC_TEMPLATE_PER_HISTORICAL_ERA",
+  "automatic_youtube_upload": "FORBIDDEN",
+  "youtube_api_requests": 0,
+  "next_stage": "END_TO_END_ACCEPTANCE_RUN",
+  "youtube_api_draft_upload": "DEFERRED_UNTIL_VERIFIED_API_PROJECT",
+  "manual_site_upload_reason": "UNVERIFIED_API_UPLOADS_CAN_BE_LOCKED_PRIVATE"
+}

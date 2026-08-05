@@ -81,6 +81,12 @@ from src.presentation.desktop.final_review_publish_dialog_v1 import (
 from src.application.production_resume_router_v1 import (
     resolve_resume_directive,
 )
+from src.application.end_to_end_production_v1 import (
+    EndToEndPlan,
+    EndToEndRunResult,
+    inspect_end_to_end_plan,
+    run_to_next_human_gate,
+)
 from src.application.provider_credentials_v1 import (
     ProviderCredentialError,
     read_elevenlabs_api_key,
@@ -114,7 +120,7 @@ from src.application.windows_credentials_v1 import (
     save_runware_api_key,
 )
 
-PRODUCTION_CONSOLE_RELEASE = "SIRAJ_DESKTOP_COMPLETE_WORKSPACE_AND_RESUME_V1"
+PRODUCTION_CONSOLE_RELEASE = "SIRAJ_END_TO_END_PRODUCTION_AND_YOUTUBE_HANDOFF_V1"
 
 # Historical source-contract compatibility markers retained:
 # paidExecutionConfirmation
@@ -361,6 +367,52 @@ class AutomaticQAThread(QThread):
             self.qa_succeeded.emit(result)
 
 
+
+class EndToEndCompletionThread(QThread):
+    progress_changed = Signal(str, object)
+    completion_succeeded = Signal(object)
+    completion_failed = Signal(str)
+
+    def __init__(
+        self,
+        repo_root: Path,
+        openai_api_key: str,
+        runware_api_key: str,
+        elevenlabs_api_key: str,
+        confirmed_media_maximum_usd: float | None,
+        parent: QWidget | None = None,
+    ) -> None:
+        super().__init__(parent)
+        self.repo_root = repo_root
+        self._openai_api_key = openai_api_key
+        self._runware_api_key = runware_api_key
+        self._elevenlabs_api_key = elevenlabs_api_key
+        self.confirmed_media_maximum_usd = confirmed_media_maximum_usd
+
+    def run(self) -> None:
+        def progress(message: str, value: int | None) -> None:
+            self.progress_changed.emit(message, value)
+
+        try:
+            result = run_to_next_human_gate(
+                self.repo_root,
+                openai_api_key=self._openai_api_key,
+                runware_api_key=self._runware_api_key,
+                elevenlabs_api_key=self._elevenlabs_api_key,
+                confirmed_media_maximum_usd=(
+                    self.confirmed_media_maximum_usd
+                ),
+                progress=progress,
+            )
+        except Exception as exc:
+            self.completion_failed.emit(str(exc))
+        else:
+            self.completion_succeeded.emit(result)
+        finally:
+            self._openai_api_key = ""
+            self._runware_api_key = ""
+            self._elevenlabs_api_key = ""
+
 class AutomaticGenerationThread(QThread):
     progress_changed = Signal(str, object)
     generation_succeeded = Signal(object)
@@ -409,6 +461,7 @@ class ProductionConsoleDialog(QDialog):
         self.sfx_audio_worker: SfxAudioMixThread | None = None
         self.structural_montage_worker: StructuralMontageThread | None = None
         self.automatic_qa_worker: AutomaticQAThread | None = None
+        self.end_to_end_worker: EndToEndCompletionThread | None = None
         self._media_execution_rows = {}
         self._resume_directive = None
         self.last_output: Path | None = None
@@ -465,6 +518,19 @@ class ProductionConsoleDialog(QDialog):
         )
         resume_actions.addWidget(self.resume_refresh_button, 1)
         resume_layout.addLayout(resume_actions)
+        self.end_to_end_progress = QProgressBar()
+        self.end_to_end_progress.setObjectName(
+            "endToEndCompletionProgress"
+        )
+        self.end_to_end_progress.setRange(0, 100)
+        self.end_to_end_progress.setValue(0)
+        resume_layout.addWidget(self.end_to_end_progress)
+        self.end_to_end_progress_label = QLabel("جاهز.")
+        self.end_to_end_progress_label.setObjectName(
+            "endToEndCompletionProgressLabel"
+        )
+        self.end_to_end_progress_label.setWordWrap(True)
+        resume_layout.addWidget(self.end_to_end_progress_label)
         policy = QLabel(
             "يشغّل الزر المراحل المحلية والتحريرية الآمنة ويأخذك إلى "
             "المرحلة الصحيحة. لا يتجاوز اعتماد النطاق، أو تأكيد الإنفاق "
@@ -610,15 +676,18 @@ class ProductionConsoleDialog(QDialog):
                 self.sfx_audio_worker,
                 self.structural_montage_worker,
                 self.automatic_qa_worker,
+                self.end_to_end_worker,
             )
         )
         self.continue_episode_button.setEnabled(
             not running and directive.action != "WAIT"
         )
 
+
     def _continue_episode_to_publish(self) -> None:
         try:
             directive = resolve_resume_directive(self.repo_root)
+            plan = inspect_end_to_end_plan(self.repo_root)
         except Exception as exc:
             QMessageBox.critical(
                 self,
@@ -638,24 +707,20 @@ class ProductionConsoleDialog(QDialog):
         elif action == "RUN_EDITORIAL":
             self._start_editorial_pipeline()
         elif action == "OPEN_MEDIA_EXECUTION":
-            if directive.stage == "LOCAL_GRAPHICS_RENDER":
-                self._render_local_graphics()
-            else:
-                QMessageBox.information(
-                    self,
-                    "تنفيذ الوسائط",
-                    directive.detail_ar
-                    + "\n\nاختر العنصر التالي من الجدول واضغط تنفيذ. "
-                    "ستظهر نافذة التأكيد قبل أي طلب مدفوع.",
-                )
+            self._start_end_to_end_completion(plan)
         elif action == "RUN_SFX":
             self._start_sfx_audio_mix()
         elif action == "RUN_MONTAGE":
             self._start_structural_montage()
         elif action == "RUN_QA":
             self._start_automatic_qa()
-        elif action in {"OPEN_FINAL_REVIEW", "OPEN_PUBLISH_PACKAGE"}:
+        elif action == "OPEN_FINAL_REVIEW":
             self._open_final_review_publish()
+        elif action == "OPEN_PUBLISH_PACKAGE":
+            if plan.ready_for_manual_youtube_upload:
+                self._open_final_review_publish()
+            else:
+                self._start_end_to_end_completion(plan)
         elif action == "REVIEW_SCOPE":
             self.scope_proposal_view.setFocus()
             QMessageBox.information(
@@ -672,6 +737,161 @@ class ProductionConsoleDialog(QDialog):
         elif action == "REFRESH":
             self._refresh_state()
         self._refresh_resume_directive()
+
+
+    def _start_end_to_end_completion(self, plan: object) -> None:
+        if not isinstance(plan, EndToEndPlan):
+            QMessageBox.critical(
+                self,
+                "تعذر استكمال الحلقة",
+                "INVALID_END_TO_END_PLAN",
+            )
+            return
+        if (
+            self.end_to_end_worker is not None
+            and self.end_to_end_worker.isRunning()
+        ):
+            return
+
+        openai_key = ""
+        runware_key = ""
+        elevenlabs_key = ""
+        if plan.requires_openai_key:
+            openai_key = self._ensure_openai_key() or ""
+            if not openai_key:
+                return
+        if plan.requires_runware_key:
+            runware_key = self._ensure_key() or ""
+            if not runware_key:
+                return
+        if plan.requires_elevenlabs_key:
+            elevenlabs_key = self._stored_elevenlabs_key() or ""
+            if not elevenlabs_key:
+                self._configure_elevenlabs_key()
+                elevenlabs_key = self._stored_elevenlabs_key() or ""
+            if not elevenlabs_key:
+                return
+
+        confirmed: float | None = None
+        if plan.requires_paid_confirmation:
+            answer = QMessageBox.question(
+                self,
+                "تفويض واحد لإكمال وسائط الحلقة",
+                "سيُنفذ سراج جميع عناصر الوسائط المتبقية بالتتابع بعد "
+                "تفويض واحد فقط.\n\n"
+                + "Runware: "
+                + str(plan.pending_runware_count)
+                + " عنصر\nElevenLabs: "
+                + str(plan.pending_elevenlabs_count)
+                + " عنصر\nجرافيك محلي: "
+                + str(plan.pending_local_graphics_count)
+                + " عنصر\n\nالحد الأقصى الإجمالي المصرح به لهذه العناصر: $"
+                + f"{plan.pending_media_maximum_usd:.6f}"
+                + "\n\nلن تُرسل إعادة مدفوعة خفية. استعادة مهمة Runware "
+                "القائمة تستخدم taskUUID نفسه ولا تنشئ طلبًا جديدًا. هل توافق؟",
+                QMessageBox.StandardButton.Yes
+                | QMessageBox.StandardButton.No,
+                QMessageBox.StandardButton.No,
+            )
+            if answer != QMessageBox.StandardButton.Yes:
+                return
+            confirmed = plan.pending_media_maximum_usd
+
+        self.end_to_end_worker = EndToEndCompletionThread(
+            self.repo_root,
+            openai_key,
+            runware_key,
+            elevenlabs_key,
+            confirmed,
+            self,
+        )
+        self.end_to_end_worker.progress_changed.connect(
+            self._on_end_to_end_progress
+        )
+        self.end_to_end_worker.completion_succeeded.connect(
+            self._on_end_to_end_success
+        )
+        self.end_to_end_worker.completion_failed.connect(
+            self._on_end_to_end_failure
+        )
+        self.end_to_end_worker.finished.connect(
+            self._on_end_to_end_finished
+        )
+        self.end_to_end_progress.setRange(0, 100)
+        self.end_to_end_progress.setValue(0)
+        self.end_to_end_progress_label.setText(
+            "بدأ سراج استكمال خط الإنتاج حتى البوابة البشرية التالية."
+        )
+        self.end_to_end_worker.start()
+        self._refresh_resume_directive()
+
+    def _on_end_to_end_progress(
+        self,
+        message: str,
+        value: object,
+    ) -> None:
+        self.end_to_end_progress_label.setText(message)
+        if isinstance(value, int):
+            self.end_to_end_progress.setRange(0, 100)
+            self.end_to_end_progress.setValue(value)
+        else:
+            self.end_to_end_progress.setRange(0, 0)
+
+    def _on_end_to_end_success(self, result: object) -> None:
+        if not isinstance(result, EndToEndRunResult):
+            self._on_end_to_end_failure("INVALID_END_TO_END_RESULT")
+            return
+        self.end_to_end_progress.setRange(0, 100)
+        self.end_to_end_progress.setValue(100)
+        self.end_to_end_progress_label.setText(
+            "توقف سراج عند: " + result.stop_reason
+        )
+        if result.stop_reason == "HUMAN_FINAL_REVIEW_REQUIRED":
+            QMessageBox.information(
+                self,
+                "اكتمل الإنتاج الآلي",
+                "اكتملت الوسائط والصوت والمونتاج وQA. "
+                "المرحلة المتبقية هي مشاهدة الحلقة واعتمادها بشريًا.",
+            )
+            self.tabs.setCurrentIndex(self._tab_index_for_key("qa"))
+            self._open_final_review_publish()
+        elif result.stop_reason == "READY_FOR_MANUAL_YOUTUBE_UPLOAD":
+            QMessageBox.information(
+                self,
+                "مجلد رفع YouTube جاهز",
+                "جهز سراج الفيديو والعنوان والوصف والوسوم والفصول "
+                "والترجمة العربية وإفصاح المحتوى المعاد بناؤه. "
+                "يبقى الرفع والضغط على نشر يدويين.",
+            )
+            self._open_final_review_publish()
+        else:
+            QMessageBox.information(
+                self,
+                "توقف خط الإنتاج عند بوابة مطلوبة",
+                result.stop_reason,
+            )
+        self._refresh_state()
+
+    def _on_end_to_end_failure(self, error: str) -> None:
+        self.end_to_end_progress.setRange(0, 100)
+        self.end_to_end_progress.setValue(0)
+        self.end_to_end_progress_label.setText(
+            "توقف خط الإنتاج: " + error
+        )
+        QMessageBox.critical(
+            self,
+            "توقف استكمال الحلقة",
+            error
+            + "\n\nحُفظت جميع الإيصالات الصحيحة. لن يعيد سراج "
+            "إرسال طلب مدفوع مقفل تلقائيًا.",
+        )
+        self._refresh_state()
+
+    def _on_end_to_end_finished(self) -> None:
+        if self.end_to_end_worker is not None:
+            self.end_to_end_worker.deleteLater()
+        self.end_to_end_worker = None
+        self._refresh_state()
 
     def _build_orchestrator_tab(self) -> None:
         layout = QVBoxLayout(self.orchestrator_tab)
@@ -1570,6 +1790,12 @@ class ProductionConsoleDialog(QDialog):
             + str(result.web_search_calls),
         )
         self._refresh_state()
+        try:
+            plan = inspect_end_to_end_plan(self.repo_root)
+        except Exception:
+            return
+        if plan.action == "OPEN_MEDIA_EXECUTION":
+            self._start_end_to_end_completion(plan)
 
     def _build_media_queue(
         self,
@@ -3057,49 +3283,25 @@ class ProductionConsoleDialog(QDialog):
         self.score_spin.setValue(0)
         self._refresh_state()
 
+
     def reject(self) -> None:
-        if self.scope_worker is not None and self.scope_worker.isRunning():
-            QMessageBox.information(
-                self,
-                "البحث مستمر",
-                "اترك النافذة مفتوحة حتى ينتهي Luna من المقترح بأمان.",
-            )
-            return
-        if self.worker is not None and self.worker.isRunning():
-            QMessageBox.information(
-                self,
-                "التوليد مستمر",
-                "اترك النافذة مفتوحة حتى تنتهي العملية بأمان.",
-            )
-            return
-        if (
-            self.sfx_audio_worker is not None
-            and self.sfx_audio_worker.isRunning()
-        ):
-            QMessageBox.information(
-                self,
-                "المكساج مستمر",
-                "اترك النافذة مفتوحة حتى يكتمل الماستر الصوتي بأمان.",
-            )
-            return
-        if (
-            self.structural_montage_worker is not None
-            and self.structural_montage_worker.isRunning()
-        ):
-            QMessageBox.information(
-                self,
-                "المونتاج مستمر",
-                "اترك النافذة مفتوحة حتى يكتمل ملف الحلقة بأمان.",
-            )
-            return
-        if (
-            self.automatic_qa_worker is not None
-            and self.automatic_qa_worker.isRunning()
-        ):
-            QMessageBox.information(
-                self,
-                "الفحص مستمر",
-                "اترك النافذة مفتوحة حتى يكتمل الفحص والإصلاح بأمان.",
-            )
-            return
+        workers = (
+            (self.scope_worker, "اختيار الموضوع أو البحث مستمر"),
+            (self.editorial_worker, "البحث والنص والستوريبورد مستمرة"),
+            (self.media_execution_worker, "تنفيذ عنصر وسائط مستمر"),
+            (self.end_to_end_worker, "استكمال خط الإنتاج مستمر"),
+            (self.worker, "توليد المقطع مستمر"),
+            (self.sfx_audio_worker, "المكساج مستمر"),
+            (self.structural_montage_worker, "المونتاج مستمر"),
+            (self.automatic_qa_worker, "الفحص مستمر"),
+        )
+        for worker, title in workers:
+            if worker is not None and worker.isRunning():
+                QMessageBox.information(
+                    self,
+                    title,
+                    "اترك النافذة مفتوحة حتى تنتهي العملية بأمان.",
+                )
+                return
         super().reject()
+

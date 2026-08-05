@@ -12,6 +12,11 @@ from pathlib import Path
 from typing import Any, Mapping, Sequence
 
 from src.application.artifact_dependency_graph_v1 import canonical_sha256
+from src.application.youtube_publish_handoff_v1 import (
+    can_complete_youtube_publish_handoff,
+    complete_youtube_publish_handoff,
+    suggest_complete_publish_metadata,
+)
 
 RELEASE = "FINAL_REVIEW_AND_PUBLISH_PACKAGE_V1"
 
@@ -276,34 +281,9 @@ def _approval_allowed(
     raise FinalReviewError(f"FINAL_REVIEW_APPROVAL_NOT_ALLOWED:{status}")
 
 
-def suggest_publish_metadata(repo_root: Path) -> dict[str, Any]:
-    repo, episode_id, episode_root, _, _ = _active_episode(repo_root)
-    del repo
-    definition_path = episode_root / EPISODE_DEFINITION_REL
-    definition = _read(definition_path) if definition_path.is_file() else {}
-    title = _clean_text(
-        definition.get("working_title_ar")
-        or definition.get("title_ar")
-        or episode_id
-    )
-    central_question = _clean_text(definition.get("central_question_ar"))
-    description_lines = []
-    if central_question:
-        description_lines.append(central_question)
-    description_lines.extend(
-        [
-            "",
-            "حلقة وثائقية من مشروع سراج.",
-            "تتم المراجعة البشرية النهائية قبل النشر اليدوي.",
-        ]
-    )
-    return {
-        "title": title[:SAFE_TITLE_MAX_CHARS],
-        "description": "\n".join(description_lines).strip(),
-        "tags": ["سراج", "وثائقي", "تاريخ"],
-        "visibility_preference": "PRIVATE",
-    }
 
+def suggest_publish_metadata(repo_root: Path) -> dict[str, Any]:
+    return suggest_complete_publish_metadata(repo_root)
 
 def _upsert_graph_node(
     nodes: list[dict[str, Any]],
@@ -699,6 +679,8 @@ def approve_final_review_and_build_publish_package(
             "updated_at_utc": _now(),
         },
     )
+    if can_complete_youtube_publish_handoff(repo):
+        complete_youtube_publish_handoff(repo)
     return FinalReviewResult(
         episode_id=episode_id,
         status="READY_TO_PUBLISH",

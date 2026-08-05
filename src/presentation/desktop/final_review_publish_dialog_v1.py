@@ -155,6 +155,16 @@ class FinalReviewPublishDialog(QDialog):
         self.open_package_button = QPushButton("فتح حزمة النشر")
         self.open_package_button.clicked.connect(self._open_package)
         open_row.addWidget(self.open_package_button)
+        self.open_youtube_studio_button = QPushButton(
+            "فتح YouTube Studio"
+        )
+        self.open_youtube_studio_button.setObjectName(
+            "openYouTubeStudioButton"
+        )
+        self.open_youtube_studio_button.clicked.connect(
+            self._open_youtube_studio
+        )
+        open_row.addWidget(self.open_youtube_studio_button)
         self.close_button = QPushButton("إغلاق")
         self.close_button.clicked.connect(self.accept)
         open_row.addWidget(self.close_button)
@@ -213,6 +223,10 @@ class FinalReviewPublishDialog(QDialog):
         self.open_video_button.setEnabled(final_path.is_file())
         self.open_qa_button.setEnabled(qa_path.is_file())
         self.open_package_button.setEnabled(package_dir.is_dir())
+        upload_manifest = package_dir / "youtube-upload-manifest-v1.json"
+        self.open_youtube_studio_button.setEnabled(
+            state == "READY_TO_PUBLISH" and upload_manifest.is_file()
+        )
 
     def _checklist(self) -> dict[str, bool]:
         return {
@@ -241,6 +255,7 @@ class FinalReviewPublishDialog(QDialog):
             "تم تثبيت المراجعة البشرية وبناء حزمة النشر المحلية."
             + "\nالفيديو: "
             + str(result.final_master_path)
+            + "\nجهز سراج أيضًا الفصول والترجمة العربية وورقة رفع YouTube."
             + "\nلا يوجد رفع تلقائي أو طلب API.",
         )
         self._refresh()
@@ -281,6 +296,10 @@ class FinalReviewPublishDialog(QDialog):
         path = Path(str(self._status().get("qa_report_path", "")))
         if path.is_file():
             QDesktopServices.openUrl(QUrl.fromLocalFile(str(path)))
+
+
+    def _open_youtube_studio(self) -> None:
+        QDesktopServices.openUrl(QUrl("https://studio.youtube.com"))
 
     def _open_package(self) -> None:
         path = Path(str(self._status().get("publish_package_dir", "")))
