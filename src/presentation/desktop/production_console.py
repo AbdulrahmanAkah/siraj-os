@@ -92,6 +92,9 @@ from src.application.runtime_state_recovery_v1 import (
     diagnose_runtime_state,
     recover_runtime_state_from_artifacts,
 )
+from src.application.episode_001_pipeline_adoption_v1 import (
+    adopt_episode_001_for_pipeline,
+)
 from src.application.provider_credentials_v1 import (
     ProviderCredentialError,
     read_elevenlabs_api_key,
@@ -125,7 +128,7 @@ from src.application.windows_credentials_v1 import (
     save_runware_api_key,
 )
 
-PRODUCTION_CONSOLE_RELEASE = "SIRAJ_ACCEPTANCE_RESUME_BUTTON_RECOVERY_V1"
+PRODUCTION_CONSOLE_RELEASE = "SIRAJ_EPISODE_001_PIPELINE_ADOPTION_V1"
 
 # Historical source-contract compatibility markers retained:
 # paidExecutionConfirmation
@@ -717,13 +720,95 @@ class ProductionConsoleDialog(QDialog):
             return
 
         self.end_to_end_progress_label.setText(
-            "استلم سراج أمر الاستكمال؛ جارٍ فحص الحالة والملفات…"
+            "استلم سراج أمر الاستكمال؛ جارٍ فحص الحلقة والمرحلة الحالية…"
         )
         self.end_to_end_progress.setRange(0, 0)
         QApplication.processEvents()
 
         try:
             directive = resolve_resume_directive(self.repo_root)
+        except Exception as exc:
+            self.end_to_end_progress.setRange(0, 100)
+            self.end_to_end_progress.setValue(0)
+            self.end_to_end_progress_label.setText(
+                "تعذر تحديد إجراء الاستكمال: " + str(exc)
+            )
+            QMessageBox.critical(
+                self,
+                "تعذر استكمال الحلقة",
+                str(exc),
+            )
+            return
+
+        if directive.action == "ADOPT_EXISTING_EPISODE":
+            answer = QMessageBox.question(
+                self,
+                "ربط الحلقة الأولى بخط الإنتاج الحالي",
+                "اكتشف سراج أن حلقة آدم موجودة ومعتمدة بشريًا، لكن المنسق الجديد لا يعرفها كحلقة نشطة.\n\n"
+                "سيقوم الآن بما يلي:\n"
+                "• تعيين episode-001-adam كحلقة الإنتاج الحالية.\n"
+                "• إنشاء ملفات توافق معيارية من النص والستوريبورد والأدلة المعتمدة.\n"
+                "• بناء طابور 44 صورة و20 فيديو و6 عناصر جرافيك وتعليق صوتي.\n"
+                "• حفظ نسخة احتياطية قبل تغيير ملف الحالة.\n\n"
+                "لن يغيّر الماستر القديم، ولن يرسل أي طلب مدفوع، ولن يتجاوز تأكيد التكلفة. هل تريد المتابعة؟",
+                QMessageBox.StandardButton.Yes
+                | QMessageBox.StandardButton.No,
+                QMessageBox.StandardButton.Yes,
+            )
+            if answer != QMessageBox.StandardButton.Yes:
+                self.end_to_end_progress.setRange(0, 100)
+                self.end_to_end_progress.setValue(0)
+                self.end_to_end_progress_label.setText(
+                    "أُلغي ربط الحلقة الأولى؛ لم يُرسل أي طلب ولم يبدأ إنتاج مدفوع."
+                )
+                return
+            self.end_to_end_progress_label.setText(
+                "جارٍ ربط الحلقة الأولى وبناء طابور الوسائط محليًا…"
+            )
+            QApplication.processEvents()
+            try:
+                adoption = adopt_episode_001_for_pipeline(self.repo_root)
+            except Exception as exc:
+                self.end_to_end_progress.setRange(0, 100)
+                self.end_to_end_progress.setValue(0)
+                self.end_to_end_progress_label.setText(
+                    "تعذر ربط الحلقة الأولى: " + str(exc)
+                )
+                QMessageBox.critical(
+                    self,
+                    "تعذر ربط الحلقة الأولى",
+                    str(exc)
+                    + "\n\nحُفظت الملفات الأصلية ولم يُرسل أي طلب إلى المزودين.",
+                )
+                return
+            QMessageBox.information(
+                self,
+                "تم ربط الحلقة الأولى",
+                "أصبحت episode-001-adam هي الحلقة النشطة.\n"
+                + "الصور: "
+                + str(adoption.image_count)
+                + " | الفيديوهات: "
+                + str(adoption.video_count)
+                + " | الجرافيك: "
+                + str(adoption.graphics_count)
+                + " | مقاطع التعليق: "
+                + str(adoption.tts_segment_count)
+                + "\nالحد الوقائي الأقصى للوسائط: $"
+                + f"{adoption.reserved_max_usd:.2f}"
+                + "\nطلبات المزودين أثناء الربط: 0",
+            )
+            self._refresh_state()
+            try:
+                directive = resolve_resume_directive(self.repo_root)
+            except Exception as exc:
+                QMessageBox.critical(
+                    self,
+                    "تعذر قراءة الحالة بعد الربط",
+                    str(exc),
+                )
+                return
+
+        try:
             plan = inspect_end_to_end_plan(self.repo_root)
         except Exception as exc:
             self.end_to_end_progress.setRange(0, 100)

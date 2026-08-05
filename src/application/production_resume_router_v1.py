@@ -7,8 +7,11 @@ from typing import Any, Mapping
 from src.application.autonomous_episode_orchestrator_v1 import (
     load_orchestrator_state,
 )
+from src.application.episode_001_pipeline_adoption_v1 import (
+    inspect_episode_001_adoption,
+)
 
-RELEASE = "SIRAJ_DESKTOP_COMPLETE_WORKSPACE_AND_RESUME_V1"
+RELEASE = "SIRAJ_EPISODE_001_PIPELINE_ADOPTION_V1"
 
 
 @dataclass(frozen=True, slots=True)
@@ -273,6 +276,20 @@ def resolve_resume_directive_from_state(
 
 
 def resolve_resume_directive(repo_root: Path) -> ProductionResumeDirective:
+    repo = repo_root.resolve()
+    inspection = inspect_episode_001_adoption(repo)
+    if inspection.requires_adoption:
+        return _directive(
+            inspection.stored_status,
+            inspection.stored_stage,
+            "orchestrator",
+            "ADOPT_EXISTING_EPISODE",
+            "ربط الحلقة الأولى الحالية واستكمال إنتاجها",
+            "حلقة آدم موجودة ومعتمدة بشريًا، لكنها أُنشئت قبل خط الإنتاج الحالي ولم تُربط به. "
+            "سيبني سراج جسر التوافق وطابور الوسائط محليًا مع حفظ الملفات الأصلية، "
+            "ومن دون أي طلب إلى OpenAI أو Runware أو ElevenLabs.",
+            automatic=True,
+        )
     return resolve_resume_directive_from_state(
-        load_orchestrator_state(repo_root.resolve())
+        load_orchestrator_state(repo)
     )

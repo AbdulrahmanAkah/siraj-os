@@ -1,0 +1,27 @@
+{
+  "schema_version": "siraj-episode-001-pipeline-adoption-v1",
+  "release": "SIRAJ_EPISODE_001_PIPELINE_ADOPTION_V1",
+  "episode_id": "episode-001-adam",
+  "purpose": "BIND_EXISTING_HUMAN_APPROVED_EPISODE_TO_CURRENT_END_TO_END_PIPELINE",
+  "legacy_files": "PRESERVED",
+  "state_backup_before_adoption": true,
+  "canonical_bridge": [
+    "APPROVED_SCOPE",
+    "EVIDENCE_PACKAGE",
+    "EPISODE_SCRIPT",
+    "STORYBOARD_AND_MEDIA_PLAN",
+    "STAGE_LEDGER",
+    "DEPENDENCY_GRAPH",
+    "MEDIA_QUEUE"
+  ],
+  "media_constitution": {
+    "generated_video": 20,
+    "animated_still": 44,
+    "local_graphics": 6
+  },
+  "provider_requests_during_adoption": 0,
+  "paid_authorization_bypass": "FORBIDDEN",
+  "human_final_review": "REQUIRED",
+  "automatic_youtube_upload": "FORBIDDEN",
+  "next_stage": "END_TO_END_ACCEPTANCE_RUN_EPISODE_001"
+}
