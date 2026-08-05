@@ -2238,3 +2238,15 @@ SIRAJ LOCAL GRAPHICS QML TEXT DIRECTION RECOVERY V1 — 2026-08-06
 ✓ عدم إرسال أي طلب إلى Runware أو ElevenLabs أثناء الاستعادة.
 
 NEXT_STAGE=RESUME_EPISODE_001_MEDIA_QUEUE_FROM_PENDING_LOCAL_GRAPHICS
+
+============================================================
+SIRAJ LOCAL GRAPHICS SUBPROCESS ISOLATION V1 — 2026-08-06
+============================================================
+
+✓ تحديد سبب تجمد الواجهة: إنشاء QQuickView من QThread مع QGuiApplication الخاصة بالواجهة.
+✓ نقل كل رندر جرافيك محلي إلى عملية Python مستقلة تعمل بوضع offscreen.
+✓ إبقاء خيط واجهة Qt حرًا لاستقبال الأحداث وتحديث شريط التقدم.
+✓ الحفاظ على جميع الوسائط والإيصالات المكتملة دون إعادة إنتاج.
+✓ عدم إرسال أي طلب مدفوع أثناء الإصلاح أو الاستعادة.
+
+NEXT_STAGE=RESUME_EPISODE_001_MEDIA_QUEUE_WITH_RESPONSIVE_DESKTOP

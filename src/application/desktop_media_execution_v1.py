@@ -3,6 +3,8 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import subprocess
+import sys
 import time
 import urllib.error
 import urllib.parse
@@ -37,6 +39,10 @@ RUNWARE_POLL_INTERVAL_SECONDS = 5.0
 RUNWARE_POLL_TIMEOUT_SECONDS = 900.0
 ELEVENLABS_API_ROOT = "https://api.elevenlabs.io/v1"
 TTS_TOTAL_RESERVE_USD = 3.0
+LOCAL_GRAPHICS_CHILD_MODULE = (
+    "src.application.local_graphics_subprocess_worker_v1"
+)
+LOCAL_GRAPHICS_SUBPROCESS_TIMEOUT_SECONDS = 7200.0
 
 ProgressCallback = Callable[[str, int | None], None]
 
@@ -786,12 +792,17 @@ def execute_elevenlabs_item(
     )
 
 
-def render_local_graphics_item(
+def _render_local_graphics_item_in_process(
     repo_root: Path,
     queue_id: str,
     *,
     progress: ProgressCallback | None = None,
 ) -> MediaExecutionResult:
+    """Render inside a process that owns its QGuiApplication.
+
+    Desktop callers must use ``render_local_graphics_item`` below.  This
+    function is public only to the isolated child module.
+    """
     repo = repo_root.resolve()
     episode_id, episode_root, queue_path, state, queue = _active_episode(repo)
     collection, item = _find_item(queue, queue_id)
@@ -804,7 +815,7 @@ def render_local_graphics_item(
     output_path = repo / str(item.get("output_path_relative", ""))
     _, receipt_path = _paths(episode_root, queue_id)
     if progress:
-        progress("بدء رندر الجرافيك المحلي.", 5)
+        progress("بدء رندر الجرافيك المحلي داخل العملية المعزولة.", 5)
     result = render_graphic(
         repo,
         spec_path,
@@ -819,6 +830,10 @@ def render_local_graphics_item(
             "cost_category": "OTHER",
             "actual_cost_usd": 0.0,
             "estimated_cost_usd": 0.0,
+            "process_isolation": (
+                "DEDICATED_OFFSCREEN_QT_CHILD_PROCESS"
+            ),
+            "renderer_pid": os.getpid(),
         }
     )
     _write_receipt_and_complete(
@@ -832,13 +847,108 @@ def render_local_graphics_item(
         receipt,
     )
     if progress:
-        progress("اكتمل رندر الجرافيك المحلي.", 100)
+        progress("اكتمل رندر الجرافيك المحلي داخل العملية المعزولة.", 100)
     return MediaExecutionResult(
         queue_id=queue_id,
         media_kind=kind,
         status="COMPLETE",
         output_path=result.output_path,
         receipt_path=receipt_path,
+        task_uuid=None,
+        actual_cost_usd=0.0,
+        estimated_cost_usd=0.0,
+    )
+
+
+def _local_graphics_subprocess_environment() -> dict[str, str]:
+    environment = os.environ.copy()
+    environment["QT_QPA_PLATFORM"] = "offscreen"
+    environment["QT_QUICK_BACKEND"] = "software"
+    environment["QSG_RHI_BACKEND"] = "software"
+    return environment
+
+
+def _local_graphics_subprocess_command(
+    repo_root: Path,
+    queue_id: str,
+) -> list[str]:
+    return [
+        sys.executable,
+        "-m",
+        LOCAL_GRAPHICS_CHILD_MODULE,
+        "--repo-root",
+        str(repo_root.resolve()),
+        "--queue-id",
+        str(queue_id),
+    ]
+
+
+def render_local_graphics_item(
+    repo_root: Path,
+    queue_id: str,
+    *,
+    progress: ProgressCallback | None = None,
+) -> MediaExecutionResult:
+    repo = repo_root.resolve()
+    if progress:
+        progress(
+            "تشغيل رندر الجرافيك في عملية Qt مستقلة؛ الواجهة ستبقى متاحة.",
+            5,
+        )
+    creationflags = 0
+    if os.name == "nt":
+        creationflags = getattr(subprocess, "CREATE_NO_WINDOW", 0)
+    try:
+        process = subprocess.run(
+            _local_graphics_subprocess_command(repo, queue_id),
+            cwd=str(repo),
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+            check=False,
+            env=_local_graphics_subprocess_environment(),
+            timeout=LOCAL_GRAPHICS_SUBPROCESS_TIMEOUT_SECONDS,
+            creationflags=creationflags,
+        )
+    except subprocess.TimeoutExpired as exc:
+        raise DesktopMediaExecutionError(
+            "LOCAL_GRAPHICS_SUBPROCESS_TIMEOUT:"
+            + str(queue_id)
+        ) from exc
+    if process.returncode != 0:
+        detail = (process.stderr or process.stdout)[-6000:]
+        raise DesktopMediaExecutionError(
+            "LOCAL_GRAPHICS_SUBPROCESS_FAILED:"
+            + str(queue_id)
+            + ":"
+            + detail
+        )
+    lines = [line.strip() for line in process.stdout.splitlines() if line.strip()]
+    if not lines:
+        raise DesktopMediaExecutionError(
+            "LOCAL_GRAPHICS_SUBPROCESS_RESULT_MISSING:" + str(queue_id)
+        )
+    try:
+        payload = json.loads(lines[-1])
+    except json.JSONDecodeError as exc:
+        raise DesktopMediaExecutionError(
+            "LOCAL_GRAPHICS_SUBPROCESS_RESULT_INVALID:"
+            + lines[-1][-2000:]
+        ) from exc
+    if payload.get("status") != "COMPLETE":
+        raise DesktopMediaExecutionError(
+            "LOCAL_GRAPHICS_SUBPROCESS_NOT_COMPLETE:"
+            + json.dumps(payload, ensure_ascii=False)
+        )
+    if progress:
+        progress("اكتمل رندر الجرافيك المحلي وعادت النتيجة للواجهة.", 100)
+    return MediaExecutionResult(
+        queue_id=str(payload["queue_id"]),
+        media_kind=str(payload["media_kind"]),
+        status=str(payload["status"]),
+        output_path=Path(str(payload["output_path"])),
+        receipt_path=Path(str(payload["receipt_path"])),
         task_uuid=None,
         actual_cost_usd=0.0,
         estimated_cost_usd=0.0,
