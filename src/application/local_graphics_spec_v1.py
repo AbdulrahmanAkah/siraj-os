@@ -359,6 +359,21 @@ def validate_graphics_spec(
         if _string(item)
     }
     _require(source_ids, "GRAPHICS_SOURCE_IDS_REQUIRED")
+    for item in items:
+        item_id = _string(item.get("item_id"))
+        item_source_ids = {
+            _string(value)
+            for value in _sequence(item.get("source_ids"))
+            if _string(value)
+        }
+        _require(
+            item_source_ids,
+            f"GRAPHICS_ITEM_SOURCE_IDS_REQUIRED:{item_id}",
+        )
+        _require(
+            item_source_ids.issubset(source_ids),
+            f"GRAPHICS_ITEM_SOURCE_OUTSIDE_SPEC:{item_id}",
+        )
     if known_source_ids is not None:
         _require(
             source_ids.issubset(known_source_ids),

@@ -10,6 +10,10 @@ from typing import Any, Callable, Mapping
 
 from src.application.artifact_dependency_graph_v1 import canonical_sha256
 from src.application.episode_cost_ledger_v1 import scan_episode_costs
+from src.application.local_graphics_spec_v1 import (
+    LocalGraphicsSpecError,
+    extract_storyboard_graphics_specs,
+)
 from src.application.openai_luna_editorial_v1 import (
     EditorialLunaError,
     EditorialLunaResult,
@@ -600,6 +604,29 @@ def validate_storyboard_plan(
         raise EditorialPipelineError(
             "STORYBOARD_DOES_NOT_COVER_ALL_SCRIPT_SEGMENTS"
         )
+    graphics_fields = [
+        "graphics_spec" in shot
+        for shot in shots
+        if isinstance(shot, Mapping)
+    ]
+    if any(graphics_fields):
+        if not all(graphics_fields):
+            raise EditorialPipelineError(
+                "GRAPHICS_SPEC_FIELD_REQUIRED_FOR_ALL_SHOTS"
+            )
+        known_source_ids = {
+            str(source_id)
+            for segment in script.get("segments", [])
+            if isinstance(segment, Mapping)
+            for source_id in segment.get("source_ids", [])
+        }
+        try:
+            extract_storyboard_graphics_specs(
+                payload,
+                known_source_ids=known_source_ids,
+            )
+        except LocalGraphicsSpecError as exc:
+            raise EditorialPipelineError(str(exc)) from exc
 
 
 def _stage_paths(
@@ -1538,8 +1565,8 @@ def run_editorial_pipeline(
             ),
             "stage": "BUDGET_PREFLIGHT",
             "next_stage": (
-                "RUNWARE_MEDIA_QUEUE_AND_"
-                "ELEVENLABS_TTS_V1"
+                "GRAPHICS_STORYBOARD_INTEGRATION_"
+                "AND_MEDIA_QUEUE_V1"
             ),
             "last_error": None,
             "updated_at_utc": _now_utc(),
@@ -1558,7 +1585,7 @@ def run_editorial_pipeline(
         progress,
         (
             "اكتمل البحث والنص والستوريبورد. "
-            "المرحلة التالية: فحص الميزانية وطوابير الوسائط."
+            "المرحلة التالية: مواصفات الجرافيك وطابور الوسائط."
         ),
         100,
     )

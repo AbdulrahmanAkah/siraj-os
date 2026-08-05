@@ -42,6 +42,11 @@ from src.application.automatic_research_script_storyboard_runner_v1 import (
     load_editorial_runner_state,
     run_editorial_pipeline,
 )
+from src.application.graphics_storyboard_media_queue_v1 import (
+    GraphicsMediaQueueError,
+    GraphicsMediaQueueResult,
+    integrate_graphics_and_build_media_queue,
+)
 from src.application.provider_credentials_v1 import (
     ProviderCredentialError,
     read_elevenlabs_api_key,
@@ -444,6 +449,18 @@ class ProductionConsoleDialog(QDialog):
         editorial_actions.addWidget(
             self.open_editorial_artifacts_button
         )
+        self.build_media_queue_button = QPushButton(
+            "بناء/استئناف الجرافيك وطابور الوسائط"
+        )
+        self.build_media_queue_button.setObjectName(
+            "buildMediaQueueButton"
+        )
+        self.build_media_queue_button.clicked.connect(
+            self._build_media_queue
+        )
+        editorial_actions.addWidget(
+            self.build_media_queue_button
+        )
         editorial_layout.addLayout(editorial_actions)
         layout.addWidget(self.editorial_pipeline_box)
 
@@ -789,22 +806,83 @@ class ProductionConsoleDialog(QDialog):
             return
         self.editorial_progress.setRange(0, 100)
         self.editorial_progress.setValue(100)
+        queue_result = self._build_media_queue(
+            show_success_dialog=False
+        )
+        if queue_result is None:
+            return
         self.editorial_status_label.setText(
-            "اكتمل البحث والنص والستوريبورد، "
-            "وأصبحت بوابة فحص الميزانية هي المرحلة التالية."
+            "اكتمل البحث والنص والستوريبورد، وتم بناء "
+            "مواصفات الجرافيك وطابور الوسائط."
         )
         QMessageBox.information(
             self,
-            "اكتملت السلسلة التحريرية",
+            "اكتملت السلسلة التحريرية وطابور الوسائط",
             "الحلقة: "
             + result.episode_id
             + "\nاكتملت حزمة الأدلة والنص و70 لقطة."
+            + "\nالصور: "
+            + str(queue_result.image_count)
+            + " | الفيديو: "
+            + str(queue_result.video_count)
+            + " | الجرافيك المحلي: "
+            + str(queue_result.graphics_count)
+            + "\nمقاطع TTS: "
+            + str(queue_result.tts_segment_count)
+            + " — اختيار الصوت مطلوب قبل التنفيذ."
+            + "\nالاحتياطي الوقائي الأقصى: $"
+            + f"{queue_result.reserved_max_usd:.2f}"
             + "\nتكلفة النص التقديرية المسجلة: "
             + f"${result.estimated_text_cost_usd:.4f}"
             + "\nطلبات بحث الويب المسجلة: "
             + str(result.web_search_calls),
         )
         self._refresh_state()
+
+    def _build_media_queue(
+        self,
+        checked: bool = False,
+        *,
+        show_success_dialog: bool = True,
+    ) -> GraphicsMediaQueueResult | None:
+        del checked
+        try:
+            result = integrate_graphics_and_build_media_queue(
+                self.repo_root
+            )
+        except GraphicsMediaQueueError as exc:
+            self.editorial_status_label.setText(
+                "توقف بناء مواصفات الجرافيك وطابور الوسائط: "
+                + str(exc)
+            )
+            QMessageBox.critical(
+                self,
+                "تعذر بناء طابور الوسائط",
+                str(exc)
+                + "\n\nلم يُرسل أي طلب مدفوع. "
+                "استخدم زر البناء/الاستئناف بعد معالجة السبب.",
+            )
+            self._refresh_state()
+            return None
+        self.editorial_status_label.setText(
+            "طابور الوسائط جاهز: "
+            f"{result.image_count} صورة، "
+            f"{result.video_count} فيديو، "
+            f"{result.graphics_count} جرافيك محلي. "
+            "اختيار صوت ElevenLabs ما زال مطلوبًا."
+        )
+        if show_success_dialog:
+            QMessageBox.information(
+                self,
+                "طابور الوسائط جاهز",
+                "تم بناء مواصفات الجرافيك والطوابير محليًا "
+                "دون طلبات مدفوعة."
+                + "\nالاحتياطي الوقائي الأقصى: $"
+                + f"{result.reserved_max_usd:.2f}"
+                + "\nاختيار صوت ElevenLabs مطلوب قبل TTS.",
+            )
+        self._refresh_state()
+        return result
 
     def _on_editorial_failure(self, error: str) -> None:
         self.editorial_progress.setRange(0, 100)
@@ -888,7 +966,9 @@ class ProductionConsoleDialog(QDialog):
             "RUNNING_SCRIPT_WRITING": "Luna يكتب النص من حزمة الأدلة.",
             "RUNNING_STORYBOARD_AND_MEDIA_PLANNING": "Luna يبني الستوريبورد وخطة الوسائط.",
             "EDITORIAL_PIPELINE_FAILED": "توقفت السلسلة التحريرية ويمكن استئنافها بعد معالجة السبب.",
-            "EDITORIAL_PIPELINE_COMPLETE_BUDGET_PREFLIGHT_QUEUED": "اكتمل البحث والنص والستوريبورد؛ فحص الميزانية هو المرحلة التالية.",
+            "EDITORIAL_PIPELINE_COMPLETE_BUDGET_PREFLIGHT_QUEUED": "اكتمل البحث والنص والستوريبورد؛ مواصفات الجرافيك وطابور الوسائط هي المرحلة التالية.",
+            "GRAPHICS_MEDIA_QUEUE_FAILED": "توقف بناء الجرافيك أو طابور الوسائط ويمكن استئنافه دون طلب مدفوع.",
+            "MEDIA_QUEUE_READY": "مواصفات الجرافيك وطابور الوسائط جاهزة؛ اختيار صوت ElevenLabs والتنفيذ المكتبي هما التاليان.",
         }.get(status, status)
         self.orchestrator_status_label.setText(status_text)
         self.provider_readiness_label.setText(
@@ -1013,6 +1093,14 @@ class ProductionConsoleDialog(QDialog):
         self.open_editorial_artifacts_button.setEnabled(
             isinstance(state.get("current_episode_id"), str)
             and bool(state.get("current_episode_id"))
+        )
+        self.build_media_queue_button.setEnabled(
+            not running
+            and status in {
+                "EDITORIAL_PIPELINE_COMPLETE_BUDGET_PREFLIGHT_QUEUED",
+                "GRAPHICS_MEDIA_QUEUE_FAILED",
+                "MEDIA_QUEUE_READY",
+            }
         )
         self.configure_openai_button.setEnabled(not running)
         self.configure_elevenlabs_button.setEnabled(not running)

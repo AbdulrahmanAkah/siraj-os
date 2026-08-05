@@ -60,9 +60,13 @@
     "sound_effects": "ALLOWED_ANY_SCENE_APPROPRIATE_TYPE"
   },
   "delivery_boundary": {
-    "ends_at": "BUDGET_PREFLIGHT_QUEUED",
+    "ends_at": "MEDIA_QUEUE_READY",
     "runware_media_generation": "NEXT_STAGE",
     "elevenlabs_tts": "NEXT_STAGE",
-    "sfx_montage_final_qa": "NEXT_STAGE"
+    "sfx_montage_final_qa": "NEXT_STAGE",
+    "graphics_storyboard_integration": "AUTOMATIC_LOCAL",
+    "media_queue_generation": "AUTOMATIC_LOCAL",
+    "paid_media_execution": "NEXT_STAGE_EXPLICIT_DESKTOP_AUTHORIZATION",
+    "elevenlabs_voice_selection": "NEXT_STAGE"
   }
 }

@@ -1989,3 +1989,21 @@ LOCAL PROFESSIONAL GRAPHICS ENGINE V1 — 2026-08-05
 
 NEXT_STAGE=GRAPHICS_STORYBOARD_INTEGRATION_AND_MEDIA_QUEUE_V1
 
+============================================================
+GRAPHICS STORYBOARD INTEGRATION AND MEDIA QUEUE V1 — 2026-08-05
+============================================================
+
+✓ ست مواصفات جرافيك مرتبطة بالمصادر.
+✓ 44 صورة موزعة على Seedream وNano Banana.
+✓ 20 فيديو Veo 3.1 Lite مدة كل منها 8 ثوانٍ.
+✓ 6 جرافيك محلي بلا تكلفة API.
+✓ طابور ElevenLabs لكل مقطع نصي.
+✓ اختيار صوت ElevenLabs مطلوب قبل التنفيذ.
+✓ احتياطي وقائي أقصى 17.60$ ضمن سقف 40$.
+✓ كل محاولة مدفوعة تحتاج تفويضًا صريحًا.
+✓ لا إعادة مدفوعة خفية.
+✓ تحديث سجل المراحل ومخطط إعادة البناء الجزئي.
+✓ لا طلبات مدفوعة أثناء النشر أو الاختبار.
+
+NEXT_STAGE=DESKTOP_MEDIA_EXECUTION_AND_ELEVENLABS_VOICE_SELECTION_V1
+

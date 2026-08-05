@@ -1,0 +1,47 @@
+{
+  "schema_version": "siraj-graphics-storyboard-media-queue-v1",
+  "release": "GRAPHICS_STORYBOARD_INTEGRATION_AND_MEDIA_QUEUE_V1",
+  "status": "HUMAN_DIRECTIVES_ACTIVE",
+  "automatic_after_editorial_completion": true,
+  "graphics": {
+    "exact_specs": 6,
+    "renderer": "PYSIDE6_QT_QUICK_QML_FFMPEG",
+    "api_cost_usd": 0.0,
+    "source_traceability_required": true
+  },
+  "counts": {
+    "runware_images": 44,
+    "runware_videos": 20,
+    "local_graphics": 6
+  },
+  "images": {
+    "primary": "bytedance:seedream@5.0-pro",
+    "secondary": "google:4@3",
+    "maximum_authorized_usd_per_first_attempt": 0.15
+  },
+  "videos": {
+    "model": "google:veo@3.1-lite",
+    "duration_seconds_each": 8,
+    "maximum_authorized_usd_per_first_attempt": 0.4,
+    "person_generation_safety_preflight_required_when_humans_detected": true
+  },
+  "tts": {
+    "provider": "ELEVENLABS",
+    "queue_granularity": "PER_SCRIPT_SEGMENT",
+    "voice_selection_required": true,
+    "maximum_total_reserve_usd": 3.0
+  },
+  "budget": {
+    "episode_hard_cap_usd": 40.0,
+    "protective_max_reserve_usd": 17.6,
+    "provider_billing_is_source_of_truth": true
+  },
+  "execution": {
+    "explicit_paid_authorization_per_attempt": true,
+    "hidden_paid_retry": "FORBIDDEN",
+    "task_uuid_recovery_without_resubmission": true
+  },
+  "music": "FORBIDDEN",
+  "paid_provider_requests_during_release": 0,
+  "next_stage": "DESKTOP_MEDIA_EXECUTION_AND_ELEVENLABS_VOICE_SELECTION_V1"
+}

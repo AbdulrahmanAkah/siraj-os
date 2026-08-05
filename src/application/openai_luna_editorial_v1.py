@@ -7,6 +7,9 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Mapping
 
+from src.application.local_graphics_spec_v1 import (
+    graphics_spec_json_schema,
+)
 from src.application.shamela_primary_research_v1 import (
     ShamelaPrimarySourceError,
     require_shamela_primary_context,
@@ -387,6 +390,7 @@ def storyboard_schema() -> dict[str, Any]:
             "depicts_unseen_beings",
             "contains_music",
             "safety_notes_ar",
+            "graphics_spec",
         ],
         "properties": {
             "queue_index": {
@@ -471,6 +475,12 @@ def storyboard_schema() -> dict[str, Any]:
                 "type": "array",
                 "items": {"type": "string"},
                 "maxItems": 8,
+            },
+            "graphics_spec": {
+                "anyOf": [
+                    graphics_spec_json_schema(),
+                    {"type": "null"},
+                ]
             },
         },
     }
@@ -861,6 +871,9 @@ def request_storyboard_plan(
 حوّل النص المعتمد إلى ستوريبورد سينمائي قابل للتنفيذ، لا عرض شرائح مسطح.
 أنشئ 70 لقطة بالضبط: 20 فيديو مولد مدة كل منها 8 ثوان، و44 صورة
 متحركة/تركيب بصري، و6 جرافيك. مجموع الفيديو المولد 160 ثانية.
+لكل لقطة GRAPHICS أنشئ graphics_spec كاملًا مرتبطًا بمعرفات المصادر،
+ولكل لقطة غير جرافيك اجعل graphics_spec مساويًا null. استخدم الجرافيك
+للخط الزمني أو الخريطة أو العلاقات أو المصدر أو المقارنة أو بطاقة المكان.
 كل لقطة يجب أن تغيّر معلومة درامية أو ضغطًا عاطفيًا أو فهمًا مكانيًا
 أو ثيمة؛ الجمال وحده غير كافٍ. الحركة والانتقالات يجب أن تكون مبررة.
 اكتب Prompts إنجليزية عملية لـRunware مع Negative Prompts.
