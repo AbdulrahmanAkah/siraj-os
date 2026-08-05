@@ -9,11 +9,22 @@
     "SCRIPT_WRITING",
     "STORYBOARD_AND_MEDIA_PLANNING"
   ],
+  "source_hierarchy": {
+    "primary": "SELECTED_LOCAL_SHAMELA_BOOKS",
+    "secondary": "INTERNET_GAP_FILL_ONLY",
+    "internet_may_replace_missing_shamela_corpus": false,
+    "paid_evidence_request_requires_local_primary_context": true
+  },
+  "episode_duration_minutes": {
+    "minimum": 18,
+    "target": 22,
+    "maximum": 25
+  },
   "provider": {
     "name": "OPENAI",
     "model": "gpt-5.6-luna",
     "api": "RESPONSES_API",
-    "web_search_stage": "EVIDENCE_RESEARCH_ONLY",
+    "web_search_stage": "EVIDENCE_RESEARCH_SECONDARY_ONLY",
     "structured_outputs": "REQUIRED",
     "hidden_paid_retry": "FORBIDDEN",
     "provider_response_recovery": "REQUIRED"

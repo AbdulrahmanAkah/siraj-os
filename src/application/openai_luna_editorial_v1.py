@@ -7,6 +7,10 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Mapping
 
+from src.application.shamela_primary_research_v1 import (
+    ShamelaPrimarySourceError,
+    require_shamela_primary_context,
+)
 from src.application.openai_luna_orchestrator_v1 import (
     LUNA_MODEL,
     estimate_text_cost_usd,
@@ -53,7 +57,7 @@ def _source_schema() -> dict[str, Any]:
             "title": {"type": "string", "minLength": 1},
             "url": {
                 "type": "string",
-                "pattern": "^https?://",
+                "pattern": "^(https?://|shamela://local/)",
             },
             "source_type": {
                 "type": "string",
@@ -64,6 +68,7 @@ def _source_schema() -> dict[str, Any]:
                     "ACADEMIC_SOURCE",
                     "REFERENCE_WORK",
                     "ARCHIVE_OR_MUSEUM",
+                    "SHAMELA_LOCAL_BOOK",
                     "OTHER",
                 ],
             },
@@ -301,8 +306,8 @@ def script_schema() -> dict[str, Any]:
             },
             "target_duration_seconds": {
                 "type": "integer",
-                "minimum": 600,
-                "maximum": 1800,
+                "minimum": 1080,
+                "maximum": 1500,
             },
             "segments": {
                 "type": "array",
@@ -757,9 +762,21 @@ def request_evidence_package(
     episode_id: str,
     approved_scope: Mapping[str, Any],
 ) -> EditorialLunaResult:
-    del repo_root
+    try:
+        shamela_context = require_shamela_primary_context(
+            repo_root,
+            approved_scope,
+        )
+    except ShamelaPrimarySourceError as exc:
+        raise EditorialLunaError(str(exc)) from exc
+
     system = """أنت باحث سراج المسؤول عن حزمة الأدلة النهائية قبل كتابة النص.
-ابحث في الويب بعمق، وابدأ بالمصادر الأولية والمرجعية الموثوقة.
+ابحث أولًا في كتب المكتبة الشاملة المختارة المرفقة في السياق المحلي.
+هذه الكتب هي مصدر المعلومات الأول والملزم في ترتيب البحث.
+الويب مصدر ثانوي فقط: استخدمه عند وجود فجوة محددة لم تغطها كتب الشاملة،
+ولا تجعله بديلًا عن corpus الشاملة ولا نقطة البداية.
+عند الاستناد إلى مقتطف محلي استخدم locator الذي يبدأ بـ shamela://local/
+داخل حقل url، واجعل source_type مناسبًا أو SHAMELA_LOCAL_BOOK.
 التزم بنطاق الأحداث المعتمد ولا تضف حدثًا جديدًا.
 افصل النص القرآني الصريح، الحديث الصحيح، الأثر المقبول، الرواية المؤهلة،
 والجسر التحريري. لا ترفع الضعيف أو المختلف فيه إلى حقيقة قطعية.
@@ -773,11 +790,15 @@ def request_evidence_package(
             "task": "BUILD_EVIDENCE_PACKAGE",
             "episode_id": episode_id,
             "approved_scope": approved_scope,
+            "source_priority": "SHAMELA_PRIMARY_INTERNET_SECONDARY",
+            "shamela_primary_context": shamela_context,
             "requirements": {
                 "preserve_event_ids": True,
                 "minimum_sources": 3,
                 "no_new_events": True,
                 "religious_claims_require_qualification": True,
+                "internet_role": "SECONDARY_GAP_FILL_ONLY",
+                "prefer_shamela_locator_for_supported_claims": True,
             },
         },
         schema_name="siraj_evidence_package_v1",
@@ -802,7 +823,7 @@ def request_script_package(
 اجعل السرد مشوقًا ومتماسكًا بلا خطاب محاضرة وبلا مبالغة مصطنعة.
 لا موسيقى مطلقًا؛ المؤثرات الصوتية المناسبة مسموحة.
 لا تصف الله تعالى أو الملائكة أو إبليس أو الغيب بطريقة تجسيدية.
-المدة الكاملة بين 10 و30 دقيقة. أخرج JSON فقط."""
+المدة الكاملة بين 18 و25 دقيقة، والهدف المعتاد 22 دقيقة. أخرج JSON فقط."""
     return _request(
         api_key,
         system_prompt=system,
@@ -813,7 +834,8 @@ def request_script_package(
             "evidence_package": evidence_package,
             "requirements": {
                 "language": "ARABIC",
-                "duration_seconds": [600, 1800],
+                "duration_seconds": [1080, 1500],
+                "target_duration_seconds": 1320,
                 "claim_traceability": True,
                 "music": "FORBIDDEN",
                 "human_gates_added": 0,

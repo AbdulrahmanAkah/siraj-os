@@ -8,6 +8,10 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Mapping
 
+from src.application.shamela_primary_research_v1 import (
+    build_shamela_primary_context,
+)
+
 OPENAI_RESPONSES_URL = "https://api.openai.com/v1/responses"
 LUNA_MODEL = "gpt-5.6-luna"
 REQUEST_TIMEOUT_SECONDS = 300
@@ -42,7 +46,10 @@ def _scope_schema() -> dict[str, Any]:
         "required": ["title", "url", "source_type", "supports"],
         "properties": {
             "title": {"type": "string", "minLength": 1},
-            "url": {"type": "string", "minLength": 4},
+            "url": {
+                "type": "string",
+                "pattern": "^(https?://|shamela://local/)",
+            },
             "source_type": {
                 "type": "string",
                 "enum": [
@@ -51,6 +58,7 @@ def _scope_schema() -> dict[str, Any]:
                     "CLASSICAL_SOURCE",
                     "ACADEMIC_SOURCE",
                     "REFERENCE_WORK",
+                    "SHAMELA_LOCAL_BOOK",
                     "OTHER",
                 ],
             },
@@ -133,8 +141,8 @@ def _scope_schema() -> dict[str, Any]:
             "rationale_ar": {"type": "string", "minLength": 10},
             "estimated_duration_minutes": {
                 "type": "integer",
-                "minimum": 10,
-                "maximum": 30,
+                "minimum": 18,
+                "maximum": 25,
             },
             "event_count": {"type": "integer", "minimum": 3, "maximum": 15},
             "events": {
@@ -194,7 +202,9 @@ def _system_prompt() -> str:
 مهمتك اقتراح نطاق الحلقة التالية فقط، لا كتابة النص ولا إنشاء صور أو فيديو.
 التزم بما يلي:
 - الاستمرارية مع الحلقات الموجودة وعدم تكرار موضوع مكتمل.
-- اختيار موضوع متماسك يمكن تغطيته في 10 إلى 30 دقيقة.
+- اختيار موضوع متماسك مدته بين 18 و25 دقيقة، والهدف المعتاد 22 دقيقة.
+- كتب المكتبة الشاملة المختارة هي مصدر المعلومات الأول.
+- الويب مصدر ثانوي فقط لسد فجوة محددة لا تغطيها كتب الشاملة المختارة.
 - اقتراح 3 إلى 15 حدثًا فقط وبترتيب زمني واضح.
 - فصل الصريح في القرآن، الصحيح من السنة، الآثار المقبولة، الروايات المؤهلة، والجسور التحريرية.
 - لا تجعل رواية ضعيفة أو مختلفًا فيها حقيقة قطعية.
@@ -216,6 +226,17 @@ def _user_prompt(
     parts = [
         "الحلقات الموجودة في المشروع:",
         _series_context(repo_root),
+        "\nسياق كتب الشاملة المختارة — المصدر الأول:",
+        json.dumps(
+            build_shamela_primary_context(
+                repo_root,
+                instruction or _series_context(repo_root),
+                require_excerpts=False,
+            ),
+            ensure_ascii=False,
+            indent=2,
+        ),
+        "\nسياسة المصدر: SHAMELA_PRIMARY_INTERNET_SECONDARY.",
         "\nاقترح موضوع الحلقة التالية والأحداث الداخلة فيها.",
     ]
     if previous_proposal:

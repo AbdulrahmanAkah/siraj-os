@@ -305,7 +305,9 @@ def _validate_source_ids(
             raise EditorialPipelineError(
                 "EVIDENCE_SOURCE_ID_INVALID_OR_DUPLICATE"
             )
-        if not url.startswith(("http://", "https://")):
+        if not url.startswith(
+            ("http://", "https://", "shamela://local/")
+        ):
             raise EditorialPipelineError(
                 f"EVIDENCE_SOURCE_URL_INVALID:{source_id}"
             )
@@ -414,7 +416,7 @@ def validate_script_package(
             "SCRIPT_MUSIC_MUST_BE_FORBIDDEN"
         )
     target = int(payload.get("target_duration_seconds", 0))
-    if not 600 <= target <= 1800:
+    if not 1080 <= target <= 1500:
         raise EditorialPipelineError(
             "SCRIPT_DURATION_OUT_OF_RANGE"
         )
@@ -475,7 +477,7 @@ def validate_script_package(
         raise EditorialPipelineError(
             "SCRIPT_DOES_NOT_COVER_ALL_APPROVED_EVENTS"
         )
-    if not 540 <= total_duration <= 1980:
+    if not 1080 <= total_duration <= 1500:
         raise EditorialPipelineError(
             "SCRIPT_SEGMENT_DURATION_SUM_INVALID"
         )

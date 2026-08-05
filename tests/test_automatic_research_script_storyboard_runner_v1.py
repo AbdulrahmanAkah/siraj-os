@@ -44,7 +44,7 @@ def _scope(episode_id: str) -> dict:
         "topic_title_ar": "حلقة اختبار",
         "working_title_ar": "حلقة اختبار",
         "central_question_ar": "ماذا حدث؟",
-        "estimated_duration_minutes": 12,
+        "estimated_duration_minutes": 22,
         "events": events,
         "human_approval": True,
     }
@@ -108,7 +108,7 @@ def _script(episode_id: str) -> dict:
             "event_id": "GLOBAL",
             "title_ar": "المقدمة",
             "narration_ar": "مقدمة طويلة " * 10,
-            "estimated_duration_seconds": 60,
+            "estimated_duration_seconds": 120,
             "claim_ids": [],
             "source_ids": [],
             "transition_ar": "ننتقل إلى الحدث الأول.",
@@ -126,7 +126,7 @@ def _script(episode_id: str) -> dict:
                 "narration_ar": (
                     f"سرد تاريخي موثق للحدث رقم {index}. " * 12
                 ),
-                "estimated_duration_seconds": 180,
+                "estimated_duration_seconds": 360,
                 "claim_ids": [f"CL-{index:03d}"],
                 "source_ids": [f"SRC-{index:03d}"],
                 "transition_ar": "انتقال زمني واضح.",
@@ -141,7 +141,7 @@ def _script(episode_id: str) -> dict:
             "event_id": "GLOBAL",
             "title_ar": "الخاتمة",
             "narration_ar": "خاتمة تربط الأحداث بمعنى الحلقة. " * 10,
-            "estimated_duration_seconds": 60,
+            "estimated_duration_seconds": 120,
             "claim_ids": [],
             "source_ids": [],
             "transition_ar": "",
@@ -156,7 +156,7 @@ def _script(episode_id: str) -> dict:
         "central_thesis_ar": (
             "تتابع الأحداث يكشف أثر القرار في المسار التاريخي."
         ),
-        "target_duration_seconds": 660,
+        "target_duration_seconds": 1320,
         "segments": segments,
         "closing_ar": (
             "خاتمة كاملة تحفظ الدقة وتفتح الطريق للحلقة التالية."
