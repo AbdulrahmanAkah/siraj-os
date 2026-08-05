@@ -1,0 +1,67 @@
+{
+  "schema_version": "siraj-local-graphics-spec-v1",
+  "graphic_id": "GFX-01",
+  "shot_id": "SH-065",
+  "graphic_type": "ANIMATED_TIMELINE",
+  "duration_seconds": 12,
+  "title_ar": "تسلسل الأحداث",
+  "subtitle_ar": "ترتيب زمني مبسط وفق الأدلة المعتمدة",
+  "items": [
+    {
+      "item_id": "GI-01",
+      "label_ar": "المرحلة الأولى",
+      "secondary_ar": "",
+      "value_ar": "بداية الحدث",
+      "source_ids": [
+        "SRC-001"
+      ],
+      "x": 0.08,
+      "y": 0.5,
+      "parent_item_id": ""
+    },
+    {
+      "item_id": "GI-02",
+      "label_ar": "المرحلة الثانية",
+      "secondary_ar": "",
+      "value_ar": "تطور المسار",
+      "source_ids": [
+        "SRC-002"
+      ],
+      "x": 0.5,
+      "y": 0.5,
+      "parent_item_id": "GI-01"
+    },
+    {
+      "item_id": "GI-03",
+      "label_ar": "المرحلة الثالثة",
+      "secondary_ar": "",
+      "value_ar": "النتيجة",
+      "source_ids": [
+        "SRC-003"
+      ],
+      "x": 0.92,
+      "y": 0.5,
+      "parent_item_id": "GI-02"
+    }
+  ],
+  "source_ids": [
+    "SRC-001",
+    "SRC-002",
+    "SRC-003"
+  ],
+  "animation_style": "TIMELINE_PROGRESS",
+  "background": {
+    "mode": "GRADIENT",
+    "image_url": "",
+    "overlay_opacity": 0.08
+  },
+  "design": {
+    "font_family": "Segoe UI",
+    "accent_hex": "#C99A45",
+    "foreground_hex": "#F3EBDD",
+    "background_hex": "#17130F",
+    "safe_margin_px": 120
+  },
+  "music": "FORBIDDEN",
+  "sound_policy": "SFX_ONLY_NO_MUSIC"
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": "siraj-local-professional-graphics-engine-v1",
+  "release": "LOCAL_PROFESSIONAL_GRAPHICS_ENGINE_V1",
+  "status": "HUMAN_APPROVED_ARCHITECTURE",
+  "architecture": {
+    "controller": "PYSIDE6",
+    "motion_engine": "QT_QUICK_QML",
+    "vector_layer": "SVG_AND_QML_CANVAS",
+    "encoder": "FFMPEG_LIBX264",
+    "optional_generated_backgrounds": "RUNWARE_SEPARATE_COSTED_ASSET"
+  },
+  "graphic_types": [
+    "ANIMATED_TIMELINE",
+    "MAP_ROUTE",
+    "RELATION_TREE",
+    "SOURCE_CARD",
+    "COMPARISON",
+    "LOCATION_TIME_CARD"
+  ],
+  "output": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "codec": "H264",
+    "pixel_format": "YUV420P"
+  },
+  "quality_law": {
+    "deterministic_frame_progress": true,
+    "rtl_arabic": true,
+    "safe_margins_required": true,
+    "source_traceability_required": true,
+    "text_overflow_validation_required": true,
+    "flat_slideshow": "FORBIDDEN"
+  },
+  "music": "FORBIDDEN",
+  "sound_effects": "ALLOWED_ANY_SCENE_APPROPRIATE_TYPE",
+  "api_cost_usd": 0.0,
+  "runtime_preflight": {
+    "pyside6": "REQUIRED",
+    "qt_quick": "REQUIRED",
+    "ffmpeg": "REQUIRED"
+  },
+  "next_stage": "GRAPHICS_STORYBOARD_INTEGRATION_AND_MEDIA_QUEUE_V1"
+}
