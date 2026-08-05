@@ -115,6 +115,12 @@ def _base_state(repo_root: Path) -> dict[str, Any]:
             "cached_input_tokens": 0,
             "estimated_text_cost_usd": 0.0,
         },
+        "active_scope_luna_usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_input_tokens": 0,
+            "estimated_text_cost_usd": 0.0,
+        },
         "provider_readiness": {
             "openai_luna": "KEY_NOT_CHECKED",
             "runware": "EXISTING_INTEGRATION",
@@ -232,6 +238,30 @@ def _store_luna_result(
         + result.estimated_text_cost_usd,
         8,
     )
+    active_usage = state.setdefault(
+        "active_scope_luna_usage",
+        {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_input_tokens": 0,
+            "estimated_text_cost_usd": 0.0,
+        },
+    )
+    active_usage["input_tokens"] = int(
+        active_usage.get("input_tokens", 0)
+    ) + result.input_tokens
+    active_usage["output_tokens"] = int(
+        active_usage.get("output_tokens", 0)
+    ) + result.output_tokens
+    active_usage["cached_input_tokens"] = int(
+        active_usage.get("cached_input_tokens", 0)
+    ) + result.cached_input_tokens
+    active_usage["estimated_text_cost_usd"] = round(
+        float(active_usage.get("estimated_text_cost_usd", 0.0))
+        + result.estimated_text_cost_usd,
+        8,
+    )
+
     state.update(
         {
             "status": "AWAITING_HUMAN_SCOPE_REVIEW",
@@ -415,6 +445,40 @@ def approve_scope(
     graph_path = orchestration / "artifact-dependency-graph-v1.json"
     _atomic_write_json(graph_path, graph)
 
+    active_usage = state.get("active_scope_luna_usage")
+    if not isinstance(active_usage, Mapping):
+        active_usage = {}
+    scope_cost = float(active_usage.get("estimated_text_cost_usd", 0.0))
+    if (
+        scope_cost > 0
+        or int(active_usage.get("input_tokens", 0)) > 0
+        or int(active_usage.get("output_tokens", 0)) > 0
+    ):
+        cost_receipt = {
+            "schema_version": "siraj-provider-cost-receipt-v1",
+            "episode_id": episode_id,
+            "provider": "OPENAI",
+            "service": "GPT-5.6_LUNA_SCOPE_AND_DISCUSSION",
+            "cost_category": "OPENAI_LUNA",
+            "cost_basis": "ESTIMATED_FROM_PROVIDER_USAGE",
+            "estimated_cost_usd": round(scope_cost, 8),
+            "input_tokens": int(active_usage.get("input_tokens", 0)),
+            "output_tokens": int(active_usage.get("output_tokens", 0)),
+            "cached_input_tokens": int(
+                active_usage.get("cached_input_tokens", 0)
+            ),
+            "provider_response_id": state.get(
+                "last_provider_response_id"
+            ),
+            "created_at_utc": _now_utc(),
+        }
+        _atomic_write_json(
+            orchestration
+            / "cost-receipts"
+            / "openai-luna-scope-receipt-v1.json",
+            cost_receipt,
+        )
+
     stage_ledger = {
         "schema_version": "siraj-autonomous-stage-ledger-v1",
         "episode_id": episode_id,
@@ -449,6 +513,12 @@ def approve_scope(
                 graph_path.relative_to(repo_root.resolve())
             ).replace("\\", "/"),
             "next_stage": "IMPLEMENT_AUTOMATIC_RESEARCH_SCRIPT_STORYBOARD_RUNNER_V1",
+            "active_scope_luna_usage": {
+                "input_tokens": 0,
+                "output_tokens": 0,
+                "cached_input_tokens": 0,
+                "estimated_text_cost_usd": 0.0,
+            },
             "last_error": None,
             "updated_at_utc": _now_utc(),
         }

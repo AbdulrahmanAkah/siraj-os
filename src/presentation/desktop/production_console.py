@@ -8,6 +8,7 @@ from PySide6.QtGui import QDesktopServices
 from PySide6.QtWidgets import (
     QDialog,
     QFormLayout,
+    QGroupBox,
     QHeaderView,
     QHBoxLayout,
     QInputDialog,
@@ -50,6 +51,9 @@ from src.application.automatic_video_workflow_v1 import (
     load_automatic_video_spec,
     load_state,
     save_final_score,
+)
+from src.application.episode_cost_ledger_v1 import (
+    current_episode_cost_breakdown,
 )
 from src.application.episode_production_control_v1 import (
     EpisodeProductionPolicyError,
@@ -346,6 +350,43 @@ class ProductionConsoleDialog(QDialog):
         self.budget_summary_label.setObjectName("episodeBudgetSummary")
         self.budget_summary_label.setWordWrap(True)
         layout.addWidget(self.budget_summary_label)
+
+        self.episode_cost_box = QGroupBox("تكلفة الحلقة الحالية")
+        self.episode_cost_box.setObjectName("episodeCostBreakdownBox")
+        cost_layout = QVBoxLayout(self.episode_cost_box)
+        cost_layout.setContentsMargins(10, 10, 10, 10)
+        cost_layout.setSpacing(6)
+
+        self.episode_cost_total_label = QLabel("")
+        self.episode_cost_total_label.setObjectName("episodeCostTotalLabel")
+        self.episode_cost_total_label.setWordWrap(True)
+        cost_layout.addWidget(self.episode_cost_total_label)
+
+        self.episode_cost_details_table = QTableWidget()
+        self.episode_cost_details_table.setObjectName(
+            "episodeCostDetailsTable"
+        )
+        self.episode_cost_details_table.setColumnCount(4)
+        self.episode_cost_details_table.setHorizontalHeaderLabels(
+            ["البند", "فعلي", "تقديري", "العمليات"]
+        )
+        self.episode_cost_details_table.setEditTriggers(
+            QTableWidget.EditTrigger.NoEditTriggers
+        )
+        self.episode_cost_details_table.setSelectionMode(
+            QTableWidget.SelectionMode.NoSelection
+        )
+        self.episode_cost_details_table.setAlternatingRowColors(True)
+        self.episode_cost_details_table.setMaximumHeight(190)
+        cost_header = self.episode_cost_details_table.horizontalHeader()
+        cost_header.setSectionResizeMode(0, QHeaderView.ResizeMode.Stretch)
+        for column in (1, 2, 3):
+            cost_header.setSectionResizeMode(
+                column,
+                QHeaderView.ResizeMode.ResizeToContents,
+            )
+        cost_layout.addWidget(self.episode_cost_details_table)
+        layout.addWidget(self.episode_cost_box)
 
         self.next_item_label = QLabel("")
         self.next_item_label.setObjectName("nextEpisodeQueueItem")
@@ -727,6 +768,7 @@ class ProductionConsoleDialog(QDialog):
         try:
             plan = load_episode_plan(self.repo_root)
             budget = scan_actual_paid_spend(self.repo_root)
+            costs = current_episode_cost_breakdown(self.repo_root)
             progress = episode_progress(self.repo_root)
             rows = queue_rows(self.repo_root)
         except EpisodeProductionPolicyError as exc:
@@ -752,6 +794,41 @@ class ProductionConsoleDialog(QDialog):
             f"${budget.remaining_usd:.4f}. "
             "أي طلب يتجاوز السقف سيُحجب قبل الإرسال."
         )
+
+
+        pending_scope = (
+            f" — نطاق الحلقة التالية قبل الاعتماد: "
+            f"${costs.pending_scope_estimated_usd:.4f} تقديري"
+            if costs.pending_scope_estimated_usd > 0
+            else ""
+        )
+        self.episode_cost_total_label.setText(
+            f"الحلقة: {costs.episode_id} — الإجمالي المسجل "
+            f"${costs.recorded_total_usd:.4f} "
+            f"(فعلي ${costs.actual_cost_usd:.4f} + "
+            f"تقديري ${costs.estimated_cost_usd:.4f}) — "
+            f"المتبقي ${costs.remaining_usd:.4f} من "
+            f"${costs.hard_cap_usd:.2f} — "
+            f"العمليات المدفوعة: {costs.paid_operations}"
+            f"{pending_scope}"
+        )
+        self.episode_cost_details_table.setRowCount(len(costs.categories))
+        for row_index, category in enumerate(costs.categories):
+            values = (
+                category.label_ar,
+                f"${category.actual_cost_usd:.4f}",
+                f"${category.estimated_cost_usd:.4f}",
+                str(category.paid_operations),
+            )
+            for column, value in enumerate(values):
+                item = QTableWidgetItem(value)
+                if column in {1, 2, 3}:
+                    item.setTextAlignment(Qt.AlignmentFlag.AlignCenter)
+                self.episode_cost_details_table.setItem(
+                    row_index,
+                    column,
+                    item,
+                )
         if progress.next_video_shot_id:
             self.next_item_label.setText(
                 "الفيديو التالي في طابور الخطة: "
