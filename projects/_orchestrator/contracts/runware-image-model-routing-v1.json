@@ -1,0 +1,49 @@
+{
+  "schema_version": "siraj-runware-image-model-routing-v1",
+  "release": "RUNWARE_IMAGE_MODEL_SELECTION_AND_LOCK_V1",
+  "status": "HUMAN_APPROVED_LOCKED",
+  "approved_by": "Abdulrahman Akah",
+  "approval_basis": "SIX_PROMPT_THREE_MODEL_VISUAL_BAKEOFF",
+  "primary_model": {
+    "name": "Seedream 5.0 Pro",
+    "air": "bytedance:seedream@5.0-pro",
+    "roles": [
+      "DEFAULT",
+      "DYNAMIC_ACTION",
+      "ENVIRONMENT_WIDE",
+      "INTERIOR_ATMOSPHERE",
+      "MATERIAL_OBJECTS",
+      "SYMBOLIC_SAFE"
+    ],
+    "dimensions_16_9": {
+      "width": 1424,
+      "height": 800
+    },
+    "reference_image_limit": 10
+  },
+  "secondary_model": {
+    "name": "Nano Banana 2",
+    "air": "google:4@3",
+    "roles": [
+      "CHARACTER_CONSISTENCY",
+      "HUMAN_CLOSEUP",
+      "HUMAN_CROWD_COMPLEX",
+      "HUMAN_INTERACTION_COMPLEX",
+      "REFERENCE_EDIT"
+    ],
+    "dimensions_16_9": {
+      "width": 1344,
+      "height": 768
+    },
+    "reference_image_limit": 14
+  },
+  "excluded_models": [
+    "bfl:5@1"
+  ],
+  "request_law": {
+    "include_cost": true,
+    "number_results": 1,
+    "hidden_paid_retry": "FORBIDDEN"
+  },
+  "next_stage": "RUNWARE_MEDIA_QUEUE_AND_ELEVENLABS_TTS_V1"
+}

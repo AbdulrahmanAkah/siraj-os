@@ -1957,3 +1957,14 @@ SIRAJ EDITORIAL SOURCE DURATION CONSTITUTION FIX V1 — 2026-08-05
 
 NEXT_STAGE=RUNWARE_MEDIA_QUEUE_AND_ELEVENLABS_TTS_V1
 
+============================================================
+RUNWARE IMAGE MODEL SELECTION AND LOCK V1 — 2026-08-05
+============================================================
+
+✓ Seedream 5.0 Pro هو نموذج الصور الرئيسي.
+✓ Nano Banana 2 هو نموذج البشر المعقدين والثبات والتحرير المرجعي.
+✓ FLUX.2 Pro مستبعد من الإنتاج الطبيعي.
+✓ لا طلبات مدفوعة أثناء النشر أو الاختبار.
+
+NEXT_STAGE=RUNWARE_MEDIA_QUEUE_AND_ELEVENLABS_TTS_V1
+
