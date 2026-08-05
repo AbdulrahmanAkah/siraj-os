@@ -8,6 +8,7 @@ from PySide6.QtGui import QDesktopServices
 from PySide6.QtWidgets import (
     QDialog,
     QFormLayout,
+    QFrame,
     QGroupBox,
     QHeaderView,
     QHBoxLayout,
@@ -18,6 +19,8 @@ from PySide6.QtWidgets import (
     QProgressBar,
     QPlainTextEdit,
     QPushButton,
+    QScrollArea,
+    QSizePolicy,
     QSpinBox,
     QTabWidget,
     QTableWidget,
@@ -75,6 +78,9 @@ from src.application.automatic_qa_partial_repair_v1 import (
 from src.presentation.desktop.final_review_publish_dialog_v1 import (
     FinalReviewPublishDialog,
 )
+from src.application.production_resume_router_v1 import (
+    resolve_resume_directive,
+)
 from src.application.provider_credentials_v1 import (
     ProviderCredentialError,
     read_elevenlabs_api_key,
@@ -108,7 +114,7 @@ from src.application.windows_credentials_v1 import (
     save_runware_api_key,
 )
 
-PRODUCTION_CONSOLE_RELEASE = "FINAL_REVIEW_AND_PUBLISH_PACKAGE_V1"
+PRODUCTION_CONSOLE_RELEASE = "SIRAJ_DESKTOP_COMPLETE_WORKSPACE_AND_RESUME_V1"
 
 # Historical source-contract compatibility markers retained:
 # paidExecutionConfirmation
@@ -404,6 +410,7 @@ class ProductionConsoleDialog(QDialog):
         self.structural_montage_worker: StructuralMontageThread | None = None
         self.automatic_qa_worker: AutomaticQAThread | None = None
         self._media_execution_rows = {}
+        self._resume_directive = None
         self.last_output: Path | None = None
         self.setObjectName("productionConsoleDialog")
         self.setWindowTitle("سراج — الإنتاج الذاتي للحلقات")
@@ -430,9 +437,50 @@ class ProductionConsoleDialog(QDialog):
         root.addWidget(title)
         root.addWidget(subtitle)
 
+        self.resume_box = QGroupBox("استكمال الحلقة")
+        self.resume_box.setObjectName("continueEpisodeBox")
+        resume_layout = QVBoxLayout(self.resume_box)
+        resume_layout.setContentsMargins(12, 10, 12, 10)
+        resume_layout.setSpacing(7)
+        self.resume_status_label = QLabel("جارٍ تحديد المرحلة التالية…")
+        self.resume_status_label.setObjectName("continueEpisodeStatusLabel")
+        self.resume_status_label.setWordWrap(True)
+        resume_layout.addWidget(self.resume_status_label)
+        resume_actions = QHBoxLayout()
+        self.continue_episode_button = QPushButton(
+            "استكمال إنتاج الحلقة حتى تصبح جاهزة للنشر"
+        )
+        self.continue_episode_button.setObjectName(
+            "continueEpisodeToPublishButton"
+        )
+        self.continue_episode_button.setMinimumHeight(46)
+        self.continue_episode_button.clicked.connect(
+            self._continue_episode_to_publish
+        )
+        resume_actions.addWidget(self.continue_episode_button, 3)
+        self.resume_refresh_button = QPushButton("تحديث الموجّه")
+        self.resume_refresh_button.setObjectName("refreshResumeDirectiveButton")
+        self.resume_refresh_button.clicked.connect(
+            self._refresh_resume_directive
+        )
+        resume_actions.addWidget(self.resume_refresh_button, 1)
+        resume_layout.addLayout(resume_actions)
+        policy = QLabel(
+            "يشغّل الزر المراحل المحلية والتحريرية الآمنة ويأخذك إلى "
+            "المرحلة الصحيحة. لا يتجاوز اعتماد النطاق، أو تأكيد الإنفاق "
+            "المدفوع، أو المراجعة البشرية النهائية، أو رفع YouTube اليدوي."
+        )
+        policy.setObjectName("muted")
+        policy.setWordWrap(True)
+        resume_layout.addWidget(policy)
+        root.addWidget(self.resume_box)
+
         self.tabs = QTabWidget()
         self.tabs.setObjectName("episodeProductionTabs")
-        root.addWidget(self.tabs, 1)
+        self.tabs.setSizePolicy(
+            QSizePolicy.Policy.Expanding,
+            QSizePolicy.Policy.Minimum,
+        )
 
         self.orchestrator_tab = QWidget()
         self.orchestrator_tab.setObjectName("autonomousOrchestratorTab")
@@ -484,6 +532,24 @@ class ProductionConsoleDialog(QDialog):
         self.tabs.addTab(self.clip_tab, "إنتاج المقطع")
         self._build_clip_tab()
 
+        self.tabs_scroll = QScrollArea()
+        self.tabs_scroll.setObjectName("productionConsoleScroll")
+        self.tabs_scroll.viewport().setObjectName(
+            "productionConsoleScrollViewport"
+        )
+        self.tabs_scroll.setWidgetResizable(True)
+        self.tabs_scroll.setFrameShape(QFrame.Shape.NoFrame)
+        self.tabs_scroll.setHorizontalScrollBarPolicy(
+            Qt.ScrollBarPolicy.ScrollBarAlwaysOff
+        )
+        self.tabs_scroll.setVerticalScrollBarPolicy(
+            Qt.ScrollBarPolicy.ScrollBarAsNeeded
+        )
+        self.tabs_scroll.setWidget(self.tabs)
+        root.addWidget(self.tabs_scroll, 1)
+        self.tabs.currentChanged.connect(self._resize_tabs_for_scroll)
+        self._resize_tabs_for_scroll(self.tabs.currentIndex())
+
         footer = QHBoxLayout()
         self.refresh_button = QPushButton("تحديث الحالة")
         self.refresh_button.setObjectName("refreshEpisodeProductionButton")
@@ -494,6 +560,118 @@ class ProductionConsoleDialog(QDialog):
         close_button.clicked.connect(self.reject)
         footer.addWidget(close_button)
         root.addLayout(footer)
+
+    def _resize_tabs_for_scroll(self, index: int) -> None:
+        page = self.tabs.widget(index)
+        if page is None:
+            return
+        layout = page.layout()
+        content_height = (
+            layout.sizeHint().height()
+            if layout is not None
+            else page.sizeHint().height()
+        )
+        tab_height = self.tabs.tabBar().sizeHint().height()
+        self.tabs.setMinimumHeight(max(720, content_height + tab_height + 48))
+        self.tabs_scroll.verticalScrollBar().setValue(0)
+
+    def _tab_index_for_key(self, key: str) -> int:
+        return {
+            "orchestrator": 0,
+            "plan": 1,
+            "media": 2,
+            "sfx": 3,
+            "montage": 4,
+            "qa": 5,
+            "clip": 6,
+        }.get(key, 0)
+
+    def _refresh_resume_directive(self) -> None:
+        try:
+            directive = resolve_resume_directive(self.repo_root)
+        except Exception as exc:
+            self.resume_status_label.setText(
+                "تعذر تحديد المرحلة التالية: " + str(exc)
+            )
+            self.continue_episode_button.setEnabled(False)
+            return
+        self._resume_directive = directive
+        self.resume_status_label.setText(
+            directive.label_ar + "\n" + directive.detail_ar
+        )
+        self.continue_episode_button.setText(directive.label_ar)
+        running = any(
+            worker is not None and worker.isRunning()
+            for worker in (
+                self.worker,
+                self.scope_worker,
+                self.editorial_worker,
+                self.media_execution_worker,
+                self.sfx_audio_worker,
+                self.structural_montage_worker,
+                self.automatic_qa_worker,
+            )
+        )
+        self.continue_episode_button.setEnabled(
+            not running and directive.action != "WAIT"
+        )
+
+    def _continue_episode_to_publish(self) -> None:
+        try:
+            directive = resolve_resume_directive(self.repo_root)
+        except Exception as exc:
+            QMessageBox.critical(
+                self,
+                "تعذر استكمال الحلقة",
+                str(exc),
+            )
+            return
+        self._resume_directive = directive
+        self.tabs.setCurrentIndex(
+            self._tab_index_for_key(directive.target_tab)
+        )
+        self._resize_tabs_for_scroll(self.tabs.currentIndex())
+
+        action = directive.action
+        if action == "GENERATE_SCOPE":
+            self._produce_next_episode()
+        elif action == "RUN_EDITORIAL":
+            self._start_editorial_pipeline()
+        elif action == "OPEN_MEDIA_EXECUTION":
+            if directive.stage == "LOCAL_GRAPHICS_RENDER":
+                self._render_local_graphics()
+            else:
+                QMessageBox.information(
+                    self,
+                    "تنفيذ الوسائط",
+                    directive.detail_ar
+                    + "\n\nاختر العنصر التالي من الجدول واضغط تنفيذ. "
+                    "ستظهر نافذة التأكيد قبل أي طلب مدفوع.",
+                )
+        elif action == "RUN_SFX":
+            self._start_sfx_audio_mix()
+        elif action == "RUN_MONTAGE":
+            self._start_structural_montage()
+        elif action == "RUN_QA":
+            self._start_automatic_qa()
+        elif action in {"OPEN_FINAL_REVIEW", "OPEN_PUBLISH_PACKAGE"}:
+            self._open_final_review_publish()
+        elif action == "REVIEW_SCOPE":
+            self.scope_proposal_view.setFocus()
+            QMessageBox.information(
+                self,
+                "بوابة اعتماد النطاق",
+                directive.detail_ar,
+            )
+        elif action == "INSPECT_BLOCKER":
+            QMessageBox.warning(
+                self,
+                "توقف يحتاج معالجة",
+                directive.detail_ar,
+            )
+        elif action == "REFRESH":
+            self._refresh_state()
+        self._refresh_resume_directive()
 
     def _build_orchestrator_tab(self) -> None:
         layout = QVBoxLayout(self.orchestrator_tab)
@@ -2702,6 +2880,7 @@ class ProductionConsoleDialog(QDialog):
         self._refresh_sfx_audio()
         self._refresh_structural_montage()
         self._refresh_automatic_qa()
+        self._refresh_resume_directive()
         try:
             spec = load_automatic_video_spec(self.repo_root)
             state = load_state(spec)

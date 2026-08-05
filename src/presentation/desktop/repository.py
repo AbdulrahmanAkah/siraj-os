@@ -18,6 +18,7 @@ _TITLE_OVERRIDES = {
 }
 
 _FINAL_VIDEO_CANDIDATES = (
+    "deliverables/episode-master-v1.mp4",
     "publish/final-video.mp4",
     "outputs/final-video.mp4",
     "cinematic/final-video.mp4",
@@ -25,6 +26,9 @@ _FINAL_VIDEO_CANDIDATES = (
 )
 
 _FINAL_RECEIPT_CANDIDATES = (
+    "deliverables/episode-master-v1-receipt.json",
+    "publishing/human-final-review-v1.json",
+    "publishing/publish-package-v1/publish-manifest-v1.json",
     "publish/final-video-receipt.json",
     "evidence/final-video-human-approval-v1.json",
     "contracts/youtube-publish-readiness-v1.json",
@@ -107,6 +111,7 @@ def _receipt_is_approved(project_path: Path) -> bool:
             "PASS",
             "PUBLISH_READY",
             "READY_FOR_YOUTUBE",
+            "READY_TO_PUBLISH",
         }:
             return True
     return False
@@ -299,6 +304,9 @@ def _collect_outputs(repo_root: Path) -> tuple[Path, ...]:
             "contracts/*.json",
             "evidence/*.json",
             "publish/*.mp4",
+            "deliverables/*",
+            "publishing/**/*",
+            "qa/**/*",
             "outputs/**/*.mp4",
             "generated/**/*.mp4",
         ):

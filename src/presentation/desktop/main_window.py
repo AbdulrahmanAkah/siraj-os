@@ -34,6 +34,7 @@ from .icons import icon
 from .models import DashboardSnapshot, EpisodeRecord, EpisodeStage
 from .repository import build_dashboard_snapshot
 from .production_console import ProductionConsoleDialog
+from .complete_workspace_v1 import CompleteWorkspace
 from .theme import APP_STYLESHEET, COLORS
 from .widgets import MetricCard, Panel, PreviewCanvas, StatusPill, WorkflowStrip
 
@@ -65,7 +66,14 @@ class SirajDesktopWindow(QMainWindow):
         outer.setContentsMargins(12, 12, 12, 12)
         outer.setSpacing(12)
         outer.addWidget(self._build_sidebar())
-        outer.addWidget(self._build_workspace(), 1)
+        self.complete_workspace = CompleteWorkspace(
+            self.repo_root,
+            self._open_production_console,
+            self._open_path,
+            self,
+        )
+        self.complete_workspace.set_dashboard(self._build_workspace())
+        outer.addWidget(self.complete_workspace, 1)
         self.setCentralWidget(root)
 
     def _build_sidebar(self) -> QWidget:
@@ -89,24 +97,29 @@ class SirajDesktopWindow(QMainWindow):
         layout.addSpacing(14)
 
         navigation = (
-            ("dashboard", "لوحة التحكم", True),
-            ("projects", "المشاريع", False),
-            ("episodes", "الحلقات", False),
-            ("storyboard", "الستوريبورد", False),
-            ("visual", "الحزم البصرية", False),
-            ("video", "الفيديو", False),
-            ("approvals", "الاعتمادات", False),
-            ("reports", "التقارير", False),
-            ("settings", "الإعدادات", False),
+            ("dashboard", "dashboard", "لوحة التحكم", True),
+            ("projects", "projects", "المشاريع", False),
+            ("episodes", "episodes", "الحلقات", False),
+            ("storyboard", "storyboard", "الستوريبورد", False),
+            ("visual", "visual", "الحزم البصرية", False),
+            ("video", "video", "الفيديو", False),
+            ("approvals", "approvals", "الاعتمادات", False),
+            ("reports", "reports", "التقارير", False),
+            ("settings", "settings", "الإعدادات", False),
         )
-        for icon_name, text, active in navigation:
-            button = QPushButton(icon(icon_name, "gold" if active else "muted"), text)
+        self.nav_buttons: dict[str, QPushButton] = {}
+        for section, icon_name, text, active in navigation:
+            button = QPushButton(
+                icon(icon_name, "gold" if active else "muted"),
+                text,
+            )
             button.setIconSize(QSize(18, 18))
             button.setObjectName("navButton")
             button.setProperty("active", active)
             button.clicked.connect(
-                lambda checked=False, label=text: self._show_placeholder(label)
+                lambda checked=False, key=section: self._navigate(key)
             )
+            self.nav_buttons[section] = button
             layout.addWidget(button)
 
         layout.addStretch(1)
@@ -571,6 +584,7 @@ class SirajDesktopWindow(QMainWindow):
 
     def _populate(self, snapshot: DashboardSnapshot) -> None:
         self.snapshot = snapshot
+        self.complete_workspace.refresh(snapshot)
         self.project_combo.blockSignals(True)
         self.project_combo.clear()
         for episode in snapshot.episodes:
@@ -787,20 +801,8 @@ class SirajDesktopWindow(QMainWindow):
         self.workflow_strip.set_episode(episode)
 
     def _episode_action(self, episode: EpisodeRecord) -> None:
-        if (
-            episode.episode_id == "episode-001-adam"
-            and episode.final_video_path is None
-        ):
+        if not episode.publish_ready:
             self._open_production_console()
-            return
-        if episode.conversion_ready:
-            QMessageBox.information(
-                self,
-                "بوابة تحويل الفيديو",
-                "الحلقة جاهزة من حيث بيانات الواجهة. التنفيذ المدفوع يبقى محجوبًا "
-                "حتى ربط بوابة اعتماد Runware بعد اعتماد الواجهة بصريًا.",
-            )
-            self._log(f"VIDEO_CONVERSION_GATE_OPENED {episode.episode_id}")
             return
         if episode.final_video_path is not None:
             self._open_path(episode.final_video_path)
@@ -874,18 +876,40 @@ class SirajDesktopWindow(QMainWindow):
         dialog.exec()
         self._refresh()
 
+    def _navigate(self, section: str) -> None:
+        if not self.complete_workspace.show_section(section):
+            QMessageBox.warning(
+                self,
+                "قسم غير معروف",
+                "تعذر فتح القسم: " + section,
+            )
+            return
+        for key, button in self.nav_buttons.items():
+            active = key == section
+            button.setProperty("active", active)
+            button.setIcon(
+                icon(key, "gold" if active else "muted")
+            )
+            button.style().unpolish(button)
+            button.style().polish(button)
+            button.update()
+        self._log("NAVIGATE " + section)
+
     def _show_placeholder(self, label: str) -> None:
-        if label == "لوحة التحكم":
-            return
-        if label == "الفيديو":
-            self._open_production_console()
-            return
-        QMessageBox.information(
-            self,
-            label,
-            "هذا القسم مدرج في تصميم الواجهة وسيتم تفعيله تباعًا. "
-            "الإصدار v1.3 يركز على ثبات التخطيط والمراجعة البصرية.",
-        )
+        # Historical source-contract compatibility marker:
+        # if label == "الفيديو":
+        mapping = {
+            "لوحة التحكم": "dashboard",
+            "المشاريع": "projects",
+            "الحلقات": "episodes",
+            "الستوريبورد": "storyboard",
+            "الحزم البصرية": "visual",
+            "الفيديو": "video",
+            "الاعتمادات": "approvals",
+            "التقارير": "reports",
+            "الإعدادات": "settings",
+        }
+        self._navigate(mapping.get(label, "dashboard"))
 
     def _log(self, message: str) -> None:
         self.execution_log.appendPlainText(message)
