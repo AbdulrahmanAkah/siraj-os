@@ -35,6 +35,13 @@ from src.application.autonomous_episode_orchestrator_v1 import (
     load_orchestrator_state,
     provider_readiness,
 )
+from src.application.automatic_research_script_storyboard_runner_v1 import (
+    EDITORIAL_MAX_BUDGET_USD,
+    EditorialPipelineError,
+    EditorialPipelineResult,
+    load_editorial_runner_state,
+    run_editorial_pipeline,
+)
 from src.application.provider_credentials_v1 import (
     ProviderCredentialError,
     read_elevenlabs_api_key,
@@ -68,7 +75,7 @@ from src.application.windows_credentials_v1 import (
     save_runware_api_key,
 )
 
-PRODUCTION_CONSOLE_RELEASE = "SIRAJ_AUTONOMOUS_EPISODE_ORCHESTRATOR_V1"
+PRODUCTION_CONSOLE_RELEASE = "AUTOMATIC_RESEARCH_SCRIPT_STORYBOARD_RUNNER_V1"
 
 # Historical source-contract compatibility markers retained:
 # paidExecutionConfirmation
@@ -124,6 +131,39 @@ class ScopeGenerationThread(QThread):
             self._api_key = ""
 
 
+class EditorialPipelineThread(QThread):
+    progress_changed = Signal(str, object)
+    pipeline_succeeded = Signal(object)
+    pipeline_failed = Signal(str)
+
+    def __init__(
+        self,
+        repo_root: Path,
+        api_key: str,
+        parent: QWidget | None = None,
+    ) -> None:
+        super().__init__(parent)
+        self.repo_root = repo_root
+        self._api_key = api_key
+
+    def run(self) -> None:
+        def progress(message: str, value: int | None) -> None:
+            self.progress_changed.emit(message, value)
+
+        try:
+            result = run_editorial_pipeline(
+                self.repo_root,
+                self._api_key,
+                progress=progress,
+            )
+        except Exception as exc:
+            self.pipeline_failed.emit(str(exc))
+        else:
+            self.pipeline_succeeded.emit(result)
+        finally:
+            self._api_key = ""
+
+
 class AutomaticGenerationThread(QThread):
     progress_changed = Signal(str, object)
     generation_succeeded = Signal(object)
@@ -167,11 +207,12 @@ class ProductionConsoleDialog(QDialog):
         self.repo_root = repo_root.resolve()
         self.worker: AutomaticGenerationThread | None = None
         self.scope_worker: ScopeGenerationThread | None = None
+        self.editorial_worker: EditorialPipelineThread | None = None
         self.last_output: Path | None = None
         self.setObjectName("productionConsoleDialog")
         self.setWindowTitle("سراج — الإنتاج الذاتي للحلقات")
-        self.resize(1080, 720)
-        self.setMinimumSize(900, 620)
+        self.resize(1180, 840)
+        self.setMinimumSize(960, 700)
         self.setLayoutDirection(Qt.LayoutDirection.RightToLeft)
         self._build_ui()
         self._refresh_state()
@@ -329,12 +370,82 @@ class ProductionConsoleDialog(QDialog):
         layout.addLayout(discussion_row)
 
         self.approve_scope_button = QPushButton(
-            "اعتماد الموضوع والأحداث وفتح الإنتاج الآلي"
+            "اعتماد الموضوع والأحداث وبدء البحث والنص والستوريبورد"
         )
         self.approve_scope_button.setObjectName("approveEpisodeScopeButton")
         self.approve_scope_button.setMinimumHeight(44)
         self.approve_scope_button.clicked.connect(self._approve_episode_scope)
         layout.addWidget(self.approve_scope_button)
+
+
+        authorization_hint = QLabel(
+            "اعتماد النطاق يفوض تلقائيًا ثلاث مراحل Luna بحد تحريري "
+            f"أقصى ${EDITORIAL_MAX_BUDGET_USD:.2f} ضمن سقف الحلقة 40$. "
+            "لا توجد إعادة مدفوعة خفية."
+        )
+        authorization_hint.setObjectName("muted")
+        authorization_hint.setWordWrap(True)
+        layout.addWidget(authorization_hint)
+
+        self.editorial_pipeline_box = QGroupBox(
+            "البحث والنص والستوريبورد الآلي"
+        )
+        self.editorial_pipeline_box.setObjectName(
+            "editorialPipelineBox"
+        )
+        editorial_layout = QVBoxLayout(
+            self.editorial_pipeline_box
+        )
+        editorial_layout.setContentsMargins(10, 10, 10, 10)
+        editorial_layout.setSpacing(6)
+
+        self.editorial_status_label = QLabel(
+            "بانتظار اعتماد موضوع الحلقة وأحداثها."
+        )
+        self.editorial_status_label.setObjectName(
+            "editorialPipelineStatusLabel"
+        )
+        self.editorial_status_label.setWordWrap(True)
+        editorial_layout.addWidget(
+            self.editorial_status_label
+        )
+
+        self.editorial_progress = QProgressBar()
+        self.editorial_progress.setObjectName(
+            "editorialPipelineProgress"
+        )
+        self.editorial_progress.setRange(0, 100)
+        self.editorial_progress.setValue(0)
+        editorial_layout.addWidget(self.editorial_progress)
+
+        editorial_actions = QHBoxLayout()
+        self.resume_editorial_button = QPushButton(
+            "استئناف البحث والنص والستوريبورد"
+        )
+        self.resume_editorial_button.setObjectName(
+            "resumeEditorialPipelineButton"
+        )
+        self.resume_editorial_button.clicked.connect(
+            self._start_editorial_pipeline
+        )
+        editorial_actions.addWidget(
+            self.resume_editorial_button
+        )
+
+        self.open_editorial_artifacts_button = QPushButton(
+            "فتح مجلد الحلقة"
+        )
+        self.open_editorial_artifacts_button.setObjectName(
+            "openEditorialArtifactsButton"
+        )
+        self.open_editorial_artifacts_button.clicked.connect(
+            self._open_editorial_artifacts
+        )
+        editorial_actions.addWidget(
+            self.open_editorial_artifacts_button
+        )
+        editorial_layout.addLayout(editorial_actions)
+        layout.addWidget(self.editorial_pipeline_box)
 
     def _build_plan_tab(self) -> None:
         layout = QVBoxLayout(self.plan_tab)
@@ -624,23 +735,137 @@ class ProductionConsoleDialog(QDialog):
         self.scope_worker = None
         self._refresh_state()
 
+    def _start_editorial_pipeline(self) -> None:
+        if (
+            self.editorial_worker is not None
+            and self.editorial_worker.isRunning()
+        ):
+            return
+        key = self._ensure_openai_key()
+        if not key:
+            return
+        self.editorial_worker = EditorialPipelineThread(
+            self.repo_root,
+            key,
+            self,
+        )
+        self.editorial_worker.progress_changed.connect(
+            self._on_editorial_progress
+        )
+        self.editorial_worker.pipeline_succeeded.connect(
+            self._on_editorial_success
+        )
+        self.editorial_worker.pipeline_failed.connect(
+            self._on_editorial_failure
+        )
+        self.editorial_worker.finished.connect(
+            self._on_editorial_finished
+        )
+        self.editorial_progress.setRange(0, 100)
+        self.editorial_progress.setValue(0)
+        self.editorial_status_label.setText(
+            "بدء السلسلة التحريرية الآلية…"
+        )
+        self.editorial_worker.start()
+        self._refresh_state()
+
+    def _on_editorial_progress(
+        self,
+        message: str,
+        value: object,
+    ) -> None:
+        self.editorial_status_label.setText(message)
+        if isinstance(value, int):
+            self.editorial_progress.setRange(0, 100)
+            self.editorial_progress.setValue(value)
+        else:
+            self.editorial_progress.setRange(0, 0)
+
+    def _on_editorial_success(self, result: object) -> None:
+        if not isinstance(result, EditorialPipelineResult):
+            self._on_editorial_failure(
+                "INVALID_EDITORIAL_PIPELINE_RESULT"
+            )
+            return
+        self.editorial_progress.setRange(0, 100)
+        self.editorial_progress.setValue(100)
+        self.editorial_status_label.setText(
+            "اكتمل البحث والنص والستوريبورد، "
+            "وأصبحت بوابة فحص الميزانية هي المرحلة التالية."
+        )
+        QMessageBox.information(
+            self,
+            "اكتملت السلسلة التحريرية",
+            "الحلقة: "
+            + result.episode_id
+            + "\nاكتملت حزمة الأدلة والنص و70 لقطة."
+            + "\nتكلفة النص التقديرية المسجلة: "
+            + f"${result.estimated_text_cost_usd:.4f}"
+            + "\nطلبات بحث الويب المسجلة: "
+            + str(result.web_search_calls),
+        )
+        self._refresh_state()
+
+    def _on_editorial_failure(self, error: str) -> None:
+        self.editorial_progress.setRange(0, 100)
+        self.editorial_status_label.setText(
+            "توقفت السلسلة التحريرية: " + error
+        )
+        QMessageBox.critical(
+            self,
+            "توقف البحث أو النص أو الستوريبورد",
+            error
+            + "\n\nلا يعيد سراج طلبًا مدفوعًا تلقائيًا. "
+            "استخدم زر الاستئناف بعد معالجة السبب.",
+        )
+        self._refresh_state()
+
+    def _on_editorial_finished(self) -> None:
+        if self.editorial_worker is not None:
+            self.editorial_worker.deleteLater()
+        self.editorial_worker = None
+        self._refresh_state()
+
+    def _open_editorial_artifacts(self) -> None:
+        try:
+            state = load_orchestrator_state(self.repo_root)
+        except Exception:
+            return
+        episode_id = state.get("current_episode_id")
+        if not isinstance(episode_id, str) or not episode_id:
+            return
+        episode_root = (
+            self.repo_root / "projects" / episode_id
+        )
+        if episode_root.is_dir():
+            QDesktopServices.openUrl(
+                QUrl.fromLocalFile(str(episode_root))
+            )
+
     def _approve_episode_scope(self) -> None:
         try:
             state = approve_scope(self.repo_root)
         except AutonomousOrchestratorError as exc:
-            QMessageBox.critical(self, "تعذر اعتماد النطاق", str(exc))
+            QMessageBox.critical(
+                self,
+                "تعذر اعتماد النطاق",
+                str(exc),
+            )
             return
-        QMessageBox.information(
-            self,
-            "تم اعتماد النطاق",
-            "تم إنشاء " + str(state.get("current_episode_id"))
-            + " وربط مخطط الاعتماديات. المرحلة التالية هي تشغيل البحث والنص والستوريبورد الآلي.",
+        self.scope_progress_label.setText(
+            "تم اعتماد "
+            + str(state.get("current_episode_id"))
+            + "؛ يبدأ الآن البحث والنص والستوريبورد تلقائيًا."
         )
         self._refresh_state()
+        self._start_editorial_pipeline()
 
     def _refresh_orchestrator_state(self) -> None:
         try:
             state = load_orchestrator_state(self.repo_root)
+            editorial_state = load_editorial_runner_state(
+                self.repo_root
+            )
             proposal = current_scope_proposal(self.repo_root)
             readiness = provider_readiness(
                 self.repo_root,
@@ -658,7 +883,12 @@ class ProductionConsoleDialog(QDialog):
             "GENERATING_SCOPE_WITH_LUNA": "Luna يبحث الآن ويُنشئ مقترح الموضوع والأحداث.",
             "AWAITING_HUMAN_SCOPE_REVIEW": "بوابة المراجعة البشرية مفتوحة: ناقش المقترح ثم اعتمده.",
             "SCOPE_PROVIDER_ERROR": "توقف مزود Luna. أصلح المفتاح أو الرصيد ثم أعد المحاولة.",
-            "SCOPE_APPROVED_AUTOMATIC_PIPELINE_QUEUED": "تم اعتماد النطاق وإنشاء الحلقة ومخطط الاعتماديات. البحث والنص والستوريبورد الآلي هي المرحلة البرمجية التالية.",
+            "SCOPE_APPROVED_AUTOMATIC_PIPELINE_QUEUED": "تم اعتماد النطاق. البحث والنص والستوريبورد جاهزة للبدء الآلي.",
+            "RUNNING_EVIDENCE_RESEARCH": "Luna يجمع الأدلة والمصادر المعتمدة.",
+            "RUNNING_SCRIPT_WRITING": "Luna يكتب النص من حزمة الأدلة.",
+            "RUNNING_STORYBOARD_AND_MEDIA_PLANNING": "Luna يبني الستوريبورد وخطة الوسائط.",
+            "EDITORIAL_PIPELINE_FAILED": "توقفت السلسلة التحريرية ويمكن استئنافها بعد معالجة السبب.",
+            "EDITORIAL_PIPELINE_COMPLETE_BUDGET_PREFLIGHT_QUEUED": "اكتمل البحث والنص والستوريبورد؛ فحص الميزانية هو المرحلة التالية.",
         }.get(status, status)
         self.orchestrator_status_label.setText(status_text)
         self.provider_readiness_label.setText(
@@ -667,6 +897,56 @@ class ProductionConsoleDialog(QDialog):
             + " | ElevenLabs=" + readiness["elevenlabs"]
             + " | المونتاج=" + readiness["montage"]
             + " | المؤثرات=" + readiness["sfx"]
+        )
+
+
+        editorial_status = str(
+            editorial_state.get("status", "NO_APPROVED_EPISODE")
+        )
+        completed_editorial = editorial_state.get(
+            "completed_stages",
+            [],
+        )
+        completed_count = (
+            len(completed_editorial)
+            if isinstance(completed_editorial, list)
+            else 0
+        )
+        editorial_messages = {
+            "NO_APPROVED_EPISODE": (
+                "بانتظار اعتماد موضوع الحلقة وأحداثها."
+            ),
+            "READY_AFTER_SCOPE_APPROVAL": (
+                "النطاق معتمد والسلسلة التحريرية جاهزة."
+            ),
+            "RUNNING_EVIDENCE_RESEARCH": (
+                "مرحلة 1/3: بناء حزمة الأدلة."
+            ),
+            "RUNNING_SCRIPT_WRITING": (
+                "مرحلة 2/3: كتابة النص الموثق."
+            ),
+            "RUNNING_STORYBOARD_AND_MEDIA_PLANNING": (
+                "مرحلة 3/3: بناء 70 لقطة وخطة الوسائط."
+            ),
+            "EDITORIAL_PIPELINE_FAILED": (
+                "توقفت العملية: "
+                + str(editorial_state.get("last_error", ""))
+            ),
+            "EDITORIAL_PIPELINE_COMPLETE": (
+                "اكتملت حزمة الأدلة والنص والستوريبورد."
+            ),
+        }
+        self.editorial_status_label.setText(
+            editorial_messages.get(
+                editorial_status,
+                editorial_status,
+            )
+        )
+        self.editorial_progress.setRange(0, 100)
+        self.editorial_progress.setValue(
+            100
+            if editorial_status == "EDITORIAL_PIPELINE_COMPLETE"
+            else min(99, completed_count * 33)
         )
 
         if proposal:
@@ -702,7 +982,16 @@ class ProductionConsoleDialog(QDialog):
             self.scope_proposal_view.setPlainText("لا يوجد مقترح بعد.")
             self.scope_events_table.setRowCount(0)
 
-        running = self.scope_worker is not None and self.scope_worker.isRunning()
+        running = (
+            (
+                self.scope_worker is not None
+                and self.scope_worker.isRunning()
+            )
+            or (
+                self.editorial_worker is not None
+                and self.editorial_worker.isRunning()
+            )
+        )
         self.produce_next_episode_button.setEnabled(
             not running
             and status in {
@@ -714,6 +1003,17 @@ class ProductionConsoleDialog(QDialog):
         self.send_scope_discussion_button.setEnabled(not running and review_open)
         self.scope_discussion_input.setEnabled(not running and review_open)
         self.approve_scope_button.setEnabled(not running and review_open)
+        self.resume_editorial_button.setEnabled(
+            not running
+            and editorial_status in {
+                "READY_AFTER_SCOPE_APPROVAL",
+                "EDITORIAL_PIPELINE_FAILED",
+            }
+        )
+        self.open_editorial_artifacts_button.setEnabled(
+            isinstance(state.get("current_episode_id"), str)
+            and bool(state.get("current_episode_id"))
+        )
         self.configure_openai_button.setEnabled(not running)
         self.configure_elevenlabs_button.setEnabled(not running)
 

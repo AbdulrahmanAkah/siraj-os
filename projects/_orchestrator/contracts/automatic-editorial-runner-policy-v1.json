@@ -1,0 +1,57 @@
+{
+  "schema_version": "siraj-automatic-editorial-runner-policy-v1",
+  "policy_id": "siraj_automatic_research_script_storyboard_runner_v1_20260805",
+  "status": "HUMAN_DIRECTIVES_ACTIVE",
+  "release": "AUTOMATIC_RESEARCH_SCRIPT_STORYBOARD_RUNNER_V1",
+  "trigger": "HUMAN_SCOPE_APPROVAL",
+  "automatic_stages": [
+    "EVIDENCE_RESEARCH",
+    "SCRIPT_WRITING",
+    "STORYBOARD_AND_MEDIA_PLANNING"
+  ],
+  "provider": {
+    "name": "OPENAI",
+    "model": "gpt-5.6-luna",
+    "api": "RESPONSES_API",
+    "web_search_stage": "EVIDENCE_RESEARCH_ONLY",
+    "structured_outputs": "REQUIRED",
+    "hidden_paid_retry": "FORBIDDEN",
+    "provider_response_recovery": "REQUIRED"
+  },
+  "human_gates": [
+    "HUMAN_SCOPE_REVIEW",
+    "HUMAN_FINAL_REVIEW"
+  ],
+  "additional_human_gate": "FORBIDDEN",
+  "budget": {
+    "episode_hard_cap_usd": 40.0,
+    "editorial_max_authorized_usd": 3.0,
+    "stage_max_budget_usd": {
+      "EVIDENCE_RESEARCH": 0.8,
+      "SCRIPT_WRITING": 0.7,
+      "STORYBOARD_AND_MEDIA_PLANNING": 1.5
+    },
+    "provider_billing_is_source_of_truth": true
+  },
+  "media_law": {
+    "total_shots": 70,
+    "generated_video_shots": 20,
+    "generated_video_seconds_each": 8,
+    "generated_video_total_seconds": 160,
+    "animated_still_compositing_shots": 44,
+    "graphics_shots": 6,
+    "flat_slideshow": "FORBIDDEN"
+  },
+  "audio": {
+    "music": "FORBIDDEN",
+    "musical_score": "FORBIDDEN",
+    "songs": "FORBIDDEN",
+    "sound_effects": "ALLOWED_ANY_SCENE_APPROPRIATE_TYPE"
+  },
+  "delivery_boundary": {
+    "ends_at": "BUDGET_PREFLIGHT_QUEUED",
+    "runware_media_generation": "NEXT_STAGE",
+    "elevenlabs_tts": "NEXT_STAGE",
+    "sfx_montage_final_qa": "NEXT_STAGE"
+  }
+}
