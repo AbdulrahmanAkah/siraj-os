@@ -72,6 +72,9 @@ from src.application.automatic_qa_partial_repair_v1 import (
     load_automatic_qa_status,
     run_automatic_qa_and_partial_repair,
 )
+from src.presentation.desktop.final_review_publish_dialog_v1 import (
+    FinalReviewPublishDialog,
+)
 from src.application.provider_credentials_v1 import (
     ProviderCredentialError,
     read_elevenlabs_api_key,
@@ -105,7 +108,7 @@ from src.application.windows_credentials_v1 import (
     save_runware_api_key,
 )
 
-PRODUCTION_CONSOLE_RELEASE = "AUTOMATIC_QA_AND_PARTIAL_REPAIR_V1"
+PRODUCTION_CONSOLE_RELEASE = "FINAL_REVIEW_AND_PUBLISH_PACKAGE_V1"
 
 # Historical source-contract compatibility markers retained:
 # paidExecutionConfirmation
@@ -1079,6 +1082,17 @@ class ProductionConsoleDialog(QDialog):
             self._open_qa_final_episode
         )
         actions.addWidget(self.open_qa_final_episode_button)
+
+        self.open_final_review_publish_button = QPushButton(
+            "المراجعة النهائية وحزمة النشر"
+        )
+        self.open_final_review_publish_button.setObjectName(
+            "openFinalReviewPublishButton"
+        )
+        self.open_final_review_publish_button.clicked.connect(
+            self._open_final_review_publish
+        )
+        actions.addWidget(self.open_final_review_publish_button)
         actions.addStretch(1)
         layout.addLayout(actions)
 
@@ -1521,6 +1535,8 @@ class ProductionConsoleDialog(QDialog):
             "AUTOMATIC_QA_FAILED": "توقف الفحص الآلي ويمكن استئنافه دون طلب مدفوع.",
             "AUTOMATIC_QA_BLOCKED": "كشف الفحص عيبًا مصدريًا أو بشريًا لا يجوز إصلاحه تلقائيًا.",
             "AWAITING_HUMAN_FINAL_REVIEW": "نجح الفحص الآلي؛ بوابة المراجعة البشرية النهائية مفتوحة.",
+            "HUMAN_FINAL_REVIEW_CHANGES_REQUESTED": "سجلت المراجعة النهائية طلب إصلاح محدد دون إعادة مدفوعة تلقائية.",
+            "READY_TO_PUBLISH": "اكتملت البرمجة والإنتاج؛ حزمة النشر جاهزة والرفع إلى YouTube يدوي.",
         }.get(status, status)
         self.orchestrator_status_label.setText(status_text)
         self.provider_readiness_label.setText(
@@ -2443,6 +2459,7 @@ class ProductionConsoleDialog(QDialog):
             self.run_automatic_qa_button.setEnabled(False)
             self.open_automatic_qa_report_button.setEnabled(False)
             self.open_qa_final_episode_button.setEnabled(False)
+            self.open_final_review_publish_button.setEnabled(False)
             return
         state = str(status.get("status", "UNKNOWN"))
         messages = {
@@ -2462,6 +2479,12 @@ class ProductionConsoleDialog(QDialog):
             "AWAITING_HUMAN_FINAL_REVIEW": (
                 "اجتازت الحلقة الفحص الآلي وهي بانتظار المراجعة البشرية."
             ),
+            "HUMAN_FINAL_REVIEW_CHANGES_REQUESTED": (
+                "هناك طلب إصلاح من المراجعة النهائية؛ أعد QA بعد أي تغيير غير metadata."
+            ),
+            "READY_TO_PUBLISH": (
+                "اجتازت الحلقة QA والمراجعة البشرية وحزمة النشر جاهزة."
+            ),
         }
         self.automatic_qa_status_label.setText(
             messages.get(state, "بانتظار اكتمال ملف الحلقة النهائي.")
@@ -2477,12 +2500,22 @@ class ProductionConsoleDialog(QDialog):
                 "AUTOMATIC_QA_FAILED",
                 "AUTOMATIC_QA_BLOCKED",
                 "AWAITING_HUMAN_FINAL_REVIEW",
+                "HUMAN_FINAL_REVIEW_CHANGES_REQUESTED",
             }
         )
         report = Path(str(status.get("report_path", "")))
         final = Path(str(status.get("final_master_path", "")))
         self.open_automatic_qa_report_button.setEnabled(report.is_file())
         self.open_qa_final_episode_button.setEnabled(final.is_file())
+        self.open_final_review_publish_button.setEnabled(
+            final.is_file()
+            and report.is_file()
+            and state in {
+                "AWAITING_HUMAN_FINAL_REVIEW",
+                "HUMAN_FINAL_REVIEW_CHANGES_REQUESTED",
+                "READY_TO_PUBLISH",
+            }
+        )
 
     def _open_automatic_qa_report(self) -> None:
         status = load_automatic_qa_status(self.repo_root)
@@ -2495,6 +2528,11 @@ class ProductionConsoleDialog(QDialog):
         path = Path(str(status.get("final_master_path", "")))
         if path.is_file():
             QDesktopServices.openUrl(QUrl.fromLocalFile(str(path)))
+
+    def _open_final_review_publish(self) -> None:
+        dialog = FinalReviewPublishDialog(self.repo_root, self)
+        dialog.exec()
+        self._refresh_state()
 
     def _stored_api_key(self) -> str | None:
         try:

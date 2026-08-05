@@ -1,0 +1,43 @@
+{
+  "schema_version": "siraj-final-review-publish-package-v1",
+  "release": "FINAL_REVIEW_AND_PUBLISH_PACKAGE_V1",
+  "status": "HUMAN_DIRECTIVES_ACTIVE",
+  "human_gate": "HUMAN_FINAL_REVIEW",
+  "required_checklist_items": 7,
+  "approval_integrity": {
+    "automatic_qa_status": "PASS_REQUIRED",
+    "automatic_qa_sha256_recheck": true,
+    "final_master_sha256_recheck": true,
+    "final_render_receipt_recheck": true
+  },
+  "decisions": {
+    "approve": "BUILD_MANUAL_PUBLISH_PACKAGE",
+    "request_changes": "WRITE_STRUCTURED_REPAIR_REQUEST"
+  },
+  "change_policy": {
+    "visual_audio_or_content_change": "AUTOMATIC_QA_RERUN_REQUIRED",
+    "metadata_only_change": "DIRECT_FINAL_REVIEW_ALLOWED",
+    "automatic_paid_regeneration": "FORBIDDEN",
+    "full_regeneration_for_local_defect": "FORBIDDEN"
+  },
+  "publish_package": {
+    "canonical_video": "REFERENCE_WITH_SHA256_NO_DUPLICATE_VIDEO_ARCHIVE",
+    "metadata_json": true,
+    "title_description_tags_files": true,
+    "metadata_zip": true,
+    "sha256sums": true,
+    "manual_upload_checklist": true
+  },
+  "manual_youtube_upload": true,
+  "automatic_upload": "FORBIDDEN",
+  "youtube_credentials_storage": "FORBIDDEN",
+  "youtube_api_requests": 0,
+  "provider_requests_during_review": 0,
+  "local_api_cost_usd": 0.0,
+  "music": "FORBIDDEN",
+  "completion": {
+    "runtime_status": "READY_TO_PUBLISH",
+    "runtime_next_stage": "MANUAL_YOUTUBE_UPLOAD",
+    "programming_status": "SIRAJ_PRODUCTION_V1_COMPLETE_READY_FOR_END_TO_END_RUN"
+  }
+}

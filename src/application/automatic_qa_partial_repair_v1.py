@@ -1208,6 +1208,7 @@ def run_automatic_qa_and_partial_repair(
         "AUTOMATIC_QA_FAILED",
         "AUTOMATIC_QA_BLOCKED",
         "AWAITING_HUMAN_FINAL_REVIEW",
+        "HUMAN_FINAL_REVIEW_CHANGES_REQUESTED",
     }
     if str(state.get("status")) not in allowed:
         raise AutomaticQAError(f"AUTOMATIC_QA_NOT_ALLOWED:{state.get('status')}")
@@ -1416,8 +1417,14 @@ def load_automatic_qa_status(repo_root: Path) -> dict[str, Any]:
             "AUTOMATIC_QA_FAILED",
             "AUTOMATIC_QA_BLOCKED",
             "AWAITING_HUMAN_FINAL_REVIEW",
+            "HUMAN_FINAL_REVIEW_CHANGES_REQUESTED",
+            "READY_TO_PUBLISH",
         },
-        "complete": status == "AWAITING_HUMAN_FINAL_REVIEW" and report_path.is_file(),
+        "complete": status in {
+            "AWAITING_HUMAN_FINAL_REVIEW",
+            "HUMAN_FINAL_REVIEW_CHANGES_REQUESTED",
+            "READY_TO_PUBLISH",
+        } and report_path.is_file(),
         "report_path": str(report_path),
         "final_master_path": str(episode_root / FINAL_MASTER_REL),
         "blocking_issue_count": run_state.get("blocking_issue_count", 0),
