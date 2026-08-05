@@ -4,6 +4,11 @@ import ctypes
 import os
 from ctypes import wintypes
 
+from src.application.elevenlabs_key_validation_recovery_v1 import (
+    ElevenLabsKeyValidationError,
+    normalize_and_validate_elevenlabs_api_key,
+)
+
 OPENAI_TARGET = "SIRAJ/OPENAI_API_KEY"
 ELEVENLABS_TARGET = "SIRAJ/ELEVENLABS_API_KEY"
 USERNAME = "SIRAJ"
@@ -90,8 +95,12 @@ def _save(target: str, value: str, comment: str) -> None:
         )
 
 
-def _read(target: str, environment_name: str) -> str | None:
-    environment = os.environ.get(environment_name, "").strip()
+def _read(target: str, environment_name: str | None) -> str | None:
+    environment = (
+        os.environ.get(environment_name, "").strip()
+        if environment_name
+        else ""
+    )
     if environment:
         return environment
     if os.name != "nt":
@@ -148,15 +157,40 @@ def delete_openai_api_key() -> None:
 
 
 def save_elevenlabs_api_key(api_key: str) -> None:
+    try:
+        secret = normalize_and_validate_elevenlabs_api_key(
+            api_key,
+            source="WINDOWS_CREDENTIAL_SAVE",
+        )
+    except ElevenLabsKeyValidationError as exc:
+        raise ProviderCredentialError(str(exc)) from exc
     _save(
         ELEVENLABS_TARGET,
-        api_key,
+        secret,
         "ElevenLabs API key for SIRAJ narration production",
     )
 
 
 def read_elevenlabs_api_key() -> str | None:
-    return _read(ELEVENLABS_TARGET, "ELEVENLABS_API_KEY")
+    environment = os.environ.get("ELEVENLABS_API_KEY", "").strip()
+    if environment:
+        try:
+            return normalize_and_validate_elevenlabs_api_key(
+                environment,
+                source="ELEVENLABS_API_KEY_ENVIRONMENT",
+            )
+        except ElevenLabsKeyValidationError as exc:
+            raise ProviderCredentialError(str(exc)) from exc
+    value = _read(ELEVENLABS_TARGET, None)
+    if value is None:
+        return None
+    try:
+        return normalize_and_validate_elevenlabs_api_key(
+            value,
+            source="WINDOWS_CREDENTIAL_MANAGER",
+        )
+    except ElevenLabsKeyValidationError as exc:
+        raise ProviderCredentialError(str(exc)) from exc
 
 
 def delete_elevenlabs_api_key() -> None:

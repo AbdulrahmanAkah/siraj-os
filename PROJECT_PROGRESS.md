@@ -2250,3 +2250,16 @@ SIRAJ LOCAL GRAPHICS SUBPROCESS ISOLATION V1 — 2026-08-06
 ✓ عدم إرسال أي طلب مدفوع أثناء الإصلاح أو الاستعادة.
 
 NEXT_STAGE=RESUME_EPISODE_001_MEDIA_QUEUE_WITH_RESPONSIVE_DESKTOP
+
+============================================================
+SIRAJ ELEVENLABS KEY VALIDATION AND RECOVERY V1 — 2026-08-06
+============================================================
+
+✓ منع حفظ أو استخدام مفتاح ElevenLabs لا يبدأ بـ sk_.
+✓ التحقق من المفتاح قبل إنشاء قفل المحاولة وقبل أي اتصال شبكي.
+✓ تصنيف invalid_api_key_prefix كرفض مصادقة نهائي غير مدفوع.
+✓ أرشفة قفل TTS المرفوض وإعادة العنصر وحده إلى تفويض صريح جديد.
+✓ الحفاظ على جميع الوسائط والإيصالات المكتملة وعدم إعادة أي عنصر مدفوع.
+✓ عدم إرسال أي طلب إلى ElevenLabs أثناء الاستعادة.
+
+NEXT_STAGE=CONFIGURE_VALID_ELEVENLABS_KEY_AND_RESUME_EPISODE_001

@@ -1875,7 +1875,7 @@ class ProductionConsoleDialog(QDialog):
         value, accepted = QInputDialog.getText(
             self,
             "إعداد مفتاح ElevenLabs",
-            "ألصق ElevenLabs API Key. سيُحفظ في Windows Credential Manager ويظل جاهزًا حتى شحن الرصيد:",
+            "ألصق ElevenLabs API Key الصحيح الذي يبدأ بـ sk_. سيُحفظ في Windows Credential Manager فقط:",
             QLineEdit.EchoMode.Password,
         )
         if not accepted:
@@ -1885,7 +1885,11 @@ class ProductionConsoleDialog(QDialog):
         except ProviderCredentialError as exc:
             QMessageBox.critical(self, "تعذر حفظ المفتاح", str(exc))
             return
-        QMessageBox.information(self, "تم حفظ المفتاح", "تم حفظ مفتاح ElevenLabs بأمان.")
+        QMessageBox.information(
+            self,
+            "تم حفظ المفتاح",
+            "تم التحقق من بادئة sk_ وحفظ مفتاح ElevenLabs بأمان.",
+        )
         self._refresh_state()
 
     def _ensure_openai_key(self) -> str | None:
@@ -3556,4 +3560,3 @@ class ProductionConsoleDialog(QDialog):
                 )
                 return
         super().reject()
-

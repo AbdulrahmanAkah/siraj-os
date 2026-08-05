@@ -1,0 +1,15 @@
+{
+  "schema_version": "siraj-elevenlabs-key-validation-recovery-v1",
+  "release": "SIRAJ_ELEVENLABS_KEY_VALIDATION_AND_RECOVERY_V1",
+  "required_prefix": "sk_",
+  "validation_points": [
+    "BEFORE_WINDOWS_CREDENTIAL_SAVE",
+    "AFTER_ENVIRONMENT_OR_CREDENTIAL_READ",
+    "BEFORE_ATTEMPT_LOCK_AND_NETWORK"
+  ],
+  "terminal_rejection": "invalid_api_key_prefix",
+  "terminal_rejection_billed": false,
+  "automatic_resubmission": "FORBIDDEN",
+  "new_explicit_authorization": "REQUIRED",
+  "completed_paid_assets": "PRESERVED"
+}

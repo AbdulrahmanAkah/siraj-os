@@ -28,6 +28,12 @@ from src.application.runware_seedream_negative_prompt_recovery_v1 import (
     prepare_runware_task_for_submission,
     reset_terminal_rejected_attempt_for_explicit_reauthorization,
 )
+from src.application.elevenlabs_key_validation_recovery_v1 import (
+    ElevenLabsKeyValidationError,
+    classify_elevenlabs_invalid_key_prefix_rejection,
+    normalize_and_validate_elevenlabs_api_key,
+    reset_terminal_invalid_elevenlabs_attempt_for_explicit_reauthorization,
+)
 
 RELEASE = "DESKTOP_MEDIA_EXECUTION_V1"
 ORCHESTRATOR_STATE_REL = Path(
@@ -650,15 +656,35 @@ def execute_elevenlabs_item(
     kind = _kind_for_collection(collection)
     if kind != "ELEVENLABS_TTS":
         raise DesktopMediaExecutionError("ELEVENLABS_TTS_ITEM_REQUIRED")
+    try:
+        api_key = normalize_and_validate_elevenlabs_api_key(
+            api_key,
+            source="PRE_NETWORK_SUBMISSION",
+        )
+    except ElevenLabsKeyValidationError as exc:
+        raise DesktopMediaExecutionError(str(exc)) from exc
     maximum = _tts_maximum(queue, item)
     if abs(float(confirmed_maximum_usd) - maximum) > 1e-6:
         raise DesktopMediaExecutionError("EXPLICIT_AUTHORIZATION_MAXIMUM_MISMATCH")
     budget = _budget_preflight(repo, episode_id, maximum)
     lock_path, receipt_path = _paths(episode_root, queue_id)
     if lock_path.exists():
-        raise DesktopMediaExecutionError(
-            "ELEVENLABS_ATTEMPT_LOCKED_NO_AUTOMATIC_RESUBMISSION"
+        archived = (
+            reset_terminal_invalid_elevenlabs_attempt_for_explicit_reauthorization(
+                lock_path
+            )
         )
+        if archived is None:
+            raise DesktopMediaExecutionError(
+                "ELEVENLABS_ATTEMPT_LOCKED_NO_AUTOMATIC_RESUBMISSION"
+            )
+        item["status"] = "READY_EXPLICIT_PAID_AUTHORIZATION_REQUIRED"
+        item.pop("request_id", None)
+        item["invalid_key_lock_archive_path_relative"] = str(
+            archived.relative_to(repo)
+        ).replace("\\", "/")
+        item["requires_new_elevenlabs_key"] = False
+        _write(queue_path, queue)
 
     voice_id = str(item.get("voice_id", "")).strip()
     model_id = str(item.get("model_id", "")).strip()
@@ -722,8 +748,24 @@ def execute_elevenlabs_item(
             headers = {key.lower(): value for key, value in response.headers.items()}
     except urllib.error.HTTPError as exc:
         message = exc.read(2048).decode("utf-8", errors="replace")
-        lock["status"] = "PROVIDER_REJECTED"
         lock["last_error"] = f"ELEVENLABS_HTTP_ERROR:{exc.code}:{message}"
+        rejection = classify_elevenlabs_invalid_key_prefix_rejection(
+            lock["last_error"]
+        )
+        if rejection is not None:
+            lock["status"] = (
+                "PROVIDER_REJECTED_TERMINAL_REAUTHORIZATION_REQUIRED"
+            )
+            lock["provider_rejection_code"] = rejection["code"]
+            lock["safe_to_reauthorize"] = True
+            lock["provider_request_billed"] = False
+            item["status"] = (
+                "FAILED_AUTHENTICATION_REAUTHORIZATION_REQUIRED"
+            )
+            item["requires_new_elevenlabs_key"] = True
+            _write(queue_path, queue)
+        else:
+            lock["status"] = "PROVIDER_REJECTED"
         lock["updated_at_utc"] = _now()
         _write(lock_path, lock)
         raise DesktopMediaExecutionError(lock["last_error"]) from exc
