@@ -1665,18 +1665,35 @@ def load_sfx_audio_mix_status(repo_root: Path) -> dict[str, Any]:
     run_state_path = episode_root / RUN_STATE_REL
     run_state = _read(run_state_path) if run_state_path.is_file() else {}
     master = episode_root / MASTER_WAV_REL
+    status = str(state.get("status", "UNKNOWN"))
+    downstream = {
+        "STRUCTURAL_MONTAGE_ACTIVE",
+        "STRUCTURAL_MONTAGE_FAILED",
+        "FINAL_RENDER_READY_FOR_QA",
+        "AUTOMATIC_QA_ACTIVE",
+        "AUTOMATIC_QA_FAILED",
+        "AUTOMATIC_QA_COMPLETE",
+        "AWAITING_HUMAN_FINAL_REVIEW",
+        "READY_TO_PUBLISH",
+    }
+    complete = master.is_file() and (
+        run_state.get("status") == "COMPLETE"
+        or status == "SFX_MIX_READY"
+        or status in downstream
+    )
     return {
         "episode_id": episode_id,
-        "status": str(state.get("status", "UNKNOWN")),
+        "status": status,
         "stage": str(state.get("stage", "")),
         "last_error": state.get("last_error"),
-        "ready": str(state.get("status", ""))
+        "ready": status
         in {
             "MEDIA_ASSETS_COMPLETE",
             "SFX_AUDIO_MIX_FAILED",
             "SFX_MIX_READY",
+            *downstream,
         },
-        "complete": master.is_file() and str(state.get("status", "")) == "SFX_MIX_READY",
+        "complete": complete,
         "master_wav_path": str(master),
         "master_m4a_path": str(episode_root / MASTER_M4A_REL),
         "event_count": run_state.get("event_count", 0),

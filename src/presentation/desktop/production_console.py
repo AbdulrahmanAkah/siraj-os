@@ -60,6 +60,12 @@ from src.application.sfx_audio_mix_v1 import (
     load_sfx_audio_mix_status,
     run_sfx_audio_mix,
 )
+from src.application.structural_montage_final_render_v1 import (
+    StructuralMontageError,
+    StructuralMontageResult,
+    load_structural_montage_status,
+    run_structural_montage_final_render,
+)
 from src.application.provider_credentials_v1 import (
     ProviderCredentialError,
     read_elevenlabs_api_key,
@@ -93,7 +99,7 @@ from src.application.windows_credentials_v1 import (
     save_runware_api_key,
 )
 
-PRODUCTION_CONSOLE_RELEASE = "SFX_AND_AUDIO_MIX_V1"
+PRODUCTION_CONSOLE_RELEASE = "STRUCTURAL_MONTAGE_AND_FINAL_RENDER_V1"
 
 # Historical source-contract compatibility markers retained:
 # paidExecutionConfirmation
@@ -284,6 +290,34 @@ class SfxAudioMixThread(QThread):
             self.mix_succeeded.emit(result)
 
 
+class StructuralMontageThread(QThread):
+    progress_changed = Signal(str, object)
+    render_succeeded = Signal(object)
+    render_failed = Signal(str)
+
+    def __init__(
+        self,
+        repo_root: Path,
+        parent: QWidget | None = None,
+    ) -> None:
+        super().__init__(parent)
+        self.repo_root = repo_root
+
+    def run(self) -> None:
+        def progress(message: str, value: int | None) -> None:
+            self.progress_changed.emit(message, value)
+
+        try:
+            result = run_structural_montage_final_render(
+                self.repo_root,
+                progress=progress,
+            )
+        except Exception as exc:
+            self.render_failed.emit(str(exc))
+        else:
+            self.render_succeeded.emit(result)
+
+
 class AutomaticGenerationThread(QThread):
     progress_changed = Signal(str, object)
     generation_succeeded = Signal(object)
@@ -330,6 +364,7 @@ class ProductionConsoleDialog(QDialog):
         self.editorial_worker: EditorialPipelineThread | None = None
         self.media_execution_worker: MediaExecutionThread | None = None
         self.sfx_audio_worker: SfxAudioMixThread | None = None
+        self.structural_montage_worker: StructuralMontageThread | None = None
         self._media_execution_rows = {}
         self.last_output: Path | None = None
         self.setObjectName("productionConsoleDialog")
@@ -385,6 +420,16 @@ class ProductionConsoleDialog(QDialog):
         self.sfx_audio_tab.setObjectName("sfxAudioMixTab")
         self.tabs.addTab(self.sfx_audio_tab, "الصوت والمؤثرات")
         self._build_sfx_audio_tab()
+
+        self.structural_montage_tab = QWidget()
+        self.structural_montage_tab.setObjectName(
+            "structuralMontageFinalRenderTab"
+        )
+        self.tabs.addTab(
+            self.structural_montage_tab,
+            "المونتاج النهائي",
+        )
+        self._build_structural_montage_tab()
 
         self.clip_tab = QWidget()
         self.clip_tab.setObjectName("clipProductionTab")
@@ -865,6 +910,74 @@ class ProductionConsoleDialog(QDialog):
         layout.addWidget(note)
         layout.addStretch(1)
 
+    def _build_structural_montage_tab(self) -> None:
+        layout = QVBoxLayout(self.structural_montage_tab)
+        layout.setContentsMargins(12, 12, 12, 12)
+        layout.setSpacing(10)
+
+        self.structural_montage_status_label = QLabel(
+            "بانتظار اكتمال الماستر الصوتي."
+        )
+        self.structural_montage_status_label.setObjectName(
+            "structuralMontageStatusLabel"
+        )
+        self.structural_montage_status_label.setWordWrap(True)
+        layout.addWidget(self.structural_montage_status_label)
+
+        self.structural_montage_progress = QProgressBar()
+        self.structural_montage_progress.setObjectName(
+            "structuralMontageProgress"
+        )
+        self.structural_montage_progress.setRange(0, 100)
+        self.structural_montage_progress.setValue(0)
+        layout.addWidget(self.structural_montage_progress)
+
+        self.build_structural_montage_button = QPushButton(
+            "بناء المونتاج وإخراج الحلقة"
+        )
+        self.build_structural_montage_button.setObjectName(
+            "buildStructuralMontageButton"
+        )
+        self.build_structural_montage_button.setMinimumHeight(46)
+        self.build_structural_montage_button.clicked.connect(
+            self._start_structural_montage
+        )
+        layout.addWidget(self.build_structural_montage_button)
+
+        actions = QHBoxLayout()
+        self.open_final_episode_button = QPushButton(
+            "عرض الحلقة النهائية"
+        )
+        self.open_final_episode_button.setObjectName(
+            "openFinalEpisodeButton"
+        )
+        self.open_final_episode_button.clicked.connect(
+            self._open_final_episode
+        )
+        actions.addWidget(self.open_final_episode_button)
+
+        self.open_final_render_folder_button = QPushButton(
+            "فتح مجلد الإخراج"
+        )
+        self.open_final_render_folder_button.setObjectName(
+            "openFinalRenderFolderButton"
+        )
+        self.open_final_render_folder_button.clicked.connect(
+            self._open_final_render_folder
+        )
+        actions.addWidget(self.open_final_render_folder_button)
+        actions.addStretch(1)
+        layout.addLayout(actions)
+
+        note = QLabel(
+            "يركب سراج 70 لقطة محليًا، يحرك الصور، ينزع أصوات المصادر "
+            "المرئية، ويدمج ماستر التعليق والمؤثرات وحده. تكلفة API صفر."
+        )
+        note.setObjectName("muted")
+        note.setWordWrap(True)
+        layout.addWidget(note)
+        layout.addStretch(1)
+
     def _build_clip_tab(self) -> None:
         layout = QVBoxLayout(self.clip_tab)
         layout.setContentsMargins(12, 12, 12, 12)
@@ -1286,7 +1399,10 @@ class ProductionConsoleDialog(QDialog):
             "MEDIA_ASSETS_COMPLETE": "اكتملت الأصول؛ تبدأ المؤثرات والمكساج المحلي تلقائيًا.",
             "SFX_DESIGN_ACTIVE": "يجري تصميم المؤثرات وبناء الماستر الصوتي محليًا.",
             "SFX_AUDIO_MIX_FAILED": "توقفت المؤثرات أو المكساج ويمكن استئنافها محليًا.",
-            "SFX_MIX_READY": "اكتمل الماستر الصوتي؛ المونتاج والإخراج النهائي هما التاليان.",
+            "SFX_MIX_READY": "اكتمل الماستر الصوتي؛ يبدأ المونتاج والإخراج النهائي تلقائيًا.",
+            "STRUCTURAL_MONTAGE_ACTIVE": "يجري تركيب اللقطات السبعين وإخراج الحلقة محليًا.",
+            "STRUCTURAL_MONTAGE_FAILED": "توقف المونتاج ويمكن استئناف اللقطات غير المكتملة.",
+            "FINAL_RENDER_READY_FOR_QA": "اكتمل ملف الحلقة؛ الفحص الآلي والإصلاح الجزئي هما التاليان.",
         }.get(status, status)
         self.orchestrator_status_label.setText(status_text)
         self.provider_readiness_label.setText(
@@ -1788,6 +1904,7 @@ class ProductionConsoleDialog(QDialog):
         self.sfx_audio_status_label.setText(
             "اكتمل الماستر الصوتي وانتقل سراج إلى المونتاج."
         )
+        self._start_structural_montage(automatic=True)
         QMessageBox.information(
             self,
             "اكتمل الصوت والمؤثرات",
@@ -1847,6 +1964,15 @@ class ProductionConsoleDialog(QDialog):
             "SFX_MIX_READY": (
                 "الماستر الصوتي مكتمل. المرحلة التالية: المونتاج النهائي."
             ),
+            "STRUCTURAL_MONTAGE_ACTIVE": (
+                "الماستر الصوتي مكتمل ويُستخدم الآن في المونتاج."
+            ),
+            "STRUCTURAL_MONTAGE_FAILED": (
+                "الماستر الصوتي محفوظ؛ توقف المونتاج لا يؤثر عليه."
+            ),
+            "FINAL_RENDER_READY_FOR_QA": (
+                "الماستر الصوتي محفوظ داخل ملف الحلقة النهائي."
+            ),
         }
         self.sfx_audio_status_label.setText(
             messages.get(state, "بانتظار اكتمال أصول الوسائط.")
@@ -1866,7 +1992,15 @@ class ProductionConsoleDialog(QDialog):
         ready = master.is_file()
         self.open_audio_master_button.setEnabled(ready)
         self.open_audio_folder_button.setEnabled(
-            ready or state in {"SFX_AUDIO_MIX_FAILED", "SFX_MIX_READY"}
+            ready
+            or state
+            in {
+                "SFX_AUDIO_MIX_FAILED",
+                "SFX_MIX_READY",
+                "STRUCTURAL_MONTAGE_ACTIVE",
+                "STRUCTURAL_MONTAGE_FAILED",
+                "FINAL_RENDER_READY_FOR_QA",
+            }
         )
 
     def _open_audio_master(self) -> None:
@@ -1878,6 +2012,165 @@ class ProductionConsoleDialog(QDialog):
     def _open_audio_folder(self) -> None:
         status = load_sfx_audio_mix_status(self.repo_root)
         path = Path(str(status.get("master_wav_path", ""))).parent
+        if path.is_dir():
+            QDesktopServices.openUrl(QUrl.fromLocalFile(str(path)))
+
+    def _start_structural_montage(
+        self,
+        checked: bool = False,
+        *,
+        automatic: bool = False,
+    ) -> None:
+        del checked
+        if (
+            self.structural_montage_worker is not None
+            and self.structural_montage_worker.isRunning()
+        ):
+            return
+        self.structural_montage_worker = StructuralMontageThread(
+            self.repo_root,
+            self,
+        )
+        self.structural_montage_worker.progress_changed.connect(
+            self._on_structural_montage_progress
+        )
+        self.structural_montage_worker.render_succeeded.connect(
+            self._on_structural_montage_success
+        )
+        self.structural_montage_worker.render_failed.connect(
+            self._on_structural_montage_failure
+        )
+        self.structural_montage_worker.finished.connect(
+            self._on_structural_montage_finished
+        )
+        self.structural_montage_progress.setRange(0, 100)
+        self.structural_montage_progress.setValue(0)
+        self.structural_montage_status_label.setText(
+            "بدأ المونتاج تلقائيًا بعد الماستر الصوتي."
+            if automatic
+            else "بدأ المونتاج والإخراج النهائي."
+        )
+        self.structural_montage_worker.start()
+        self._refresh_structural_montage()
+
+    def _on_structural_montage_progress(
+        self,
+        message: str,
+        value: object,
+    ) -> None:
+        self.structural_montage_status_label.setText(message)
+        if isinstance(value, int):
+            self.structural_montage_progress.setRange(0, 100)
+            self.structural_montage_progress.setValue(value)
+        else:
+            self.structural_montage_progress.setRange(0, 0)
+
+    def _on_structural_montage_success(self, result: object) -> None:
+        if not isinstance(result, StructuralMontageResult):
+            self._on_structural_montage_failure(
+                "INVALID_STRUCTURAL_MONTAGE_RESULT"
+            )
+            return
+        self.structural_montage_progress.setRange(0, 100)
+        self.structural_montage_progress.setValue(100)
+        self.structural_montage_status_label.setText(
+            "اكتملت الحلقة وانتقلت إلى الفحص الآلي."
+        )
+        QMessageBox.information(
+            self,
+            "اكتمل المونتاج النهائي",
+            "تم تركيب اللقطات السبعين وإخراج حلقة مدتها "
+            + f"{result.duration_seconds:.1f} ثانية."
+            + "\nرُندرت "
+            + str(result.rendered_shot_count)
+            + " لقطة وأعيد استخدام "
+            + str(result.reused_shot_count)
+            + " لقطة صحيحة."
+            + "\nتكلفة API: $0.00."
+            + "\nالمرحلة التالية: الفحص الآلي والإصلاح الجزئي.",
+        )
+        self._refresh_state()
+
+    def _on_structural_montage_failure(self, error: str) -> None:
+        self.structural_montage_progress.setRange(0, 100)
+        self.structural_montage_progress.setValue(0)
+        self.structural_montage_status_label.setText(
+            "توقف المونتاج: " + error
+        )
+        QMessageBox.critical(
+            self,
+            "توقف المونتاج النهائي",
+            error
+            + "\n\nستُحفظ اللقطات الصحيحة ويُستأنف الباقي دون طلب مدفوع.",
+        )
+        self._refresh_state()
+
+    def _on_structural_montage_finished(self) -> None:
+        if self.structural_montage_worker is not None:
+            self.structural_montage_worker.deleteLater()
+        self.structural_montage_worker = None
+        self._refresh_state()
+
+    def _refresh_structural_montage(self) -> None:
+        try:
+            status = load_structural_montage_status(self.repo_root)
+        except StructuralMontageError as exc:
+            self.structural_montage_status_label.setText(
+                "تعذر قراءة حالة المونتاج: " + str(exc)
+            )
+            self.build_structural_montage_button.setEnabled(False)
+            self.open_final_episode_button.setEnabled(False)
+            self.open_final_render_folder_button.setEnabled(False)
+            return
+        state = str(status.get("status", "UNKNOWN"))
+        messages = {
+            "SFX_MIX_READY": (
+                "الماستر الصوتي مكتمل؛ المونتاج جاهز ويبدأ تلقائيًا."
+            ),
+            "STRUCTURAL_MONTAGE_ACTIVE": (
+                "يجري تركيب اللقطات وإخراج الحلقة محليًا."
+            ),
+            "STRUCTURAL_MONTAGE_FAILED": (
+                "توقف المونتاج ويمكن استئناف اللقطات غير المكتملة: "
+                + str(status.get("last_error") or "")
+            ),
+            "FINAL_RENDER_READY_FOR_QA": (
+                "ملف الحلقة مكتمل وجاهز للفحص الآلي."
+            ),
+        }
+        self.structural_montage_status_label.setText(
+            messages.get(state, "بانتظار اكتمال الماستر الصوتي.")
+        )
+        running = (
+            self.structural_montage_worker is not None
+            and self.structural_montage_worker.isRunning()
+        )
+        self.build_structural_montage_button.setEnabled(
+            not running
+            and state in {
+                "SFX_MIX_READY",
+                "STRUCTURAL_MONTAGE_FAILED",
+            }
+        )
+        final_path = Path(str(status.get("final_master_path", "")))
+        ready = final_path.is_file()
+        self.open_final_episode_button.setEnabled(ready)
+        self.open_final_render_folder_button.setEnabled(
+            ready or state in {
+                "STRUCTURAL_MONTAGE_FAILED",
+                "FINAL_RENDER_READY_FOR_QA",
+            }
+        )
+
+    def _open_final_episode(self) -> None:
+        status = load_structural_montage_status(self.repo_root)
+        path = Path(str(status.get("final_master_path", "")))
+        if path.is_file():
+            QDesktopServices.openUrl(QUrl.fromLocalFile(str(path)))
+
+    def _open_final_render_folder(self) -> None:
+        status = load_structural_montage_status(self.repo_root)
+        path = Path(str(status.get("final_master_path", ""))).parent
         if path.is_dir():
             QDesktopServices.openUrl(QUrl.fromLocalFile(str(path)))
 
@@ -2047,6 +2340,7 @@ class ProductionConsoleDialog(QDialog):
         self._refresh_episode_plan()
         self._refresh_media_execution()
         self._refresh_sfx_audio()
+        self._refresh_structural_montage()
         try:
             spec = load_automatic_video_spec(self.repo_root)
             state = load_state(spec)
@@ -2246,6 +2540,16 @@ class ProductionConsoleDialog(QDialog):
                 self,
                 "المكساج مستمر",
                 "اترك النافذة مفتوحة حتى يكتمل الماستر الصوتي بأمان.",
+            )
+            return
+        if (
+            self.structural_montage_worker is not None
+            and self.structural_montage_worker.isRunning()
+        ):
+            QMessageBox.information(
+                self,
+                "المونتاج مستمر",
+                "اترك النافذة مفتوحة حتى يكتمل ملف الحلقة بأمان.",
             )
             return
         super().reject()

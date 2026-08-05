@@ -1,0 +1,65 @@
+{
+  "schema_version": "siraj-structural-montage-final-render-v1",
+  "release": "STRUCTURAL_MONTAGE_AND_FINAL_RENDER_V1",
+  "status": "HUMAN_DIRECTIVES_ACTIVE",
+  "shot_count": 70,
+  "treatment_counts": {
+    "animated_still_compositing": 44,
+    "generated_video": 20,
+    "graphics": 6
+  },
+  "generated_video_seconds": 160,
+  "episode_duration_seconds": [1080, 1500],
+  "music": "FORBIDDEN",
+  "flat_slideshow": "FORBIDDEN",
+  "source_audio": "STRIPPED_FROM_ALL_VISUAL_INPUTS",
+  "audio_source": "SFX_AND_AUDIO_MIX_V1_MASTER_ONLY",
+  "still_compositing": {
+    "blurred_cover_background": true,
+    "foreground_fit_layer": true,
+    "deterministic_motion_profiles": 8,
+    "zoompan": true,
+    "vignette": true,
+    "flat_hold": "FORBIDDEN"
+  },
+  "motion_media": {
+    "generated_video_audio": "DISABLED_AND_STRIPPED",
+    "duration_extension": "LAST_FRAME_CLONE_ONLY_WHEN_EDITORIAL_DURATION_EXCEEDS_SOURCE",
+    "graphics_color_preservation": true
+  },
+  "transitions": {
+    "within_sequence": "DIRECT_CUT",
+    "sequence_boundary": "SHORT_FADE_TO_BLACK",
+    "fade_seconds": 0.35
+  },
+  "render": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "video_codec": "H264_LIBX264",
+    "pixel_format": "YUV420P",
+    "shot_crf": 17,
+    "shot_preset": "MEDIUM",
+    "final_video_concat": "STREAM_COPY_AFTER_UNIFORM_SHOT_RENDER",
+    "final_audio_codec": "AAC_192K_48KHZ_STEREO",
+    "faststart": true
+  },
+  "resumption": {
+    "granularity": "PER_SHOT",
+    "receipt": true,
+    "sha256": true,
+    "render_fingerprint": true,
+    "rerender_unchanged_shot": false
+  },
+  "disk_preflight": {
+    "minimum_free_gib": 8,
+    "duration_scaled_reserve": true
+  },
+  "local_api_cost_usd": 0.0,
+  "paid_provider_requests_during_release": 0,
+  "automatic_after_sfx_mix": true,
+  "completion": {
+    "status": "FINAL_RENDER_READY_FOR_QA",
+    "next_stage": "AUTOMATIC_QA_AND_PARTIAL_REPAIR_V1"
+  }
+}

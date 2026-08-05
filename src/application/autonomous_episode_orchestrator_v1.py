@@ -12,6 +12,9 @@ from src.application.artifact_dependency_graph_v1 import (
     build_scope_dependency_graph,
 )
 from src.application.sfx_audio_mix_v1 import inspect_audio_environment
+from src.application.structural_montage_final_render_v1 import (
+    inspect_montage_environment,
+)
 from src.application.openai_luna_orchestrator_v1 import (
     LunaProviderError,
     LunaResult,
@@ -540,11 +543,16 @@ def provider_readiness(
 ) -> dict[str, str]:
     state = load_orchestrator_state(repo_root)
     audio_environment = inspect_audio_environment(repo_root)
+    montage_environment = inspect_montage_environment(repo_root)
     readiness = {
         "openai_luna": "READY" if openai_key_present else "KEY_REQUIRED",
         "runware": "READY" if runware_key_present else "KEY_REQUIRED",
         "elevenlabs": "READY" if elevenlabs_key_present else "KEY_REQUIRED",
-        "montage": "STRUCTURAL_RUNTIME_PRESENT_UNTESTED",
+        "montage": (
+            "LOCAL_FFMPEG_READY"
+            if montage_environment.ready
+            else "LOCAL_FFMPEG_NOT_READY"
+        ),
         "sfx": (
             "LOCAL_FFMPEG_READY"
             if audio_environment.ready
