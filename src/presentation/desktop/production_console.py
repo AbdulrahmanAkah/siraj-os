@@ -829,7 +829,7 @@ class ProductionConsoleDialog(QDialog):
             + str(queue_result.graphics_count)
             + "\nمقاطع TTS: "
             + str(queue_result.tts_segment_count)
-            + " — اختيار الصوت مطلوب قبل التنفيذ."
+            + " — الأصوات الأربعة المختارة موزعة حسب السيناريو."
             + "\nالاحتياطي الوقائي الأقصى: $"
             + f"{queue_result.reserved_max_usd:.2f}"
             + "\nتكلفة النص التقديرية المسجلة: "
@@ -869,7 +869,7 @@ class ProductionConsoleDialog(QDialog):
             f"{result.image_count} صورة، "
             f"{result.video_count} فيديو، "
             f"{result.graphics_count} جرافيك محلي. "
-            "اختيار صوت ElevenLabs ما زال مطلوبًا."
+            "الأصوات الأربعة المختارة موزعة تلقائيًا حسب السيناريو."
         )
         if show_success_dialog:
             QMessageBox.information(
@@ -879,7 +879,7 @@ class ProductionConsoleDialog(QDialog):
                 "دون طلبات مدفوعة."
                 + "\nالاحتياطي الوقائي الأقصى: $"
                 + f"{result.reserved_max_usd:.2f}"
-                + "\nاختيار صوت ElevenLabs مطلوب قبل TTS.",
+                + "\nلا توجد بوابة اختيار صوت جديدة؛ الطاقم مثبت.",
             )
         self._refresh_state()
         return result
@@ -968,7 +968,7 @@ class ProductionConsoleDialog(QDialog):
             "EDITORIAL_PIPELINE_FAILED": "توقفت السلسلة التحريرية ويمكن استئنافها بعد معالجة السبب.",
             "EDITORIAL_PIPELINE_COMPLETE_BUDGET_PREFLIGHT_QUEUED": "اكتمل البحث والنص والستوريبورد؛ مواصفات الجرافيك وطابور الوسائط هي المرحلة التالية.",
             "GRAPHICS_MEDIA_QUEUE_FAILED": "توقف بناء الجرافيك أو طابور الوسائط ويمكن استئنافه دون طلب مدفوع.",
-            "MEDIA_QUEUE_READY": "مواصفات الجرافيك وطابور الوسائط جاهزة؛ اختيار صوت ElevenLabs والتنفيذ المكتبي هما التاليان.",
+            "MEDIA_QUEUE_READY": "مواصفات الجرافيك وطابور الوسائط جاهزة؛ طاقم ElevenLabs مثبت والتنفيذ المكتبي هو التالي.",
         }.get(status, status)
         self.orchestrator_status_label.setText(status_text)
         self.provider_readiness_label.setText(

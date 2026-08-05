@@ -2007,3 +2007,25 @@ GRAPHICS STORYBOARD INTEGRATION AND MEDIA QUEUE V1 — 2026-08-05
 
 NEXT_STAGE=DESKTOP_MEDIA_EXECUTION_AND_ELEVENLABS_VOICE_SELECTION_V1
 
+============================================================
+ELEVENLABS FOUR PERFORMER CASTING LOCK V1 — 2026-08-05
+============================================================
+
+✓ تثبيت أربعة مؤدين مختارين مسبقًا.
+✓ الأساسي: XdoLPWNt7ytn6BtU4FBf.
+✓ ثلاثة احتياطيين/مؤدين إضافيين.
+✓ النموذج: eleven_multilingual_v2.
+✓ stability=0.55.
+✓ similarity_boost=0.75.
+✓ style=0.15.
+✓ use_speaker_boost=true.
+✓ الأساسي هو الراوي الافتراضي.
+✓ استخدام أكثر من مؤدٍ حسب السيناريو والستوريبورد.
+✓ ثبات صوت الشخصية عبر الحلقة.
+✓ إزالة بوابة اختيار صوت جديدة.
+✓ كل محاولة مدفوعة تحتاج تفويضًا صريحًا.
+✓ لا إعادة مدفوعة خفية.
+✓ لا طلبات مدفوعة أثناء النشر أو الاختبار.
+
+NEXT_STAGE=DESKTOP_MEDIA_EXECUTION_V1
+

@@ -1,6 +1,6 @@
 {
   "schema_version": "siraj-graphics-storyboard-media-queue-v1",
-  "release": "GRAPHICS_STORYBOARD_INTEGRATION_AND_MEDIA_QUEUE_V1",
+  "release": "ELEVENLABS_FOUR_PERFORMER_CASTING_LOCK_V1",
   "status": "HUMAN_DIRECTIVES_ACTIVE",
   "automatic_after_editorial_completion": true,
   "graphics": {
@@ -27,8 +27,24 @@
   },
   "tts": {
     "provider": "ELEVENLABS",
-    "queue_granularity": "PER_SCRIPT_SEGMENT",
-    "voice_selection_required": true,
+    "model_id": "eleven_multilingual_v2",
+    "voice_selection_required": false,
+    "primary_voice_id": "XdoLPWNt7ytn6BtU4FBf",
+    "backup_voice_ids": [
+      "pCKbQ4EPGE06zpEPGNvS",
+      "fkqevZRU7Xj52dY1CTkq",
+      "t8atLZaWuCcW6gENDwwa"
+    ],
+    "backup_voices_may_be_additional_performers": true,
+    "multi_performer_supported": true,
+    "casting_source": "SCRIPT_AND_STORYBOARD",
+    "queue_granularity": "PER_PERFORMANCE_BLOCK",
+    "voice_settings": {
+      "stability": 0.55,
+      "similarity_boost": 0.75,
+      "style": 0.15,
+      "use_speaker_boost": true
+    },
     "maximum_total_reserve_usd": 3.0
   },
   "budget": {
@@ -43,5 +59,5 @@
   },
   "music": "FORBIDDEN",
   "paid_provider_requests_during_release": 0,
-  "next_stage": "DESKTOP_MEDIA_EXECUTION_AND_ELEVENLABS_VOICE_SELECTION_V1"
+  "next_stage": "DESKTOP_MEDIA_EXECUTION_V1"
 }

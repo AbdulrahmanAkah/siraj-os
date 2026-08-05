@@ -247,9 +247,14 @@ def test_exact_queues_graphics_specs_and_state(tmp_path: Path) -> None:
         for item in queue["queues"]["local_graphics"]
     )
     assert all(
-        item["voice_id"] is None
+        item["voice_id"] == "XdoLPWNt7ytn6BtU4FBf"
         for item in queue["queues"]["elevenlabs_tts"]
     )
+    assert all(
+        item["model_id"] == "eleven_multilingual_v2"
+        for item in queue["queues"]["elevenlabs_tts"]
+    )
+    assert result.tts_voice_selection_required is False
 
     ledger = json.loads(
         (root / "orchestration/stage-ledger-v1.json").read_text(

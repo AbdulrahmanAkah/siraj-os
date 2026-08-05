@@ -12,6 +12,9 @@ from typing import Any, Mapping, Sequence
 
 from src.application.artifact_dependency_graph_v1 import canonical_sha256
 from src.application.episode_cost_ledger_v1 import scan_episode_costs
+from src.application.elevenlabs_voice_casting_v1 import (
+    build_episode_voice_cast_plan,
+)
 from src.application.local_graphics_spec_v1 import (
     LocalGraphicsSpec,
     LocalGraphicsSpecError,
@@ -36,6 +39,7 @@ STORYBOARD_BACKUP_REL = Path(
 )
 GRAPHICS_SPEC_DIR_REL = Path("cinematic/graphics/specs")
 GRAPHICS_OUTPUT_DIR_REL = Path("cinematic/graphics/outputs")
+VOICE_CAST_PLAN_REL = Path("audio/tts/voice-cast-plan-v1.json")
 MEDIA_QUEUE_REL = Path("orchestration/media-production-queue-v1.json")
 BUDGET_PREFLIGHT_REL = Path("orchestration/budget-preflight-v1.json")
 INTEGRATION_STATE_REL = Path(
@@ -835,34 +839,12 @@ def _queue(
                 }
             )
 
-    tts = []
-    for index, segment in enumerate(_seq(script.get("segments")), start=1):
-        if not isinstance(segment, Mapping):
-            raise GraphicsMediaQueueError("SCRIPT_SEGMENT_OBJECT_REQUIRED")
-        segment_id = str(segment.get("segment_id", ""))
-        narration = str(segment.get("narration_ar", "")).strip()
-        if not narration:
-            raise GraphicsMediaQueueError(
-                f"TTS_NARRATION_REQUIRED:{segment_id}"
-            )
-        tts.append(
-            {
-                "queue_id": f"TTS-{segment_id}",
-                "queue_index": index,
-                "segment_id": segment_id,
-                "event_id": segment.get("event_id"),
-                "source_ids": list(_seq(segment.get("source_ids"))),
-                "status": "BLOCKED_VOICE_SELECTION_REQUIRED",
-                "provider": "ELEVENLABS",
-                "voice_id": None,
-                "model_id": None,
-                "text_ar": narration,
-                "output_path_relative": (
-                    f"projects/{episode_id}/audio/tts/{segment_id}.mp3"
-                ),
-                "hidden_paid_retry": "FORBIDDEN",
-            }
-        )
+    voice_cast = build_episode_voice_cast_plan(
+        episode_id,
+        script,
+        storyboard,
+    )
+    tts = [dict(item) for item in voice_cast.queue_items]
 
     if len(images) != 44:
         raise GraphicsMediaQueueError(
@@ -906,6 +888,12 @@ def _queue(
             "runware_videos": len(videos),
             "local_graphics": len(graphics),
             "elevenlabs_tts_segments": len(tts),
+            "elevenlabs_voice_performers_used": (
+                voice_cast.performer_count
+            ),
+            "elevenlabs_multi_performer_required": (
+                voice_cast.multi_performer_required
+            ),
             "seedream_images": seedream,
             "nano_banana_images": nano,
         },
@@ -935,6 +923,7 @@ def _queue(
             "local_graphics_may_render_without_paid_authorization": True,
             "music": "FORBIDDEN",
         },
+        "voice_cast": voice_cast.as_dict(),
         "queues": {
             "runware_images": images,
             "runware_videos": videos,
@@ -1167,7 +1156,7 @@ def _result(
         reserved_max_usd=float(budget["reserved_max_usd"]),
         recorded_total_usd=float(budget["recorded_total_usd"]),
         projected_total_usd=float(budget["projected_max_total_usd"]),
-        tts_voice_selection_required=True,
+        tts_voice_selection_required=False,
         status=str(queue["status"]),
     )
 
@@ -1231,6 +1220,8 @@ def integrate_graphics_and_build_media_queue(
             recorded_total_usd_override,
         )
         _write(queue_path, queue)
+        voice_cast_path = root / VOICE_CAST_PLAN_REL
+        _write(voice_cast_path, queue["voice_cast"])
         _write(
             budget_path,
             {
@@ -1263,10 +1254,7 @@ def integrate_graphics_and_build_media_queue(
             {
                 "status": "MEDIA_QUEUE_READY",
                 "stage": "RUNWARE_IMAGE_GENERATION",
-                "next_stage": (
-                    "DESKTOP_MEDIA_EXECUTION_AND_"
-                    "ELEVENLABS_VOICE_SELECTION_V1"
-                ),
+                "next_stage": "DESKTOP_MEDIA_EXECUTION_V1",
                 "media_queue_path_relative": _rel(repo, queue_path),
                 "budget_preflight_path_relative": _rel(repo, budget_path),
                 "last_error": None,
@@ -1291,6 +1279,11 @@ def integrate_graphics_and_build_media_queue(
                 "media_queue_path_relative": _rel(repo, queue_path),
                 "media_queue_sha256": _hash(queue_path),
                 "budget_preflight_path_relative": _rel(repo, budget_path),
+                "voice_cast_plan_path_relative": _rel(
+                    repo,
+                    voice_cast_path,
+                ),
+                "voice_cast_plan_sha256": _hash(voice_cast_path),
                 "paid_provider_requests": 0,
                 "created_at_utc": _now(),
             },

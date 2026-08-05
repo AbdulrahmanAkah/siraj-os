@@ -279,6 +279,56 @@ def script_schema() -> dict[str, Any]:
                 "minLength": 5,
             },
             "uncertainty_language_ar": {"type": "string"},
+            "performance_blocks": {
+                "type": "array",
+                "maxItems": 12,
+                "items": {
+                    "type": "object",
+                    "additionalProperties": False,
+                    "required": [
+                        "block_id",
+                        "performance_type",
+                        "speaker_key",
+                        "speaker_label_ar",
+                        "voice_slot_preference",
+                        "text_ar",
+                        "source_ids",
+                    ],
+                    "properties": {
+                        "block_id": {"type": "string"},
+                        "performance_type": {
+                            "type": "string",
+                            "enum": [
+                                "NARRATION",
+                                "QUOTED_SPEECH",
+                                "DIALOGUE",
+                                "HISTORICAL_CHARACTER",
+                                "SECONDARY_NARRATION",
+                                "LETTER_READING",
+                                "DOCUMENT_READING",
+                            ],
+                        },
+                        "speaker_key": {"type": "string"},
+                        "speaker_label_ar": {"type": "string"},
+                        "voice_slot_preference": {
+                            "type": "string",
+                            "enum": [
+                                "AUTO",
+                                "PRIMARY",
+                                "SUPPORT_1",
+                                "SUPPORT_2",
+                                "SUPPORT_3",
+                            ],
+                        },
+                        "text_ar": {"type": "string"},
+                        "source_ids": {
+                            "type": "array",
+                            "items": {"type": "string"},
+                            "maxItems": 20,
+                        },
+                    },
+                },
+            },
         },
     }
     return {
@@ -831,6 +881,9 @@ def request_script_package(
 لا تستخدم أي ادعاء حالته EXCLUDED. ما كان QUALIFIED_ONLY يجب صياغته
 بعبارات تحفظية صريحة. اربط كل مقطع بمعرفات الادعاءات والمصادر.
 اجعل السرد مشوقًا ومتماسكًا بلا خطاب محاضرة وبلا مبالغة مصطنعة.
+استخدم performance_blocks عندما يقتضي السيناريو أكثر من مؤدٍ: الراوي
+الأساسي للسرد، والأصوات الثلاثة المختارة للاقتباسات أو الحوار أو الشخصيات.
+اجعل speaker_key ثابتًا للشخصية نفسها عبر الحلقة، ولا تضف مؤديًا خامسًا.
 لا موسيقى مطلقًا؛ المؤثرات الصوتية المناسبة مسموحة.
 لا تصف الله تعالى أو الملائكة أو إبليس أو الغيب بطريقة تجسيدية.
 المدة الكاملة بين 18 و25 دقيقة، والهدف المعتاد 22 دقيقة. أخرج JSON فقط."""
@@ -849,6 +902,9 @@ def request_script_package(
                 "claim_traceability": True,
                 "music": "FORBIDDEN",
                 "human_gates_added": 0,
+                "selected_voice_performers": 4,
+                "primary_narrator_slot": "PRIMARY",
+                "multi_performer_when_script_requires": True,
             },
         },
         schema_name="siraj_episode_script_v1",
