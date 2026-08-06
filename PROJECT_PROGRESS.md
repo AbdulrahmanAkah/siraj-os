@@ -2646,3 +2646,22 @@ PASS_FULL_PRODUCTION_PIPELINE_CERTIFIED
 - Paid provider requests: 0.
 
 NEXT_STAGE=ONE_EXPLICIT_NATIVE_V2_EXECUTION_AUTHORIZATION
+
+========================================================
+VEO PAYLOAD AND PRODUCTION CONSOLE REPAIR — 2026-08-07
+========================================================
+
+Status:
+PASS_VEO_PAYLOAD_AND_PRODUCTION_CONSOLE_REPAIRED
+
+- Removed unsupported negativePrompt from all Veo requests.
+- Preserved exclusions inside the certified positive provider prompt.
+- Added a strict Veo parameter allowlist before provider submission.
+- Recovered VID-SH-001-C01 without automatic resubmission.
+- Reduced the production console to one contextual production action.
+- Added functional vertical scrolling to the full production console.
+- Full pytest, compileall, Qt and certification checks passed.
+- Provider requests during repair: 0.
+- Paid provider requests during repair: 0.
+
+NEXT_STAGE=REOPEN_SIRAJ_AND_CLICK_CONTINUE_EPISODE_PRODUCTION

@@ -1414,3 +1414,199 @@ def inspect_native_execution_plan(
             queue.get("queue_sha256") or ""
         ),
     }
+
+# SIRAJ_RUNWARE_VEO_CAPABILITY_GATE_V1
+from copy import deepcopy as _siraj_veo_deepcopy
+
+_SIRAJ_VEO_ALLOWED_PARAMETERS_V1 = frozenset(
+    {
+        "includeCost",
+        "taskUUID",
+        "taskType",
+        "model",
+        "height",
+        "width",
+        "outputType",
+        "outputFormat",
+        "numberResults",
+        "positivePrompt",
+        "deliveryMethod",
+        "duration",
+        "frameImages",
+        "providerSettings",
+        "advancedFeatures",
+        "fps",
+        "uploadEndpoint",
+        "outputQuality",
+        "webhookURL",
+        "ttl",
+        "seed",
+        "inputs",
+        "resolution",
+    }
+)
+_SIRAJ_VEO_EXCLUSION_MARKER_V1 = (
+    " Strict exclusion constraints for this provider request: "
+)
+_SIRAJ_BASE_BUILD_NATIVE_ASSET_PLAN_V1 = build_native_asset_plan
+
+
+def _siraj_prepare_veo_positive_prompt_v1(
+    positive_prompt: str,
+    negative_prompt: str,
+) -> str:
+    positive = _clean(positive_prompt)
+    negative = _clean(negative_prompt)
+    if not negative:
+        return positive
+    return (
+        positive
+        + _SIRAJ_VEO_EXCLUSION_MARKER_V1
+        + "do not depict or introduce any of the following: "
+        + negative
+        + ". Treat these exclusions as mandatory execution constraints."
+    )
+
+
+def _siraj_validate_veo_task_v1(
+    queue_id: str,
+    task_draft: Mapping[str, Any],
+) -> None:
+    unknown = sorted(
+        set(task_draft)
+        - _SIRAJ_VEO_ALLOWED_PARAMETERS_V1
+    )
+    if unknown:
+        raise ProductionStandardV2AssetError(
+            "RUNWARE_VEO_UNSUPPORTED_PARAMETERS:"
+            f"{queue_id}:{','.join(unknown)}"
+        )
+    if "negativePrompt" in task_draft:
+        raise ProductionStandardV2AssetError(
+            "RUNWARE_VEO_NEGATIVE_PROMPT_FORBIDDEN:"
+            + queue_id
+        )
+    if not _clean(task_draft.get("positivePrompt")):
+        raise ProductionStandardV2AssetError(
+            "RUNWARE_VEO_POSITIVE_PROMPT_REQUIRED:"
+            + queue_id
+        )
+
+
+def build_native_asset_plan(
+    repo_root: Path,
+) -> dict[str, Any]:
+    plan = _SIRAJ_BASE_BUILD_NATIVE_ASSET_PLAN_V1(
+        repo_root
+    )
+    queues = plan.get("queues")
+    if not isinstance(queues, Mapping):
+        raise ProductionStandardV2AssetError(
+            "NATIVE_ASSET_PLAN_QUEUES_REQUIRED"
+        )
+
+    videos = queues.get("runware_videos")
+    if not isinstance(videos, list):
+        raise ProductionStandardV2AssetError(
+            "NATIVE_VIDEO_QUEUE_REQUIRED"
+        )
+
+    for item in videos:
+        if not isinstance(item, dict):
+            raise ProductionStandardV2AssetError(
+                "NATIVE_VIDEO_QUEUE_ITEM_INVALID"
+            )
+        queue_id = str(item.get("queue_id") or "")
+        task = item.get("task_draft")
+        certification = item.get(
+            "luna_prompt_certification_v2"
+        )
+        if not isinstance(task, dict):
+            raise ProductionStandardV2AssetError(
+                "RUNWARE_VEO_TASK_DRAFT_REQUIRED:"
+                + queue_id
+            )
+        if not isinstance(certification, Mapping):
+            raise ProductionStandardV2AssetError(
+                "RUNWARE_VEO_CERTIFICATION_REQUIRED:"
+                + queue_id
+            )
+
+        negative = _clean(
+            task.pop(
+                "negativePrompt",
+                certification.get(
+                    "certified_negative_prompt_en",
+                    "",
+                ),
+            )
+        )
+        provider_prompt = (
+            _siraj_prepare_veo_positive_prompt_v1(
+                str(task.get("positivePrompt") or ""),
+                negative,
+            )
+        )
+        task["positivePrompt"] = provider_prompt
+
+        updated_certification = _siraj_veo_deepcopy(
+            dict(certification)
+        )
+        updated_certification[
+            "certified_positive_prompt_en"
+        ] = provider_prompt
+        updated_certification[
+            "positive_prompt_sha256"
+        ] = _text_sha256(provider_prompt)
+        derivation = updated_certification.get(
+            "asset_derivation"
+        )
+        if not isinstance(derivation, dict):
+            derivation = {}
+            updated_certification[
+                "asset_derivation"
+            ] = derivation
+        derivation.update(
+            {
+                "provider_model": VIDEO_MODEL,
+                "negative_prompt_transport": (
+                    "INLINED_AS_MANDATORY_POSITIVE_"
+                    "EXECUTION_CONSTRAINTS"
+                ),
+                "unsupported_negativePrompt_parameter": (
+                    "REMOVED"
+                ),
+                "provider_parameter_allowlist_version": (
+                    "RUNWARE_VEO_CAPABILITY_GATE_V1"
+                ),
+            }
+        )
+        derivation["derivation_sha256"] = (
+            _canonical_sha256(
+                {
+                    "asset_id": item.get("asset_id"),
+                    "provider_prompt": provider_prompt,
+                    "master_prompt_sha256": derivation.get(
+                        "master_positive_prompt_sha256"
+                    ),
+                    "asset_index": item.get("asset_index"),
+                    "asset_count": item.get("asset_count"),
+                    "provider_model": VIDEO_MODEL,
+                    "negative_prompt_transport": (
+                        "INLINED_AS_MANDATORY_POSITIVE_"
+                        "EXECUTION_CONSTRAINTS"
+                    ),
+                }
+            )
+        )
+        item[
+            "luna_prompt_certification_v2"
+        ] = updated_certification
+        _siraj_validate_veo_task_v1(
+            queue_id,
+            task,
+        )
+
+    plan.pop("plan_sha256", None)
+    plan["plan_sha256"] = _canonical_sha256(plan)
+    return plan

@@ -3926,3 +3926,189 @@ class ProductionConsoleDialog(QDialog):
                 )
                 return
         super().reject()
+
+# SIRAJ_PRODUCTION_CONSOLE_SINGLE_ACTION_SCROLL_V1
+from pathlib import Path as _SirajUiPath
+
+from PySide6.QtCore import (
+    QTimer as _SirajUiTimer,
+    Qt as _SirajUiQt,
+)
+from PySide6.QtWidgets import (
+    QAbstractButton as _SirajUiAbstractButton,
+    QScrollArea as _SirajUiScrollArea,
+    QVBoxLayout as _SirajUiVBoxLayout,
+    QWidget as _SirajUiWidget,
+)
+
+_SIRAJ_BASE_PRODUCTION_CONSOLE_INIT_V1 = (
+    ProductionConsoleDialog.__init__
+)
+
+
+def _siraj_ui_active_authorization_v1(
+    repo_root: _SirajUiPath,
+) -> bool:
+    path = (
+        repo_root
+        / "projects/episode-001-adam/evidence/"
+        "consolidated-full-episode-production-authorization-v2.json"
+    )
+    if not path.is_file():
+        return False
+    try:
+        value = json.loads(
+            path.read_text(encoding="utf-8-sig")
+        )
+    except Exception:
+        return False
+    return (
+        isinstance(value, dict)
+        and str(value.get("status") or "") == "ACTIVE"
+        and str(
+            value.get("production_generation_id") or ""
+        )
+        == "PSV2-ADAM-R1"
+    )
+
+
+def _siraj_ui_normalize_actions_v1(
+    dialog: ProductionConsoleDialog,
+    repo_root: _SirajUiPath,
+) -> None:
+    buttons = dialog.findChildren(
+        _SirajUiAbstractButton
+    )
+    consolidated = [
+        button
+        for button in buttons
+        if (
+            button.objectName()
+            == "consolidatedEpisodeProductionV2Button"
+            or "تفويض موحد وبدء إنتاج الحلقة كاملة"
+            in button.text()
+            or "استكمال إنتاج الحلقة" in button.text()
+        )
+    ]
+    if consolidated:
+        for button in buttons:
+            if "استكمال تنفيذ الوسائط" in button.text():
+                button.setEnabled(False)
+                button.setVisible(False)
+                button.setObjectName(
+                    "legacyMediaResumeButtonHiddenByNativeV2"
+                )
+
+    active = _siraj_ui_active_authorization_v1(
+        repo_root
+    )
+    for button in consolidated:
+        button.setText(
+            "استكمال إنتاج الحلقة"
+            if active
+            else "تفويض موحد وبدء إنتاج الحلقة كاملة"
+        )
+        button.setMinimumHeight(48)
+        button.setVisible(True)
+        button.setEnabled(True)
+
+
+def _siraj_ui_install_scroll_v1(
+    dialog: ProductionConsoleDialog,
+) -> None:
+    if dialog.findChild(
+        _SirajUiScrollArea,
+        "sirajProductionConsoleRootScrollArea",
+    ) is not None:
+        return
+
+    root_layout = dialog.layout()
+    if root_layout is None or root_layout.count() == 0:
+        return
+
+    host = _SirajUiWidget(dialog)
+    host.setObjectName(
+        "sirajProductionConsoleScrollableContent"
+    )
+    host_layout = _SirajUiVBoxLayout(host)
+    host_layout.setContentsMargins(0, 0, 0, 0)
+    host_layout.setSpacing(8)
+
+    while root_layout.count():
+        item = root_layout.takeAt(0)
+        widget = item.widget()
+        child_layout = item.layout()
+        spacer = item.spacerItem()
+        if widget is not None:
+            host_layout.addWidget(widget)
+        elif child_layout is not None:
+            host_layout.addLayout(child_layout)
+        elif spacer is not None:
+            host_layout.addItem(spacer)
+
+    scroll = _SirajUiScrollArea(dialog)
+    scroll.setObjectName(
+        "sirajProductionConsoleRootScrollArea"
+    )
+    scroll.setWidgetResizable(True)
+    scroll.setFrameShape(
+        _SirajUiScrollArea.Shape.NoFrame
+    )
+    scroll.setHorizontalScrollBarPolicy(
+        _SirajUiQt.ScrollBarPolicy.ScrollBarAlwaysOff
+    )
+    scroll.setVerticalScrollBarPolicy(
+        _SirajUiQt.ScrollBarPolicy.ScrollBarAsNeeded
+    )
+    scroll.setWidget(host)
+    root_layout.addWidget(scroll)
+
+    dialog._siraj_root_scroll_area_v1 = scroll
+    dialog._siraj_scroll_host_v1 = host
+
+    def _sync_scroll_geometry() -> None:
+        host.adjustSize()
+        natural_height = host.sizeHint().height()
+        host.setMinimumHeight(
+            max(natural_height, 1100)
+        )
+        scroll.verticalScrollBar().setSingleStep(32)
+
+    _SirajUiTimer.singleShot(
+        0,
+        _sync_scroll_geometry,
+    )
+
+
+def _siraj_production_console_init_v1(
+    self: ProductionConsoleDialog,
+    *args: Any,
+    **kwargs: Any,
+) -> None:
+    _SIRAJ_BASE_PRODUCTION_CONSOLE_INIT_V1(
+        self,
+        *args,
+        **kwargs,
+    )
+    repo_candidate = (
+        args[0]
+        if args
+        else kwargs.get("repo_root")
+    )
+    try:
+        repo_root = _SirajUiPath(
+            repo_candidate
+        ).resolve()
+    except Exception:
+        repo_root = _SirajUiPath.cwd()
+
+    _siraj_ui_normalize_actions_v1(
+        self,
+        repo_root,
+    )
+    _siraj_ui_install_scroll_v1(self)
+
+
+ProductionConsoleDialog.__init__ = (
+    _siraj_production_console_init_v1
+)

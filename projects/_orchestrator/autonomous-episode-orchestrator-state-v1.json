@@ -25,6 +25,7 @@
     "sound_effects": "ALLOWED_ANY_SCENE_APPROPRIATE_TYPE"
   },
   "budget_preflight_path_relative": "projects/episode-001-adam/orchestration/budget-preflight-v1.json",
+  "consolidated_authorization_path_relative": "projects/episode-001-adam/evidence/consolidated-full-episode-production-authorization-v2.json",
   "created_at_utc": "2026-08-05T00:03:43.176788Z",
   "current_episode_id": "episode-001-adam",
   "current_proposal_path_relative": "projects/_orchestrator/scope-proposals/episode-scope-proposal-v001.json",
@@ -34,7 +35,7 @@
   "elevenlabs_key_recovery_status": "NEW_VALID_KEY_REQUIRED",
   "final_master_path_relative": "projects/episode-001-adam/deliverables/episode-master-v1.mp4",
   "final_master_sha256": "f8c6479579b415628f7ccd99b166a6ba506b2995bfb490f7ba71cca854dd4b91",
-  "full_episode_production_authorized": false,
+  "full_episode_production_authorized": true,
   "full_stage_order": [
     "TOPIC_AND_EVENT_PROPOSAL",
     "HUMAN_SCOPE_REVIEW",
@@ -66,9 +67,10 @@
     "output_tokens": 3726
   },
   "media_queue_path_relative": "projects/episode-001-adam/orchestration/media-production-queue-v1.json",
+  "media_queue_sha256": "939e6b0355ff5aa11a72e5a755f14829b6788a9baeb3d7cc19caa17596394624",
   "montage_pixel_format_recovery_release": "SIRAJ_MONTAGE_PIXEL_FORMAT_NORMALIZATION_AND_RECOVERY_V1",
   "montage_pixel_format_recovery_status": "READY_TO_RESUME",
-  "next_stage": "CONSOLIDATED_PRODUCTION_STANDARD_V2_EXECUTION",
+  "next_stage": "PRODUCTION_STANDARD_V2_NATIVE_MEDIA_EXECUTION",
   "production_generation_id": "PSV2-ADAM-R1",
   "production_standard_v2_rebuild_state_rebase": {
     "automatic_paid_retry": "FORBIDDEN",
@@ -94,6 +96,7 @@
   "sfx_audio_plan_path_relative": "projects/episode-001-adam/audio/sfx/sfx-audio-plan-v1.json",
   "stage": "BUDGET_PREFLIGHT",
   "status": "MEDIA_QUEUE_READY",
+  "stop_reason": null,
   "structural_montage_plan_path_relative": "projects/episode-001-adam/orchestration/structural-montage-render-plan-v1.json",
-  "updated_at_utc": "2026-08-06T21:04:23.440216Z"
+  "updated_at_utc": "2026-08-06T21:29:59.582530Z"
 }

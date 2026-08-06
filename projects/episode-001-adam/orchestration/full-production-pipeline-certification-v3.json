@@ -1,12 +1,12 @@
 {
   "blocking_issue_count": 0,
-  "certified_at_utc": "2026-08-06T21:04:24.115541Z",
-  "critical_fingerprint": "d3739e5f408f8d16e0c10bcd03e040c010854b73df811ee7d974fd1e68646368",
+  "certified_at_utc": "2026-08-06T21:30:08.557571Z",
+  "critical_fingerprint": "bb846ec4e9b05ea34683d8df596c9d9dcc2a8ddc948a6a0db29b13fff3106493",
   "episode_id": "episode-001-adam",
   "fingerprint_entries": [
     {
       "path": "src/application/production_standard_v2_native_assets.py",
-      "sha256": "34503f9a3aeb92f4f79814ea3d31263b9fa9b8d1d8ec0f12d9b5d0672747dbd5"
+      "sha256": "df07428c8e5d8aa8556c411c9e16beb240ea145a366534ba6a6a4ac811c6253c"
     },
     {
       "path": "src/application/production_standard_v2_runtime.py",
@@ -42,7 +42,7 @@
     },
     {
       "path": "projects/episode-001-adam/orchestration/production-standard-v2-native-asset-plan-v1.json",
-      "sha256": "fb803ae6520aff4aa2daad2cf8fbb7e1040b2e841804dfaede8b43aca5bbaed9"
+      "sha256": "513cb3c133b92d5807310d9c3f8da0e66e4adcc65d47b6f275ac235924758b67"
     },
     {
       "path": "projects/episode-001-adam/orchestration/full-episode-tts-execution-plan-production-standard-v2.json",
@@ -65,7 +65,7 @@
     "image_maximum_usd": 2.93715,
     "pending_media_maximum_usd": 38.747733,
     "production_generation_id": "PSV2-ADAM-R1",
-    "queue_sha256": "06c57f0dd2dcf0e061705054b9d102a22b7abec17abb43c6a6327079a537b44d",
+    "queue_sha256": "939e6b0355ff5aa11a72e5a755f14829b6788a9baeb3d7cc19caa17596394624",
     "safe_repair_reserve_usd": 0.15,
     "status": "READY_FOR_CONSOLIDATED_V2_EXECUTION_AUTHORIZATION",
     "tts_maximum_usd": 2.930583
@@ -73,7 +73,7 @@
   "paid_provider_requests": 0,
   "production_generation_id": "PSV2-ADAM-R1",
   "provider_requests": 0,
-  "release": "SIRAJ_FINALIZE_NATIVE_V2_FLOAT_CONTRACT",
+  "release": "SIRAJ_FIX_VEO_PAYLOAD_AND_PRODUCTION_CONSOLE_V1",
   "schema_version": "siraj-full-production-pipeline-certification-v3",
   "status": "PASS_FULL_PRODUCTION_PIPELINE_CERTIFIED"
 }
