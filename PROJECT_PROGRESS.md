@@ -2442,3 +2442,20 @@ Scope:
 - تنفيذ صفر طلبات مزود وصفر طلبات مدفوعة.
 
 NEXT_STAGE=HUMAN_WAQF_DIFF_REVIEW_AND_SECOND_SAMPLE_AUTHORIZATION
+
+========================================================
+ARABIC ACTUAL STOP WAQF V3 — 2026-08-06
+========================================================
+
+Status:
+LINGUISTIC_HARDENING_REVIEW_READY_NO_PAID_EXECUTION
+
+Scope:
+
+- إصلاح مطابقة موضع الوقف اليدوي دون إسقاط همزة «الأمر».
+- تثبيت موضع «مَنَعَهْ، وَلَا» بوصفه الوقف الوحيد المؤكد يدويًا.
+- إبقاء سائر الفواصل في حالة الوصل افتراضيًا.
+- إبقاء العينة الثانية والحلقة الكاملة غير مصرح بهما.
+- تنفيذ صفر طلبات مزود وصفر طلبات مدفوعة.
+
+NEXT_STAGE=HUMAN_WAQF_V3_REVIEW_AND_SECOND_SAMPLE_AUTHORIZATION

@@ -1,0 +1,30 @@
+سراج — مراجعة الوقف الفعلي اللغوية V3
+
+STATUS=PASS_LINGUISTIC_REVIEW_READY
+PERFORMANCE_BLOCKS=43
+ACTUAL_STOPS=132
+MANUAL_CONFIRMED_COMMA_STOPS=1
+CONNECTED_COMMAS_PRESERVED=100
+TA_MARBUTA_TO_HAA=22
+CONNECTOR_HEURISTIC=DISABLED
+
+العينة VB-001-01 — قبل:
+اِنْخَفَضَ كُلُّ شَيْءٍ فِي حَرَكَةٍ وَاحِدَةٍ. اِمْتِثَالٌ كَامِلٌ... ثُمَّ بَقِيَ مَوْضِعٌ وَاحِدٌ قَائِمًا. لَمْ يَكُنِ الْعَجْزُ هُوَ مَا مَنَعَهُ، وَلَا غُمُوضُ الْأَمْرِ. كَانَ يَرَى، وَيَفْهَمُ، ثُمَّ اخْتَارَ أَنْ يَرْفَعَ نَفْسَهُ فَوْقَ مَا أُمِرَ بِهِ.
+
+العينة VB-001-01 — بعد:
+اِنْخَفَضَ كُلُّ شَيْءٍ فِي حَرَكَةٍ وَاحِدَهْ. اِمْتِثَالٌ كَامِلْ... ثُمَّ بَقِيَ مَوْضِعٌ وَاحِدٌ قَائِمَا. لَمْ يَكُنِ الْعَجْزُ هُوَ مَا مَنَعَهْ، وَلَا غُمُوضُ الْأَمْرْ. كَانَ يَرَى، وَيَفْهَمُ، ثُمَّ اخْتَارَ أَنْ يَرْفَعَ نَفْسَهُ فَوْقَ مَا أُمِرَ بِهْ.
+
+قرارات العينة:
+- وَاحِدَةٍ -> وَاحِدَهْ | HARD_PUNCTUATION | EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP
+- كَامِلٌ -> كَامِلْ | HARD_PUNCTUATION | EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP
+- قَائِمًا -> قَائِمَا | HARD_PUNCTUATION | EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP
+- مَنَعَهُ -> مَنَعَهْ | MANUAL_CONFIRMED_COMMA_STOP | USER_CONFIRMED_AUDIBLE_ACTUAL_STOP
+- الْأَمْرِ -> الْأَمْرْ | HARD_PUNCTUATION | EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP
+- بِهِ -> بِهْ | HARD_PUNCTUATION | EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP
+
+السياسة:
+- الفاصلة تبقى وصلًا ما لم يوجد دليل أداء صريح.
+- أُبقي فقط توقف «مَنَعَهْ، وَلَا» المثبت من مراجعة المستخدم.
+- التاء المربوطة تُكتب هاءً ساكنة في نص TTS عند الوقف.
+- النص الأصلي ونص العرض لم يتغيرا.
+- لا يوجد تفويض لتوليد العينة أو الحلقة الكاملة.
