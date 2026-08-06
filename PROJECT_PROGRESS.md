@@ -2386,3 +2386,20 @@ Scope:
 - منع أي طلب مزود أو تنفيذ مدفوع.
 
 NEXT_STAGE=EXPLICIT_SAMPLE_AUTHORIZATION_OR_CREDENTIAL_CONFIGURATION
+
+========================================================
+ADAM STALE TTS LOCK AUDIT V2 — 2026-08-06
+========================================================
+
+Status:
+OFFLINE_LOCK_AUDIT_COMPLETE
+
+Scope:
+
+- فحص أقفال ElevenLabs القديمة دون اتصال بالشبكة.
+- أرشفة أقفال رفض المفتاح غير الصالح فقط.
+- ترك الأقفال غير النهائية دون حذف تلقائي.
+- إعادة تشغيل TTS preflight بعد الاسترداد الآمن.
+- منع أي طلب مزود أو تنفيذ مدفوع.
+
+NEXT_STAGE=EXPLICIT_SAMPLE_AUTHORIZATION_OR_MANUAL_LOCK_REVIEW
