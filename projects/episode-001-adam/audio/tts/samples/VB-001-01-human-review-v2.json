@@ -1,18 +1,14 @@
 {
-  "audio_path_relative": "projects/episode-001-adam/audio/tts/samples/VB-001-01-primary-narrator-sample.mp3",
   "block_id": "VB-001-01",
-  "decision": null,
   "episode_id": "episode-001-adam",
+  "example_after": "مَنَعَهْ،",
+  "example_before": "مَنَعَهُ،",
+  "feedback_ar": "الصوت جيد. عند الوقف الفعلي يجب إسكان آخر الكلمة وعدم إبقاء حركة الوصل، مع عدم تعميم ذلك على كل فاصلة عارضة.",
   "full_episode_tts_authorized": false,
-  "review_dimensions": [
-    "ARABIC_PRONUNCIATION",
-    "DIACRITIC_REALIZATION",
-    "DELIBERATE_PACING",
-    "PAUSE_QUALITY",
-    "MEASURED_AWE",
-    "DRAMATIC_RESTRAINT",
-    "AUDIO_ARTIFACTS"
-  ],
+  "linguistic_decision": "WAQF_CORRECTION_REQUIRED",
+  "review_source": "USER_REVIEWED_IN_CHAT",
   "schema_version": "siraj-tts-sample-human-review-v2",
-  "status": "AWAITING_HUMAN_AUDIO_REVIEW"
+  "second_sample_required": true,
+  "status": "CONDITIONALLY_APPROVED_VOICE_ACCEPTED_WAQF_CORRECTION_REQUIRED",
+  "voice_quality_decision": "ACCEPTED"
 }
