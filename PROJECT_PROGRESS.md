@@ -2552,3 +2552,20 @@ READY_FOR_ONE_CONSOLIDATED_DESKTOP_AUTHORIZATION
 - Zero provider and paid requests.
 
 NEXT_STAGE=OPEN_SIRAJ_AND_AUTHORIZE_FROM_CONSOLIDATED_V2_BUTTON
+
+========================================================
+LUNA JSON INTEGRITY HARDENING — 2026-08-06
+========================================================
+
+Status:
+READY_FOR_EXPLICIT_LUNA_RETRY_AUTHORIZATION
+
+- First invalid response remains locked and is not retried.
+- Raw provider responses will now be saved before parsing.
+- Only message/output_text content is parsed as JSON.
+- Reasoning effort is medium and output verbosity is low.
+- Response incomplete/refusal/error states are classified.
+- Strict schema and 95/100 quality gate remain unchanged.
+- No provider or paid request was sent during this repair.
+
+NEXT_STAGE=EXPLICIT_ONE_REQUEST_LUNA_RETRY_AUTHORIZATION

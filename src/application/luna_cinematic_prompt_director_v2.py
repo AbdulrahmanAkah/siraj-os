@@ -74,6 +74,12 @@ PROMPT_RECEIPT_DIR_REL = Path(
 PROMPT_READINESS_REL = Path(
     "orchestration/luna-prompt-direction-readiness-v2.json"
 )
+PROMPT_RAW_RESPONSE_DIR_REL = Path(
+    "orchestration/luna-prompt-direction-v2/raw-provider-responses"
+)
+PROMPT_DIAGNOSTIC_DIR_REL = Path(
+    "orchestration/luna-prompt-direction-v2/diagnostics"
+)
 MEDIA_QUEUE_REL = Path("orchestration/media-production-queue-v1.json")
 STANDARD_READINESS_REL = Path(
     "orchestration/series-production-standard-v2-readiness.json"
@@ -1096,7 +1102,7 @@ def build_luna_batch_request(
     return {
         "model": LUNA_MODEL,
         "store": False,
-        "reasoning": {"effort": "high"},
+        "reasoning": {"effort": "medium"},
         "input": [
             {
                 "role": "system",
@@ -1123,7 +1129,7 @@ def build_luna_batch_request(
         ],
         "max_output_tokens": 45000,
         "text": {
-            "verbosity": "high",
+            "verbosity": "low",
             "format": {
                 "type": "json_schema",
                 "name": "siraj_luna_cinematic_prompt_batch_v2",
@@ -1142,25 +1148,88 @@ def build_luna_batch_request(
     }
 
 
-def _extract_output_text(response: Mapping[str, Any]) -> str:
+def _extract_output_text(
+    response: Mapping[str, Any],
+) -> str:
     direct = response.get("output_text")
     if isinstance(direct, str) and direct.strip():
         return direct.strip()
+
     texts: list[str] = []
+    refusals: list[str] = []
     for item in _sequence(response.get("output")):
         if not isinstance(item, Mapping):
+            continue
+        if str(item.get("type") or "") != "message":
             continue
         for part in _sequence(item.get("content")):
             if not isinstance(part, Mapping):
                 continue
-            text = part.get("text")
-            if isinstance(text, str) and text.strip():
-                texts.append(text.strip())
+            part_type = str(part.get("type") or "")
+            if part_type == "output_text":
+                value = part.get("text")
+                if isinstance(value, str) and value.strip():
+                    texts.append(value.strip())
+            elif part_type == "refusal":
+                value = part.get("refusal")
+                if isinstance(value, str) and value.strip():
+                    refusals.append(value.strip())
+
+    if refusals:
+        raise CinematicPromptDirectorError(
+            "LUNA_PROMPT_REFUSAL_NO_AUTOMATIC_RETRY:"
+            + " | ".join(refusals)
+        )
     if not texts:
         raise CinematicPromptDirectorError(
             "LUNA_PROMPT_OUTPUT_TEXT_MISSING"
         )
-    return "\n".join(texts)
+    return "".join(texts)
+
+
+def _parse_luna_output_payload(
+    text: str,
+) -> dict[str, Any]:
+    candidate = text.lstrip("\ufeff").strip()
+    if candidate.startswith("```"):
+        lines = candidate.splitlines()
+        if lines and lines[0].strip().lower() in {
+            "```",
+            "```json",
+            "```javascript",
+        }:
+            lines = lines[1:]
+        if lines and lines[-1].strip() == "```":
+            lines = lines[:-1]
+        candidate = "\n".join(lines).strip()
+
+    try:
+        value = json.loads(candidate)
+    except json.JSONDecodeError as first_error:
+        start = candidate.find("{")
+        if start < 0:
+            raise CinematicPromptDirectorError(
+                "LUNA_OUTPUT_JSON_INVALID"
+            ) from first_error
+        try:
+            value, end = json.JSONDecoder().raw_decode(
+                candidate[start:]
+            )
+        except json.JSONDecodeError as second_error:
+            raise CinematicPromptDirectorError(
+                "LUNA_OUTPUT_JSON_INVALID"
+            ) from second_error
+        trailing = candidate[start + end :].strip()
+        if trailing not in {"", "```"}:
+            raise CinematicPromptDirectorError(
+                "LUNA_OUTPUT_JSON_TRAILING_CONTENT"
+            )
+
+    if not isinstance(value, dict):
+        raise CinematicPromptDirectorError(
+            "LUNA_OUTPUT_OBJECT_REQUIRED"
+        )
+    return value
 
 
 def _usage(
@@ -1440,6 +1509,16 @@ def execute_authorized_batch(
         / PROMPT_RECEIPT_DIR_REL
         / f"{batch_id}-receipt.json"
     )
+    raw_response_path = (
+        episode_root
+        / PROMPT_RAW_RESPONSE_DIR_REL
+        / f"{batch_id}.json"
+    )
+    diagnostic_path = (
+        episode_root
+        / PROMPT_DIAGNOSTIC_DIR_REL
+        / f"{batch_id}.json"
+    )
     if lock_path.exists():
         raise CinematicPromptDirectorError(
             "PROMPT_BATCH_ALREADY_LOCKED_NO_AUTOMATIC_RETRY"
@@ -1481,22 +1560,66 @@ def execute_authorized_batch(
         _write_json(lock_path, lock)
         raise
 
-    text = _extract_output_text(response)
+    _write_json(raw_response_path, response)
+    response_status = str(response.get("status") or "")
+    lock["response_id"] = str(response.get("id") or "")
+    lock["provider_response_status"] = response_status
+    lock["raw_response_path"] = str(raw_response_path)
+    _write_json(lock_path, lock)
+
+    if response_status not in {"", "completed"}:
+        lock["status"] = (
+            "LUNA_RESPONSE_INCOMPLETE_OR_FAILED_NO_AUTOMATIC_RETRY"
+        )
+        lock["last_error"] = (
+            "LUNA_RESPONSE_STATUS_" + response_status.upper()
+        )
+        lock["incomplete_details"] = response.get(
+            "incomplete_details"
+        )
+        lock["provider_error"] = response.get("error")
+        lock["updated_at_utc"] = _now()
+        _write_json(lock_path, lock)
+        raise CinematicPromptDirectorError(
+            lock["last_error"]
+        )
+
     try:
-        payload = json.loads(text)
-    except json.JSONDecodeError as exc:
+        text = _extract_output_text(response)
+        payload = _parse_luna_output_payload(text)
+    except CinematicPromptDirectorError as exc:
+        input_tokens, output_tokens, cached_tokens = _usage(
+            response
+        )
+        _write_json(
+            diagnostic_path,
+            {
+                "schema_version": "siraj-luna-response-diagnostic-v2",
+                "release": RELEASE,
+                "episode_id": episode_id,
+                "batch_id": batch_id,
+                "response_id": str(response.get("id") or ""),
+                "response_status": response_status,
+                "incomplete_details": response.get("incomplete_details"),
+                "provider_error": response.get("error"),
+                "usage": {
+                    "input_tokens": input_tokens,
+                    "output_tokens": output_tokens,
+                    "cached_input_tokens": cached_tokens,
+                },
+                "error": str(exc),
+                "raw_response_path": str(raw_response_path),
+                "captured_at_utc": _now(),
+            },
+        )
         lock["status"] = (
             "INVALID_LUNA_OUTPUT_NO_AUTOMATIC_RETRY"
         )
-        lock["last_error"] = "LUNA_OUTPUT_JSON_INVALID"
+        lock["last_error"] = str(exc)
+        lock["diagnostic_path"] = str(diagnostic_path)
+        lock["updated_at_utc"] = _now()
         _write_json(lock_path, lock)
-        raise CinematicPromptDirectorError(
-            "LUNA_OUTPUT_JSON_INVALID"
-        ) from exc
-    if not isinstance(payload, dict):
-        raise CinematicPromptDirectorError(
-            "LUNA_OUTPUT_OBJECT_REQUIRED"
-        )
+        raise
     items = validate_luna_batch_output(
         plan,
         batch_id,
