@@ -1,0 +1,145 @@
+{
+  "credential": {
+    "detail": null,
+    "format_valid": true,
+    "present": true,
+    "secret_recorded": false,
+    "source": "WINDOWS_CREDENTIAL_MANAGER",
+    "status": "PRESENT_FORMAT_VALID"
+  },
+  "episode_id": "episode-001-adam",
+  "full_episode_tts_authorized": false,
+  "network_requests": 0,
+  "next_stage": "EXPLICIT_SAMPLE_AUTHORIZATION",
+  "paid_provider_requests": 0,
+  "provider_requests": 0,
+  "release": "SIRAJ_ADAM_TTS_PREFLIGHT_V2",
+  "sample": {
+    "block_id": "VB-001-01",
+    "character_count_unicode": 263,
+    "estimated_seconds": 19.276,
+    "segment_id": "ADAM-SEQUENCE-01",
+    "suggested_authorization_ceiling_usd": 0.07
+  },
+  "sample_generation_authorized": false,
+  "schema_version": "siraj-adam-tts-preflight-v2",
+  "script": {
+    "full_character_count_unicode": 11369,
+    "performance_block_count": 43,
+    "segment_count": 14
+  },
+  "stale_tts_lock_count": 14,
+  "stale_tts_locks": [
+    {
+      "path_relative": "projects/episode-001-adam/orchestration/media-execution/locks/TTS-SEG-001-B01-attempt-01.json",
+      "queue_id": "TTS-SEG-001-B01",
+      "status": "LOCKED_BEFORE_NETWORK"
+    },
+    {
+      "path_relative": "projects/episode-001-adam/orchestration/media-execution/locks/TTS-SEG-002-B01-attempt-01.json",
+      "queue_id": "TTS-SEG-002-B01",
+      "status": "LOCKED_BEFORE_NETWORK"
+    },
+    {
+      "path_relative": "projects/episode-001-adam/orchestration/media-execution/locks/TTS-SEG-003-B01-attempt-01.json",
+      "queue_id": "TTS-SEG-003-B01",
+      "status": "LOCKED_BEFORE_NETWORK"
+    },
+    {
+      "path_relative": "projects/episode-001-adam/orchestration/media-execution/locks/TTS-SEG-004-B01-attempt-01.json",
+      "queue_id": "TTS-SEG-004-B01",
+      "status": "LOCKED_BEFORE_NETWORK"
+    },
+    {
+      "path_relative": "projects/episode-001-adam/orchestration/media-execution/locks/TTS-SEG-005-B01-attempt-01.json",
+      "queue_id": "TTS-SEG-005-B01",
+      "status": "LOCKED_BEFORE_NETWORK"
+    },
+    {
+      "path_relative": "projects/episode-001-adam/orchestration/media-execution/locks/TTS-SEG-006-B01-attempt-01.json",
+      "queue_id": "TTS-SEG-006-B01",
+      "status": "LOCKED_BEFORE_NETWORK"
+    },
+    {
+      "path_relative": "projects/episode-001-adam/orchestration/media-execution/locks/TTS-SEG-007-B01-attempt-01.json",
+      "queue_id": "TTS-SEG-007-B01",
+      "status": "LOCKED_BEFORE_NETWORK"
+    },
+    {
+      "path_relative": "projects/episode-001-adam/orchestration/media-execution/locks/TTS-SEG-008-B01-attempt-01.json",
+      "queue_id": "TTS-SEG-008-B01",
+      "status": "LOCKED_BEFORE_NETWORK"
+    },
+    {
+      "path_relative": "projects/episode-001-adam/orchestration/media-execution/locks/TTS-SEG-009-B01-attempt-01.json",
+      "queue_id": "TTS-SEG-009-B01",
+      "status": "LOCKED_BEFORE_NETWORK"
+    },
+    {
+      "path_relative": "projects/episode-001-adam/orchestration/media-execution/locks/TTS-SEG-010-B01-attempt-01.json",
+      "queue_id": "TTS-SEG-010-B01",
+      "status": "LOCKED_BEFORE_NETWORK"
+    },
+    {
+      "path_relative": "projects/episode-001-adam/orchestration/media-execution/locks/TTS-SEG-011-B01-attempt-01.json",
+      "queue_id": "TTS-SEG-011-B01",
+      "status": "LOCKED_BEFORE_NETWORK"
+    },
+    {
+      "path_relative": "projects/episode-001-adam/orchestration/media-execution/locks/TTS-SEG-012-B01-attempt-01.json",
+      "queue_id": "TTS-SEG-012-B01",
+      "status": "LOCKED_BEFORE_NETWORK"
+    },
+    {
+      "path_relative": "projects/episode-001-adam/orchestration/media-execution/locks/TTS-SEG-013-B01-attempt-01.json",
+      "queue_id": "TTS-SEG-013-B01",
+      "status": "LOCKED_BEFORE_NETWORK"
+    },
+    {
+      "path_relative": "projects/episode-001-adam/orchestration/media-execution/locks/TTS-SEG-014-B01-attempt-01.json",
+      "queue_id": "TTS-SEG-014-B01",
+      "status": "LOCKED_BEFORE_NETWORK"
+    }
+  ],
+  "status": "READY_FOR_EXPLICIT_SAMPLE_AUTHORIZATION",
+  "voice_cast": {
+    "model_id": "eleven_multilingual_v2",
+    "performer_count": 1,
+    "performer_slots_used": [
+      "PRIMARY"
+    ],
+    "primary_voice_id": "XdoLPWNt7ytn6BtU4FBf",
+    "roster": [
+      {
+        "label": "Primary selected ElevenLabs performer",
+        "role": "PRIMARY_NARRATOR",
+        "slot": "PRIMARY",
+        "voice_id": "XdoLPWNt7ytn6BtU4FBf"
+      },
+      {
+        "label": "Selected supporting performer 1",
+        "role": "BACKUP_AND_ADDITIONAL_PERFORMER",
+        "slot": "SUPPORT_1",
+        "voice_id": "pCKbQ4EPGE06zpEPGNvS"
+      },
+      {
+        "label": "Hijazi - Professional, and Expressive",
+        "role": "BACKUP_AND_ADDITIONAL_PERFORMER",
+        "slot": "SUPPORT_2",
+        "voice_id": "fkqevZRU7Xj52dY1CTkq"
+      },
+      {
+        "label": "Selected supporting performer 3",
+        "role": "BACKUP_AND_ADDITIONAL_PERFORMER",
+        "slot": "SUPPORT_3",
+        "voice_id": "t8atLZaWuCcW6gENDwwa"
+      }
+    ],
+    "voice_settings": {
+      "similarity_boost": 0.75,
+      "stability": 0.38,
+      "style": 0.42,
+      "use_speaker_boost": true
+    }
+  }
+}

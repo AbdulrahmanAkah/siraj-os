@@ -2369,3 +2369,20 @@ Scope:
 - عدم إرسال النص إلى TTS وعدم تنفيذ أي طلب مدفوع.
 
 NEXT_STAGE=TTS_PREFLIGHT_AND_SHORT_SAMPLE_GENERATION
+
+========================================================
+ADAM TTS PREFLIGHT TEST FIXTURES V2 — 2026-08-06
+========================================================
+
+Status:
+OFFLINE_PREFLIGHT_PASS
+
+Scope:
+
+- تحديث نصوص اختبارات ElevenLabs القديمة إلى نصوص عربية مشكلة.
+- الحفاظ على شرط التشكيل الصارم في كود الإنتاج دون تخفيفه.
+- إعادة تشغيل TTS preflight دون اتصال بالشبكة.
+- التحقق من 43 كتلة أداء ومن اختيار الراوي الأساسي.
+- منع أي طلب مزود أو تنفيذ مدفوع.
+
+NEXT_STAGE=EXPLICIT_SAMPLE_AUTHORIZATION_OR_CREDENTIAL_CONFIGURATION

@@ -18,7 +18,7 @@ def test_primary_narrator_is_default() -> None:
                 "segment_id": "SEG-001",
                 "event_id": "EV-001",
                 "segment_type": "EVENT",
-                "narration_ar": "نص السرد الأساسي.",
+                "narration_ar": "نَصُّ السَّرْدِ الْأَسَاسِيِّ.",
                 "source_ids": ["SRC-001"],
             }
         ]
@@ -52,7 +52,7 @@ def test_multiple_script_performers_use_locked_roster() -> None:
                         "speaker_key": "NARRATOR",
                         "speaker_label_ar": "الراوي",
                         "voice_slot_preference": "PRIMARY",
-                        "text_ar": "يبدأ الراوي.",
+                        "text_ar": "يَبْدَأُ الرَّاوِي.",
                         "source_ids": ["SRC-001"],
                     },
                     {
@@ -61,7 +61,7 @@ def test_multiple_script_performers_use_locked_roster() -> None:
                         "speaker_key": "CHARACTER_A",
                         "speaker_label_ar": "الشخصية الأولى",
                         "voice_slot_preference": "AUTO",
-                        "text_ar": "هذا قول الشخصية الأولى.",
+                        "text_ar": "هَذَا قَوْلُ الشَّخْصِيَّةِ الْأُولَى.",
                         "source_ids": ["SRC-001"],
                     },
                     {
@@ -70,7 +70,7 @@ def test_multiple_script_performers_use_locked_roster() -> None:
                         "speaker_key": "CHARACTER_B",
                         "speaker_label_ar": "الشخصية الثانية",
                         "voice_slot_preference": "AUTO",
-                        "text_ar": "وهذا جواب الشخصية الثانية.",
+                        "text_ar": "وَهَذَا جَوَابُ الشَّخْصِيَّةِ الثَّانِيَةِ.",
                         "source_ids": ["SRC-001"],
                     },
                     {
@@ -79,7 +79,7 @@ def test_multiple_script_performers_use_locked_roster() -> None:
                         "speaker_key": "CHARACTER_C",
                         "speaker_label_ar": "الشخصية الثالثة",
                         "voice_slot_preference": "AUTO",
-                        "text_ar": "وهذا صوت الشخصية الثالثة.",
+                        "text_ar": "وَهَذَا صَوْتُ الشَّخْصِيَّةِ الثَّالِثَةِ.",
                         "source_ids": ["SRC-001"],
                     },
                 ],
@@ -125,7 +125,7 @@ def test_same_character_keeps_same_voice() -> None:
             {
                 "segment_id": "SEG-001",
                 "event_id": "EV-001",
-                "narration_ar": "قول أول.",
+                "narration_ar": "قَوْلٌ أَوَّلٌ.",
                 "speaker_key": "CHARACTER_A",
                 "performance_type": "QUOTED_SPEECH",
                 "source_ids": ["SRC-001"],
@@ -133,7 +133,7 @@ def test_same_character_keeps_same_voice() -> None:
             {
                 "segment_id": "SEG-002",
                 "event_id": "EV-001",
-                "narration_ar": "قول ثان للشخصية نفسها.",
+                "narration_ar": "قَوْلٌ ثَانٍ لِلشَّخْصِيَّةِ نَفْسِهَا.",
                 "speaker_key": "CHARACTER_A",
                 "performance_type": "QUOTED_SPEECH",
                 "source_ids": ["SRC-001"],
