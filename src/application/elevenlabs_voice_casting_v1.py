@@ -6,13 +6,15 @@ import uuid
 from dataclasses import dataclass
 from typing import Any, Mapping, Sequence
 
+from src.application.series_production_quality_v2 import assert_tts_text_ready
+
 RELEASE = "ELEVENLABS_FOUR_PERFORMER_CASTING_LOCK_V1"
 
 MODEL_ID = "eleven_multilingual_v2"
 VOICE_SETTINGS = {
-    "stability": 0.55,
+    "stability": 0.38,
     "similarity_boost": 0.75,
-    "style": 0.15,
+    "style": 0.42,
     "use_speaker_boost": True,
 }
 
@@ -189,11 +191,12 @@ def _explicit_blocks(segment: Mapping[str, Any]) -> list[dict[str, Any]]:
     for index, block in enumerate(raw, start=1):
         if not isinstance(block, Mapping):
             raise VoiceCastingError("VOICE_PERFORMANCE_BLOCK_OBJECT_REQUIRED")
-        text = _clean(block.get("text_ar") or block.get("text"))
+        text = _clean(block.get("tts_text_ar") or block.get("text_ar") or block.get("text"))
         if not text:
             raise VoiceCastingError(
                 f"VOICE_PERFORMANCE_BLOCK_TEXT_REQUIRED:{index}"
             )
+        assert_tts_text_ready(text)
         result.append(
             {
                 "block_id": _clean(block.get("block_id")) or f"VB-AUTO-{index:02d}",
@@ -231,11 +234,12 @@ def _synthetic_blocks(
     segment: Mapping[str, Any],
     signal: Mapping[str, Any],
 ) -> list[dict[str, Any]]:
-    text = _clean(segment.get("narration_ar"))
+    text = _clean(segment.get("tts_narration_ar") or segment.get("tts_text_ar") or segment.get("narration_ar"))
     if not text:
         raise VoiceCastingError(
             "TTS_NARRATION_REQUIRED:" + str(segment.get("segment_id", ""))
         )
+    assert_tts_text_ready(text)
     speaker_key = _clean(
         segment.get("speaker_key")
         or segment.get("speaker_role_id")

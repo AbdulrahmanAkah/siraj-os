@@ -1,0 +1,23 @@
+{
+  "budget": {
+    "generated_video_hard_cap_usd": 35.0,
+    "generated_video_target_usd": 30.0,
+    "seconds_target": "NONE_COST_AND_QUALITY_DRIVEN"
+  },
+  "created": {
+    "episode_plan": "projects/episode-001-adam/cinematic/episode-production-plan-v2.json",
+    "episode_policy": "projects/episode-001-adam/contracts/episode-production-policy-v2.json",
+    "series_policy": "projects/_series/siraj-series-production-policy-v2.json"
+  },
+  "episode_id": "episode-001-adam",
+  "release": "SIRAJ_SERIES_PRODUCTION_QUALITY_V2",
+  "required_next_actions": [
+    "FULLY_DIACRITIZE_AND_HUMAN_REVIEW_TTS_SCRIPT",
+    "RECOMPILE_STORYBOARD_WITH_VIDEO_FIRST_V2",
+    "REVIEW_HEAVENLY_UNSEEN_SCENE_DOMAINS",
+    "REPLACE_CHEAP_STILL_MONTAGE",
+    "RENDER_AND_RUN_PRODUCTION_QUALITY_GATE_V2"
+  ],
+  "schema_version": "siraj-series-quality-v2-migration-report",
+  "status": "MIGRATED_REPLAN_AND_HUMAN_REVIEW_REQUIRED"
+}

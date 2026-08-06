@@ -55,6 +55,7 @@ AUDIO_BITRATE = "192k"
 AUDIO_SAMPLE_RATE = 48_000
 AUDIO_CHANNELS = 2
 SEQUENCE_FADE_SECONDS = 0.35
+MAX_LAST_FRAME_EXTENSION_SECONDS = 1.25
 MIN_FREE_BYTES = 8 * 1024 * 1024 * 1024
 BYTES_PER_EPISODE_SECOND_RESERVE = 5 * 1024 * 1024
 DURATION_TOLERANCE_SECONDS = 0.20
@@ -658,7 +659,7 @@ def build_motion_render_command(
         f"[0:v]fps={FPS},"
         f"scale={WIDTH}:{HEIGHT}:force_original_aspect_ratio=decrease,"
         f"pad={WIDTH}:{HEIGHT}:(ow-iw)/2:(oh-ih)/2:color=black,"
-        f"tpad=stop_mode=clone:stop_duration={extension:.6f},"
+        f"tpad=stop_mode=clone:stop_duration=min({extension,MAX_LAST_FRAME_EXTENSION_SECONDS):.6f},"
         f"trim=duration={duration:.6f},setpts=PTS-STARTPTS"
         + grade
         + fades

@@ -1,0 +1,46 @@
+{
+  "audio": {
+    "explicit_pause_plan_required": true,
+    "fully_diacritized_tts_required": true,
+    "human_language_review_required": true,
+    "human_performance_review_required": true,
+    "maximum_words_per_minute": 128,
+    "music": "FORBIDDEN",
+    "sound_effects": "ALLOWED",
+    "target_words_per_minute": 116
+  },
+  "budget": {
+    "cap_override": "FORBIDDEN",
+    "generated_video_hard_cap_usd": 35.0,
+    "generated_video_target_usd": 30.0,
+    "hidden_paid_retry": "FORBIDDEN",
+    "preflight_required_before_each_paid_request": true
+  },
+  "episode_id": "episode-001-adam",
+  "inherits": "projects/_series/siraj-series-production-policy-v2.json",
+  "media_mix": {
+    "flat_slideshow": "FORBIDDEN",
+    "generated_video_seconds_target": "NONE_COST_AND_QUALITY_DRIVEN",
+    "maximum_last_frame_extension_seconds": 1.25,
+    "maximum_still_led_seconds": 7,
+    "production_mode": "BUDGET_DRIVEN_VIDEO_FIRST",
+    "simple_zoom_only": "FORBIDDEN",
+    "still_image_usage": "LIMITED_AND_INTENTIONAL"
+  },
+  "release_gate": {
+    "black_intervals_over_one_second": "BLOCKING",
+    "cheap_still_montage": "BLOCKING",
+    "freeze_over_1_25_seconds": "BLOCKING",
+    "unplanned_silence_over_three_seconds": "BLOCKING",
+    "world_continuity_violation": "BLOCKING"
+  },
+  "schema_version": "siraj-episode-production-policy-v2",
+  "status": "HUMAN_DIRECTIVES_ACTIVE",
+  "unseen_world": {
+    "earthly_visual_default_for_unseen": "FORBIDDEN",
+    "explicit_scene_domain_required": true,
+    "location_continuity_required": true,
+    "representation_claim": "SYMBOLIC_NON_DEFINITIVE",
+    "unsupported_religious_detail": "FORBIDDEN"
+  }
+}
