@@ -2665,3 +2665,20 @@ PASS_VEO_PAYLOAD_AND_PRODUCTION_CONSOLE_REPAIRED
 - Paid provider requests during repair: 0.
 
 NEXT_STAGE=REOPEN_SIRAJ_AND_CLICK_CONTINUE_EPISODE_PRODUCTION
+
+========================================================
+VEO NETWORK-BOUNDARY FINALIZATION — 2026-08-07
+========================================================
+
+Status:
+PASS_VEO_NETWORK_BOUNDARY_FINALIZED
+
+- Corrected the resume installer detection bug that mistook the helper definition for an active call inside execute_runware_item.
+- The Veo sanitizer now runs after Luna prompt application and before the Runware network lock/request.
+- The regression test verifies call order through Python AST rather than fragile formatting-dependent text matching.
+- The zero-cost failed queue item remains ready for explicit continuation.
+- Full pytest, compileall and stable pipeline certification passed.
+- Provider requests during repair: 0.
+- Paid provider requests during repair: 0.
+
+NEXT_STAGE=FULLY_CLOSE_AND_REOPEN_SIRAJ_THEN_CONTINUE_EPISODE

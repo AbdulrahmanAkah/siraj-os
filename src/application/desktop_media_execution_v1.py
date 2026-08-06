@@ -547,6 +547,13 @@ def execute_runware_item(
             raise DesktopMediaExecutionError(str(exc)) from exc
         task = prepare_runware_task_for_submission(task)
         if kind == "RUNWARE_VIDEO":
+            task, prompt_certification = (
+                _siraj_prepare_veo_final_submission_v1(
+                    task,
+                    prompt_certification,
+                    queue_id,
+                )
+            )
             google = task.setdefault("providerSettings", {}).setdefault(
                 "google", {}
             )
@@ -1265,3 +1272,107 @@ def execute_elevenlabs_item(
         result,
     )
     return result
+
+# SIRAJ_VEO_FINAL_SUBMISSION_SANITIZER_V1
+_SIRAJ_VEO_ALLOWED_SUBMISSION_FIELDS_V1 = frozenset(
+    {
+        "includeCost",
+        "taskUUID",
+        "taskType",
+        "model",
+        "height",
+        "width",
+        "outputType",
+        "outputFormat",
+        "numberResults",
+        "positivePrompt",
+        "deliveryMethod",
+        "duration",
+        "frameImages",
+        "providerSettings",
+        "advancedFeatures",
+        "fps",
+        "uploadEndpoint",
+        "outputQuality",
+        "webhookURL",
+        "ttl",
+        "seed",
+        "inputs",
+        "resolution",
+    }
+)
+_SIRAJ_VEO_EXCLUSION_PREFIX_V1 = (
+    " Strict exclusion constraints for this provider request: "
+)
+
+
+def _siraj_prepare_veo_final_submission_v1(
+    task: Mapping[str, Any],
+    certification: Mapping[str, Any] | None,
+    queue_id: str,
+) -> tuple[dict[str, Any], dict[str, Any] | None]:
+    prepared = dict(task)
+    negative = str(
+        prepared.pop("negativePrompt", "") or ""
+    ).strip()
+    positive = str(
+        prepared.get("positivePrompt", "") or ""
+    ).strip()
+    if not positive:
+        raise DesktopMediaExecutionError(
+            "RUNWARE_VEO_POSITIVE_PROMPT_REQUIRED:"
+            + queue_id
+        )
+
+    if negative and _SIRAJ_VEO_EXCLUSION_PREFIX_V1 not in positive:
+        positive = (
+            positive
+            + _SIRAJ_VEO_EXCLUSION_PREFIX_V1
+            + "do not depict or introduce any of the following: "
+            + negative
+            + ". Treat these exclusions as mandatory execution constraints."
+        )
+    prepared["positivePrompt"] = positive
+
+    unsupported = sorted(
+        set(prepared)
+        - _SIRAJ_VEO_ALLOWED_SUBMISSION_FIELDS_V1
+    )
+    if unsupported:
+        raise DesktopMediaExecutionError(
+            "RUNWARE_VEO_UNSUPPORTED_PARAMETERS_BEFORE_NETWORK:"
+            + queue_id
+            + ":"
+            + ",".join(unsupported)
+        )
+    if "negativePrompt" in prepared:
+        raise DesktopMediaExecutionError(
+            "RUNWARE_VEO_NEGATIVE_PROMPT_REACHED_NETWORK_GATE:"
+            + queue_id
+        )
+
+    updated_certification: dict[str, Any] | None = None
+    if isinstance(certification, Mapping):
+        updated_certification = dict(certification)
+        updated_certification[
+            "provider_submission_positive_prompt_en"
+        ] = positive
+        updated_certification[
+            "provider_submission_positive_prompt_sha256"
+        ] = hashlib.sha256(
+            positive.encode("utf-8")
+        ).hexdigest()
+        updated_certification[
+            "negative_prompt_transport"
+        ] = (
+            "INLINED_AS_MANDATORY_POSITIVE_"
+            "EXECUTION_CONSTRAINTS"
+        )
+        updated_certification[
+            "unsupported_negativePrompt_parameter"
+        ] = "REMOVED_BEFORE_NETWORK"
+        updated_certification[
+            "provider_parameter_allowlist_version"
+        ] = "RUNWARE_VEO_FINAL_SUBMISSION_SANITIZER_V1"
+
+    return prepared, updated_certification

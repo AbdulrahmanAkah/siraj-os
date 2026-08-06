@@ -1,7 +1,7 @@
 {
   "blocking_issue_count": 0,
-  "certified_at_utc": "2026-08-06T21:30:08.557571Z",
-  "critical_fingerprint": "bb846ec4e9b05ea34683d8df596c9d9dcc2a8ddc948a6a0db29b13fff3106493",
+  "certified_at_utc": "2026-08-06T21:58:43.896811Z",
+  "critical_fingerprint": "da5504494f5fd67ba813e5fd228fe3491b136f5b7a3869e15f0494231715257a",
   "episode_id": "episode-001-adam",
   "fingerprint_entries": [
     {
@@ -14,7 +14,7 @@
     },
     {
       "path": "src/application/production_pipeline_certification_gate_v1.py",
-      "sha256": "905c81b6af6471aa67d80bff2fde7ce96bd000bbd424bd9baf281a8f247f638d"
+      "sha256": "8ec979aff732ea6c981602373dfe8c15baa0b1ec4cb90a20fcfa17ce9ca6ef6d"
     },
     {
       "path": "src/application/consolidated_episode_production_controller_v2.py",
@@ -22,7 +22,7 @@
     },
     {
       "path": "src/application/desktop_media_execution_v1.py",
-      "sha256": "510e9c022e99115d57edf82c60b8def4ef1c092306133e7f3bd04e485417d1a8"
+      "sha256": "06eb6f8a759a9564d9f19baf2daa026322410610e2e825c2d8a9588195e4429d"
     },
     {
       "path": "src/application/end_to_end_production_v1.py",
@@ -39,10 +39,6 @@
     {
       "path": "projects/episode-001-adam/cinematic/storyboard-and-media-plan-luna-certified-v2.json",
       "sha256": "bc704cdf5f5f563812900ee351b32c91de9bd48fc9876864c17d6894bafab912"
-    },
-    {
-      "path": "projects/episode-001-adam/orchestration/production-standard-v2-native-asset-plan-v1.json",
-      "sha256": "513cb3c133b92d5807310d9c3f8da0e66e4adcc65d47b6f275ac235924758b67"
     },
     {
       "path": "projects/episode-001-adam/orchestration/full-episode-tts-execution-plan-production-standard-v2.json",
@@ -65,7 +61,7 @@
     "image_maximum_usd": 2.93715,
     "pending_media_maximum_usd": 38.747733,
     "production_generation_id": "PSV2-ADAM-R1",
-    "queue_sha256": "939e6b0355ff5aa11a72e5a755f14829b6788a9baeb3d7cc19caa17596394624",
+    "queue_sha256": "5bbb71644a25e2732e5ed20594d3b9282335d484792743073f1f7556402d58dd",
     "safe_repair_reserve_usd": 0.15,
     "status": "READY_FOR_CONSOLIDATED_V2_EXECUTION_AUTHORIZATION",
     "tts_maximum_usd": 2.930583
@@ -73,7 +69,7 @@
   "paid_provider_requests": 0,
   "production_generation_id": "PSV2-ADAM-R1",
   "provider_requests": 0,
-  "release": "SIRAJ_FIX_VEO_PAYLOAD_AND_PRODUCTION_CONSOLE_V1",
+  "release": "SIRAJ_RESUME_CLOSE_VEO_NETWORK_BOUNDARY_V1",
   "schema_version": "siraj-full-production-pipeline-certification-v3",
   "status": "PASS_FULL_PRODUCTION_PIPELINE_CERTIFIED"
 }

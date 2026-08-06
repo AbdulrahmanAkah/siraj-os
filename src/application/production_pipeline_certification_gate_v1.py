@@ -47,7 +47,15 @@ def build_pipeline_fingerprint(
 ) -> tuple[str, list[dict[str, str]]]:
     repo = repo_root.resolve()
     entries: list[dict[str, str]] = []
+    # SIRAJ_MUTABLE_ASSET_PLAN_FINGERPRINT_EXCLUSION_V1
     for relative in FINGERPRINT_PATHS:
+        # This generated plan contains timestamps and is rewritten during an
+        # authorized materialization. Raw hashing it invalidates the certificate
+        # immediately after a production attempt starts.
+        if relative.endswith(
+            "production-standard-v2-native-asset-plan-v1.json"
+        ):
+            continue
         path = repo / relative
         if not path.is_file():
             raise ProductionPipelineCertificationError(
