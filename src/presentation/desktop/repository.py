@@ -359,3 +359,54 @@ def build_dashboard_snapshot(repo_root: Path) -> DashboardSnapshot:
         active_episode_id=episodes[0].episode_id if episodes else None,
         warnings=tuple(warnings),
     )
+
+# SIRAJ_V2_RUNTIME_DASHBOARD_PRIORITY
+from dataclasses import replace as _siraj_v2_replace
+
+
+_siraj_v2_raw_load_episode_record = load_episode_record
+
+
+def _siraj_v2_rebuild_pending(project_path: Path) -> bool:
+    readiness = _read_json(
+        project_path
+        / "orchestration"
+        / "series-production-standard-v2-readiness.json"
+    )
+    if not isinstance(readiness, dict):
+        return False
+    if readiness.get("standard_complete") is not True:
+        return False
+    if str(readiness.get("status") or "") != (
+        "READY_FOR_FULL_EPISODE_REBUILD_AUTHORIZATION"
+    ):
+        return False
+    state = _read_json(
+        project_path
+        / "orchestration"
+        / "consolidated-episode-production-state-v2.json"
+    )
+    if isinstance(state, dict) and str(state.get("status") or "") in {
+        "PASS_AWAITING_FINAL_HUMAN_WATCH",
+        "READY_FOR_MANUAL_YOUTUBE_UPLOAD",
+        "READY_TO_PUBLISH",
+    }:
+        return False
+    return True
+
+
+def load_episode_record(project_path: Path) -> EpisodeRecord:
+    record = _siraj_v2_raw_load_episode_record(project_path)
+    if not _siraj_v2_rebuild_pending(project_path):
+        return record
+    blockers = tuple(dict.fromkeys((
+        "PRODUCTION_STANDARD_V2_REBUILD_PENDING",
+        *record.blockers,
+    )))
+    return _siraj_v2_replace(
+        record,
+        stage=EpisodeStage.IN_PRODUCTION,
+        next_action_ar="فتح إنتاج الحلقة V2",
+        final_video_path=None,
+        blockers=blockers,
+    )

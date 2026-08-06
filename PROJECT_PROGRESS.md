@@ -2535,3 +2535,20 @@ Completed:
 - Installation performs zero provider and paid requests.
 
 NEXT_STAGE=ONE_CONSOLIDATED_DESKTOP_AUTHORIZATION
+
+
+========================================================
+RUNTIME PRODUCTION V2 ENTRY REPAIR — 2026-08-06
+========================================================
+
+Status:
+READY_FOR_ONE_CONSOLIDATED_DESKTOP_AUTHORIZATION
+
+- Added non-enumerated V1 treatment aliases over canonical V2 counts.
+- Canonical treatment total remains 70.
+- ProductionConsole opens without ANIMATED_STILL_COMPOSITING KeyError.
+- Dashboard prioritizes the V2 rebuild over the stale old master.
+- Cleared Python bytecode caches.
+- Zero provider and paid requests.
+
+NEXT_STAGE=OPEN_SIRAJ_AND_AUTHORIZE_FROM_CONSOLIDATED_V2_BUTTON
