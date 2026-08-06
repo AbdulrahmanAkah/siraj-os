@@ -2586,3 +2586,19 @@ READY_FOR_EXPLICIT_DESKTOP_RETRY_AUTHORIZATION
 - Installation performs zero provider and paid requests.
 
 NEXT_STAGE=CLICK_EXPLICIT_LUNA_RETRY_AND_CONTINUE
+
+========================================================
+LUNA SAFE TECHNICAL REPAIR V1 — 2026-08-06
+========================================================
+
+Status:
+AUTOMATIC_BOUNDED_REPAIR_ENABLED
+
+- Production automatically invokes Luna for eligible local technical failures.
+- Passing repairs resume the same production chain without user interruption.
+- Maximum 3 calls, 0.15 USD total, 5 files and 200 lines per repair.
+- Every change is backed up, validated and rollback-capable.
+- Provider ambiguity, paid retries, permissions and architectural changes stop for user action.
+- Installation performs zero provider and paid requests.
+
+NEXT_STAGE=OPEN_SIRAJ_AND_CONTINUE_CONSOLIDATED_PRODUCTION

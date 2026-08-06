@@ -871,3 +871,104 @@ def _record_authorization(
         ),
     )
     return main_path
+
+# SIRAJ_LUNA_SAFE_TECHNICAL_REPAIR_BUDGET_V1
+from dataclasses import replace as _siraj_safe_repair_replace
+from src.application.luna_safe_technical_repair_v1 import (
+    SAFE_TECHNICAL_REPAIR_TOTAL_RESERVE_USD as _SIRAJ_SAFE_REPAIR_RESERVE_USD,
+    create_safe_repair_authorization as _siraj_create_safe_repair_authorization,
+)
+
+
+_siraj_pre_safe_repair_inspect_plan = (
+    inspect_consolidated_production_plan
+)
+_siraj_pre_safe_repair_record_authorization = (
+    _record_authorization
+)
+
+
+def inspect_consolidated_production_plan(
+    repo_root: Path,
+) -> ConsolidatedProductionPlan:
+    plan = _siraj_pre_safe_repair_inspect_plan(
+        repo_root
+    )
+    revised_maximum = round(
+        plan.maximum_authorized_usd
+        + _SIRAJ_SAFE_REPAIR_RESERVE_USD,
+        6,
+    )
+    if revised_maximum > plan.episode_hard_cap_usd:
+        raise ConsolidatedProductionError(
+            "SAFE_TECHNICAL_REPAIR_RESERVE_EXCEEDS_HARD_CAP"
+        )
+    revised = _siraj_safe_repair_replace(
+        plan,
+        maximum_authorized_usd=revised_maximum,
+    )
+    _write(
+        Path(repo_root).resolve() / CONTROLLER_PLAN_REL,
+        {
+            "schema_version": SCHEMA_VERSION,
+            "release": RELEASE,
+            **revised.as_dict(),
+            "safe_technical_repair": {
+                "mode": "AUTOMATIC_BOUNDED",
+                "reserve_usd": (
+                    _SIRAJ_SAFE_REPAIR_RESERVE_USD
+                ),
+                "maximum_calls": 3,
+                "maximum_files_per_repair": 5,
+                "maximum_changed_lines_per_repair": 200,
+                "automatic_media_retry": "FORBIDDEN",
+                "stop_policy": (
+                    "STOP_ONLY_WHEN_USER_ACTION_REQUIRED"
+                ),
+            },
+            "updated_at_utc": _now(),
+        },
+    )
+    _update_desktop_snapshot(
+        Path(repo_root).resolve(),
+        revised,
+    )
+    return revised
+
+
+def _record_authorization(
+    repo: Path,
+    plan: ConsolidatedProductionPlan,
+    confirmed_maximum_usd: float,
+) -> Path:
+    base_maximum = round(
+        float(confirmed_maximum_usd)
+        - _SIRAJ_SAFE_REPAIR_RESERVE_USD,
+        6,
+    )
+    if base_maximum <= 0:
+        raise ConsolidatedProductionError(
+            "SAFE_REPAIR_BASE_AUTHORIZATION_INVALID"
+        )
+    base_plan = _siraj_safe_repair_replace(
+        plan,
+        maximum_authorized_usd=base_maximum,
+    )
+    main_path = _siraj_pre_safe_repair_record_authorization(
+        repo,
+        base_plan,
+        base_maximum,
+    )
+    _siraj_create_safe_repair_authorization(
+        repo,
+        confirmed_reserve_usd=(
+            _SIRAJ_SAFE_REPAIR_RESERVE_USD
+        ),
+        effective_consolidated_maximum_usd=(
+            confirmed_maximum_usd
+        ),
+        episode_hard_cap_usd=(
+            TOTAL_EPISODE_HARD_CAP_USD
+        ),
+    )
+    return main_path

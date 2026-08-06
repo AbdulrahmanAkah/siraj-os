@@ -9,6 +9,9 @@ from src.application.luna_invalid_output_recovery_v2 import (
     SUPPLEMENTAL_MAXIMUM_USD,
     inspect_invalid_luna_retry,
 )
+from src.application.luna_safe_technical_repair_v1 import (
+    SAFE_TECHNICAL_REPAIR_TOTAL_RESERVE_USD,
+)
 
 
 def test_live_invalid_lock_requires_explicit_retry() -> None:
@@ -31,13 +34,15 @@ def test_controller_maximum_matches_retry_state() -> None:
     if inspection.get("retry_required") is True:
         assert plan.maximum_authorized_usd == round(
             CONSOLIDATED_MAXIMUM_USD
-            + SUPPLEMENTAL_MAXIMUM_USD,
+            + SUPPLEMENTAL_MAXIMUM_USD
+            + SAFE_TECHNICAL_REPAIR_TOTAL_RESERVE_USD,
             6,
         )
         assert "RETRY" in plan.status
     else:
         assert plan.maximum_authorized_usd == (
             CONSOLIDATED_MAXIMUM_USD
+            + SAFE_TECHNICAL_REPAIR_TOTAL_RESERVE_USD
         )
 
 

@@ -94,6 +94,10 @@ from src.application.consolidated_episode_production_controller_v2 import (
     inspect_consolidated_production_plan,
     run_consolidated_production_to_human_gate,
 )
+from src.application.luna_safe_technical_repair_v1 import (
+    SAFE_TECHNICAL_REPAIR_TOTAL_RESERVE_USD,
+    run_consolidated_production_with_safe_technical_repair,
+)
 from src.application.runtime_state_recovery_v1 import (
     diagnose_runtime_state,
     recover_runtime_state_from_artifacts,
@@ -453,7 +457,7 @@ class ConsolidatedEpisodeProductionThread(QThread):
             self.progress_changed.emit(message, value)
 
         try:
-            result = run_consolidated_production_to_human_gate(
+            result = run_consolidated_production_with_safe_technical_repair(
                 self.repo_root,
                 openai_api_key=self._openai_api_key,
                 runware_api_key=self._runware_api_key,
@@ -663,6 +667,18 @@ class ProductionConsoleDialog(QDialog):
         consolidated_note.setObjectName("muted")
         consolidated_note.setWordWrap(True)
         consolidated_layout.addWidget(consolidated_note)
+        self.safe_technical_repair_status = QLabel(
+            "الإصلاح التقني المقيد: تلقائي — Luna حتى 3 طلبات، "
+            "5 ملفات و200 سطر كحد أقصى؛ يتوقف فقط عند الحاجة "
+            "إلى إجراء منك."
+        )
+        self.safe_technical_repair_status.setObjectName(
+            "lunaSafeTechnicalRepairV1Status"
+        )
+        self.safe_technical_repair_status.setWordWrap(True)
+        consolidated_layout.addWidget(
+            self.safe_technical_repair_status
+        )
         root.addWidget(self.consolidated_v2_box)
 
         self.tabs = QTabWidget()
@@ -871,6 +887,8 @@ class ProductionConsoleDialog(QDialog):
             + f"{plan.tts_reserve_usd:.2f}"
             + " | وسائط أخرى: $"
             + f"{plan.other_media_reserve_usd:.2f}"
+            + " | إصلاح تقني: $"
+            + f"{SAFE_TECHNICAL_REPAIR_TOTAL_RESERVE_USD:.2f}"
             + "\nالسقف الموحد: $"
             + f"{plan.maximum_authorized_usd:.6f}"
             + " | الحد الصارم للحلقة: $"
@@ -932,6 +950,9 @@ class ProductionConsoleDialog(QDialog):
             + f"{plan.tts_reserve_usd:.2f}"
             + "\nوسائط أخرى: $"
             + f"{plan.other_media_reserve_usd:.2f}"
+            + "\nاحتياطي الإصلاح التقني المقيد: $"
+            + f"{SAFE_TECHNICAL_REPAIR_TOTAL_RESERVE_USD:.2f}"
+            + " — تلقائي ضمن الحدود ولا يعيد طلبات الوسائط"
             + ("\nإعادة محاولة Luna الصريحة: $0.05"
                if plan.prompt_status.startswith(
                    "EXPLICIT_LUNA_RETRY_REQUIRED"
@@ -1029,11 +1050,16 @@ class ProductionConsoleDialog(QDialog):
         self.consolidated_v2_progress.setRange(0, 100)
         self.consolidated_v2_progress.setValue(0)
         self.consolidated_v2_progress_label.setText(
-            "توقف الإنتاج الموحد: " + error
+            ("يحتاج إجراء منك: "
+             if error.startswith("USER_ACTION_REQUIRED:")
+             else "توقف الإنتاج الموحد: ")
+            + error
         )
         QMessageBox.critical(
             self,
-            "توقف الإنتاج الموحد",
+            ("يحتاج إجراء منك"
+             if error.startswith("USER_ACTION_REQUIRED:")
+             else "توقف الإنتاج الموحد"),
             error
             + "\n\nحُفظت الأقفال والإيصالات الصحيحة، ولن "
             "يُعاد أي طلب مدفوع تلقائيًا.",
