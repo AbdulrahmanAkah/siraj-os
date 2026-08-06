@@ -2682,3 +2682,20 @@ PASS_VEO_NETWORK_BOUNDARY_FINALIZED
 - Paid provider requests during repair: 0.
 
 NEXT_STAGE=FULLY_CLOSE_AND_REOPEN_SIRAJ_THEN_CONTINUE_EPISODE
+
+========================================================
+ACTIVE PRODUCTION REFRESH FREEZE REPAIR — 2026-08-07
+========================================================
+
+Status:
+PASS_ACTIVE_PRODUCTION_REFRESH_FREEZE_REPAIRED
+
+- Manual full-state refresh is blocked while any production worker runs.
+- Refresh, route-refresh and consolidated-plan-refresh buttons are disabled during active production and re-enabled automatically after completion.
+- Progress labels continue to update from the worker thread.
+- Idle refresh behavior is preserved.
+- Full pytest and compileall passed.
+- Provider requests during repair: 0.
+- Paid provider requests during repair: 0.
+
+NEXT_STAGE=REOPEN_SIRAJ_AND_RESUME_FROM_THE_EXISTING_LOCK_OR_NEXT_ITEM

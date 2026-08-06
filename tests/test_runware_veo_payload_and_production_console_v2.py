@@ -39,7 +39,7 @@ def test_veo_requests_use_only_supported_parameters() -> None:
         ] == "REMOVED"
 
 
-def test_live_queue_first_video_is_resumable_and_sanitized() -> None:
+def test_live_queue_first_video_state_is_valid_and_sanitized() -> None:
     path = Path(
         "projects/episode-001-adam/orchestration/"
         "media-production-queue-v1.json"
@@ -53,9 +53,16 @@ def test_live_queue_first_video_is_resumable_and_sanitized() -> None:
         for item in videos
         if item["queue_id"] == "VID-SH-001-C01"
     )
-    assert first["status"] == (
-        "READY_EXPLICIT_PAID_AUTHORIZATION_REQUIRED"
-    )
+    # SIRAJ_LIVE_QUEUE_STATE_TOLERANCE_V1
+    assert first["status"] in {
+        "READY_EXPLICIT_PAID_AUTHORIZATION_REQUIRED",
+        "SUBMISSION_LOCKED",
+        "FAILED_PROVIDER_REJECTED_REAUTHORIZATION_REQUIRED",
+        "COMPLETE",
+    }
+    if first["status"] == "COMPLETE":
+        assert first.get("receipt_path_relative")
+        assert first.get("output_sha256")
     assert "negativePrompt" not in first["task_draft"]
 
 

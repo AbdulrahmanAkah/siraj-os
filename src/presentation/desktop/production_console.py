@@ -4112,3 +4112,218 @@ def _siraj_production_console_init_v1(
 ProductionConsoleDialog.__init__ = (
     _siraj_production_console_init_v1
 )
+
+# SIRAJ_ACTIVE_PRODUCTION_REFRESH_GUARD_V1
+from PySide6.QtCore import QTimer as _SirajRefreshGuardTimer
+from PySide6.QtWidgets import QApplication as _SirajRefreshGuardApplication
+
+_SIRAJ_BASE_CONSOLE_INIT_REFRESH_GUARD_V1 = (
+    ProductionConsoleDialog.__init__
+)
+_SIRAJ_BASE_REFRESH_STATE_GUARD_V1 = (
+    ProductionConsoleDialog._refresh_state
+)
+_SIRAJ_BASE_REFRESH_RESUME_GUARD_V1 = (
+    ProductionConsoleDialog._refresh_resume_directive
+)
+_SIRAJ_BASE_REFRESH_CONSOLIDATED_GUARD_V1 = (
+    ProductionConsoleDialog._refresh_consolidated_production_v2
+)
+
+
+def _siraj_active_production_workers_v1(
+    dialog: ProductionConsoleDialog,
+) -> tuple[object, ...]:
+    workers = (
+        getattr(dialog, "worker", None),
+        getattr(dialog, "scope_worker", None),
+        getattr(dialog, "editorial_worker", None),
+        getattr(dialog, "media_execution_worker", None),
+        getattr(dialog, "sfx_audio_worker", None),
+        getattr(dialog, "structural_montage_worker", None),
+        getattr(dialog, "automatic_qa_worker", None),
+        getattr(dialog, "end_to_end_worker", None),
+        getattr(dialog, "consolidated_production_worker", None),
+    )
+    active = []
+    for worker in workers:
+        if worker is None:
+            continue
+        try:
+            if worker.isRunning():
+                active.append(worker)
+        except (AttributeError, RuntimeError):
+            continue
+    return tuple(active)
+
+
+def _siraj_set_refresh_controls_v1(
+    dialog: ProductionConsoleDialog,
+    enabled: bool,
+) -> None:
+    for name in (
+        "refresh_button",
+        "resume_refresh_button",
+        "consolidated_v2_refresh",
+    ):
+        button = getattr(dialog, name, None)
+        if button is None:
+            continue
+        button.setEnabled(enabled)
+        button.setToolTip(
+            ""
+            if enabled
+            else (
+                "الإنتاج جارٍ. تتحدث حالة التقدم تلقائيًا؛ "
+                "أُوقف التحديث اليدوي لمنع حجب واجهة سراج."
+            )
+        )
+
+
+def _siraj_show_refresh_deferred_v1(
+    dialog: ProductionConsoleDialog,
+) -> None:
+    message = (
+        "الإنتاج جارٍ في الخلفية. تتحدث نسبة الإنجاز واسم العنصر "
+        "تلقائيًا؛ أُجّل الفحص الشامل حتى تنتهي المرحلة الحالية."
+    )
+    for name in (
+        "end_to_end_progress_label",
+        "consolidated_v2_progress_label",
+    ):
+        label = getattr(dialog, name, None)
+        if label is not None:
+            current = label.text()
+            if "أُجّل الفحص الشامل" not in current:
+                label.setText(
+                    current + "\n" + message
+                    if current
+                    else message
+                )
+
+
+def _siraj_sync_refresh_controls_v1(
+    dialog: ProductionConsoleDialog,
+) -> None:
+    active = bool(
+        _siraj_active_production_workers_v1(dialog)
+    )
+    busy = bool(
+        getattr(
+            dialog,
+            "_siraj_refresh_guard_busy_v1",
+            False,
+        )
+    )
+    _siraj_set_refresh_controls_v1(
+        dialog,
+        not active and not busy,
+    )
+
+
+def _siraj_guarded_refresh_state_v1(
+    dialog: ProductionConsoleDialog,
+) -> None:
+    if _siraj_active_production_workers_v1(dialog):
+        _siraj_set_refresh_controls_v1(
+            dialog,
+            False,
+        )
+        _siraj_show_refresh_deferred_v1(dialog)
+        return
+
+    if getattr(
+        dialog,
+        "_siraj_refresh_guard_busy_v1",
+        False,
+    ):
+        return
+
+    dialog._siraj_refresh_guard_busy_v1 = True
+    _siraj_set_refresh_controls_v1(
+        dialog,
+        False,
+    )
+    _SirajRefreshGuardApplication.setOverrideCursor(
+        Qt.CursorShape.WaitCursor
+    )
+    try:
+        _SIRAJ_BASE_REFRESH_STATE_GUARD_V1(
+            dialog
+        )
+    finally:
+        _SirajRefreshGuardApplication.restoreOverrideCursor()
+        dialog._siraj_refresh_guard_busy_v1 = False
+        _siraj_sync_refresh_controls_v1(dialog)
+
+
+def _siraj_guarded_refresh_resume_v1(
+    dialog: ProductionConsoleDialog,
+) -> None:
+    if _siraj_active_production_workers_v1(dialog):
+        _siraj_set_refresh_controls_v1(
+            dialog,
+            False,
+        )
+        _siraj_show_refresh_deferred_v1(dialog)
+        return
+    _SIRAJ_BASE_REFRESH_RESUME_GUARD_V1(
+        dialog
+    )
+    _siraj_sync_refresh_controls_v1(dialog)
+
+
+def _siraj_guarded_refresh_consolidated_v1(
+    dialog: ProductionConsoleDialog,
+) -> None:
+    if _siraj_active_production_workers_v1(dialog):
+        _siraj_set_refresh_controls_v1(
+            dialog,
+            False,
+        )
+        _siraj_show_refresh_deferred_v1(dialog)
+        return
+    _SIRAJ_BASE_REFRESH_CONSOLIDATED_GUARD_V1(
+        dialog
+    )
+    _siraj_sync_refresh_controls_v1(dialog)
+
+
+def _siraj_console_init_refresh_guard_v1(
+    self: ProductionConsoleDialog,
+    *args: Any,
+    **kwargs: Any,
+) -> None:
+    self._siraj_refresh_guard_busy_v1 = False
+    _SIRAJ_BASE_CONSOLE_INIT_REFRESH_GUARD_V1(
+        self,
+        *args,
+        **kwargs,
+    )
+    timer = _SirajRefreshGuardTimer(self)
+    timer.setObjectName(
+        "sirajActiveProductionRefreshGuardTimer"
+    )
+    timer.setInterval(250)
+    timer.timeout.connect(
+        lambda: _siraj_sync_refresh_controls_v1(
+            self
+        )
+    )
+    timer.start()
+    self._siraj_refresh_guard_timer_v1 = timer
+    _siraj_sync_refresh_controls_v1(self)
+
+
+ProductionConsoleDialog._refresh_state = (
+    _siraj_guarded_refresh_state_v1
+)
+ProductionConsoleDialog._refresh_resume_directive = (
+    _siraj_guarded_refresh_resume_v1
+)
+ProductionConsoleDialog._refresh_consolidated_production_v2 = (
+    _siraj_guarded_refresh_consolidated_v1
+)
+ProductionConsoleDialog.__init__ = (
+    _siraj_console_init_refresh_guard_v1
+)

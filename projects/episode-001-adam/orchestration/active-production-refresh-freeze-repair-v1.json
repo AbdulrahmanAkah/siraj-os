@@ -1,0 +1,24 @@
+{
+  "backup_root_relative": "working/active-refresh-freeze-backup-20260806T223600Z",
+  "compileall": "PASS",
+  "completed_at_utc": "2026-08-06T22:37:56.646126Z",
+  "episode_id": "episode-001-adam",
+  "full_pytest": "........................................................................ [  4%]\n........................................................................ [  8%]\n.......................................................s................ [ 12%]\n........................................................................ [ 17%]\n........................................................................ [ 21%]\n........................................................................ [ 25%]\n........................................................................ [ 30%]\n........................................................................ [ 34%]\n........................................................................ [ 38%]\n........................................................................ [ 42%]\n........................................................................ [ 47%]\n........................................................................ [ 51%]\n........................................................................ [ 55%]\n........................................................................ [ 60%]\n........................................................................ [ 64%]\n........................................................................ [ 68%]\n........................................................................ [ 73%]\n........................................................................ [ 77%]\n........................................................................ [ 81%]\n........................................................................ [ 85%]\n........................................................................ [ 90%]\n........................................................................ [ 94%]\n........................................................................ [ 98%]\n....................                                                     [100%]\n1675 passed, 1 skipped in 102.85s (0:01:42)",
+  "guard_added": false,
+  "live_queue_state_contract_updated": true,
+  "paid_provider_requests": 0,
+  "pipeline_certificate": "PASS_FULL_PRODUCTION_PIPELINE_CERTIFIED",
+  "project_progress_updated": true,
+  "provider_requests": 0,
+  "queue_items_modified": false,
+  "regression_test_repair": "The live queue test previously froze VID-SH-001-C01 at READY_EXPLICIT_PAID_AUTHORIZATION_REQUIRED. The queue is mutable production state, so COMPLETE and other valid execution states are now accepted while sanitization remains mandatory.",
+  "release": "SIRAJ_FIX_ACTIVE_PRODUCTION_REFRESH_FREEZE_V2",
+  "root_cause": "The footer Update Status button called _refresh_state on the Qt GUI thread. That method synchronously reloads orchestrator state, episode plan, cost ledgers, the 246-item media queue, audio, montage, QA and resume routing while the production worker is writing files.",
+  "schema_version": "siraj-active-production-refresh-freeze-repair-v1",
+  "stale_blockers_removed": [
+    "projects/episode-001-adam/orchestration/active-production-refresh-freeze-repair-blocker-v1.json"
+  ],
+  "state_files_modified": false,
+  "status": "PASS_ACTIVE_PRODUCTION_REFRESH_FREEZE_REPAIRED",
+  "targeted_pytest": ".........                                                                [100%]\n9 passed in 5.07s"
+}
