@@ -2310,3 +2310,25 @@ Validation:
 - V2 focused tests: PASS
 - Episode-001 migration: PASS
 - Paid generation is not authorized by this change.
+
+========================================================
+ADAM VISUAL REPLAN AND COMPACT AUDIT V2 — 2026-08-06
+========================================================
+
+Status:
+IMPLEMENTED_AND_TESTED
+
+Scope:
+
+- إصلاح ربط مدقق V2 بحيث يفضّل storyboard-and-media-plan-v2.
+- منع إعادة كتابة خطة V2 من خطة V1 في كل تدقيق.
+- دمج scene_domain وcharacter_location وحقول العالم في الستوريبورد.
+- تحويل لقطات الحركة والتحول إلى GENERATED_VIDEO.
+- توزيع الفيديو وفق هدف 30 USD وحد أعلى 35 USD.
+- استخدام التكلفة المرصودة 5.3 USD لكل 160 ثانية كمرجع تخطيطي.
+- تحويل الصور المتبقية إلى DYNAMIC_STILL_SEQUENCE متعددة اللوحات.
+- منع أي لوحة ثابتة ديناميكية تتجاوز سبع ثوان.
+- اختصار ناتج الطرفية وحفظ التفاصيل الكاملة في JSON.
+- لم يتم السماح بأي تنفيذ مدفوع.
+
+NEXT_STAGE=ARABIC_PERFORMANCE_SCRIPT_V2_AND_HUMAN_VISUAL_REVIEW

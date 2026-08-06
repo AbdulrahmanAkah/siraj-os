@@ -338,14 +338,19 @@ def validate_shot_policy(shot: Mapping[str, Any]) -> list[str]:
     if motion_required_for_shot(shot) and treatment not in {
         "GENERATED_VIDEO",
         "HYBRID_SEQUENCE",
+        "DOCUMENT_OR_MAP",
+        "AUTHORED_GRAPHICS",
     }:
         issues.append("MOTION_REQUIRED_BUT_NOT_VIDEO")
     if treatment in {
         "ANIMATED_STILL_COMPOSITING",
         "DYNAMIC_STILL",
         "GENERATED_IMAGE",
+        "DYNAMIC_STILL_SEQUENCE",
     }:
-        if duration > MAX_STILL_LED_SECONDS + 1e-9:
+        panel_count = int(shot.get("still_panel_count", 1) or 1)
+        effective_panel_seconds = duration / max(panel_count, 1)
+        if effective_panel_seconds > MAX_STILL_LED_SECONDS + 1e-9:
             issues.append("STILL_LED_DURATION_EXCEEDS_SEVEN_SECONDS")
         if str(shot.get("motion_profile", "")).upper() in {
             "",

@@ -236,13 +236,13 @@ def main() -> int:
 
     old_plan = episode / "cinematic" / "episode-production-plan-v1.json"
     new_plan = episode / "cinematic" / "episode-production-plan-v2.json"
-    if old_plan.is_file():
+    if new_plan.is_file():
+        migrated_plan = read_json(new_plan)
+    elif old_plan.is_file():
         migrated_plan = migrate_plan(read_json(old_plan))
         write_json(new_plan, migrated_plan)
-    elif not new_plan.is_file():
-        raise RuntimeError("NO_EPISODE_PLAN_FOUND")
     else:
-        migrated_plan = read_json(new_plan)
+        raise RuntimeError("NO_EPISODE_PLAN_FOUND")
 
     script_candidates = (
         episode / "script" / "episode-script-v2.json",
@@ -296,7 +296,30 @@ def main() -> int:
         episode / "orchestration" / "series-quality-v2-migration-report.json"
     )
     write_json(report_path, report)
-    print(json.dumps(report, ensure_ascii=False, indent=2))
+    gate = report.get("existing_material_gate")
+    if isinstance(gate, Mapping):
+        counts: dict[str, int] = {}
+        for issue in gate.get("issues", []):
+            if not isinstance(issue, Mapping):
+                continue
+            code = str(issue.get("code") or "UNKNOWN")
+            counts[code] = counts.get(code, 0) + 1
+        compact = {
+            "release": report["release"],
+            "episode_id": report["episode_id"],
+            "status": gate.get("status"),
+            "blocking_issue_count": gate.get("blocking_issue_count"),
+            "issue_counts_by_code": dict(sorted(counts.items())),
+            "full_report_path": str(report_path.relative_to(repo)).replace("\\", "/"),
+        }
+    else:
+        compact = {
+            "release": report["release"],
+            "episode_id": report["episode_id"],
+            "status": report["status"],
+            "full_report_path": str(report_path.relative_to(repo)).replace("\\", "/"),
+        }
+    print(json.dumps(compact, ensure_ascii=False, indent=2))
     return 0
 
 

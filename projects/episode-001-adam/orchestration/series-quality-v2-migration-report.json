@@ -10,6 +10,27 @@
     "series_policy": "projects/_series/siraj-series-production-policy-v2.json"
   },
   "episode_id": "episode-001-adam",
+  "existing_material_gate": {
+    "blocking_issue_count": 2,
+    "generated_video_spend_usd": 0.0,
+    "issues": [
+      {
+        "code": "ARABIC_PERFORMANCE_SCRIPT_INVALID",
+        "detail": "PERFORMANCE_BLOCKS_REQUIRED:1",
+        "scope": "AUDIO",
+        "severity": "BLOCKING"
+      },
+      {
+        "code": "MOTION_REQUIRED_BUT_NOT_VIDEO",
+        "detail": "MOTION_REQUIRED_BUT_NOT_VIDEO",
+        "scope": "SH-023",
+        "severity": "BLOCKING"
+      }
+    ],
+    "performance_metrics": null,
+    "schema_version": "siraj-production-quality-gate-v2",
+    "status": "BLOCKED"
+  },
   "release": "SIRAJ_SERIES_PRODUCTION_QUALITY_V2",
   "required_next_actions": [
     "FULLY_DIACRITIZE_AND_HUMAN_REVIEW_TTS_SCRIPT",
