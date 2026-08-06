@@ -2403,3 +2403,20 @@ Scope:
 - منع أي طلب مزود أو تنفيذ مدفوع.
 
 NEXT_STAGE=EXPLICIT_SAMPLE_AUTHORIZATION_OR_MANUAL_LOCK_REVIEW
+
+========================================================
+ADAM AUTHORIZED TTS SAMPLE V2 — 2026-08-06
+========================================================
+
+Status:
+ONE_SAMPLE_GENERATED_AWAITING_HUMAN_REVIEW
+
+Scope:
+
+- تسجيل التفويض الصريح لمحاولة ElevenLabs واحدة فقط.
+- قفل النص والصوت والنموذج وحد 0.07 USD قبل الشبكة.
+- منع إعادة المحاولة التلقائية أو الخفية.
+- توليد عينة VB-001-01 وحفظ الإيصال والبصمة.
+- إبقاء توليد الحلقة الكاملة غير مصرح به.
+
+NEXT_STAGE=HUMAN_TTS_SAMPLE_REVIEW
