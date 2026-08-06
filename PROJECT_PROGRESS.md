@@ -2602,3 +2602,18 @@ AUTOMATIC_BOUNDED_REPAIR_ENABLED
 - Installation performs zero provider and paid requests.
 
 NEXT_STAGE=OPEN_SIRAJ_AND_CONTINUE_CONSOLIDATED_PRODUCTION
+
+========================================================
+V2 STATE RESUME TTS FIXTURE FINALIZATION — 2026-08-06
+========================================================
+
+Status:
+READY_TO_RESUME_CERTIFIED_V2_MEDIA_QUEUE
+
+- Preserved the production TTS diacritic gate unchanged.
+- Updated only the obsolete synthetic narration test fixture.
+- Passed the focused state, queue, controller, repair, and end-to-end tests.
+- Preserved the old QA state in a backup before the V2 state rebase.
+- No provider or paid request was sent.
+
+NEXT_STAGE=OPEN_SIRAJ_AND_CONTINUE_CONSOLIDATED_PRODUCTION

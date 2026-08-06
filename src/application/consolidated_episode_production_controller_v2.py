@@ -464,12 +464,130 @@ def _certifications_by_shot(
     return result
 
 
+V2_MEDIA_QUEUE_BUILDER_ALLOWED_STATES = {
+    "EDITORIAL_PIPELINE_COMPLETE_BUDGET_PREFLIGHT_QUEUED",
+    "GRAPHICS_MEDIA_QUEUE_FAILED",
+    "MEDIA_QUEUE_READY",
+    "RUNWARE_IMAGE_GENERATION_QUEUED",
+}
+V2_REBUILD_STALE_DOWNSTREAM_STATES = {
+    "AUTOMATIC_QA_BLOCKED",
+    "AUTOMATIC_QA_FAILED",
+    "FINAL_RENDER_READY_FOR_QA",
+    "HUMAN_FINAL_REVIEW_CHANGES_REQUESTED",
+    "AWAITING_HUMAN_FINAL_REVIEW",
+    "READY_TO_PUBLISH",
+}
+V2_STATE_REBASE_BACKUP_REL = Path(
+    "projects/episode-001-adam/orchestration/"
+    "state-rebase-backups/"
+    "orchestrator-before-v2-media-queue-materialization.json"
+)
+
+
+def _prepare_orchestrator_for_v2_media_queue_materialization(
+    repo: Path,
+) -> dict[str, Any]:
+    """Rebase only stale V1 downstream state for the authorized V2 rebuild."""
+    state_path = repo / ORCHESTRATOR_STATE_REL
+    state = _read(state_path)
+    episode_id = str(state.get("current_episode_id") or "")
+    if episode_id != EPISODE_ID:
+        raise ConsolidatedProductionError(
+            "V2_MEDIA_QUEUE_STATE_REBASE_EPISODE_MISMATCH:"
+            f"{episode_id}"
+        )
+
+    status = str(state.get("status") or "")
+    if status in V2_MEDIA_QUEUE_BUILDER_ALLOWED_STATES:
+        return {
+            "status": "ALREADY_COMPATIBLE",
+            "source_status": status,
+            "state_changed": False,
+            "backup_path": None,
+        }
+    if status not in V2_REBUILD_STALE_DOWNSTREAM_STATES:
+        raise ConsolidatedProductionError(
+            "V2_MEDIA_QUEUE_STATE_REBASE_NOT_ALLOWED:"
+            + status
+        )
+
+    authorization_path = repo / AUTHORIZATION_REL
+    if not authorization_path.is_file():
+        raise ConsolidatedProductionError(
+            "V2_MEDIA_QUEUE_STATE_REBASE_AUTHORIZATION_REQUIRED"
+        )
+    authorization = _read(authorization_path)
+    if str(authorization.get("status") or "") != "ACTIVE":
+        raise ConsolidatedProductionError(
+            "V2_MEDIA_QUEUE_STATE_REBASE_AUTHORIZATION_NOT_ACTIVE"
+        )
+
+    certified = _read(
+        _required_file(repo, CERTIFIED_STORYBOARD_REL)
+    )
+    certifications = _certifications_by_shot(certified)
+    if len(certifications) != 70:
+        raise ConsolidatedProductionError(
+            "V2_MEDIA_QUEUE_STATE_REBASE_REQUIRES_70_CERTIFICATIONS"
+        )
+
+    backup_path = repo / V2_STATE_REBASE_BACKUP_REL
+    if backup_path.is_file():
+        backup = _read(backup_path)
+        if (
+            str(backup.get("current_episode_id") or "")
+            != EPISODE_ID
+        ):
+            raise ConsolidatedProductionError(
+                "V2_MEDIA_QUEUE_STATE_REBASE_BACKUP_CONFLICT"
+            )
+    else:
+        _write(backup_path, state)
+
+    revised = dict(state)
+    revised["status"] = (
+        "EDITORIAL_PIPELINE_COMPLETE_BUDGET_PREFLIGHT_QUEUED"
+    )
+    revised["stage"] = "BUDGET_PREFLIGHT"
+    revised["next_stage"] = (
+        "SIRAJ_V2_CERTIFIED_MEDIA_QUEUE_MATERIALIZATION"
+    )
+    revised["last_error"] = None
+    revised["production_standard_v2_rebuild_state_rebase"] = {
+        "release": (
+            "SIRAJ_V2_STALE_QA_STATE_MEDIA_QUEUE_RESUME"
+        ),
+        "reason": (
+            "OLD_V1_DOWNSTREAM_QA_STATE_INVALIDATED_BY_"
+            "EXPLICIT_FULL_V2_REBUILD"
+        ),
+        "source_status": status,
+        "source_stage": str(state.get("stage") or ""),
+        "certified_prompt_count": 70,
+        "paid_provider_requests": 0,
+        "automatic_paid_retry": "FORBIDDEN",
+        "rebase_at_utc": _now(),
+    }
+    revised["updated_at_utc"] = _now()
+    _write(state_path, revised)
+    return {
+        "status": "PASS_STALE_STATE_REBASED_FOR_V2_QUEUE",
+        "source_status": status,
+        "state_changed": True,
+        "backup_path": str(backup_path),
+    }
+
 def _materialize_certified_media_queue(repo: Path) -> None:
     episode_root = repo / "projects" / EPISODE_ID
     certified_storyboard = _read(
         _required_file(repo, CERTIFIED_STORYBOARD_REL)
     )
     certifications = _certifications_by_shot(certified_storyboard)
+
+    _prepare_orchestrator_for_v2_media_queue_materialization(
+        repo
+    )
 
     old_storyboard = queue_builder.STORYBOARD_REL
     old_script = queue_builder.SCRIPT_REL

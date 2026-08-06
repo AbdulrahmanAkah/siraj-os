@@ -67,7 +67,7 @@ def _prepare(tmp_path: Path) -> tuple[str, Path]:
                 "segment_id": f"SEG-{index:03d}",
                 "event_id": f"EV-{event:03d}",
                 "title_ar": f"المرحلة {index}",
-                "narration_ar": f"سرد موثق للمرحلة {index}. " * 12,
+                "narration_ar": f"سَرْدٌ مُوَثَّقٌ لِلْمَرْحَلَةِ {index}. " * 12,
                 "source_ids": [f"SRC-{event:03d}"],
                 "uncertainty_language_ar": "لا يزاد على القدر المثبت.",
             }
