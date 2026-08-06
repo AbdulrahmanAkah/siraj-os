@@ -88,6 +88,12 @@ from src.application.end_to_end_production_v1 import (
     inspect_end_to_end_plan,
     run_to_next_human_gate,
 )
+from src.application.consolidated_episode_production_controller_v2 import (
+    ConsolidatedProductionPlan,
+    ConsolidatedProductionResult,
+    inspect_consolidated_production_plan,
+    run_consolidated_production_to_human_gate,
+)
 from src.application.runtime_state_recovery_v1 import (
     diagnose_runtime_state,
     recover_runtime_state_from_artifacts,
@@ -421,6 +427,49 @@ class EndToEndCompletionThread(QThread):
             self._runware_api_key = ""
             self._elevenlabs_api_key = ""
 
+class ConsolidatedEpisodeProductionThread(QThread):
+    progress_changed = Signal(str, object)
+    production_succeeded = Signal(object)
+    production_failed = Signal(str)
+
+    def __init__(
+        self,
+        repo_root: Path,
+        openai_api_key: str,
+        runware_api_key: str,
+        elevenlabs_api_key: str,
+        maximum_authorized_usd: float,
+        parent: QWidget | None = None,
+    ) -> None:
+        super().__init__(parent)
+        self.repo_root = repo_root
+        self._openai_api_key = openai_api_key
+        self._runware_api_key = runware_api_key
+        self._elevenlabs_api_key = elevenlabs_api_key
+        self.maximum_authorized_usd = maximum_authorized_usd
+
+    def run(self) -> None:
+        def progress(message: str, value: int | None) -> None:
+            self.progress_changed.emit(message, value)
+
+        try:
+            result = run_consolidated_production_to_human_gate(
+                self.repo_root,
+                openai_api_key=self._openai_api_key,
+                runware_api_key=self._runware_api_key,
+                elevenlabs_api_key=self._elevenlabs_api_key,
+                confirmed_maximum_usd=self.maximum_authorized_usd,
+                progress=progress,
+            )
+        except Exception as exc:
+            self.production_failed.emit(str(exc))
+        else:
+            self.production_succeeded.emit(result)
+        finally:
+            self._openai_api_key = ""
+            self._runware_api_key = ""
+            self._elevenlabs_api_key = ""
+
 class AutomaticGenerationThread(QThread):
     progress_changed = Signal(str, object)
     generation_succeeded = Signal(object)
@@ -470,6 +519,7 @@ class ProductionConsoleDialog(QDialog):
         self.structural_montage_worker: StructuralMontageThread | None = None
         self.automatic_qa_worker: AutomaticQAThread | None = None
         self.end_to_end_worker: EndToEndCompletionThread | None = None
+        self.consolidated_production_worker: ConsolidatedEpisodeProductionThread | None = None
         self._media_execution_rows = {}
         self._resume_directive = None
         self.last_output: Path | None = None
@@ -480,6 +530,7 @@ class ProductionConsoleDialog(QDialog):
         self.setLayoutDirection(Qt.LayoutDirection.RightToLeft)
         self._build_ui()
         self._refresh_state()
+        self._refresh_consolidated_production_v2()
 
     def _build_ui(self) -> None:
         root = QVBoxLayout(self)
@@ -548,6 +599,71 @@ class ProductionConsoleDialog(QDialog):
         policy.setWordWrap(True)
         resume_layout.addWidget(policy)
         root.addWidget(self.resume_box)
+
+        self.consolidated_v2_box = QGroupBox(
+            "إنتاج الحلقة كاملة — Production Standard V2"
+        )
+        self.consolidated_v2_box.setObjectName(
+            "consolidatedEpisodeProductionV2Box"
+        )
+        consolidated_layout = QVBoxLayout(self.consolidated_v2_box)
+        consolidated_layout.setContentsMargins(12, 10, 12, 10)
+        consolidated_layout.setSpacing(7)
+        self.consolidated_v2_status = QLabel(
+            "جارٍ فحص خطة الإنتاج الموحدة…"
+        )
+        self.consolidated_v2_status.setObjectName(
+            "consolidatedEpisodeProductionV2Status"
+        )
+        self.consolidated_v2_status.setWordWrap(True)
+        consolidated_layout.addWidget(self.consolidated_v2_status)
+        self.consolidated_v2_budget = QLabel("")
+        self.consolidated_v2_budget.setObjectName(
+            "consolidatedEpisodeProductionV2Budget"
+        )
+        self.consolidated_v2_budget.setWordWrap(True)
+        consolidated_layout.addWidget(self.consolidated_v2_budget)
+        consolidated_actions = QHBoxLayout()
+        self.consolidated_v2_button = QPushButton(
+            "تفويض موحد وبدء إنتاج الحلقة كاملة"
+        )
+        self.consolidated_v2_button.setObjectName(
+            "consolidatedEpisodeProductionV2Button"
+        )
+        self.consolidated_v2_button.setMinimumHeight(50)
+        self.consolidated_v2_button.clicked.connect(
+            self._start_consolidated_production_v2
+        )
+        consolidated_actions.addWidget(self.consolidated_v2_button, 3)
+        self.consolidated_v2_refresh = QPushButton("فحص الخطة")
+        self.consolidated_v2_refresh.setObjectName(
+            "refreshConsolidatedEpisodeProductionV2Button"
+        )
+        self.consolidated_v2_refresh.clicked.connect(
+            self._refresh_consolidated_production_v2
+        )
+        consolidated_actions.addWidget(self.consolidated_v2_refresh, 1)
+        consolidated_layout.addLayout(consolidated_actions)
+        self.consolidated_v2_progress = QProgressBar()
+        self.consolidated_v2_progress.setObjectName(
+            "consolidatedEpisodeProductionV2Progress"
+        )
+        self.consolidated_v2_progress.setRange(0, 100)
+        self.consolidated_v2_progress.setValue(0)
+        consolidated_layout.addWidget(self.consolidated_v2_progress)
+        self.consolidated_v2_progress_label = QLabel("جاهز.")
+        self.consolidated_v2_progress_label.setWordWrap(True)
+        consolidated_layout.addWidget(self.consolidated_v2_progress_label)
+        consolidated_note = QLabel(
+            "يشمل التفويض 7 دفعات Luna و70 برومبتًا و43 كتلة "
+            "صوتية والصور والفيديو والجرافيك، ثم المكساج والمونتاج "
+            "وQA. يتوقف عند المشاهدة البشرية النهائية، ولا توجد "
+            "إعادة مدفوعة خفية."
+        )
+        consolidated_note.setObjectName("muted")
+        consolidated_note.setWordWrap(True)
+        consolidated_layout.addWidget(consolidated_note)
+        root.addWidget(self.consolidated_v2_box)
 
         self.tabs = QTabWidget()
         self.tabs.setObjectName("episodeProductionTabs")
@@ -687,6 +803,7 @@ class ProductionConsoleDialog(QDialog):
                 self.structural_montage_worker,
                 self.automatic_qa_worker,
                 self.end_to_end_worker,
+                self.consolidated_production_worker,
             )
         )
         if directive.action == "WAIT" and not running:
@@ -706,6 +823,215 @@ class ProductionConsoleDialog(QDialog):
         else:
             self.continue_episode_button.setText(directive.label_ar)
         self.continue_episode_button.setEnabled(not running)
+
+    def _refresh_consolidated_production_v2(self) -> None:
+        try:
+            plan = inspect_consolidated_production_plan(self.repo_root)
+        except Exception as exc:
+            self.consolidated_v2_status.setText(
+                "الخطة الموحدة محجوبة: " + str(exc)
+            )
+            self.consolidated_v2_budget.setText("")
+            self.consolidated_v2_button.setEnabled(False)
+            return
+        self._consolidated_v2_plan = plan
+        self.consolidated_v2_status.setText(
+            "المعيار: "
+            + plan.standard_status
+            + " | مراجعة المخرج: "
+            + plan.director_review_status
+            + " | عيوب مانعة: "
+            + str(plan.blocking_issue_count)
+            + "\nبرومبتات Luna: "
+            + str(plan.certified_prompt_count)
+            + "/"
+            + str(plan.prompt_item_count)
+            + " | دفعات متبقية: "
+            + str(plan.pending_prompt_batch_count)
+            + " | الصوت: "
+            + str(plan.tts_block_count)
+            + " كتلة"
+        )
+        self.consolidated_v2_budget.setText(
+            "Luna: $"
+            + f"{plan.prompt_direction_reserve_usd:.2f}"
+            + " | فيديو مخطط: $"
+            + f"{plan.generated_video_planned_usd:.6f}"
+            + " | TTS: $"
+            + f"{plan.tts_reserve_usd:.2f}"
+            + " | وسائط أخرى: $"
+            + f"{plan.other_media_reserve_usd:.2f}"
+            + "\nالسقف الموحد: $"
+            + f"{plan.maximum_authorized_usd:.6f}"
+            + " | الحد الصارم للحلقة: $"
+            + f"{plan.episode_hard_cap_usd:.2f}"
+        )
+        running = (
+            self.consolidated_production_worker is not None
+            and self.consolidated_production_worker.isRunning()
+        )
+        self.consolidated_v2_button.setEnabled(not running)
+
+    def _start_consolidated_production_v2(self) -> None:
+        if (
+            self.consolidated_production_worker is not None
+            and self.consolidated_production_worker.isRunning()
+        ):
+            QMessageBox.information(
+                self,
+                "الإنتاج يعمل",
+                "الإنتاج الموحد يعمل بالفعل.",
+            )
+            return
+        try:
+            plan = inspect_consolidated_production_plan(self.repo_root)
+        except Exception as exc:
+            QMessageBox.critical(
+                self,
+                "الخطة الموحدة غير جاهزة",
+                str(exc),
+            )
+            return
+
+        openai_key = self._ensure_openai_key() or ""
+        if not openai_key:
+            return
+        runware_key = self._ensure_key() or ""
+        if not runware_key:
+            return
+        elevenlabs_key = self._stored_elevenlabs_key() or ""
+        if not elevenlabs_key:
+            self._configure_elevenlabs_key()
+            elevenlabs_key = self._stored_elevenlabs_key() or ""
+        if not elevenlabs_key:
+            return
+
+        message = (
+            "سيبدأ سراج إنتاج حلقة آدم كاملة وفق Production "
+            "Standard V2.\n\nLuna: "
+            + str(plan.prompt_batch_count)
+            + " دفعات / "
+            + str(plan.prompt_item_count)
+            + " برومبتًا\nالتعليق الصوتي: "
+            + str(plan.tts_block_count)
+            + " كتلة\nالفيديو المولد المخطط: $"
+            + f"{plan.generated_video_planned_usd:.6f}"
+            + "\nاحتياطي Luna: $"
+            + f"{plan.prompt_direction_reserve_usd:.2f}"
+            + "\nاحتياطي TTS: $"
+            + f"{plan.tts_reserve_usd:.2f}"
+            + "\nوسائط أخرى: $"
+            + f"{plan.other_media_reserve_usd:.2f}"
+            + "\n\nالسقف الموحد المصرح به: $"
+            + f"{plan.maximum_authorized_usd:.6f}"
+            + "\nالحد الصارم للحلقة: $"
+            + f"{plan.episode_hard_cap_usd:.2f}"
+            + "\n\nلا توجد إعادة مدفوعة خفية. يتوقف النظام "
+            "عند أي عيب مانع، وتبقى المشاهدة النهائية ورفع "
+            "YouTube يدويين. هل تفوض هذا التشغيل؟"
+        )
+        answer = QMessageBox.question(
+            self,
+            "التفويض الموحد لإنتاج الحلقة",
+            message,
+            QMessageBox.StandardButton.Yes
+            | QMessageBox.StandardButton.No,
+            QMessageBox.StandardButton.No,
+        )
+        if answer != QMessageBox.StandardButton.Yes:
+            return
+
+        self.consolidated_production_worker = (
+            ConsolidatedEpisodeProductionThread(
+                self.repo_root,
+                openai_key,
+                runware_key,
+                elevenlabs_key,
+                plan.maximum_authorized_usd,
+                self,
+            )
+        )
+        worker = self.consolidated_production_worker
+        worker.progress_changed.connect(self._on_consolidated_v2_progress)
+        worker.production_succeeded.connect(self._on_consolidated_v2_success)
+        worker.production_failed.connect(self._on_consolidated_v2_failure)
+        worker.finished.connect(self._on_consolidated_v2_finished)
+        self.consolidated_v2_progress.setRange(0, 100)
+        self.consolidated_v2_progress.setValue(0)
+        self.consolidated_v2_progress_label.setText("بدأ الإنتاج الموحد.")
+        worker.start()
+        self._refresh_consolidated_production_v2()
+
+    def _on_consolidated_v2_progress(
+        self,
+        message: str,
+        value: object,
+    ) -> None:
+        self.consolidated_v2_progress_label.setText(message)
+        if isinstance(value, int):
+            self.consolidated_v2_progress.setRange(0, 100)
+            self.consolidated_v2_progress.setValue(value)
+        else:
+            self.consolidated_v2_progress.setRange(0, 0)
+
+    def _on_consolidated_v2_success(self, result: object) -> None:
+        if not isinstance(result, ConsolidatedProductionResult):
+            self._on_consolidated_v2_failure(
+                "INVALID_CONSOLIDATED_PRODUCTION_RESULT"
+            )
+            return
+        self.consolidated_v2_progress.setRange(0, 100)
+        self.consolidated_v2_progress.setValue(100)
+        self.consolidated_v2_progress_label.setText(
+            "توقف سراج عند: " + result.stop_reason
+        )
+        if result.stop_reason == "HUMAN_FINAL_REVIEW_REQUIRED":
+            QMessageBox.information(
+                self,
+                "اكتمل إنتاج الحلقة",
+                "اكتملت البرومبتات والصوت والوسائط والمكساج "
+                "والمونتاج وQA. افتح الحلقة وشاهدها كاملة "
+                "لاستكمال البوابة البشرية النهائية.",
+            )
+            self._open_final_review_publish()
+        elif result.stop_reason == "READY_FOR_MANUAL_YOUTUBE_UPLOAD":
+            QMessageBox.information(
+                self,
+                "حزمة النشر جاهزة",
+                "الحلقة وحزمة النشر جاهزتان. يبقى رفع YouTube "
+                "والضغط على نشر يدويين.",
+            )
+            self._open_final_review_publish()
+        else:
+            QMessageBox.warning(
+                self,
+                "توقف عند بوابة مانعة",
+                result.stop_reason,
+            )
+        self._refresh_state()
+        self._refresh_consolidated_production_v2()
+
+    def _on_consolidated_v2_failure(self, error: str) -> None:
+        self.consolidated_v2_progress.setRange(0, 100)
+        self.consolidated_v2_progress.setValue(0)
+        self.consolidated_v2_progress_label.setText(
+            "توقف الإنتاج الموحد: " + error
+        )
+        QMessageBox.critical(
+            self,
+            "توقف الإنتاج الموحد",
+            error
+            + "\n\nحُفظت الأقفال والإيصالات الصحيحة، ولن "
+            "يُعاد أي طلب مدفوع تلقائيًا.",
+        )
+        self._refresh_state()
+        self._refresh_consolidated_production_v2()
+
+    def _on_consolidated_v2_finished(self) -> None:
+        if self.consolidated_production_worker is not None:
+            self.consolidated_production_worker.deleteLater()
+        self.consolidated_production_worker = None
+        self._refresh_consolidated_production_v2()
 
     def _continue_episode_to_publish(self) -> None:
         if (

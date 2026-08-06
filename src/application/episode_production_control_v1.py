@@ -1,4 +1,4 @@
-\"\"\"Compatibility facade for the series-wide V2 production controller.\"\"\"
+"""Compatibility facade for the series-wide V2 production controller."""
 
 from src.application.episode_production_control_v2 import (
     ANIMATED_STILL_SHOT_COUNT,

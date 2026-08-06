@@ -659,7 +659,7 @@ def build_motion_render_command(
         f"[0:v]fps={FPS},"
         f"scale={WIDTH}:{HEIGHT}:force_original_aspect_ratio=decrease,"
         f"pad={WIDTH}:{HEIGHT}:(ow-iw)/2:(oh-ih)/2:color=black,"
-        f"tpad=stop_mode=clone:stop_duration=min({extension,MAX_LAST_FRAME_EXTENSION_SECONDS):.6f},"
+        f"tpad=stop_mode=clone:stop_duration={min(extension, MAX_LAST_FRAME_EXTENSION_SECONDS):.6f},"
         f"trim=duration={duration:.6f},setpts=PTS-STARTPTS"
         + grade
         + fades

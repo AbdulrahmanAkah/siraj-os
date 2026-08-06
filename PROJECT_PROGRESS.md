@@ -2516,3 +2516,22 @@ Completed:
 - No provider or paid request was sent during installation.
 
 NEXT_STAGE=CONSOLIDATED_LUNA_PROMPT_AND_FULL_EPISODE_AUTHORIZATION
+
+========================================================
+CONSOLIDATED EPISODE PRODUCTION CONTROLLER V2 — 2026-08-06
+========================================================
+
+Status:
+READY_FOR_ONE_CONSOLIDATED_DESKTOP_AUTHORIZATION
+
+Completed:
+
+- Repaired the V1 compatibility facade escaped module docstring.
+- Repaired and regression-tested the montage 1.25-second extension cap.
+- Installed the consolidated desktop production controller.
+- Joined seven Luna prompt batches and the 43-block TTS plan.
+- Added one desktop authorization and production button.
+- Verified the Python source tree with AST and compileall.
+- Installation performs zero provider and paid requests.
+
+NEXT_STAGE=ONE_CONSOLIDATED_DESKTOP_AUTHORIZATION
