@@ -2617,3 +2617,18 @@ READY_TO_RESUME_CERTIFIED_V2_MEDIA_QUEUE
 - No provider or paid request was sent.
 
 NEXT_STAGE=OPEN_SIRAJ_AND_CONTINUE_CONSOLIDATED_PRODUCTION
+
+========================================================
+WINDOWS SNAPSHOT PERMISSION RECOVERY ANCHORLESS V2 — 2026-08-06
+========================================================
+
+Status:
+READY_TO_RESUME_CONSOLIDATED_PRODUCTION
+
+- Replaced the brittle text-anchor installer with runtime overrides.
+- Desktop snapshot access is retried and then deferred when Windows locks it.
+- The V2 panel overlays pending snapshot updates.
+- Authoritative plans, locks, receipts and budgets remain fail-closed.
+- No provider or paid request was sent.
+
+NEXT_STAGE=OPEN_SIRAJ_AND_CONTINUE_CONSOLIDATED_PRODUCTION

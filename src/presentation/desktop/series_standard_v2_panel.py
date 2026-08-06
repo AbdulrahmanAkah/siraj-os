@@ -219,3 +219,34 @@ def install_series_standard_v2_dock(window: Any) -> None:
     if QTimer is None:
         return
     QTimer.singleShot(0, lambda: _install(window))
+
+# SIRAJ_DESKTOP_SNAPSHOT_PENDING_OVERLAY_V2
+_SIRAJ_BASE_READ_SNAPSHOT_V2 = _read_snapshot
+_SIRAJ_PENDING_SNAPSHOT_REL_V2 = Path(
+    "projects/episode-001-adam/orchestration/"
+    "desktop-series-production-standard-v2-snapshot.pending.json"
+)
+
+
+def _read_snapshot(repo: Path) -> dict[str, Any]:
+    snapshot = _SIRAJ_BASE_READ_SNAPSHOT_V2(repo)
+    pending_path = repo / _SIRAJ_PENDING_SNAPSHOT_REL_V2
+    if not pending_path.is_file():
+        return snapshot
+
+    try:
+        pending = json.loads(
+            pending_path.read_text(encoding="utf-8-sig")
+        )
+    except (OSError, json.JSONDecodeError):
+        return snapshot
+    if not isinstance(pending, dict):
+        return snapshot
+
+    patch = pending.get("patch")
+    if not isinstance(patch, dict):
+        return snapshot
+
+    result = dict(snapshot) if isinstance(snapshot, dict) else {}
+    result.update(patch)
+    return result

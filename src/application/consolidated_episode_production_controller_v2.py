@@ -1090,3 +1090,189 @@ def _record_authorization(
         ),
     )
     return main_path
+
+# SIRAJ_WINDOWS_SNAPSHOT_PERMISSION_RECOVERY_ANCHORLESS_V2
+DESKTOP_SNAPSHOT_PENDING_REL = Path(
+    "projects/episode-001-adam/orchestration/"
+    "desktop-series-production-standard-v2-snapshot.pending.json"
+)
+
+
+def _siraj_desktop_snapshot_patch(
+    plan: ConsolidatedProductionPlan,
+) -> dict[str, Any]:
+    return {
+        "consolidated_production_v2": {
+            "release": RELEASE,
+            "status": plan.status,
+            "prompt_batches_pending": (
+                plan.pending_prompt_batch_count
+            ),
+            "prompt_items": plan.prompt_item_count,
+            "certified_prompts": plan.certified_prompt_count,
+            "tts_blocks": plan.tts_block_count,
+            "maximum_authorized_usd": (
+                plan.maximum_authorized_usd
+            ),
+            "episode_hard_cap_usd": (
+                plan.episode_hard_cap_usd
+            ),
+            "full_episode_production_authorized": False,
+            "next_stage": plan.next_stage,
+        },
+        "next_action_ar": (
+            "تفويض موحد وبدء إنتاج الحلقة كاملة"
+        ),
+        "full_episode_production_authorized": False,
+        "updated_at_utc": _now(),
+    }
+
+
+def _siraj_read_snapshot_with_windows_retry(
+    path: Path,
+    *,
+    attempts: int = 8,
+    initial_delay_seconds: float = 0.05,
+) -> dict[str, Any]:
+    from time import sleep
+
+    last_error: Exception | None = None
+    delay = initial_delay_seconds
+    for attempt in range(attempts):
+        try:
+            value = json.loads(
+                path.read_text(encoding="utf-8-sig")
+            )
+            if not isinstance(value, dict):
+                raise ConsolidatedProductionError(
+                    f"JSON_OBJECT_REQUIRED:{path}"
+                )
+            return value
+        except PermissionError as exc:
+            last_error = exc
+        except OSError as exc:
+            if getattr(exc, "winerror", None) not in {
+                5,
+                13,
+                32,
+                33,
+            }:
+                raise
+            last_error = exc
+
+        if attempt + 1 < attempts:
+            sleep(delay)
+            delay = min(delay * 1.8, 0.45)
+
+    assert last_error is not None
+    raise last_error
+
+
+def _siraj_write_pending_snapshot_patch(
+    repo: Path,
+    *,
+    patch: Mapping[str, Any],
+    error: Exception,
+) -> None:
+    pending_path = repo / DESKTOP_SNAPSHOT_PENDING_REL
+    try:
+        _write(
+            pending_path,
+            {
+                "schema_version": (
+                    "siraj-desktop-snapshot-pending-update-v2"
+                ),
+                "release": RELEASE,
+                "status": (
+                    "PENDING_TRANSIENT_WINDOWS_FILE_ACCESS"
+                ),
+                "target_path_relative": str(
+                    DESKTOP_SNAPSHOT_REL
+                ).replace("\\", "/"),
+                "patch": dict(patch),
+                "last_error": str(error),
+                "provider_requests": 0,
+                "paid_provider_requests": 0,
+                "created_at_utc": _now(),
+            },
+        )
+    except OSError:
+        # This sidecar is also a derived UI artifact. It must never stop
+        # production when the authoritative state remains valid.
+        return
+
+
+def _update_desktop_snapshot(
+    repo: Path,
+    plan: ConsolidatedProductionPlan,
+) -> dict[str, Any]:
+    """Update a derived UI cache without blocking production on Windows.
+
+    Authoritative plans, provider locks, receipts, budgets and controller state
+    remain fail-closed. Only this desktop snapshot can be deferred.
+    """
+    path = repo / DESKTOP_SNAPSHOT_REL
+    pending_path = repo / DESKTOP_SNAPSHOT_PENDING_REL
+    patch = _siraj_desktop_snapshot_patch(plan)
+
+    if not path.exists():
+        snapshot: dict[str, Any] = {}
+    elif not path.is_file():
+        error = PermissionError(
+            f"DESKTOP_SNAPSHOT_NOT_A_REGULAR_FILE:{path}"
+        )
+        _siraj_write_pending_snapshot_patch(
+            repo,
+            patch=patch,
+            error=error,
+        )
+        return {
+            "status": "DEFERRED_DESKTOP_SNAPSHOT_UPDATE",
+            "reason": str(error),
+        }
+    else:
+        try:
+            snapshot = _siraj_read_snapshot_with_windows_retry(
+                path
+            )
+        except (PermissionError, OSError) as exc:
+            _siraj_write_pending_snapshot_patch(
+                repo,
+                patch=patch,
+                error=exc,
+            )
+            return {
+                "status": "DEFERRED_DESKTOP_SNAPSHOT_UPDATE",
+                "reason": str(exc),
+            }
+        except (
+            json.JSONDecodeError,
+            ConsolidatedProductionError,
+        ):
+            # This is a derived cache. Rebuild from authoritative fields.
+            snapshot = {}
+
+    snapshot.update(patch)
+    try:
+        _write(path, snapshot)
+    except (PermissionError, OSError) as exc:
+        _siraj_write_pending_snapshot_patch(
+            repo,
+            patch=patch,
+            error=exc,
+        )
+        return {
+            "status": "DEFERRED_DESKTOP_SNAPSHOT_UPDATE",
+            "reason": str(exc),
+        }
+
+    try:
+        if pending_path.is_file():
+            pending_path.unlink()
+    except OSError:
+        pass
+
+    return {
+        "status": "PASS_DESKTOP_SNAPSHOT_UPDATED",
+        "path": str(path),
+    }
