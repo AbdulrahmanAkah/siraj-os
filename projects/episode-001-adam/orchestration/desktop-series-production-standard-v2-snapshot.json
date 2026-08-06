@@ -18,7 +18,14 @@
     "sample_audio_sha256": "e6a3e74cc6c3c1bd5588a10a9c77c7029a3abcf580d4cc48d8dca42adab35e07",
     "status": "APPROVED_NO_NOTES"
   },
-  "next_action_ar": "إنتاج الحلقة كاملة من جديد بعد التفويض المالي الموحد",
+  "next_action_ar": "تفويض لونا لمراجعة وكتابة البرومبتات ثم إنتاج الحلقة",
+  "prompt_direction": {
+    "batches": 7,
+    "certified": 0,
+    "quality_threshold": 95,
+    "required": 70,
+    "status": "AWAITING_CONSOLIDATED_LUNA_PROMPT_AND_FULL_EPISODE_AUTHORIZATION"
+  },
   "quality_gate": {
     "blocking_issue_count": 0,
     "director_review_status": "PASS",
@@ -31,5 +38,5 @@
   "schema_version": "siraj-desktop-series-production-standard-v2-snapshot",
   "standard_complete": true,
   "standard_status": "READY_FOR_FULL_EPISODE_REBUILD_AUTHORIZATION",
-  "updated_at_utc": "2026-08-06T12:10:32.899160Z"
+  "updated_at_utc": "2026-08-06T12:45:40.896569Z"
 }

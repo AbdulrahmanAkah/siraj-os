@@ -21,6 +21,10 @@ from src.application.openai_luna_editorial_v1 import (
     request_script_package,
     request_storyboard_plan,
 )
+from src.application.luna_cinematic_prompt_director_v2 import (
+    CinematicPromptDirectorError,
+    audit_storyboard_prompt_drafts,
+)
 
 EDITORIAL_RUNNER_RELEASE = (
     "AUTOMATIC_RESEARCH_SCRIPT_STORYBOARD_RUNNER_V1"
@@ -627,6 +631,14 @@ def validate_storyboard_plan(
             )
         except LocalGraphicsSpecError as exc:
             raise EditorialPipelineError(str(exc)) from exc
+
+    try:
+        audit_storyboard_prompt_drafts(
+            payload,
+            strict_future_draft=True,
+        )
+    except CinematicPromptDirectorError as exc:
+        raise EditorialPipelineError(str(exc)) from exc
 
 
 def _stage_paths(

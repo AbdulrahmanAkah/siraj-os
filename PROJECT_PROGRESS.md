@@ -2495,3 +2495,24 @@ Resolved:
 - Performed zero provider requests and zero paid requests.
 
 NEXT_STAGE=CONSOLIDATED_FULL_EPISODE_REBUILD_AUTHORIZATION
+
+========================================================
+LUNA CINEMATIC PROMPT DIRECTOR V2 — 2026-08-06
+========================================================
+
+Status:
+AWAITING_CONSOLIDATED_LUNA_PROMPT_AND_FULL_EPISODE_AUTHORIZATION
+
+Completed:
+
+- Luna owns or supervises every provider-facing visual prompt.
+- Prompt quality threshold is 95/100 with zero blocking flags.
+- 70 Adam prompts are organized into 7 locked Luna batches.
+- Provider execution is blocked without Luna certification.
+- Legacy execution fixtures carry valid Luna certification.
+- Uncertified execution is proven to stop before network and lock creation.
+- Recovery reuses the locked certification without resubmission.
+- Runtime enforcement was not weakened.
+- No provider or paid request was sent during installation.
+
+NEXT_STAGE=CONSOLIDATED_LUNA_PROMPT_AND_FULL_EPISODE_AUTHORIZATION

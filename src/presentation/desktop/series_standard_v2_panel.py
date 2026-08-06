@@ -101,6 +101,7 @@ class SeriesStandardV2Panel(QWidget):  # type: ignore[misc]
         rows = (
             ("status", "حالة المعيار"),
             ("narration", "الصوت"),
+            ("prompts", "برومبتات لونا"),
             ("budget", "الميزانية"),
             ("quality", "بوابات الجودة"),
             ("next", "الخطوة التالية"),
@@ -141,9 +142,11 @@ class SeriesStandardV2Panel(QWidget):  # type: ignore[misc]
         complete = bool(snapshot.get("standard_complete"))
         status = str(snapshot.get("standard_status") or "UNKNOWN")
         narration = snapshot.get("narration")
+        prompts = snapshot.get("prompt_direction")
         budget = snapshot.get("budget")
         quality = snapshot.get("quality_gate")
         narration = narration if isinstance(narration, dict) else {}
+        prompts = prompts if isinstance(prompts, dict) else {}
         budget = budget if isinstance(budget, dict) else {}
         quality = quality if isinstance(quality, dict) else {}
 
@@ -158,6 +161,12 @@ class SeriesStandardV2Panel(QWidget):  # type: ignore[misc]
         self._labels["narration"].setText(
             f"{narration.get('status', 'UNKNOWN')} — "
             f"{narration.get('blocks', 0)} كتلة"
+        )
+        self._labels["prompts"].setText(
+            f"{prompts.get('status', 'غير جاهز')} — "
+            f"{prompts.get('certified', 0)}/"
+            f"{prompts.get('required', 70)} — "
+            f"الحد {prompts.get('quality_threshold', 95)}/100"
         )
         self._labels["budget"].setText(
             f"فيديو {budget.get('generated_video_target_usd', 30)}$ / "

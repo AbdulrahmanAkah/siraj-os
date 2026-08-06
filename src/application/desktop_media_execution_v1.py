@@ -16,6 +16,10 @@ from pathlib import Path
 from typing import Any, Callable, Mapping, Sequence
 
 from src.application.episode_cost_ledger_v1 import HARD_CAP_USD, scan_episode_costs
+from src.application.luna_cinematic_prompt_director_v2 import (
+    CinematicPromptDirectorError,
+    apply_certified_prompt_to_task,
+)
 from src.application.local_graphics_renderer_v1 import render_graphic
 from src.application.runware_execution_v1 import (
     ProductionGateError,
@@ -456,11 +460,34 @@ def execute_runware_item(
     budget = _budget_preflight(repo, episode_id, maximum)
     lock_path, receipt_path = _paths(episode_root, queue_id)
     state_path = repo / ORCHESTRATOR_STATE_REL
+    prompt_certification: dict[str, Any] | None = None
 
     if recovery_only:
         if not lock_path.is_file():
             raise DesktopMediaExecutionError("RUNWARE_RECOVERY_LOCK_NOT_FOUND")
         lock = _read(lock_path)
+        raw_request_payload = lock.get("request_payload")
+        recovery_task = (
+            dict(raw_request_payload[0])
+            if isinstance(raw_request_payload, list)
+            and raw_request_payload
+            and isinstance(raw_request_payload[0], Mapping)
+            else dict(item.get("task_draft") or {})
+        )
+        recovery_certification_source = {
+            "luna_prompt_certification_v2": (
+                lock.get("luna_prompt_certification_v2")
+                or item.get("luna_prompt_certification_v2")
+            )
+        }
+        try:
+            _, prompt_certification = apply_certified_prompt_to_task(
+                recovery_certification_source,
+                recovery_task,
+                kind,
+            )
+        except CinematicPromptDirectorError as exc:
+            raise DesktopMediaExecutionError(str(exc)) from exc
         rejection = classify_seedream_negative_prompt_rejection(
             {
                 "last_error": lock.get("last_error"),
@@ -510,6 +537,14 @@ def execute_runware_item(
             "outputFormat",
             "JPG" if kind == "RUNWARE_IMAGE" else "MP4",
         )
+        try:
+            task, prompt_certification = apply_certified_prompt_to_task(
+                item,
+                task,
+                kind,
+            )
+        except CinematicPromptDirectorError as exc:
+            raise DesktopMediaExecutionError(str(exc)) from exc
         task = prepare_runware_task_for_submission(task)
         if kind == "RUNWARE_VIDEO":
             google = task.setdefault("providerSettings", {}).setdefault(
@@ -541,6 +576,7 @@ def execute_runware_item(
             "api_key_persisted": False,
             "created_at_utc": _now(),
         }
+        lock["luna_prompt_certification_v2"] = prompt_certification
         _exclusive_lock(lock_path, lock)
         item["status"] = "SUBMISSION_LOCKED"
         item["task_uuid"] = task_uuid
@@ -618,6 +654,11 @@ def execute_runware_item(
         "hidden_paid_retry": "FORBIDDEN",
         "completed_at_utc": _now(),
     }
+    if prompt_certification is None:
+        raise DesktopMediaExecutionError(
+            "LUNA_PROMPT_CERTIFICATION_MISSING_AT_RECEIPT"
+        )
+    receipt["luna_prompt_certification_v2"] = prompt_certification
     _write_receipt_and_complete(
         repo,
         queue_path,
