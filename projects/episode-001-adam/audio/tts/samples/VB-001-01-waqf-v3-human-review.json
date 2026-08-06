@@ -1,8 +1,10 @@
 {
+  "approved_at_local": "2026-08-06T14:49:00+03:00",
   "audio_path_relative": "projects/episode-001-adam/audio/tts/samples/VB-001-01-primary-narrator-waqf-v3-sample.mp3",
   "block_id": "VB-001-01",
-  "decision": null,
+  "decision": "APPROVED",
   "episode_id": "episode-001-adam",
+  "exact_human_direction_ar": "رائع، لا ملاحظات",
   "full_episode_tts_authorized": false,
   "required_fragments": [
     "وَاحِدَهْ",
@@ -19,5 +21,5 @@
     "AUDIO_ARTIFACTS"
   ],
   "schema_version": "siraj-tts-waqf-v3-sample-human-review",
-  "status": "AWAITING_HUMAN_AUDIO_REVIEW"
+  "status": "HUMAN_APPROVED_NO_NOTES"
 }

@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from src.presentation.desktop.series_standard_v2_panel import install_series_standard_v2_dock
+
 from pathlib import Path
 
 from PySide6.QtCore import QDir, QSize, Qt, QUrl
@@ -48,6 +50,7 @@ PROJECT_HERO_COMPACT_V1_3 = True
 class SirajDesktopWindow(QMainWindow):
     def __init__(self, repo_root: Path) -> None:
         super().__init__()
+        install_series_standard_v2_dock(self)
         self.repo_root = repo_root
         self.snapshot = build_dashboard_snapshot(repo_root)
         self.setWindowTitle("سراج — إدارة إنتاج الحلقات — v1.3")

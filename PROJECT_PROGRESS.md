@@ -2476,3 +2476,22 @@ Scope:
 - إبقاء توليد الحلقة الكاملة غير مصرح به.
 
 NEXT_STAGE=HUMAN_WAQF_V3_SAMPLE_REVIEW
+
+========================================================
+SIRAJ SERIES PRODUCTION STANDARD V2 CAMERA AND BUDGET REPAIR — 2026-08-06
+========================================================
+
+Status:
+READY_FOR_FULL_EPISODE_REBUILD_AUTHORIZATION
+
+Resolved:
+
+- Replaced the false camera-language coverage block with a real 70-shot cinematic camera plan.
+- Added lens, scale, movement, composition, focus, screen direction and axis metadata to every shot.
+- Added world, light, palette, material, silhouette and adjacent-shot continuity locks.
+- Corrected planned generated-video spend discovery to 29.514375 USD.
+- Re-ran the fail-closed director and technical gate successfully.
+- Preserved the original storyboard and created a production-standard canonical storyboard.
+- Performed zero provider requests and zero paid requests.
+
+NEXT_STAGE=CONSOLIDATED_FULL_EPISODE_REBUILD_AUTHORIZATION

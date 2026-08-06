@@ -1,0 +1,3605 @@
+{
+  "actual_stop_waqf_policy_v3": {
+    "actual_stop_sources": [
+      "EXPLICIT_SENTENCE_END",
+      "ELLIPSIS",
+      "SEMICOLON",
+      "EXPLICIT_BLOCK_END_AT_OR_ABOVE_400MS",
+      "NARROW_USER_CONFIRMED_COMMA_OVERRIDE"
+    ],
+    "canonical_text_modified": false,
+    "comma_default": "CONNECTED_READING_PRESERVED",
+    "connector_heuristic_disabled": true,
+    "display_text_modified": false,
+    "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+    "status": "ACTIVE_REVIEW_CANDIDATE",
+    "ta_marbuta_pause_pronunciation": "HAA_WITH_SUKUN",
+    "tts_text_ar_only": true
+  },
+  "episode_id": "episode-001-adam",
+  "human_approval": {
+    "approval_source": "USER_REVIEWED_IN_CHAT",
+    "approved_at_local": "2026-08-06T07:42:22.291373+03:00",
+    "approved_source_sha256": "bf97395a033d2a51f4a420e70e7e7a8263b113d3de7b93123f0154385abf2973",
+    "decision": "APPROVE_FULL_DIACRITIZATION_AND_PERFORMANCE_PLAN",
+    "episode_id": "episode-001-adam",
+    "paid_execution_authorized": false,
+    "performance_block_count": 43,
+    "schema_version": "siraj-arabic-performance-human-approval-v2",
+    "segment_count": 14,
+    "status": "HUMAN_APPROVED",
+    "tts_execution_authorized": false
+  },
+  "human_language_review_required": false,
+  "human_performance_review_required": false,
+  "metrics": {
+    "performance_block_count": 43,
+    "planned_narration_seconds": 711.319,
+    "planned_words_per_minute": 110.415,
+    "word_count": 1309
+  },
+  "paid_execution_authorized": false,
+  "production_standard_v2_approval": {
+    "approval_source": "USER_EXPLICIT_REVIEW_IN_CHAT",
+    "approved_at_local": "2026-08-06T14:49:00+03:00",
+    "decision": "APPROVED_NO_NOTES",
+    "exact_human_direction_ar": "رائع، لا ملاحظات",
+    "full_episode_tts_authorized": false,
+    "sample_audio_sha256": "e6a3e74cc6c3c1bd5588a10a9c77c7029a3abcf580d4cc48d8dca42adab35e07",
+    "sample_block_id": "VB-001-01"
+  },
+  "schema_version": "siraj-arabic-performance-script-v2",
+  "segments": [
+    {
+      "canonical_narration_ar": "انخفض كل شيء في حركة واحدة. امتثالٌ كامل... ثم بقي موضع واحد قائمًا. لم يكن العجز هو ما منعه، ولا غموض الأمر. كان يرى، ويفهم، ثم اختار أن يرفع نفسه فوق ما أُمر به. هناك، قبل أن تبدأ أيام الإنسان على الأرض، وُلد الصراع الذي سيلاحق كل قلب: أن تنحني للحق حين يخالف هواك... أو تجعل من نفسك ميزانًا له. لكن تلك اللحظة لم تبدأ بالنار. بدأت بطين لم يتحرك بعد.",
+      "narration_policy": {
+        "explicit_pauses": true,
+        "fully_diacritized": true,
+        "target_words_per_minute": 116
+      },
+      "performance_blocks": [
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 6,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 2,
+            "connected_commas_preserved": [
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "ويفهم، ثم اختار أن يرفع نفسه فوق ما أمر به.",
+                "position": 183,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "يَرَى",
+                "word_plain": "يرى"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "ثم اختار أن يرفع نفسه فوق ما أمر به.",
+                "position": 190,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "وَيَفْهَمُ",
+                "word_plain": "ويفهم"
+              }
+            ],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 46,
+                "phonetic_substitution": "TA_MARBUTA_TO_HAA_AT_WAQF",
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 37,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "وَاحِدَهْ",
+                "word_before": "وَاحِدَةٍ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 67,
+                "phonetic_substitution": null,
+                "punctuation": "...",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 60,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "كَامِلْ",
+                "word_before": "كَامِلٌ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 109,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 101,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "قَائِمَا",
+                "word_before": "قَائِمًا"
+              },
+              {
+                "confidence": "USER_CONFIRMED",
+                "end": 150,
+                "phonetic_substitution": null,
+                "punctuation": "،",
+                "reason": "USER_CONFIRMED_AUDIBLE_ACTUAL_STOP",
+                "start": 142,
+                "stop_type": "MANUAL_CONFIRMED_COMMA_STOP",
+                "word_after": "مَنَعَهْ",
+                "word_before": "مَنَعَهُ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 175,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 166,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "الْأَمْرْ",
+                "word_before": "الْأَمْرِ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 262,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 258,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "بِهْ",
+                "word_before": "بِهِ"
+              }
+            ],
+            "manual_comma_override_count": 1,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-001-01",
+          "canonical_text_ar": "انخفض كل شيء في حركة واحدة. امتثالٌ كامل... ثم بقي موضع واحد قائمًا. لم يكن العجز هو ما منعه، ولا غموض الأمر. كان يرى، ويفهم، ثم اختار أن يرفع نفسه فوق ما أُمر به.",
+          "diacritic_coverage": 1.0,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 450,
+          "pause_before_ms": 350,
+          "speaker_key": "NARRATOR",
+          "text_ar": "اِنْخَفَضَ كُلُّ شَيْءٍ فِي حَرَكَةٍ وَاحِدَةٍ. اِمْتِثَالٌ كَامِلٌ... ثُمَّ بَقِيَ مَوْضِعٌ وَاحِدٌ قَائِمًا. لَمْ يَكُنِ الْعَجْزُ هُوَ مَا مَنَعَهُ، وَلَا غُمُوضُ الْأَمْرِ. كَانَ يَرَى، وَيَفْهَمُ، ثُمَّ اخْتَارَ أَنْ يَرْفَعَ نَفْسَهُ فَوْقَ مَا أُمِرَ بِهِ.",
+          "tts_text_ar": "اِنْخَفَضَ كُلُّ شَيْءٍ فِي حَرَكَةٍ وَاحِدَهْ. اِمْتِثَالٌ كَامِلْ... ثُمَّ بَقِيَ مَوْضِعٌ وَاحِدٌ قَائِمَا. لَمْ يَكُنِ الْعَجْزُ هُوَ مَا مَنَعَهْ، وَلَا غُمُوضُ الْأَمْرْ. كَانَ يَرَى، وَيَفْهَمُ، ثُمَّ اخْتَارَ أَنْ يَرْفَعَ نَفْسَهُ فَوْقَ مَا أُمِرَ بِهْ."
+        },
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 4,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 2,
+            "connected_commas_preserved": [
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "قبل أن تبدأ أيام الإنسان على الأرض، ولد الصراع ا",
+                "position": 0,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "هُنَاكَ",
+                "word_plain": "هناك"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "ولد الصراع الذي سيلاحق كل قلب: أن تنحني للحق ح",
+                "position": 58,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "الْأَرْضِ",
+                "word_plain": "الأرض"
+              }
+            ],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 170,
+                "phonetic_substitution": null,
+                "punctuation": "...",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 163,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "هَوَاكْ",
+                "word_before": "هَوَاكَ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 216,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 212,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "لَهْ",
+                "word_before": "لَهُ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 269,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 259,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "بِالنَّارْ",
+                "word_before": "بِالنَّارِ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 311,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 305,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "بَعْدْ",
+                "word_before": "بَعْدُ"
+              }
+            ],
+            "manual_comma_override_count": 0,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-001-02",
+          "canonical_text_ar": "هناك، قبل أن تبدأ أيام الإنسان على الأرض، وُلد الصراع الذي سيلاحق كل قلب: أن تنحني للحق حين يخالف هواك... أو تجعل من نفسك ميزانًا له. لكن تلك اللحظة لم تبدأ بالنار. بدأت بطين لم يتحرك بعد.",
+          "diacritic_coverage": 0.978723,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 750,
+          "pause_before_ms": 200,
+          "speaker_key": "NARRATOR",
+          "text_ar": "هُنَاكَ، قَبْلَ أَنْ تَبْدَأَ أَيَّامُ الْإِنْسَانِ عَلَى الْأَرْضِ، وُلِدَ الصِّرَاعُ الَّذِي سَيُلَاحِقُ كُلَّ قَلْبٍ: أَنْ تَنْحَنِيَ لِلْحَقِّ حِينَ يُخَالِفُ هَوَاكَ... أَوْ تَجْعَلَ مِنْ نَفْسِكَ مِيزَانًا لَهُ. لَكِنَّ تِلْكَ اللَّحْظَةَ لَمْ تَبْدَأْ بِالنَّارِ. بَدَأَتْ بِطِينٍ لَمْ يَتَحَرَّكْ بَعْدُ.",
+          "tts_text_ar": "هُنَاكَ، قَبْلَ أَنْ تَبْدَأَ أَيَّامُ الْإِنْسَانِ عَلَى الْأَرْضِ، وُلِدَ الصِّرَاعُ الَّذِي سَيُلَاحِقُ كُلَّ قَلْبٍ: أَنْ تَنْحَنِيَ لِلْحَقِّ حِينَ يُخَالِفُ هَوَاكْ... أَوْ تَجْعَلَ مِنْ نَفْسِكَ مِيزَانًا لَهْ. لَكِنَّ تِلْكَ اللَّحْظَةَ لَمْ تَبْدَأْ بِالنَّارْ. بَدَأَتْ بِطِينٍ لَمْ يَتَحَرَّكْ بَعْدْ."
+        }
+      ],
+      "segment_id": "ADAM-SEQUENCE-01",
+      "source_sequence_id": "ADAM-SEQUENCE-01",
+      "title_ar": "السجدة التي لم تكتمل"
+    },
+    {
+      "canonical_narration_ar": "قبل السجدة، كان هناك وعد بالأرض. وقبل الوعد، كانت مقادير تمضي إلى غايتها، وكون يتسع، ومخلوقات سبقت الإنسان إلى الوجود. ثم ظهر الطين في قلب هذا الاتساع كله؛ مادة ساكنة ستُمنح اسمًا، وعلمًا، وإرادة، ومكانًا لم يُمنح لمجرد التراب. كيف صار الضعف موضع تكريم؟ وكيف تحول التكريم إلى عداوة؟ وكيف دخل الإنسان أول امتحان له قبل أن يعرف الجوع أو الخوف؟ هذه هي الحكاية: من أول كتابة... إلى أول حد.",
+      "narration_policy": {
+        "explicit_pauses": true,
+        "fully_diacritized": true,
+        "target_words_per_minute": 116
+      },
+      "performance_blocks": [
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 3,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 4,
+            "connected_commas_preserved": [
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "كان هناك وعد بالأرض. وقبل الوعد، كانت مقادير تمض",
+                "position": 7,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "السَّجْدَةِ",
+                "word_plain": "السجدة"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "كانت مقادير تمضي إلى غايتها، وكون يتسع، ومخلوقات",
+                "position": 63,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "الْوَعْدِ",
+                "word_plain": "الوعد"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "وكون يتسع، ومخلوقات سبقت الإنسان إلى الوجود. ثم",
+                "position": 107,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "غَايَتِهَا",
+                "word_plain": "غايتها"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "ومخلوقات سبقت الإنسان إلى الوجود. ثم ظهر الطين ف",
+                "position": 128,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "يَتَّسِعُ",
+                "word_plain": "يتسع"
+              }
+            ],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 52,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 41,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "بِالْأَرْضْ",
+                "word_before": "بِالْأَرْضِ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 192,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 182,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "الْوُجُودْ",
+                "word_before": "الْوُجُودِ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 253,
+                "phonetic_substitution": null,
+                "punctuation": "؛",
+                "reason": "SEMICOLON_ACTUAL_STOP",
+                "start": 246,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "كُلِّهْ",
+                "word_before": "كُلِّهِ"
+              }
+            ],
+            "manual_comma_override_count": 0,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-002-01",
+          "canonical_text_ar": "قبل السجدة، كان هناك وعد بالأرض. وقبل الوعد، كانت مقادير تمضي إلى غايتها، وكون يتسع، ومخلوقات سبقت الإنسان إلى الوجود. ثم ظهر الطين في قلب هذا الاتساع كله؛",
+          "diacritic_coverage": 0.975207,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 450,
+          "pause_before_ms": 350,
+          "speaker_key": "NARRATOR",
+          "text_ar": "قَبْلَ السَّجْدَةِ، كَانَ هُنَاكَ وَعْدٌ بِالْأَرْضِ. وَقَبْلَ الْوَعْدِ، كَانَتْ مَقَادِيرُ تَمْضِي إِلَى غَايَتِهَا، وَكَوْنٌ يَتَّسِعُ، وَمَخْلُوقَاتٌ سَبَقَتِ الْإِنْسَانَ إِلَى الْوُجُودِ. ثُمَّ ظَهَرَ الطِّينُ فِي قَلْبِ هَذَا الاِتِّسَاعِ كُلِّهِ؛",
+          "tts_text_ar": "قَبْلَ السَّجْدَةِ، كَانَ هُنَاكَ وَعْدٌ بِالْأَرْضْ. وَقَبْلَ الْوَعْدِ، كَانَتْ مَقَادِيرُ تَمْضِي إِلَى غَايَتِهَا، وَكَوْنٌ يَتَّسِعُ، وَمَخْلُوقَاتٌ سَبَقَتِ الْإِنْسَانَ إِلَى الْوُجُودْ. ثُمَّ ظَهَرَ الطِّينُ فِي قَلْبِ هَذَا الاِتِّسَاعِ كُلِّهْ؛"
+        },
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 5,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 3,
+            "connected_commas_preserved": [
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "وعلما، وإرادة، ومكانا لم يمنح لمجرد التراب. كيف",
+                "position": 30,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "اسْمًا",
+                "word_plain": "اسما"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "وإرادة، ومكانا لم يمنح لمجرد التراب. كيف صار الض",
+                "position": 38,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "وَعِلْمًا",
+                "word_plain": "وعلما"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "ومكانا لم يمنح لمجرد التراب. كيف صار الضعف موضع",
+                "position": 49,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "وَإِرَادَةً",
+                "word_plain": "وإرادة"
+              }
+            ],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 109,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 99,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "التُّرَابْ",
+                "word_before": "التُّرَابِ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 152,
+                "phonetic_substitution": null,
+                "punctuation": "؟",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 143,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "تَكْرِيمْ",
+                "word_before": "تَكْرِيمٍ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 201,
+                "phonetic_substitution": "TA_MARBUTA_TO_HAA_AT_WAQF",
+                "punctuation": "؟",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 192,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "عَدَاوَهْ",
+                "word_before": "عَدَاوَةٍ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 300,
+                "phonetic_substitution": null,
+                "punctuation": "؟",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 291,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "الْخَوْفْ",
+                "word_before": "الْخَوْفَ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 350,
+                "phonetic_substitution": "TA_MARBUTA_TO_HAA_AT_WAQF",
+                "punctuation": "...",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 341,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "كِتَابَهْ",
+                "word_before": "كِتَابَةٍ"
+              }
+            ],
+            "manual_comma_override_count": 0,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-002-02",
+          "canonical_text_ar": "مادة ساكنة ستُمنح اسمًا، وعلمًا، وإرادة، ومكانًا لم يُمنح لمجرد التراب. كيف صار الضعف موضع تكريم؟ وكيف تحول التكريم إلى عداوة؟ وكيف دخل الإنسان أول امتحان له قبل أن يعرف الجوع أو الخوف؟ هذه هي الحكاية: من أول كتابة...",
+          "diacritic_coverage": 0.981595,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 450,
+          "pause_before_ms": 200,
+          "speaker_key": "NARRATOR",
+          "text_ar": "مَادَّةٌ سَاكِنَةٌ سَتُمْنَحُ اسْمًا، وَعِلْمًا، وَإِرَادَةً، وَمَكَانًا لَمْ يُمْنَحْ لِمُجَرَّدِ التُّرَابِ. كَيْفَ صَارَ الضَّعْفُ مَوْضِعَ تَكْرِيمٍ؟ وَكَيْفَ تَحَوَّلَ التَّكْرِيمُ إِلَى عَدَاوَةٍ؟ وَكَيْفَ دَخَلَ الْإِنْسَانُ أَوَّلَ امْتِحَانٍ لَهُ قَبْلَ أَنْ يَعْرِفَ الْجُوعَ أَوِ الْخَوْفَ؟ هَذِهِ هِيَ الْحِكَايَةُ: مِنْ أَوَّلِ كِتَابَةٍ...",
+          "tts_text_ar": "مَادَّةٌ سَاكِنَةٌ سَتُمْنَحُ اسْمًا، وَعِلْمًا، وَإِرَادَةً، وَمَكَانًا لَمْ يُمْنَحْ لِمُجَرَّدِ التُّرَابْ. كَيْفَ صَارَ الضَّعْفُ مَوْضِعَ تَكْرِيمْ؟ وَكَيْفَ تَحَوَّلَ التَّكْرِيمُ إِلَى عَدَاوَهْ؟ وَكَيْفَ دَخَلَ الْإِنْسَانُ أَوَّلَ امْتِحَانٍ لَهُ قَبْلَ أَنْ يَعْرِفَ الْجُوعَ أَوِ الْخَوْفْ؟ هَذِهِ هِيَ الْحِكَايَةُ: مِنْ أَوَّلِ كِتَابَهْ..."
+        },
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 1,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 0,
+            "connected_commas_preserved": [],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 19,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 14,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "حَدّ",
+                "word_before": "حَدٍّ"
+              }
+            ],
+            "manual_comma_override_count": 0,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-002-03",
+          "canonical_text_ar": "إلى أول حد.",
+          "diacritic_coverage": 1.0,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 750,
+          "pause_before_ms": 200,
+          "speaker_key": "NARRATOR",
+          "text_ar": "إِلَى أَوَّلِ حَدٍّ.",
+          "tts_text_ar": "إِلَى أَوَّلِ حَدّ."
+        }
+      ],
+      "segment_id": "ADAM-SEQUENCE-02",
+      "source_sequence_id": "ADAM-SEQUENCE-02",
+      "title_ar": "قبل الطين"
+    },
+    {
+      "canonical_narration_ar": "كان الله، ولم يكن شيء غيره. وكان عرشه على الماء. ثم خُلق القلم أولًا، وجاءه الأمر أن يكتب؛ فجرى بما هو كائن إلى قيام الساعة. وقبل أن تُخلق السماوات والأرض بخمسين ألف سنة، كانت مقادير الخلائق قد كُتبت. بعدها اتسع المشهد: سماوات وأرض، ملائكة خُلقت من نور، وجان خُلق من مارج من نار. ومن الجن كان إبليس. وقبل أن يظهر آدم، تضعه بعض أخبار التفسير عند أطراف الحكاية. يبقى هناك، في ظل الرواية، فلا يتحول الاحتمال إلى يقين، ولا يتقدم إلى موضع لم يثبته النص. لم يكن الإنسان بعد قد ظهر. لكن الكون الذي سيحمل قصته كان قد أُقيم على أمر وكتاب وحدود.",
+      "narration_policy": {
+        "explicit_pauses": true,
+        "fully_diacritized": true,
+        "target_words_per_minute": 116
+      },
+      "performance_blocks": [
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 6,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 3,
+            "connected_commas_preserved": [
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "ولم يكن شيء غيره. وكان عرشه على الماء. ثم خلق ال",
+                "position": 6,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "اللَّهُ",
+                "word_plain": "الله"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "وجاءه الأمر أن يكتب؛ فجرى بما هو كائن إلى قيام الس",
+                "position": 102,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "أَوَّلًا",
+                "word_plain": "أولا"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "كانت مقادير الخلائق قد كتبت. بعدها اتسع المشهد:",
+                "position": 268,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "سَنَةٍ",
+                "word_plain": "سنة"
+              }
+            ],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 44,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 36,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "غَيْرُهْ",
+                "word_before": "غَيْرُهُ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 77,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 69,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "الْمَاءْ",
+                "word_before": "الْمَاءِ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 145,
+                "phonetic_substitution": null,
+                "punctuation": "؛",
+                "reason": "SEMICOLON_ACTUAL_STOP",
+                "start": 137,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "يَكْتُبْ",
+                "word_before": "يَكْتُبَ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 198,
+                "phonetic_substitution": "TA_MARBUTA_TO_HAA_AT_WAQF",
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 188,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "السَّاعَهْ",
+                "word_before": "السَّاعَةِ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 321,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 313,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "كُتِبَتْ",
+                "word_before": "كُتِبَتْ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 353,
+                "phonetic_substitution": null,
+                "punctuation": "<BLOCK_END>",
+                "reason": "PAUSE_AFTER_450MS_MEETS_400MS_THRESHOLD",
+                "start": 342,
+                "stop_type": "EXPLICIT_BLOCK_END_PAUSE",
+                "word_after": "الْمَشْهَدْ",
+                "word_before": "الْمَشْهَدُ"
+              }
+            ],
+            "manual_comma_override_count": 0,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-003-01",
+          "canonical_text_ar": "كان الله، ولم يكن شيء غيره. وكان عرشه على الماء. ثم خُلق القلم أولًا، وجاءه الأمر أن يكتب؛ فجرى بما هو كائن إلى قيام الساعة. وقبل أن تُخلق السماوات والأرض بخمسين ألف سنة، كانت مقادير الخلائق قد كُتبت. بعدها اتسع المشهد:",
+          "diacritic_coverage": 0.981928,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 450,
+          "pause_before_ms": 350,
+          "speaker_key": "NARRATOR",
+          "text_ar": "كَانَ اللَّهُ، وَلَمْ يَكُنْ شَيْءٌ غَيْرُهُ. وَكَانَ عَرْشُهُ عَلَى الْمَاءِ. ثُمَّ خُلِقَ الْقَلَمُ أَوَّلًا، وَجَاءَهُ الْأَمْرُ أَنْ يَكْتُبَ؛ فَجَرَى بِمَا هُوَ كَائِنٌ إِلَى قِيَامِ السَّاعَةِ. وَقَبْلَ أَنْ تُخْلَقَ السَّمَاوَاتُ وَالْأَرْضُ بِخَمْسِينَ أَلْفَ سَنَةٍ، كَانَتْ مَقَادِيرُ الْخَلَائِقِ قَدْ كُتِبَتْ. بَعْدَهَا اتَّسَعَ الْمَشْهَدُ:",
+          "tts_text_ar": "كَانَ اللَّهُ، وَلَمْ يَكُنْ شَيْءٌ غَيْرُهْ. وَكَانَ عَرْشُهُ عَلَى الْمَاءْ. ثُمَّ خُلِقَ الْقَلَمُ أَوَّلًا، وَجَاءَهُ الْأَمْرُ أَنْ يَكْتُبْ؛ فَجَرَى بِمَا هُوَ كَائِنٌ إِلَى قِيَامِ السَّاعَهْ. وَقَبْلَ أَنْ تُخْلَقَ السَّمَاوَاتُ وَالْأَرْضُ بِخَمْسِينَ أَلْفَ سَنَةٍ، كَانَتْ مَقَادِيرُ الْخَلَائِقِ قَدْ كُتِبَتْ. بَعْدَهَا اتَّسَعَ الْمَشْهَدْ:"
+        },
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 3,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 3,
+            "connected_commas_preserved": [
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "ملائكة خلقت من نور، وجان خلق من مارج من نار. ومن",
+                "position": 11,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "وَأَرْضٌ",
+                "word_plain": "وأرض"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "وجان خلق من مارج من نار. ومن الجن كان إبليس. وقب",
+                "position": 47,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "نُورٍ",
+                "word_plain": "نور"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "تضعه بعض أخبار التفسير عند أطراف الحكاية.",
+                "position": 151,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "آدَمُ",
+                "word_plain": "آدم"
+              }
+            ],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 93,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 88,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "نَارْ",
+                "word_before": "نَارٍ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 126,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 117,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "إِبْلِيسْ",
+                "word_before": "إِبْلِيسُ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 226,
+                "phonetic_substitution": "TA_MARBUTA_TO_HAA_AT_WAQF",
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 214,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "الْحِكَايَهْ",
+                "word_before": "الْحِكَايَةِ"
+              }
+            ],
+            "manual_comma_override_count": 0,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-003-02",
+          "canonical_text_ar": "سماوات وأرض، ملائكة خُلقت من نور، وجان خُلق من مارج من نار. ومن الجن كان إبليس. وقبل أن يظهر آدم، تضعه بعض أخبار التفسير عند أطراف الحكاية.",
+          "diacritic_coverage": 0.990476,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 450,
+          "pause_before_ms": 200,
+          "speaker_key": "NARRATOR",
+          "text_ar": "سَمَاوَاتٌ وَأَرْضٌ، مَلَائِكَةٌ خُلِقَتْ مِنْ نُورٍ، وَجَانٌّ خُلِقَ مِنْ مَارِجٍ مِنْ نَارٍ. وَمِنَ الْجِنِّ كَانَ إِبْلِيسُ. وَقَبْلَ أَنْ يَظْهَرَ آدَمُ، تَضَعُهُ بَعْضُ أَخْبَارِ التَّفْسِيرِ عِنْدَ أَطْرَافِ الْحِكَايَةِ.",
+          "tts_text_ar": "سَمَاوَاتٌ وَأَرْضٌ، مَلَائِكَةٌ خُلِقَتْ مِنْ نُورٍ، وَجَانٌّ خُلِقَ مِنْ مَارِجٍ مِنْ نَارْ. وَمِنَ الْجِنِّ كَانَ إِبْلِيسْ. وَقَبْلَ أَنْ يَظْهَرَ آدَمُ، تَضَعُهُ بَعْضُ أَخْبَارِ التَّفْسِيرِ عِنْدَ أَطْرَافِ الْحِكَايَهْ."
+        },
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 3,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 3,
+            "connected_commas_preserved": [
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "في ظل الرواية، فلا يتحول الاحتمال إلى يقين، ولا ي",
+                "position": 8,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "هُنَاكَ",
+                "word_plain": "هناك"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "فلا يتحول الاحتمال إلى يقين، ولا يتقدم إلى موضع",
+                "position": 27,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "الرِّوَايَةِ",
+                "word_plain": "الرواية"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "ولا يتقدم إلى موضع لم يثبته النص. لم يكن الإنس",
+                "position": 79,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "يَقِينٍ",
+                "word_plain": "يقين"
+              }
+            ],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 145,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 137,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "النَّصّ",
+                "word_before": "النَّصُّ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 190,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 184,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "ظَهَرْ",
+                "word_before": "ظَهَرَ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 290,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 281,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "وَحُدُودْ",
+                "word_before": "وَحُدُودٍ"
+              }
+            ],
+            "manual_comma_override_count": 0,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-003-03",
+          "canonical_text_ar": "يبقى هناك، في ظل الرواية، فلا يتحول الاحتمال إلى يقين، ولا يتقدم إلى موضع لم يثبته النص. لم يكن الإنسان بعد قد ظهر. لكن الكون الذي سيحمل قصته كان قد أُقيم على أمر وكتاب وحدود.",
+          "diacritic_coverage": 0.977612,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 750,
+          "pause_before_ms": 200,
+          "speaker_key": "NARRATOR",
+          "text_ar": "يَبْقَى هُنَاكَ، فِي ظِلِّ الرِّوَايَةِ، فَلَا يَتَحَوَّلُ الاِحْتِمَالُ إِلَى يَقِينٍ، وَلَا يَتَقَدَّمُ إِلَى مَوْضِعٍ لَمْ يُثْبِتْهُ النَّصُّ. لَمْ يَكُنِ الْإِنْسَانُ بَعْدُ قَدْ ظَهَرَ. لَكِنَّ الْكَوْنَ الَّذِي سَيَحْمِلُ قِصَّتَهُ كَانَ قَدْ أُقِيمَ عَلَى أَمْرٍ وَكِتَابٍ وَحُدُودٍ.",
+          "tts_text_ar": "يَبْقَى هُنَاكَ، فِي ظِلِّ الرِّوَايَةِ، فَلَا يَتَحَوَّلُ الاِحْتِمَالُ إِلَى يَقِينٍ، وَلَا يَتَقَدَّمُ إِلَى مَوْضِعٍ لَمْ يُثْبِتْهُ النَّصّ. لَمْ يَكُنِ الْإِنْسَانُ بَعْدُ قَدْ ظَهَرْ. لَكِنَّ الْكَوْنَ الَّذِي سَيَحْمِلُ قِصَّتَهُ كَانَ قَدْ أُقِيمَ عَلَى أَمْرٍ وَكِتَابٍ وَحُدُودْ."
+        }
+      ],
+      "segment_id": "ADAM-SEQUENCE-03",
+      "source_sequence_id": "ADAM-SEQUENCE-03",
+      "title_ar": "حين كتب القلم"
+    },
+    {
+      "canonical_narration_ar": "ثم جاء الإعلان الذي جعل الأرض تنتظر ساكنًا جديدًا: ﴿إني جاعل في الأرض خليفة﴾. لم يكن الوعد بجسد يمشي على التراب فقط. كان وعدًا بمخلوق يعرف، ويختار، ويعمر، ويخطئ، ويعود. رأت الملائكة في كلمة الأرض ما تعرفه من الفساد وسفك الدماء، فقالت: ﴿أتجعل فيها من يفسد فيها ويسفك الدماء ونحن نسبح بحمدك ونقدس لك﴾. لم يكن سؤال تمرد، بل سؤال من يقف أمام حكمة لم تُكشف له بعد. وجاء الجواب قصيرًا، لكنه فتح باب القصة كلها: ﴿إني أعلم ما لا تعلمون﴾. في المستقبل الذي لم يولد بعد، سيكون من ذرية آدم قاتل ومصلح، طاغية ونبي، مفسد وتائب. لكن السر الأول لم يكن في كل ما سيفعلونه... بل في شيء سيُمنح لآدم قبل أن يخطو خطوة واحدة.",
+      "narration_policy": {
+        "explicit_pauses": true,
+        "fully_diacritized": true,
+        "target_words_per_minute": 116
+      },
+      "performance_blocks": [
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 2,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 4,
+            "connected_commas_preserved": [
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "ويختار، ويعمر، ويخطئ، ويعود.",
+                "position": 212,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "يَعْرِفُ",
+                "word_plain": "يعرف"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "ويعمر، ويخطئ، ويعود.",
+                "position": 222,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "وَيَخْتَارُ",
+                "word_plain": "ويختار"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "ويخطئ، ويعود.",
+                "position": 235,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "وَيَعْمُرُ",
+                "word_plain": "ويعمر"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "ويعود.",
+                "position": 247,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "وَيُخْطِئُ",
+                "word_plain": "ويخطئ"
+              }
+            ],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 184,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 178,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "فَقَطْ",
+                "word_before": "فَقَطْ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 268,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 259,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "وَيَعُودْ",
+                "word_before": "وَيَعُودُ"
+              }
+            ],
+            "manual_comma_override_count": 0,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-004-01",
+          "canonical_text_ar": "ثم جاء الإعلان الذي جعل الأرض تنتظر ساكنًا جديدًا: ﴿إني جاعل في الأرض خليفة﴾. لم يكن الوعد بجسد يمشي على التراب فقط. كان وعدًا بمخلوق يعرف، ويختار، ويعمر، ويخطئ، ويعود.",
+          "diacritic_coverage": 0.992063,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 450,
+          "pause_before_ms": 350,
+          "speaker_key": "NARRATOR",
+          "text_ar": "ثُمَّ جَاءَ الْإِعْلَانُ الَّذِي جَعَلَ الْأَرْضَ تَنْتَظِرُ سَاكِنًا جَدِيدًا: ﴿إِنِّي جَاعِلٌ فِي الْأَرْضِ خَلِيفَةً﴾. لَمْ يَكُنِ الْوَعْدُ بِجَسَدٍ يَمْشِي عَلَى التُّرَابِ فَقَطْ. كَانَ وَعْدًا بِمَخْلُوقٍ يَعْرِفُ، وَيَخْتَارُ، وَيَعْمُرُ، وَيُخْطِئُ، وَيَعُودُ.",
+          "tts_text_ar": "ثُمَّ جَاءَ الْإِعْلَانُ الَّذِي جَعَلَ الْأَرْضَ تَنْتَظِرُ سَاكِنًا جَدِيدًا: ﴿إِنِّي جَاعِلٌ فِي الْأَرْضِ خَلِيفَةً﴾. لَمْ يَكُنِ الْوَعْدُ بِجَسَدٍ يَمْشِي عَلَى التُّرَابِ فَقَطْ. كَانَ وَعْدًا بِمَخْلُوقٍ يَعْرِفُ، وَيَخْتَارُ، وَيَعْمُرُ، وَيُخْطِئُ، وَيَعُودْ."
+        },
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 1,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 2,
+            "connected_commas_preserved": [
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "فقالت: ﴿أتجعل فيها من يفسد فيها ويسفك الدماء ونح",
+                "position": 85,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "الدِّمَاءِ",
+                "word_plain": "الدماء"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "بل سؤال من يقف أمام حكمة لم تكشف له بعد.",
+                "position": 239,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "تَمَرُّدٍ",
+                "word_plain": "تمرد"
+              }
+            ],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 317,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 311,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "بَعْدْ",
+                "word_before": "بَعْدُ"
+              }
+            ],
+            "manual_comma_override_count": 0,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-004-02",
+          "canonical_text_ar": "رأت الملائكة في كلمة الأرض ما تعرفه من الفساد وسفك الدماء، فقالت: ﴿أتجعل فيها من يفسد فيها ويسفك الدماء ونحن نسبح بحمدك ونقدس لك﴾. لم يكن سؤال تمرد، بل سؤال من يقف أمام حكمة لم تُكشف له بعد.",
+          "diacritic_coverage": 0.986207,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 450,
+          "pause_before_ms": 200,
+          "speaker_key": "NARRATOR",
+          "text_ar": "رَأَتِ الْمَلَائِكَةُ فِي كَلِمَةِ الْأَرْضِ مَا تَعْرِفُهُ مِنَ الْفَسَادِ وَسَفْكِ الدِّمَاءِ، فَقَالَتْ: ﴿أَتَجْعَلُ فِيهَا مَنْ يُفْسِدُ فِيهَا وَيَسْفِكُ الدِّمَاءَ وَنَحْنُ نُسَبِّحُ بِحَمْدِكَ وَنُقَدِّسُ لَكَ﴾. لَمْ يَكُنْ سُؤَالَ تَمَرُّدٍ، بَلْ سُؤَالَ مَنْ يَقِفُ أَمَامَ حِكْمَةٍ لَمْ تُكْشَفْ لَهُ بَعْدُ.",
+          "tts_text_ar": "رَأَتِ الْمَلَائِكَةُ فِي كَلِمَةِ الْأَرْضِ مَا تَعْرِفُهُ مِنَ الْفَسَادِ وَسَفْكِ الدِّمَاءِ، فَقَالَتْ: ﴿أَتَجْعَلُ فِيهَا مَنْ يُفْسِدُ فِيهَا وَيَسْفِكُ الدِّمَاءَ وَنَحْنُ نُسَبِّحُ بِحَمْدِكَ وَنُقَدِّسُ لَكَ﴾. لَمْ يَكُنْ سُؤَالَ تَمَرُّدٍ، بَلْ سُؤَالَ مَنْ يَقِفُ أَمَامَ حِكْمَةٍ لَمْ تُكْشَفْ لَهُ بَعْدْ."
+        },
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 2,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 4,
+            "connected_commas_preserved": [
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "لكنه فتح باب القصة كلها: ﴿إني أعلم ما لا تعلمون",
+                "position": 19,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "قَصِيرًا",
+                "word_plain": "قصيرا"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "سيكون من ذرية آدم قاتل ومصلح، طاغية ونبي، مفس",
+                "position": 153,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "بَعْدُ",
+                "word_plain": "بعد"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "طاغية ونبي، مفسد وتائب. لكن السر الأول لم يكن",
+                "position": 201,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "وَمُصْلِحٌ",
+                "word_plain": "ومصلح"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "مفسد وتائب. لكن السر الأول لم يكن في كل ما سيف",
+                "position": 223,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "وَنَبِيٌّ",
+                "word_plain": "ونبي"
+              }
+            ],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 252,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 243,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "وَتَائِبْ",
+                "word_before": "وَتَائِبٌ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 323,
+                "phonetic_substitution": null,
+                "punctuation": "...",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 308,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "سَيَفْعَلُونَهْ",
+                "word_before": "سَيَفْعَلُونَهُ"
+              }
+            ],
+            "manual_comma_override_count": 0,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-004-03",
+          "canonical_text_ar": "وجاء الجواب قصيرًا، لكنه فتح باب القصة كلها: ﴿إني أعلم ما لا تعلمون﴾. في المستقبل الذي لم يولد بعد، سيكون من ذرية آدم قاتل ومصلح، طاغية ونبي، مفسد وتائب. لكن السر الأول لم يكن في كل ما سيفعلونه...",
+          "diacritic_coverage": 0.993151,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 450,
+          "pause_before_ms": 200,
+          "speaker_key": "NARRATOR",
+          "text_ar": "وَجَاءَ الْجَوَابُ قَصِيرًا، لَكِنَّهُ فَتَحَ بَابَ الْقِصَّةِ كُلِّهَا: ﴿إِنِّي أَعْلَمُ مَا لَا تَعْلَمُونَ﴾. فِي الْمُسْتَقْبَلِ الَّذِي لَمْ يُولَدْ بَعْدُ، سَيَكُونُ مِنْ ذُرِّيَّةِ آدَمَ قَاتِلٌ وَمُصْلِحٌ، طَاغِيَةٌ وَنَبِيٌّ، مُفْسِدٌ وَتَائِبٌ. لَكِنَّ السِّرَّ الْأَوَّلَ لَمْ يَكُنْ فِي كُلِّ مَا سَيَفْعَلُونَهُ...",
+          "tts_text_ar": "وَجَاءَ الْجَوَابُ قَصِيرًا، لَكِنَّهُ فَتَحَ بَابَ الْقِصَّةِ كُلِّهَا: ﴿إِنِّي أَعْلَمُ مَا لَا تَعْلَمُونَ﴾. فِي الْمُسْتَقْبَلِ الَّذِي لَمْ يُولَدْ بَعْدُ، سَيَكُونُ مِنْ ذُرِّيَّةِ آدَمَ قَاتِلٌ وَمُصْلِحٌ، طَاغِيَةٌ وَنَبِيٌّ، مُفْسِدٌ وَتَائِبْ. لَكِنَّ السِّرَّ الْأَوَّلَ لَمْ يَكُنْ فِي كُلِّ مَا سَيَفْعَلُونَهْ..."
+        },
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 1,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 0,
+            "connected_commas_preserved": [],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 74,
+                "phonetic_substitution": "TA_MARBUTA_TO_HAA_AT_WAQF",
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 65,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "وَاحِدَهْ",
+                "word_before": "وَاحِدَةً"
+              }
+            ],
+            "manual_comma_override_count": 0,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-004-04",
+          "canonical_text_ar": "بل في شيء سيُمنح لآدم قبل أن يخطو خطوة واحدة.",
+          "diacritic_coverage": 1.0,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 750,
+          "pause_before_ms": 200,
+          "speaker_key": "NARRATOR",
+          "text_ar": "بَلْ فِي شَيْءٍ سَيُمْنَحُ لِآدَمَ قَبْلَ أَنْ يَخْطُوَ خُطْوَةً وَاحِدَةً.",
+          "tts_text_ar": "بَلْ فِي شَيْءٍ سَيُمْنَحُ لِآدَمَ قَبْلَ أَنْ يَخْطُوَ خُطْوَةً وَاحِدَهْ."
+        }
+      ],
+      "segment_id": "ADAM-SEQUENCE-04",
+      "source_sequence_id": "ADAM-SEQUENCE-04",
+      "title_ar": "وعد الأرض"
+    },
+    {
+      "canonical_narration_ar": "من تراب بدأ خلق آدم. ثم سمى القرآن مادته طينًا، وطينًا لازبًا، وحمأً مسنونًا، وصلصالًا كالفخار. أسماء متعددة للمادة نفسها في تحولات لا نملك أن نحولها إلى ساعة دقيقة أو ترتيب لا يحتمل الاحتمال. تبلل التراب، واشتد، واسود، وجف حتى صار له رنين. ثم سُوّي الخلق، وبقي الجسد ساكنًا ما شاء الله أن يبقى قبل نفخ الروح. وفي ذلك السكون، دار إبليس حوله. رأى خلقًا أجوف، وعرف أن فيه ضعفًا، وأنه لا يتمالك إذا تُرك إلى مادته وحدها. كان ينظر إلى موضع يمكن أن ينكسر. ولم يكن قد رأى بعد ما سيحمله هذا الجوف من علم، وما سيخرج من هذا السكون حين تبدأ الحياة.",
+      "narration_policy": {
+        "explicit_pauses": true,
+        "fully_diacritized": true,
+        "target_words_per_minute": 116
+      },
+      "performance_blocks": [
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 3,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 3,
+            "connected_commas_preserved": [
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "وطينا لازبا، وحمأ مسنونا، وصلصالا كالفخار. أسماء م",
+                "position": 69,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "طِينًا",
+                "word_plain": "طينا"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "وحمأ مسنونا، وصلصالا كالفخار. أسماء متعددة للم",
+                "position": 86,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "لَازِبًا",
+                "word_plain": "لازبا"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "وصلصالا كالفخار. أسماء متعددة للمادة نفسها في",
+                "position": 105,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "مَسْنُونًا",
+                "word_plain": "مسنونا"
+              }
+            ],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 32,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 27,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "آدَمْ",
+                "word_before": "آدَمَ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 143,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 130,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "كَالْفَخَّارْ",
+                "word_before": "كَالْفَخَّارِ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 307,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 294,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "الاِحْتِمَالْ",
+                "word_before": "الاِحْتِمَالَ"
+              }
+            ],
+            "manual_comma_override_count": 0,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-005-01",
+          "canonical_text_ar": "من تراب بدأ خلق آدم. ثم سمى القرآن مادته طينًا، وطينًا لازبًا، وحمأً مسنونًا، وصلصالًا كالفخار. أسماء متعددة للمادة نفسها في تحولات لا نملك أن نحولها إلى ساعة دقيقة أو ترتيب لا يحتمل الاحتمال.",
+          "diacritic_coverage": 0.993197,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 450,
+          "pause_before_ms": 350,
+          "speaker_key": "NARRATOR",
+          "text_ar": "مِنْ تُرَابٍ بَدَأَ خَلْقُ آدَمَ. ثُمَّ سَمَّى الْقُرْآنُ مَادَّتَهُ طِينًا، وَطِينًا لَازِبًا، وَحَمَأً مَسْنُونًا، وَصَلْصَالًا كَالْفَخَّارِ. أَسْمَاءٌ مُتَعَدِّدَةٌ لِلْمَادَّةِ نَفْسِهَا فِي تَحَوُّلَاتٍ لَا نَمْلِكُ أَنْ نُحَوِّلَهَا إِلَى سَاعَةٍ دَقِيقَةٍ أَوْ تَرْتِيبٍ لَا يَحْتَمِلُ الاِحْتِمَالَ.",
+          "tts_text_ar": "مِنْ تُرَابٍ بَدَأَ خَلْقُ آدَمْ. ثُمَّ سَمَّى الْقُرْآنُ مَادَّتَهُ طِينًا، وَطِينًا لَازِبًا، وَحَمَأً مَسْنُونًا، وَصَلْصَالًا كَالْفَخَّارْ. أَسْمَاءٌ مُتَعَدِّدَةٌ لِلْمَادَّةِ نَفْسِهَا فِي تَحَوُّلَاتٍ لَا نَمْلِكُ أَنْ نُحَوِّلَهَا إِلَى سَاعَةٍ دَقِيقَةٍ أَوْ تَرْتِيبٍ لَا يَحْتَمِلُ الاِحْتِمَالْ."
+        },
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 3,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 5,
+            "connected_commas_preserved": [
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "واشتد، واسود، وجف حتى صار له رنين. ثم سوي الخل",
+                "position": 10,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "التُّرَابُ",
+                "word_plain": "التراب"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "واسود، وجف حتى صار له رنين. ثم سوي الخلق، وبقي",
+                "position": 22,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "وَاشْتَدَّ",
+                "word_plain": "واشتد"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "وجف حتى صار له رنين. ثم سوي الخلق، وبقي الجسد",
+                "position": 34,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "وَاسْوَدَّ",
+                "word_plain": "واسود"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "وبقي الجسد ساكنا ما شاء الله أن يبقى قبل نفخ الرو",
+                "position": 95,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "الْخَلْقُ",
+                "word_plain": "الخلق"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "دار إبليس حوله.",
+                "position": 202,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "السُّكُونِ",
+                "word_plain": "السكون"
+              }
+            ],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 79,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 72,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "رَنِينْ",
+                "word_before": "رَنِينٌ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 187,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 179,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "الرُّوحْ",
+                "word_before": "الرُّوحِ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 238,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 230,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "حَوْلَهْ",
+                "word_before": "حَوْلَهُ"
+              }
+            ],
+            "manual_comma_override_count": 0,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-005-02",
+          "canonical_text_ar": "تبلل التراب، واشتد، واسود، وجف حتى صار له رنين. ثم سُوّي الخلق، وبقي الجسد ساكنًا ما شاء الله أن يبقى قبل نفخ الروح. وفي ذلك السكون، دار إبليس حوله.",
+          "diacritic_coverage": 0.963303,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 450,
+          "pause_before_ms": 200,
+          "speaker_key": "NARRATOR",
+          "text_ar": "تَبَلَّلَ التُّرَابُ، وَاشْتَدَّ، وَاسْوَدَّ، وَجَفَّ حَتَّى صَارَ لَهُ رَنِينٌ. ثُمَّ سُوِّيَ الْخَلْقُ، وَبَقِيَ الْجَسَدُ سَاكِنًا مَا شَاءَ اللَّهُ أَنْ يَبْقَى قَبْلَ نَفْخِ الرُّوحِ. وَفِي ذَلِكَ السُّكُونِ، دَارَ إِبْلِيسُ حَوْلَهُ.",
+          "tts_text_ar": "تَبَلَّلَ التُّرَابُ، وَاشْتَدَّ، وَاسْوَدَّ، وَجَفَّ حَتَّى صَارَ لَهُ رَنِينْ. ثُمَّ سُوِّيَ الْخَلْقُ، وَبَقِيَ الْجَسَدُ سَاكِنًا مَا شَاءَ اللَّهُ أَنْ يَبْقَى قَبْلَ نَفْخِ الرُّوحْ. وَفِي ذَلِكَ السُّكُونِ، دَارَ إِبْلِيسُ حَوْلَهْ."
+        },
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 3,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 3,
+            "connected_commas_preserved": [
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "وعرف أن فيه ضعفا، وأنه لا يتمالك إذا ترك إلى ماد",
+                "position": 14,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "أَجْوَفَ",
+                "word_plain": "أجوف"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "وأنه لا يتمالك إذا ترك إلى مادته وحدها. كان ينظ",
+                "position": 45,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "ضَعْفًا",
+                "word_plain": "ضعفا"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "وما سيخرج من هذا السكون حين تبدأ الحياة.",
+                "position": 247,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "عِلْمٍ",
+                "word_plain": "علم"
+              }
+            ],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 119,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 110,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "وَحْدَهَا",
+                "word_before": "وَحْدَهَا"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 175,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 165,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "يَنْكَسِرْ",
+                "word_before": "يَنْكَسِرَ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 319,
+                "phonetic_substitution": "TA_MARBUTA_TO_HAA_AT_WAQF",
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 309,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "الْحَيَاهْ",
+                "word_before": "الْحَيَاةُ"
+              }
+            ],
+            "manual_comma_override_count": 0,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-005-03",
+          "canonical_text_ar": "رأى خلقًا أجوف، وعرف أن فيه ضعفًا، وأنه لا يتمالك إذا تُرك إلى مادته وحدها. كان ينظر إلى موضع يمكن أن ينكسر. ولم يكن قد رأى بعد ما سيحمله هذا الجوف من علم، وما سيخرج من هذا السكون حين تبدأ الحياة.",
+          "diacritic_coverage": 0.993197,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 750,
+          "pause_before_ms": 200,
+          "speaker_key": "NARRATOR",
+          "text_ar": "رَأَى خَلْقًا أَجْوَفَ، وَعَرَفَ أَنَّ فِيهِ ضَعْفًا، وَأَنَّهُ لَا يَتَمَالَكُ إِذَا تُرِكَ إِلَى مَادَّتِهِ وَحْدَهَا. كَانَ يَنْظُرُ إِلَى مَوْضِعٍ يُمْكِنُ أَنْ يَنْكَسِرَ. وَلَمْ يَكُنْ قَدْ رَأَى بَعْدُ مَا سَيَحْمِلُهُ هَذَا الْجَوْفُ مِنْ عِلْمٍ، وَمَا سَيَخْرُجُ مِنْ هَذَا السُّكُونِ حِينَ تَبْدَأُ الْحَيَاةُ.",
+          "tts_text_ar": "رَأَى خَلْقًا أَجْوَفَ، وَعَرَفَ أَنَّ فِيهِ ضَعْفًا، وَأَنَّهُ لَا يَتَمَالَكُ إِذَا تُرِكَ إِلَى مَادَّتِهِ وَحْدَهَا. كَانَ يَنْظُرُ إِلَى مَوْضِعٍ يُمْكِنُ أَنْ يَنْكَسِرْ. وَلَمْ يَكُنْ قَدْ رَأَى بَعْدُ مَا سَيَحْمِلُهُ هَذَا الْجَوْفُ مِنْ عِلْمٍ، وَمَا سَيَخْرُجُ مِنْ هَذَا السُّكُونِ حِينَ تَبْدَأُ الْحَيَاهْ."
+        }
+      ],
+      "segment_id": "ADAM-SEQUENCE-05",
+      "source_sequence_id": "ADAM-SEQUENCE-05",
+      "title_ar": "في جوف الطين"
+    },
+    {
+      "canonical_narration_ar": "ثم نفخ الله في آدم من روحه. لا تُرى الروح، لكن أثرها غيّر كل شيء: صار السكون إدراكًا، وصارت المادة تسمع وتتكلم. وكان أول ما يُروى من صوته حمدًا؛ عطس آدم فقال: الحمد لله. خلق الله آدم وطوله ستون ذراعًا، ثم فتح له أول باب إلى من حوله: السلام. مضى إلى نفر من الملائكة، فقال: السلام عليكم. فردوا: السلام عليك ورحمة الله. فاستقرت تلك التحية له ولذريته من بعده. في أول لحظاته لم يبدأ الإنسان بالصراع، بل بالحمد. ولم يبدأ بالعزلة، بل بالسلام. ثم جاء ما سيكشف أن الحياة التي دخلت الطين لم تكن مجرد نفس يتحرك، بل عقل يتلقى العالم كله.",
+      "narration_policy": {
+        "explicit_pauses": true,
+        "fully_diacritized": true,
+        "target_words_per_minute": 116
+      },
+      "performance_blocks": [
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 4,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 2,
+            "connected_commas_preserved": [
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "لكن أثرها غير كل شيء: صار السكون إدراكا، وصارت",
+                "position": 55,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "الرُّوحُ",
+                "word_plain": "الروح"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "وصارت المادة تسمع وتتكلم. وكان أول ما يروى من",
+                "position": 122,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "إِدْرَاكًا",
+                "word_plain": "إدراكا"
+              }
+            ],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 43,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 36,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "رُوحِهْ",
+                "word_before": "رُوحِهِ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 178,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 165,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "وَتَتَكَلَّمْ",
+                "word_before": "وَتَتَكَلَّمُ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 229,
+                "phonetic_substitution": null,
+                "punctuation": "؛",
+                "reason": "SEMICOLON_ACTUAL_STOP",
+                "start": 222,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "حَمْدَا",
+                "word_before": "حَمْدًا"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 270,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 263,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "لِلَّهْ",
+                "word_before": "لِلَّهِ"
+              }
+            ],
+            "manual_comma_override_count": 0,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-006-01",
+          "canonical_text_ar": "ثم نفخ الله في آدم من روحه. لا تُرى الروح، لكن أثرها غيّر كل شيء: صار السكون إدراكًا، وصارت المادة تسمع وتتكلم. وكان أول ما يُروى من صوته حمدًا؛ عطس آدم فقال: الحمد لله.",
+          "diacritic_coverage": 0.97561,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 450,
+          "pause_before_ms": 350,
+          "speaker_key": "NARRATOR",
+          "text_ar": "ثُمَّ نَفَخَ اللَّهُ فِي آدَمَ مِنْ رُوحِهِ. لَا تُرَى الرُّوحُ، لَكِنَّ أَثَرَهَا غَيَّرَ كُلَّ شَيْءٍ: صَارَ السُّكُونُ إِدْرَاكًا، وَصَارَتِ الْمَادَّةُ تَسْمَعُ وَتَتَكَلَّمُ. وَكَانَ أَوَّلُ مَا يُرْوَى مِنْ صَوْتِهِ حَمْدًا؛ عَطَسَ آدَمُ فَقَالَ: الْحَمْدُ لِلَّهِ.",
+          "tts_text_ar": "ثُمَّ نَفَخَ اللَّهُ فِي آدَمَ مِنْ رُوحِهْ. لَا تُرَى الرُّوحُ، لَكِنَّ أَثَرَهَا غَيَّرَ كُلَّ شَيْءٍ: صَارَ السُّكُونُ إِدْرَاكًا، وَصَارَتِ الْمَادَّةُ تَسْمَعُ وَتَتَكَلَّمْ. وَكَانَ أَوَّلُ مَا يُرْوَى مِنْ صَوْتِهِ حَمْدَا؛ عَطَسَ آدَمُ فَقَالَ: الْحَمْدُ لِلَّهْ."
+        },
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 4,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 2,
+            "connected_commas_preserved": [
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "ثم فتح له أول باب إلى من حوله: السلام. مضى إلى ن",
+                "position": 40,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "ذِرَاعًا",
+                "word_plain": "ذراعا"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "فقال: السلام عليكم. فردوا: السلام عليك ورحمة الل",
+                "position": 139,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "الْمَلَائِكَةِ",
+                "word_plain": "الملائكة"
+              }
+            ],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 113,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 103,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "السَّلَامْ",
+                "word_before": "السَّلَامُ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 185,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 175,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "عَلَيْكُمْ",
+                "word_before": "عَلَيْكُمْ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 236,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 229,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "اللَّهْ",
+                "word_before": "اللَّهِ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 308,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 300,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "بَعْدِهْ",
+                "word_before": "بَعْدِهِ"
+              }
+            ],
+            "manual_comma_override_count": 0,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-006-02",
+          "canonical_text_ar": "خلق الله آدم وطوله ستون ذراعًا، ثم فتح له أول باب إلى من حوله: السلام. مضى إلى نفر من الملائكة، فقال: السلام عليكم. فردوا: السلام عليك ورحمة الله. فاستقرت تلك التحية له ولذريته من بعده.",
+          "diacritic_coverage": 0.957447,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 450,
+          "pause_before_ms": 200,
+          "speaker_key": "NARRATOR",
+          "text_ar": "خَلَقَ اللَّهُ آدَمَ وَطُولُهُ سِتُّونَ ذِرَاعًا، ثُمَّ فَتَحَ لَهُ أَوَّلَ بَابٍ إِلَى مَنْ حَوْلَهُ: السَّلَامُ. مَضَى إِلَى نَفَرٍ مِنَ الْمَلَائِكَةِ، فَقَالَ: السَّلَامُ عَلَيْكُمْ. فَرَدُّوا: السَّلَامُ عَلَيْكَ وَرَحْمَةُ اللَّهِ. فَاسْتَقَرَّتْ تِلْكَ التَّحِيَّةُ لَهُ وَلِذُرِّيَّتِهِ مِنْ بَعْدِهِ.",
+          "tts_text_ar": "خَلَقَ اللَّهُ آدَمَ وَطُولُهُ سِتُّونَ ذِرَاعًا، ثُمَّ فَتَحَ لَهُ أَوَّلَ بَابٍ إِلَى مَنْ حَوْلَهُ: السَّلَامْ. مَضَى إِلَى نَفَرٍ مِنَ الْمَلَائِكَةِ، فَقَالَ: السَّلَامُ عَلَيْكُمْ. فَرَدُّوا: السَّلَامُ عَلَيْكَ وَرَحْمَةُ اللَّهْ. فَاسْتَقَرَّتْ تِلْكَ التَّحِيَّةُ لَهُ وَلِذُرِّيَّتِهِ مِنْ بَعْدِهْ."
+        },
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 3,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 3,
+            "connected_commas_preserved": [
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "بل بالحمد. ولم يبدأ بالعزلة، بل بالسلام. ثم جاء",
+                "position": 51,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "بِالصِّرَاعِ",
+                "word_plain": "بالصراع"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "بل بالسلام. ثم جاء ما سيكشف أن الحياة التي دخلت",
+                "position": 99,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "بِالْعُزْلَةِ",
+                "word_plain": "بالعزلة"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "بل عقل يتلقى العالم كله.",
+                "position": 232,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "يَتَحَرَّكُ",
+                "word_plain": "يتحرك"
+              }
+            ],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 81,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 70,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "بِالْحَمْدْ",
+                "word_before": "بِالْحَمْدِ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 131,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 119,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "بِالسَّلَامْ",
+                "word_before": "بِالسَّلَامِ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 286,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 279,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "كُلَّهْ",
+                "word_before": "كُلَّهُ"
+              }
+            ],
+            "manual_comma_override_count": 0,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-006-03",
+          "canonical_text_ar": "في أول لحظاته لم يبدأ الإنسان بالصراع، بل بالحمد. ولم يبدأ بالعزلة، بل بالسلام. ثم جاء ما سيكشف أن الحياة التي دخلت الطين لم تكن مجرد نفس يتحرك، بل عقل يتلقى العالم كله.",
+          "diacritic_coverage": 0.977099,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 750,
+          "pause_before_ms": 200,
+          "speaker_key": "NARRATOR",
+          "text_ar": "فِي أَوَّلِ لَحَظَاتِهِ لَمْ يَبْدَأِ الْإِنْسَانُ بِالصِّرَاعِ، بَلْ بِالْحَمْدِ. وَلَمْ يَبْدَأْ بِالْعُزْلَةِ، بَلْ بِالسَّلَامِ. ثُمَّ جَاءَ مَا سَيَكْشِفُ أَنَّ الْحَيَاةَ الَّتِي دَخَلَتِ الطِّينَ لَمْ تَكُنْ مُجَرَّدَ نَفْسٍ يَتَحَرَّكُ، بَلْ عَقْلٌ يَتَلَقَّى الْعَالَمَ كُلَّهُ.",
+          "tts_text_ar": "فِي أَوَّلِ لَحَظَاتِهِ لَمْ يَبْدَأِ الْإِنْسَانُ بِالصِّرَاعِ، بَلْ بِالْحَمْدْ. وَلَمْ يَبْدَأْ بِالْعُزْلَةِ، بَلْ بِالسَّلَامْ. ثُمَّ جَاءَ مَا سَيَكْشِفُ أَنَّ الْحَيَاةَ الَّتِي دَخَلَتِ الطِّينَ لَمْ تَكُنْ مُجَرَّدَ نَفْسٍ يَتَحَرَّكُ، بَلْ عَقْلٌ يَتَلَقَّى الْعَالَمَ كُلَّهْ."
+        }
+      ],
+      "segment_id": "ADAM-SEQUENCE-06",
+      "source_sequence_id": "ADAM-SEQUENCE-06",
+      "title_ar": "الحمد الأول"
+    },
+    {
+      "canonical_narration_ar": "﴿وعلّم آدم الأسماء كلها﴾. فجأة لم تعد الأشياء صامتة. صار لكل شيء باب إلى المعنى، وصار لآدم قدرة أن يعرف ويميّز ويبين. تعددت وجوه ما يمكن أن تشملَه الأسماء: الأشياء، والأجناس، والملائكة، والذرية. لكن الآية أوسع من أن تُحبس في قائمة واحدة؛ يكفينا أن العلم الذي مُنح لآدم كان علمًا لم يكن حاضرًا عند الملائكة في ذلك المقام. عُرضت المسميات عليهم، فقيل: ﴿أنبئوني بأسماء هؤلاء إن كنتم صادقين﴾. فلم يتكلفوا علمًا لا يملكونه. قالوا: ﴿سبحانك لا علم لنا إلا ما علمتنا إنك أنت العليم الحكيم﴾. ثم أنبأهم آدم بأسمائهم. في تلك اللحظة، صار الجوف الذي رآه إبليس موضع بيان. وصار الطين حاملًا للمعرفة. وانكشف بعض ما كان وراء قول الله: ﴿إني أعلم ما لا تعلمون﴾.",
+      "narration_policy": {
+        "explicit_pauses": true,
+        "fully_diacritized": true,
+        "target_words_per_minute": 116
+      },
+      "performance_blocks": [
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 3,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 4,
+            "connected_commas_preserved": [
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "وصار لآدم قدرة أن يعرف ويميز ويبين. تعددت وج",
+                "position": 119,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "الْمَعْنَى",
+                "word_plain": "المعنى"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "والأجناس، والملائكة، والذرية.",
+                "position": 258,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "الْأَشْيَاءَ",
+                "word_plain": "الأشياء"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "والملائكة، والذرية.",
+                "position": 272,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "وَالْأَجْنَاسَ",
+                "word_plain": "والأجناس"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "والذرية.",
+                "position": 288,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "وَالْمَلَائِكَةَ",
+                "word_plain": "والملائكة"
+              }
+            ],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 84,
+                "phonetic_substitution": "TA_MARBUTA_TO_HAA_AT_WAQF",
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 75,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "صَامِتَهْ",
+                "word_before": "صَامِتَةً"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 193,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 182,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "وَيُبَيِّنْ",
+                "word_before": "وَيُبَيِّنَ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 321,
+                "phonetic_substitution": "TA_MARBUTA_TO_HAA_AT_WAQF",
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 306,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "وَالذُّرِّيَّهْ",
+                "word_before": "وَالذُّرِّيَّةَ"
+              }
+            ],
+            "manual_comma_override_count": 0,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-007-01",
+          "canonical_text_ar": "﴿وعلّم آدم الأسماء كلها﴾. فجأة لم تعد الأشياء صامتة. صار لكل شيء باب إلى المعنى، وصار لآدم قدرة أن يعرف ويميّز ويبين. تعددت وجوه ما يمكن أن تشملَه الأسماء: الأشياء، والأجناس، والملائكة، والذرية.",
+          "diacritic_coverage": 0.993243,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 450,
+          "pause_before_ms": 350,
+          "speaker_key": "NARRATOR",
+          "text_ar": "﴿وَعَلَّمَ آدَمَ الْأَسْمَاءَ كُلَّهَا﴾. فَجْأَةً لَمْ تَعُدِ الْأَشْيَاءُ صَامِتَةً. صَارَ لِكُلِّ شَيْءٍ بَابٌ إِلَى الْمَعْنَى، وَصَارَ لِآدَمَ قُدْرَةٌ أَنْ يَعْرِفَ وَيُمَيِّزَ وَيُبَيِّنَ. تَعَدَّدَتْ وُجُوهُ مَا يُمْكِنُ أَنْ تَشْمَلَهُ الْأَسْمَاءُ: الْأَشْيَاءَ، وَالْأَجْنَاسَ، وَالْمَلَائِكَةَ، وَالذُّرِّيَّةَ.",
+          "tts_text_ar": "﴿وَعَلَّمَ آدَمَ الْأَسْمَاءَ كُلَّهَا﴾. فَجْأَةً لَمْ تَعُدِ الْأَشْيَاءُ صَامِتَهْ. صَارَ لِكُلِّ شَيْءٍ بَابٌ إِلَى الْمَعْنَى، وَصَارَ لِآدَمَ قُدْرَةٌ أَنْ يَعْرِفَ وَيُمَيِّزَ وَيُبَيِّنْ. تَعَدَّدَتْ وُجُوهُ مَا يُمْكِنُ أَنْ تَشْمَلَهُ الْأَسْمَاءُ: الْأَشْيَاءَ، وَالْأَجْنَاسَ، وَالْمَلَائِكَةَ، وَالذُّرِّيَّهْ."
+        },
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 3,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 1,
+            "connected_commas_preserved": [
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "فقيل: ﴿أنبئوني بأسماء هؤلاء إن كنتم صادقين﴾.",
+                "position": 225,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "عَلَيْهِمْ",
+                "word_plain": "عليهم"
+              }
+            ],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 68,
+                "phonetic_substitution": "TA_MARBUTA_TO_HAA_AT_WAQF",
+                "punctuation": "؛",
+                "reason": "SEMICOLON_ACTUAL_STOP",
+                "start": 59,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "وَاحِدَهْ",
+                "word_before": "وَاحِدَةٍ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 198,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 188,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "الْمَقَامْ",
+                "word_before": "الْمَقَامِ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 306,
+                "phonetic_substitution": null,
+                "punctuation": "<BLOCK_END>",
+                "reason": "PAUSE_AFTER_450MS_MEETS_400MS_THRESHOLD",
+                "start": 296,
+                "stop_type": "EXPLICIT_BLOCK_END_PAUSE",
+                "word_after": "صَادِقِينْ",
+                "word_before": "صَادِقِينَ"
+              }
+            ],
+            "manual_comma_override_count": 0,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-007-02",
+          "canonical_text_ar": "لكن الآية أوسع من أن تُحبس في قائمة واحدة؛ يكفينا أن العلم الذي مُنح لآدم كان علمًا لم يكن حاضرًا عند الملائكة في ذلك المقام. عُرضت المسميات عليهم، فقيل: ﴿أنبئوني بأسماء هؤلاء إن كنتم صادقين﴾.",
+          "diacritic_coverage": 1.0,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 450,
+          "pause_before_ms": 200,
+          "speaker_key": "NARRATOR",
+          "text_ar": "لَكِنَّ الْآيَةَ أَوْسَعُ مِنْ أَنْ تُحْبَسَ فِي قَائِمَةٍ وَاحِدَةٍ؛ يَكْفِينَا أَنَّ الْعِلْمَ الَّذِي مُنِحَ لِآدَمَ كَانَ عِلْمًا لَمْ يَكُنْ حَاضِرًا عِنْدَ الْمَلَائِكَةِ فِي ذَلِكَ الْمَقَامِ. عُرِضَتِ الْمُسَمَّيَاتُ عَلَيْهِمْ، فَقِيلَ: ﴿أَنْبِئُونِي بِأَسْمَاءِ هَؤُلَاءِ إِنْ كُنْتُمْ صَادِقِينَ﴾.",
+          "tts_text_ar": "لَكِنَّ الْآيَةَ أَوْسَعُ مِنْ أَنْ تُحْبَسَ فِي قَائِمَةٍ وَاحِدَهْ؛ يَكْفِينَا أَنَّ الْعِلْمَ الَّذِي مُنِحَ لِآدَمَ كَانَ عِلْمًا لَمْ يَكُنْ حَاضِرًا عِنْدَ الْمَلَائِكَةِ فِي ذَلِكَ الْمَقَامْ. عُرِضَتِ الْمُسَمَّيَاتُ عَلَيْهِمْ، فَقِيلَ: ﴿أَنْبِئُونِي بِأَسْمَاءِ هَؤُلَاءِ إِنْ كُنْتُمْ صَادِقِينْ﴾."
+        },
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 4,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 1,
+            "connected_commas_preserved": [
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "صار الجوف الذي رآه إبليس موضع بيان. وصار الطين حام",
+                "position": 203,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "اللَّحْظَةِ",
+                "word_plain": "اللحظة"
+              }
+            ],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 46,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 33,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "يَمْلِكُونَهْ",
+                "word_before": "يَمْلِكُونَهُ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 190,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 175,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "بِأَسْمَائِهِمْ",
+                "word_before": "بِأَسْمَائِهِمْ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 272,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 265,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "بَيَانْ",
+                "word_before": "بَيَانٍ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 314,
+                "phonetic_substitution": "TA_MARBUTA_TO_HAA_AT_WAQF",
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 300,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "لِلْمَعْرِفَهْ",
+                "word_before": "لِلْمَعْرِفَةِ"
+              }
+            ],
+            "manual_comma_override_count": 0,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-007-03",
+          "canonical_text_ar": "فلم يتكلفوا علمًا لا يملكونه. قالوا: ﴿سبحانك لا علم لنا إلا ما علمتنا إنك أنت العليم الحكيم﴾. ثم أنبأهم آدم بأسمائهم. في تلك اللحظة، صار الجوف الذي رآه إبليس موضع بيان. وصار الطين حاملًا للمعرفة.",
+          "diacritic_coverage": 0.986667,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 450,
+          "pause_before_ms": 200,
+          "speaker_key": "NARRATOR",
+          "text_ar": "فَلَمْ يَتَكَلَّفُوا عِلْمًا لَا يَمْلِكُونَهُ. قَالُوا: ﴿سُبْحَانَكَ لَا عِلْمَ لَنَا إِلَّا مَا عَلَّمْتَنَا إِنَّكَ أَنْتَ الْعَلِيمُ الْحَكِيمُ﴾. ثُمَّ أَنْبَأَهُمْ آدَمُ بِأَسْمَائِهِمْ. فِي تِلْكَ اللَّحْظَةِ، صَارَ الْجَوْفُ الَّذِي رَآهُ إِبْلِيسُ مَوْضِعَ بَيَانٍ. وَصَارَ الطِّينُ حَامِلًا لِلْمَعْرِفَةِ.",
+          "tts_text_ar": "فَلَمْ يَتَكَلَّفُوا عِلْمًا لَا يَمْلِكُونَهْ. قَالُوا: ﴿سُبْحَانَكَ لَا عِلْمَ لَنَا إِلَّا مَا عَلَّمْتَنَا إِنَّكَ أَنْتَ الْعَلِيمُ الْحَكِيمُ﴾. ثُمَّ أَنْبَأَهُمْ آدَمُ بِأَسْمَائِهِمْ. فِي تِلْكَ اللَّحْظَةِ، صَارَ الْجَوْفُ الَّذِي رَآهُ إِبْلِيسُ مَوْضِعَ بَيَانْ. وَصَارَ الطِّينُ حَامِلًا لِلْمَعْرِفَهْ."
+        },
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 1,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 0,
+            "connected_commas_preserved": [],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 89,
+                "phonetic_substitution": null,
+                "punctuation": "<BLOCK_END>",
+                "reason": "PAUSE_AFTER_750MS_MEETS_400MS_THRESHOLD",
+                "start": 78,
+                "stop_type": "EXPLICIT_BLOCK_END_PAUSE",
+                "word_after": "تَعْلَمُونْ",
+                "word_before": "تَعْلَمُونَ"
+              }
+            ],
+            "manual_comma_override_count": 0,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-007-04",
+          "canonical_text_ar": "وانكشف بعض ما كان وراء قول الله: ﴿إني أعلم ما لا تعلمون﴾.",
+          "diacritic_coverage": 0.97619,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 750,
+          "pause_before_ms": 200,
+          "speaker_key": "NARRATOR",
+          "text_ar": "وَانْكَشَفَ بَعْضُ مَا كَانَ وَرَاءَ قَوْلِ اللَّهِ: ﴿إِنِّي أَعْلَمُ مَا لَا تَعْلَمُونَ﴾.",
+          "tts_text_ar": "وَانْكَشَفَ بَعْضُ مَا كَانَ وَرَاءَ قَوْلِ اللَّهِ: ﴿إِنِّي أَعْلَمُ مَا لَا تَعْلَمُونْ﴾."
+        }
+      ],
+      "segment_id": "ADAM-SEQUENCE-07",
+      "source_sequence_id": "ADAM-SEQUENCE-07",
+      "title_ar": "حين صار العالم أسماء"
+    },
+    {
+      "canonical_narration_ar": "اكتمل الخلق، وظهر العلم، ثم جاءت اللحظة التي لا تختبر المعرفة... بل الطاعة. ﴿فإذا سويته ونفخت فيه من روحي فقعوا له ساجدين﴾. لم يكن السجود عبادة لآدم، بل امتثالًا لله وتكريمًا لمن كرمه الله. هنا سقطت كل المقارنات التي يمكن أن تصنعها المادة: لا النار ترفع صاحبها، ولا الطين يخفض صاحبه، ولا القدم في الوجود يمنح حق الاعتراض. بقي الأمر وحده. وفي السكون الذي سبق الحركة، صار الفرق بين الطاعة والكبر أضيق من نبضة... وأبعد أثرًا من تاريخ كامل.",
+      "narration_policy": {
+        "explicit_pauses": true,
+        "fully_diacritized": true,
+        "target_words_per_minute": 116
+      },
+      "performance_blocks": [
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 3,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 3,
+            "connected_commas_preserved": [
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "وظهر العلم، ثم جاءت اللحظة التي لا تختبر المعرف",
+                "position": 10,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "الْخَلْقُ",
+                "word_plain": "الخلق"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "ثم جاءت اللحظة التي لا تختبر المعرفة... بل الطاع",
+                "position": 30,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "الْعِلْمُ",
+                "word_plain": "العلم"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "بل امتثالا لله وتكريما لمن كرمه الله.",
+                "position": 234,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "لِآدَمَ",
+                "word_plain": "لآدم"
+              }
+            ],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 103,
+                "phonetic_substitution": "TA_MARBUTA_TO_HAA_AT_WAQF",
+                "punctuation": "...",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 90,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "الْمَعْرِفَهْ",
+                "word_before": "الْمَعْرِفَةَ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 122,
+                "phonetic_substitution": "TA_MARBUTA_TO_HAA_AT_WAQF",
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 112,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "الطَّاعَهْ",
+                "word_before": "الطَّاعَةَ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 305,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 298,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "اللَّهْ",
+                "word_before": "اللَّهُ"
+              }
+            ],
+            "manual_comma_override_count": 0,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-008-01",
+          "canonical_text_ar": "اكتمل الخلق، وظهر العلم، ثم جاءت اللحظة التي لا تختبر المعرفة... بل الطاعة. ﴿فإذا سويته ونفخت فيه من روحي فقعوا له ساجدين﴾. لم يكن السجود عبادة لآدم، بل امتثالًا لله وتكريمًا لمن كرمه الله.",
+          "diacritic_coverage": 0.972028,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 450,
+          "pause_before_ms": 350,
+          "speaker_key": "NARRATOR",
+          "text_ar": "اكْتَمَلَ الْخَلْقُ، وَظَهَرَ الْعِلْمُ، ثُمَّ جَاءَتِ اللَّحْظَةُ الَّتِي لَا تَخْتَبِرُ الْمَعْرِفَةَ... بَلِ الطَّاعَةَ. ﴿فَإِذَا سَوَّيْتُهُ وَنَفَخْتُ فِيهِ مِنْ رُوحِي فَقَعُوا لَهُ سَاجِدِينَ﴾. لَمْ يَكُنِ السُّجُودُ عِبَادَةً لِآدَمَ، بَلِ امْتِثَالًا لِلَّهِ وَتَكْرِيمًا لِمَنْ كَرَّمَهُ اللَّهُ.",
+          "tts_text_ar": "اكْتَمَلَ الْخَلْقُ، وَظَهَرَ الْعِلْمُ، ثُمَّ جَاءَتِ اللَّحْظَةُ الَّتِي لَا تَخْتَبِرُ الْمَعْرِفَهْ... بَلِ الطَّاعَهْ. ﴿فَإِذَا سَوَّيْتُهُ وَنَفَخْتُ فِيهِ مِنْ رُوحِي فَقَعُوا لَهُ سَاجِدِينَ﴾. لَمْ يَكُنِ السُّجُودُ عِبَادَةً لِآدَمَ، بَلِ امْتِثَالًا لِلَّهِ وَتَكْرِيمًا لِمَنْ كَرَّمَهُ اللَّهْ."
+        },
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 3,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 3,
+            "connected_commas_preserved": [
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "ولا الطين يخفض صاحبه، ولا القدم في الوجود يمنح حق",
+                "position": 106,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "صَاحِبَهَا",
+                "word_plain": "صاحبها"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "ولا القدم في الوجود يمنح حق الاعتراض. بقي الأمر و",
+                "position": 142,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "صَاحِبَهُ",
+                "word_plain": "صاحبه"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "صار الفرق بين الطاعة والكبر أضيق من نبضة...",
+                "position": 273,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "الْحَرَكَةَ",
+                "word_plain": "الحركة"
+              }
+            ],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 212,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 199,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "الاِعْتِرَاضْ",
+                "word_before": "الاِعْتِرَاضِ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 239,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 231,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "وَحْدَهْ",
+                "word_before": "وَحْدَهُ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 354,
+                "phonetic_substitution": "TA_MARBUTA_TO_HAA_AT_WAQF",
+                "punctuation": "...",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 346,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "نَبْضَهْ",
+                "word_before": "نَبْضَةٍ"
+              }
+            ],
+            "manual_comma_override_count": 0,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-008-02",
+          "canonical_text_ar": "هنا سقطت كل المقارنات التي يمكن أن تصنعها المادة: لا النار ترفع صاحبها، ولا الطين يخفض صاحبه، ولا القدم في الوجود يمنح حق الاعتراض. بقي الأمر وحده. وفي السكون الذي سبق الحركة، صار الفرق بين الطاعة والكبر أضيق من نبضة...",
+          "diacritic_coverage": 0.97076,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 450,
+          "pause_before_ms": 200,
+          "speaker_key": "NARRATOR",
+          "text_ar": "هُنَا سَقَطَتْ كُلُّ الْمُقَارَنَاتِ الَّتِي يُمْكِنُ أَنْ تَصْنَعَهَا الْمَادَّةُ: لَا النَّارُ تَرْفَعُ صَاحِبَهَا، وَلَا الطِّينُ يَخْفِضُ صَاحِبَهُ، وَلَا الْقِدَمُ فِي الْوُجُودِ يَمْنَحُ حَقَّ الاِعْتِرَاضِ. بَقِيَ الْأَمْرُ وَحْدَهُ. وَفِي السُّكُونِ الَّذِي سَبَقَ الْحَرَكَةَ، صَارَ الْفَرْقُ بَيْنَ الطَّاعَةِ وَالْكِبْرِ أَضْيَقَ مِنْ نَبْضَةٍ...",
+          "tts_text_ar": "هُنَا سَقَطَتْ كُلُّ الْمُقَارَنَاتِ الَّتِي يُمْكِنُ أَنْ تَصْنَعَهَا الْمَادَّةُ: لَا النَّارُ تَرْفَعُ صَاحِبَهَا، وَلَا الطِّينُ يَخْفِضُ صَاحِبَهُ، وَلَا الْقِدَمُ فِي الْوُجُودِ يَمْنَحُ حَقَّ الاِعْتِرَاضْ. بَقِيَ الْأَمْرُ وَحْدَهْ. وَفِي السُّكُونِ الَّذِي سَبَقَ الْحَرَكَةَ، صَارَ الْفَرْقُ بَيْنَ الطَّاعَةِ وَالْكِبْرِ أَضْيَقَ مِنْ نَبْضَهْ..."
+        },
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 1,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 0,
+            "connected_commas_preserved": [],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 40,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 33,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "كَامِلْ",
+                "word_before": "كَامِلٍ"
+              }
+            ],
+            "manual_comma_override_count": 0,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-008-03",
+          "canonical_text_ar": "وأبعد أثرًا من تاريخ كامل.",
+          "diacritic_coverage": 1.0,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 750,
+          "pause_before_ms": 200,
+          "speaker_key": "NARRATOR",
+          "text_ar": "وَأَبْعَدَ أَثَرًا مِنْ تَارِيخٍ كَامِلٍ.",
+          "tts_text_ar": "وَأَبْعَدَ أَثَرًا مِنْ تَارِيخٍ كَامِلْ."
+        }
+      ],
+      "segment_id": "ADAM-SEQUENCE-08",
+      "source_sequence_id": "ADAM-SEQUENCE-08",
+      "title_ar": "اللحظة الفاصلة"
+    },
+    {
+      "canonical_narration_ar": "فسجد الملائكة كلهم أجمعون. لم يتأخر منهم أحد. لم يسأل أحد عن أصله، ولا عن موضعه، ولا عن سبب أن يكون التكريم لهذا المخلوق الجديد. كان الامتثال كاملًا حتى بدا المشهد كأنه أُغلق على الطاعة. ثم فتحت كلمة واحدة شقًا في الكمال: ﴿إلا إبليس﴾. بقي قائمًا حيث انخفض الجميع. لم يكن خارج الأمر، ولا غافلًا عنه. كان يرى السجود يملأ المشهد، ويرى آدم في موضع التكريم، ثم اختار أن يبقى وحده مع قياسه. ومن ذلك الوقوف، بدأ الانشقاق.",
+      "narration_policy": {
+        "explicit_pauses": true,
+        "fully_diacritized": true,
+        "target_words_per_minute": 116
+      },
+      "performance_blocks": [
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 4,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 2,
+            "connected_commas_preserved": [
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "ولا عن موضعه، ولا عن سبب أن يكون التكريم لهذا الم",
+                "position": 107,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "أَصْلِهِ",
+                "word_plain": "أصله"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "ولا عن سبب أن يكون التكريم لهذا المخلوق الجديد. ك",
+                "position": 128,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "مَوْضِعِهِ",
+                "word_plain": "موضعه"
+              }
+            ],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 45,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 34,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "أَجْمَعُونْ",
+                "word_before": "أَجْمَعُونَ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 79,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 73,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "أَحَدْ",
+                "word_before": "أَحَدٌ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 215,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 205,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "الْجَدِيدْ",
+                "word_before": "الْجَدِيدِ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 306,
+                "phonetic_substitution": "TA_MARBUTA_TO_HAA_AT_WAQF",
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 296,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "الطَّاعَهْ",
+                "word_before": "الطَّاعَةِ"
+              }
+            ],
+            "manual_comma_override_count": 0,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-009-01",
+          "canonical_text_ar": "فسجد الملائكة كلهم أجمعون. لم يتأخر منهم أحد. لم يسأل أحد عن أصله، ولا عن موضعه، ولا عن سبب أن يكون التكريم لهذا المخلوق الجديد. كان الامتثال كاملًا حتى بدا المشهد كأنه أُغلق على الطاعة.",
+          "diacritic_coverage": 0.979167,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 450,
+          "pause_before_ms": 350,
+          "speaker_key": "NARRATOR",
+          "text_ar": "فَسَجَدَ الْمَلَائِكَةُ كُلُّهُمْ أَجْمَعُونَ. لَمْ يَتَأَخَّرْ مِنْهُمْ أَحَدٌ. لَمْ يَسْأَلْ أَحَدٌ عَنْ أَصْلِهِ، وَلَا عَنْ مَوْضِعِهِ، وَلَا عَنْ سَبَبِ أَنْ يَكُونَ التَّكْرِيمُ لِهَذَا الْمَخْلُوقِ الْجَدِيدِ. كَانَ الاِمْتِثَالُ كَامِلًا حَتَّى بَدَا الْمَشْهَدُ كَأَنَّهُ أُغْلِقَ عَلَى الطَّاعَةِ.",
+          "tts_text_ar": "فَسَجَدَ الْمَلَائِكَةُ كُلُّهُمْ أَجْمَعُونْ. لَمْ يَتَأَخَّرْ مِنْهُمْ أَحَدْ. لَمْ يَسْأَلْ أَحَدٌ عَنْ أَصْلِهِ، وَلَا عَنْ مَوْضِعِهِ، وَلَا عَنْ سَبَبِ أَنْ يَكُونَ التَّكْرِيمُ لِهَذَا الْمَخْلُوقِ الْجَدِيدْ. كَانَ الاِمْتِثَالُ كَامِلًا حَتَّى بَدَا الْمَشْهَدُ كَأَنَّهُ أُغْلِقَ عَلَى الطَّاعَهْ."
+        },
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 3,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 3,
+            "connected_commas_preserved": [
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "ولا غافلا عنه. كان يرى السجود يملأ المشهد، ويرى آد",
+                "position": 142,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "الْأَمْرِ",
+                "word_plain": "الأمر"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "ويرى آدم في موضع التكريم، ثم اختار أن يبقى وحده م",
+                "position": 208,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "الْمَشْهَدَ",
+                "word_plain": "المشهد"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "ثم اختار أن يبقى وحده مع قياسه.",
+                "position": 248,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "التَّكْرِيمِ",
+                "word_plain": "التكريم"
+              }
+            ],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 120,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 110,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "الْجَمِيعْ",
+                "word_before": "الْجَمِيعُ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 174,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 168,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "عَنْهْ",
+                "word_before": "عَنْهُ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 313,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 304,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "قِيَاسِهْ",
+                "word_before": "قِيَاسِهِ"
+              }
+            ],
+            "manual_comma_override_count": 0,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-009-02",
+          "canonical_text_ar": "ثم فتحت كلمة واحدة شقًا في الكمال: ﴿إلا إبليس﴾. بقي قائمًا حيث انخفض الجميع. لم يكن خارج الأمر، ولا غافلًا عنه. كان يرى السجود يملأ المشهد، ويرى آدم في موضع التكريم، ثم اختار أن يبقى وحده مع قياسه.",
+          "diacritic_coverage": 0.986395,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 450,
+          "pause_before_ms": 200,
+          "speaker_key": "NARRATOR",
+          "text_ar": "ثُمَّ فَتَحَتْ كَلِمَةٌ وَاحِدَةٌ شَقًّا فِي الْكَمَالِ: ﴿إِلَّا إِبْلِيسَ﴾. بَقِيَ قَائِمًا حَيْثُ انْخَفَضَ الْجَمِيعُ. لَمْ يَكُنْ خَارِجَ الْأَمْرِ، وَلَا غَافِلًا عَنْهُ. كَانَ يَرَى السُّجُودَ يَمْلَأُ الْمَشْهَدَ، وَيَرَى آدَمَ فِي مَوْضِعِ التَّكْرِيمِ، ثُمَّ اخْتَارَ أَنْ يَبْقَى وَحْدَهُ مَعَ قِيَاسِهِ.",
+          "tts_text_ar": "ثُمَّ فَتَحَتْ كَلِمَةٌ وَاحِدَةٌ شَقًّا فِي الْكَمَالِ: ﴿إِلَّا إِبْلِيسَ﴾. بَقِيَ قَائِمًا حَيْثُ انْخَفَضَ الْجَمِيعْ. لَمْ يَكُنْ خَارِجَ الْأَمْرِ، وَلَا غَافِلًا عَنْهْ. كَانَ يَرَى السُّجُودَ يَمْلَأُ الْمَشْهَدَ، وَيَرَى آدَمَ فِي مَوْضِعِ التَّكْرِيمِ، ثُمَّ اخْتَارَ أَنْ يَبْقَى وَحْدَهُ مَعَ قِيَاسِهْ."
+        },
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 1,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 1,
+            "connected_commas_preserved": [
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "بدأ الانشقاق.",
+                "position": 14,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "الْوُقُوفِ",
+                "word_plain": "الوقوف"
+              }
+            ],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 46,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 33,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "الاِنْشِقَاقْ",
+                "word_before": "الاِنْشِقَاقُ"
+              }
+            ],
+            "manual_comma_override_count": 0,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-009-03",
+          "canonical_text_ar": "ومن ذلك الوقوف، بدأ الانشقاق.",
+          "diacritic_coverage": 0.956522,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 750,
+          "pause_before_ms": 200,
+          "speaker_key": "NARRATOR",
+          "text_ar": "وَمِنْ ذَلِكَ الْوُقُوفِ، بَدَأَ الاِنْشِقَاقُ.",
+          "tts_text_ar": "وَمِنْ ذَلِكَ الْوُقُوفِ، بَدَأَ الاِنْشِقَاقْ."
+        }
+      ],
+      "segment_id": "ADAM-SEQUENCE-09",
+      "source_sequence_id": "ADAM-SEQUENCE-09",
+      "title_ar": "كلهم أجمعون"
+    },
+    {
+      "canonical_narration_ar": "أبى إبليس واستكبر، وكان من الكافرين. وسُئل: ﴿ما منعك أن تسجد لما خلقت بيدي أستكبرت أم كنت من العالين﴾. فلم يبحث عن عذر، بل أعلن الميزان الذي صنعه لنفسه: ﴿أنا خير منه خلقتني من نار وخلقته من طين﴾. عرف الخالق، وعرف الأمر، وعرف أصل آدم. لكنه جعل معرفته مادة للاعتراض بدل أن تكون طريقًا للطاعة. رأى النار أعلى في تقديره، والطين أدنى في تقديره؛ فحاكم أمر الله إلى ميزان اخترعه هو. فكان الطرد واللعنة. وطلب أن يُنظر إلى يوم البعث. ثم لم يعد الكبر موقفًا عابرًا؛ تحول إلى عداوة ممتدة: ﴿لأقعدن لهم صراطك المستقيم﴾، و﴿لأغوينهم أجمعين إلا عبادك منهم المخلصين﴾. قبل أن يقترب آدم من شجرة، كان عدوه قد اختار موقعه على الطريق.",
+      "narration_policy": {
+        "explicit_pauses": true,
+        "fully_diacritized": true,
+        "target_words_per_minute": 116
+      },
+      "performance_blocks": [
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 2,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 2,
+            "connected_commas_preserved": [
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "وكان من الكافرين. وسئل: ﴿ما منعك أن تسجد لما خلقت",
+                "position": 16,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "وَاسْتَكْبَرَ",
+                "word_plain": "واستكبر"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "بل أعلن الميزان الذي صنعه لنفسه: ﴿أنا خير منه خل",
+                "position": 189,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "عُذْرٍ",
+                "word_plain": "عذر"
+              }
+            ],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 57,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 44,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "الْكَافِرِينْ",
+                "word_before": "الْكَافِرِينَ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 319,
+                "phonetic_substitution": null,
+                "punctuation": "<BLOCK_END>",
+                "reason": "PAUSE_AFTER_450MS_MEETS_400MS_THRESHOLD",
+                "start": 314,
+                "stop_type": "EXPLICIT_BLOCK_END_PAUSE",
+                "word_after": "طِينْ",
+                "word_before": "طِينٍ"
+              }
+            ],
+            "manual_comma_override_count": 0,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-010-01",
+          "canonical_text_ar": "أبى إبليس واستكبر، وكان من الكافرين. وسُئل: ﴿ما منعك أن تسجد لما خلقت بيدي أستكبرت أم كنت من العالين﴾. فلم يبحث عن عذر، بل أعلن الميزان الذي صنعه لنفسه: ﴿أنا خير منه خلقتني من نار وخلقته من طين﴾.",
+          "diacritic_coverage": 1.0,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 450,
+          "pause_before_ms": 350,
+          "speaker_key": "NARRATOR",
+          "text_ar": "أَبَى إِبْلِيسُ وَاسْتَكْبَرَ، وَكَانَ مِنَ الْكَافِرِينَ. وَسُئِلَ: ﴿مَا مَنَعَكَ أَنْ تَسْجُدَ لِمَا خَلَقْتُ بِيَدَيَّ أَسْتَكْبَرْتَ أَمْ كُنْتَ مِنَ الْعَالِينَ﴾. فَلَمْ يَبْحَثْ عَنْ عُذْرٍ، بَلْ أَعْلَنَ الْمِيزَانَ الَّذِي صَنَعَهُ لِنَفْسِهِ: ﴿أَنَا خَيْرٌ مِنْهُ خَلَقْتَنِي مِنْ نَارٍ وَخَلَقْتَهُ مِنْ طِينٍ﴾.",
+          "tts_text_ar": "أَبَى إِبْلِيسُ وَاسْتَكْبَرَ، وَكَانَ مِنَ الْكَافِرِينْ. وَسُئِلَ: ﴿مَا مَنَعَكَ أَنْ تَسْجُدَ لِمَا خَلَقْتُ بِيَدَيَّ أَسْتَكْبَرْتَ أَمْ كُنْتَ مِنَ الْعَالِينَ﴾. فَلَمْ يَبْحَثْ عَنْ عُذْرٍ، بَلْ أَعْلَنَ الْمِيزَانَ الَّذِي صَنَعَهُ لِنَفْسِهِ: ﴿أَنَا خَيْرٌ مِنْهُ خَلَقْتَنِي مِنْ نَارٍ وَخَلَقْتَهُ مِنْ طِينْ﴾."
+        },
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 5,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 3,
+            "connected_commas_preserved": [
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "وعرف الأمر، وعرف أصل آدم. لكنه جعل معرفته ماد",
+                "position": 7,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "الْخَالِقَ",
+                "word_plain": "الخالق"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "وعرف أصل آدم. لكنه جعل معرفته مادة للاعتراض ب",
+                "position": 28,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "الْأَمْرَ",
+                "word_plain": "الأمر"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "والطين أدنى في تقديره؛ فحاكم أمر الله إلى ميزان اخ",
+                "position": 185,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "تَقْدِيرِهِ",
+                "word_plain": "تقديره"
+              }
+            ],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 60,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 55,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "آدَمْ",
+                "word_before": "آدَمَ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 156,
+                "phonetic_substitution": "TA_MARBUTA_TO_HAA_AT_WAQF",
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 145,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "لِلطَّاعَهْ",
+                "word_before": "لِلطَّاعَةِ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 232,
+                "phonetic_substitution": null,
+                "punctuation": "؛",
+                "reason": "SEMICOLON_ACTUAL_STOP",
+                "start": 221,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "تَقْدِيرِهْ",
+                "word_before": "تَقْدِيرِهِ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 290,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 286,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "هُوْ",
+                "word_before": "هُوَ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 323,
+                "phonetic_substitution": "TA_MARBUTA_TO_HAA_AT_WAQF",
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 310,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "وَاللَّعْنَهْ",
+                "word_before": "وَاللَّعْنَةُ"
+              }
+            ],
+            "manual_comma_override_count": 0,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-010-02",
+          "canonical_text_ar": "عرف الخالق، وعرف الأمر، وعرف أصل آدم. لكنه جعل معرفته مادة للاعتراض بدل أن تكون طريقًا للطاعة. رأى النار أعلى في تقديره، والطين أدنى في تقديره؛ فحاكم أمر الله إلى ميزان اخترعه هو. فكان الطرد واللعنة.",
+          "diacritic_coverage": 0.954839,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 450,
+          "pause_before_ms": 200,
+          "speaker_key": "NARRATOR",
+          "text_ar": "عَرَفَ الْخَالِقَ، وَعَرَفَ الْأَمْرَ، وَعَرَفَ أَصْلَ آدَمَ. لَكِنَّهُ جَعَلَ مَعْرِفَتَهُ مَادَّةً لِلاِعْتِرَاضِ بَدَلَ أَنْ تَكُونَ طَرِيقًا لِلطَّاعَةِ. رَأَى النَّارَ أَعْلَى فِي تَقْدِيرِهِ، وَالطِّينَ أَدْنَى فِي تَقْدِيرِهِ؛ فَحَاكَمَ أَمْرَ اللَّهِ إِلَى مِيزَانٍ اخْتَرَعَهُ هُوَ. فَكَانَ الطَّرْدُ وَاللَّعْنَةُ.",
+          "tts_text_ar": "عَرَفَ الْخَالِقَ، وَعَرَفَ الْأَمْرَ، وَعَرَفَ أَصْلَ آدَمْ. لَكِنَّهُ جَعَلَ مَعْرِفَتَهُ مَادَّةً لِلاِعْتِرَاضِ بَدَلَ أَنْ تَكُونَ طَرِيقًا لِلطَّاعَهْ. رَأَى النَّارَ أَعْلَى فِي تَقْدِيرِهِ، وَالطِّينَ أَدْنَى فِي تَقْدِيرِهْ؛ فَحَاكَمَ أَمْرَ اللَّهِ إِلَى مِيزَانٍ اخْتَرَعَهُ هُوْ. فَكَانَ الطَّرْدُ وَاللَّعْنَهْ."
+        },
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 3,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 1,
+            "connected_commas_preserved": [
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "كان عدوه قد اختار موقعه على الطريق.",
+                "position": 293,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "شَجَرَةٍ",
+                "word_plain": "شجرة"
+              }
+            ],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 45,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 36,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "الْبَعْثْ",
+                "word_before": "الْبَعْثِ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 93,
+                "phonetic_substitution": null,
+                "punctuation": "؛",
+                "reason": "SEMICOLON_ACTUAL_STOP",
+                "start": 85,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "عَابِرَا",
+                "word_before": "عَابِرًا"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 360,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 350,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "الطَّرِيقْ",
+                "word_before": "الطَّرِيقِ"
+              }
+            ],
+            "manual_comma_override_count": 0,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-010-03",
+          "canonical_text_ar": "وطلب أن يُنظر إلى يوم البعث. ثم لم يعد الكبر موقفًا عابرًا؛ تحول إلى عداوة ممتدة: ﴿لأقعدن لهم صراطك المستقيم﴾، و﴿لأغوينهم أجمعين إلا عبادك منهم المخلصين﴾. قبل أن يقترب آدم من شجرة، كان عدوه قد اختار موقعه على الطريق.",
+          "diacritic_coverage": 0.993902,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 750,
+          "pause_before_ms": 200,
+          "speaker_key": "NARRATOR",
+          "text_ar": "وَطَلَبَ أَنْ يُنْظَرَ إِلَى يَوْمِ الْبَعْثِ. ثُمَّ لَمْ يَعُدِ الْكِبْرُ مَوْقِفًا عَابِرًا؛ تَحَوَّلَ إِلَى عَدَاوَةٍ مُمْتَدَّةٍ: ﴿لَأَقْعُدَنَّ لَهُمْ صِرَاطَكَ الْمُسْتَقِيمَ﴾، وَ﴿لَأُغْوِيَنَّهُمْ أَجْمَعِينَ إِلَّا عِبَادَكَ مِنْهُمُ الْمُخْلَصِينَ﴾. قَبْلَ أَنْ يَقْتَرِبَ آدَمُ مِنْ شَجَرَةٍ، كَانَ عَدُوُّهُ قَدِ اخْتَارَ مَوْقِعَهُ عَلَى الطَّرِيقِ.",
+          "tts_text_ar": "وَطَلَبَ أَنْ يُنْظَرَ إِلَى يَوْمِ الْبَعْثْ. ثُمَّ لَمْ يَعُدِ الْكِبْرُ مَوْقِفًا عَابِرَا؛ تَحَوَّلَ إِلَى عَدَاوَةٍ مُمْتَدَّةٍ: ﴿لَأَقْعُدَنَّ لَهُمْ صِرَاطَكَ الْمُسْتَقِيمَ﴾، وَ﴿لَأُغْوِيَنَّهُمْ أَجْمَعِينَ إِلَّا عِبَادَكَ مِنْهُمُ الْمُخْلَصِينَ﴾. قَبْلَ أَنْ يَقْتَرِبَ آدَمُ مِنْ شَجَرَةٍ، كَانَ عَدُوُّهُ قَدِ اخْتَارَ مَوْقِعَهُ عَلَى الطَّرِيقْ."
+        }
+      ],
+      "segment_id": "ADAM-SEQUENCE-10",
+      "source_sequence_id": "ADAM-SEQUENCE-10",
+      "title_ar": "أنا خير منه"
+    },
+    {
+      "canonical_narration_ar": "ولم تكن ذرية آدم غائبة عن أصل الامتحان. أخرج الله من ظهر آدم ذريته، فامتد من الواحد نسل لا يُحصى؛ أجيال لم تولد بعد، وأمم ستعبر الأرض عصرًا بعد عصر. وفي أصل قصة بني آدم قام الميثاق: ﴿أَلَسْتُ بِرَبِّكُمْ قَالُوا بَلَىٰ شَهِدْنَا﴾، فلا يقف الإنسان يوم القيامة خلف دعوى الغفلة. هنا يثبت أصلان عظيمان: ذرية خرجت من أبيها الأول، وميثاق أقامه الله على بني آدم. أما موضع الربط الدقيق بين المشهدين داخل ترتيب الزمن، فيبقى حيث أبقاه الدليل؛ بلا ترتيب نجزم به. العدو ينتظر على الطريق، لكن الإنسان لا يدخل الطريق بلا عهد ولا مسؤولية. ومن هنا لم تعد قصة آدم قصة رجل واحد؛ صارت قصة كل قلب سيأتي من بعده.",
+      "narration_policy": {
+        "explicit_pauses": true,
+        "fully_diacritized": true,
+        "target_words_per_minute": 116
+      },
+      "performance_blocks": [
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 4,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 2,
+            "connected_commas_preserved": [
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "فامتد من الواحد نسل لا يحصى؛ أجيال لم تولد بعد، و",
+                "position": 103,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "ذُرِّيَّتَهُ",
+                "word_plain": "ذريته"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "وأمم ستعبر الأرض عصرا بعد عصر. وفي أصل قصة بني",
+                "position": 187,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "بَعْدُ",
+                "word_plain": "بعد"
+              }
+            ],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 66,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 53,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "الاِمْتِحَانْ",
+                "word_before": "الاِمْتِحَانِ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 162,
+                "phonetic_substitution": null,
+                "punctuation": "؛",
+                "reason": "SEMICOLON_ACTUAL_STOP",
+                "start": 155,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "يُحْصَى",
+                "word_before": "يُحْصَى"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 246,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 240,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "عَصْرْ",
+                "word_before": "عَصْرٍ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 298,
+                "phonetic_substitution": null,
+                "punctuation": "<BLOCK_END>",
+                "reason": "PAUSE_AFTER_450MS_MEETS_400MS_THRESHOLD",
+                "start": 287,
+                "stop_type": "EXPLICIT_BLOCK_END_PAUSE",
+                "word_after": "الْمِيثَاقْ",
+                "word_before": "الْمِيثَاقُ"
+              }
+            ],
+            "manual_comma_override_count": 0,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-011-01",
+          "canonical_text_ar": "ولم تكن ذرية آدم غائبة عن أصل الامتحان. أخرج الله من ظهر آدم ذريته، فامتد من الواحد نسل لا يُحصى؛ أجيال لم تولد بعد، وأمم ستعبر الأرض عصرًا بعد عصر. وفي أصل قصة بني آدم قام الميثاق:",
+          "diacritic_coverage": 0.985401,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 450,
+          "pause_before_ms": 350,
+          "speaker_key": "NARRATOR",
+          "text_ar": "وَلَمْ تَكُنْ ذُرِّيَّةُ آدَمَ غَائِبَةً عَنْ أَصْلِ الاِمْتِحَانِ. أَخْرَجَ اللَّهُ مِنْ ظَهْرِ آدَمَ ذُرِّيَّتَهُ، فَامْتَدَّ مِنَ الْوَاحِدِ نَسْلٌ لَا يُحْصَى؛ أَجْيَالٌ لَمْ تُولَدْ بَعْدُ، وَأُمَمٌ سَتَعْبُرُ الْأَرْضَ عَصْرًا بَعْدَ عَصْرٍ. وَفِي أَصْلِ قِصَّةِ بَنِي آدَمَ قَامَ الْمِيثَاقُ:",
+          "tts_text_ar": "وَلَمْ تَكُنْ ذُرِّيَّةُ آدَمَ غَائِبَةً عَنْ أَصْلِ الاِمْتِحَانْ. أَخْرَجَ اللَّهُ مِنْ ظَهْرِ آدَمَ ذُرِّيَّتَهُ، فَامْتَدَّ مِنَ الْوَاحِدِ نَسْلٌ لَا يُحْصَى؛ أَجْيَالٌ لَمْ تُولَدْ بَعْدُ، وَأُمَمٌ سَتَعْبُرُ الْأَرْضَ عَصْرًا بَعْدَ عَصْرْ. وَفِي أَصْلِ قِصَّةِ بَنِي آدَمَ قَامَ الْمِيثَاقْ:"
+        },
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 2,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 1,
+            "connected_commas_preserved": [
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "وميثاق أقامه الله على بني آدم.",
+                "position": 194,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "الْأَوَّلِ",
+                "word_plain": "الأول"
+              }
+            ],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 121,
+                "phonetic_substitution": "TA_MARBUTA_TO_HAA_AT_WAQF",
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 110,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "الْغَفْلَهْ",
+                "word_before": "الْغَفْلَةِ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 252,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 247,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "آدَمْ",
+                "word_before": "آدَمَ"
+              }
+            ],
+            "manual_comma_override_count": 0,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-011-02",
+          "canonical_text_ar": "﴿أَلَسْتُ بِرَبِّكُمْ قَالُوا بَلَىٰ شَهِدْنَا﴾، فلا يقف الإنسان يوم القيامة خلف دعوى الغفلة. هنا يثبت أصلان عظيمان: ذرية خرجت من أبيها الأول، وميثاق أقامه الله على بني آدم.",
+          "diacritic_coverage": 0.991667,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 450,
+          "pause_before_ms": 200,
+          "speaker_key": "NARRATOR",
+          "text_ar": "﴿أَلَسْتُ بِرَبِّكُمْ قَالُوا بَلَىٰ شَهِدْنَا﴾، فَلَا يَقِفُ الْإِنْسَانُ يَوْمَ الْقِيَامَةِ خَلْفَ دَعْوَى الْغَفْلَةِ. هُنَا يَثْبُتُ أَصْلَانِ عَظِيمَانِ: ذُرِّيَّةٌ خَرَجَتْ مِنْ أَبِيهَا الْأَوَّلِ، وَمِيثَاقٌ أَقَامَهُ اللَّهُ عَلَى بَنِي آدَمَ.",
+          "tts_text_ar": "﴿أَلَسْتُ بِرَبِّكُمْ قَالُوا بَلَىٰ شَهِدْنَا﴾، فَلَا يَقِفُ الْإِنْسَانُ يَوْمَ الْقِيَامَةِ خَلْفَ دَعْوَى الْغَفْلَهْ. هُنَا يَثْبُتُ أَصْلَانِ عَظِيمَانِ: ذُرِّيَّةٌ خَرَجَتْ مِنْ أَبِيهَا الْأَوَّلِ، وَمِيثَاقٌ أَقَامَهُ اللَّهُ عَلَى بَنِي آدَمْ."
+        },
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 4,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 2,
+            "connected_commas_preserved": [
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "فيبقى حيث أبقاه الدليل؛ بلا ترتيب نجزم به. العدو",
+                "position": 78,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "الزَّمَنِ",
+                "word_plain": "الزمن"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "لكن الإنسان لا يدخل الطريق بلا عهد ولا مسؤولية.",
+                "position": 187,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "الطَّرِيقِ",
+                "word_plain": "الطريق"
+              }
+            ],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 126,
+                "phonetic_substitution": null,
+                "punctuation": "؛",
+                "reason": "SEMICOLON_ACTUAL_STOP",
+                "start": 116,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "الدَّلِيلْ",
+                "word_before": "الدَّلِيلُ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 157,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 153,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "بِهْ",
+                "word_before": "بِهِ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 277,
+                "phonetic_substitution": "TA_MARBUTA_TO_HAA_AT_WAQF",
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 263,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "مَسْؤُولِيَّهْ",
+                "word_before": "مَسْؤُولِيَّةٍ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 340,
+                "phonetic_substitution": null,
+                "punctuation": "؛",
+                "reason": "SEMICOLON_ACTUAL_STOP",
+                "start": 333,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "وَاحِدْ",
+                "word_before": "وَاحِدٍ"
+              }
+            ],
+            "manual_comma_override_count": 0,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-011-03",
+          "canonical_text_ar": "أما موضع الربط الدقيق بين المشهدين داخل ترتيب الزمن، فيبقى حيث أبقاه الدليل؛ بلا ترتيب نجزم به. العدو ينتظر على الطريق، لكن الإنسان لا يدخل الطريق بلا عهد ولا مسؤولية. ومن هنا لم تعد قصة آدم قصة رجل واحد؛",
+          "diacritic_coverage": 0.9625,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 450,
+          "pause_before_ms": 200,
+          "speaker_key": "NARRATOR",
+          "text_ar": "أَمَّا مَوْضِعُ الرَّبْطِ الدَّقِيقِ بَيْنَ الْمَشْهَدَيْنِ دَاخِلَ تَرْتِيبِ الزَّمَنِ، فَيَبْقَى حَيْثُ أَبْقَاهُ الدَّلِيلُ؛ بِلَا تَرْتِيبٍ نَجْزِمُ بِهِ. الْعَدُوُّ يَنْتَظِرُ عَلَى الطَّرِيقِ، لَكِنَّ الْإِنْسَانَ لَا يَدْخُلُ الطَّرِيقَ بِلَا عَهْدٍ وَلَا مَسْؤُولِيَّةٍ. وَمِنْ هُنَا لَمْ تَعُدْ قِصَّةُ آدَمَ قِصَّةَ رَجُلٍ وَاحِدٍ؛",
+          "tts_text_ar": "أَمَّا مَوْضِعُ الرَّبْطِ الدَّقِيقِ بَيْنَ الْمَشْهَدَيْنِ دَاخِلَ تَرْتِيبِ الزَّمَنِ، فَيَبْقَى حَيْثُ أَبْقَاهُ الدَّلِيلْ؛ بِلَا تَرْتِيبٍ نَجْزِمُ بِهْ. الْعَدُوُّ يَنْتَظِرُ عَلَى الطَّرِيقِ، لَكِنَّ الْإِنْسَانَ لَا يَدْخُلُ الطَّرِيقَ بِلَا عَهْدٍ وَلَا مَسْؤُولِيَّهْ. وَمِنْ هُنَا لَمْ تَعُدْ قِصَّةُ آدَمَ قِصَّةَ رَجُلٍ وَاحِدْ؛"
+        },
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 1,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 0,
+            "connected_commas_preserved": [],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 52,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 44,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "بَعْدِهْ",
+                "word_before": "بَعْدِهِ"
+              }
+            ],
+            "manual_comma_override_count": 0,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-011-04",
+          "canonical_text_ar": "صارت قصة كل قلب سيأتي من بعده.",
+          "diacritic_coverage": 1.0,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 750,
+          "pause_before_ms": 200,
+          "speaker_key": "NARRATOR",
+          "text_ar": "صَارَتْ قِصَّةَ كُلِّ قَلْبٍ سَيَأْتِي مِنْ بَعْدِهِ.",
+          "tts_text_ar": "صَارَتْ قِصَّةَ كُلِّ قَلْبٍ سَيَأْتِي مِنْ بَعْدِهْ."
+        }
+      ],
+      "segment_id": "ADAM-SEQUENCE-11",
+      "source_sequence_id": "ADAM-SEQUENCE-11",
+      "title_ar": "الميثاق والذرية"
+    },
+    {
+      "canonical_narration_ar": "ثم خلق الله لآدم زوجه. وعرفتها السنة باسمها: حواء. ومن ضلع آدم خُلقت؛ فصار في العالم البشري أُنس بعد وحدة، وصارت الحكاية تمضي بحضور اثنين. أما ما نسجته بعض الأخبار حول الجهة، والنوم، والكلمات، وسبب الاسم، فيبقى خلف ستار الحكاية؛ لا يدخل يقين الصورة، ولا يقود بناء المشهد. قيل لهما: ﴿اسكن أنت وزوجك الجنة وكلا منها رغدًا حيث شئتما﴾. لا جوع، ولا عري، ولا ظمأ، ولا شمس تؤذي. ومع ذلك دخل التحذير إلى قلب السكن: ﴿إن هذا عدو لك ولزوجك فلا يخرجنكما من الجنة فتشقى﴾. كان النعيم واسعًا، والعدو معروفًا، وبقي أن يظهر الحد.",
+      "narration_policy": {
+        "explicit_pauses": true,
+        "fully_diacritized": true,
+        "target_words_per_minute": 116
+      },
+      "performance_blocks": [
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 4,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 1,
+            "connected_commas_preserved": [
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "وصارت الحكاية تمضي بحضور اثنين.",
+                "position": 166,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "وَحْدَةٍ",
+                "word_plain": "وحدة"
+              }
+            ],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 37,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 29,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "زَوْجَهْ",
+                "word_before": "زَوْجَهُ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 84,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 76,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "حَوَّاءْ",
+                "word_before": "حَوَّاءُ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 114,
+                "phonetic_substitution": null,
+                "punctuation": "؛",
+                "reason": "SEMICOLON_ACTUAL_STOP",
+                "start": 106,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "خُلِقَتْ",
+                "word_before": "خُلِقَتْ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 226,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 217,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "اثْنَيْنْ",
+                "word_before": "اثْنَيْنِ"
+              }
+            ],
+            "manual_comma_override_count": 0,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-012-01",
+          "canonical_text_ar": "ثم خلق الله لآدم زوجه. وعرفتها السنة باسمها: حواء. ومن ضلع آدم خُلقت؛ فصار في العالم البشري أُنس بعد وحدة، وصارت الحكاية تمضي بحضور اثنين.",
+          "diacritic_coverage": 0.981132,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 450,
+          "pause_before_ms": 350,
+          "speaker_key": "NARRATOR",
+          "text_ar": "ثُمَّ خَلَقَ اللَّهُ لِآدَمَ زَوْجَهُ. وَعَرَفَتْهَا السُّنَّةُ بِاسْمِهَا: حَوَّاءُ. وَمِنْ ضِلْعِ آدَمَ خُلِقَتْ؛ فَصَارَ فِي الْعَالَمِ الْبَشَرِيِّ أُنْسٌ بَعْدَ وَحْدَةٍ، وَصَارَتِ الْحِكَايَةُ تَمْضِي بِحُضُورِ اثْنَيْنِ.",
+          "tts_text_ar": "ثُمَّ خَلَقَ اللَّهُ لِآدَمَ زَوْجَهْ. وَعَرَفَتْهَا السُّنَّةُ بِاسْمِهَا: حَوَّاءْ. وَمِنْ ضِلْعِ آدَمَ خُلِقَتْ؛ فَصَارَ فِي الْعَالَمِ الْبَشَرِيِّ أُنْسٌ بَعْدَ وَحْدَةٍ، وَصَارَتِ الْحِكَايَةُ تَمْضِي بِحُضُورِ اثْنَيْنْ."
+        },
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 3,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 5,
+            "connected_commas_preserved": [
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "والنوم، والكلمات، وسبب الاسم، فيبقى خلف ستار الحك",
+                "position": 49,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "الْجِهَةِ",
+                "word_plain": "الجهة"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "والكلمات، وسبب الاسم، فيبقى خلف ستار الحكاية؛ لا ي",
+                "position": 60,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "وَالنَّوْمِ",
+                "word_plain": "والنوم"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "وسبب الاسم، فيبقى خلف ستار الحكاية؛ لا يدخل يقين",
+                "position": 73,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "وَالْكَلِمَاتِ",
+                "word_plain": "والكلمات"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "فيبقى خلف ستار الحكاية؛ لا يدخل يقين الصورة، ولا ي",
+                "position": 98,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "الاِسْمِ",
+                "word_plain": "الاسم"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "ولا يقود بناء المشهد. قيل لهما: ﴿اسكن أنت وزوجك ال",
+                "position": 168,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "الصُّورَةِ",
+                "word_plain": "الصورة"
+              }
+            ],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 145,
+                "phonetic_substitution": "TA_MARBUTA_TO_HAA_AT_WAQF",
+                "punctuation": "؛",
+                "reason": "SEMICOLON_ACTUAL_STOP",
+                "start": 133,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "الْحِكَايَهْ",
+                "word_before": "الْحِكَايَةِ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 213,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 202,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "الْمَشْهَدْ",
+                "word_before": "الْمَشْهَدِ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 308,
+                "phonetic_substitution": null,
+                "punctuation": "<BLOCK_END>",
+                "reason": "PAUSE_AFTER_450MS_MEETS_400MS_THRESHOLD",
+                "start": 299,
+                "stop_type": "EXPLICIT_BLOCK_END_PAUSE",
+                "word_after": "شِئْتُمَا",
+                "word_before": "شِئْتُمَا"
+              }
+            ],
+            "manual_comma_override_count": 0,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-012-02",
+          "canonical_text_ar": "أما ما نسجته بعض الأخبار حول الجهة، والنوم، والكلمات، وسبب الاسم، فيبقى خلف ستار الحكاية؛ لا يدخل يقين الصورة، ولا يقود بناء المشهد. قيل لهما: ﴿اسكن أنت وزوجك الجنة وكلا منها رغدًا حيث شئتما﴾.",
+          "diacritic_coverage": 0.979592,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 450,
+          "pause_before_ms": 200,
+          "speaker_key": "NARRATOR",
+          "text_ar": "أَمَّا مَا نَسَجَتْهُ بَعْضُ الْأَخْبَارِ حَوْلَ الْجِهَةِ، وَالنَّوْمِ، وَالْكَلِمَاتِ، وَسَبَبِ الاِسْمِ، فَيَبْقَى خَلْفَ سِتَارِ الْحِكَايَةِ؛ لَا يَدْخُلُ يَقِينَ الصُّورَةِ، وَلَا يَقُودُ بِنَاءَ الْمَشْهَدِ. قِيلَ لَهُمَا: ﴿اسْكُنْ أَنْتَ وَزَوْجُكَ الْجَنَّةَ وَكُلَا مِنْهَا رَغَدًا حَيْثُ شِئْتُمَا﴾.",
+          "tts_text_ar": "أَمَّا مَا نَسَجَتْهُ بَعْضُ الْأَخْبَارِ حَوْلَ الْجِهَةِ، وَالنَّوْمِ، وَالْكَلِمَاتِ، وَسَبَبِ الاِسْمِ، فَيَبْقَى خَلْفَ سِتَارِ الْحِكَايَهْ؛ لَا يَدْخُلُ يَقِينَ الصُّورَةِ، وَلَا يَقُودُ بِنَاءَ الْمَشْهَدْ. قِيلَ لَهُمَا: ﴿اسْكُنْ أَنْتَ وَزَوْجُكَ الْجَنَّةَ وَكُلَا مِنْهَا رَغَدًا حَيْثُ شِئْتُمَا﴾."
+        },
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 2,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 5,
+            "connected_commas_preserved": [
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "ولا عري، ولا ظمأ، ولا شمس تؤذي. ومع ذلك دخل التحذ",
+                "position": 4,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "جُوعٌ",
+                "word_plain": "جوع"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "ولا ظمأ، ولا شمس تؤذي. ومع ذلك دخل التحذير إلى قل",
+                "position": 17,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "عُرْيٌ",
+                "word_plain": "عري"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "ولا شمس تؤذي. ومع ذلك دخل التحذير إلى قلب السكن:",
+                "position": 31,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "ظَمَأٌ",
+                "word_plain": "ظمأ"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "والعدو معروفا، وبقي أن يظهر الحد.",
+                "position": 226,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "وَاسِعًا",
+                "word_plain": "واسعا"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "وبقي أن يظهر الحد.",
+                "position": 249,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "مَعْرُوفًا",
+                "word_plain": "معروفا"
+              }
+            ],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 59,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 52,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "تُؤْذِي",
+                "word_before": "تُؤْذِي"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 292,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 284,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "الْحَدّ",
+                "word_before": "الْحَدُّ"
+              }
+            ],
+            "manual_comma_override_count": 0,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-012-03",
+          "canonical_text_ar": "لا جوع، ولا عري، ولا ظمأ، ولا شمس تؤذي. ومع ذلك دخل التحذير إلى قلب السكن: ﴿إن هذا عدو لك ولزوجك فلا يخرجنكما من الجنة فتشقى﴾. كان النعيم واسعًا، والعدو معروفًا، وبقي أن يظهر الحد.",
+          "diacritic_coverage": 0.977444,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 750,
+          "pause_before_ms": 200,
+          "speaker_key": "NARRATOR",
+          "text_ar": "لَا جُوعٌ، وَلَا عُرْيٌ، وَلَا ظَمَأٌ، وَلَا شَمْسٌ تُؤْذِي. وَمَعَ ذَلِكَ دَخَلَ التَّحْذِيرُ إِلَى قَلْبِ السَّكَنِ: ﴿إِنَّ هَذَا عَدُوٌّ لَكَ وَلِزَوْجِكَ فَلَا يُخْرِجَنَّكُمَا مِنَ الْجَنَّةِ فَتَشْقَى﴾. كَانَ النَّعِيمُ وَاسِعًا، وَالْعَدُوُّ مَعْرُوفًا، وَبَقِيَ أَنْ يَظْهَرَ الْحَدُّ.",
+          "tts_text_ar": "لَا جُوعٌ، وَلَا عُرْيٌ، وَلَا ظَمَأٌ، وَلَا شَمْسٌ تُؤْذِي. وَمَعَ ذَلِكَ دَخَلَ التَّحْذِيرُ إِلَى قَلْبِ السَّكَنِ: ﴿إِنَّ هَذَا عَدُوٌّ لَكَ وَلِزَوْجِكَ فَلَا يُخْرِجَنَّكُمَا مِنَ الْجَنَّةِ فَتَشْقَى﴾. كَانَ النَّعِيمُ وَاسِعًا، وَالْعَدُوُّ مَعْرُوفًا، وَبَقِيَ أَنْ يَظْهَرَ الْحَدّ."
+        }
+      ],
+      "segment_id": "ADAM-SEQUENCE-12",
+      "source_sequence_id": "ADAM-SEQUENCE-12",
+      "title_ar": "وخلق منها زوجها"
+    },
+    {
+      "canonical_narration_ar": "وسط كل ذلك الاتساع، جاء النهي في موضع واحد: ﴿ولا تقربا هذه الشجرة فتكونا من الظالمين﴾. تعددت الأسماء التي دارت حول الشجرة: حنطة، وكرم، وتين، وغيرها. لكن الوحي أبقى نوعها خارج الضوء؛ لأن مركز الامتحان لم يكن الثمرة، بل الأمر. لم يكن الامتحان في الجوع؛ فالرغد يملأ المكان. ولم يكن في كثرة المحرمات؛ فالممنوع حد واحد. هنا تظهر الطاعة في أنقى صورها: أن تستطيع الاقتراب، وأن تملك الرغبة، ثم تعرف أن هناك مسافة لا ينبغي أن تُقطع. والعدو الذي أعلن الحرب يعرف هذه المسافة جيدًا.",
+      "narration_policy": {
+        "explicit_pauses": true,
+        "fully_diacritized": true,
+        "target_words_per_minute": 116
+      },
+      "performance_blocks": [
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 2,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 4,
+            "connected_commas_preserved": [
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "جاء النهي في موضع واحد: ﴿ولا تقربا هذه الشجرة فتك",
+                "position": 20,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "الاِتِّسَاعِ",
+                "word_plain": "الاتساع"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "وكرم، وتين، وغيرها. لكن الوحي أبقى نوعها خارج الض",
+                "position": 201,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "حِنْطَةٌ",
+                "word_plain": "حنطة"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "وتين، وغيرها. لكن الوحي أبقى نوعها خارج الضوء؛",
+                "position": 211,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "وَكَرْمٌ",
+                "word_plain": "وكرم"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "وغيرها. لكن الوحي أبقى نوعها خارج الضوء؛",
+                "position": 221,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "وَتِينٌ",
+                "word_plain": "وتين"
+              }
+            ],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 241,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 230,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "وَغَيْرُهَا",
+                "word_before": "وَغَيْرُهَا"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 296,
+                "phonetic_substitution": null,
+                "punctuation": "؛",
+                "reason": "SEMICOLON_ACTUAL_STOP",
+                "start": 287,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "الضَّوْءْ",
+                "word_before": "الضَّوْءِ"
+              }
+            ],
+            "manual_comma_override_count": 0,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-013-01",
+          "canonical_text_ar": "وسط كل ذلك الاتساع، جاء النهي في موضع واحد: ﴿ولا تقربا هذه الشجرة فتكونا من الظالمين﴾. تعددت الأسماء التي دارت حول الشجرة: حنطة، وكرم، وتين، وغيرها. لكن الوحي أبقى نوعها خارج الضوء؛",
+          "diacritic_coverage": 0.956835,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 450,
+          "pause_before_ms": 350,
+          "speaker_key": "NARRATOR",
+          "text_ar": "وَسَطَ كُلِّ ذَلِكَ الاِتِّسَاعِ، جَاءَ النَّهْيُ فِي مَوْضِعٍ وَاحِدٍ: ﴿وَلَا تَقْرَبَا هَذِهِ الشَّجَرَةَ فَتَكُونَا مِنَ الظَّالِمِينَ﴾. تَعَدَّدَتِ الْأَسْمَاءُ الَّتِي دَارَتْ حَوْلَ الشَّجَرَةِ: حِنْطَةٌ، وَكَرْمٌ، وَتِينٌ، وَغَيْرُهَا. لَكِنَّ الْوَحْيَ أَبْقَى نَوْعَهَا خَارِجَ الضَّوْءِ؛",
+          "tts_text_ar": "وَسَطَ كُلِّ ذَلِكَ الاِتِّسَاعِ، جَاءَ النَّهْيُ فِي مَوْضِعٍ وَاحِدٍ: ﴿وَلَا تَقْرَبَا هَذِهِ الشَّجَرَةَ فَتَكُونَا مِنَ الظَّالِمِينَ﴾. تَعَدَّدَتِ الْأَسْمَاءُ الَّتِي دَارَتْ حَوْلَ الشَّجَرَةِ: حِنْطَةٌ، وَكَرْمٌ، وَتِينٌ، وَغَيْرُهَا. لَكِنَّ الْوَحْيَ أَبْقَى نَوْعَهَا خَارِجَ الضَّوْءْ؛"
+        },
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 6,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 1,
+            "connected_commas_preserved": [
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "بل الأمر. لم يكن الامتحان في الجوع؛ فالرغد يملأ ال",
+                "position": 43,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "الثَّمَرَةَ",
+                "word_plain": "الثمرة"
+              }
+            ],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 70,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 61,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "الْأَمْرْ",
+                "word_before": "الْأَمْرَ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 110,
+                "phonetic_substitution": null,
+                "punctuation": "؛",
+                "reason": "SEMICOLON_ACTUAL_STOP",
+                "start": 102,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "الْجُوعْ",
+                "word_before": "الْجُوعِ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 143,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 133,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "الْمَكَانْ",
+                "word_before": "الْمَكَانَ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 187,
+                "phonetic_substitution": null,
+                "punctuation": "؛",
+                "reason": "SEMICOLON_ACTUAL_STOP",
+                "start": 172,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "الْمُحَرَّمَاتْ",
+                "word_before": "الْمُحَرَّمَاتِ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 217,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 210,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "وَاحِدْ",
+                "word_before": "وَاحِدٌ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 266,
+                "phonetic_substitution": null,
+                "punctuation": "<BLOCK_END>",
+                "reason": "PAUSE_AFTER_450MS_MEETS_400MS_THRESHOLD",
+                "start": 257,
+                "stop_type": "EXPLICIT_BLOCK_END_PAUSE",
+                "word_after": "صُوَرِهَا",
+                "word_before": "صُوَرِهَا"
+              }
+            ],
+            "manual_comma_override_count": 0,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-013-02",
+          "canonical_text_ar": "لأن مركز الامتحان لم يكن الثمرة، بل الأمر. لم يكن الامتحان في الجوع؛ فالرغد يملأ المكان. ولم يكن في كثرة المحرمات؛ فالممنوع حد واحد. هنا تظهر الطاعة في أنقى صورها:",
+          "diacritic_coverage": 0.96063,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 450,
+          "pause_before_ms": 200,
+          "speaker_key": "NARRATOR",
+          "text_ar": "لِأَنَّ مَرْكَزَ الاِمْتِحَانِ لَمْ يَكُنِ الثَّمَرَةَ، بَلِ الْأَمْرَ. لَمْ يَكُنِ الاِمْتِحَانُ فِي الْجُوعِ؛ فَالرَّغَدُ يَمْلَأُ الْمَكَانَ. وَلَمْ يَكُنْ فِي كَثْرَةِ الْمُحَرَّمَاتِ؛ فَالْمَمْنُوعُ حَدٌّ وَاحِدٌ. هُنَا تَظْهَرُ الطَّاعَةُ فِي أَنْقَى صُوَرِهَا:",
+          "tts_text_ar": "لِأَنَّ مَرْكَزَ الاِمْتِحَانِ لَمْ يَكُنِ الثَّمَرَةَ، بَلِ الْأَمْرْ. لَمْ يَكُنِ الاِمْتِحَانُ فِي الْجُوعْ؛ فَالرَّغَدُ يَمْلَأُ الْمَكَانْ. وَلَمْ يَكُنْ فِي كَثْرَةِ الْمُحَرَّمَاتْ؛ فَالْمَمْنُوعُ حَدٌّ وَاحِدْ. هُنَا تَظْهَرُ الطَّاعَةُ فِي أَنْقَى صُوَرِهَا:"
+        },
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 2,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 2,
+            "connected_commas_preserved": [
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "وأن تملك الرغبة، ثم تعرف أن هناك مسافة لا ينبغ",
+                "position": 17,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "الاِقْتِرَابَ",
+                "word_plain": "الاقتراب"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "ثم تعرف أن هناك مسافة لا ينبغي أن تقطع. والعدو",
+                "position": 48,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "الرَّغْبَةَ",
+                "word_plain": "الرغبة"
+              }
+            ],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 127,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 119,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "تُقْطَعْ",
+                "word_before": "تُقْطَعَ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 206,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 198,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "جَيِّدَا",
+                "word_before": "جَيِّدًا"
+              }
+            ],
+            "manual_comma_override_count": 0,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-013-03",
+          "canonical_text_ar": "أن تستطيع الاقتراب، وأن تملك الرغبة، ثم تعرف أن هناك مسافة لا ينبغي أن تُقطع. والعدو الذي أعلن الحرب يعرف هذه المسافة جيدًا.",
+          "diacritic_coverage": 0.979167,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 750,
+          "pause_before_ms": 200,
+          "speaker_key": "NARRATOR",
+          "text_ar": "أَنْ تَسْتَطِيعَ الاِقْتِرَابَ، وَأَنْ تَمْلِكَ الرَّغْبَةَ، ثُمَّ تَعْرِفَ أَنَّ هُنَاكَ مَسَافَةً لَا يَنْبَغِي أَنْ تُقْطَعَ. وَالْعَدُوُّ الَّذِي أَعْلَنَ الْحَرْبَ يَعْرِفُ هَذِهِ الْمَسَافَةَ جَيِّدًا.",
+          "tts_text_ar": "أَنْ تَسْتَطِيعَ الاِقْتِرَابَ، وَأَنْ تَمْلِكَ الرَّغْبَةَ، ثُمَّ تَعْرِفَ أَنَّ هُنَاكَ مَسَافَةً لَا يَنْبَغِي أَنْ تُقْطَعْ. وَالْعَدُوُّ الَّذِي أَعْلَنَ الْحَرْبَ يَعْرِفُ هَذِهِ الْمَسَافَةَ جَيِّدَا."
+        }
+      ],
+      "segment_id": "ADAM-SEQUENCE-13",
+      "source_sequence_id": "ADAM-SEQUENCE-13",
+      "title_ar": "على مسافة من الشجرة"
+    },
+    {
+      "canonical_narration_ar": "الأمر واضح. العدو معروف. والحد مرسوم. فكيف يدخل الانحراف إلى قلبٍ يعرف كل ذلك؟ لا يبدأ السقوط دائمًا بصوت مرتفع. أحيانًا يبدأ من معنى صغير يُعاد ترتيبه، ومن وعد يلبس ثوب النصيحة، ومن خطوة تبدو أبعد ما تكون عن النهاية. لكن تلك الخطوة لم تقع بعد. هنا تنتهي حكاية التكريم، ويبدأ باب آخر: الوسوسة، والزلة، والخروج... ثم الكلمة التي ستمنع السقوط من أن يكون خاتمة الإنسان: التوبة.",
+      "narration_policy": {
+        "explicit_pauses": true,
+        "fully_diacritized": true,
+        "target_words_per_minute": 116
+      },
+      "performance_blocks": [
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 6,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 2,
+            "connected_commas_preserved": [
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "ومن وعد يلبس ثوب النصيحة، ومن خطوة تبدو أبعد م",
+                "position": 234,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "تَرْتِيبُهُ",
+                "word_plain": "ترتيبه"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "ومن خطوة تبدو أبعد ما تكون عن النهاية.",
+                "position": 277,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "النَّصِيحَةِ",
+                "word_plain": "النصيحة"
+              }
+            ],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 17,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 10,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "وَاضِحْ",
+                "word_before": "وَاضِحٌ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 39,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 30,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "مَعْرُوفْ",
+                "word_before": "مَعْرُوفٌ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 61,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 52,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "مَرْسُومْ",
+                "word_before": "مَرْسُومٌ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 129,
+                "phonetic_substitution": null,
+                "punctuation": "؟",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 123,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "ذَلِكْ",
+                "word_before": "ذَلِكَ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 183,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 173,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "مُرْتَفِعْ",
+                "word_before": "مُرْتَفِعٍ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 353,
+                "phonetic_substitution": "TA_MARBUTA_TO_HAA_AT_WAQF",
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 341,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "النِّهَايَهْ",
+                "word_before": "النِّهَايَةِ"
+              }
+            ],
+            "manual_comma_override_count": 0,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-014-01",
+          "canonical_text_ar": "الأمر واضح. العدو معروف. والحد مرسوم. فكيف يدخل الانحراف إلى قلبٍ يعرف كل ذلك؟ لا يبدأ السقوط دائمًا بصوت مرتفع. أحيانًا يبدأ من معنى صغير يُعاد ترتيبه، ومن وعد يلبس ثوب النصيحة، ومن خطوة تبدو أبعد ما تكون عن النهاية.",
+          "diacritic_coverage": 0.975904,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 450,
+          "pause_before_ms": 350,
+          "speaker_key": "NARRATOR",
+          "text_ar": "الْأَمْرُ وَاضِحٌ. الْعَدُوُّ مَعْرُوفٌ. وَالْحَدُّ مَرْسُومٌ. فَكَيْفَ يَدْخُلُ الاِنْحِرَافُ إِلَى قَلْبٍ يَعْرِفُ كُلَّ ذَلِكَ؟ لَا يَبْدَأُ السُّقُوطُ دَائِمًا بِصَوْتٍ مُرْتَفِعٍ. أَحْيَانًا يَبْدَأُ مِنْ مَعْنًى صَغِيرٍ يُعَادُ تَرْتِيبُهُ، وَمِنْ وَعْدٍ يَلْبَسُ ثَوْبَ النَّصِيحَةِ، وَمِنْ خُطْوَةٍ تَبْدُو أَبْعَدَ مَا تَكُونُ عَنِ النِّهَايَةِ.",
+          "tts_text_ar": "الْأَمْرُ وَاضِحْ. الْعَدُوُّ مَعْرُوفْ. وَالْحَدُّ مَرْسُومْ. فَكَيْفَ يَدْخُلُ الاِنْحِرَافُ إِلَى قَلْبٍ يَعْرِفُ كُلَّ ذَلِكْ؟ لَا يَبْدَأُ السُّقُوطُ دَائِمًا بِصَوْتٍ مُرْتَفِعْ. أَحْيَانًا يَبْدَأُ مِنْ مَعْنًى صَغِيرٍ يُعَادُ تَرْتِيبُهُ، وَمِنْ وَعْدٍ يَلْبَسُ ثَوْبَ النَّصِيحَةِ، وَمِنْ خُطْوَةٍ تَبْدُو أَبْعَدَ مَا تَكُونُ عَنِ النِّهَايَهْ."
+        },
+        {
+          "actual_stop_waqf_v3": {
+            "actual_stop_count": 3,
+            "comma_default": "CONNECTED_READING",
+            "connected_comma_count": 3,
+            "connected_commas_preserved": [
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "ويبدأ باب آخر: الوسوسة، والزلة، والخروج... ثم الك",
+                "position": 73,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "التَّكْرِيمِ",
+                "word_plain": "التكريم"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "والزلة، والخروج... ثم الكلمة التي ستمنع السقوط م",
+                "position": 111,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "الْوَسْوَسَةُ",
+                "word_plain": "الوسوسة"
+              },
+              {
+                "decision": "CONNECTED_READING_PRESERVED",
+                "next_context_plain": "والخروج... ثم الكلمة التي ستمنع السقوط من أن يكو",
+                "position": 126,
+                "reason": "COMMA_IS_NOT_AN_ACTUAL_STOP_WITHOUT_EXPLICIT_PERFORMANCE_EVIDENCE",
+                "word": "وَالزَّلَّةُ",
+                "word_plain": "والزلة"
+              }
+            ],
+            "events": [
+              {
+                "confidence": "HIGH",
+                "end": 45,
+                "phonetic_substitution": null,
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 39,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "بَعْدْ",
+                "word_before": "بَعْدُ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 152,
+                "phonetic_substitution": null,
+                "punctuation": "...",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 140,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "وَالْخُرُوجْ",
+                "word_before": "وَالْخُرُوجُ"
+              },
+              {
+                "confidence": "HIGH",
+                "end": 257,
+                "phonetic_substitution": "TA_MARBUTA_TO_HAA_AT_WAQF",
+                "punctuation": ".",
+                "reason": "EXPLICIT_SENTENCE_OR_ELLIPSIS_STOP",
+                "start": 246,
+                "stop_type": "HARD_PUNCTUATION",
+                "word_after": "التَّوْبَهْ",
+                "word_before": "التَّوْبَةُ"
+              }
+            ],
+            "manual_comma_override_count": 0,
+            "release": "SIRAJ_ARABIC_ACTUAL_STOP_WAQF_V3",
+            "status": "LINGUISTICALLY_HARDENED_REVIEW_CANDIDATE",
+            "threshold_ms": 400
+          },
+          "block_id": "VB-014-02",
+          "canonical_text_ar": "لكن تلك الخطوة لم تقع بعد. هنا تنتهي حكاية التكريم، ويبدأ باب آخر: الوسوسة، والزلة، والخروج... ثم الكلمة التي ستمنع السقوط من أن يكون خاتمة الإنسان: التوبة.",
+          "diacritic_coverage": 0.966667,
+          "emotion": "MEASURED_AWE",
+          "emphasis_words": [],
+          "pace": "SLOW_DOCUMENTARY",
+          "pause_after_ms": 750,
+          "pause_before_ms": 200,
+          "speaker_key": "NARRATOR",
+          "text_ar": "لَكِنَّ تِلْكَ الْخُطْوَةَ لَمْ تَقَعْ بَعْدُ. هُنَا تَنْتَهِي حِكَايَةُ التَّكْرِيمِ، وَيَبْدَأُ بَابٌ آخَرُ: الْوَسْوَسَةُ، وَالزَّلَّةُ، وَالْخُرُوجُ... ثُمَّ الْكَلِمَةُ الَّتِي سَتَمْنَعُ السُّقُوطَ مِنْ أَنْ يَكُونَ خَاتِمَةَ الْإِنْسَانِ: التَّوْبَةُ.",
+          "tts_text_ar": "لَكِنَّ تِلْكَ الْخُطْوَةَ لَمْ تَقَعْ بَعْدْ. هُنَا تَنْتَهِي حِكَايَةُ التَّكْرِيمِ، وَيَبْدَأُ بَابٌ آخَرُ: الْوَسْوَسَةُ، وَالزَّلَّةُ، وَالْخُرُوجْ... ثُمَّ الْكَلِمَةُ الَّتِي سَتَمْنَعُ السُّقُوطَ مِنْ أَنْ يَكُونَ خَاتِمَةَ الْإِنْسَانِ: التَّوْبَهْ."
+        }
+      ],
+      "segment_id": "ADAM-SEQUENCE-14",
+      "source_sequence_id": "ADAM-SEQUENCE-14",
+      "title_ar": "قبل الهمس"
+    }
+  ],
+  "source_script_path": "projects/episode-001-adam/script/arabic-performance-source-v2.json",
+  "status": "PRODUCTION_STANDARD_V2_HUMAN_APPROVED",
+  "tts_execution_authorized": false,
+  "waqf_human_review_required": false
+}

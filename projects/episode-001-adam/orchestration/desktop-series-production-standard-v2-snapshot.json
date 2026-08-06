@@ -1,0 +1,35 @@
+{
+  "budget": {
+    "generated_video_hard_cap_usd": 35.0,
+    "generated_video_target_usd": 30.0,
+    "performance_block_count": 43,
+    "planned_generated_video_spend_usd": 29.514375,
+    "segment_count": 14,
+    "shot_count": 70,
+    "total_episode_hard_cap_usd": 40.0,
+    "tts_character_count_unicode": 11366,
+    "tts_reserve_usd": 3.0
+  },
+  "canonical_storyboard_path_relative": "cinematic/storyboard-and-media-plan-production-standard-v2.json",
+  "episode_id": "episode-001-adam",
+  "full_episode_production_authorized": false,
+  "narration": {
+    "blocks": 43,
+    "sample_audio_sha256": "e6a3e74cc6c3c1bd5588a10a9c77c7029a3abcf580d4cc48d8dca42adab35e07",
+    "status": "APPROVED_NO_NOTES"
+  },
+  "next_action_ar": "إنتاج الحلقة كاملة من جديد بعد التفويض المالي الموحد",
+  "quality_gate": {
+    "blocking_issue_count": 0,
+    "director_review_status": "PASS",
+    "release_policy": "FAIL_CLOSED"
+  },
+  "quality_mode": "GLOBAL_PRESTIGE_CINEMATIC",
+  "readiness_path_relative": "orchestration/series-production-standard-v2-readiness.json",
+  "release": "SIRAJ_SERIES_PRODUCTION_STANDARD_V2_COMPLETE",
+  "repair_release": "SIRAJ_SERIES_PRODUCTION_STANDARD_V2_CAMERA_AND_BUDGET_REPAIR",
+  "schema_version": "siraj-desktop-series-production-standard-v2-snapshot",
+  "standard_complete": true,
+  "standard_status": "READY_FOR_FULL_EPISODE_REBUILD_AUTHORIZATION",
+  "updated_at_utc": "2026-08-06T12:10:32.899160Z"
+}

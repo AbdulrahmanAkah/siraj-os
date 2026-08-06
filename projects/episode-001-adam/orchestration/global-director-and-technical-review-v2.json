@@ -1,0 +1,104 @@
+{
+  "blocking_issue_count": 0,
+  "budget_discovery": {
+    "planned_generated_video_spend_usd": 29.514375,
+    "source": "generated_video_budget.estimated_spend_usd"
+  },
+  "camera_plan_coverage": 1.0,
+  "canonical_storyboard_path_relative": "cinematic/storyboard-and-media-plan-production-standard-v2.json",
+  "checks": {
+    "audio": {
+      "approved_narration": "WAQF_V3",
+      "cross_block_voice_consistency": "BLOCKING",
+      "dialogue_intelligibility": "BLOCKING",
+      "integrated_lufs_target": -16.0,
+      "integrated_lufs_tolerance": 1.0,
+      "maximum_true_peak_dbtp": -1.0,
+      "maximum_unplanned_silence_seconds": 3.0,
+      "music": "FORBIDDEN",
+      "true_peak_target_dbtp": -1.5
+    },
+    "delivery": {
+      "audio_bitrate_kbps": 192,
+      "audio_channels": 2,
+      "audio_codec": "AAC",
+      "audio_sample_rate_hz": 48000,
+      "color_space": "BT709_LIMITED",
+      "frame_rate": 30,
+      "frame_rate_mode": "CONSTANT",
+      "pixel_format": "YUV420P",
+      "resolution": "1920x1080",
+      "video_codec": "H264_HIGH_LEVEL_4_1",
+      "youtube_upload": "MANUAL"
+    },
+    "narrative_and_direction": {
+      "brand_cue_seconds": 14.0,
+      "camera_language_coverage": 1.0,
+      "cold_open_before_brand": true,
+      "lens_grammar_per_sequence_required": true,
+      "no_repeated_near_identical_adjacent_shots": true,
+      "screen_direction_continuity_required": true,
+      "shot_count": 70,
+      "sound_metadata_coverage_before_derived_plan": 1.0,
+      "total_planned_duration_seconds": 1320.0,
+      "visual_motif_and_sequence_arc_required": true
+    },
+    "one_pass_quality_strategy": {
+      "assemble_only_after_all_assets_pass": true,
+      "automatic_paid_retry": "FORBIDDEN",
+      "final_release_gate": "FAIL_CLOSED",
+      "full_regeneration_for_local_defect": "FORBIDDEN",
+      "local_targeted_repair": "ALLOWED",
+      "preflight_before_every_paid_request": true,
+      "validate_each_asset_before_next_stage": true
+    },
+    "religious_and_historical_safety": {
+      "angel_and_unseen_literal_claim": "FORBIDDEN",
+      "divine_direct_visual_representation": "FORBIDDEN",
+      "evidence_traceability": "REQUIRED",
+      "prophet_direct_visual_representation": "FORBIDDEN",
+      "unseen_mode": "SYMBOLIC_NON_DEFINITIVE",
+      "unsupported_religious_detail": "FORBIDDEN"
+    },
+    "visual_integrity": {
+      "bt709_color_pipeline": true,
+      "continuity_reference_required_per_world_and_character": true,
+      "flat_slideshow": "FORBIDDEN",
+      "generated_video_for_required_motion": true,
+      "maximum_last_frame_extension_seconds": 1.25,
+      "maximum_still_panel_seconds": 7.0,
+      "no_black_filler": true,
+      "no_low_resolution_upscale_as_primary_asset": true,
+      "simple_zoom_only": "FORBIDDEN"
+    }
+  },
+  "claim": "THE_SYSTEM_CANNOT_GUARANTEE_THAT_A_GENERATIVE_PROVIDER_WILL_NEVER_PRODUCE_A_DEFECT;_IT_GUARANTEES_THAT_A_DETECTED_OR_UNVALIDATED_DEFECT_CANNOT_BE_LABELLED_READY_TO_PUBLISH",
+  "continuity_lock_coverage": 1.0,
+  "episode_id": "episode-001-adam",
+  "generated_video_planned_spend_usd": 29.514375,
+  "initial_blocking_issues": [
+    {
+      "code": "CAMERA_LANGUAGE_COVERAGE_LOW",
+      "detail": "coverage=0.000",
+      "scope": "DIRECTORIAL",
+      "severity": "BLOCKING"
+    }
+  ],
+  "issues": [],
+  "release": "SIRAJ_SERIES_PRODUCTION_STANDARD_V2_COMPLETE",
+  "repair_release": "SIRAJ_SERIES_PRODUCTION_STANDARD_V2_CAMERA_AND_BUDGET_REPAIR",
+  "resolved_initial_issue_count": 1,
+  "review_perspectives": [
+    "FEATURE_FILM_DIRECTOR",
+    "DOCUMENTARY_SHOWRUNNER",
+    "CINEMATOGRAPHER",
+    "EDITOR",
+    "SOUND_SUPERVISOR",
+    "COLOR_AND_DELIVERY_ENGINEER",
+    "RELIABILITY_AND_SAFETY_ENGINEER",
+    "COST_CONTROL_ENGINEER"
+  ],
+  "schema_version": "siraj-global-director-and-technical-review-v2",
+  "status": "PASS",
+  "warning_count": 0
+}

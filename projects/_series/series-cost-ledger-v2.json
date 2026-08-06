@@ -1,0 +1,47 @@
+{
+  "episodes": [
+    {
+      "actual_generated_video_spend_usd": 4.8,
+      "actual_paid_spend_usd": 7.3986,
+      "by_category_usd": {
+        "GENERATED_IMAGE": 2.1186,
+        "GENERATED_VIDEO": 4.8,
+        "LUNA": 0.0,
+        "OTHER": 0.48,
+        "TTS": 0.0
+      },
+      "duplicate_receipt_count": 0,
+      "episode_id": "episode-001-adam",
+      "generated_video_hard_cap_usd": 35.0,
+      "priced_receipt_count": 214,
+      "receipt_count": 234,
+      "total_hard_cap_usd": 40.0,
+      "unpriced_receipt_count": 20,
+      "within_known_actual_total_cap": true,
+      "within_known_actual_video_cap": true
+    }
+  ],
+  "generated_at_utc": "2026-08-06T12:10:32.884917Z",
+  "policy": {
+    "deduplication": "TASK_OR_REQUEST_ID_THEN_RECEIPT_PATH",
+    "generated_video_hard_cap_usd": 35.0,
+    "generated_video_target_usd": 30.0,
+    "hidden_paid_retry": "FORBIDDEN",
+    "non_video_media_reserve_usd": 2.0,
+    "rolling_episode_window": 5,
+    "rolling_generated_video_target_usd": 150.0,
+    "total_episode_hard_cap_usd": 40.0,
+    "tts_reserve_usd": 3.0
+  },
+  "release": "SIRAJ_SERIES_PRODUCTION_STANDARD_V2_COMPLETE",
+  "rolling_window": {
+    "actual_generated_video_spend_usd": 4.8,
+    "actual_paid_spend_usd": 7.3986,
+    "average_generated_video_spend_usd": 4.8,
+    "compliant_on_known_actual_costs": true,
+    "episode_count": 1,
+    "generated_video_target_usd": 30.0
+  },
+  "schema_version": "siraj-series-cost-ledger-v2",
+  "unpriced_receipt_policy": "VISIBLE_AND_NOT_ASSUMED_ZERO_FOR_AUTHORIZATION"
+}

@@ -1,0 +1,138 @@
+{
+  "audio": {
+    "causal_sound_effects": "ALLOWED",
+    "designed_silence": "ALLOWED_WHEN_MANIFESTED",
+    "environmental_ambience": "ALLOWED",
+    "integrated_lufs_target": -16.0,
+    "integrated_lufs_tolerance": 1.0,
+    "maximum_true_peak_dbtp": -1.0,
+    "maximum_unplanned_silence_seconds": 3.0,
+    "music": "FORBIDDEN",
+    "musical_score": "FORBIDDEN",
+    "narration": "ALLOWED",
+    "songs": "FORBIDDEN",
+    "true_peak_target_dbtp": -1.5
+  },
+  "autonomy": {
+    "automatic_local_chain": [
+      "SFX_AND_AUDIO_MIX",
+      "STRUCTURAL_MONTAGE",
+      "AUTOMATIC_QA",
+      "PUBLISH_PACKAGE"
+    ],
+    "elevenlabs_ambiguous_result_resubmission": "FORBIDDEN",
+    "full_episode_runs_after_one_consolidated_authorization": true,
+    "publish_without_final_human_acceptance": "FORBIDDEN",
+    "recover_runware_task_without_resubmission": true,
+    "resume_valid_receipts": true,
+    "sequential_locked_provider_requests": true
+  },
+  "budget": {
+    "automatic_paid_retry": "FORBIDDEN",
+    "generated_video_hard_cap_usd": 35.0,
+    "generated_video_target_usd": 30.0,
+    "hard_cap_override": "FORBIDDEN",
+    "hidden_paid_retry": "FORBIDDEN",
+    "non_video_media_reserve_usd": 2.0,
+    "preflight_before_each_paid_request": true,
+    "rolling_episode_window": 5,
+    "rolling_generated_video_target_usd": 150.0,
+    "single_consolidated_authorization": true,
+    "total_episode_hard_cap_usd": 40.0,
+    "tts_reserve_usd": 3.0
+  },
+  "delivery": {
+    "arabic_srt": "REQUIRED",
+    "audio": "AAC_48KHZ_STEREO_192KBPS",
+    "color": "BT709_LIMITED",
+    "frame_rate": 30,
+    "frame_rate_mode": "CONSTANT",
+    "master_resolution": "1920x1080",
+    "pixel_format": "YUV420P",
+    "video_codec": "H264_HIGH_LEVEL_4_1",
+    "youtube_metadata_package": "REQUIRED",
+    "youtube_upload": "MANUAL"
+  },
+  "editorial": {
+    "dramatic_arc_per_episode": "REQUIRED",
+    "dramatic_function_per_sequence": "REQUIRED",
+    "evidence_before_script": true,
+    "exact_claim_strength_preserved": true,
+    "human_final_review_gate": "REQUIRED",
+    "human_scope_gate": "REQUIRED",
+    "invented_historical_dialogue": "FORBIDDEN",
+    "research_meta_language_in_narration": "FORBIDDEN",
+    "visual_beat_per_shot": "REQUIRED"
+  },
+  "identity": {
+    "animation_or_cartoon_default": "FORBIDDEN",
+    "channel": "سراج",
+    "format": "PRESTIGE_HISTORICAL_CINEMATIC_SERIES",
+    "photoreal_cinematic_default": true,
+    "presentation_style": "CINEMATIC_STORYTELLING_NOT_DRY_LECTURE",
+    "quality_target": "GLOBAL_PRESTIGE_CINEMATIC"
+  },
+  "narration": {
+    "actual_stop_waqf": true,
+    "allowed_words_per_minute": [
+      100,
+      128
+    ],
+    "approved_voice_id": "XdoLPWNt7ytn6BtU4FBf",
+    "block_level_audio_receipts": "REQUIRED",
+    "comma_default": "CONNECTED_READING",
+    "fully_diacritized": true,
+    "model_id": "eleven_multilingual_v2",
+    "short_sample_before_full_episode": "REQUIRED",
+    "target_words_per_minute": 116,
+    "voice_settings": {
+      "similarity_boost": 0.75,
+      "stability": 0.38,
+      "style": 0.42,
+      "use_speaker_boost": true
+    }
+  },
+  "qa": {
+    "arabic_language_and_typography": "BLOCKING",
+    "asset_hash_and_receipt_integrity": "BLOCKING",
+    "audio_loudness_and_true_peak": "BLOCKING",
+    "black_freeze_silence": "BLOCKING",
+    "budget_hard_cap": "BLOCKING",
+    "cheap_montage_risk": "BLOCKING",
+    "decode_and_duration": "BLOCKING",
+    "final_master_full_watch": "REQUIRED",
+    "release_policy": "FAIL_CLOSED",
+    "religious_safety": "BLOCKING",
+    "resolution_fps_pixel_format": "BLOCKING",
+    "world_continuity": "BLOCKING"
+  },
+  "release": "SIRAJ_SERIES_PRODUCTION_STANDARD_V2_COMPLETE",
+  "schema_version": "siraj-series-production-standard-v2-complete",
+  "status": "ACTIVE_IMMUTABLE_BASELINE",
+  "unseen_and_religious": {
+    "divine_representation": "FORBIDDEN",
+    "earthlike_unseen_default": "FORBIDDEN",
+    "historical_and_sharia_review": "REQUIRED",
+    "literal_unseen_claim": "FORBIDDEN",
+    "prophet_face_or_direct_features": "FORBIDDEN",
+    "unseen_visual_mode": "SYMBOLIC_NON_DEFINITIVE",
+    "unsupported_religious_detail": "FORBIDDEN"
+  },
+  "visual": {
+    "black_filler": "FORBIDDEN",
+    "brand_cue_maximum_seconds": 3.0,
+    "cheap_duration_stretch": "FORBIDDEN",
+    "continuity_bible_per_episode": "REQUIRED",
+    "flat_slideshow": "FORBIDDEN",
+    "frozen_filler": "FORBIDDEN",
+    "maximum_last_frame_extension_seconds": 1.25,
+    "maximum_still_panel_seconds": 7.0,
+    "simple_zoom_only": "FORBIDDEN",
+    "still_usage": "LIMITED_INTENTIONAL_MULTI_PANEL",
+    "title_after_cold_open_seconds": [
+      10.0,
+      20.0
+    ],
+    "video_first_when_motion_is_required": true
+  }
+}
