@@ -2263,3 +2263,15 @@ SIRAJ ELEVENLABS KEY VALIDATION AND RECOVERY V1 — 2026-08-06
 ✓ عدم إرسال أي طلب إلى ElevenLabs أثناء الاستعادة.
 
 NEXT_STAGE=CONFIGURE_VALID_ELEVENLABS_KEY_AND_RESUME_EPISODE_001
+
+============================================================
+SIRAJ MONTAGE PIXEL FORMAT NORMALIZATION AND RECOVERY V1 — 2026-08-06
+============================================================
+
+✓ تثبيت إخراج المونتاج على H.264 High / yuv420p / BT.709 limited.
+✓ فحص Pixel Format بعد كل لقطة وإجراء تطبيع محلي عند الحاجة.
+✓ أرشفة ملف rendering غير المتوافق واستئناف المونتاج من أول لقطة ناقصة.
+✓ الحفاظ على جميع الوسائط المدفوعة والإيصالات واللقطات المكتملة.
+✓ عدم إرسال أي طلب إلى Runware أو ElevenLabs أثناء الإصلاح.
+
+NEXT_STAGE=RESUME_EPISODE_001_STRUCTURAL_MONTAGE

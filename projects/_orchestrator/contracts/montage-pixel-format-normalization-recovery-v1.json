@@ -1,0 +1,19 @@
+{
+  "schema_version": "siraj-montage-pixel-format-normalization-recovery-v1",
+  "release": "SIRAJ_MONTAGE_PIXEL_FORMAT_NORMALIZATION_AND_RECOVERY_V1",
+  "required_video_profile": {
+    "codec": "h264",
+    "profile": "high",
+    "level": "4.1",
+    "pixel_format": "yuv420p",
+    "color_range": "tv",
+    "colorspace": "bt709",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30
+  },
+  "fallback_normalization": "ONE_LOCAL_PASS_BEFORE_FAILURE",
+  "paid_provider_requests_during_recovery": 0,
+  "completed_paid_media": "PRESERVED",
+  "automatic_paid_retry": "FORBIDDEN"
+}

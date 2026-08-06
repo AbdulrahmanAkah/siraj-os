@@ -44,6 +44,10 @@ HEIGHT = 1080
 FPS = 30
 VIDEO_CODEC = "libx264"
 PIXEL_FORMAT = "yuv420p"
+H264_PROFILE = "high"
+H264_LEVEL = "4.1"
+COLOR_RANGE = "tv"
+COLOR_SPACE = "bt709"
 SHOT_CRF = 17
 SHOT_PRESET = "medium"
 AUDIO_CODEC = "aac"
@@ -478,6 +482,9 @@ def _validate_video_file(
         "duration_seconds": duration,
         "video_codec": video.get("codec_name"),
         "audio_codec": audios[0].get("codec_name") if audios else None,
+        "pixel_format": video.get("pix_fmt"),
+        "color_range": video.get("color_range"),
+        "colorspace": video.get("color_space"),
         "fps": fps,
         "width": WIDTH,
         "height": HEIGHT,
@@ -575,7 +582,8 @@ def build_still_render_command(
         "eq=contrast=1.035:saturation=0.97:gamma=0.995,"
         "vignette=PI/5"
         + fades
-        + f",format={PIXEL_FORMAT}[outv]"
+        + f",scale=iw:ih:in_range=auto:out_range={COLOR_RANGE},"
+        + f"format={PIXEL_FORMAT}[outv]"
     )
     return [
         str(environment.ffmpeg_path),
@@ -600,12 +608,24 @@ def build_still_render_command(
         str(FPS),
         "-c:v",
         VIDEO_CODEC,
+        "-profile:v",
+        H264_PROFILE,
+        "-level:v",
+        H264_LEVEL,
         "-preset",
         SHOT_PRESET,
         "-crf",
         str(SHOT_CRF),
         "-pix_fmt",
         PIXEL_FORMAT,
+        "-color_range",
+        COLOR_RANGE,
+        "-colorspace",
+        COLOR_SPACE,
+        "-color_primaries",
+        COLOR_SPACE,
+        "-color_trc",
+        COLOR_SPACE,
         "-g",
         str(FPS * 2),
         "-keyint_min",
@@ -642,7 +662,8 @@ def build_motion_render_command(
         f"trim=duration={duration:.6f},setpts=PTS-STARTPTS"
         + grade
         + fades
-        + f",format={PIXEL_FORMAT}[outv]"
+        + f",scale=iw:ih:in_range=auto:out_range={COLOR_RANGE},"
+        + f"format={PIXEL_FORMAT}[outv]"
     )
     return [
         str(environment.ffmpeg_path),
@@ -663,12 +684,24 @@ def build_motion_render_command(
         str(FPS),
         "-c:v",
         VIDEO_CODEC,
+        "-profile:v",
+        H264_PROFILE,
+        "-level:v",
+        H264_LEVEL,
         "-preset",
         SHOT_PRESET,
         "-crf",
         str(SHOT_CRF),
         "-pix_fmt",
         PIXEL_FORMAT,
+        "-color_range",
+        COLOR_RANGE,
+        "-colorspace",
+        COLOR_SPACE,
+        "-color_primaries",
+        COLOR_SPACE,
+        "-color_trc",
+        COLOR_SPACE,
         "-g",
         str(FPS * 2),
         "-keyint_min",
@@ -679,6 +712,134 @@ def build_motion_render_command(
         "+faststart",
         str(output_path),
     ]
+
+
+def _video_pixel_format(
+    environment: MontageEnvironment,
+    path: Path,
+) -> str:
+    payload = _probe_json(environment, path)
+    videos = [
+        stream
+        for stream in _sequence(payload.get("streams"))
+        if isinstance(stream, Mapping)
+        and stream.get("codec_type") == "video"
+    ]
+    if len(videos) != 1:
+        raise StructuralMontageError(
+            f"VIDEO_STREAM_COUNT_INVALID:{path}:{len(videos)}"
+        )
+    return str(videos[0].get("pix_fmt", "")).strip()
+
+
+def build_pixel_format_normalize_command(
+    environment: MontageEnvironment,
+    source_path: Path,
+    output_path: Path,
+    *,
+    duration: float,
+) -> list[str]:
+    if environment.ffmpeg_path is None:
+        raise StructuralMontageError("FFMPEG_NOT_AVAILABLE")
+    filter_graph = (
+        f"fps={FPS},scale={WIDTH}:{HEIGHT}:"
+        f"in_range=auto:out_range={COLOR_RANGE},"
+        f"trim=duration={duration:.6f},setpts=PTS-STARTPTS,"
+        f"format={PIXEL_FORMAT}"
+    )
+    return [
+        str(environment.ffmpeg_path),
+        "-hide_banner",
+        "-loglevel",
+        "error",
+        "-y",
+        "-i",
+        str(source_path),
+        "-map",
+        "0:v:0",
+        "-vf",
+        filter_graph,
+        "-t",
+        f"{duration:.6f}",
+        "-an",
+        "-r",
+        str(FPS),
+        "-c:v",
+        VIDEO_CODEC,
+        "-profile:v",
+        H264_PROFILE,
+        "-level:v",
+        H264_LEVEL,
+        "-preset",
+        SHOT_PRESET,
+        "-crf",
+        str(SHOT_CRF),
+        "-pix_fmt",
+        PIXEL_FORMAT,
+        "-color_range",
+        COLOR_RANGE,
+        "-colorspace",
+        COLOR_SPACE,
+        "-color_primaries",
+        COLOR_SPACE,
+        "-color_trc",
+        COLOR_SPACE,
+        "-g",
+        str(FPS * 2),
+        "-keyint_min",
+        str(FPS * 2),
+        "-sc_threshold",
+        "0",
+        "-movflags",
+        "+faststart",
+        str(output_path),
+    ]
+
+
+def _normalize_video_pixel_format_if_needed(
+    environment: MontageEnvironment,
+    path: Path,
+    expected_duration: float,
+) -> dict[str, Any]:
+    detected = _video_pixel_format(environment, path)
+    if detected == PIXEL_FORMAT:
+        return {
+            "applied": False,
+            "input_pixel_format": detected,
+            "output_pixel_format": detected,
+        }
+    normalized = path.with_name(path.stem + ".pixel-normalized.mp4")
+    normalized.unlink(missing_ok=True)
+    command = build_pixel_format_normalize_command(
+        environment,
+        path,
+        normalized,
+        duration=expected_duration,
+    )
+    try:
+        _command(command)
+        validation = _validate_video_file(
+            environment,
+            normalized,
+            expected_duration,
+            require_audio=False,
+            tolerance=DURATION_TOLERANCE_SECONDS,
+        )
+        output_format = _video_pixel_format(environment, normalized)
+        if output_format != PIXEL_FORMAT:
+            raise StructuralMontageError(
+                "VIDEO_PIXEL_FORMAT_NORMALIZATION_FAILED:"
+                f"input={detected}:output={output_format}:path={path}"
+            )
+        os.replace(normalized, path)
+    finally:
+        normalized.unlink(missing_ok=True)
+    return {
+        "applied": True,
+        "input_pixel_format": detected,
+        "output_pixel_format": PIXEL_FORMAT,
+        "validation": validation,
+    }
 
 
 def _sequence_boundaries(shots: Sequence[Mapping[str, Any]]) -> dict[str, tuple[bool, bool]]:
@@ -978,6 +1139,11 @@ def _render_shot(
             graphics=treatment == "GRAPHICS",
         )
     _command(command)
+    pixel_format_normalization = _normalize_video_pixel_format_if_needed(
+        environment,
+        temporary,
+        duration,
+    )
     validation = _validate_video_file(
         environment,
         temporary,
@@ -1010,6 +1176,7 @@ def _render_shot(
         "output_bytes": output_path.stat().st_size,
         "duration_seconds": duration,
         "validation": validation,
+        "pixel_format_normalization": pixel_format_normalization,
         "paid_provider_requests": 0,
         "completed_at_utc": _now(),
     }
