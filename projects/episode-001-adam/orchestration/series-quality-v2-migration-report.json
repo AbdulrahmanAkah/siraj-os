@@ -11,19 +11,17 @@
   },
   "episode_id": "episode-001-adam",
   "existing_material_gate": {
-    "blocking_issue_count": 1,
+    "blocking_issue_count": 0,
     "generated_video_spend_usd": 0.0,
-    "issues": [
-      {
-        "code": "ARABIC_PERFORMANCE_SCRIPT_INVALID",
-        "detail": "PERFORMANCE_BLOCKS_REQUIRED:1",
-        "scope": "AUDIO",
-        "severity": "BLOCKING"
-      }
-    ],
-    "performance_metrics": null,
+    "issues": [],
+    "performance_metrics": {
+      "performance_block_count": 43,
+      "planned_narration_seconds": 711.319,
+      "planned_words_per_minute": 110.415,
+      "word_count": 1309
+    },
     "schema_version": "siraj-production-quality-gate-v2",
-    "status": "BLOCKED"
+    "status": "PASS"
   },
   "release": "SIRAJ_SERIES_PRODUCTION_QUALITY_V2",
   "required_next_actions": [

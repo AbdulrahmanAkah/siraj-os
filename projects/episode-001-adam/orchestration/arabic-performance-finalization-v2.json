@@ -1,0 +1,31 @@
+{
+  "approval_path": "projects/episode-001-adam/evidence/arabic-performance-human-approval-v2.json",
+  "episode_id": "episode-001-adam",
+  "final_script_path": "projects/episode-001-adam/script/episode-script-v2.json",
+  "human_approval": {
+    "approval_source": "USER_REVIEWED_IN_CHAT",
+    "approved_at_local": "2026-08-06T07:42:22.291373+03:00",
+    "approved_source_sha256": "bf97395a033d2a51f4a420e70e7e7a8263b113d3de7b93123f0154385abf2973",
+    "decision": "APPROVE_FULL_DIACRITIZATION_AND_PERFORMANCE_PLAN",
+    "episode_id": "episode-001-adam",
+    "paid_execution_authorized": false,
+    "performance_block_count": 43,
+    "schema_version": "siraj-arabic-performance-human-approval-v2",
+    "segment_count": 14,
+    "status": "HUMAN_APPROVED",
+    "tts_execution_authorized": false
+  },
+  "metrics": {
+    "performance_block_count": 43,
+    "planned_narration_seconds": 711.319,
+    "planned_words_per_minute": 110.415,
+    "word_count": 1309
+  },
+  "next_stage": "TTS_PREFLIGHT_AND_SHORT_SAMPLE_GENERATION",
+  "paid_execution_authorized": false,
+  "release": "SIRAJ_ADAM_APPROVED_ARABIC_PERFORMANCE_V2",
+  "schema_version": "siraj-arabic-performance-finalization-v2",
+  "source_path": "projects/episode-001-adam/script/arabic-performance-source-v2.json",
+  "status": "PASS_READY_FOR_TTS_PREFLIGHT",
+  "tts_execution_authorized": false
+}

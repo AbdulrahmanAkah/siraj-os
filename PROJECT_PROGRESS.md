@@ -2351,3 +2351,21 @@ Scope:
 - عدم إرسال أي طلب فيديو أو صوت مدفوع.
 
 NEXT_STAGE=UPLOAD_ARABIC_PERFORMANCE_SOURCE_FOR_FULL_DIACRITIZATION
+
+========================================================
+ADAM APPROVED ARABIC PERFORMANCE V2 — 2026-08-06
+========================================================
+
+Status:
+HUMAN_APPROVED_AND_AUDIO_GATE_PASS
+
+Scope:
+
+- إصلاح دالة قياس التشكيل بعد فشل توليد سابق.
+- تثبيت النص العربي المشكول الذي راجعه المستخدم واعتمده.
+- تعبئة 43 كتلة أداء ضمن 14 تسلسلًا.
+- إنشاء episode-script-v2.json وإيصال الموافقة البشرية.
+- تشغيل بوابة الجودة واختبارات V2 المستهدفة.
+- عدم إرسال النص إلى TTS وعدم تنفيذ أي طلب مدفوع.
+
+NEXT_STAGE=TTS_PREFLIGHT_AND_SHORT_SAMPLE_GENERATION

@@ -257,16 +257,36 @@ def rolling_budget_snapshot(records: Iterable[EpisodeVideoSpend]) -> RollingBudg
 
 
 def diacritic_coverage(text: str) -> float:
+    """Measure linguistic vocalization coverage.
+
+    Long-vowel letters and orthographic carriers do not require independent
+    short-vowel marks. A final consonant at a pause boundary may be realized
+    by waqf without a case ending.
+    """
     letters = list(_ARABIC_LETTER.finditer(text))
     if not letters:
         return 1.0
+
+    orthographic_letters = set("اويىءؤئإآأٱة")
+    pause_boundaries = set(" \t\r\n،؛:.!؟…﴾)]}")
     covered = 0
+
     for match in letters:
+        character = match.group(0)
         index = match.end()
+
         if index < len(text) and _ARABIC_DIACRITIC.match(text[index]):
             covered += 1
-    return covered / len(letters)
+            continue
 
+        if character in orthographic_letters:
+            covered += 1
+            continue
+
+        if index >= len(text) or text[index] in pause_boundaries:
+            covered += 1
+
+    return covered / len(letters)
 
 def assert_tts_text_ready(
     text: str,
