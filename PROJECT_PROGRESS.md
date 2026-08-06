@@ -2569,3 +2569,20 @@ READY_FOR_EXPLICIT_LUNA_RETRY_AUTHORIZATION
 - No provider or paid request was sent during this repair.
 
 NEXT_STAGE=EXPLICIT_ONE_REQUEST_LUNA_RETRY_AUTHORIZATION
+
+========================================================
+EXPLICIT LUNA INVALID OUTPUT RETRY V2 — 2026-08-06
+========================================================
+
+Status:
+READY_FOR_EXPLICIT_DESKTOP_RETRY_AUTHORIZATION
+
+- The invalid Luna batch remains locked until confirmation.
+- One replacement request has a supplemental 0.05 USD maximum.
+- Effective protective maximum is 34.914375 USD.
+- Failed lock is archived before the replacement request.
+- Supplemental authorization is consumed before network activity.
+- No second automatic or hidden retry is possible.
+- Installation performs zero provider and paid requests.
+
+NEXT_STAGE=CLICK_EXPLICIT_LUNA_RETRY_AND_CONTINUE

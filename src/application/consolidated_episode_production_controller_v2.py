@@ -711,3 +711,163 @@ def run_consolidated_production_to_human_gate(
         authorization_path=authorization_path,
         controller_state_path=state_path,
     )
+
+# SIRAJ_EXPLICIT_LUNA_INVALID_OUTPUT_RETRY_V2
+from dataclasses import replace as _siraj_retry_replace
+from src.application.luna_invalid_output_recovery_v2 import (
+    SUPPLEMENTAL_MAXIMUM_USD as _SIRAJ_LUNA_RETRY_MAXIMUM_USD,
+    create_explicit_retry_authorization as _siraj_create_retry_authorization,
+    execute_authorized_batch_with_explicit_retry as execute_authorized_batch,
+    inspect_invalid_luna_retry as _siraj_inspect_invalid_luna_retry,
+)
+
+
+_siraj_base_inspect_consolidated_plan = (
+    inspect_consolidated_production_plan
+)
+_siraj_base_record_consolidated_authorization = (
+    _record_authorization
+)
+
+
+def inspect_consolidated_production_plan(
+    repo_root: Path,
+) -> ConsolidatedProductionPlan:
+    plan = _siraj_base_inspect_consolidated_plan(
+        repo_root
+    )
+    inspection = _siraj_inspect_invalid_luna_retry(
+        repo_root,
+        EPISODE_ID,
+    )
+    if inspection.get("manual_review_required") is True:
+        raise ConsolidatedProductionError(
+            "LUNA_EXPLICIT_RETRY_ALREADY_CONSUMED_"
+            "MANUAL_REVIEW_REQUIRED"
+        )
+    if inspection.get("retry_required") is not True:
+        return plan
+
+    revised_maximum = round(
+        plan.maximum_authorized_usd
+        + _SIRAJ_LUNA_RETRY_MAXIMUM_USD,
+        6,
+    )
+    if revised_maximum > plan.episode_hard_cap_usd:
+        raise ConsolidatedProductionError(
+            "LUNA_EXPLICIT_RETRY_WOULD_EXCEED_HARD_CAP"
+        )
+
+    revised = _siraj_retry_replace(
+        plan,
+        status=(
+            "READY_FOR_EXPLICIT_LUNA_RETRY_AND_"
+            "FULL_EPISODE_AUTHORIZATION"
+        ),
+        prompt_status=(
+            "EXPLICIT_LUNA_RETRY_REQUIRED:"
+            + str(inspection.get("batch_id") or "")
+        ),
+        maximum_authorized_usd=revised_maximum,
+        next_stage=(
+            "EXPLICIT_LUNA_RETRY_AND_FULL_EPISODE_AUTHORIZATION"
+        ),
+    )
+    _write(
+        Path(repo_root).resolve() / CONTROLLER_PLAN_REL,
+        {
+            "schema_version": SCHEMA_VERSION,
+            "release": RELEASE,
+            **revised.as_dict(),
+            "supplemental_luna_retry": inspection,
+            "automatic_paid_retry": "FORBIDDEN",
+            "hidden_paid_retry": "FORBIDDEN",
+            "updated_at_utc": _now(),
+        },
+    )
+    _update_desktop_snapshot(
+        Path(repo_root).resolve(),
+        revised,
+    )
+    return revised
+
+
+def _record_authorization(
+    repo: Path,
+    plan: ConsolidatedProductionPlan,
+    confirmed_maximum_usd: float,
+) -> Path:
+    inspection = _siraj_inspect_invalid_luna_retry(
+        repo,
+        EPISODE_ID,
+    )
+    if inspection.get("retry_required") is not True:
+        return _siraj_base_record_consolidated_authorization(
+            repo,
+            plan,
+            confirmed_maximum_usd,
+        )
+
+    expected = round(
+        CONSOLIDATED_MAXIMUM_USD
+        + _SIRAJ_LUNA_RETRY_MAXIMUM_USD,
+        6,
+    )
+    if abs(
+        float(confirmed_maximum_usd) - expected
+    ) > 1e-6:
+        raise ConsolidatedProductionError(
+            "LUNA_RETRY_TOTAL_AUTHORIZATION_MISMATCH:"
+            f"expected={expected:.6f}:"
+            f"confirmed={float(confirmed_maximum_usd):.6f}"
+        )
+
+    main_path = repo / AUTHORIZATION_REL
+    if main_path.is_file():
+        main = _read(main_path)
+        if (
+            str(main.get("status") or "") != "ACTIVE"
+            or abs(
+                float(
+                    main.get(
+                        "maximum_authorized_usd",
+                        -1.0,
+                    )
+                )
+                - CONSOLIDATED_MAXIMUM_USD
+            )
+            > 1e-6
+        ):
+            raise ConsolidatedProductionError(
+                "ORIGINAL_CONSOLIDATED_AUTHORIZATION_INVALID"
+            )
+    else:
+        base_plan = _siraj_retry_replace(
+            plan,
+            maximum_authorized_usd=(
+                CONSOLIDATED_MAXIMUM_USD
+            ),
+        )
+        main_path = (
+            _siraj_base_record_consolidated_authorization(
+                repo,
+                base_plan,
+                CONSOLIDATED_MAXIMUM_USD,
+            )
+        )
+
+    _siraj_create_retry_authorization(
+        repo,
+        episode_id=EPISODE_ID,
+        batch_id=str(
+            inspection.get("batch_id") or ""
+        ),
+        confirmed_supplemental_usd=(
+            _SIRAJ_LUNA_RETRY_MAXIMUM_USD
+        ),
+        effective_consolidated_maximum_usd=expected,
+        episode_hard_cap_usd=(
+            TOTAL_EPISODE_HARD_CAP_USD
+        ),
+    )
+    return main_path

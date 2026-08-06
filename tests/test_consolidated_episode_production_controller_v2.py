@@ -29,7 +29,14 @@ def test_real_repository_plan_is_ready() -> None:
     assert plan.prompt_batch_count == 7
     assert plan.tts_block_count == 43
     assert plan.full_episode_production_authorized is False
-    assert plan.maximum_authorized_usd == 34.864375
+    assert plan.maximum_authorized_usd in {
+        34.864375,
+        34.914375,
+    }
+    if "RETRY" in plan.status:
+        assert plan.maximum_authorized_usd == 34.914375
+    else:
+        assert plan.maximum_authorized_usd == 34.864375
 
 
 def test_runtime_requires_all_provider_keys_and_forbids_hidden_retry() -> None:

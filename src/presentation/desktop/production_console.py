@@ -835,6 +835,16 @@ class ProductionConsoleDialog(QDialog):
             self.consolidated_v2_button.setEnabled(False)
             return
         self._consolidated_v2_plan = plan
+        if plan.prompt_status.startswith(
+            "EXPLICIT_LUNA_RETRY_REQUIRED"
+        ):
+            self.consolidated_v2_button.setText(
+                "تفويض إعادة محاولة Luna واحدة واستكمال الحلقة"
+            )
+        else:
+            self.consolidated_v2_button.setText(
+                "تفويض موحد وبدء إنتاج الحلقة كاملة"
+            )
         self.consolidated_v2_status.setText(
             "المعيار: "
             + plan.standard_status
@@ -922,6 +932,10 @@ class ProductionConsoleDialog(QDialog):
             + f"{plan.tts_reserve_usd:.2f}"
             + "\nوسائط أخرى: $"
             + f"{plan.other_media_reserve_usd:.2f}"
+            + ("\nإعادة محاولة Luna الصريحة: $0.05"
+               if plan.prompt_status.startswith(
+                   "EXPLICIT_LUNA_RETRY_REQUIRED"
+               ) else "")
             + "\n\nالسقف الموحد المصرح به: $"
             + f"{plan.maximum_authorized_usd:.6f}"
             + "\nالحد الصارم للحلقة: $"
