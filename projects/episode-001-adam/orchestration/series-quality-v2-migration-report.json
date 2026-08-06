@@ -11,19 +11,13 @@
   },
   "episode_id": "episode-001-adam",
   "existing_material_gate": {
-    "blocking_issue_count": 2,
+    "blocking_issue_count": 1,
     "generated_video_spend_usd": 0.0,
     "issues": [
       {
         "code": "ARABIC_PERFORMANCE_SCRIPT_INVALID",
         "detail": "PERFORMANCE_BLOCKS_REQUIRED:1",
         "scope": "AUDIO",
-        "severity": "BLOCKING"
-      },
-      {
-        "code": "MOTION_REQUIRED_BUT_NOT_VIDEO",
-        "detail": "MOTION_REQUIRED_BUT_NOT_VIDEO",
-        "scope": "SH-023",
         "severity": "BLOCKING"
       }
     ],
