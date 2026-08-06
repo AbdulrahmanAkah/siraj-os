@@ -2459,3 +2459,20 @@ Scope:
 - تنفيذ صفر طلبات مزود وصفر طلبات مدفوعة.
 
 NEXT_STAGE=HUMAN_WAQF_V3_REVIEW_AND_SECOND_SAMPLE_AUTHORIZATION
+
+========================================================
+ADAM AUTHORIZED WAQF V3 SAMPLE — 2026-08-06
+========================================================
+
+Status:
+ONE_WAQF_V3_SAMPLE_GENERATED_AWAITING_HUMAN_REVIEW
+
+Scope:
+
+- تسجيل التفويض الصريح لمحاولة ElevenLabs واحدة فقط.
+- قفل نص الوقف V3 والصوت والنموذج وسقف 0.07 USD.
+- منع إعادة المحاولة التلقائية أو الخفية.
+- توليد عينة VB-001-01 المصححة وحفظ الإيصال والبصمة.
+- إبقاء توليد الحلقة الكاملة غير مصرح به.
+
+NEXT_STAGE=HUMAN_WAQF_V3_SAMPLE_REVIEW
