@@ -1,0 +1,62 @@
+{
+  "animation_style": "TIMELINE_PROGRESS",
+  "background": {
+    "image_url": "",
+    "mode": "GRADIENT",
+    "overlay_opacity": 0.82
+  },
+  "design": {
+    "accent_hex": "#C6A15B",
+    "background_hex": "#151414",
+    "font_family": "Noto Naskh Arabic",
+    "foreground_hex": "#F1E7D0",
+    "safe_margin_px": 108
+  },
+  "duration_seconds": 10.0,
+  "graphic_id": "GFX-06",
+  "graphic_type": "ANIMATED_TIMELINE",
+  "items": [
+    {
+      "item_id": "GI-01",
+      "label_ar": "إغلاق الحلقة على باب لا على هاوية",
+      "parent_item_id": "",
+      "secondary_ar": "",
+      "source_ids": [
+        "SRC-014"
+      ],
+      "value_ar": "",
+      "x": 0.5,
+      "y": 0.5
+    }
+  ],
+  "luna_art_direction": {
+    "art_direction_ar": "بطاقة ختامية محلية نظيفة؛ العنوان ورقم الحلقة التالية فقط، مع انطفاء تدريجي لا مادة مولدة أو تشغيل إضافي.",
+    "cinematic_blueprint": {
+      "action": "Create a 10-second local title card. Reveal the exact Arabic title «الوسوسة، الزلة، والتوبة» and the next episode number as stable editorial typography over controlled black. Hold the title clearly, then fade the antique-gold illumination slowly to black without introducing any preview, footage, or generated material.",
+      "atmosphere": "Solemn closure that opens continuity toward the next episode; minimal, calm, and precise.",
+      "camera": "No photographic camera movement. Use a fixed full-frame graphic layout with a restrained optical-depth illusion only if needed; no zoom, orbit, parallax template, or simulated handheld motion.",
+      "color_palette": "Antique gold typography and accents on deep charcoal-black, with extremely restrained warm parchment undertones.",
+      "composition": "Centered Arabic title as the sole focal point, with the next-episode number placed beneath it at smaller scale and aligned cleanly; generous negative space and balanced right-to-left reading order.",
+      "continuity": "Match SEQ-14 palette, frame-right light direction, scale restraint, material language, and right-to-left series identity. This is a local graphic card and must remain separate from generated scene content.",
+      "environment": "Pure editorial black field with subtle controlled grain or matte texture; no landscape, character, creature, sacred representation, or literal unseen space.",
+      "lens": "Not applicable to local graphics; fixed designed typography plane with no photographic lens simulation.",
+      "lighting": "A soft antique-gold illumination enters from frame right, stabilizes behind the title, then fades gradually to black; no flare, glow excess, or visible light source.",
+      "materials": "Matte charcoal-black field, restrained antique-gold type, minimal warm parchment accent, and clean high-contrast compositing.",
+      "safety": "Title card only. Do not depict Allah, prophets, angels, Iblis, unseen beings, faces, bodies, creatures, sacred scenes, literal supernatural forms, modern objects, logos, watermarks, subtitles, preview footage, or generated text. The Arabic title and episode number must be manually typeset, exact, stable, and legible.",
+      "subject": "The exact next-episode title «الوسوسة، الزلة، والتوبة» and the next episode number, with no additional content.",
+      "temporal_motion": "0–2s: fade in the title and number from black. 2–7s: hold them steadily for clear reading. 7–10s: fade the antique-gold light and typography slowly to black; no extra clip, animation, or material appears."
+    },
+    "luna_response_id": "resp_0f51a12160f92d4f016a74d467df5881a2bfa4fc16cc925bec",
+    "prompt_id": "PROMPT-070",
+    "status": "PASS"
+  },
+  "music": "FORBIDDEN",
+  "schema_version": "siraj-local-graphics-spec-v1",
+  "shot_id": "SH-070",
+  "sound_policy": "SFX_ONLY_NO_MUSIC",
+  "source_ids": [
+    "SRC-014"
+  ],
+  "subtitle_ar": "بطاقة ختامية محلية نظيفة؛ العنوان ورقم الحلقة التالية فقط، مع انطفاء تدريجي لا مادة مولدة أو تشغيل إضافي.",
+  "title_ar": "إغلاق الحلقة على باب لا على هاوية"
+}

@@ -74,6 +74,9 @@ PROTECTED_EXACT = {
     Path("src/application/consolidated_episode_production_controller_v2.py"),
     Path("src/application/luna_cinematic_prompt_director_v2.py"),
     Path("src/application/luna_invalid_output_recovery_v2.py"),
+    Path("src/application/production_standard_v2_native_assets.py"),
+    Path("src/application/production_standard_v2_runtime.py"),
+    Path("src/application/production_pipeline_certification_gate_v1.py"),
 }
 PROTECTED_PARTS = {
     ".git",

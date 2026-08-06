@@ -1,0 +1,62 @@
+{
+  "animation_style": "SIDE_BY_SIDE_REVEAL",
+  "background": {
+    "image_url": "",
+    "mode": "GRADIENT",
+    "overlay_opacity": 0.82
+  },
+  "design": {
+    "accent_hex": "#C6A15B",
+    "background_hex": "#151414",
+    "font_family": "Noto Naskh Arabic",
+    "foreground_hex": "#F1E7D0",
+    "safe_margin_px": 108
+  },
+  "duration_seconds": 26.0,
+  "graphic_id": "GFX-04",
+  "graphic_type": "COMPARISON",
+  "items": [
+    {
+      "item_id": "GI-01",
+      "label_ar": "إغلاق الحركة على اكتمالها",
+      "parent_item_id": "",
+      "secondary_ar": "",
+      "source_ids": [
+        "SRC-009"
+      ],
+      "value_ar": "",
+      "x": 0.5,
+      "y": 0.5
+    }
+  ],
+  "luna_art_direction": {
+    "art_direction_ar": "بطاقة نصية محلية لا مولد صور: إغلاق هادئ للنص بعد اكتمال الحركة، مع ظهور كلمة «أجمعون» كما وردت دون زخرفة زائدة.",
+    "cinematic_blueprint": {
+      "action": "After the preceding visual movement has completed, reveal the supplied verse text on a pure black field; the white text remains stable, then the final light trace fades precisely as the supplied word «أجمعون» reaches its ending.",
+      "atmosphere": "Austere, reverent, silent, minimal.",
+      "camera": "No camera movement; fixed full-frame graphic composition with no simulated depth or zoom.",
+      "color_palette": "Pure white typography on absolute black.",
+      "composition": "Centered text block with disciplined margins, one typographic focal point, balanced negative space, and no secondary imagery.",
+      "continuity": "SEQ-09, SH-043; preserve the established symbolic unseen domain, right-to-left visual logic where applicable, charcoal-to-white transition, and adjacent-shot timing; no location illustration.",
+      "environment": "Black graphic field only.",
+      "lens": "Not applicable; local graphics production.",
+      "lighting": "Not applicable; uniform white text opacity with a controlled fade of the final light trace.",
+      "materials": "Clean digital-black field and crisp high-contrast white typography; no texture unless already specified by the approved typography package.",
+      "safety": "Text-only symbolic closure. Do not depict Allah, angels, prophets, Iblis, bodies, faces, or any unseen being; do not invent or alter religious wording.",
+      "subject": "The approved supplied verse text, with the supplied word «أجمعون» appearing exactly as provided.",
+      "temporal_motion": "Hold the completed text composition without a freeze-like filler; animate only the final residual light fading once, synchronized to the end of «أجمعون». No morphing letters, flicker, jitter, unintended kerning changes, or extra text."
+    },
+    "luna_response_id": "resp_0ebac69f72cbae44016a74d362b0ac81a1a856b5cef7f91b6b",
+    "prompt_id": "PROMPT-043",
+    "status": "PASS"
+  },
+  "music": "FORBIDDEN",
+  "schema_version": "siraj-local-graphics-spec-v1",
+  "shot_id": "SH-043",
+  "sound_policy": "SFX_ONLY_NO_MUSIC",
+  "source_ids": [
+    "SRC-009"
+  ],
+  "subtitle_ar": "بطاقة نصية محلية لا مولد صور: إغلاق هادئ للنص بعد اكتمال الحركة، مع ظهور كلمة «أجمعون» كما وردت دون زخرفة زائدة.",
+  "title_ar": "إغلاق الحركة على اكتمالها"
+}

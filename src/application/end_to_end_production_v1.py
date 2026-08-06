@@ -486,3 +486,10 @@ def run_end_to_end_planner_smoke_test(output_root: Path) -> dict[str, Any]:
         "pending_media_maximum_usd": plan.pending_media_maximum_usd,
         "requires_paid_confirmation": plan.requires_paid_confirmation,
     }
+
+# SIRAJ_PRODUCTION_STANDARD_V2_NATIVE_LOCAL_STAGES
+from src.application.production_standard_v2_runtime import (
+    run_v2_automatic_qa as run_automatic_qa_and_partial_repair,
+    run_v2_sfx_audio_mix as run_sfx_audio_mix,
+    run_v2_structural_montage as run_structural_montage_final_render,
+)

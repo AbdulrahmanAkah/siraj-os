@@ -1405,7 +1405,7 @@ def run_episode_001_adoption_smoke_test(output_root: Path) -> dict[str, Any]:
                 "sequence_title": f"المشهد {sequence_number}",
                 "duration_seconds": sum(item["duration_seconds"] for item in sequence_shots),
                 "narration": (
-                    f"هذا نص سردي موثق للمشهد {sequence_number}. " * 14
+                    f"هَذَا نَصٌّ سَرْدِيٌّ مُوَثَّقٌ لِلْمَشْهَدِ {sequence_number}. " * 14
                 ),
                 "dramatic_objective": "تحويل المعلومة إلى فعل بصري",
                 "image_system": "الخامة والضوء والحركة",

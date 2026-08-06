@@ -1060,3 +1060,208 @@ def render_all_pending_local_graphics(
     if progress:
         progress("اكتملت جميع عناصر الجرافيك المحلية.", 100)
     return tuple(results)
+
+# SIRAJ_PRODUCTION_STANDARD_V2_GENERATION_AWARE_BUDGET
+_SIRAJ_BASE_WRITE_RECEIPT_AND_COMPLETE = (
+    _write_receipt_and_complete
+)
+_SIRAJ_BASE_EXECUTE_RUNWARE_ITEM = execute_runware_item
+_SIRAJ_BASE_EXECUTE_ELEVENLABS_ITEM = execute_elevenlabs_item
+
+
+def _siraj_generation_spend(
+    queue: Mapping[str, Any],
+) -> float:
+    total = 0.0
+    for _, items in _queue_collections(queue):
+        for item in items:
+            if str(item.get("status") or "") != "COMPLETE":
+                continue
+            actual = item.get("actual_cost_usd")
+            estimated = item.get("estimated_cost_usd")
+            if isinstance(actual, (int, float)):
+                total += float(actual)
+            elif isinstance(estimated, (int, float)):
+                total += float(estimated)
+    return round(total, 8)
+
+
+def _budget_preflight(
+    repo_root: Path,
+    episode_id: str,
+    maximum_authorized_usd: float,
+) -> dict[str, Any]:
+    repo = repo_root.resolve()
+    queue_path = (
+        repo
+        / "projects"
+        / episode_id
+        / MEDIA_QUEUE_REL
+    )
+    queue = _read(queue_path)
+    generation_id = str(
+        queue.get("production_generation_id") or ""
+    )
+    if generation_id.startswith("PSV2-"):
+        maximum = float(maximum_authorized_usd)
+        if maximum <= 0:
+            raise DesktopMediaExecutionError(
+                "POSITIVE_MAXIMUM_AUTHORIZED_COST_REQUIRED"
+            )
+        spent = _siraj_generation_spend(queue)
+        hard_cap = float(
+            (queue.get("budget_preflight") or {}).get(
+                "episode_hard_cap_usd",
+                HARD_CAP_USD,
+            )
+        )
+        projected = round(spent + maximum, 8)
+        if projected > hard_cap + 1e-9:
+            raise DesktopMediaExecutionError(
+                "PRODUCTION_GENERATION_HARD_CAP_BLOCKED:"
+                f"generation={generation_id}:"
+                f"spent={spent:.6f}:maximum={maximum:.6f}:"
+                f"cap={hard_cap:.2f}"
+            )
+        return {
+            "production_generation_id": generation_id,
+            "recorded_total_usd": spent,
+            "maximum_authorized_usd": maximum,
+            "projected_total_usd": projected,
+            "hard_cap_usd": hard_cap,
+            "remaining_after_maximum_usd": round(
+                hard_cap - projected,
+                8,
+            ),
+            "historical_legacy_spend": (
+                "EXCLUDED_FROM_CURRENT_GENERATION_CAP_"
+                "BUT_PRESERVED_IN_LEGACY_RECEIPTS"
+            ),
+        }
+    snapshot = scan_episode_costs(repo, episode_id)
+    projected = (
+        snapshot.recorded_total_usd
+        + float(maximum_authorized_usd)
+    )
+    if projected > HARD_CAP_USD + 1e-9:
+        raise DesktopMediaExecutionError(
+            "EPISODE_BUDGET_HARD_CAP_BLOCKED:"
+            f"recorded={snapshot.recorded_total_usd:.4f}:"
+            f"maximum={float(maximum_authorized_usd):.4f}:"
+            f"projected={projected:.4f}:cap={HARD_CAP_USD:.2f}"
+        )
+    return {
+        "recorded_total_usd": snapshot.recorded_total_usd,
+        "maximum_authorized_usd": float(
+            maximum_authorized_usd
+        ),
+        "projected_total_usd": round(projected, 8),
+        "hard_cap_usd": HARD_CAP_USD,
+        "remaining_after_maximum_usd": round(
+            HARD_CAP_USD - projected,
+            8,
+        ),
+    }
+
+
+def _write_receipt_and_complete(
+    repo_root: Path,
+    queue_path: Path,
+    state_path: Path,
+    state: dict[str, Any],
+    queue: dict[str, Any],
+    item: dict[str, Any],
+    receipt_path: Path,
+    receipt: dict[str, Any],
+) -> None:
+    generation_id = str(
+        queue.get("production_generation_id") or ""
+    )
+    if generation_id:
+        receipt["production_generation_id"] = (
+            generation_id
+        )
+        receipt["asset_id"] = item.get("asset_id")
+        receipt["asset_index"] = item.get("asset_index")
+        receipt["asset_count"] = item.get("asset_count")
+        receipt["timeline_duration_seconds"] = item.get(
+            "timeline_duration_seconds"
+        )
+    _SIRAJ_BASE_WRITE_RECEIPT_AND_COMPLETE(
+        repo_root,
+        queue_path,
+        state_path,
+        state,
+        queue,
+        item,
+        receipt_path,
+        receipt,
+    )
+
+
+def _siraj_assert_actual_within_item_maximum(
+    repo_root: Path,
+    queue_id: str,
+    result: MediaExecutionResult,
+) -> None:
+    if result.actual_cost_usd is None:
+        return
+    _, _, _, _, queue = _active_episode(repo_root)
+    _, item = _find_item(queue, queue_id)
+    maximum = float(
+        item.get("maximum_authorized_usd", 0) or 0
+    )
+    if float(result.actual_cost_usd) > maximum + 1e-9:
+        raise DesktopMediaExecutionError(
+            "PROVIDER_ACTUAL_COST_EXCEEDS_ITEM_AUTHORIZATION:"
+            f"{queue_id}:actual={float(result.actual_cost_usd):.6f}:"
+            f"maximum={maximum:.6f}"
+        )
+
+
+def execute_runware_item(
+    repo_root: Path,
+    queue_id: str,
+    api_key: str,
+    *,
+    confirmed_maximum_usd: float,
+    recovery_only: bool = False,
+    progress: ProgressCallback | None = None,
+) -> MediaExecutionResult:
+    result = _SIRAJ_BASE_EXECUTE_RUNWARE_ITEM(
+        repo_root,
+        queue_id,
+        api_key,
+        confirmed_maximum_usd=confirmed_maximum_usd,
+        recovery_only=recovery_only,
+        progress=progress,
+    )
+    _siraj_assert_actual_within_item_maximum(
+        repo_root,
+        queue_id,
+        result,
+    )
+    return result
+
+
+def execute_elevenlabs_item(
+    repo_root: Path,
+    queue_id: str,
+    api_key: str,
+    *,
+    confirmed_maximum_usd: float,
+    progress: ProgressCallback | None = None,
+) -> MediaExecutionResult:
+    result = _SIRAJ_BASE_EXECUTE_ELEVENLABS_ITEM(
+        repo_root,
+        queue_id,
+        api_key,
+        confirmed_maximum_usd=confirmed_maximum_usd,
+        progress=progress,
+    )
+    _siraj_assert_actual_within_item_maximum(
+        repo_root,
+        queue_id,
+        result,
+    )
+    return result

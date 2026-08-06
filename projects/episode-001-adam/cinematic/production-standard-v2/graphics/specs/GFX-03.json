@@ -1,0 +1,62 @@
+{
+  "animation_style": "NODE_REVEAL",
+  "background": {
+    "image_url": "",
+    "mode": "GRADIENT",
+    "overlay_opacity": 0.82
+  },
+  "design": {
+    "accent_hex": "#C6A15B",
+    "background_hex": "#151414",
+    "font_family": "Noto Naskh Arabic",
+    "foreground_hex": "#F1E7D0",
+    "safe_margin_px": 108
+  },
+  "duration_seconds": 18.0,
+  "graphic_id": "GFX-03",
+  "graphic_type": "RELATION_TREE",
+  "items": [
+    {
+      "item_id": "GI-01",
+      "label_ar": "إحضار الأمر إلى مركز الصورة",
+      "parent_item_id": "",
+      "secondary_ar": "",
+      "source_ids": [
+        "SRC-008"
+      ],
+      "value_ar": "",
+      "x": 0.5,
+      "y": 0.5
+    }
+  ],
+  "luna_art_direction": {
+    "art_direction_ar": "توجيه جرافيكي محلي للآية كعنصر طباعي مركزي، من دون إنشاء صورة مولدة أو تجسيد الأمر أو المأمور.",
+    "cinematic_blueprint": {
+      "action": "Reveal the approved verse as the only moving graphic element above a visually suspended horizon; increase typographic clarity through controlled opacity and luminance, synchronized with narration timing.",
+      "atmosphere": "Severe, reverent, minimal, and contemplative; the graphic floats within symbolic darkness without depicting any unseen agent.",
+      "camera": "Use authored 2.5D compositing with a very slow axial approach created by layered depth translation, not a template zoom; maintain the SEQ-08 right-to-left screen logic and a stable horizon.",
+      "color_palette": "Cold black-blue background, luminous white typography, restrained warm parchment edge tone, and minimal antique-gold residual light.",
+      "composition": "Place one approved verse block slightly right of center within monumental negative space, leaving clear breathing room; horizon forms a low secondary layer; typography is the sole visual focus.",
+      "continuity": "SEQ-08; symbolic heavenly-unseen domain; key direction represented by a subtle frame-right luminance gradient; right-to-left sequence direction; palette and material language locked to the sequence reference pack.",
+      "environment": "A composited suspended horizon with faint natural atmospheric texture, not a literal celestial realm; no generated landscape replacement.",
+      "lens": "Not applicable to local graphics; simulate a restrained 2.5D perspective through calibrated layer separation only.",
+      "lighting": "White text emerges through soft luminance rather than glow bloom; maintain cool blue-black field with a controlled frame-right light bias.",
+      "materials": "Matte deep-blue atmospheric background, faint parchment grain, crisp off-white glyphs, and restrained antique-gold micro-accent; avoid metallic text.",
+      "safety": "Use only the exact approved verse supplied by editorial; do not invent, paraphrase, translate, or alter sacred text. Do not depict Allah, prophets, angels, Iblis, Adam, or any unseen agent; no symbolic figure, face, body, or illustrative icon.",
+      "subject": "The approved verse typography as the single graphic subject.",
+      "temporal_motion": "0–5 seconds: horizon and atmospheric layers remain nearly still while the verse fades in at low opacity; 5–13 seconds: glyph clarity increases through a controlled luminance ramp synchronized to narration, with no letter morphing; 13–18 seconds: typography reaches stable readability and holds without a freeze-filler feel. Use precise kerning, baseline stability, no jitter, no random particles, no decorative motion, and no template zoom."
+    },
+    "luna_response_id": "resp_0ce37aaa3e4b2b37016a74d31e7e0081a088d6e56ea0517e54",
+    "prompt_id": "PROMPT-037",
+    "status": "PASS"
+  },
+  "music": "FORBIDDEN",
+  "schema_version": "siraj-local-graphics-spec-v1",
+  "shot_id": "SH-037",
+  "sound_policy": "SFX_ONLY_NO_MUSIC",
+  "source_ids": [
+    "SRC-008"
+  ],
+  "subtitle_ar": "توجيه جرافيكي محلي للآية كعنصر طباعي مركزي، من دون إنشاء صورة مولدة أو تجسيد الأمر أو المأمور.",
+  "title_ar": "إحضار الأمر إلى مركز الصورة"
+}

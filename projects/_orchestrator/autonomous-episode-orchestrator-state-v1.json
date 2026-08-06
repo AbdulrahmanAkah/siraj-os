@@ -34,6 +34,7 @@
   "elevenlabs_key_recovery_status": "NEW_VALID_KEY_REQUIRED",
   "final_master_path_relative": "projects/episode-001-adam/deliverables/episode-master-v1.mp4",
   "final_master_sha256": "f8c6479579b415628f7ccd99b166a6ba506b2995bfb490f7ba71cca854dd4b91",
+  "full_episode_production_authorized": false,
   "full_stage_order": [
     "TOPIC_AND_EVENT_PROPOSAL",
     "HUMAN_SCOPE_REVIEW",
@@ -67,7 +68,8 @@
   "media_queue_path_relative": "projects/episode-001-adam/orchestration/media-production-queue-v1.json",
   "montage_pixel_format_recovery_release": "SIRAJ_MONTAGE_PIXEL_FORMAT_NORMALIZATION_AND_RECOVERY_V1",
   "montage_pixel_format_recovery_status": "READY_TO_RESUME",
-  "next_stage": "SIRAJ_V2_CERTIFIED_MEDIA_QUEUE_MATERIALIZATION",
+  "next_stage": "CONSOLIDATED_PRODUCTION_STANDARD_V2_EXECUTION",
+  "production_generation_id": "PSV2-ADAM-R1",
   "production_standard_v2_rebuild_state_rebase": {
     "automatic_paid_retry": "FORBIDDEN",
     "certified_prompt_count": 70,
@@ -91,7 +93,7 @@
   "seedream_negative_prompt_recovery": "COMPLETE",
   "sfx_audio_plan_path_relative": "projects/episode-001-adam/audio/sfx/sfx-audio-plan-v1.json",
   "stage": "BUDGET_PREFLIGHT",
-  "status": "EDITORIAL_PIPELINE_COMPLETE_BUDGET_PREFLIGHT_QUEUED",
+  "status": "MEDIA_QUEUE_READY",
   "structural_montage_plan_path_relative": "projects/episode-001-adam/orchestration/structural-montage-render-plan-v1.json",
-  "updated_at_utc": "2026-08-06T18:52:04.822750Z"
+  "updated_at_utc": "2026-08-06T21:04:23.440216Z"
 }

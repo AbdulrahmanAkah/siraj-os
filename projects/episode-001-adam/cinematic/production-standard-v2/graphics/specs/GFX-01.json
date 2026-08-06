@@ -1,0 +1,62 @@
+{
+  "animation_style": "TIMELINE_PROGRESS",
+  "background": {
+    "image_url": "",
+    "mode": "GRADIENT",
+    "overlay_opacity": 0.82
+  },
+  "design": {
+    "accent_hex": "#C6A15B",
+    "background_hex": "#151414",
+    "font_family": "Noto Naskh Arabic",
+    "foreground_hex": "#F1E7D0",
+    "safe_margin_px": 108
+  },
+  "duration_seconds": 10.0,
+  "graphic_id": "GFX-01",
+  "graphic_type": "ANIMATED_TIMELINE",
+  "items": [
+    {
+      "item_id": "GI-01",
+      "label_ar": "سحب الزمن إلى الطين السابق للحكاية",
+      "parent_item_id": "",
+      "secondary_ar": "",
+      "source_ids": [
+        "SRC-001"
+      ],
+      "value_ar": "",
+      "x": 0.5,
+      "y": 0.5
+    }
+  ],
+  "luna_art_direction": {
+    "art_direction_ar": "توجيه فني محلي لبطاقة عنوان. الأولوية لدقة النص العربي، التكوين الهادئ، والتحول المادي من الشق إلى الطين، دون مولد صور أو عناصر بشرية.",
+    "cinematic_blueprint": {
+      "action": "Begin with a deep charcoal field containing a narrow horizontal slit of antique-gold light. Reveal the Arabic title \"سراج\" cleanly from within the slit. Transition the slit into a wet clay trace that carries the episode title, ending with both title hierarchy and clay texture legible.",
+      "atmosphere": "Restrained tactile title reveal, archival and elemental, with no decorative particles beyond subtle clay moisture.",
+      "camera": "No simulated camera movement. Use authored 2.5D layer motion only: a minimal depth shift between charcoal background, light slit, clay trace, and typography; no template zoom.",
+      "color_palette": "Deep charcoal black, antique gold, warm parchment highlights, and dark wet-clay brown.",
+      "composition": "Centered primary title hierarchy with generous negative space; the slit begins as the sole visual anchor, then becomes the clay trace. Keep all typography inside safe margins and preserve a calm asymmetrical balance.",
+      "continuity": "SEQ-01 visual identity; no character location; key light direction implied from frame left; palette CHARCOAL_ANTIQUE_GOLD_WARM_PARCHMENT_SYMBOLIC, material language, scale, and left-to-right reveal logic remain consistent.",
+      "environment": "A graphic field built from charcoal texture and wet clay material, not a literal location.",
+      "lens": "Not applicable to local graphics; use orthographic compositing and controlled 2.5D depth.",
+      "lighting": "A narrow soft-edged antique-gold light slit enters from frame left; clay receives a restrained warm highlight, with no visible source or volumetric fantasy effect.",
+      "materials": "Fine charcoal grain, wet clay with shallow ridges and realistic specular moisture, parchment-like restrained lettering finish.",
+      "safety": "Typography and abstract materials only; no sacred figure, face, body, unseen being, or representational religious entity.",
+      "subject": "Arabic title typography: primary \"سراج\", followed by the approved episode title text supplied by editorial.",
+      "temporal_motion": "Ten-second graphic sequence: charcoal field and slit establish, \"سراج\" resolves with precise letterforms, the slit transforms into a wet clay trace, then the episode title appears and holds only as long as needed for readability; no morphing letters, jitter, blur, accidental glyphs, decorative zoom, or filler."
+    },
+    "luna_response_id": "resp_0fa59a805e9c6cb7016a74d24bd9b4819db2ef5457651bd286",
+    "prompt_id": "PROMPT-005",
+    "status": "PASS"
+  },
+  "music": "FORBIDDEN",
+  "schema_version": "siraj-local-graphics-spec-v1",
+  "shot_id": "SH-005",
+  "sound_policy": "SFX_ONLY_NO_MUSIC",
+  "source_ids": [
+    "SRC-001"
+  ],
+  "subtitle_ar": "توجيه فني محلي لبطاقة عنوان. الأولوية لدقة النص العربي، التكوين الهادئ، والتحول المادي من الشق إلى الطين، دون مولد صور أو عناصر بشرية.",
+  "title_ar": "سحب الزمن إلى الطين السابق للحكاية"
+}

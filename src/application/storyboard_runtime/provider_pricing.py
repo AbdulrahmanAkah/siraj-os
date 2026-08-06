@@ -166,7 +166,7 @@ class ManualProviderTestRecord:
             raise CinematicSeriesError("generated_output_count must be positive.")
         if not 0 <= self.generated_video_seconds <= GENERATED_VIDEO_HARD_LIMIT_SECONDS:
             raise CinematicSeriesError(
-                "generated_video_seconds must be within the technical episode-duration ceiling."
+                "generated_video_seconds must be between 0 and 300."
             )
         if not 0 <= self.quality_score <= 100:
             raise CinematicSeriesError("quality_score must be between 0 and 100.")
@@ -359,7 +359,7 @@ class FrameQuoteSpec:
         _positive_units(self.requested_units, name="requested_units")
         if not 0 <= self.generated_video_seconds <= GENERATED_VIDEO_HARD_LIMIT_SECONDS:
             raise CinematicSeriesError(
-                "generated_video_seconds must be within the technical episode-duration ceiling."
+                "generated_video_seconds must be between 0 and 300."
             )
         for value, name in (
             (self.quality_score_override, "quality_score_override"),
@@ -409,7 +409,7 @@ class PrecisePricedMediaOption:
             raise CinematicSeriesError("reliability_score must be between 0 and 100.")
         if not 0 <= self.generated_video_seconds <= GENERATED_VIDEO_HARD_LIMIT_SECONDS:
             raise CinematicSeriesError(
-                "generated_video_seconds must be within the technical episode-duration ceiling."
+                "generated_video_seconds must be between 0 and 300."
             )
         if self.schema_version != PRECISE_MEDIA_OPTION_SCHEMA_VERSION:
             raise CinematicSeriesError("Unexpected precise media option schema.")

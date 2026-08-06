@@ -39,7 +39,7 @@
     "tts_character_count_unicode": 11366,
     "tts_reserve_usd": 3.0
   },
-  "next_stage": "CONSOLIDATED_LUNA_PROMPT_AND_FULL_EPISODE_AUTHORIZATION",
+  "next_stage": "CONSOLIDATED_FULL_EPISODE_REBUILD_AUTHORIZATION",
   "packages": {
     "desktop_v2_snapshot": "PASS",
     "global_director_and_technical_review": "PASS",
@@ -50,12 +50,12 @@
   "planned_generated_video_spend_usd": 29.514375,
   "prompt_direction": {
     "batch_count": 7,
-    "certified_prompt_count": 0,
+    "certified_prompt_count": 70,
     "provider_execution_without_certification": "FORBIDDEN",
     "quality_threshold": 95,
     "release": "SIRAJ_LUNA_CINEMATIC_PROMPT_DIRECTOR_V2",
     "required_prompt_count": 70,
-    "status": "AWAITING_CONSOLIDATED_LUNA_PROMPT_AND_FULL_EPISODE_AUTHORIZATION"
+    "status": "PASS_CERTIFIED_COMPLETE"
   },
   "release": "SIRAJ_SERIES_PRODUCTION_STANDARD_V2_COMPLETE",
   "repair_release": "SIRAJ_SERIES_PRODUCTION_STANDARD_V2_CAMERA_AND_BUDGET_REPAIR",

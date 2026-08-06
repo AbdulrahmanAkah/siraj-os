@@ -89,9 +89,9 @@ class CinematicBudgetGuardrails:
 
     def validate(self) -> None:
         if self.target_total_usd != TARGET_MEDIA_BUDGET_USD:
-            raise CinematicSeriesError("The generated-video target budget is fixed at USD 30.")
+            raise CinematicSeriesError("The target episode budget is fixed at USD 40.")
         if self.hard_total_usd != HARD_MEDIA_BUDGET_USD:
-            raise CinematicSeriesError("The generated-video hard cap is fixed at USD 35.")
+            raise CinematicSeriesError("The hard episode budget is fixed at USD 45.")
         if self.hard_total_usd < self.target_total_usd:
             raise CinematicSeriesError("Hard budget must not be below target budget.")
 
@@ -127,7 +127,7 @@ class CinematicCompilationPolicy:
             != GENERATED_VIDEO_HARD_LIMIT_SECONDS
         ):
             raise CinematicSeriesError(
-                "Generated-video duration uses the technical episode-duration ceiling."
+                "Generated-video hard limit is fixed at 300 seconds."
             )
         if self.minimum_storyboard_frames < MIN_COMPILABLE_FRAMES:
             raise CinematicSeriesError(
@@ -686,16 +686,16 @@ class CinematicSeriesCompiler:
             NarrativeFunction.DISCOVERY: (
                 MediaTreatment.EVIDENCE_LED
                 if evidence_led
-                else MediaTreatment.GENERATED_VIDEO
+                else MediaTreatment.GENERATED_IMAGE
             ),
-            NarrativeFunction.ESCALATION: MediaTreatment.GENERATED_VIDEO,
+            NarrativeFunction.ESCALATION: MediaTreatment.LOCAL_ANIMATION,
             NarrativeFunction.REVERSAL: (
                 MediaTreatment.EVIDENCE_LED
                 if evidence_led
                 else MediaTreatment.GENERATED_VIDEO
             ),
             NarrativeFunction.CLIMAX: MediaTreatment.GENERATED_VIDEO,
-            NarrativeFunction.CONSEQUENCE: MediaTreatment.GENERATED_VIDEO,
+            NarrativeFunction.CONSEQUENCE: MediaTreatment.LOCAL_ANIMATION,
             NarrativeFunction.NEXT_EPISODE_PROMISE: MediaTreatment.LOCAL_ANIMATION,
         }[function]
 
@@ -759,14 +759,12 @@ class CinematicSeriesCompiler:
         }[function]
 
         motion_need = (
-            MotionNeed.REQUIRED
+            MotionNeed.NONE
             if function
             in {
-                NarrativeFunction.COLD_OPEN,
-                NarrativeFunction.ESCALATION,
-                NarrativeFunction.REVERSAL,
-                NarrativeFunction.CLIMAX,
-                NarrativeFunction.CONSEQUENCE,
+                NarrativeFunction.CENTRAL_QUESTION,
+                NarrativeFunction.ORIENTATION,
+                NarrativeFunction.DISCOVERY,
             }
             else MotionNeed.OPTIONAL
         )

@@ -1,0 +1,62 @@
+{
+  "animation_style": "FOCUS_PULL",
+  "background": {
+    "image_url": "",
+    "mode": "GRADIENT",
+    "overlay_opacity": 0.82
+  },
+  "design": {
+    "accent_hex": "#C6A15B",
+    "background_hex": "#151414",
+    "font_family": "Noto Naskh Arabic",
+    "foreground_hex": "#F1E7D0",
+    "safe_margin_px": 108
+  },
+  "duration_seconds": 15.0,
+  "graphic_id": "GFX-02",
+  "graphic_type": "SOURCE_CARD",
+  "items": [
+    {
+      "item_id": "GI-01",
+      "label_ar": "فتح سؤال التكريم والعداوة",
+      "parent_item_id": "",
+      "secondary_ar": "",
+      "source_ids": [
+        "SRC-002"
+      ],
+      "value_ar": "",
+      "x": 0.5,
+      "y": 0.5
+    }
+  ],
+  "luna_art_direction": {
+    "art_direction_ar": "بطاقة عنوان ختامية انتقالية: الأرض تظلم، والعنوان العربي يفتح الطريق إلى ماء أسود. الأولوية للدقة الطباعية والوقار.",
+    "cinematic_blueprint": {
+      "action": "Begin with a darkening abstract earth horizon and a thin first-light line. Reveal the exact Arabic title \"آدم: التكريم والاختبار\" with clear hierarchy. A narrow light line then travels from the title toward a black water surface, ending in a quiet gold reflection.",
+      "atmosphere": "Night-blue, elemental, contemplative title transition with restrained archival gravity.",
+      "camera": "No lens or camera simulation. Use orthographic local compositing with authored 2.5D layer movement only; the horizon, title, light line, and water are independent layers with a minimal controlled depth shift.",
+      "color_palette": "Night blue, deep charcoal, thin antique gold, warm parchment typography, and black reflective water.",
+      "composition": "Balanced asymmetry: title occupies the primary safe-area focus, horizon sits low, and the light line provides a single directional path toward the water; maintain generous negative space and exact text legibility.",
+      "continuity": "SEQ-02 visual identity; no character location; key direction implied from frame right; right-to-left sequence logic, WET_EARTH_OCHRE_COOL_SHADOW palette, material language, scale, and silhouette remain consistent.",
+      "environment": "Abstract horizon and black water graphic layers, not a literal location or cosmological depiction.",
+      "lens": "Not applicable to local graphics; orthographic typography and compositing only.",
+      "lighting": "A thin first-light accent from frame right, soft antique-gold title edge, and restrained reflection on black water; no visible sun or supernatural source.",
+      "materials": "Matte night-blue atmosphere, subtle parchment paper grain in typography, and black water with a controlled low-amplitude reflection.",
+      "safety": "Title graphics and abstract natural materials only; no sacred figure, face, body, creature, deity, angel, prophet, Iblis, or literal unseen representation.",
+      "subject": "The exact Arabic title \"آدم: التكريم والاختبار\" and its connecting light line.",
+      "temporal_motion": "Fifteen-second graphic sequence: horizon darkens, title resolves cleanly, light line travels toward black water, then reflection settles for a brief readable finish; no morphing glyphs, jitter, illegibility, decorative zoom, random particles, or filler hold."
+    },
+    "luna_response_id": "resp_0fa59a805e9c6cb7016a74d24bd9b4819db2ef5457651bd286",
+    "prompt_id": "PROMPT-010",
+    "status": "PASS"
+  },
+  "music": "FORBIDDEN",
+  "schema_version": "siraj-local-graphics-spec-v1",
+  "shot_id": "SH-010",
+  "sound_policy": "SFX_ONLY_NO_MUSIC",
+  "source_ids": [
+    "SRC-002"
+  ],
+  "subtitle_ar": "بطاقة عنوان ختامية انتقالية: الأرض تظلم، والعنوان العربي يفتح الطريق إلى ماء أسود. الأولوية للدقة الطباعية والوقار.",
+  "title_ar": "فتح سؤال التكريم والعداوة"
+}

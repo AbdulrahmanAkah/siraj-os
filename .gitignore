@@ -16,3 +16,17 @@ build/
 # Local release workspaces
 .release-*-work/
 .github-release-automation-logs/
+
+# SIRAJ local runtime artifacts
+__pycache__/
+*.py[cod]
+artifacts/
+working/
+projects/**/audio/**/*.mp3
+projects/**/audio/**/*.wav
+projects/**/audio/**/*.m4a
+projects/**/cinematic/**/*.mp4
+projects/**/cinematic/**/*.jpg
+projects/**/cinematic/**/*.jpeg
+projects/**/cinematic/**/*.png
+projects/**/deliverables/*.mp4

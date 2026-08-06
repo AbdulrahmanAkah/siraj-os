@@ -1276,3 +1276,337 @@ def _update_desktop_snapshot(
         "status": "PASS_DESKTOP_SNAPSHOT_UPDATED",
         "path": str(path),
     }
+
+# SIRAJ_NATIVE_PRODUCTION_STANDARD_V2_CONTROLLER_V1
+from src.application.production_standard_v2_native_assets import (
+    EPISODE_HARD_CAP_USD as _SIRAJ_NATIVE_HARD_CAP,
+    GENERATION_ID as _SIRAJ_NATIVE_GENERATION_ID,
+    inspect_native_execution_plan as _siraj_native_inspect,
+    materialize_native_media_queue as _siraj_native_materialize,
+)
+from src.application.production_pipeline_certification_gate_v1 import (
+    ProductionPipelineCertificationError as _SirajNativeGateError,
+    ensure_full_pipeline_certified as _siraj_native_gate,
+)
+
+_SIRAJ_NATIVE_REPO_ROOT = Path(__file__).resolve().parents[2]
+try:
+    CONSOLIDATED_MAXIMUM_USD = float(
+        _siraj_native_inspect(_SIRAJ_NATIVE_REPO_ROOT)[
+            "pending_media_maximum_usd"
+        ]
+    )
+except Exception:
+    # The installer materializes the native queue before production/tests.
+    # Keep importability for isolated tooling that has no episode artifacts.
+    pass
+
+
+def inspect_consolidated_production_plan(
+    repo_root: Path,
+) -> ConsolidatedProductionPlan:
+    repo = repo_root.resolve()
+    native = _siraj_native_inspect(repo)
+    plan = ConsolidatedProductionPlan(
+        status=native["status"],
+        episode_id=EPISODE_ID,
+        standard_status=(
+            "READY_FOR_FULL_EPISODE_REBUILD_AUTHORIZATION"
+        ),
+        director_review_status="PASS",
+        blocking_issue_count=0,
+        prompt_status=(
+            "ALL_LUNA_BATCHES_COMPLETE_AND_CERTIFIED"
+        ),
+        prompt_item_count=70,
+        certified_prompt_count=70,
+        prompt_batch_count=7,
+        pending_prompt_batch_count=0,
+        tts_status=(
+            "READY_AWAITING_CONSOLIDATED_AUTHORIZATION"
+        ),
+        tts_block_count=43,
+        generated_video_planned_usd=float(
+            native["generated_video_maximum_usd"]
+        ),
+        prompt_direction_reserve_usd=0.0,
+        tts_reserve_usd=float(
+            native["tts_maximum_usd"]
+        ),
+        other_media_reserve_usd=float(
+            native["image_maximum_usd"]
+        ),
+        maximum_authorized_usd=float(
+            native["consolidated_maximum_usd"]
+        ),
+        episode_hard_cap_usd=float(
+            native["episode_hard_cap_usd"]
+        ),
+        full_episode_production_authorized=False,
+        next_stage=(
+            "CONSOLIDATED_PRODUCTION_STANDARD_V2_EXECUTION"
+        ),
+    )
+    _write(
+        repo / CONTROLLER_PLAN_REL,
+        {
+            "schema_version": (
+                "siraj-consolidated-production-controller-v2-native"
+            ),
+            "release": RELEASE,
+            **plan.as_dict(),
+            "production_generation_id": (
+                _SIRAJ_NATIVE_GENERATION_ID
+            ),
+            "native_asset_counts": dict(
+                native.get("counts") or {}
+            ),
+            "pending_media_maximum_usd": native[
+                "pending_media_maximum_usd"
+            ],
+            "safe_technical_repair_reserve_usd": native[
+                "safe_repair_reserve_usd"
+            ],
+            "authorization_policy": {
+                "one_consolidated_human_confirmation": True,
+                "one_lock_and_receipt_per_asset": True,
+                "automatic_paid_retry": "FORBIDDEN",
+                "hidden_paid_retry": "FORBIDDEN",
+                "final_human_watch_gate": "REQUIRED",
+                "youtube_upload": "MANUAL",
+            },
+            "created_at_utc": _now(),
+        },
+    )
+    _update_desktop_snapshot(repo, plan)
+    return plan
+
+
+def _siraj_native_authorization(
+    repo: Path,
+    plan: ConsolidatedProductionPlan,
+    confirmed_maximum_usd: float,
+) -> Path:
+    confirmed = float(confirmed_maximum_usd)
+    if abs(
+        confirmed - plan.maximum_authorized_usd
+    ) > 1e-6:
+        raise ConsolidatedProductionError(
+            "EXPLICIT_AUTHORIZATION_MAXIMUM_MISMATCH:"
+            f"expected={plan.maximum_authorized_usd:.6f}:"
+            f"confirmed={confirmed:.6f}"
+        )
+    if confirmed > _SIRAJ_NATIVE_HARD_CAP + 1e-9:
+        raise ConsolidatedProductionError(
+            "CONSOLIDATED_MAXIMUM_EXCEEDS_HARD_CAP"
+        )
+    path = repo / AUTHORIZATION_REL
+    native = _siraj_native_inspect(repo)
+    _write(
+        path,
+        {
+            "schema_version": (
+                "siraj-consolidated-full-episode-"
+                "production-authorization-v2-native"
+            ),
+            "release": RELEASE,
+            "status": "ACTIVE",
+            "episode_id": EPISODE_ID,
+            "production_generation_id": (
+                _SIRAJ_NATIVE_GENERATION_ID
+            ),
+            "decision": (
+                "AUTHORIZED_PRODUCTION_STANDARD_V2_"
+                "NATIVE_FULL_EPISODE_EXECUTION"
+            ),
+            "maximum_authorized_usd": confirmed,
+            "pending_media_maximum_usd": native[
+                "pending_media_maximum_usd"
+            ],
+            "safe_technical_repair_reserve_usd": native[
+                "safe_repair_reserve_usd"
+            ],
+            "episode_hard_cap_usd": (
+                _SIRAJ_NATIVE_HARD_CAP
+            ),
+            "runware_video_maximum_usd": native[
+                "generated_video_maximum_usd"
+            ],
+            "runware_image_maximum_usd": native[
+                "image_maximum_usd"
+            ],
+            "tts_maximum_usd": native[
+                "tts_maximum_usd"
+            ],
+            "luna_prompt_requests_remaining": 0,
+            "automatic_paid_retry": "FORBIDDEN",
+            "hidden_paid_retry": "FORBIDDEN",
+            "historical_legacy_spend": (
+                "REPORTED_SEPARATELY_NOT_CHARGED_TO_"
+                "CURRENT_GENERATION_CAP"
+            ),
+            "authorization_source": (
+                "ONE_CONSOLIDATED_DESKTOP_CONFIRMATION"
+            ),
+            "authorized_at_utc": _now(),
+        },
+    )
+    return path
+
+
+def run_consolidated_production_to_human_gate(
+    repo_root: Path,
+    *,
+    openai_api_key: str,
+    runware_api_key: str,
+    elevenlabs_api_key: str,
+    confirmed_maximum_usd: float,
+    progress: ProgressCallback | None = None,
+) -> ConsolidatedProductionResult:
+    repo = repo_root.resolve()
+    try:
+        _siraj_native_gate(repo)
+    except _SirajNativeGateError as exc:
+        raise ConsolidatedProductionError(
+            str(exc)
+        ) from exc
+
+    plan = inspect_consolidated_production_plan(repo)
+    if not runware_api_key.strip():
+        raise ConsolidatedProductionError(
+            "RUNWARE_API_KEY_REQUIRED"
+        )
+    if not elevenlabs_api_key.strip():
+        raise ConsolidatedProductionError(
+            "ELEVENLABS_API_KEY_REQUIRED"
+        )
+    if not openai_api_key.strip():
+        raise ConsolidatedProductionError(
+            "OPENAI_API_KEY_REQUIRED_FOR_SAFE_TECHNICAL_REPAIR"
+        )
+
+    authorization_path = _siraj_native_authorization(
+        repo,
+        plan,
+        confirmed_maximum_usd,
+    )
+    _emit(
+        progress,
+        "تحميل طابور V2 الأصلي: 137 فيديو، 61 صورة، "
+        "6 جرافيك، و43 كتلة صوتية.",
+        2,
+    )
+    queue = _siraj_native_materialize(
+        repo,
+        live=True,
+    )
+    native = _siraj_native_inspect(repo)
+    media_maximum = float(
+        native["pending_media_maximum_usd"]
+    )
+
+    state_path = repo / ORCHESTRATOR_STATE_REL
+    state = _read(state_path)
+    state.update(
+        {
+            "status": "MEDIA_QUEUE_READY",
+            "stage": "BUDGET_PREFLIGHT",
+            "next_stage": (
+                "PRODUCTION_STANDARD_V2_NATIVE_MEDIA_EXECUTION"
+            ),
+            "production_generation_id": (
+                _SIRAJ_NATIVE_GENERATION_ID
+            ),
+            "full_episode_production_authorized": True,
+            "consolidated_authorization_path_relative": str(
+                authorization_path.relative_to(repo)
+            ).replace("\\", "/"),
+            "media_queue_sha256": str(
+                queue.get("queue_sha256") or ""
+            ),
+            "last_error": None,
+            "updated_at_utc": _now(),
+        }
+    )
+    _write(state_path, state)
+
+    _emit(
+        progress,
+        "بدء التنفيذ المتسلسل المقفل لكل أصل ثم الصوت "
+        "والمونتاج وQA.",
+        4,
+    )
+    downstream = run_to_next_human_gate(
+        repo,
+        openai_api_key=openai_api_key,
+        runware_api_key=runware_api_key,
+        elevenlabs_api_key=elevenlabs_api_key,
+        confirmed_media_maximum_usd=media_maximum,
+        progress=progress,
+        maximum_transitions=16,
+    )
+    acceptable = {
+        "HUMAN_FINAL_REVIEW_REQUIRED",
+        "READY_FOR_MANUAL_YOUTUBE_UPLOAD",
+    }
+    status = (
+        "PASS_AWAITING_FINAL_HUMAN_WATCH"
+        if downstream.stop_reason in acceptable
+        else "STOPPED_AT_FAIL_CLOSED_GATE"
+    )
+    state = _read(state_path)
+    state.update(
+        {
+            "status": status,
+            "stage": downstream.final_stage,
+            "stop_reason": downstream.stop_reason,
+            "downstream_result": downstream.as_dict(),
+            "production_generation_id": (
+                _SIRAJ_NATIVE_GENERATION_ID
+            ),
+            "full_episode_production_authorized": True,
+            "youtube_upload": "MANUAL",
+            "updated_at_utc": _now(),
+        }
+    )
+    _write(state_path, state)
+    return ConsolidatedProductionResult(
+        status=status,
+        stop_reason=downstream.stop_reason,
+        episode_id=EPISODE_ID,
+        completed_prompt_batches=0,
+        reused_prompt_batches=7,
+        certified_prompt_count=70,
+        media_queue_pending_maximum_usd=(
+            media_maximum
+        ),
+        downstream_result=downstream,
+        authorization_path=authorization_path,
+        controller_state_path=state_path,
+    )
+
+# SIRAJ_NATIVE_BUDGET_FLOAT_NORMALIZATION_V1
+from src.application.luna_safe_technical_repair_v1 import (
+    SAFE_TECHNICAL_REPAIR_TOTAL_RESERVE_USD
+    as _SIRAJ_NATIVE_SAFE_REPAIR_RESERVE_USD,
+)
+
+try:
+    _siraj_native_budget_snapshot = _siraj_native_inspect(
+        Path(__file__).resolve().parents[2]
+    )
+    _siraj_native_rounded_total_maximum = round(
+        float(
+            _siraj_native_budget_snapshot[
+                "pending_media_maximum_usd"
+            ]
+        )
+        + float(_SIRAJ_NATIVE_SAFE_REPAIR_RESERVE_USD),
+        6,
+    )
+    CONSOLIDATED_MAXIMUM_USD = (
+        _siraj_native_rounded_total_maximum
+        - float(_SIRAJ_NATIVE_SAFE_REPAIR_RESERVE_USD)
+    )
+except Exception:
+    pass

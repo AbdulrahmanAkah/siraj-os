@@ -1,0 +1,44 @@
+{
+  "backup_root_relative": "working/native-v2-float-finalization-backup-20260806T210105Z",
+  "compileall": "PASS",
+  "completed_at_utc": "2026-08-06T21:04:24.168583Z",
+  "conflicting_tests_together": "............                                                             [100%]\n12 passed in 1.83s",
+  "critical_fingerprint": "d3739e5f408f8d16e0c10bcd03e040c010854b73df811ee7d974fd1e68646368",
+  "environment_and_ui_smoke": {
+    "audio_environment_ready": true,
+    "base_maximum": 38.747733000000004,
+    "ffmpeg": "ffmpeg version 8.1.2-full_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers",
+    "native_counts": {
+      "elevenlabs_multi_performer_required": false,
+      "elevenlabs_tts_segments": 43,
+      "elevenlabs_voice_performers_used": 1,
+      "local_graphics": 6,
+      "runware_images": 61,
+      "runware_videos": 137
+    },
+    "plan_maximum": 38.897733,
+    "safe_repair_reserve": 0.15,
+    "status": "PASS_NATIVE_V2_FLOAT_ENVIRONMENT_UI_SMOKE"
+  },
+  "episode_id": "episode-001-adam",
+  "final_residual_failure": {
+    "cause": "IEEE_754_EXACT_EQUALITY_CONFLICT_BETWEEN_ROUNDED_AND_UNROUNDED_LEGACY_CONTRACTS",
+    "failed": 1,
+    "passed": 1665,
+    "skipped": 1
+  },
+  "full_pytest": "........................................................................ [  4%]\n........................................................................ [  8%]\n.......................................................s................ [ 12%]\n........................................................................ [ 17%]\n........................................................................ [ 21%]\n........................................................................ [ 25%]\n........................................................................ [ 30%]\n........................................................................ [ 34%]\n........................................................................ [ 38%]\n........................................................................ [ 43%]\n........................................................................ [ 47%]\n........................................................................ [ 51%]\n........................................................................ [ 56%]\n........................................................................ [ 60%]\n........................................................................ [ 64%]\n........................................................................ [ 69%]\n........................................................................ [ 73%]\n........................................................................ [ 77%]\n........................................................................ [ 82%]\n........................................................................ [ 86%]\n........................................................................ [ 90%]\n........................................................................ [ 95%]\n........................................................................ [ 99%]\n...........                                                              [100%]\n1666 passed, 1 skipped in 186.63s (0:03:06)",
+  "paid_provider_requests": 0,
+  "production_authorized": false,
+  "production_generation_id": "PSV2-ADAM-R1",
+  "project_progress_updated": true,
+  "provider_requests": 0,
+  "release": "SIRAJ_FINALIZE_NATIVE_V2_FLOAT_CONTRACT",
+  "repairs": {
+    "asset_total_rounded_to_six_decimals": true,
+    "exported_base_constant_normalized": true
+  },
+  "resumed_after_partial_migration": true,
+  "schema_version": "siraj-full-pipeline-stabilization-report-v3",
+  "status": "PASS_FULL_PRODUCTION_PIPELINE_CERTIFIED"
+}

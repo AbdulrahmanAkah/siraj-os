@@ -1,0 +1,79 @@
+{
+  "blocking_issue_count": 0,
+  "certified_at_utc": "2026-08-06T21:04:24.115541Z",
+  "critical_fingerprint": "d3739e5f408f8d16e0c10bcd03e040c010854b73df811ee7d974fd1e68646368",
+  "episode_id": "episode-001-adam",
+  "fingerprint_entries": [
+    {
+      "path": "src/application/production_standard_v2_native_assets.py",
+      "sha256": "34503f9a3aeb92f4f79814ea3d31263b9fa9b8d1d8ec0f12d9b5d0672747dbd5"
+    },
+    {
+      "path": "src/application/production_standard_v2_runtime.py",
+      "sha256": "98d2ee754fe3bde2c9cebbb5b2e09e2e3b97ef9bd0439833b0b3c09fa54469fe"
+    },
+    {
+      "path": "src/application/production_pipeline_certification_gate_v1.py",
+      "sha256": "905c81b6af6471aa67d80bff2fde7ce96bd000bbd424bd9baf281a8f247f638d"
+    },
+    {
+      "path": "src/application/consolidated_episode_production_controller_v2.py",
+      "sha256": "f2341c98e0a3a5760967c2b574eb556c8b3841ebfc848882716d3d0301c0c817"
+    },
+    {
+      "path": "src/application/desktop_media_execution_v1.py",
+      "sha256": "510e9c022e99115d57edf82c60b8def4ef1c092306133e7f3bd04e485417d1a8"
+    },
+    {
+      "path": "src/application/end_to_end_production_v1.py",
+      "sha256": "05526b72c50a982345b30835e2848385abb6cc9687994cd3274036cb985b1212"
+    },
+    {
+      "path": "src/application/luna_cinematic_prompt_director_v2.py",
+      "sha256": "b74a25bfea847d0a00dc4206dd5ddde2c05d836d05eb6fec9473a82da2d03c34"
+    },
+    {
+      "path": "src/application/luna_safe_technical_repair_v1.py",
+      "sha256": "956c601b9c0141fceba6c785e3b0fe3a0a8b02c818f8c0058ef7040ee6d8bf7b"
+    },
+    {
+      "path": "projects/episode-001-adam/cinematic/storyboard-and-media-plan-luna-certified-v2.json",
+      "sha256": "bc704cdf5f5f563812900ee351b32c91de9bd48fc9876864c17d6894bafab912"
+    },
+    {
+      "path": "projects/episode-001-adam/orchestration/production-standard-v2-native-asset-plan-v1.json",
+      "sha256": "fb803ae6520aff4aa2daad2cf8fbb7e1040b2e841804dfaede8b43aca5bbaed9"
+    },
+    {
+      "path": "projects/episode-001-adam/orchestration/full-episode-tts-execution-plan-production-standard-v2.json",
+      "sha256": "58c3791c7ee30178f05c10f86325a58627e4ad24308b0098e6c43305cf691086"
+    }
+  ],
+  "native_execution_plan": {
+    "consolidated_maximum_usd": 38.897733,
+    "counts": {
+      "elevenlabs_multi_performer_required": false,
+      "elevenlabs_tts_segments": 43,
+      "elevenlabs_voice_performers_used": 1,
+      "local_graphics": 6,
+      "runware_images": 61,
+      "runware_videos": 137
+    },
+    "episode_hard_cap_usd": 40.0,
+    "episode_id": "episode-001-adam",
+    "generated_video_maximum_usd": 32.88,
+    "image_maximum_usd": 2.93715,
+    "pending_media_maximum_usd": 38.747733,
+    "production_generation_id": "PSV2-ADAM-R1",
+    "queue_sha256": "06c57f0dd2dcf0e061705054b9d102a22b7abec17abb43c6a6327079a537b44d",
+    "safe_repair_reserve_usd": 0.15,
+    "status": "READY_FOR_CONSOLIDATED_V2_EXECUTION_AUTHORIZATION",
+    "tts_maximum_usd": 2.930583
+  },
+  "paid_provider_requests": 0,
+  "production_generation_id": "PSV2-ADAM-R1",
+  "provider_requests": 0,
+  "release": "SIRAJ_FINALIZE_NATIVE_V2_FLOAT_CONTRACT",
+  "schema_version": "siraj-full-production-pipeline-certification-v3",
+  "status": "PASS_FULL_PRODUCTION_PIPELINE_CERTIFIED"
+}

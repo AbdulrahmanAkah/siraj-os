@@ -16,10 +16,9 @@ from src.application.documentary_intelligence import deterministic_id
 from .models import Storyboard
 
 
-TARGET_MEDIA_BUDGET_USD = 30.0
-HARD_MEDIA_BUDGET_USD = 35.0
-GENERATED_VIDEO_HARD_LIMIT_SECONDS = 25 * 60
-GENERATED_VIDEO_SECONDS_POLICY = "BUDGET_DRIVEN_NO_FIXED_TARGET"
+TARGET_MEDIA_BUDGET_USD = 40.0
+HARD_MEDIA_BUDGET_USD = 45.0
+GENERATED_VIDEO_HARD_LIMIT_SECONDS = 300
 MAXIMUM_PEAK_BEATS = 2
 RUNWARE_EXECUTION_STATUS = "BLOCKED_PENDING_MANUAL_PROVIDER_TEST"
 
@@ -88,15 +87,15 @@ class EpisodeSeriesContract:
                 "The next-episode question must advance the series."
             )
         if self.target_media_budget_usd != TARGET_MEDIA_BUDGET_USD:
-            raise CinematicSeriesError("The generated-video target budget is fixed at USD 30.")
+            raise CinematicSeriesError("The episode target budget is fixed at USD 40.")
         if self.hard_media_budget_usd != HARD_MEDIA_BUDGET_USD:
-            raise CinematicSeriesError("The generated-video hard cap is fixed at USD 35.")
+            raise CinematicSeriesError("The episode hard cap is fixed at USD 45.")
         if (
             self.generated_video_hard_limit_seconds
             != GENERATED_VIDEO_HARD_LIMIT_SECONDS
         ):
             raise CinematicSeriesError(
-                "Generated-video duration has no editorial target; the technical ceiling is the episode duration."
+                "The generated-video hard limit is fixed at 300 seconds."
             )
 
 
@@ -266,7 +265,7 @@ class CinematicSeriesRuntime:
         )
         if generated_seconds > GENERATED_VIDEO_HARD_LIMIT_SECONDS:
             raise CinematicSeriesError(
-                "Generated video exceeds the technical episode-duration ceiling."
+                "Generated video exceeds the 300-second episode ceiling."
             )
 
         frame_by_id = {frame.frame_id: frame for frame in storyboard.frames}

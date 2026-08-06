@@ -1,7 +1,5 @@
 import os
 
-from openai import OpenAI
-
 from src.application.ports.llm_gateway import LLMGateway
 from src.application.llm.core.llm_request import LLMRequest
 from src.application.llm.core.llm_response import LLMResponse
@@ -19,6 +17,14 @@ class OpenAIGateway(LLMGateway):
             raise ValueError(
                 "OPENAI_API_KEY is not set."
             )
+
+        try:
+            from openai import OpenAI
+        except ModuleNotFoundError as exc:
+            raise ValueError(
+                "The optional openai package is required only "
+                "when the OpenAI gateway is selected."
+            ) from exc
 
         self.client = OpenAI(
             api_key=api_key
@@ -45,5 +51,3 @@ class OpenAIGateway(LLMGateway):
 
 
 __all__ = ["OpenAIGateway"]
-
-
