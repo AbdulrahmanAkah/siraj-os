@@ -1,0 +1,607 @@
+{
+  "schema_version": "siraj-final-tts-transport-preflight-v5.4.2",
+  "network_calls": 0,
+  "paid_provider_requests": 0,
+  "provider": "ELEVENLABS",
+  "voice_id": "XdoLPWNt7ytn6BtU4FBf",
+  "model_id": "eleven_multilingual_v2",
+  "credential_target": "SIRAJ/ELEVENLABS_API_KEY",
+  "credential_target_present": true,
+  "lock_errors": [],
+  "tts_text_errors": [],
+  "tts_text_metrics": {
+    "characters": 8585,
+    "non_whitespace_characters": 7611,
+    "paragraphs": 23,
+    "contains_markdown_heading": false,
+    "contains_code_fence": false
+  },
+  "transport_status": "EXISTING_LIVE_TRANSPORT_CANDIDATE_FOUND",
+  "transport_candidates": [
+    {
+      "path": "src\\application\\adam_authorized_tts_sample_v2.py",
+      "evidence": [
+        {
+          "line": 16,
+          "text": "import urllib.request",
+          "patterns": [
+            "urllib\\.request"
+          ]
+        },
+        {
+          "line": 25,
+          "text": "API_ROOT = \"https://api.elevenlabs.io/v1\"",
+          "patterns": [
+            "api\\.elevenlabs\\.io"
+          ]
+        },
+        {
+          "line": 374,
+          "text": "http_request = urllib.request.Request(",
+          "patterns": [
+            "urllib\\.request"
+          ]
+        },
+        {
+          "line": 395,
+          "text": "with urllib.request.urlopen(http_request, timeout=240.0) as response:",
+          "patterns": [
+            "urllib\\.request"
+          ]
+        }
+      ],
+      "is_backup": false
+    },
+    {
+      "path": "src\\application\\adam_authorized_waqf_v3_sample.py",
+      "evidence": [
+        {
+          "line": 16,
+          "text": "import urllib.request",
+          "patterns": [
+            "urllib\\.request"
+          ]
+        },
+        {
+          "line": 25,
+          "text": "API_ROOT = \"https://api.elevenlabs.io/v1\"",
+          "patterns": [
+            "api\\.elevenlabs\\.io"
+          ]
+        },
+        {
+          "line": 425,
+          "text": "http_request = urllib.request.Request(",
+          "patterns": [
+            "urllib\\.request"
+          ]
+        },
+        {
+          "line": 446,
+          "text": "with urllib.request.urlopen(",
+          "patterns": [
+            "urllib\\.request"
+          ]
+        }
+      ],
+      "is_backup": false
+    },
+    {
+      "path": "src\\application\\desktop_media_execution_v1.py",
+      "evidence": [
+        {
+          "line": 15,
+          "text": "import urllib.request",
+          "patterns": [
+            "urllib\\.request"
+          ]
+        },
+        {
+          "line": 55,
+          "text": "ELEVENLABS_API_ROOT = \"https://api.elevenlabs.io/v1\"",
+          "patterns": [
+            "api\\.elevenlabs\\.io"
+          ]
+        },
+        {
+          "line": 408,
+          "text": "request = urllib.request.Request(",
+          "patterns": [
+            "urllib\\.request"
+          ]
+        },
+        {
+          "line": 413,
+          "text": "with urllib.request.urlopen(request, timeout=timeout) as response, partial.open(",
+          "patterns": [
+            "urllib\\.request"
+          ]
+        },
+        {
+          "line": 1107,
+          "text": "request = urllib.request.Request(",
+          "patterns": [
+            "urllib\\.request"
+          ]
+        },
+        {
+          "line": 1121,
+          "text": "with urllib.request.urlopen(request, timeout=240.0) as response:",
+          "patterns": [
+            "urllib\\.request"
+          ]
+        }
+      ],
+      "is_backup": false
+    },
+    {
+      "path": "build\\lib\\src\\application\\adam_authorized_tts_sample_v2.py",
+      "evidence": [
+        {
+          "line": 16,
+          "text": "import urllib.request",
+          "patterns": [
+            "urllib\\.request"
+          ]
+        },
+        {
+          "line": 25,
+          "text": "API_ROOT = \"https://api.elevenlabs.io/v1\"",
+          "patterns": [
+            "api\\.elevenlabs\\.io"
+          ]
+        },
+        {
+          "line": 374,
+          "text": "http_request = urllib.request.Request(",
+          "patterns": [
+            "urllib\\.request"
+          ]
+        },
+        {
+          "line": 395,
+          "text": "with urllib.request.urlopen(http_request, timeout=240.0) as response:",
+          "patterns": [
+            "urllib\\.request"
+          ]
+        }
+      ],
+      "is_backup": false
+    },
+    {
+      "path": "build\\lib\\src\\application\\adam_authorized_waqf_v3_sample.py",
+      "evidence": [
+        {
+          "line": 16,
+          "text": "import urllib.request",
+          "patterns": [
+            "urllib\\.request"
+          ]
+        },
+        {
+          "line": 25,
+          "text": "API_ROOT = \"https://api.elevenlabs.io/v1\"",
+          "patterns": [
+            "api\\.elevenlabs\\.io"
+          ]
+        },
+        {
+          "line": 425,
+          "text": "http_request = urllib.request.Request(",
+          "patterns": [
+            "urllib\\.request"
+          ]
+        },
+        {
+          "line": 446,
+          "text": "with urllib.request.urlopen(",
+          "patterns": [
+            "urllib\\.request"
+          ]
+        }
+      ],
+      "is_backup": false
+    },
+    {
+      "path": "build\\lib\\src\\application\\desktop_media_execution_v1.py",
+      "evidence": [
+        {
+          "line": 11,
+          "text": "import urllib.request",
+          "patterns": [
+            "urllib\\.request"
+          ]
+        },
+        {
+          "line": 50,
+          "text": "ELEVENLABS_API_ROOT = \"https://api.elevenlabs.io/v1\"",
+          "patterns": [
+            "api\\.elevenlabs\\.io"
+          ]
+        },
+        {
+          "line": 325,
+          "text": "request = urllib.request.Request(",
+          "patterns": [
+            "urllib\\.request"
+          ]
+        },
+        {
+          "line": 330,
+          "text": "with urllib.request.urlopen(request, timeout=timeout) as response, partial.open(",
+          "patterns": [
+            "urllib\\.request"
+          ]
+        },
+        {
+          "line": 780,
+          "text": "request = urllib.request.Request(",
+          "patterns": [
+            "urllib\\.request"
+          ]
+        },
+        {
+          "line": 794,
+          "text": "with urllib.request.urlopen(request, timeout=240.0) as response:",
+          "patterns": [
+            "urllib\\.request"
+          ]
+        }
+      ],
+      "is_backup": false
+    },
+    {
+      "path": "build\\lib\\src\\application\\local_video_production\\elevenlabs_speech_provider_v1.py",
+      "evidence": [
+        {
+          "line": 14,
+          "text": "from urllib.request import Request, urlopen",
+          "patterns": [
+            "urllib\\.request"
+          ]
+        },
+        {
+          "line": 28,
+          "text": "\"https://api.elevenlabs.io/v1/\"",
+          "patterns": [
+            "api\\.elevenlabs\\.io"
+          ]
+        }
+      ],
+      "is_backup": false
+    },
+    {
+      "path": "build\\lib\\src\\application\\local_video_production\\elevenlabs_voice_catalog_v1.py",
+      "evidence": [
+        {
+          "line": 11,
+          "text": "from urllib.request import Request, urlopen",
+          "patterns": [
+            "urllib\\.request"
+          ]
+        },
+        {
+          "line": 19,
+          "text": "\"https://api.elevenlabs.io/v2/voices\"",
+          "patterns": [
+            "api\\.elevenlabs\\.io"
+          ]
+        }
+      ],
+      "is_backup": false
+    }
+  ],
+  "episode1_settings": {
+    "model_candidates": [
+      {
+        "value": "eleven_multilingual_v2",
+        "evidence_count": 82,
+        "paths": [
+          "projects\\_orchestrator\\local-graphics-qml-recovery-backups\\20260805T221936Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+          "projects\\_orchestrator\\local-graphics-subprocess-recovery-backups\\20260805T224745Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+          "projects\\_orchestrator\\runware-seedream-negative-prompt-recovery-backups\\20260805T215620Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+          "projects\\episode-001-adam\\audio\\tts\\tts-sample-authorization-request-v2.json",
+          "projects\\episode-001-adam\\audio\\tts\\tts-waqf-sample-authorization-request-v2.json",
+          "projects\\episode-001-adam\\audio\\tts\\tts-waqf-sample-authorization-request-v3.json",
+          "projects\\episode-001-adam\\audio\\tts\\voice-cast-plan-v1.json",
+          "projects\\episode-001-adam\\orchestration\\elevenlabs-voice-cast-plan-v2.json",
+          "projects\\episode-001-adam\\orchestration\\elevenlabs-voice-cast-plan-v3-waqf-candidate.json",
+          "projects\\episode-001-adam\\orchestration\\elevenlabs-voice-cast-plan-v4-waqf-candidate.json",
+          "projects\\episode-001-adam\\orchestration\\full-episode-tts-execution-plan-production-standard-v2.json",
+          "projects\\episode-001-adam\\orchestration\\legacy-v1\\media-production-queue-before-psv2-adam-r1.json",
+          "projects\\episode-001-adam\\orchestration\\media-execution\\receipts\\TTS-PSV2-VB-001-02-attempt-01-receipt.json",
+          "projects\\episode-001-adam\\orchestration\\media-execution\\receipts\\TTS-PSV2-VB-002-01-attempt-01-receipt.json",
+          "projects\\episode-001-adam\\orchestration\\media-execution\\receipts\\TTS-PSV2-VB-002-02-attempt-01-receipt.json",
+          "projects\\episode-001-adam\\orchestration\\media-execution\\receipts\\TTS-PSV2-VB-002-03-attempt-01-receipt.json",
+          "projects\\episode-001-adam\\orchestration\\media-execution\\receipts\\TTS-PSV2-VB-003-01-attempt-01-receipt.json",
+          "projects\\episode-001-adam\\orchestration\\media-execution\\receipts\\TTS-PSV2-VB-003-02-attempt-01-receipt.json",
+          "projects\\episode-001-adam\\orchestration\\media-execution\\receipts\\TTS-PSV2-VB-003-03-attempt-01-receipt.json",
+          "projects\\episode-001-adam\\orchestration\\media-execution\\receipts\\TTS-PSV2-VB-004-01-attempt-01-receipt.json"
+        ]
+      }
+    ],
+    "voice_candidates": [
+      {
+        "value": "XdoLPWNt7ytn6BtU4FBf",
+        "evidence_count": 82,
+        "paths": [
+          "projects\\_orchestrator\\local-graphics-qml-recovery-backups\\20260805T221936Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+          "projects\\_orchestrator\\local-graphics-subprocess-recovery-backups\\20260805T224745Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+          "projects\\_orchestrator\\runware-seedream-negative-prompt-recovery-backups\\20260805T215620Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+          "projects\\episode-001-adam\\audio\\tts\\tts-sample-authorization-request-v2.json",
+          "projects\\episode-001-adam\\audio\\tts\\tts-waqf-sample-authorization-request-v2.json",
+          "projects\\episode-001-adam\\audio\\tts\\tts-waqf-sample-authorization-request-v3.json",
+          "projects\\episode-001-adam\\audio\\tts\\voice-cast-plan-v1.json",
+          "projects\\episode-001-adam\\orchestration\\elevenlabs-voice-cast-plan-v2.json",
+          "projects\\episode-001-adam\\orchestration\\elevenlabs-voice-cast-plan-v3-waqf-candidate.json",
+          "projects\\episode-001-adam\\orchestration\\elevenlabs-voice-cast-plan-v4-waqf-candidate.json",
+          "projects\\episode-001-adam\\orchestration\\full-episode-tts-execution-plan-production-standard-v2.json",
+          "projects\\episode-001-adam\\orchestration\\legacy-v1\\media-production-queue-before-psv2-adam-r1.json",
+          "projects\\episode-001-adam\\orchestration\\media-execution\\receipts\\TTS-PSV2-VB-001-02-attempt-01-receipt.json",
+          "projects\\episode-001-adam\\orchestration\\media-execution\\receipts\\TTS-PSV2-VB-002-01-attempt-01-receipt.json",
+          "projects\\episode-001-adam\\orchestration\\media-execution\\receipts\\TTS-PSV2-VB-002-02-attempt-01-receipt.json",
+          "projects\\episode-001-adam\\orchestration\\media-execution\\receipts\\TTS-PSV2-VB-002-03-attempt-01-receipt.json",
+          "projects\\episode-001-adam\\orchestration\\media-execution\\receipts\\TTS-PSV2-VB-003-01-attempt-01-receipt.json",
+          "projects\\episode-001-adam\\orchestration\\media-execution\\receipts\\TTS-PSV2-VB-003-02-attempt-01-receipt.json",
+          "projects\\episode-001-adam\\orchestration\\media-execution\\receipts\\TTS-PSV2-VB-003-03-attempt-01-receipt.json",
+          "projects\\episode-001-adam\\orchestration\\media-execution\\receipts\\TTS-PSV2-VB-004-01-attempt-01-receipt.json"
+        ]
+      },
+      {
+        "value": "pCKbQ4EPGE06zpEPGNvS",
+        "evidence_count": 10,
+        "paths": [
+          "projects\\_orchestrator\\local-graphics-qml-recovery-backups\\20260805T221936Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+          "projects\\_orchestrator\\local-graphics-subprocess-recovery-backups\\20260805T224745Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+          "projects\\_orchestrator\\runware-seedream-negative-prompt-recovery-backups\\20260805T215620Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+          "projects\\episode-001-adam\\audio\\tts\\voice-cast-plan-v1.json",
+          "projects\\episode-001-adam\\orchestration\\elevenlabs-voice-cast-plan-v2.json",
+          "projects\\episode-001-adam\\orchestration\\elevenlabs-voice-cast-plan-v3-waqf-candidate.json",
+          "projects\\episode-001-adam\\orchestration\\elevenlabs-voice-cast-plan-v4-waqf-candidate.json",
+          "projects\\episode-001-adam\\orchestration\\legacy-v1\\media-production-queue-before-psv2-adam-r1.json",
+          "projects\\episode-001-adam\\orchestration\\tts-preflight-v2-report.json",
+          "working\\full-pipeline-migration-backup-20260806T204028Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json"
+        ]
+      },
+      {
+        "value": "fkqevZRU7Xj52dY1CTkq",
+        "evidence_count": 10,
+        "paths": [
+          "projects\\_orchestrator\\local-graphics-qml-recovery-backups\\20260805T221936Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+          "projects\\_orchestrator\\local-graphics-subprocess-recovery-backups\\20260805T224745Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+          "projects\\_orchestrator\\runware-seedream-negative-prompt-recovery-backups\\20260805T215620Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+          "projects\\episode-001-adam\\audio\\tts\\voice-cast-plan-v1.json",
+          "projects\\episode-001-adam\\orchestration\\elevenlabs-voice-cast-plan-v2.json",
+          "projects\\episode-001-adam\\orchestration\\elevenlabs-voice-cast-plan-v3-waqf-candidate.json",
+          "projects\\episode-001-adam\\orchestration\\elevenlabs-voice-cast-plan-v4-waqf-candidate.json",
+          "projects\\episode-001-adam\\orchestration\\legacy-v1\\media-production-queue-before-psv2-adam-r1.json",
+          "projects\\episode-001-adam\\orchestration\\tts-preflight-v2-report.json",
+          "working\\full-pipeline-migration-backup-20260806T204028Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json"
+        ]
+      },
+      {
+        "value": "t8atLZaWuCcW6gENDwwa",
+        "evidence_count": 10,
+        "paths": [
+          "projects\\_orchestrator\\local-graphics-qml-recovery-backups\\20260805T221936Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+          "projects\\_orchestrator\\local-graphics-subprocess-recovery-backups\\20260805T224745Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+          "projects\\_orchestrator\\runware-seedream-negative-prompt-recovery-backups\\20260805T215620Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+          "projects\\episode-001-adam\\audio\\tts\\voice-cast-plan-v1.json",
+          "projects\\episode-001-adam\\orchestration\\elevenlabs-voice-cast-plan-v2.json",
+          "projects\\episode-001-adam\\orchestration\\elevenlabs-voice-cast-plan-v3-waqf-candidate.json",
+          "projects\\episode-001-adam\\orchestration\\elevenlabs-voice-cast-plan-v4-waqf-candidate.json",
+          "projects\\episode-001-adam\\orchestration\\legacy-v1\\media-production-queue-before-psv2-adam-r1.json",
+          "projects\\episode-001-adam\\orchestration\\tts-preflight-v2-report.json",
+          "working\\full-pipeline-migration-backup-20260806T204028Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json"
+        ]
+      }
+    ],
+    "output_format_candidates": [
+      {
+        "value": "mp3_44100_128",
+        "evidence_count": 16,
+        "paths": [
+          "projects\\_orchestrator\\local-graphics-qml-recovery-backups\\20260805T221936Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+          "projects\\_orchestrator\\local-graphics-subprocess-recovery-backups\\20260805T224745Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+          "projects\\_orchestrator\\runware-seedream-negative-prompt-recovery-backups\\20260805T215620Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+          "projects\\episode-001-adam\\audio\\tts\\tts-sample-authorization-request-v2.json",
+          "projects\\episode-001-adam\\audio\\tts\\tts-waqf-sample-authorization-request-v2.json",
+          "projects\\episode-001-adam\\audio\\tts\\tts-waqf-sample-authorization-request-v3.json",
+          "projects\\episode-001-adam\\audio\\tts\\voice-cast-plan-v1.json",
+          "projects\\episode-001-adam\\orchestration\\elevenlabs-voice-cast-plan-v2.json",
+          "projects\\episode-001-adam\\orchestration\\elevenlabs-voice-cast-plan-v3-waqf-candidate.json",
+          "projects\\episode-001-adam\\orchestration\\elevenlabs-voice-cast-plan-v4-waqf-candidate.json",
+          "projects\\episode-001-adam\\orchestration\\legacy-v1\\media-production-queue-before-psv2-adam-r1.json",
+          "projects\\episode-001-adam\\orchestration\\tts-sample-execution-v2\\receipts\\TTS-SAMPLE-VB-001-01-attempt-01-receipt.json",
+          "projects\\episode-001-adam\\orchestration\\tts-waqf-v3-sample-execution\\receipts\\TTS-WAQF-V3-SAMPLE-VB-001-01-attempt-01-receipt.json",
+          "tests\\test_adam_authorized_tts_sample_v2.py",
+          "tests\\test_adam_authorized_waqf_v3_sample.py",
+          "working\\full-pipeline-migration-backup-20260806T204028Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json"
+        ]
+      }
+    ],
+    "voice_setting_candidates": {
+      "stability": [
+        {
+          "value": "0.38",
+          "evidence_count": 18,
+          "paths": [
+            "projects\\episode-001-adam\\audio\\tts\\tts-sample-authorization-request-v2.json",
+            "projects\\episode-001-adam\\audio\\tts\\tts-waqf-sample-authorization-request-v2.json",
+            "projects\\episode-001-adam\\audio\\tts\\tts-waqf-sample-authorization-request-v3.json",
+            "projects\\episode-001-adam\\orchestration\\elevenlabs-voice-cast-plan-v2.json",
+            "projects\\episode-001-adam\\orchestration\\elevenlabs-voice-cast-plan-v3-waqf-candidate.json",
+            "projects\\episode-001-adam\\orchestration\\elevenlabs-voice-cast-plan-v4-waqf-candidate.json",
+            "projects\\episode-001-adam\\orchestration\\full-episode-tts-execution-plan-production-standard-v2.json",
+            "projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+            "projects\\episode-001-adam\\orchestration\\media-production-queue-v2-preview.json",
+            "projects\\episode-001-adam\\orchestration\\production-standard-v2-native-asset-plan-v1.json",
+            "projects\\episode-001-adam\\orchestration\\tts-preflight-v2-report.json",
+            "tests\\test_adam_authorized_tts_sample_v2.py",
+            "tests\\test_adam_authorized_waqf_v3_sample.py",
+            "working\\veo-final-submission-cert-backup-20260806T214205Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+            "working\\veo-network-boundary-resume-backup-20260806T215522Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+            "working\\veo-ui-repair-backup-20260806T212655Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+            "working\\veo-ui-repair-backup-20260806T212655Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v2-preview.json",
+            "working\\veo-ui-repair-backup-20260806T212655Z\\projects\\episode-001-adam\\orchestration\\production-standard-v2-native-asset-plan-v1.json"
+          ]
+        },
+        {
+          "value": "0.55",
+          "evidence_count": 6,
+          "paths": [
+            "projects\\_orchestrator\\local-graphics-qml-recovery-backups\\20260805T221936Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+            "projects\\_orchestrator\\local-graphics-subprocess-recovery-backups\\20260805T224745Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+            "projects\\_orchestrator\\runware-seedream-negative-prompt-recovery-backups\\20260805T215620Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+            "projects\\episode-001-adam\\audio\\tts\\voice-cast-plan-v1.json",
+            "projects\\episode-001-adam\\orchestration\\legacy-v1\\media-production-queue-before-psv2-adam-r1.json",
+            "working\\full-pipeline-migration-backup-20260806T204028Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json"
+          ]
+        }
+      ],
+      "similarity_boost": [
+        {
+          "value": "0.75",
+          "evidence_count": 24,
+          "paths": [
+            "projects\\_orchestrator\\local-graphics-qml-recovery-backups\\20260805T221936Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+            "projects\\_orchestrator\\local-graphics-subprocess-recovery-backups\\20260805T224745Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+            "projects\\_orchestrator\\runware-seedream-negative-prompt-recovery-backups\\20260805T215620Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+            "projects\\episode-001-adam\\audio\\tts\\tts-sample-authorization-request-v2.json",
+            "projects\\episode-001-adam\\audio\\tts\\tts-waqf-sample-authorization-request-v2.json",
+            "projects\\episode-001-adam\\audio\\tts\\tts-waqf-sample-authorization-request-v3.json",
+            "projects\\episode-001-adam\\audio\\tts\\voice-cast-plan-v1.json",
+            "projects\\episode-001-adam\\orchestration\\elevenlabs-voice-cast-plan-v2.json",
+            "projects\\episode-001-adam\\orchestration\\elevenlabs-voice-cast-plan-v3-waqf-candidate.json",
+            "projects\\episode-001-adam\\orchestration\\elevenlabs-voice-cast-plan-v4-waqf-candidate.json",
+            "projects\\episode-001-adam\\orchestration\\full-episode-tts-execution-plan-production-standard-v2.json",
+            "projects\\episode-001-adam\\orchestration\\legacy-v1\\media-production-queue-before-psv2-adam-r1.json",
+            "projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+            "projects\\episode-001-adam\\orchestration\\media-production-queue-v2-preview.json",
+            "projects\\episode-001-adam\\orchestration\\production-standard-v2-native-asset-plan-v1.json",
+            "projects\\episode-001-adam\\orchestration\\tts-preflight-v2-report.json",
+            "tests\\test_adam_authorized_tts_sample_v2.py",
+            "tests\\test_adam_authorized_waqf_v3_sample.py",
+            "working\\full-pipeline-migration-backup-20260806T204028Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+            "working\\veo-final-submission-cert-backup-20260806T214205Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json"
+          ]
+        }
+      ],
+      "style": [
+        {
+          "value": "0.42",
+          "evidence_count": 18,
+          "paths": [
+            "projects\\episode-001-adam\\audio\\tts\\tts-sample-authorization-request-v2.json",
+            "projects\\episode-001-adam\\audio\\tts\\tts-waqf-sample-authorization-request-v2.json",
+            "projects\\episode-001-adam\\audio\\tts\\tts-waqf-sample-authorization-request-v3.json",
+            "projects\\episode-001-adam\\orchestration\\elevenlabs-voice-cast-plan-v2.json",
+            "projects\\episode-001-adam\\orchestration\\elevenlabs-voice-cast-plan-v3-waqf-candidate.json",
+            "projects\\episode-001-adam\\orchestration\\elevenlabs-voice-cast-plan-v4-waqf-candidate.json",
+            "projects\\episode-001-adam\\orchestration\\full-episode-tts-execution-plan-production-standard-v2.json",
+            "projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+            "projects\\episode-001-adam\\orchestration\\media-production-queue-v2-preview.json",
+            "projects\\episode-001-adam\\orchestration\\production-standard-v2-native-asset-plan-v1.json",
+            "projects\\episode-001-adam\\orchestration\\tts-preflight-v2-report.json",
+            "tests\\test_adam_authorized_tts_sample_v2.py",
+            "tests\\test_adam_authorized_waqf_v3_sample.py",
+            "working\\veo-final-submission-cert-backup-20260806T214205Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+            "working\\veo-network-boundary-resume-backup-20260806T215522Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+            "working\\veo-ui-repair-backup-20260806T212655Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+            "working\\veo-ui-repair-backup-20260806T212655Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v2-preview.json",
+            "working\\veo-ui-repair-backup-20260806T212655Z\\projects\\episode-001-adam\\orchestration\\production-standard-v2-native-asset-plan-v1.json"
+          ]
+        },
+        {
+          "value": "0.15",
+          "evidence_count": 6,
+          "paths": [
+            "projects\\_orchestrator\\local-graphics-qml-recovery-backups\\20260805T221936Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+            "projects\\_orchestrator\\local-graphics-subprocess-recovery-backups\\20260805T224745Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+            "projects\\_orchestrator\\runware-seedream-negative-prompt-recovery-backups\\20260805T215620Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+            "projects\\episode-001-adam\\audio\\tts\\voice-cast-plan-v1.json",
+            "projects\\episode-001-adam\\orchestration\\legacy-v1\\media-production-queue-before-psv2-adam-r1.json",
+            "working\\full-pipeline-migration-backup-20260806T204028Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json"
+          ]
+        },
+        {
+          "value": "TIMELINE_PROGRESS",
+          "evidence_count": 2,
+          "paths": [
+            "projects\\episode-001-adam\\orchestration\\production-standard-v2-native-asset-plan-v1.json",
+            "working\\veo-ui-repair-backup-20260806T212655Z\\projects\\episode-001-adam\\orchestration\\production-standard-v2-native-asset-plan-v1.json"
+          ]
+        },
+        {
+          "value": "FOCUS_PULL",
+          "evidence_count": 2,
+          "paths": [
+            "projects\\episode-001-adam\\orchestration\\production-standard-v2-native-asset-plan-v1.json",
+            "working\\veo-ui-repair-backup-20260806T212655Z\\projects\\episode-001-adam\\orchestration\\production-standard-v2-native-asset-plan-v1.json"
+          ]
+        },
+        {
+          "value": "NODE_REVEAL",
+          "evidence_count": 2,
+          "paths": [
+            "projects\\episode-001-adam\\orchestration\\production-standard-v2-native-asset-plan-v1.json",
+            "working\\veo-ui-repair-backup-20260806T212655Z\\projects\\episode-001-adam\\orchestration\\production-standard-v2-native-asset-plan-v1.json"
+          ]
+        },
+        {
+          "value": "SIDE_BY_SIDE_REVEAL",
+          "evidence_count": 2,
+          "paths": [
+            "projects\\episode-001-adam\\orchestration\\production-standard-v2-native-asset-plan-v1.json",
+            "working\\veo-ui-repair-backup-20260806T212655Z\\projects\\episode-001-adam\\orchestration\\production-standard-v2-native-asset-plan-v1.json"
+          ]
+        },
+        {
+          "value": "CINEMATIC_REVEAL",
+          "evidence_count": 2,
+          "paths": [
+            "projects\\episode-001-adam\\orchestration\\production-standard-v2-native-asset-plan-v1.json",
+            "working\\veo-ui-repair-backup-20260806T212655Z\\projects\\episode-001-adam\\orchestration\\production-standard-v2-native-asset-plan-v1.json"
+          ]
+        }
+      ],
+      "use_speaker_boost": [
+        {
+          "value": "true",
+          "evidence_count": 22,
+          "paths": [
+            "projects\\_orchestrator\\local-graphics-qml-recovery-backups\\20260805T221936Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+            "projects\\_orchestrator\\local-graphics-subprocess-recovery-backups\\20260805T224745Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+            "projects\\_orchestrator\\runware-seedream-negative-prompt-recovery-backups\\20260805T215620Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+            "projects\\episode-001-adam\\audio\\tts\\tts-sample-authorization-request-v2.json",
+            "projects\\episode-001-adam\\audio\\tts\\tts-waqf-sample-authorization-request-v2.json",
+            "projects\\episode-001-adam\\audio\\tts\\tts-waqf-sample-authorization-request-v3.json",
+            "projects\\episode-001-adam\\audio\\tts\\voice-cast-plan-v1.json",
+            "projects\\episode-001-adam\\orchestration\\elevenlabs-voice-cast-plan-v2.json",
+            "projects\\episode-001-adam\\orchestration\\elevenlabs-voice-cast-plan-v3-waqf-candidate.json",
+            "projects\\episode-001-adam\\orchestration\\elevenlabs-voice-cast-plan-v4-waqf-candidate.json",
+            "projects\\episode-001-adam\\orchestration\\full-episode-tts-execution-plan-production-standard-v2.json",
+            "projects\\episode-001-adam\\orchestration\\legacy-v1\\media-production-queue-before-psv2-adam-r1.json",
+            "projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+            "projects\\episode-001-adam\\orchestration\\media-production-queue-v2-preview.json",
+            "projects\\episode-001-adam\\orchestration\\production-standard-v2-native-asset-plan-v1.json",
+            "projects\\episode-001-adam\\orchestration\\tts-preflight-v2-report.json",
+            "working\\full-pipeline-migration-backup-20260806T204028Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+            "working\\veo-final-submission-cert-backup-20260806T214205Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+            "working\\veo-network-boundary-resume-backup-20260806T215522Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json",
+            "working\\veo-ui-repair-backup-20260806T212655Z\\projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json"
+          ]
+        },
+        {
+          "value": "True",
+          "evidence_count": 2,
+          "paths": [
+            "tests\\test_adam_authorized_tts_sample_v2.py",
+            "tests\\test_adam_authorized_waqf_v3_sample.py"
+          ]
+        }
+      ]
+    }
+  },
+  "preflight_errors": []
+}

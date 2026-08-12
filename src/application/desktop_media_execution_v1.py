@@ -1,9 +1,13 @@
 from __future__ import annotations
+from src.application.siraj_v4_plus_legacy_execution_lock_v1 import block_legacy_execution
 
 import hashlib
 import json
 import os
+import re
+import shutil
 import subprocess
+import threading
 import sys
 import time
 import urllib.error
@@ -29,6 +33,7 @@ from src.application.runware_execution_v1 import (
 )
 from src.application.runware_seedream_negative_prompt_recovery_v1 import (
     classify_seedream_negative_prompt_rejection,
+    classify_runware_terminal_provider_rejection_v2,
     prepare_runware_task_for_submission,
     reset_terminal_rejected_attempt_for_explicit_reauthorization,
 )
@@ -86,6 +91,10 @@ class MediaExecutionResult:
     estimated_cost_usd: float | None
 
 
+
+_SIRAJ_FILE_WRITE_MUTEX = threading.RLock()
+
+
 def _now() -> str:
     return datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
 
@@ -102,13 +111,64 @@ def _read(path: Path) -> dict[str, Any]:
 
 def _write(path: Path, payload: Mapping[str, Any]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    temporary = path.with_suffix(path.suffix + ".tmp")
-    temporary.write_text(
-        json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
-        encoding="utf-8",
-        newline="\n",
+    raw = (
+        json.dumps(
+            payload,
+            ensure_ascii=False,
+            indent=2,
+            sort_keys=True,
+        )
+        + "\n"
     )
-    os.replace(temporary, path)
+
+    temporary = path.with_name(
+        "."
+        + path.name
+        + "."
+        + str(os.getpid())
+        + "."
+        + str(threading.get_ident())
+        + "."
+        + uuid.uuid4().hex
+        + ".tmp"
+    )
+
+    with _SIRAJ_FILE_WRITE_MUTEX:
+        try:
+            with temporary.open(
+                "w",
+                encoding="utf-8",
+                newline="\n",
+            ) as handle:
+                handle.write(raw)
+                handle.flush()
+                os.fsync(handle.fileno())
+
+            last_error: OSError | None = None
+            for attempt in range(60):
+                try:
+                    os.replace(temporary, path)
+                    return
+                except PermissionError as exc:
+                    last_error = exc
+                except OSError as exc:
+                    if getattr(exc, "winerror", None) not in {5, 32}:
+                        raise
+                    last_error = exc
+
+                time.sleep(min(0.025 * (attempt + 1), 0.250))
+
+            raise DesktopMediaExecutionError(
+                "WINDOWS_ATOMIC_REPLACE_RETRY_EXHAUSTED:"
+                + str(path)
+                + ":"
+                + str(last_error)
+            ) from last_error
+        finally:
+            try:
+                temporary.unlink(missing_ok=True)
+            except OSError:
+                pass
 
 
 def _sha256(path: Path) -> str:
@@ -263,6 +323,29 @@ def _find_item(
     raise DesktopMediaExecutionError(f"MEDIA_QUEUE_ITEM_NOT_FOUND:{queue_id}")
 
 
+
+_MEDIA_STATE_MUTEX = threading.RLock()
+
+
+def _update_queue_item_atomic(
+    queue_path: Path,
+    queue_id: str,
+    *,
+    updates: Mapping[str, Any] | None = None,
+    remove: Sequence[str] = (),
+) -> dict[str, Any]:
+    # Update exactly one queue item without losing concurrent item changes.
+    with _MEDIA_STATE_MUTEX:
+        fresh_queue = _read(queue_path)
+        _, fresh_item = _find_item(fresh_queue, queue_id)
+        for key in remove:
+            fresh_item.pop(str(key), None)
+        if updates:
+            fresh_item.update(dict(updates))
+        _write(queue_path, fresh_queue)
+        return dict(fresh_item)
+
+
 def _paths(episode_root: Path, queue_id: str) -> tuple[Path, Path]:
     safe = "".join(
         character
@@ -385,6 +468,148 @@ def _poll_runware(
         time.sleep(RUNWARE_POLL_INTERVAL_SECONDS)
 
 
+
+def _siraj_file_sha256_v1(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for block in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(block)
+    return digest.hexdigest()
+
+
+def _siraj_find_ffmpeg_v1() -> Path:
+    configured = os.environ.get("SIRAJ_FFMPEG_EXE", "").strip()
+    if configured:
+        candidate = Path(configured)
+        if candidate.is_file():
+            return candidate.resolve()
+    found = shutil.which("ffmpeg")
+    if found:
+        return Path(found).resolve()
+    raise DesktopMediaExecutionError(
+        "DETERMINISTIC_TEXT_OVERLAY_FFMPEG_NOT_AVAILABLE"
+    )
+
+
+def _siraj_apply_deterministic_text_overlay_v1(
+    repo_root: Path,
+    item: Mapping[str, Any],
+) -> dict[str, Any] | None:
+    queue_id = str(item.get("queue_id", "")).strip()
+    spec = _SIRAJ_DETERMINISTIC_ARABIC_OVERLAY_V1.get(queue_id)
+    if spec is None:
+        return None
+
+    output_relative = str(item.get("output_path_relative", "") or "").strip()
+    if not output_relative:
+        raise DesktopMediaExecutionError(
+            "DETERMINISTIC_TEXT_OVERLAY_OUTPUT_PATH_REQUIRED:" + queue_id
+        )
+    source = repo_root.resolve() / output_relative
+    if not source.is_file() or source.stat().st_size <= 0:
+        raise DesktopMediaExecutionError(
+            "DETERMINISTIC_TEXT_OVERLAY_SOURCE_MISSING:" + queue_id
+        )
+
+    overlay = repo_root.resolve() / str(spec["asset"])
+    if not overlay.is_file() or overlay.stat().st_size <= 0:
+        raise DesktopMediaExecutionError(
+            "DETERMINISTIC_TEXT_OVERLAY_ASSET_MISSING:" + queue_id
+        )
+
+    duration_seconds = float(item.get("provider_duration_seconds") or 8.0)
+    duration_seconds = min(max(duration_seconds, 0.5), 30.0)
+    ffmpeg = _siraj_find_ffmpeg_v1()
+
+    temporary = source.with_name(
+        "." + source.stem + ".deterministic-arabic-overlay."
+        + uuid.uuid4().hex + source.suffix
+    )
+    filter_graph = (
+        "[1:v]format=rgba,split=3[t1][t2][t3];"
+        "[t1]scale=220:-1[a1];"
+        "[t2]scale=300:-1[a2];"
+        "[t3]scale=390:-1[a3];"
+        "[0:v][a1]overlay=x='W*0.19-5*t':y='H*0.27+2*t':"
+        "format=auto:shortest=1:eof_action=endall[v1];"
+        "[v1][a2]overlay=x='W*0.43-8*t':y='H*0.46+1*t':"
+        "format=auto:shortest=1:eof_action=endall[v2];"
+        "[v2][a3]overlay=x='W*0.66-11*t':y='H*0.61':"
+        "format=auto:shortest=1:eof_action=endall,"
+        "format=yuv420p[outv]"
+    )
+    command = [
+        str(ffmpeg), "-hide_banner", "-loglevel", "error", "-y",
+        "-i", str(source),
+        "-loop", "1", "-framerate", "24",
+        "-t", f"{duration_seconds:.3f}", "-i", str(overlay),
+        "-filter_complex", filter_graph,
+        "-map", "[outv]", "-an",
+        "-c:v", "libx264", "-preset", "medium", "-crf", "17",
+        "-pix_fmt", "yuv420p", "-movflags", "+faststart",
+        "-t", f"{duration_seconds:.3f}",
+        str(temporary),
+    ]
+    try:
+        process = subprocess.run(
+            command,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+            check=False,
+            timeout=max(45.0, duration_seconds * 8.0),
+        )
+    except subprocess.TimeoutExpired as exc:
+        temporary.unlink(missing_ok=True)
+        raise DesktopMediaExecutionError(
+            "DETERMINISTIC_TEXT_OVERLAY_FFMPEG_TIMEOUT:" + queue_id
+        ) from exc
+
+    if process.returncode != 0:
+        temporary.unlink(missing_ok=True)
+        raise DesktopMediaExecutionError(
+            "DETERMINISTIC_TEXT_OVERLAY_FFMPEG_FAILED:"
+            + queue_id + ":" + process.stderr[-1600:]
+        )
+    if not temporary.is_file() or temporary.stat().st_size <= 0:
+        temporary.unlink(missing_ok=True)
+        raise DesktopMediaExecutionError(
+            "DETERMINISTIC_TEXT_OVERLAY_OUTPUT_MISSING:" + queue_id
+        )
+
+    last_error: OSError | None = None
+    for attempt in range(60):
+        try:
+            os.replace(temporary, source)
+            last_error = None
+            break
+        except PermissionError as exc:
+            last_error = exc
+        except OSError as exc:
+            if getattr(exc, "winerror", None) not in {5, 32}:
+                raise
+            last_error = exc
+        time.sleep(min(0.025 * (attempt + 1), 0.250))
+    if last_error is not None:
+        temporary.unlink(missing_ok=True)
+        raise DesktopMediaExecutionError(
+            "WINDOWS_BINARY_REPLACE_RETRY_EXHAUSTED:"
+            + str(source) + ":" + str(last_error)
+        )
+
+    return {
+        "release": "SIRAJ_DETERMINISTIC_ARABIC_OVERLAY_V2",
+        "queue_id": queue_id,
+        "language": "ar",
+        "text": str(spec["text"]),
+        "mode": str(spec["mode"]),
+        "provider_generated_text": False,
+        "overlay_asset_relative": str(spec["asset"]),
+        "output_sha256": _siraj_file_sha256_v1(source),
+    }
+
+
 def _write_receipt_and_complete(
     repo_root: Path,
     queue_path: Path,
@@ -395,45 +620,124 @@ def _write_receipt_and_complete(
     receipt_path: Path,
     receipt: dict[str, Any],
 ) -> None:
-    _write(receipt_path, receipt)
-    item.update(
-        {
-            "status": "COMPLETE",
-            "receipt_path_relative": str(
-                receipt_path.relative_to(repo_root.resolve())
-            ).replace("\\", "/"),
-            "completed_at_utc": _now(),
-            "actual_cost_usd": receipt.get("actual_cost_usd"),
-            "estimated_cost_usd": receipt.get("estimated_cost_usd"),
-            "output_sha256": receipt.get("output_sha256"),
-        }
+    receipt_value = dict(receipt)
+
+    overlay = _siraj_apply_deterministic_text_overlay_v1(
+        repo_root,
+        item,
     )
-    _write(queue_path, queue)
-    all_complete = all(
-        str(candidate.get("status", "")) == "COMPLETE"
-        for _, items in _queue_collections(queue)
-        for candidate in items
-    )
-    state.update(
-        {
-            "status": (
-                "MEDIA_ASSETS_COMPLETE"
-                if all_complete
-                else "DESKTOP_MEDIA_EXECUTION_ACTIVE"
-            ),
-            "stage": (
-                "SFX_DESIGN" if all_complete else "DESKTOP_MEDIA_EXECUTION"
-            ),
-            "next_stage": (
-                "SFX_AND_AUDIO_MIX_V1"
-                if all_complete
-                else "DESKTOP_MEDIA_EXECUTION_V1"
-            ),
-            "last_error": None,
+    if overlay is not None:
+        receipt_value["deterministic_text_overlay_v1"] = overlay
+        receipt_value["output_sha256"] = overlay["output_sha256"]
+
+    _write(receipt_path, receipt_value)
+    queue_id = str(receipt_value.get("queue_id", "")).strip()
+    if not queue_id:
+        raise DesktopMediaExecutionError(
+            "RECEIPT_QUEUE_ID_REQUIRED_FOR_PARALLEL_SAFE_COMPLETION"
+        )
+
+    with _MEDIA_STATE_MUTEX:
+        fresh_queue = _read(queue_path)
+        _, fresh_item = _find_item(fresh_queue, queue_id)
+        fresh_item.update(
+            {
+                "status": "COMPLETE",
+                "receipt_path_relative": str(
+                    receipt_path.relative_to(repo_root.resolve())
+                ).replace("\\", "/"),
+                "completed_at_utc": _now(),
+                "actual_cost_usd": receipt_value.get("actual_cost_usd"),
+                "estimated_cost_usd": receipt_value.get("estimated_cost_usd"),
+                "output_sha256": receipt_value.get("output_sha256"),
+            }
+        )
+        if overlay is not None:
+            fresh_item["deterministic_text_overlay_v1"] = {
+                "status": "APPLIED",
+                "text": overlay["text"],
+                "language": overlay["language"],
+                "release": overlay["release"],
+            }
+        _write(queue_path, fresh_queue)
+
+        all_complete = all(
+            str(candidate.get("status", "")) == "COMPLETE"
+            for _, items in _queue_collections(fresh_queue)
+            for candidate in items
+        )
+        fresh_state = _read(state_path)
+        fresh_state.update(
+            {
+                "status": (
+                    "MEDIA_ASSETS_COMPLETE"
+                    if all_complete
+                    else "DESKTOP_MEDIA_EXECUTION_ACTIVE"
+                ),
+                "stage": (
+                    "SFX_DESIGN"
+                    if all_complete
+                    else "DESKTOP_MEDIA_EXECUTION"
+                ),
+                "next_stage": (
+                    "SFX_AND_AUDIO_MIX_V1"
+                    if all_complete
+                    else "DESKTOP_MEDIA_EXECUTION_V1"
+                ),
+                "last_error": None,
+                "updated_at_utc": _now(),
+            }
+        )
+        _write(state_path, fresh_state)
+
+
+def _siraj_poll_runware_with_terminal_rejection_capture_v1(
+    api_key: str,
+    task_uuid: str,
+    kind: str,
+    *,
+    progress: ProgressCallback | None,
+    task: Mapping[str, Any],
+    queue_path: Path,
+    queue_id: str,
+    lock_path: Path,
+) -> Mapping[str, Any]:
+    try:
+        return _poll_runware(api_key, task_uuid, kind, progress=progress)
+    except (ProductionGateError, DesktopMediaExecutionError) as exc:
+        rejection = classify_runware_terminal_provider_rejection_v2(str(exc), task)
+        if rejection is None or not rejection.get("terminal"):
+            raise
+        if not rejection.get("safe_to_reauthorize"):
+            raise DesktopMediaExecutionError(
+                "RUNWARE_TERMINAL_PROVIDER_REJECTION_NOT_SAFE_TO_REAUTHORIZE:"
+                + str(rejection.get("code"))
+            ) from exc
+        lock = _read(lock_path)
+        lock.update({
+            "status": "PROVIDER_REJECTED_TERMINAL_REAUTHORIZATION_REQUIRED",
+            "provider_rejection_code": rejection.get("code"),
+            "safe_to_reauthorize": True,
+            "billable_output_detected": bool(rejection.get("billable_output_detected")),
+            "last_error": str(exc),
             "updated_at_utc": _now(),
-        }
-    )
-    _write(state_path, state)
+        })
+        _write(lock_path, lock)
+        _update_queue_item_atomic(
+            queue_path,
+            queue_id,
+            updates={
+                "status": "FAILED_PROVIDER_REJECTED_REAUTHORIZATION_REQUIRED",
+                "provider_rejection_code": rejection.get("code"),
+                "reauthorization_required": True,
+                "automatic_resubmission": "FORBIDDEN",
+                "hidden_paid_retry": "FORBIDDEN",
+            },
+        )
+        raise DesktopMediaExecutionError(
+            "RUNWARE_TERMINAL_PROVIDER_REJECTION_REAUTHORIZATION_REQUIRED:"
+            + str(rejection.get("code"))
+        ) from exc
 
 
 def execute_runware_item(
@@ -445,6 +749,8 @@ def execute_runware_item(
     recovery_only: bool = False,
     progress: ProgressCallback | None = None,
 ) -> MediaExecutionResult:
+    # SIRAJ_V4_PLUS_LEGACY_EXECUTION_LOCK
+    block_legacy_execution("src/application/desktop_media_execution_v1.py::execute_runware_item")
     repo = repo_root.resolve()
     episode_id, episode_root, queue_path, state, queue = _active_episode(repo)
     collection, item = _find_item(queue, queue_id)
@@ -488,7 +794,7 @@ def execute_runware_item(
             )
         except CinematicPromptDirectorError as exc:
             raise DesktopMediaExecutionError(str(exc)) from exc
-        rejection = classify_seedream_negative_prompt_rejection(
+        rejection = classify_runware_terminal_provider_rejection_v2(
             {
                 "last_error": lock.get("last_error"),
                 "provider_acknowledgement": lock.get("provider_acknowledgement"),
@@ -507,7 +813,10 @@ def execute_runware_item(
         task_uuid = str(lock.get("task_uuid", ""))
         if not task_uuid:
             raise DesktopMediaExecutionError("RUNWARE_RECOVERY_TASK_UUID_MISSING")
-        result = _poll_runware(api_key, task_uuid, kind, progress=progress)
+        result = _siraj_poll_runware_with_terminal_rejection_capture_v1(
+            api_key, task_uuid, kind, progress=progress, task=recovery_task,
+            queue_path=queue_path, queue_id=queue_id, lock_path=lock_path,
+        )
     else:
         if lock_path.exists():
             archived = (
@@ -519,14 +828,17 @@ def execute_runware_item(
                 raise DesktopMediaExecutionError(
                     "ATTEMPT_ALREADY_LOCKED_USE_RECOVERY"
                 )
-            item["status"] = (
-                "READY_EXPLICIT_PAID_AUTHORIZATION_REQUIRED"
+            _update_queue_item_atomic(
+                queue_path,
+                queue_id,
+                updates={
+                    "status": "READY_EXPLICIT_PAID_AUTHORIZATION_REQUIRED",
+                    "rejected_lock_archive_path_relative": str(
+                        archived.resolve().relative_to(repo)
+                    ).replace("\\", "/"),
+                },
+                remove=("task_uuid",),
             )
-            item.pop("task_uuid", None)
-            item["rejected_lock_archive_path_relative"] = str(
-                archived.resolve().relative_to(repo)
-            ).replace("\\", "/")
-            _write(queue_path, queue)
         task_uuid = str(uuid.uuid4())
         task = dict(item.get("task_draft") or {})
         task["taskUUID"] = task_uuid
@@ -585,15 +897,20 @@ def execute_runware_item(
         }
         lock["luna_prompt_certification_v2"] = prompt_certification
         _exclusive_lock(lock_path, lock)
-        item["status"] = "SUBMISSION_LOCKED"
-        item["task_uuid"] = task_uuid
-        _write(queue_path, queue)
+        _update_queue_item_atomic(
+            queue_path,
+            queue_id,
+            updates={
+                "status": "SUBMISSION_LOCKED",
+                "task_uuid": task_uuid,
+            },
+        )
         if progress:
             progress("تم قفل المحاولة قبل الاتصال بـRunware.", 5)
         try:
             response = _post_json(api_key, [task])
         except ProductionGateError as exc:
-            rejection = classify_seedream_negative_prompt_rejection(
+            rejection = classify_runware_terminal_provider_rejection_v2(
                 str(exc),
                 task,
             )
@@ -605,10 +922,15 @@ def execute_runware_item(
                 lock["safe_to_reauthorize"] = rejection[
                     "safe_to_reauthorize"
                 ]
-                item["status"] = (
-                    "FAILED_PROVIDER_REJECTED_REAUTHORIZATION_REQUIRED"
+                _update_queue_item_atomic(
+                    queue_path,
+                    queue_id,
+                    updates={
+                        "status": (
+                            "FAILED_PROVIDER_REJECTED_REAUTHORIZATION_REQUIRED"
+                        )
+                    },
                 )
-                _write(queue_path, queue)
             else:
                 lock["status"] = "NETWORK_RESULT_UNKNOWN_USE_RECOVERY"
             lock["last_error"] = str(exc)
@@ -621,7 +943,10 @@ def execute_runware_item(
         _write(lock_path, lock)
         result = _runware_result(response, task_uuid, kind)
         if result is None:
-            result = _poll_runware(api_key, task_uuid, kind, progress=progress)
+            result = _siraj_poll_runware_with_terminal_rejection_capture_v1(
+                api_key, task_uuid, kind, progress=progress, task=task,
+                queue_path=queue_path, queue_id=queue_id, lock_path=lock_path,
+            )
 
     output_key = "imageURL" if kind == "RUNWARE_IMAGE" else "videoURL"
     uuid_key = "imageUUID" if kind == "RUNWARE_IMAGE" else "videoUUID"
@@ -698,6 +1023,8 @@ def execute_elevenlabs_item(
     confirmed_maximum_usd: float,
     progress: ProgressCallback | None = None,
 ) -> MediaExecutionResult:
+    # SIRAJ_V4_PLUS_LEGACY_EXECUTION_LOCK
+    block_legacy_execution("src/application/desktop_media_execution_v1.py::execute_elevenlabs_item")
     repo = repo_root.resolve()
     episode_id, episode_root, queue_path, state, queue = _active_episode(repo)
     collection, item = _find_item(queue, queue_id)
@@ -1235,6 +1562,8 @@ def execute_runware_item(
     recovery_only: bool = False,
     progress: ProgressCallback | None = None,
 ) -> MediaExecutionResult:
+    # SIRAJ_V4_PLUS_LEGACY_EXECUTION_LOCK
+    block_legacy_execution("src/application/desktop_media_execution_v1.py::execute_runware_item")
     result = _SIRAJ_BASE_EXECUTE_RUNWARE_ITEM(
         repo_root,
         queue_id,
@@ -1259,6 +1588,8 @@ def execute_elevenlabs_item(
     confirmed_maximum_usd: float,
     progress: ProgressCallback | None = None,
 ) -> MediaExecutionResult:
+    # SIRAJ_V4_PLUS_LEGACY_EXECUTION_LOCK
+    block_legacy_execution("src/application/desktop_media_execution_v1.py::execute_elevenlabs_item")
     result = _SIRAJ_BASE_EXECUTE_ELEVENLABS_ITEM(
         repo_root,
         queue_id,
@@ -1306,73 +1637,250 @@ _SIRAJ_VEO_EXCLUSION_PREFIX_V1 = (
 )
 
 
+_SIRAJ_VEO_PROVIDER_BLOCKED_PEOPLE_FACE_TOKENS_V2 = frozenset(
+    {
+        "iblis",
+        "demon",
+        "demons",
+        "humanoid",
+        "humanoids",
+        "face",
+        "faces",
+        "body",
+        "bodies",
+        "allah",
+        "angel",
+        "angels",
+        "prophet",
+        "prophets",
+        "person",
+        "persons",
+        "people",
+        "human",
+        "humans",
+        "figure",
+        "figures",
+        "being",
+        "beings",
+    }
+)
+_SIRAJ_VEO_PROVIDER_SAFE_TRAILER_V2 = (
+    " Keep the scene purely abstract and object-based, limited to the "
+    "specified materials, reflections, typography, camera motion, "
+    "lighting, and environment. Preserve stable legible typography, "
+    "continuous temporal motion, controlled geometry, and clean "
+    "unbranded surfaces without watermark artifacts."
+)
+
+
+def _siraj_veo_prompt_tokens_v2(value: str) -> set[str]:
+    normalized = str(value or "").casefold()
+    punctuation = (
+        ",", ";", ":", "!", "?", "(", ")", "[", "]", "{", "}",
+        "<", ">", "«", "»", '"', "'", "`", "/", "\\", "|", "-",
+        "–", "—", "\n", "\r", "\t",
+    )
+    for char in punctuation:
+        normalized = normalized.replace(char, " ")
+    return {
+        token.strip(".")
+        for token in normalized.split()
+        if token.strip(".")
+    }
+
+
+
+_SIRAJ_VEO_VISIBLE_TEXT_TOKENS_V3 = frozenset(
+    {
+        "text",
+        "texts",
+        "word",
+        "words",
+        "letter",
+        "letters",
+        "lettering",
+        "typography",
+        "caption",
+        "captions",
+        "subtitle",
+        "subtitles",
+        "label",
+        "labels",
+        "signage",
+        "writing",
+        "written",
+        "inscription",
+        "inscriptions",
+        "inscribed",
+        "calligraphy",
+        "scripture",
+        "pseudo-text",
+        "pseudotext",
+    }
+)
+_SIRAJ_ARABIC_CHAR_RE_V3 = re.compile(r"[\u0600-\u06FF]")
+_SIRAJ_DETERMINISTIC_ARABIC_OVERLAY_V1 = {
+    "VID-SH-048-C03": {
+        "text": "أنا",
+        "asset": (
+            "projects/episode-001-adam/orchestration/"
+            "deterministic-text-overlays-v1/arabic-ana-master-v1.png"
+        ),
+        "mode": "REFLECTION_PROGRESSIVE",
+    },
+    "VID-SH-048-C04": {
+        "text": "أنا",
+        "asset": (
+            "projects/episode-001-adam/orchestration/"
+            "deterministic-text-overlays-v1/arabic-ana-master-v1.png"
+        ),
+        "mode": "REFLECTION_PROGRESSIVE",
+    },
+}
+
+
+def _siraj_sanitize_veo_provider_prompt_v2(
+    positive_prompt: str,
+) -> tuple[str, bool]:
+    positive = re.sub(r"\s+", " ", str(positive_prompt or "")).strip()
+    if not positive:
+        return positive, False
+
+    marker_removed = False
+    marker_index = positive.find(_SIRAJ_VEO_EXCLUSION_PREFIX_V1)
+    if marker_index >= 0:
+        positive = positive[:marker_index].rstrip()
+        marker_removed = True
+
+    kept: list[str] = []
+    for sentence in re.split(r"(?<=[.!?])\s+", positive):
+        sentence = sentence.strip()
+        if not sentence:
+            continue
+        tokens = _siraj_veo_prompt_tokens_v2(sentence)
+        if tokens & _SIRAJ_VEO_PROVIDER_BLOCKED_PEOPLE_FACE_TOKENS_V2:
+            continue
+        if _SIRAJ_ARABIC_CHAR_RE_V3.search(sentence):
+            continue
+        if tokens & _SIRAJ_VEO_VISIBLE_TEXT_TOKENS_V3:
+            continue
+        kept.append(sentence)
+
+    sanitized = " ".join(kept).strip()
+    if sanitized:
+        sanitized += " "
+    sanitized += (
+        "Keep the generated frames purely abstract and object-based, with a strictly visual composition. "
+        "All focal surfaces remain clean, blank, featureless, and unmarked, "
+        "showing only the specified materials, reflections, light, shadow, "
+        "geometry, terrain, particles, and camera motion. "
+        "Preserve authored clean negative-space and reflective focal regions "
+        "for deterministic post-production graphics. "
+        "Preserve continuous temporal motion, controlled geometry, stable "
+        "materials, camera continuity, and clean unbranded surfaces."
+    )
+    return sanitized.strip(), marker_removed
+
+
 def _siraj_prepare_veo_final_submission_v1(
     task: Mapping[str, Any],
     certification: Mapping[str, Any] | None,
     queue_id: str,
 ) -> tuple[dict[str, Any], dict[str, Any] | None]:
     prepared = dict(task)
-    negative = str(
-        prepared.pop("negativePrompt", "") or ""
-    ).strip()
-    positive = str(
-        prepared.get("positivePrompt", "") or ""
-    ).strip()
+    negative = str(prepared.pop("negativePrompt", "") or "").strip()
+    positive = str(prepared.get("positivePrompt", "") or "").strip()
     if not positive:
         raise DesktopMediaExecutionError(
-            "RUNWARE_VEO_POSITIVE_PROMPT_REQUIRED:"
-            + queue_id
+            "RUNWARE_VEO_POSITIVE_PROMPT_REQUIRED:" + queue_id
         )
 
-    if negative and _SIRAJ_VEO_EXCLUSION_PREFIX_V1 not in positive:
+    positive, marker_removed = _siraj_sanitize_veo_provider_prompt_v2(
+        positive
+    )
+
+    if queue_id == "VID-SH-048-C03":
         positive = (
-            positive
-            + _SIRAJ_VEO_EXCLUSION_PREFIX_V1
-            + "do not depict or introduce any of the following: "
-            + negative
-            + ". Treat these exclusions as mandatory execution constraints."
+            "Photoreal restrained prestige cinematic video. "
+            "An abstract geometric arrangement of rigid rectangular black "
+            "obsidian slabs occupies a dark charcoal environment. "
+            "Surfaces use smooth matte mineral texture with controlled "
+            "dark-copper edge lighting and sparse silver highlights. "
+            "A stabilized right-to-left lateral orbit moves with controlled "
+            "parallax and gradually increases pace through the segment. "
+            "The slabs remain geometrically regular and featureless while "
+            "depth layers stay stable. "
+            "End on a clean continuity frame with the camera still moving "
+            "smoothly. "
+            "Preserve SEQ-10 SH-048 material identity, scale, frame-right "
+            "key, right-to-left direction, and adjacent-shot geometry. "
+            "One conceptual focal center, controlled depth, stable exposure, "
+            "continuous motion, precise rigid geometry, clean unbranded "
+            "surfaces."
         )
+    elif queue_id == "VID-SH-048-C04":
+        positive = (
+            "Photoreal restrained prestige cinematic video. "
+            "Continue the same abstract geometric arrangement of rigid "
+            "rectangular black obsidian slabs in the same dark charcoal "
+            "environment, smooth matte mineral texture, dark-copper edge "
+            "lighting, and sparse silver highlights. "
+            "Continue the stabilized right-to-left lateral orbit with controlled "
+            "parallax from the prior continuity state, then decelerate "
+            "into a clean stop. "
+            "Near the end, the slabs fracture once in coordinated timing "
+            "with a brief white mineral flash, then hold stable. "
+            "Preserve SEQ-10 SH-048 material identity, scale, frame-right "
+            "key, right-to-left direction, and adjacent-shot geometry. "
+            "One conceptual focal center, controlled depth, stable exposure, "
+            "continuous motion, precise rigid geometry, clean unbranded "
+            "surfaces."
+        )
+    elif queue_id in _SIRAJ_DETERMINISTIC_ARABIC_OVERLAY_V1:
+        positive += (
+            " For this segment, reflective focal zones remain clean, blank, "
+            "polished, and unobstructed. Repeated empty reflective focal "
+            "zones enlarge progressively as part of the authored visual "
+            "metaphor and contain only reflected light and material texture."
+        )
+
     prepared["positivePrompt"] = positive
 
-    unsupported = sorted(
-        set(prepared)
-        - _SIRAJ_VEO_ALLOWED_SUBMISSION_FIELDS_V1
-    )
-    if unsupported:
-        raise DesktopMediaExecutionError(
-            "RUNWARE_VEO_UNSUPPORTED_PARAMETERS_BEFORE_NETWORK:"
-            + queue_id
-            + ":"
-            + ",".join(unsupported)
-        )
     if "negativePrompt" in prepared:
         raise DesktopMediaExecutionError(
-            "RUNWARE_VEO_NEGATIVE_PROMPT_REACHED_NETWORK_GATE:"
+            "RUNWARE_VEO_NEGATIVE_PROMPT_NETWORK_BOUNDARY_VIOLATION:"
             + queue_id
         )
 
-    updated_certification: dict[str, Any] | None = None
-    if isinstance(certification, Mapping):
-        updated_certification = dict(certification)
-        updated_certification[
-            "provider_submission_positive_prompt_en"
-        ] = positive
-        updated_certification[
-            "provider_submission_positive_prompt_sha256"
-        ] = hashlib.sha256(
-            positive.encode("utf-8")
-        ).hexdigest()
-        updated_certification[
-            "negative_prompt_transport"
-        ] = (
-            "INLINED_AS_MANDATORY_POSITIVE_"
-            "EXECUTION_CONSTRAINTS"
+    cert = dict(certification) if certification is not None else None
+    if cert is not None:
+        cert["negative_prompt_transport"] = (
+            "INTERNAL_ONLY_NOT_SENT_TO_VEO_PROVIDER"
         )
-        updated_certification[
-            "unsupported_negativePrompt_parameter"
-        ] = "REMOVED_BEFORE_NETWORK"
-        updated_certification[
-            "provider_parameter_allowlist_version"
-        ] = "RUNWARE_VEO_FINAL_SUBMISSION_SANITIZER_V1"
+        cert["unsupported_negativePrompt_parameter"] = (
+            "REMOVED_BEFORE_NETWORK"
+        )
+        cert["provider_parameter_allowlist_version"] = (
+            "RUNWARE_VEO_FINAL_SUBMISSION_SANITIZER_V2"
+        )
+        cert["provider_prompt_sanitizer_version"] = (
+            "SIRAJ_VEO_PROVIDER_CONTENT_FILTER_SAFE_V2"
+        )
+        cert["provider_visible_text_safety_policy_version"] = (
+            "SIRAJ_VEO_VISIBLE_TEXT_SAFETY_POLICY_V4"
+        )
+        cert["negative_prompt_present_before_network"] = bool(negative)
+        cert["inlined_exclusion_marker_removed"] = bool(marker_removed)
+        cert["provider_visible_text_generation"] = "FORBIDDEN"
+        cert["deterministic_text_overlay_required"] = (
+            queue_id in _SIRAJ_DETERMINISTIC_ARABIC_OVERLAY_V1
+        )
+        if queue_id in {"VID-SH-048-C03", "VID-SH-048-C04"}:
+            cert["provider_prompt_override_version"] = (
+                "SIRAJ_SH048_NONFIGURATIVE_GEOMETRIC_V1"
+            )
+            cert["provider_prompt_override_reason"] = (
+                "REPEATED_GOOGLE_PEOPLE_FACE_FALSE_POSITIVE"
+            )
 
-    return prepared, updated_certification
+    return prepared, cert

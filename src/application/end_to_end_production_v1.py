@@ -1,5 +1,7 @@
 from __future__ import annotations
+from src.application.siraj_v4_plus_legacy_execution_lock_v1 import block_legacy_execution
 
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any, Callable, Mapping, Sequence
@@ -39,6 +41,7 @@ from src.application.youtube_publish_handoff_v1 import (
 )
 
 RELEASE = "SIRAJ_END_TO_END_PRODUCTION_AND_YOUTUBE_HANDOFF_V1"
+RUNWARE_PARALLELISM = 4
 ProgressCallback = Callable[[str, int | None], None]
 
 
@@ -184,53 +187,185 @@ def _execute_media_queue(
     progress: ProgressCallback | None,
 ) -> tuple[tuple[MediaExecutionResult, ...], int]:
     repo = repo_root.resolve()
-    rows = sorted(_pending_rows(repo), key=lambda row: (row.queue_index, row.queue_id))
+    rows = sorted(
+        _pending_rows(repo),
+        key=lambda row: (row.queue_index, row.queue_id),
+    )
     expected = _pending_summary(rows)["pending_media_maximum_usd"]
     if abs(float(confirmed_maximum_usd) - expected) > 1e-6:
         raise EndToEndProductionError(
             "CONSOLIDATED_MEDIA_AUTHORIZATION_MISMATCH:"
-            f"expected={expected:.6f}:confirmed={float(confirmed_maximum_usd):.6f}"
+            f"expected={expected:.6f}:"
+            f"confirmed={float(confirmed_maximum_usd):.6f}"
         )
     if any(
         row.media_kind in {"RUNWARE_IMAGE", "RUNWARE_VIDEO"}
         for row in rows
     ) and not runware_api_key.strip():
         raise EndToEndProductionError("RUNWARE_API_KEY_REQUIRED")
-    if any(row.media_kind == "ELEVENLABS_TTS" for row in rows) and not elevenlabs_api_key.strip():
+    if any(
+        row.media_kind == "ELEVENLABS_TTS"
+        for row in rows
+    ) and not elevenlabs_api_key.strip():
         raise EndToEndProductionError("ELEVENLABS_API_KEY_REQUIRED")
 
     results: list[MediaExecutionResult] = []
     recovered = 0
+    settled_count = 0
     total = max(1, len(rows))
-    for index, row in enumerate(rows, start=1):
-        base = int((index - 1) * 100 / total)
+
+    # IDs are the authoritative record of what THIS authorized run deferred.
+    # Queue statuses can legitimately transition after the exception
+    # (e.g. terminal rejection -> READY_EXPLICIT...), so the final classifier
+    # must not depend on status alone.
+    deferred_terminal_ids: set[str] = set()
+    deferred_recovery_ids: set[str] = set()
+
+    def execute_runware_row(
+        row: MediaQueueRow,
+    ) -> tuple[MediaExecutionResult, bool]:
+        try:
+            result = execute_runware_item(
+                repo,
+                row.queue_id,
+                runware_api_key,
+                confirmed_maximum_usd=row.maximum_authorized_usd,
+            )
+            return result, False
+        except DesktopMediaExecutionError as exc:
+            if "ATTEMPT_ALREADY_LOCKED_USE_RECOVERY" not in str(exc):
+                raise
+            result = execute_runware_item(
+                repo,
+                row.queue_id,
+                runware_api_key,
+                confirmed_maximum_usd=row.maximum_authorized_usd,
+                recovery_only=True,
+            )
+            return result, True
+
+    index = 0
+    while index < len(rows):
+        row = rows[index]
+
+        if row.media_kind in {"RUNWARE_IMAGE", "RUNWARE_VIDEO"}:
+            wave: list[MediaQueueRow] = []
+            while (
+                index < len(rows)
+                and len(wave) < RUNWARE_PARALLELISM
+                and rows[index].media_kind
+                in {"RUNWARE_IMAGE", "RUNWARE_VIDEO"}
+            ):
+                wave.append(rows[index])
+                index += 1
+
+            _emit(
+                progress,
+                (
+                    f"تنفيذ موجة Runware متوازية من {len(wave)} عناصر "
+                    f"(حد التوازي {RUNWARE_PARALLELISM})."
+                ),
+                int(settled_count * 100 / total),
+            )
+
+            wave_results: dict[str, MediaExecutionResult] = {}
+            wave_recovered: dict[str, bool] = {}
+            wave_errors: list[tuple[str, BaseException]] = []
+
+            with ThreadPoolExecutor(
+                max_workers=len(wave),
+                thread_name_prefix="siraj-runware",
+            ) as executor:
+                futures = {
+                    executor.submit(
+                        execute_runware_row,
+                        candidate,
+                    ): candidate
+                    for candidate in wave
+                }
+                for future in as_completed(futures):
+                    candidate = futures[future]
+                    try:
+                        result, was_recovered = future.result()
+                    except BaseException as exc:
+                        message = str(exc)
+                        if (
+                            "RUNWARE_TERMINAL_PROVIDER_REJECTION_"
+                            "REAUTHORIZATION_REQUIRED" in message
+                            or "invalidProviderContent" in message
+                            or "FAILED_PROVIDER_REJECTED_"
+                            "REAUTHORIZATION_REQUIRED" in message
+                        ):
+                            deferred_terminal_ids.add(candidate.queue_id)
+                            settled_count += 1
+                            _emit(
+                                progress,
+                                (
+                                    f"أُجّل {candidate.queue_id} لإعادة "
+                                    "تفويض صريحة بعد رفض مزود نهائي؛ "
+                                    "سيستمر باقي الإنتاج."
+                                ),
+                                int(settled_count * 100 / total),
+                            )
+                        elif "RUNWARE_POLL_TIMEOUT_USE_RECOVERY" in message:
+                            deferred_recovery_ids.add(candidate.queue_id)
+                            settled_count += 1
+                            _emit(
+                                progress,
+                                (
+                                    f"أُجّل {candidate.queue_id} للاسترداد "
+                                    "من نفس المهمة الحالية بعد انتهاء مهلة "
+                                    "الاستطلاع؛ لن يُرسل طلب مدفوع جديد، "
+                                    "وسيستمر باقي الإنتاج."
+                                ),
+                                int(settled_count * 100 / total),
+                            )
+                        else:
+                            wave_errors.append((candidate.queue_id, exc))
+                    else:
+                        wave_results[candidate.queue_id] = result
+                        wave_recovered[candidate.queue_id] = was_recovered
+                        settled_count += 1
+                        _emit(
+                            progress,
+                            (
+                                f"اكتمل {candidate.queue_id} ضمن موجة "
+                                f"Runware — {settled_count}/{len(rows)}."
+                            ),
+                            int(settled_count * 100 / total),
+                        )
+
+            if wave_errors:
+                details = " | ".join(
+                    f"{queue_id}:{error}"
+                    for queue_id, error in wave_errors
+                )
+                raise EndToEndProductionError(
+                    "PARALLEL_RUNWARE_WAVE_FAILED:" + details
+                )
+
+            for candidate in wave:
+                if candidate.queue_id not in wave_results:
+                    continue
+                results.append(wave_results[candidate.queue_id])
+                if wave_recovered.get(candidate.queue_id):
+                    recovered += 1
+            continue
+
         _emit(
             progress,
-            f"تنفيذ عنصر الوسائط {index}/{len(rows)} — {row.media_kind} — {row.source_id}",
-            base,
+            (
+                f"تنفيذ عنصر الوسائط {settled_count + 1}/{len(rows)} "
+                f"— {row.media_kind} — {row.source_id}"
+            ),
+            int(settled_count * 100 / total),
         )
         try:
             if row.media_kind == "LOCAL_GRAPHICS":
-                result = render_local_graphics_item(repo, row.queue_id)
-            elif row.media_kind in {"RUNWARE_IMAGE", "RUNWARE_VIDEO"}:
-                try:
-                    result = execute_runware_item(
-                        repo,
-                        row.queue_id,
-                        runware_api_key,
-                        confirmed_maximum_usd=row.maximum_authorized_usd,
-                    )
-                except DesktopMediaExecutionError as exc:
-                    if "ATTEMPT_ALREADY_LOCKED_USE_RECOVERY" not in str(exc):
-                        raise
-                    result = execute_runware_item(
-                        repo,
-                        row.queue_id,
-                        runware_api_key,
-                        confirmed_maximum_usd=row.maximum_authorized_usd,
-                        recovery_only=True,
-                    )
-                    recovered += 1
+                result = render_local_graphics_item(
+                    repo,
+                    row.queue_id,
+                )
             elif row.media_kind == "ELEVENLABS_TTS":
                 result = execute_elevenlabs_item(
                     repo,
@@ -246,19 +381,62 @@ def _execute_media_queue(
             raise EndToEndProductionError(
                 f"MEDIA_QUEUE_ITEM_FAILED:{row.queue_id}:{exc}"
             ) from exc
+
         results.append(result)
+        settled_count += 1
+        index += 1
         _emit(
             progress,
-            f"اكتمل عنصر الوسائط {index}/{len(rows)}.",
-            int(index * 100 / total),
+            f"اكتمل عنصر الوسائط {settled_count}/{len(rows)}.",
+            int(settled_count * 100 / total),
         )
 
     remaining = _pending_rows(repo)
-    if remaining:
+    remaining_by_id = {row.queue_id: row for row in remaining}
+
+    terminal_remaining = {
+        queue_id
+        for queue_id in deferred_terminal_ids
+        if queue_id in remaining_by_id
+    }
+    recovery_remaining = {
+        queue_id
+        for queue_id in deferred_recovery_ids
+        if queue_id in remaining_by_id
+    }
+
+    # Canonical states from earlier recovery are also recognized.
+    for row in remaining:
+        if row.status == "FAILED_PROVIDER_REJECTED_REAUTHORIZATION_REQUIRED":
+            terminal_remaining.add(row.queue_id)
+        elif row.status == "SUBMISSION_LOCKED":
+            recovery_remaining.add(row.queue_id)
+
+    recognized = terminal_remaining | recovery_remaining
+    blocking = [
+        row
+        for row in remaining
+        if row.queue_id not in recognized
+    ]
+    if blocking:
         raise EndToEndProductionError(
             "MEDIA_QUEUE_NOT_COMPLETE_AFTER_AUTHORIZED_RUN:"
-            + ",".join(row.queue_id for row in remaining)
+            + ",".join(row.queue_id for row in blocking)
         )
+
+    if recovery_remaining:
+        raise EndToEndProductionError(
+            "RUNWARE_RECOVERY_REQUIRED_AFTER_AUTHORIZED_RUN:"
+            + ",".join(sorted(recovery_remaining))
+        )
+
+    if terminal_remaining:
+        raise EndToEndProductionError(
+            "TERMINAL_PROVIDER_REJECTIONS_REQUIRE_"
+            "EXPLICIT_REAUTHORIZATION:"
+            + ",".join(sorted(terminal_remaining))
+        )
+
     return tuple(results), recovered
 
 
@@ -272,6 +450,8 @@ def run_to_next_human_gate(
     progress: ProgressCallback | None = None,
     maximum_transitions: int = 12,
 ) -> EndToEndRunResult:
+    # SIRAJ_V4_PLUS_LEGACY_EXECUTION_LOCK
+    block_legacy_execution("src/application/end_to_end_production_v1.py::run_to_next_human_gate")
     repo = repo_root.resolve()
     completed: list[str] = []
     media_completed = 0

@@ -1,0 +1,36 @@
+{
+  "schema_version": "siraj-luna-unbounded-adaptive-runtime-v5",
+  "status": "ACTIVE",
+  "scope": "ALL_LUNA_STAGES_ALL_FUTURE_EPISODES",
+  "supersedes_runtime_controls": [
+    "assistant-authored 6-call research cap",
+    "assistant-authored $1.00 session hard cap",
+    "assistant-authored $0.50 text sub-cap",
+    "assistant-authored $0.50 tool reserve",
+    "assistant-authored fixed max_output_tokens values",
+    "assistant-authored fixed 65-second pacing",
+    "assistant-authored reasoning downgrade used only to work around TPM"
+  ],
+  "policy": {
+    "luna_call_count_limit": null,
+    "assistant_authored_cost_cap_usd": null,
+    "assistant_authored_text_cost_cap_usd": null,
+    "assistant_authored_tool_reserve_usd": null,
+    "assistant_authored_max_output_tokens": null,
+    "assistant_authored_fixed_pacing_seconds": null,
+    "default_reasoning_effort": "high",
+    "rate_limit_handling": "PROVIDER_HEADER_AND_429_COOLDOWN_DRIVEN",
+    "automatic_paid_retry": false,
+    "paid_execution_requires_explicit_human_authorization": true,
+    "user_defined_optional_budget_cap_is_respected": true,
+    "provider_limits_are_not_overridden": true,
+    "append_only_attempt_accounting": true,
+    "persist_raw_provider_response_before_parse": true
+  },
+  "notes": [
+    "No SIRAJ-authored arbitrary hard cap may limit Luna's research/editorial work.",
+    "OpenAI/provider rate and context limits remain real external constraints.",
+    "A human may explicitly set a budget ceiling for a paid stage; SIRAJ must not invent one.",
+    "Automatic paid retries remain forbidden to prevent duplicate billing."
+  ]
+}

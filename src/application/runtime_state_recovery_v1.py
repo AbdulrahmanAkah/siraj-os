@@ -203,6 +203,21 @@ def _infer_from_artifacts(
     research = episode_root / "research/evidence-package-v1.json"
     approved_scope = episode_root / "contracts/approved-scope-v1.json"
 
+    # SIRAJ_PENDING_MEDIA_PRECEDES_STALE_DOWNSTREAM_ARTIFACTS_V1
+    # An incomplete canonical media queue outranks downstream artifacts left
+    # from an earlier render attempt. A final master/QA artifact cannot be
+    # considered current while provider/local media items are still pending.
+    queue_present, queue_complete = _media_queue_complete(media_queue)
+    if queue_present and not queue_complete:
+        evidence.append(str(media_queue.relative_to(repo)))
+        return (
+            "MEDIA_QUEUE_READY",
+            "DESKTOP_MEDIA_EXECUTION",
+            "DESKTOP_MEDIA_EXECUTION_V1",
+            "MEDIA_QUEUE_HAS_PENDING_ITEMS",
+            tuple(evidence),
+        )
+
     if _json_status(upload_manifest) == "READY_FOR_MANUAL_YOUTUBE_UPLOAD":
         evidence.append(str(upload_manifest.relative_to(repo)))
         return (

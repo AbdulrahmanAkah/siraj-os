@@ -11,6 +11,21 @@ from typing import Any, Mapping
 RELEASE = "SIRAJ_RUNWARE_SEEDREAM_NEGATIVE_PROMPT_RECOVERY_V1"
 SEEDREAM_MODELS = frozenset({"bytedance:seedream@5.0-pro"})
 REJECTION_CODE = "unsupportedArchitectureNegativePrompt"
+
+VEO_CONTENT_MODERATION_RELEASE = "SIRAJ_VEO_CONTENT_MODERATION_RECOVERY_V3"
+VEO_MODELS = frozenset(
+    {
+        "google:veo@3.1-lite",
+        "google:veo@3.1",
+        "google:veo@3",
+    }
+)
+VEO_CONTENT_REJECTION_CODE = "invalidProviderContent"
+_VEO_TERMINAL_TEXT_MARKERS = (
+    "google's content moderation system",
+    "people/face generation filtered out",
+    "your current safety settings for people/face generation",
+)
 ORCHESTRATOR_STATE_REL = Path(
     "projects/_orchestrator/autonomous-episode-orchestrator-state-v1.json"
 )
@@ -128,6 +143,57 @@ def classify_seedream_negative_prompt_rejection(
     }
 
 
+
+def classify_runware_terminal_provider_rejection_v2(
+    value: Any,
+    task: Mapping[str, Any] | None = None,
+) -> dict[str, Any] | None:
+    seedream = classify_seedream_negative_prompt_rejection(
+        value,
+        task,
+    )
+    if seedream is not None:
+        return seedream
+
+    text = _text(value)
+    folded = text.casefold()
+    model = str((task or {}).get("model", "")).strip()
+    compact = folded.replace(" ", "")
+    veo_model_match = (
+        model in VEO_MODELS
+        or "google:veo@" in folded
+        or '"tasktype":"videoinference"' in compact
+    )
+    content_code_match = (
+        VEO_CONTENT_REJECTION_CODE.casefold() in folded
+    )
+    moderation_match = any(
+        marker in folded
+        for marker in _VEO_TERMINAL_TEXT_MARKERS
+    )
+    if not veo_model_match or not content_code_match:
+        return None
+
+    output_markers = (
+        "videoURL",
+        "videoUUID",
+        '"cost":',
+        '"cost" :',
+    )
+    has_output = any(
+        marker.casefold() in folded
+        for marker in output_markers
+    )
+    return {
+        "code": VEO_CONTENT_REJECTION_CODE,
+        "model": model or "google:veo@3.1-lite",
+        "terminal": True,
+        "safe_to_reauthorize": not has_output,
+        "billable_output_detected": has_output,
+        "provider_family": "GOOGLE_VEO",
+        "reason": "CONTENT_MODERATION_REJECTED_NO_OUTPUT",
+    }
+
 def _safe_queue_id(queue_id: str) -> str:
     return "".join(
         character
@@ -148,7 +214,7 @@ def reset_terminal_rejected_attempt_for_explicit_reauthorization(
         first = request_payload[0]
         if isinstance(first, Mapping):
             task = first
-    rejection = classify_seedream_negative_prompt_rejection(
+    rejection = classify_runware_terminal_provider_rejection_v2(
         {
             "last_error": lock.get("last_error"),
             "provider_acknowledgement": lock.get("provider_acknowledgement"),

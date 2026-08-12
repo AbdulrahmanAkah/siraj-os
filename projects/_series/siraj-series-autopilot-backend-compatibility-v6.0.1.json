@@ -1,0 +1,404 @@
+{
+  "active_episode": {
+    "completed_stages": [
+      "TOPIC_SELECTION",
+      "SOURCE_RESEARCH_FROM_ZERO",
+      "SOURCE_CLAIM_MATRIX",
+      "STORY_ARCHITECTURE",
+      "ICONIC_CINEMATIC_REVIEW",
+      "FINAL_SCRIPT",
+      "PRONUNCIATION_AND_PERFORMANCE_GATE"
+    ],
+    "episode_id": "episode-002-adam-temptation-fall-repentance",
+    "mode": "RESUME_EXISTING_EPISODE",
+    "new_episode_start_stage": "TOPIC_SELECTION",
+    "protected_completed_stages": [
+      "TOPIC_SELECTION",
+      "SOURCE_RESEARCH_FROM_ZERO",
+      "SOURCE_CLAIM_MATRIX",
+      "STORY_ARCHITECTURE",
+      "ICONIC_CINEMATIC_REVIEW",
+      "FINAL_SCRIPT",
+      "PRONUNCIATION_AND_PERFORMANCE_GATE"
+    ],
+    "reason": "Episode 002 has canonical PASS through pronunciation/performance and an existing FINAL_TTS queue. Preproduction must not rerun.",
+    "resume_stage": "FINAL_TTS"
+  },
+  "audio_timeline_generic_tts_queue_support": true,
+  "automatic_paid_retry": false,
+  "automatic_safe_local_repair": true,
+  "created_at_utc": "2026-08-08T16:46:41.226290Z",
+  "current_episode_preproduction_rerun": "FORBIDDEN",
+  "current_episode_resume_stage": "FINAL_TTS",
+  "current_episode_start_locked": false,
+  "current_episode_uncertified_stage_count": 0,
+  "current_episode_uncertified_stages": [],
+  "duplicate_hardening": "PROMPT_SEMANTIC_ADJACENT_EXACT_PERCEPTUAL",
+  "episode002_final_tts_backend": "V5.4.3_PRESERVED",
+  "future_final_tts_generic_backend": "V6.3.2_R1_CERTIFIED",
+  "future_full_pipeline_uncertified_stage_count": 0,
+  "future_full_pipeline_uncertified_stages": [],
+  "future_new_episode_start_locked": false,
+  "generated_video_max_ratio": 0.6666666666666666,
+  "madda_self_vocalized_carrier": true,
+  "montage_generic_tts_queue_support": true,
+  "next_new_episode_start_stage": "TOPIC_SELECTION",
+  "non_generated_video_min_ratio": 0.3333333333333333,
+  "paid_operation_requires_explicit_authorization": true,
+  "partial_word_diacritization_is_full": false,
+  "pronunciation_strong_audit": "ACTIVE",
+  "release": "SIRAJ_SERIES_AUTOPILOT_V6_0_1",
+  "schema_version": "siraj-series-autopilot-backend-compatibility-v6.0.1",
+  "stages": {
+    "AUDIO_BOUND_STORYBOARD": {
+      "already_completed_for_current_episode": false,
+      "candidate_count": 0,
+      "candidates": [],
+      "certification": "MISSING",
+      "certified": false,
+      "kind": "PAID_LUNA",
+      "required_for_current_episode": true,
+      "stage": "AUDIO_BOUND_STORYBOARD"
+    },
+    "AUDIO_TIMESTAMPS_AND_BEATS": {
+      "already_completed_for_current_episode": false,
+      "candidate_count": 11,
+      "candidates": [
+        {
+          "contains_v5": false,
+          "contains_v6": false,
+          "name": "historical_timeline_architect",
+          "path": "src/application/historical_timeline/historical_timeline_architect.py"
+        },
+        {
+          "contains_v5": false,
+          "contains_v6": false,
+          "name": "historical_timeline_runtime",
+          "path": "src/application/historical_timeline/historical_timeline_runtime.py"
+        },
+        {
+          "contains_v5": false,
+          "contains_v6": false,
+          "name": "models",
+          "path": "src/application/historical_timeline/models.py"
+        },
+        {
+          "contains_v5": false,
+          "contains_v6": false,
+          "name": "__init__",
+          "path": "src/application/historical_timeline/__init__.py"
+        },
+        {
+          "contains_v5": false,
+          "contains_v6": false,
+          "name": "timeline_engine",
+          "path": "src/application/knowledge/timeline_engine.py"
+        },
+        {
+          "contains_v5": false,
+          "contains_v6": false,
+          "name": "timeline_extractor",
+          "path": "src/application/knowledge_v2/timeline_extractor.py"
+        },
+        {
+          "contains_v5": false,
+          "contains_v6": false,
+          "name": "__init__",
+          "path": "src/application/media_timeline_engine/__init__.py"
+        },
+        {
+          "contains_v5": false,
+          "contains_v6": false,
+          "name": "models",
+          "path": "src/application/timeline_optimization/models.py"
+        },
+        {
+          "contains_v5": false,
+          "contains_v6": false,
+          "name": "runtime",
+          "path": "src/application/timeline_optimization/runtime.py"
+        },
+        {
+          "contains_v5": false,
+          "contains_v6": false,
+          "name": "__init__",
+          "path": "src/application/timeline_optimization/__init__.py"
+        },
+        {
+          "contains_v5": false,
+          "contains_v6": false,
+          "name": "__init__",
+          "path": "src/application/visual_timeline_engine/__init__.py"
+        }
+      ],
+      "certification": "CANDIDATE_REQUIRES_ADAPTER_CERTIFICATION",
+      "certified": false,
+      "kind": "LOCAL",
+      "required_for_current_episode": true,
+      "stage": "AUDIO_TIMESTAMPS_AND_BEATS"
+    },
+    "FINAL_SCRIPT": {
+      "already_completed_for_current_episode": true,
+      "candidate_count": 1,
+      "candidates": [
+        {
+          "contains_v5": true,
+          "contains_v6": false,
+          "name": "siraj_luna_final_script_v5_1",
+          "path": "src/application/siraj_luna_final_script_v5_1.py"
+        }
+      ],
+      "certification": "CANDIDATE_REQUIRES_ADAPTER_CERTIFICATION",
+      "certified": false,
+      "kind": "PAID_LUNA",
+      "required_for_current_episode": false,
+      "stage": "FINAL_SCRIPT"
+    },
+    "FINAL_TTS": {
+      "already_completed_for_current_episode": false,
+      "candidate_count": 1,
+      "candidates": [
+        {
+          "contains_v5": true,
+          "contains_v6": false,
+          "name": "siraj_final_tts_elevenlabs_v5_4_3",
+          "path": "src/application/siraj_final_tts_elevenlabs_v5_4_3.py"
+        }
+      ],
+      "certification": "CERTIFIED_CURRENT_V5_BACKEND",
+      "certified": true,
+      "kind": "PAID_ELEVENLABS",
+      "required_for_current_episode": true,
+      "stage": "FINAL_TTS"
+    },
+    "ICONIC_CINEMATIC_REVIEW": {
+      "already_completed_for_current_episode": true,
+      "candidate_count": 1,
+      "candidates": [
+        {
+          "contains_v5": true,
+          "contains_v6": false,
+          "name": "siraj_luna_iconic_cinematic_brain_v5_1",
+          "path": "src/application/siraj_luna_iconic_cinematic_brain_v5_1.py"
+        }
+      ],
+      "certification": "CANDIDATE_REQUIRES_ADAPTER_CERTIFICATION",
+      "certified": false,
+      "kind": "PAID_LUNA",
+      "required_for_current_episode": false,
+      "stage": "ICONIC_CINEMATIC_REVIEW"
+    },
+    "LOCAL_ASSEMBLY_AND_MONTAGE": {
+      "already_completed_for_current_episode": false,
+      "candidate_count": 3,
+      "candidates": [
+        {
+          "contains_v5": false,
+          "contains_v6": false,
+          "name": "montage_pixel_format_recovery_v1",
+          "path": "src/application/montage_pixel_format_recovery_v1.py"
+        },
+        {
+          "contains_v5": false,
+          "contains_v6": false,
+          "name": "structural_montage_final_render_v1",
+          "path": "src/application/structural_montage_final_render_v1.py"
+        },
+        {
+          "contains_v5": false,
+          "contains_v6": false,
+          "name": "__init__",
+          "path": "src/application/production_assembly_v2/__init__.py"
+        }
+      ],
+      "certification": "CANDIDATE_REQUIRES_ADAPTER_CERTIFICATION",
+      "certified": false,
+      "kind": "LOCAL",
+      "required_for_current_episode": true,
+      "stage": "LOCAL_ASSEMBLY_AND_MONTAGE"
+    },
+    "LUNA_SEMANTIC_PROMPT_DIRECTION": {
+      "already_completed_for_current_episode": false,
+      "candidate_count": 0,
+      "candidates": [],
+      "certification": "MISSING",
+      "certified": false,
+      "kind": "PAID_LUNA",
+      "required_for_current_episode": true,
+      "stage": "LUNA_SEMANTIC_PROMPT_DIRECTION"
+    },
+    "MEDIA_COST_PREFLIGHT": {
+      "already_completed_for_current_episode": false,
+      "candidate_count": 1,
+      "candidates": [
+        {
+          "contains_v5": false,
+          "contains_v6": false,
+          "name": "siraj_v4_plus_attempt_ledger_v1",
+          "path": "src/application/siraj_v4_plus_attempt_ledger_v1.py"
+        }
+      ],
+      "certification": "CANDIDATE_REQUIRES_ADAPTER_CERTIFICATION",
+      "certified": false,
+      "kind": "LOCAL",
+      "required_for_current_episode": true,
+      "stage": "MEDIA_COST_PREFLIGHT"
+    },
+    "NARRATION_VISUAL_ALIGNMENT_GATE": {
+      "already_completed_for_current_episode": false,
+      "candidate_count": 0,
+      "candidates": [],
+      "certification": "MISSING",
+      "certified": false,
+      "kind": "PAID_LUNA",
+      "required_for_current_episode": true,
+      "stage": "NARRATION_VISUAL_ALIGNMENT_GATE"
+    },
+    "PROMPT_SIMILARITY_AND_DUPLICATE_GATE": {
+      "already_completed_for_current_episode": false,
+      "candidate_count": 0,
+      "candidates": [],
+      "certification": "MISSING",
+      "certified": false,
+      "kind": "LOCAL_AND_LUNA_REVIEW",
+      "required_for_current_episode": true,
+      "stage": "PROMPT_SIMILARITY_AND_DUPLICATE_GATE"
+    },
+    "PRONUNCIATION_AND_PERFORMANCE_GATE": {
+      "already_completed_for_current_episode": true,
+      "candidate_count": 1,
+      "candidates": [
+        {
+          "contains_v5": true,
+          "contains_v6": false,
+          "name": "siraj_luna_pronunciation_performance_gate_v5_2",
+          "path": "src/application/siraj_luna_pronunciation_performance_gate_v5_2.py"
+        }
+      ],
+      "certification": "CANDIDATE_REQUIRES_ADAPTER_CERTIFICATION",
+      "certified": false,
+      "kind": "PAID_LUNA",
+      "required_for_current_episode": false,
+      "stage": "PRONUNCIATION_AND_PERFORMANCE_GATE"
+    },
+    "PROVIDER_EXECUTION": {
+      "already_completed_for_current_episode": false,
+      "candidate_count": 2,
+      "candidates": [
+        {
+          "contains_v5": false,
+          "contains_v6": false,
+          "name": "desktop_media_execution_v1",
+          "path": "src/application/desktop_media_execution_v1.py"
+        },
+        {
+          "contains_v5": false,
+          "contains_v6": false,
+          "name": "runware_execution_v1",
+          "path": "src/application/runware_execution_v1.py"
+        }
+      ],
+      "certification": "CANDIDATE_REQUIRES_ADAPTER_CERTIFICATION",
+      "certified": false,
+      "kind": "PAID_MEDIA_PROVIDER",
+      "required_for_current_episode": true,
+      "stage": "PROVIDER_EXECUTION"
+    },
+    "SEMANTIC_EDITORIAL_AND_TECHNICAL_QA": {
+      "already_completed_for_current_episode": false,
+      "candidate_count": 1,
+      "candidates": [
+        {
+          "contains_v5": false,
+          "contains_v6": false,
+          "name": "automatic_qa_partial_repair_v1",
+          "path": "src/application/automatic_qa_partial_repair_v1.py"
+        }
+      ],
+      "certification": "CANDIDATE_REQUIRES_ADAPTER_CERTIFICATION",
+      "certified": false,
+      "kind": "LOCAL_AND_LUNA_REVIEW",
+      "required_for_current_episode": true,
+      "stage": "SEMANTIC_EDITORIAL_AND_TECHNICAL_QA"
+    },
+    "SOURCE_CLAIM_MATRIX": {
+      "already_completed_for_current_episode": true,
+      "candidate_count": 1,
+      "candidates": [
+        {
+          "contains_v5": true,
+          "contains_v6": false,
+          "name": "siraj_luna_source_claim_matrix_v5",
+          "path": "src/application/siraj_luna_source_claim_matrix_v5.py"
+        }
+      ],
+      "certification": "CANDIDATE_REQUIRES_ADAPTER_CERTIFICATION",
+      "certified": false,
+      "kind": "PAID_LUNA",
+      "required_for_current_episode": false,
+      "stage": "SOURCE_CLAIM_MATRIX"
+    },
+    "SOURCE_RESEARCH_FROM_ZERO": {
+      "already_completed_for_current_episode": true,
+      "candidate_count": 1,
+      "candidates": [
+        {
+          "contains_v5": false,
+          "contains_v6": false,
+          "name": "siraj_luna_research_gateway_v4",
+          "path": "src/application/siraj_luna_research_gateway_v4.py"
+        }
+      ],
+      "certification": "CANDIDATE_REQUIRES_ADAPTER_CERTIFICATION",
+      "certified": false,
+      "kind": "PAID_LUNA_AND_OPTIONAL_WEB",
+      "required_for_current_episode": false,
+      "stage": "SOURCE_RESEARCH_FROM_ZERO"
+    },
+    "STORY_ARCHITECTURE": {
+      "already_completed_for_current_episode": true,
+      "candidate_count": 2,
+      "candidates": [
+        {
+          "contains_v5": true,
+          "contains_v6": false,
+          "name": "siraj_luna_story_architecture_iconic_review_v5_1",
+          "path": "src/application/siraj_luna_story_architecture_iconic_review_v5_1.py"
+        },
+        {
+          "contains_v5": true,
+          "contains_v6": false,
+          "name": "siraj_luna_story_architecture_v5",
+          "path": "src/application/siraj_luna_story_architecture_v5.py"
+        }
+      ],
+      "certification": "CANDIDATE_REQUIRES_ADAPTER_CERTIFICATION",
+      "certified": false,
+      "kind": "PAID_LUNA",
+      "required_for_current_episode": false,
+      "stage": "STORY_ARCHITECTURE"
+    },
+    "TOPIC_SELECTION": {
+      "already_completed_for_current_episode": true,
+      "candidate_count": 1,
+      "candidates": [
+        {
+          "contains_v5": false,
+          "contains_v6": false,
+          "name": "autonomous_episode_orchestrator_v1",
+          "path": "src/application/autonomous_episode_orchestrator_v1.py"
+        }
+      ],
+      "certification": "CANDIDATE_REQUIRES_ADAPTER_CERTIFICATION",
+      "certified": false,
+      "kind": "PAID_LUNA",
+      "required_for_current_episode": false,
+      "stage": "TOPIC_SELECTION"
+    }
+  },
+  "status": "READY_FOR_CURRENT_AND_FUTURE_ONE_CLICK_PRODUCTION",
+  "structural_change_requires_human": true,
+  "wave1_certification": "V6.1_ACTIVE",
+  "wave2_certification": "V6.2.1_ACTIVE",
+  "wave3_certification": "V6.3.1_ACTIVE"
+}

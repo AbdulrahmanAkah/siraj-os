@@ -1,7 +1,7 @@
 {
   "blocking_issue_count": 0,
-  "certified_at_utc": "2026-08-06T21:58:43.896811Z",
-  "critical_fingerprint": "da5504494f5fd67ba813e5fd228fe3491b136f5b7a3869e15f0494231715257a",
+  "certified_at_utc": "2026-08-07T15:16:26.614858Z",
+  "critical_fingerprint": "ebd3dc2a79a2736fdc7bd2ec805bc7cd0677fb39d5937b32aaee078c564a2d1e",
   "episode_id": "episode-001-adam",
   "fingerprint_entries": [
     {
@@ -22,11 +22,11 @@
     },
     {
       "path": "src/application/desktop_media_execution_v1.py",
-      "sha256": "06eb6f8a759a9564d9f19baf2daa026322410610e2e825c2d8a9588195e4429d"
+      "sha256": "921aa7890f2846466d70455984828bb991a9bc776191a0ce6f9d92eaafe92bd5"
     },
     {
       "path": "src/application/end_to_end_production_v1.py",
-      "sha256": "05526b72c50a982345b30835e2848385abb6cc9687994cd3274036cb985b1212"
+      "sha256": "6be0eba2b1a8d63ea7181f2b525e3d827472636567beea4e17d6b291e2037802"
     },
     {
       "path": "src/application/luna_cinematic_prompt_director_v2.py",
@@ -69,7 +69,30 @@
   "paid_provider_requests": 0,
   "production_generation_id": "PSV2-ADAM-R1",
   "provider_requests": 0,
-  "release": "SIRAJ_RESUME_CLOSE_VEO_NETWORK_BOUNDARY_V1",
+  "recertification": {
+    "automatic_resubmission": "FORBIDDEN",
+    "certified_at_utc": "2026-08-07T15:16:26.614858Z",
+    "controlled_parallax_contract": "PRESERVED",
+    "deterministic_arabic_overlay": true,
+    "generative_arabic_text": "FORBIDDEN",
+    "hidden_paid_retry": "FORBIDDEN",
+    "network_calls": 0,
+    "paid_provider_requests": 0,
+    "person_generation": "dont_allow",
+    "reason": "FINALIZE_SH048_HARDENED_NONREFLECTIVE_PROMPT_AND_UPDATE_SUPERSEDED_TEST_CONTRACT",
+    "reflection_semantics_removed": true,
+    "sh048_provider_prompt_override_version": "SIRAJ_SH048_NONFIGURATIVE_GEOMETRIC_V1",
+    "stale_reflective_test_contract": "REMOVED",
+    "true_complete_media_count": 245,
+    "true_pending_maximum_usd": 0.48,
+    "true_pending_media_count": 2,
+    "true_pending_video_queue_ids": [
+      "VID-SH-048-C03",
+      "VID-SH-048-C04"
+    ],
+    "tts_existing_outputs_reconciled": 42
+  },
+  "release": "SIRAJ_FINALIZE_SH048_HARDENING_CONTRACT_V11",
   "schema_version": "siraj-full-production-pipeline-certification-v3",
   "status": "PASS_FULL_PRODUCTION_PIPELINE_CERTIFIED"
 }

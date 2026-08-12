@@ -92,7 +92,10 @@ def route_image_shot(shot: Mapping[str, Any]) -> ImageRoute:
     if role in SECONDARY_ROLES:
         if len(refs)>14:
             raise ImageModelRoutingError("NANO_BANANA_REFERENCE_IMAGE_LIMIT_EXCEEDED")
-        return ImageRoute(role,NANO_BANANA_MODEL,"GOOGLE_VIA_RUNWARE",1344,768,14,reason)
+        # Runware's Nano Banana 2 1K 16:9 contract is 1376x768.  The prior
+        # 1344x768 route was an internal approximation and is not a canonical
+        # provider dimension.
+        return ImageRoute(role,NANO_BANANA_MODEL,"GOOGLE_VIA_RUNWARE",1376,768,14,reason)
     if len(refs)>10:
         raise ImageModelRoutingError("SEEDREAM_REFERENCE_IMAGE_LIMIT_EXCEEDED")
     return ImageRoute(role,SEEDREAM_MODEL,"BYTEDANCE_VIA_RUNWARE",1424,800,10,reason)

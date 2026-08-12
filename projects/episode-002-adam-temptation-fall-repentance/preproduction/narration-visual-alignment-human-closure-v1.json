@@ -1,0 +1,27 @@
+{
+  "candidate_sha256": "254c600144032f621d44ff38b33409fc0875da1aaf9310f106fb347b86205509",
+  "closed_finding_ids": [
+    "LUNA-SEM-001",
+    "LUNA-SEM-002",
+    "LUNA-SEM-003",
+    "LUNA-SEM-004",
+    "LUNA-REP-001"
+  ],
+  "closure_receipts_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/human-semantic-closure-receipts-v1.jsonl",
+  "episode_id": "episode-002-adam-temptation-fall-repentance",
+  "legacy_fail_audit_preserved": {
+    "mtime_utc": "2026-08-09T02:18:41.313953Z",
+    "path": "projects/episode-002-adam-temptation-fall-repentance/preproduction/narration-visual-alignment-gate-v6-2-1.json",
+    "sha256": "c25d40b3ec2f87a98c68b2110cb7e03e4b6e85876111f5ebb5e5f10cf066860c",
+    "size": 20051
+  },
+  "open_downstream_gate": {
+    "finding_id": "LUNA-GATE-001",
+    "owner": "DOWNSTREAM_GATE",
+    "required_stage": "PROMPT_SIMILARITY_AND_DUPLICATE_GATE",
+    "status": "PRE_SPEND_GATE_NOT_CLOSED"
+  },
+  "schema_version": "siraj-episode-002-candidate-promotion-v1",
+  "status": "PASS_BY_HUMAN_SEMANTIC_CLOSURE",
+  "structural_fingerprint": "94471a3ce54826460cc41d3c15b6d430c6a23b58d5f20b34f21db69cccd32f42"
+}

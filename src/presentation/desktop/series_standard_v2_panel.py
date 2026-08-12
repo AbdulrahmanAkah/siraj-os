@@ -24,6 +24,8 @@ except ImportError:  # pragma: no cover - desktop optional dependency
     QPushButton = QVBoxLayout = QWidget = object  # type: ignore
 
 
+LEGACY_V2_DOCK_DISABLED_BY_V6_5 = True
+
 SNAPSHOT_REL = Path(
     "projects/episode-001-adam/orchestration/"
     "desktop-series-production-standard-v2-snapshot.json"
@@ -215,10 +217,9 @@ def _install(window: Any) -> None:
 
 
 def install_series_standard_v2_dock(window: Any) -> None:
-    """Install after the existing main window finishes constructing."""
-    if QTimer is None:
-        return
-    QTimer.singleShot(0, lambda: _install(window))
+    """Legacy compatibility no-op for V6.5."""
+    del window
+    return
 
 # SIRAJ_DESKTOP_SNAPSHOT_PENDING_OVERLAY_V2
 _SIRAJ_BASE_READ_SNAPSHOT_V2 = _read_snapshot

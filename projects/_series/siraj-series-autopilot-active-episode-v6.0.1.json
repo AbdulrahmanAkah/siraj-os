@@ -1,0 +1,32 @@
+{
+  "completed_stage_rerun_policy": "FORBIDDEN_UNLESS_EXPLICIT_HUMAN_RESET",
+  "completed_stages": [
+    "TOPIC_SELECTION",
+    "SOURCE_RESEARCH_FROM_ZERO",
+    "SOURCE_CLAIM_MATRIX",
+    "STORY_ARCHITECTURE",
+    "ICONIC_CINEMATIC_REVIEW",
+    "FINAL_SCRIPT",
+    "PRONUNCIATION_AND_PERFORMANCE_GATE",
+    "FINAL_TTS"
+  ],
+  "episode_id": "episode-002-adam-temptation-fall-repentance",
+  "future_episode_policy": "AFTER_READY_FOR_FINAL_HUMAN_REVIEW_START_NEW_EPISODE_AT_TOPIC_SELECTION",
+  "mode": "RESUME_EXISTING_EPISODE",
+  "new_episode_start_stage": "TOPIC_SELECTION",
+  "protected_completed_stages": [
+    "TOPIC_SELECTION",
+    "SOURCE_RESEARCH_FROM_ZERO",
+    "SOURCE_CLAIM_MATRIX",
+    "STORY_ARCHITECTURE",
+    "ICONIC_CINEMATIC_REVIEW",
+    "FINAL_SCRIPT",
+    "PRONUNCIATION_AND_PERFORMANCE_GATE",
+    "FINAL_TTS"
+  ],
+  "reason": "Episode 002 already completed all pre-TTS stages and FINAL_TTS. Resume after generated narration.",
+  "resume_stage": "AUDIO_TIMESTAMPS_AND_BEATS",
+  "schema_version": "siraj-series-autopilot-active-episode-v6.0.1",
+  "status": "ACTIVE",
+  "updated_at_utc": "2026-08-09T03:06:32.248498Z"
+}

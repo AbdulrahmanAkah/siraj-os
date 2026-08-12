@@ -17,6 +17,7 @@ The module supports:
 """
 
 from __future__ import annotations
+from src.application.siraj_v4_plus_legacy_execution_lock_v1 import block_legacy_execution
 
 from copy import deepcopy
 from dataclasses import dataclass, asdict
@@ -1449,6 +1450,8 @@ def execute_authorized_batch(
     api_key: str,
     confirmed_maximum_usd: float,
 ) -> dict[str, Any]:
+    # SIRAJ_V4_PLUS_LEGACY_EXECUTION_LOCK
+    block_legacy_execution("src/application/luna_cinematic_prompt_director_v2.py::execute_authorized_batch")
     if abs(
         float(confirmed_maximum_usd)
         - MAXIMUM_BATCH_RESERVE_USD

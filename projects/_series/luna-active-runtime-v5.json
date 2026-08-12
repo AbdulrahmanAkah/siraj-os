@@ -1,0 +1,29 @@
+{
+  "schema_version": "siraj-luna-active-runtime-v5",
+  "status": "ACTIVE",
+  "active_policy": "projects/_series/siraj-luna-unbounded-adaptive-runtime-v5.json",
+  "active_transport": "src/application/siraj_luna_adaptive_transport_v5.py",
+  "legacy_episode_002_research_runner": {
+    "path": "src/application/siraj_luna_research_session_v4.py",
+    "status": "RETIRED_AFTER_RESEARCH_COMPLETE",
+    "reuse_as_future_template": false
+  },
+  "future_luna_stages_must_use_v5_policy": true,
+  "active_runtime": "V5.1_MAX_PRO_ICONIC_CINEMATIC",
+  "reasoning_effort": "max",
+  "reasoning_mode": "pro",
+  "iconic_cinematic_brain": "ACTIVE",
+  "local_resource_guard": "V5.2_ACTIVE",
+  "local_process_priority": "BELOW_NORMAL",
+  "local_ecoqos": "REQUEST_WHEN_SUPPORTED",
+  "local_cpu_affinity_cap": null,
+  "global_arabic_pronunciation_law": "V5.3_ACTIVE",
+  "full_pronunciation_diacritization_required": true,
+  "bare_arabic_words_allowed_in_tts": false,
+  "legacy_spoken_text_reaudit_required": true,
+  "primary_tts_provider": "ELEVENLABS",
+  "primary_narrator_voice_id": "XdoLPWNt7ytn6BtU4FBf",
+  "primary_narrator_lock": "V5.4.1_ACTIVE",
+  "primary_narrator_change_requires_explicit_human_override": true,
+  "tts_voice_fallback_allowed": false
+}

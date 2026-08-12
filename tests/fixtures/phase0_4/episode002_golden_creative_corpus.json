@@ -1,0 +1,50 @@
+{
+  "schema_version": "siraj-golden-creative-regression-corpus-v1",
+  "source_episode": "episode-002-sanitized",
+  "authoritative_episode_duration_seconds": 623.584,
+  "authoritative_shot_count": 55,
+  "representative_shots": [
+    {
+      "shot_id": "EP002-SH-001", "queue_index": 1, "beat_id": "BEAT-001",
+      "segment_ids": ["SEG-001"], "start_seconds": 0.0, "end_seconds": 13.8,
+      "semantic_beat": "A concealed aftermath is introduced through an opaque botanical membrane.",
+      "subject": "One opaque botanical membrane and a concealed central void.",
+      "composition": "Extreme macro foreground with layered atmospheric depth.",
+      "camera_angle": "Macro eye-level grazing angle.",
+      "camera_movement": "Restrained parallax and slow push.",
+      "environment": "Pearlescent abstract space in muted emerald tones.",
+      "final_budget_treatment": "ANIMATED_STILL_COMPOSITING",
+      "runware_positive_prompt_en": "Cinematic 16:9 macro still plate with an opaque membrane, atmospheric depth and concealed negative space.",
+      "runware_negative_prompt_en": "No readable text, faces, anatomy, literal geography or supernatural figures.",
+      "reuse_justification": "Independent opening asset with no file reuse or loop."
+    },
+    {
+      "shot_id": "EP002-SH-028", "queue_index": 28, "beat_id": "BEAT-006",
+      "segment_ids": ["SEG-006"], "start_seconds": 300.7, "end_seconds": 318.092,
+      "semantic_beat": "The field opens after acknowledgment without erasing consequence.",
+      "subject": "A dark trace, anonymous peripheral hands, and unmarked open space.",
+      "composition": "Open central field with the prior trace remaining behind.",
+      "camera_angle": "Low forward-facing angle.",
+      "camera_movement": "Slow forward travel without turning the trace into a route.",
+      "environment": "Dark blue-gray shifting toward restrained neutral warmth.",
+      "final_budget_treatment": "ANIMATED_STILL_COMPOSITING",
+      "runware_positive_prompt_en": "Cinematic 16:9 unmarked spatial field with a retained dark trace and anonymous hands at the edges.",
+      "runware_negative_prompt_en": "No text, faces, divine figures, literal road, map or guidance symbol.",
+      "reuse_justification": "Independent post-confession asset without reused trace imagery."
+    },
+    {
+      "shot_id": "EP002-SH-055", "queue_index": 55, "beat_id": "",
+      "segment_ids": ["PRE_OUTRO"], "start_seconds": 622.784, "end_seconds": 623.584,
+      "semantic_beat": "An unresolved horizon fades while an unclosed trace persists briefly.",
+      "subject": "An ordinary horizon and one fine unclosed trace.",
+      "composition": "Off-center horizon with no destination or symbolic light.",
+      "camera_angle": "Wide static horizon angle.",
+      "camera_movement": "Clean 0.8 second fade with trace persistence.",
+      "environment": "Minimal earth-gray to black field.",
+      "final_budget_treatment": "GENERATED_VIDEO",
+      "runware_positive_prompt_en": "0.8-second cinematic 16:9 unresolved earth horizon fading to black with one fine unclosed trace.",
+      "runware_negative_prompt_en": "No text, logos, figures, symbols, sudden cut, flash or completed destination.",
+      "reuse_justification": "Independent final fade with no loop or reused horizon file."
+    }
+  ]
+}

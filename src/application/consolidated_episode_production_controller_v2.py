@@ -11,6 +11,7 @@ one explicit desktop authorization. The controller then:
 """
 
 from __future__ import annotations
+from src.application.siraj_v4_plus_legacy_execution_lock_v1 import block_legacy_execution
 
 from dataclasses import asdict, dataclass
 from datetime import datetime, timezone
@@ -689,6 +690,8 @@ def run_consolidated_production_to_human_gate(
     confirmed_maximum_usd: float,
     progress: ProgressCallback | None = None,
 ) -> ConsolidatedProductionResult:
+    # SIRAJ_V4_PLUS_LEGACY_EXECUTION_LOCK
+    block_legacy_execution("src/application/consolidated_episode_production_controller_v2.py::run_consolidated_production_to_human_gate")
     repo = repo_root.resolve()
     plan = inspect_consolidated_production_plan(repo)
     if not openai_api_key.strip():
@@ -1463,6 +1466,8 @@ def run_consolidated_production_to_human_gate(
     confirmed_maximum_usd: float,
     progress: ProgressCallback | None = None,
 ) -> ConsolidatedProductionResult:
+    # SIRAJ_V4_PLUS_LEGACY_EXECUTION_LOCK
+    block_legacy_execution("src/application/consolidated_episode_production_controller_v2.py::run_consolidated_production_to_human_gate")
     repo = repo_root.resolve()
     try:
         _siraj_native_gate(repo)

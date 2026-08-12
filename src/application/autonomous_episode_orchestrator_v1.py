@@ -1,4 +1,5 @@
 from __future__ import annotations
+from src.application.siraj_v4_plus_legacy_execution_lock_v1 import block_legacy_execution
 
 import hashlib
 import json
@@ -295,6 +296,8 @@ def generate_next_episode_scope(
     instruction: str = "",
     progress: ProgressCallback | None = None,
 ) -> dict[str, Any]:
+    # SIRAJ_V4_PLUS_LEGACY_EXECUTION_LOCK
+    block_legacy_execution("src/application/autonomous_episode_orchestrator_v1.py::generate_next_episode_scope")
     state = load_orchestrator_state(repo_root)
     if state.get("status") not in {
         "IDLE_READY_FOR_NEXT_EPISODE",

@@ -1,0 +1,31 @@
+{
+  "action": "RUN",
+  "authorized": true,
+  "automatic_paid_resubmission": false,
+  "automatic_paid_retry": false,
+  "completed_stage_rerun_policy": "FORBIDDEN_UNLESS_EXPLICIT_HUMAN_RESET",
+  "completed_stages": [
+    "TOPIC_SELECTION",
+    "SOURCE_RESEARCH_FROM_ZERO",
+    "SOURCE_CLAIM_MATRIX",
+    "STORY_ARCHITECTURE",
+    "ICONIC_CINEMATIC_REVIEW",
+    "FINAL_SCRIPT",
+    "PRONUNCIATION_AND_PERFORMANCE_GATE",
+    "FINAL_TTS",
+    "AUDIO_TIMESTAMPS_AND_BEATS",
+    "AUDIO_BOUND_STORYBOARD",
+    "LUNA_SEMANTIC_PROMPT_DIRECTION",
+    "PROMPT_SIMILARITY_AND_DUPLICATE_GATE"
+  ],
+  "detail": "Resume at NARRATION_VISUAL_ALIGNMENT_GATE; completed stages are protected.",
+  "episode_id": "episode-002-adam-temptation-fall-repentance",
+  "mode": "RESUME_EXISTING_EPISODE",
+  "paid_stage": true,
+  "schema_version": "siraj-series-autopilot-runtime-v6.4",
+  "stage": "NARRATION_VISUAL_ALIGNMENT_GATE",
+  "stage_index": 12,
+  "target_terminal_state": "READY_FOR_FINAL_HUMAN_REVIEW",
+  "terminal": false,
+  "updated_at_utc": "2026-08-09T02:23:28.971224Z"
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version": "siraj-v4-plus-runtime-policy-v1",
+  "release": "SIRAJ_V4_PLUS_EXECUTION_HARDENING_V2",
+  "status": "V4_PLUS_ONLY_FOR_NEW_PRODUCTION",
+  "episode_001": "FINAL_LOCKED",
+  "episode_002_and_later": "V4_PLUS_PIPELINE_REQUIRED",
+  "legacy_paid_execution": "BLOCKED",
+  "legacy_editorial_generation": "BLOCKED",
+  "legacy_luna_paid_batches": "BLOCKED",
+  "v4_plus_provider_executor": "INSTALLED_PREPARE_AND_LEDGER_LAYER",
+  "automatic_paid_retry": false,
+  "paid_provider_execution_now": "NOT_AUTHORIZED"
+}

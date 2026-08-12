@@ -1,0 +1,122 @@
+{
+  "schema_version": "siraj-luna-central-director-law-v4",
+  "release": "SIRAJ_LUNA_CENTRAL_DIRECTOR_LAW_V4",
+  "status": "ACTIVE",
+  "applies_to": "EPISODE_002_AND_ALL_FUTURE_SIRAJ_EPISODES",
+  "core_rule": "LUNA_OWNS_ALL_PREPRODUCTION_DECISIONS_AND_SUPERVISES_EXECUTION",
+  "preproduction_owner": "LUNA",
+  "preproduction_owner_stages": [
+    "EPISODE_CONTENT_SELECTION",
+    "SOURCE_RESEARCH_FROM_ZERO",
+    "SOURCE_CLAIM_MATRIX",
+    "STORY_ARCHITECTURE",
+    "FINAL_SCRIPT",
+    "PRONUNCIATION_AND_PERFORMANCE_GATE",
+    "TTS_DIRECTION",
+    "FINAL_TTS_EDITORIAL_REVIEW",
+    "AUDIO_TIMESTAMPS_AND_BEATS",
+    "AUDIO_BOUND_STORYBOARD",
+    "LUNA_SEMANTIC_PROMPT_DIRECTION",
+    "NARRATION_VISUAL_ALIGNMENT_GATE",
+    "PROMPT_SIMILARITY_AND_DUPLICATE_GATE",
+    "MEDIA_QUEUE_AND_COST_PLAN",
+    "FINAL_PREPRODUCTION_SIGNOFF"
+  ],
+  "production_role": "LUNA_SUPERVISOR",
+  "supervised_execution_stages": [
+    "TTS_PROVIDER_EXECUTION",
+    "IMAGE_PROVIDER_EXECUTION",
+    "VIDEO_PROVIDER_EXECUTION",
+    "LOCAL_GRAPHICS_EXECUTION",
+    "LOCAL_ASSEMBLY_AND_MONTAGE",
+    "AUTOMATIC_TECHNICAL_QA",
+    "SEMANTIC_AND_EDITORIAL_QA",
+    "BOUNDED_PARTIAL_REPAIR",
+    "FINAL_DELIVERABLE_REVIEW"
+  ],
+  "deterministic_runtime_role": [
+    "RAW_SOURCE_FETCH_AND_MATERIALIZATION",
+    "SOURCE_LOCATOR_AND_HASH_PERSISTENCE",
+    "SCHEMA_VALIDATION",
+    "DEPENDENCY_HASH_VALIDATION",
+    "PAID_ATTEMPT_LEDGER",
+    "PROVIDER_TASK_UUID_PERSISTENCE",
+    "PROVIDER_NETWORK_EXECUTION",
+    "LOCAL_MEDIA_RENDERING",
+    "SIGNAL_LEVEL_QA",
+    "COST_RECONCILIATION"
+  ],
+  "human_reserved_authorities": [
+    "EXPLICIT_PAID_BUDGET_AUTHORIZATION",
+    "QUEUE_SPECIFIC_PAID_RETRY_AUTHORIZATION",
+    "OPTIONAL_CREATIVE_OVERRIDE",
+    "FINAL_HUMAN_WATCH_GATE",
+    "YOUTUBE_PUBLICATION"
+  ],
+  "source_governance": {
+    "luna_selects_sources": true,
+    "luna_directs_source_search": true,
+    "luna_extracts_and_interprets_support": true,
+    "raw_source_retrieval": "DETERMINISTIC_TOOL_UNDER_LUNA_DIRECTION",
+    "every_material_claim_requires_source_ids_and_locator": true,
+    "unsupported_claims": "EXCLUDE_OR_EXPLICITLY_QUALIFY",
+    "old_episode_002_sources": "FORBIDDEN"
+  },
+  "audio_first": {
+    "fixed_duration_before_final_tts": false,
+    "fixed_shot_count_before_final_tts": false,
+    "final_tts_defines_episode_duration": true,
+    "storyboard_before_final_tts": "FORBIDDEN",
+    "every_shot_bound_to_actual_audio_beat": true
+  },
+  "prompt_governance": {
+    "luna_is_final_prompt_author": true,
+    "generic_provider_prompt_without_luna": "FORBIDDEN",
+    "semantic_alignment_before_spend": "REQUIRED",
+    "generated_exact_arabic_text": "FORBIDDEN",
+    "duplicate_and_similarity_gate": "REQUIRED"
+  },
+  "production_supervision": {
+    "luna_acceptance_values": [
+      "PASS",
+      "REPAIR_LOCAL",
+      "REGENERATE_RECOMMENDED"
+    ],
+    "luna_can_trigger_paid_retry": false,
+    "regenerate_requires_human_queue_specific_authorization": true,
+    "automatic_paid_retry": false,
+    "technical_qa_runs_before_or_with_luna_supervision": true,
+    "luna_reviews_semantics_continuity_and_editorial_quality": true
+  },
+  "paid_luna_policy": {
+    "luna_may_not_self_authorize": true,
+    "consolidated_preproduction_budget_authorization_allowed": true,
+    "one_call_per_authorized_stage_attempt": true,
+    "automatic_retry": false,
+    "failed_stage_retry_requires_stage_specific_reauthorization": true
+  },
+  "created_at_utc": "2026-08-08T01:49:36.952153Z",
+  "research_gateway": {
+    "version": "V4",
+    "module": "src/application/siraj_luna_research_gateway_v4.py",
+    "research_loop_module": "src/application/siraj_luna_iterative_research_v4.py",
+    "owner": "LUNA",
+    "operations": [
+      "SEARCH_SHAMELA",
+      "EXPAND_SHAMELA_LOCATOR",
+      "SEARCH_HADITH_LOCAL",
+      "SEARCH_QURAN_CACHE",
+      "MATERIALIZE_QURAN_LOCATOR",
+      "MATERIALIZE_HADITH_URL",
+      "SEARCH_SOURCE_PACKAGES",
+      "SEARCH_WEB_GAP_VIA_LUNA_WEB_SEARCH"
+    ],
+    "iterative_loop": "LUNA_PLAN -> DETERMINISTIC_RETRIEVAL -> LUNA_ADJUDICATION -> FOLLOW_UP_UNTIL_COMPLETE",
+    "web_search_owner": "LUNA",
+    "raw_source_materialization": "DETERMINISTIC",
+    "network_materialization_default": "BLOCKED",
+    "automatic_network_retry": false,
+    "old_episode_002_research_reuse": false
+  },
+  "updated_at_utc": "2026-08-08T02:00:48.283747Z"
+}

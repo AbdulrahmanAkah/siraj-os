@@ -1,0 +1,18 @@
+{
+  "policy_id": "SIRAJ_CINEMATIC_MEDIA_MIX_POLICY_V2",
+  "schema_version": "siraj-cinematic-media-mix-policy-v2",
+  "status": "ACTIVE",
+  "min_true_video_fraction": 0.5,
+  "max_true_video_fraction": 0.75,
+  "selection_mode": "DIRECTORIAL_OPTIMIZATION",
+  "old_two_thirds_policy_active": false,
+  "generated_video_is_timeline_coverage": true,
+  "provider_requested_seconds_count_as_coverage": false,
+  "animated_stills_count_as_coverage": false,
+  "local_graphics_count_as_coverage": false,
+  "clip_reuse_counts_as_coverage": false,
+  "looped_video_counts_as_coverage": false,
+  "unknown_pricing_blocks_execution": true,
+  "provider_duration_selection": "SMALLEST_SUPPORTED_DURATION_FOR_TIMELINE_USE_PLUS_EXPLICIT_HANDLES",
+  "source": "LOCAL_CANONICAL_CONFIGURATION"
+}

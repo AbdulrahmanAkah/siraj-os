@@ -1,0 +1,40 @@
+{
+  "schema_version": "siraj-global-arabic-pronunciation-law-v5.3",
+  "status": "ACTIVE",
+  "scope": "SERIES_WIDE_ALL_EPISODES_LEGACY_AND_FUTURE",
+  "applies_to": [
+    "all Arabic narration masters",
+    "all Arabic tts_text_ar fields",
+    "all pre-outro spoken text",
+    "all reusable spoken outro/intro text",
+    "all future Arabic text submitted to any TTS provider",
+    "legacy narration before any future reuse or regeneration"
+  ],
+  "does_not_mutate": [
+    "research evidence",
+    "source claim matrices",
+    "canonical quotations in source archives",
+    "already-approved rendered media unless separately re-authorized"
+  ],
+  "law": {
+    "full_pronunciation_diacritization_required": true,
+    "selective_diacritization_only_allowed": false,
+    "bare_multi_letter_arabic_words_allowed_in_tts": false,
+    "lexical_rewrite_by_pronunciation_layer_allowed": false,
+    "punctuation_for_pronunciation_allowed": true,
+    "safe_orthographic_disambiguation_allowed": true,
+    "pause_aware_word_endings_required": true,
+    "quran_direct_quotes": "prefer canonical sourced vocalization; do not invent wording",
+    "hadith_or_source_direct_quotes": "preserve source wording; pronunciation marks may be added without lexical change"
+  },
+  "preflight": {
+    "final_tts_must_fail_closed_if_law_not_passed": true,
+    "provider_call_before_pass": false,
+    "automatic_paid_retry": false
+  },
+  "legacy_policy": {
+    "retroactive_audit_required": true,
+    "legacy_text_must_pass_before_future_tts_or_reuse": true,
+    "existing_approved_audio_is_not_automatically_regenerated": true
+  }
+}

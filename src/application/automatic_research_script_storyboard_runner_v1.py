@@ -1,4 +1,5 @@
 from __future__ import annotations
+from src.application.siraj_v4_plus_legacy_execution_lock_v1 import block_legacy_execution
 
 import hashlib
 import json
@@ -1315,6 +1316,8 @@ def run_editorial_pipeline(
     openai_api_key: str,
     progress: ProgressCallback | None = None,
 ) -> EditorialPipelineResult:
+    # SIRAJ_V4_PLUS_LEGACY_EXECUTION_LOCK
+    block_legacy_execution("src/application/automatic_research_script_storyboard_runner_v1.py::run_editorial_pipeline")
     if not openai_api_key.strip():
         raise EditorialPipelineError(
             "OPENAI_API_KEY_REQUIRED"

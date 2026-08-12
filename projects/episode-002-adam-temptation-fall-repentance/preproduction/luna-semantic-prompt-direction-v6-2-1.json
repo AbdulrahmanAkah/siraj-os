@@ -1,0 +1,1360 @@
+{
+  "alignment_repair_applied": true,
+  "alignment_repair_hard_validation": {
+    "duplicate_gate_rerun_required": true,
+    "episode_duration_seconds": 623.584,
+    "full_timeline_coverage": true,
+    "generated_video_max_ratio": 0.6666666666666666,
+    "generated_video_max_seconds": 415.723,
+    "generated_video_seconds": 21.669,
+    "independent_alignment_reaudit_required": true,
+    "media_cost_preflight_rerun_required": true,
+    "original_shot_count": 55,
+    "repaired_shot_count": 55,
+    "status": "PASS"
+  },
+  "alignment_repair_version": "V6.6-R6",
+  "alignment_structural_change": false,
+  "items": [
+    {
+      "beat_id": "BEAT-001",
+      "camera_angle": "Macro eye-level angle grazing the edge of an opaque broad leaf-like membrane.",
+      "camera_movement": "Very slow local parallax and restrained push toward the membrane edge while the center remains fully occluded.",
+      "composition": "Extreme close-up; broad botanical membrane dominates the foreground, concealed center, deep layered haze behind.",
+      "contains_people": false,
+      "end_seconds": 13.8,
+      "environment": "Pearlescent non-terrestrial atmospheric space with emerald and milky tones; no literal garden or geography.",
+      "final_budget_treatment": "ANIMATED_STILL_COMPOSITING",
+      "queue_index": 1,
+      "reuse_justification": "Independent opening asset; the covering motif is introduced once here and is not reused as a file or loop.",
+      "runware_negative_prompt_en": "Readable text, Arabic text, letters, calligraphy, subtitles, logos, watermark, face, eyes, mouth, identifiable body, nudity, exposed anatomy, literal garden, deity, angel, demon, creature, map, geography, industrial paper, stationery, oversaturated fantasy.",
+      "runware_positive_prompt_en": "Cinematic 16:9 macro still plate, one independently generated smooth opaque broad leaf-like botanical membrane drifting across the extreme foreground, pearlescent mist and muted emerald atmospheric layers behind it, concealed central negative space, subtle non-specific veining, soft volumetric light, modest abstract sacred visual language, designed for subtle local parallax.",
+      "segment_ids": [
+        "SEG-001"
+      ],
+      "semantic_beat": "An opaque broad botanical membrane introduces the concealed aftermath without revealing a body or literal supernatural place.",
+      "shot_id": "EP002-SH-001",
+      "start_seconds": 0.0,
+      "subject": "A single opaque broad leaf-like botanical membrane in extreme macro foreground with a concealed central void behind it."
+    },
+    {
+      "beat_id": "BEAT-001",
+      "camera_angle": "Medium rear three-quarter angle at shoulder height.",
+      "camera_movement": "Slow hand-to-hand lateral parallax, with separately generated opaque botanical membrane layers moving at slightly different depths.",
+      "composition": "Shoulder-cropped rear-side framing; hands and overlapping broad membranes centered; all covered areas hidden by shadow and membranes.",
+      "contains_people": true,
+      "end_seconds": 28.6,
+      "environment": "Soft shadowed pearlescent space with no visible landscape or body.",
+      "final_budget_treatment": "ANIMATED_STILL_COMPOSITING",
+      "queue_index": 2,
+      "reuse_justification": "Independent covering action; no source file or motion is reused later.",
+      "runware_negative_prompt_en": "Readable text, Arabic text, calligraphy, subtitles, logos, watermark, faces, eyes, mouths, visible torso, nudity, exposed anatomy, erotic framing, identifiable characters, industrial paper, literal tree, fruit, deity, angel, demon, creature, malformed hands, bright costume.",
+      "runware_positive_prompt_en": "Cinematic 16:9 still plate, two anonymous human hands entering from opposite sides and folding broad opaque leaf-like botanical membranes over a completely occluded central area, only hands and organic membranes visible, layered shadows, restrained pearlescent atmosphere, modest composition, no faces or bodies, suitable for gentle compositing animation.",
+      "segment_ids": [
+        "SEG-001"
+      ],
+      "semantic_beat": "Two anonymous pairs of hands jointly restore covering through broad opaque botanical membranes.",
+      "shot_id": "EP002-SH-002",
+      "start_seconds": 13.8,
+      "subject": "Two anonymous hands from opposite sides folding and layering broad opaque botanical membranes over a fully concealed form."
+    },
+    {
+      "beat_id": "BEAT-001",
+      "camera_angle": "Centered frontal angle with a slight high view.",
+      "camera_movement": "Slow camera retreat as the covering leaves the center and the frame resolves into intentionally unfilled space.",
+      "composition": "The detached membrane occupies only a peripheral edge; wide negative space opens in the center.",
+      "contains_people": false,
+      "end_seconds": 43.9,
+      "environment": "Open pearlescent void with no literal location.",
+      "final_budget_treatment": "ANIMATED_STILL_COMPOSITING",
+      "queue_index": 3,
+      "reuse_justification": "Independent transition plate from covering to confession; no asset reuse or loop.",
+      "runware_negative_prompt_en": "Readable text, Arabic characters, invented prayer, scripture, calligraphy, subtitles, logos, watermark, faces, bodies, nudity, literal writing, language-like symbols, industrial paper, deity, angel, demon, creature, literal garden, theatrical performance.",
+      "runware_positive_prompt_en": "Cinematic 16:9 still plate, one independently generated opaque broad botanical membrane receding toward a peripheral edge while a central pearlescent void becomes dominant, sparse organic layers, soft emerald and pearl palette, no body reveal, designed for a restrained retreat.",
+      "segment_ids": [
+        "SEG-001"
+      ],
+      "semantic_beat": "The joint covering gives way to an unfilled central space where confession is carried by sound rather than another body image.",
+      "shot_id": "EP002-SH-003",
+      "start_seconds": 28.6,
+      "subject": "A detached opaque botanical membrane at the edge of an expanding unfilled pearlescent space."
+    },
+    {
+      "beat_id": "BEAT-001",
+      "camera_angle": "Near-overhead top-down angle.",
+      "camera_movement": "Controlled lateral reveal from the remaining veil toward a newly generated abstract causal trace, followed by a clear opening into a broader field.",
+      "composition": "A thin dark trace is visible only once beneath a receding opaque edge; the rest opens into non-terrestrial vertical layers.",
+      "contains_people": false,
+      "end_seconds": 57.8,
+      "environment": "Undefined matte surface opening into soft pearl-green atmospheric layers; no literal garden or geography.",
+      "final_budget_treatment": "ANIMATED_STILL_COMPOSITING",
+      "queue_index": 4,
+      "reuse_justification": "Independent editorial trace used once to state that covering does not erase consequence; not a physical event or reused asset.",
+      "runware_negative_prompt_en": "Readable text, Arabic text, calligraphy, subtitles, logos, watermark, wound, scar, blood, body marks, anatomy, face, person, industrial paper, literal boundary wall, deity, angel, demon, creature, map, geography, physical damage, fracture.",
+      "runware_positive_prompt_en": "Cinematic 16:9 top-down still plate, one independently generated thin dark abstract editorial trace briefly visible beneath a receding opaque botanical edge, surrounding field opening into layered pearlescent atmosphere, non-physical graphic treatment, no anatomy or identifiable setting, designed for a clear causal hinge.",
+      "segment_ids": [
+        "SEG-001"
+      ],
+      "semantic_beat": "A non-material trace remains after the covering recedes, then the image pivots toward the prior abstract boundary setup.",
+      "shot_id": "EP002-SH-004",
+      "start_seconds": 43.9,
+      "subject": "A single abstract trace exposed as the opaque covering recedes into an opening pearlescent field."
+    },
+    {
+      "beat_id": "BEAT-001",
+      "camera_angle": "Wide low horizon angle.",
+      "camera_movement": "Slow widening reorientation from the aftermath trace toward an open non-directional field containing one distant veiled division.",
+      "composition": "The trace remains small at the origin while a broad open field and one non-literal boundary relation become the visual subject.",
+      "contains_people": false,
+      "end_seconds": 69.825,
+      "environment": "Non-literal luminous atmospheric expanse with no gate, threshold, destination, geography, or directional passage.",
+      "final_budget_treatment": "ANIMATED_STILL_COMPOSITING",
+      "queue_index": 5,
+      "reuse_justification": "Independent causal reorientation plate; no previous file or motion is reused.",
+      "runware_negative_prompt_en": "Readable text, Arabic text, logos, watermark, face, body, heroic figure, wings, angel, deity, demon, creature, industrial paper, literal heaven, literal garden, architecture, geography, map, threshold, gate, portal, destination, directional beam, triumphant glow.",
+      "runware_positive_prompt_en": "Cinematic 16:9 wide still plate, an open non-directional pearlescent atmospheric expanse with a small abstract trace left behind at the edge and one distant veiled division emerging within the field, no gate, threshold, destination, horizon target, or directional line, diffuse emerald and pearl layers, no figures.",
+      "segment_ids": [
+        "SEG-001"
+      ],
+      "semantic_beat": "The opening leaves the aftermath and visibly reorients toward the earlier abundance-and-boundary setup without inventing a destination.",
+      "shot_id": "EP002-SH-005",
+      "start_seconds": 57.8,
+      "subject": "A broad non-directional pearlescent field with a small residual trace and a distant veiled division."
+    },
+    {
+      "beat_id": "BEAT-001",
+      "camera_angle": "Wide frontal angle.",
+      "camera_movement": "One-second almost locked hold with barely perceptible diffuse light breathing; no new visual event.",
+      "composition": "Wide balanced frame showing the open field and veiled division, with the residual trace peripheral.",
+      "contains_people": false,
+      "end_seconds": 70.825,
+      "environment": "Pearlescent undefined atmospheric space with no threshold, portal, geography, or directional cue.",
+      "final_budget_treatment": "GENERATED_VIDEO",
+      "queue_index": 6,
+      "reuse_justification": "Independent one-second editorial hold, not a loop or replay.",
+      "runware_negative_prompt_en": "Any text, Arabic text, subtitles, logos, watermark, face, body, supernatural person, deity, angel, demon, creature, industrial paper, garden, threshold, gate, portal, destination, guiding line, camera shake, added objects, fast motion, flash, title card.",
+      "runware_positive_prompt_en": "One-second cinematic 16:9 video, an open non-directional pearlescent atmospheric field with a distant veiled division and a small residual trace at the edge, no threshold, gateway, destination, guiding line, membrane movement, or new event, almost no movement except subtle diffuse light breathing.",
+      "segment_ids": [
+        "SEG-001"
+      ],
+      "semantic_beat": "A one-second non-directional hold completes the return from covering aftermath to the prior field-and-boundary setup.",
+      "shot_id": "EP002-SH-006",
+      "start_seconds": 69.825,
+      "subject": "Open pearlescent field, distant veiled division, and a peripheral residual trace without a destination."
+    },
+    {
+      "beat_id": "BEAT-002",
+      "camera_angle": "High aerial-oblique angle.",
+      "camera_movement": "Gradual rise and widening parallax from the open atmospheric region into an abstract field.",
+      "composition": "Extremely wide frame, silhouettes small and off-center, vast negative space and layered vertical curtains.",
+      "contains_people": true,
+      "end_seconds": 87.2,
+      "environment": "Abstract vertical atmospheric field with no literal garden, detailed trees, or geographic horizon.",
+      "final_budget_treatment": "ANIMATED_STILL_COMPOSITING",
+      "queue_index": 7,
+      "reuse_justification": "Independent anonymous figures and field; the return is editorially required and uses no reused source.",
+      "runware_negative_prompt_en": "Readable text, Arabic text, logos, watermark, faces, facial features, detailed bodies, heroic pose, literal paradise garden, identifiable tree, fruit, architecture, map, deity, angel, demon, creature, bright fantasy spectacle.",
+      "runware_positive_prompt_en": "Cinematic 16:9 wide still plate, independently generated abstract non-terrestrial expanse of muted emerald, silver, and pearl layers, two tiny anonymous human silhouettes seen only from behind, vast scale dwarfing them, vertical translucent curtains and atmospheric depth, no detailed garden or geography, designed for rising aerial parallax.",
+      "segment_ids": [
+        "SEG-002"
+      ],
+      "semantic_beat": "The story returns causally to a vast abstract field where two anonymous figures are small within abundance.",
+      "shot_id": "EP002-SH-007",
+      "start_seconds": 70.825,
+      "subject": "Two tiny anonymous rear silhouettes in a vast emerald and silver field."
+    },
+    {
+      "beat_id": "BEAT-002",
+      "camera_angle": "Low lateral angle parallel to the boundary.",
+      "camera_movement": "Extended sideward tracking parallax; silhouettes shift slightly and stop before the line.",
+      "composition": "Long lateral composition with generous authorized space on one side and a smaller veiled zone on the other.",
+      "contains_people": true,
+      "end_seconds": 102.9,
+      "environment": "Open pearlescent-green abstract field with a veiled organic mass beyond the boundary.",
+      "final_budget_treatment": "ANIMATED_STILL_COMPOSITING",
+      "queue_index": 8,
+      "reuse_justification": "Independent abstract boundary for the explicit contrast between permission and prohibition.",
+      "runware_negative_prompt_en": "Readable text, Arabic text, logos, watermark, faces, detailed bodies, nudity, literal wall, gate, fence, identifiable tree, fruit, garden architecture, deity, angel, demon, creature, violence, heroic composition.",
+      "runware_positive_prompt_en": "Cinematic 16:9 still plate, independently generated abstract emerald and silver field, a thin dark boundary dividing a broad open area from a smaller mist-veiled organic form, two anonymous rear silhouettes moving freely in the broad area and stopping before the line, no identifiable tree or fruit, designed for lateral parallax.",
+      "segment_ids": [
+        "SEG-002"
+      ],
+      "semantic_beat": "A thin boundary appears inside abundance, and the anonymous pair stops before it.",
+      "shot_id": "EP002-SH-008",
+      "start_seconds": 87.2,
+      "subject": "Two anonymous rear silhouettes and a thin dark boundary separating open and occluded space."
+    },
+    {
+      "beat_id": "BEAT-002",
+      "camera_angle": "Long-lens eye-level angle.",
+      "camera_movement": "Very slow focus breathing toward the veil, stopping before the form resolves.",
+      "composition": "Telephoto frame with veiled form deep in background, empty foreground, and no botanical detail.",
+      "contains_people": false,
+      "end_seconds": 113.9,
+      "environment": "Compressed pearlescent haze with no visible ground or geography.",
+      "final_budget_treatment": "ANIMATED_STILL_COMPOSITING",
+      "queue_index": 9,
+      "reuse_justification": "Independent unclassifiable form; no botanical identity or later file reuse.",
+      "runware_negative_prompt_en": "Readable text, Arabic text, logos, watermark, identifiable tree species, leaves, fruit, flowers, branches, garden, landscape, faces, bodies, deity, angel, demon, creature, sharp botanical detail, fantasy object.",
+      "runware_positive_prompt_en": "Cinematic 16:9 telephoto still plate, an independently generated unclassifiable vertical organic silhouette behind dense white pearlescent mist, completely out of focus, no leaves, fruit, bark, species markers, or identifiable botanical features, muted emerald and pearl tones, designed for subtle focus shift.",
+      "segment_ids": [
+        "SEG-002"
+      ],
+      "semantic_beat": "The unnamed tree remains deliberately unidentifiable behind a veil.",
+      "shot_id": "EP002-SH-009",
+      "start_seconds": 102.9,
+      "subject": "An out-of-focus vertical organic form behind white mist."
+    },
+    {
+      "beat_id": "BEAT-002",
+      "camera_angle": "Low oblique angle close to the surface.",
+      "camera_movement": "Slow lateral drift while shallow tonal bands change orientation around the fixed boundary; no arrival, impact, or crossing.",
+      "composition": "Low close view of the line; abstract bands remain non-figurative and do not originate from any visible source.",
+      "contains_people": false,
+      "end_seconds": 120.794,
+      "environment": "Abstract emerald-silver field with a veiled background.",
+      "final_budget_treatment": "GENERATED_VIDEO",
+      "queue_index": 10,
+      "reuse_justification": "Repaired as non-causal editorial tension; the shot does not visualize a means or mechanism of whispering and is not looped.",
+      "runware_negative_prompt_en": "Text, Arabic text, subtitles, logos, watermark, mouth, face, human shadow, person, demon, devil, monster, creature, hand, body, deity, angel, literal wall, pressure wave, impact, smoke figure, horror cliché, supernatural mechanism.",
+      "runware_positive_prompt_en": "Cinematic 16:9 video, a fixed thin dark boundary on an abstract pearlescent surface while shallow non-figurative tonal bands subtly shift orientation around it, purely editorial compositional tension, no source, arrival, force, creature, crossing, or physical interaction, muted deep blue-green palette, slow controlled camera drift.",
+      "segment_ids": [
+        "SEG-002"
+      ],
+      "semantic_beat": "Visual tension gathers around the existing boundary without depicting a source or physical mechanism of whispering.",
+      "shot_id": "EP002-SH-010",
+      "start_seconds": 113.9,
+      "subject": "A fixed thin dark boundary with non-causal tonal bands shifting around it."
+    },
+    {
+      "beat_id": "BEAT-002",
+      "camera_angle": "Low side angle.",
+      "camera_movement": "Locked-off 0.55-second hold with only slight ambient dimming.",
+      "composition": "Static lateral frame with empty space on both sides of the boundary.",
+      "contains_people": false,
+      "end_seconds": 121.344,
+      "environment": "Quiet pearl-green atmospheric field.",
+      "final_budget_treatment": "GENERATED_VIDEO",
+      "queue_index": 11,
+      "reuse_justification": "Independent half-second editorial hold separating two beats; not a replay or loop.",
+      "runware_negative_prompt_en": "Any text, Arabic text, logos, watermark, face, body, creature, demon, supernatural figure, new wave, camera shake, flash, added object, literal garden, identifiable tree.",
+      "runware_positive_prompt_en": "0.55-second cinematic 16:9 hold, an independently generated thin dark boundary across a quiet abstract pearlescent field, veiled unidentifiable organic mass beyond it, no moving figures or new event, extremely subtle ambient dimming only, precise editorial transition.",
+      "segment_ids": [
+        "SEG-002"
+      ],
+      "semantic_beat": "A brief neutral hold separates the established boundary from the next pressure phase.",
+      "shot_id": "EP002-SH-011",
+      "start_seconds": 120.794,
+      "subject": "Boundary, open field, and veiled organic mass."
+    },
+    {
+      "beat_id": "BEAT-003",
+      "camera_angle": "Low tracking angle along the surface.",
+      "camera_movement": "Slow layered dolly along the boundary with abstract tonal planes sliding independently; no approaching entity or force.",
+      "composition": "Boundary dominates; silhouettes are small and peripheral; non-figurative curves remain compositional only and never cross.",
+      "contains_people": true,
+      "end_seconds": 138.7,
+      "environment": "Deepening blue-green abstract field with soft vertical layers.",
+      "final_budget_treatment": "ANIMATED_STILL_COMPOSITING",
+      "queue_index": 12,
+      "reuse_justification": "Repaired to an explicitly compositional attention shift rather than a represented whispering mechanism; independent still plate.",
+      "runware_negative_prompt_en": "Readable text, Arabic text, logos, watermark, faces, detailed bodies, human shadow, demon, devil, mouth, eye, creature, deity, angel, literal wall, pressure wave, physical force, violence, horror figure, heroic characters.",
+      "runware_positive_prompt_en": "Cinematic 16:9 still plate, independently generated fixed dark boundary in a deepening blue-green abstract field, two very small anonymous rear silhouettes at the periphery, layered non-figurative tonal planes creating asymmetry without an approaching source, no creature, no shadow person, designed for restrained parallax.",
+      "segment_ids": [
+        "SEG-003"
+      ],
+      "semantic_beat": "The visual field redirects attention toward the boundary while the source of whispering remains outside sensory depiction.",
+      "shot_id": "EP002-SH-012",
+      "start_seconds": 121.344,
+      "subject": "A fixed boundary, two distant anonymous silhouettes, and non-figurative tonal asymmetry."
+    },
+    {
+      "beat_id": "BEAT-003",
+      "camera_angle": "Close oblique angle over a reflective surface.",
+      "camera_movement": "Slow rotational parallax inside the reflection while the actual boundary remains stable.",
+      "composition": "Actual boundary in background; reflections in foreground; no crowns, palaces, or people.",
+      "contains_people": false,
+      "end_seconds": 153.8,
+      "environment": "Dark reflective abstract surface surrounded by subdued blue-green haze.",
+      "final_budget_treatment": "ANIMATED_STILL_COMPOSITING",
+      "queue_index": 13,
+      "reuse_justification": "Independent metaphor for the two verbal promises; no actual loop, portal, or reused asset.",
+      "runware_negative_prompt_en": "Readable text, Arabic text, logos, watermark, crowns, palace, treasure, human figures, faces, deity, angel, demon, creature, literal heaven, fantasy architecture, symbols, map, typography, closed loop, portal.",
+      "runware_positive_prompt_en": "Cinematic 16:9 abstract still plate, an independently generated straight dark boundary reflected as two impossible geometric paths, one expanding into open space and one curling into an unresolvable curve, no crowns, palaces, people, literal rewards, or closed loop, deep blue and muted silver palette.",
+      "segment_ids": [
+        "SEG-003"
+      ],
+      "semantic_beat": "The temptation becomes two impossible geometric promises while the actual boundary remains conceptually distinct.",
+      "shot_id": "EP002-SH-013",
+      "start_seconds": 138.7,
+      "subject": "A dark boundary and two distorted reflected geometric paths, one expanding and one curling."
+    },
+    {
+      "beat_id": "BEAT-003",
+      "camera_angle": "Tight low angle focused on the boundary and tonal band.",
+      "camera_movement": "Slow inward creep as the non-figurative band shifts from partial framing to partial occlusion; no arc, source, or force.",
+      "composition": "Boundary and tonal band fill the frame; background remains empty and non-personal.",
+      "contains_people": false,
+      "end_seconds": 168.9,
+      "environment": "Compressed dark-blue abstract field.",
+      "final_budget_treatment": "ANIMATED_STILL_COMPOSITING",
+      "queue_index": 14,
+      "reuse_justification": "Repaired from an arc mechanism to a purely optical editorial occlusion; independent asset and no later reuse.",
+      "runware_negative_prompt_en": "Readable text, Arabic text, logos, watermark, face, mouth, eye, person, demon, devil, creature, deity, angel, halo, religious icon, literal protective gate, luminous arc, pressure wave, violence, fantasy character.",
+      "runware_positive_prompt_en": "Cinematic 16:9 still plate, independently generated thin dark boundary in a dark blue abstract field, a soft non-figurative tonal band first frames the line and then partially occludes it, no luminous arc, gate, shelter, human source, entity, or physical force, restrained optical metaphor.",
+      "segment_ids": [
+        "SEG-003"
+      ],
+      "semantic_beat": "A seemingly reassuring visual relation becomes an obstruction, conveying deceptive advice without personifying or mechanizing the whispering.",
+      "shot_id": "EP002-SH-014",
+      "start_seconds": 153.8,
+      "subject": "A fixed boundary intermittently occluded by a non-figurative tonal band."
+    },
+    {
+      "beat_id": "BEAT-003",
+      "camera_angle": "Low close-to-ground angle.",
+      "camera_movement": "Slow tonal rebalancing and short push toward the boundary, stopping before contact.",
+      "composition": "Boundary centered; permitted side dims while the veiled side gains density; silhouettes remain outside.",
+      "contains_people": true,
+      "end_seconds": 175.725,
+      "environment": "Abstract field transitioning from pearl-green to deep blue.",
+      "final_budget_treatment": "GENERATED_VIDEO",
+      "queue_index": 15,
+      "reuse_justification": "Independent tonal reinterpretation; no source file or loop.",
+      "runware_negative_prompt_en": "Text, Arabic text, subtitles, logos, watermark, faces, detailed bodies, demon, devil, human shadow, creature, deity, angel, literal tree, wall, gate, horror, violent crossing, dramatic fantasy glow.",
+      "runware_positive_prompt_en": "Cinematic 16:9 video, an independently generated thin dark boundary remains unchanged while surrounding contrast is rebalanced, the open side becomes less legible and the veiled side gains undefined atmospheric density, two anonymous silhouettes remain outside, no crossing and no forbidden object.",
+      "segment_ids": [
+        "SEG-003"
+      ],
+      "semantic_beat": "The unchanged boundary appears differently legible because its surrounding visual context is reinterpreted under pressure.",
+      "shot_id": "EP002-SH-015",
+      "start_seconds": 168.9,
+      "subject": "A fixed thin dark boundary, two distant anonymous silhouettes, and shifting non-directional contrast."
+    },
+    {
+      "beat_id": "BEAT-003",
+      "camera_angle": "Low close angle.",
+      "camera_movement": "0.35-second micro-freeze with vibration ceasing at the cut.",
+      "composition": "Tight boundary-centered frame with the abstract band suspended mid-shift.",
+      "contains_people": true,
+      "end_seconds": 176.075,
+      "environment": "Deep blue abstract field.",
+      "final_budget_treatment": "GENERATED_VIDEO",
+      "queue_index": 16,
+      "reuse_justification": "Independent 0.35-second pre-action freeze; not a replay or loop.",
+      "runware_negative_prompt_en": "Any text, Arabic text, logos, watermark, face, body detail, demon, devil, creature, deity, angel, crossing, impact, flash, camera shake, added objects.",
+      "runware_positive_prompt_en": "Very short cinematic 16:9 video, an abstract tonal band freezes beside a thin dark boundary, background vibration stops, peripheral anonymous silhouettes remain still, no crossing and no new event, precise editorial transition frame.",
+      "segment_ids": [
+        "SEG-003"
+      ],
+      "semantic_beat": "The visual temptation freezes before the action begins.",
+      "shot_id": "EP002-SH-016",
+      "start_seconds": 175.725,
+      "subject": "A stopped abstract tonal band, fixed boundary, and two peripheral silhouettes."
+    },
+    {
+      "beat_id": "BEAT-004",
+      "camera_angle": "Very low near-surface angle.",
+      "camera_movement": "Forward local parallax following abstract traces and stopping before any full crossing is shown.",
+      "composition": "Low close crop on paired traces and a fine relation line; no anatomy.",
+      "contains_people": false,
+      "end_seconds": 189.1,
+      "environment": "Pale luminous surface with the former boundary represented only as an abstract relation.",
+      "final_budget_treatment": "ANIMATED_STILL_COMPOSITING",
+      "queue_index": 17,
+      "reuse_justification": "Independent abstract action plate; no source trace is reused later.",
+      "runware_negative_prompt_en": "Readable text, Arabic text, feet, toes, legs, anatomy, nudity, body detail, face, identifiable people, demon, devil, creature, deity, angel, literal tree, fruit, violent fall, crossing.",
+      "runware_positive_prompt_en": "Cinematic 16:9 still plate, two independently generated minimal paired traces moving toward a veiled region, no feet, legs, bodies, or crossing event, a fine abstract line marks a prior relation, restrained implied action, designed for forward texture parallax.",
+      "segment_ids": [
+        "SEG-004"
+      ],
+      "semantic_beat": "The boundary becomes an altered relation between two abstract tracks, showing shared action without literal crossing or anatomy.",
+      "shot_id": "EP002-SH-017",
+      "start_seconds": 176.075,
+      "subject": "Two minimal abstract paired traces moving toward a veiled region without visible bodies."
+    },
+    {
+      "beat_id": "BEAT-004",
+      "camera_angle": "High overhead tracking angle.",
+      "camera_movement": "Sideways sliding parallax and controlled shear distortion across the whole field.",
+      "composition": "Top-down abstract composition; paired tracks initially parallel then jointly displaced.",
+      "contains_people": false,
+      "end_seconds": 202.5,
+      "environment": "Darkening layered field with no visible source.",
+      "final_budget_treatment": "ANIMATED_STILL_COMPOSITING",
+      "queue_index": 18,
+      "reuse_justification": "Independent shared-displacement metaphor; no loop or reused file.",
+      "runware_negative_prompt_en": "Readable text, Arabic text, logos, watermark, faces, bodies, human shadow, demon, devil, creature, deity, angel, violence, impact, literal fall, blame directed at one gender, identifiable characters.",
+      "runware_positive_prompt_en": "Cinematic 16:9 abstract still plate, two independently generated parallel fine tracks across a darkening pearlescent field, both displaced in one direction by non-personal compositional distortion, no human forms or source, balanced shared-responsibility visual language, designed for top-down shear animation.",
+      "segment_ids": [
+        "SEG-004"
+      ],
+      "semantic_beat": "Two parallel personal trajectories slip together out of alignment under impersonal field distortion.",
+      "shot_id": "EP002-SH-018",
+      "start_seconds": 189.1,
+      "subject": "Two parallel abstract tracks bending in the same direction."
+    },
+    {
+      "beat_id": "BEAT-004",
+      "camera_angle": "Close oblique angle with shallow depth of field.",
+      "camera_movement": "Brief focus drift away from an unidentifiable organic edge, neutral occluded cut, then a restrained registration offset appears as a graphic trace.",
+      "composition": "Organic surface stays out of focus; after the cut, a thin discontinuous tonal seam appears without physical depth or damage.",
+      "contains_people": false,
+      "end_seconds": 214.7,
+      "environment": "Abstract veiled field with deep blue and pearl tones.",
+      "final_budget_treatment": "ANIMATED_STILL_COMPOSITING",
+      "queue_index": 19,
+      "reuse_justification": "Repaired from a material crack to a one-time non-material editorial trace; no physical event or asset reuse is implied.",
+      "runware_negative_prompt_en": "Readable text, Arabic text, logos, watermark, identifiable tree, fruit, bite, mouth, hand, body, face, nudity, demon, devil, creature, deity, angel, gore, blood, fracture, crack, shattering, wound, impact, magical mechanism, literal eating action.",
+      "runware_positive_prompt_en": "Cinematic 16:9 still plate, an independently generated unidentifiable organic edge remains out of focus, paired abstract traces shift together, contact stays concealed, a neutral editorial cut reveals a thin discontinuous graphic registration offset across the field, explicitly non-material and non-causal, no body or physical damage.",
+      "segment_ids": [
+        "SEG-004"
+      ],
+      "semantic_beat": "The action is represented by withheld contact and a graphic editorial trace, not by an invented physical or cosmic consequence.",
+      "shot_id": "EP002-SH-019",
+      "start_seconds": 202.5,
+      "subject": "An out-of-focus organic edge, jointly displaced abstract traces, and a non-material discontinuous editorial seam appearing after an occluded cut."
+    },
+    {
+      "beat_id": "BEAT-004",
+      "camera_angle": "Static frontal overhead hybrid angle.",
+      "camera_movement": "Slow focus transfer from one abstract trace to the shared line, then equal refocus across both sides.",
+      "composition": "Symmetrical split field with equal visual weight and no dominant side.",
+      "contains_people": false,
+      "end_seconds": 226.88,
+      "environment": "Neutral dark pearlescent field free of literal setting.",
+      "final_budget_treatment": "ANIMATED_STILL_COMPOSITING",
+      "queue_index": 20,
+      "reuse_justification": "Independent balanced responsibility plate; no earlier trace is reused.",
+      "runware_negative_prompt_en": "Readable text, Arabic text, logos, watermark, faces, bodies, gendered blame, isolated female figure, heroic male figure, demon, devil, creature, deity, angel, literal eating, anatomy, violence.",
+      "runware_positive_prompt_en": "Cinematic 16:9 symmetrical abstract still plate, two equal adjacent fields divided by an independently generated shared fine line, one subtle action trace in each field, balanced scale and lighting, no bodies or faces, no accusatory composition, restrained blue-gray palette.",
+      "segment_ids": [
+        "SEG-004"
+      ],
+      "semantic_beat": "A balanced two-part composition acknowledges the textual reference without assigning blame to the wife.",
+      "shot_id": "EP002-SH-020",
+      "start_seconds": 214.7,
+      "subject": "Two adjacent abstract fields with one shared line and mirrored traces of action."
+    },
+    {
+      "beat_id": "BEAT-004",
+      "camera_angle": "Overhead close angle.",
+      "camera_movement": "0.25-second freeze and abrupt reduction of visual vibration.",
+      "composition": "Centered abstract seam with empty surrounding space.",
+      "contains_people": false,
+      "end_seconds": 227.13,
+      "environment": "Dark abstract field.",
+      "final_budget_treatment": "GENERATED_VIDEO",
+      "queue_index": 21,
+      "reuse_justification": "Independent quarter-second editorial bridge; no replay or loop.",
+      "runware_negative_prompt_en": "Text, Arabic text, logos, watermark, face, body, blood, wound, crack, fracture, shattering, creature, demon, deity, angel, flash, impact, camera shake, additional seam.",
+      "runware_positive_prompt_en": "Extremely short cinematic 16:9 video, an independently generated thin non-material editorial seam stops halfway across a dark abstract field, ambient motion freezes, no physical fracture, reveal, or added detail, clean bridge into concealment.",
+      "segment_ids": [
+        "SEG-004"
+      ],
+      "semantic_beat": "The non-material consequence trace pauses before the visual language changes to concealment.",
+      "shot_id": "EP002-SH-021",
+      "start_seconds": 226.88,
+      "subject": "A thin abstract editorial seam stopped halfway across a dark field."
+    },
+    {
+      "beat_id": "BEAT-005",
+      "camera_angle": "Front-facing abstract angle without theatrical ornament.",
+      "camera_movement": "Slow opening and closing of a luminous veil followed by independently generated opaque botanical membrane parallax.",
+      "composition": "Central occluded opening framed by diffuse light; broad membranes cover it without revealing anatomy.",
+      "contains_people": false,
+      "end_seconds": 240.6,
+      "environment": "Dark pearlescent abstract space.",
+      "final_budget_treatment": "ANIMATED_STILL_COMPOSITING",
+      "queue_index": 22,
+      "reuse_justification": "Independent core covering image for the consequence segment; later botanical appearances are separately generated and functionally distinct.",
+      "runware_negative_prompt_en": "Readable text, Arabic text, logos, watermark, face, body, anatomy, nudity, silhouette revealing anatomy, erotic framing, demon, devil, creature, deity, angel, literal room, theatrical stage, industrial paper, stationery material, costume.",
+      "runware_positive_prompt_en": "Cinematic 16:9 abstract still plate, a soft luminous veil opens only onto complete opaque darkness with no visible body or form, independently generated broad opaque leaf-like membranes enter and cover the opening, modest restrained composition, no anatomy or identifiable species, deep blue-gray and pearl palette.",
+      "segment_ids": [
+        "SEG-005"
+      ],
+      "semantic_beat": "A central veil opens only onto concealed darkness, then broad opaque botanical membranes restore modesty without revealing a body.",
+      "shot_id": "EP002-SH-022",
+      "start_seconds": 227.13,
+      "subject": "A diffuse luminous veil, concealed black center, and entering opaque botanical membranes."
+    },
+    {
+      "beat_id": "BEAT-005",
+      "camera_angle": "High three-quarter angle.",
+      "camera_movement": "Slow semicircular orbit with independently generated botanical membrane layers at staggered depths.",
+      "composition": "Half-circle arrangement around a hidden center; broad leaf-like folds are primary subject.",
+      "contains_people": false,
+      "end_seconds": 253.9,
+      "environment": "Dim abstract field with layered veil shadows.",
+      "final_budget_treatment": "ANIMATED_STILL_COMPOSITING",
+      "queue_index": 23,
+      "reuse_justification": "Independent membrane convergence within the same covering beat; no file reuse or loop.",
+      "runware_negative_prompt_en": "Readable text, Arabic text, logos, watermark, faces, bodies, nudity, exposed anatomy, erotic framing, decorative fashion, literal garden, deity, angel, demon, creature, industrial paper, flat collage, stationery advertisement.",
+      "runware_positive_prompt_en": "Cinematic 16:9 still plate, independently generated broad opaque leaf-like membranes entering from opposite edges and meeting over a completely concealed center, no visible body, hands only implied by motion, layered organic folds and shadows, restrained modest visual language, no identifiable species.",
+      "segment_ids": [
+        "SEG-005"
+      ],
+      "semantic_beat": "Broad botanical membranes arrive from both sides and meet over the hidden area, emphasizing covering as action rather than ornament.",
+      "shot_id": "EP002-SH-023",
+      "start_seconds": 240.6,
+      "subject": "Overlapping opaque botanical membranes converging above an occluded center; hands remain implied."
+    },
+    {
+      "beat_id": "BEAT-005",
+      "camera_angle": "Low upward-looking angle transitioning toward the ground.",
+      "camera_movement": "Slow vertical follow of independently generated detached membranes drifting away, ending on empty space and a non-material trace.",
+      "composition": "Vertical drift path; one membrane off-center; a fine editorial trace visible below as membranes recede.",
+      "contains_people": false,
+      "end_seconds": 268.044,
+      "environment": "Unified dim neutral field transitioning toward empty space.",
+      "final_budget_treatment": "ANIMATED_STILL_COMPOSITING",
+      "queue_index": 24,
+      "reuse_justification": "Independent end-of-covering image; the withdrawal is the final use of the covering motif in this beat and is not reused later as a file.",
+      "runware_negative_prompt_en": "Readable text, Arabic text, logos, watermark, faces, bodies, nudity, anatomy, dramatic reveal, literal garden, deity, angel, demon, creature, industrial paper, decorative shower, confetti, flat poster.",
+      "runware_positive_prompt_en": "Cinematic 16:9 still plate, independently generated broad opaque botanical membranes drifting away from a concealed central area, one membrane suspended off-center, a fine non-material editorial trace visible below and not covered, background simplifying toward quiet emptiness, no identifiable species.",
+      "segment_ids": [
+        "SEG-005"
+      ],
+      "semantic_beat": "The material covering withdraws and leaves the consequence available to the coming confession.",
+      "shot_id": "EP002-SH-024",
+      "start_seconds": 253.9,
+      "subject": "Detached opaque botanical membranes, one suspended membrane, and a fine abstract trace beneath."
+    },
+    {
+      "beat_id": "BEAT-005",
+      "camera_angle": "Static frontal angle.",
+      "camera_movement": "0.45-second settling motion of one independently generated detached membrane, then stillness.",
+      "composition": "Membrane kept away from the center; empty space dominates.",
+      "contains_people": false,
+      "end_seconds": 268.494,
+      "environment": "Quiet dim neutral field.",
+      "final_budget_treatment": "GENERATED_VIDEO",
+      "queue_index": 25,
+      "reuse_justification": "Independent half-second pause opening space for the confession; not a replay of the preceding plate.",
+      "runware_negative_prompt_en": "Any text, Arabic text, logos, watermark, face, body, anatomy, reveal, creature, deity, angel, demon, industrial paper, camera shake, extra membrane, title card.",
+      "runware_positive_prompt_en": "0.45-second cinematic 16:9 video, one independently generated opaque broad botanical membrane settles slightly off-center in a quiet dim field, broad empty negative space remains open, no text or new object, restrained transition hold.",
+      "segment_ids": [
+        "SEG-005"
+      ],
+      "semantic_beat": "A detached membrane holds at the edge of an unfilled space before the confession enters.",
+      "shot_id": "EP002-SH-025",
+      "start_seconds": 268.044,
+      "subject": "One off-center opaque botanical membrane and open negative space."
+    },
+    {
+      "beat_id": "BEAT-006",
+      "camera_angle": "Medium-wide rear angle at low height.",
+      "camera_movement": "Slow descent toward ground level with subtle independent silhouette parallax.",
+      "composition": "Distant medium-wide rear view; silhouettes separated by deliberate empty center.",
+      "contains_people": true,
+      "end_seconds": 283.6,
+      "environment": "Wide low-lit undefined space with a dark ground plane.",
+      "final_budget_treatment": "ANIMATED_STILL_COMPOSITING",
+      "queue_index": 26,
+      "reuse_justification": "Independent non-identifying confession silhouettes; no silhouette asset is reused.",
+      "runware_negative_prompt_en": "Readable text, Arabic text, faces, eyes, mouths, identifiable bodies, nudity, anatomy, dramatic acting, blame, heroic pose, deity, angel, demon, creature, literal location.",
+      "runware_positive_prompt_en": "Cinematic 16:9 still plate, two independently generated anonymous human silhouettes seen only from behind in lowered humble postures, fully covered and without facial detail, separated by intentional empty space, dark undefined ground, subdued blue-gray atmosphere, no theatrical emotion.",
+      "segment_ids": [
+        "SEG-006"
+      ],
+      "semantic_beat": "Two anonymous human forms lower their posture toward the ground without faces or theatrical emotion.",
+      "shot_id": "EP002-SH-026",
+      "start_seconds": 268.494,
+      "subject": "Two anonymous rear silhouettes in lowered postures with small movements toward the ground."
+    },
+    {
+      "beat_id": "BEAT-006",
+      "camera_angle": "High overhead angle.",
+      "camera_movement": "Slow inward drift toward the fine abstract line, stopping before either hand touches it.",
+      "composition": "Near-overhead symmetry; hands equal in scale and distance; line centered between them.",
+      "contains_people": true,
+      "end_seconds": 300.7,
+      "environment": "Dark matte surface with restrained blue-gray light.",
+      "final_budget_treatment": "ANIMATED_STILL_COMPOSITING",
+      "queue_index": 27,
+      "reuse_justification": "Independent shared-acknowledgment plate; the line is not reused from earlier scenes.",
+      "runware_negative_prompt_en": "Readable text, Arabic text, calligraphy, logos, watermark, faces, arms, bodies, nudity, anatomy, pointing, blame, one-sided composition, deity, angel, demon, creature, glowing hand, miracle effect.",
+      "runware_positive_prompt_en": "Cinematic 16:9 overhead still plate, two independently generated anonymous open hands emerging from shadow at opposite sides of a fine dark non-material editorial line, equal scale and distance, fully modest framing with no wrists or bodies beyond shadow, restrained blue-gray light.",
+      "segment_ids": [
+        "SEG-006"
+      ],
+      "semantic_beat": "Two open anonymous hands face the ground on opposite sides of a visible abstract trace, sharing responsibility.",
+      "shot_id": "EP002-SH-027",
+      "start_seconds": 283.6,
+      "subject": "Two anonymous open hands, one on each side of a fine dark line."
+    },
+    {
+      "beat_id": "BEAT-006",
+      "camera_angle": "Low forward-facing angle aligned with an open spatial field.",
+      "camera_movement": "Slow forward travel into unmarked space; the prior trace remains behind without becoming a route.",
+      "composition": "Open central field ahead; prior trace at the origin; hands recede to peripheral edges.",
+      "contains_people": true,
+      "end_seconds": 318.092,
+      "environment": "Transitioning from dark blue-gray into subdued neutral warmth without directional illumination.",
+      "final_budget_treatment": "ANIMATED_STILL_COMPOSITING",
+      "queue_index": 28,
+      "reuse_justification": "Independent non-directional opening after confession; no route or reused trace is introduced.",
+      "runware_negative_prompt_en": "Readable text, Arabic text, logos, watermark, faces, bodies, deity, angel, demon, creature, personal halo, miraculous beam, erased line, triumphant celebration, literal road, map, architecture, luminous path, guidance symbol.",
+      "runware_positive_prompt_en": "Cinematic 16:9 still plate, an independently generated open unmarked spatial field begins beyond a fine dark trace, two anonymous hands recede to the outer edges, the trace remains visible at the origin, muted transition from deep blue-gray to faint neutral warmth, no source of light and no path object.",
+      "segment_ids": [
+        "SEG-006"
+      ],
+      "semantic_beat": "The field opens after acknowledgment without erasing consequence or turning hope into a visible route.",
+      "shot_id": "EP002-SH-028",
+      "start_seconds": 300.7,
+      "subject": "A dark trace at the rear, receding anonymous hands, and an unmarked open field ahead."
+    },
+    {
+      "beat_id": "BEAT-006",
+      "camera_angle": "Centered frontal angle.",
+      "camera_movement": "One-second forward drift that stops at an empty field; subtle light breathing only.",
+      "composition": "Minimal frame dominated by negative space; no visible path, object, source, or answer.",
+      "contains_people": false,
+      "end_seconds": 319.092,
+      "environment": "Soft neutral-white void with no visible source or object.",
+      "final_budget_treatment": "GENERATED_VIDEO",
+      "queue_index": 29,
+      "reuse_justification": "Independent one-second silence hold; no loop or replay.",
+      "runware_negative_prompt_en": "Any text, Arabic text, letters, calligraphy, symbols, subtitles, logos, watermark, face, body, deity, angel, demon, creature, hand, voice visualization, bright flash, title card, directional beam.",
+      "runware_positive_prompt_en": "One-second cinematic 16:9 video, an empty soft white atmospheric field with only extremely subtle light breathing, no tonal path, letters, symbols, answer image, visible source, or supernatural mechanism, contemplative negative space.",
+      "segment_ids": [
+        "SEG-006"
+      ],
+      "semantic_beat": "The visual field opens into silence without supplying a written or material answer to the confession.",
+      "shot_id": "EP002-SH-029",
+      "start_seconds": 318.092,
+      "subject": "Empty white atmospheric field after the confession."
+    },
+    {
+      "beat_id": "BEAT-007",
+      "camera_angle": "Slightly elevated frontal angle.",
+      "camera_movement": "Short restrained approach through an unmarked tonal field; localized tonal settling only, with no object, mark, source, or transfer mechanism.",
+      "composition": "Open pearlescent void with broad unmarked negative space and a tiny anonymous rear silhouette at the edge.",
+      "contains_people": true,
+      "end_seconds": 333.9,
+      "environment": "Still white void with subtle pearl gradients and no literal location.",
+      "final_budget_treatment": "ANIMATED_STILL_COMPOSITING",
+      "queue_index": 30,
+      "reuse_justification": "Independent non-identifying reception image; silhouette is not reused or personified later.",
+      "runware_negative_prompt_en": "Readable text, Arabic text, scripture, prayer, calligraphy, alphabet, invented words, logos, watermark, tablet, manuscript, luminous marks, writing-like symbols, identifiable prophet, face, detailed body, deity, angel, demon, creature, magical transfer.",
+      "runware_positive_prompt_en": "Cinematic 16:9 still plate, an entirely open unmarked pearlescent void with one tiny anonymous rear human silhouette at the edge, fully non-identifiable and without facial or bodily detail, restrained non-directional tonal settling, no tablet, writing, luminous marks, hands, visible source, object, or transfer mechanism.",
+      "segment_ids": [
+        "SEG-007"
+      ],
+      "semantic_beat": "An anonymous human anchor and a receptive unmarked field support receiving without inventing the words or showing their source.",
+      "shot_id": "EP002-SH-030",
+      "start_seconds": 319.092,
+      "subject": "A tiny anonymous rear silhouette at the edge of an open unmarked pearlescent void."
+    },
+    {
+      "beat_id": "BEAT-007",
+      "camera_angle": "Rising angle toward an undefined horizon plane.",
+      "camera_movement": "Single gradual reorientation from a lowered gray tonal field toward calmer open balance; no figure, source, delivery, or beam.",
+      "composition": "Silhouette remains small and static at the lower edge while the field becomes more coherent and open.",
+      "contains_people": true,
+      "end_seconds": 349.4,
+      "environment": "Abstract white-to-muted-neutral field with no literal location.",
+      "final_budget_treatment": "ANIMATED_STILL_COMPOSITING",
+      "queue_index": 31,
+      "reuse_justification": "Independent acceptance transition; no silhouette or visual source is reused.",
+      "runware_negative_prompt_en": "Readable text, Arabic text, scripture, prayer, calligraphy, letters, tablet, manuscript, luminous writing, deity, angel, halo, supernatural person, demon, creature, face, detailed body, prophetic depiction, revelation beam, delivery mechanism.",
+      "runware_positive_prompt_en": "Cinematic 16:9 still plate, an independently generated tiny anonymous rear silhouette with no identifying features at the lower edge while a lowered gray tonal field reorients toward quiet open unmarked balance, no writing, marks, source, beam, object, destination, or symbolic path.",
+      "segment_ids": [
+        "SEG-007"
+      ],
+      "semantic_beat": "A non-identifying reorientation from lowered density to open balance distinguishes acceptance from reception without materializing the words or their source.",
+      "shot_id": "EP002-SH-031",
+      "start_seconds": 333.9,
+      "subject": "A tiny anonymous rear silhouette at the lower edge and an abstract tonal field opening toward calm balance."
+    },
+    {
+      "beat_id": "BEAT-007",
+      "camera_angle": "Orthographic frontal view.",
+      "camera_movement": "Three-stage graphic progression: 349.4–354.8 seconds, a faint non-directional tonal difference settles; 354.8–359.8 seconds, the difference reduces visibly toward an even field; 359.8–364.9 seconds, the fully unmarked field holds with only imperceptible ambient breathing.",
+      "composition": "Centered empty graphic field with no object, writing, marks, or interpretive iconography.",
+      "contains_people": false,
+      "end_seconds": 364.9,
+      "environment": "Minimal white graphic field with faint pearl gradient.",
+      "final_budget_treatment": "GRAPHICS",
+      "graphics_spec": {
+        "animation": "Use three visibly distinct but restrained stages: tonal settling, progressive clearing, then an unmarked hold. Preserve continuous motion across the full 15.5 seconds without introducing text, marks, symbols, or a source.",
+        "format": "animated_vector_plate",
+        "layers": [
+          "soft_white_pearlescent_background",
+          "subtle_non_directional_tonal_gradient",
+          "progressive_gradient_reduction",
+          "unmarked_final_field"
+        ],
+        "post_production_notes": "Do not introduce a tablet, marks, symbols, prayer, quotation, interpretive wording, or guidance icon. Audio alone carries the Quranic statement. Stage transitions must remain perceptible but minimal.",
+        "text_policy": "no_text_generated_or_rendered"
+      },
+      "queue_index": 32,
+      "reuse_justification": "Repaired as a staged graphic progression across the authoritative 15.5-second range; no static dead hold, text, or reused asset.",
+      "runware_negative_prompt_en": "Any readable text, Arabic text, letters, calligraphy, scripture, prayer, symbols resembling writing, tablet, manuscript, luminous marks, logos, watermark, face, body, deity, angel, demon, creature, ornate manuscript, guidance icon.",
+      "runware_positive_prompt_en": "Minimal high-resolution 16:9 graphic plate, independently generated unmarked soft pearl-white field with a subtle non-directional gradient that visibly settles, progressively clears, and becomes an even unmarked field for a final contemplative hold, no tablet, writing, symbols, object, source, or path.",
+      "segment_ids": [
+        "SEG-007"
+      ],
+      "semantic_beat": "The unspecified status of the received words is made visually explicit through staged clearing and an unmarked hold, without text or symbols.",
+      "shot_id": "EP002-SH-032",
+      "start_seconds": 349.4,
+      "subject": "A clean unmarked pearlescent graphic field progressing through three restrained tonal states."
+    },
+    {
+      "beat_id": "BEAT-007",
+      "camera_angle": "Low forward angle rising toward an undefined spatial opening.",
+      "camera_movement": "One uninterrupted spatial widening from the settled field and residual trace into a broad unmarked opening; no material path, source, or destination.",
+      "composition": "A faint trace remains at the foreground origin while the middle distance expands into a broad unmarked field; upper space stays unresolved.",
+      "contains_people": false,
+      "end_seconds": 386.105,
+      "environment": "Pearl-white field balancing toward restrained matte neutral-gold without directional glow.",
+      "final_budget_treatment": "ANIMATED_STILL_COMPOSITING",
+      "queue_index": 33,
+      "reuse_justification": "Independent broadening plate for acceptance and guidance; it does not depict an actual path or reuse prior material.",
+      "runware_negative_prompt_en": "Readable text, Arabic text, logos, watermark, deity, angel, halo, demon, creature, face, body, literal heaven, religious icon, explosive light, celebration, saturated gold, closed wall, destination, material path, visible source, guidance symbol.",
+      "runware_positive_prompt_en": "Cinematic 16:9 still plate designed as one independently generated continuous composition: a faint abstract trace in foreground, a broad unmarked atmospheric field in middle distance, and a quiet unresolved spatial opening beyond, pearl white shifting to soft muted neutral-gold, no personified light, figures, entities, path object, or destination.",
+      "segment_ids": [
+        "SEG-007"
+      ],
+      "semantic_beat": "The grouped movement from acceptance to selection and guidance is expressed as broadening available space while the unspecified words and nature of guidance remain unpictured.",
+      "shot_id": "EP002-SH-033",
+      "start_seconds": 364.9,
+      "subject": "A settled abstract trace, broad unmarked tonal field, and unresolved spatial opening in one connected composition."
+    },
+    {
+      "beat_id": "BEAT-007",
+      "camera_angle": "Low forward angle.",
+      "camera_movement": "0.55-second restrained hold with minimal ambient motion and no forward completion.",
+      "composition": "Wide unfilled space between the foreground trace and unresolved upper opening; no figure, path, object, or answer image.",
+      "contains_people": false,
+      "end_seconds": 386.655,
+      "environment": "Quiet pearl and subdued neutral-gold atmospheric field.",
+      "final_budget_treatment": "GENERATED_VIDEO",
+      "queue_index": 34,
+      "reuse_justification": "Corrected to the authoritative 0.55-second range; independent transition hold, not a loop.",
+      "runware_negative_prompt_en": "Text, Arabic text, logos, watermark, deity, angel, face, body, creature, demon, closed destination, triumphant flare, flash, camera shake, added landscape, material path, source, writing-like marks.",
+      "runware_positive_prompt_en": "0.55-second cinematic 16:9 video hold, a broad unmarked atmospheric field remains open between a faint foreground trace and undefined upper space, restrained pearl and muted neutral tones, no path, object, source, completion, figure, or directional light, ending on a clean axis-change cut.",
+      "segment_ids": [
+        "SEG-007"
+      ],
+      "semantic_beat": "A precise 0.55-second hold closes the reception-acceptance sequence before the clear axis-change cut into earthly consequence.",
+      "shot_id": "EP002-SH-034",
+      "start_seconds": 386.105,
+      "subject": "Unmarked open atmospheric field between a faint trace and an undefined spatial opening."
+    },
+    {
+      "beat_id": "BEAT-008",
+      "camera_angle": "Oblique wide angle allowing the axis change to read clearly.",
+      "camera_movement": "Slow controlled rotational reorientation from vertical suspended layers to horizontal ground abstraction.",
+      "composition": "Before-and-after axis contained in one geometric construction; no bodies falling.",
+      "contains_people": false,
+      "end_seconds": 400.5,
+      "environment": "Transitioning from pearl-white layered space to muted gray-earth abstraction.",
+      "final_budget_treatment": "ANIMATED_STILL_COMPOSITING",
+      "queue_index": 35,
+      "reuse_justification": "Independent axis-change composition; no trace or surface file is transferred to later shots.",
+      "runware_negative_prompt_en": "Readable text, Arabic text, watermark, falling person, body, face, wings, deity, angel, demon, creature, map, globe, geography, literal expulsion, impact, disaster, theatrical fall, guidance beam.",
+      "runware_positive_prompt_en": "Cinematic 16:9 abstract still plate, independently generated suspended pearlescent vertical layers gradually reoriented into a broad horizontal matte surface, a neutral fine trace retained only as a visual reference, muted gray and earth tones entering, no falling bodies, map, location, or luminous route.",
+      "segment_ids": [
+        "SEG-008"
+      ],
+      "semantic_beat": "The field changes axis from suspended vertical layers to an expansive horizontal surface without depicting a fall.",
+      "shot_id": "EP002-SH-035",
+      "start_seconds": 386.655,
+      "subject": "Abstract vertical layers rotating into a horizontal plane with a neutral trace retained only within this composition."
+    },
+    {
+      "beat_id": "BEAT-008",
+      "camera_angle": "Low wide ground-level angle.",
+      "camera_movement": "Lateral tracking with opposing path parallax and gentle widening distance.",
+      "composition": "Horizontal ground plane; paired ordinary tracks begin close and diverge toward opposite corners.",
+      "contains_people": false,
+      "end_seconds": 416.6,
+      "environment": "Minimal matte gray-earth surface with subtle atmospheric distance.",
+      "final_budget_treatment": "ANIMATED_STILL_COMPOSITING",
+      "queue_index": 36,
+      "reuse_justification": "Independent earthly tension image; paths are ordinary and not reused as guidance symbols.",
+      "runware_negative_prompt_en": "Readable text, Arabic text, logos, watermark, faces, bodies, fighters, weapons, demon, devil, creature, violence, map, landmarks, city, battlefield, dramatic destruction, luminous guidance route.",
+      "runware_positive_prompt_en": "Cinematic 16:9 still plate, independently generated two ordinary abstract ground tracks on a muted gray-earth surface, beginning close together and diverging toward different directions, no people, combat, enemy figure, symbolic light, or supernatural route, restrained tension through distance.",
+      "segment_ids": [
+        "SEG-008"
+      ],
+      "semantic_beat": "Two abstract earthly paths diverge across a new ground plane, expressing tension without violence or a visible enemy.",
+      "shot_id": "EP002-SH-036",
+      "start_seconds": 400.5,
+      "subject": "Two ordinary ground paths beginning near one another and diverging in opposite directions."
+    },
+    {
+      "beat_id": "BEAT-008",
+      "camera_angle": "Low ground-level macro-to-wide angle.",
+      "camera_movement": "Slow horizontal glide across soil, shadow, sparse plants, and ordinary path with focus passing between layers.",
+      "composition": "Low close foreground texture leading toward sparse middle distance and open ground.",
+      "contains_people": false,
+      "end_seconds": 429.7,
+      "environment": "Generic gray-brown earth surface with no geographic markers.",
+      "final_budget_treatment": "ANIMATED_STILL_COMPOSITING",
+      "queue_index": 37,
+      "reuse_justification": "Independent earth-settlement plate; no material from the abstract field is reused.",
+      "runware_negative_prompt_en": "Readable text, Arabic text, watermark, map, landmark, city, house, detailed landscape, identifiable plant species, lush garden, faces, bodies, deity, angel, demon, creature, fantasy terrain, saturated colors, luminous route.",
+      "runware_positive_prompt_en": "Cinematic 16:9 still plate of an independently generated generic muted gray-brown earth surface, tactile soil, a distant undefined water glint, sparse unidentifiable plants moved by wind, and an ordinary open ground track, no buildings, geographic clues, literal location, or guidance symbol.",
+      "segment_ids": [
+        "SEG-008"
+      ],
+      "semantic_beat": "The abstract field resolves into a general earthly surface of settlement and possibility without a specified place.",
+      "shot_id": "EP002-SH-037",
+      "start_seconds": 416.6,
+      "subject": "Muted soil texture, distant undefined water glint, sparse plants, and an ordinary open ground track."
+    },
+    {
+      "beat_id": "BEAT-008",
+      "camera_angle": "Low forward perspective aligned with ordinary ground lines.",
+      "camera_movement": "Long slow forward travel toward an unresolved horizon; both ground lines remain ordinary and separate.",
+      "composition": "Long ground lines converge near a distant unresolved point without luminous emphasis.",
+      "contains_people": false,
+      "end_seconds": 443.637,
+      "environment": "Open muted earth plane with a deepening but unspectacular horizon.",
+      "final_budget_treatment": "ANIMATED_STILL_COMPOSITING",
+      "queue_index": 38,
+      "reuse_justification": "Independent ordinary-earth continuation; no path is treated as a guidance route or reused elsewhere.",
+      "runware_negative_prompt_en": "Readable text, Arabic text, logos, watermark, deity, angel, halo, demon, creature, face, body, religious symbol, magical beam, luminous path, erased line, completed destination, map, road signage, triumph.",
+      "runware_positive_prompt_en": "Cinematic 16:9 still plate, independently generated ordinary ground lines crossing an open muted earth plane, neither line erased or illuminated, distant unresolved horizon, subtle gray-to-neutral-warm palette, no visible source, destination, or guidance representation, designed for slow forward travel.",
+      "segment_ids": [
+        "SEG-008"
+      ],
+      "semantic_beat": "Ordinary earthly lines continue toward an unknown horizon without becoming a visible form of guidance.",
+      "shot_id": "EP002-SH-038",
+      "start_seconds": 429.7,
+      "subject": "Ordinary dark ground line and a separate subtle surface variation on open earth."
+    },
+    {
+      "beat_id": "BEAT-008",
+      "camera_angle": "Low wide angle.",
+      "camera_movement": "0.9-second locked wide hold with ordinary surface contrast dimming slightly but never forming a symbol.",
+      "composition": "Wide static earth abstraction with ground lines subdued and unresolved.",
+      "contains_people": false,
+      "end_seconds": 444.537,
+      "environment": "Quiet gray-earth plane with soft distant horizon.",
+      "final_budget_treatment": "GENERATED_VIDEO",
+      "queue_index": 39,
+      "reuse_justification": "Independent earth hold before the source layer; no loop or replay.",
+      "runware_negative_prompt_en": "Any text, Arabic text, logos, watermark, face, body, deity, angel, demon, creature, map, location, sudden light, camera shake, added object, title card, guidance beam, luminous path.",
+      "runware_positive_prompt_en": "0.9-second cinematic 16:9 video hold, an open muted earth plane with ordinary ground variation and a soft distant horizon, contrast gently lowers without disappearing or forming a symbol, no figures, text, directional light, or new information.",
+      "segment_ids": [
+        "SEG-008"
+      ],
+      "semantic_beat": "The earthly field holds in silence before the independent hadith source layer begins.",
+      "shot_id": "EP002-SH-039",
+      "start_seconds": 443.637,
+      "subject": "Muted earth plane, ordinary ground variation, and distant unresolved horizon."
+    },
+    {
+      "beat_id": "BEAT-009",
+      "camera_angle": "High oblique tabletop angle.",
+      "camera_movement": "Slow lateral slide over manuscript edges and seals, avoiding zoom into unknown writing.",
+      "composition": "Oblique layered manuscript edges with a small lower-third source-card area.",
+      "contains_people": false,
+      "end_seconds": 458.8,
+      "environment": "Dark matte archival surface with no readable generated manuscript pages.",
+      "final_budget_treatment": "GRAPHICS",
+      "graphics_spec": {
+        "allowed_text": "Only the two source names: صحيح البخاري and صحيح مسلم; no hadith matn or additional sources.",
+        "animation": "A restrained source card fades in over an independently generated archival background and slides out before return to the main visual arc.",
+        "format": "post_production_source_card",
+        "placement": "Small restrained lower-third, high contrast, short duration, no ornamental frame.",
+        "text_overlay_ar": [
+          "صحيح البخاري",
+          "صحيح مسلم"
+        ],
+        "text_policy": "All readable text rendered as verified vector typography in post-production, never generated by the image model."
+      },
+      "queue_index": 40,
+      "reuse_justification": "Independent one-time bibliographic layer; verified source text is added only in post-production.",
+      "runware_negative_prompt_en": "Any generated readable text, fake quotation, full manuscript page, logos, watermark, faces, bodies, deity, angel, demon, creature, decorative museum display, invented source, extra bibliography.",
+      "runware_positive_prompt_en": "Cinematic 16:9 graphic background, independently generated dark matte archival surface with layered manuscript edges, blurred non-readable paper texture and neutral seals, empty lower-third source-card area, no generated writing or page text, clearly separate from the abstract Quranic visual language.",
+      "segment_ids": [
+        "SEG-009"
+      ],
+      "semantic_beat": "A separate restrained bibliographic layer identifies only the two permitted hadith sources.",
+      "shot_id": "EP002-SH-040",
+      "start_seconds": 444.537,
+      "subject": "Abstract manuscript layers and a minimal source-card area reserved for verified post-production typography."
+    },
+    {
+      "beat_id": "BEAT-009",
+      "camera_angle": "Orthographic top-down angle.",
+      "camera_movement": "Vector path animation draws trajectory A, then trajectory B, then freezes at the intersection.",
+      "composition": "Top-down diagrammatic layout with opposing paths balanced and central stop point clear.",
+      "contains_people": false,
+      "end_seconds": 475.6,
+      "environment": "Neutral archival paper field with no readable writing.",
+      "final_budget_treatment": "GRAPHICS",
+      "graphics_spec": {
+        "animation": "Draw trajectory A, draw trajectory B, stop both before any personification.",
+        "format": "animated_vector_diagram",
+        "layers": [
+          "neutral_paper_field",
+          "trajectory_A",
+          "trajectory_B",
+          "central_stop_point"
+        ],
+        "post_production_notes": "Trajectories remain analytical and must never morph into human figures or letters.",
+        "text_policy": "no_text_generated_or_rendered"
+      },
+      "queue_index": 41,
+      "reuse_justification": "Independent analytical diagram limited to the hadith discussion; not reused as a story path.",
+      "runware_negative_prompt_en": "Readable text, Arabic text, letters, calligraphy, subtitles, logos, watermark, portraits, faces, bodies, Adam, Moses, deity, angel, demon, creature, speech bubbles, comic style, fake quotation.",
+      "runware_positive_prompt_en": "Minimal cinematic 16:9 graphic plate, independently generated neutral archival paper texture, two clean abstract ink trajectories approaching a central point, no figures, letters, labels, readable writing, or personification, restrained analytical visual language.",
+      "segment_ids": [
+        "SEG-009"
+      ],
+      "semantic_beat": "Two analytical paths approach a point of argument without personifying the narrators.",
+      "shot_id": "EP002-SH-041",
+      "start_seconds": 458.8,
+      "subject": "Two ink-like abstract trajectories converging toward a central point and stopping."
+    },
+    {
+      "beat_id": "BEAT-009",
+      "camera_angle": "Orthographic frontal diagram view.",
+      "camera_movement": "Longitudinal pan along an unlabeled timeline, then a reverse arrow retracts and stops at the action node.",
+      "composition": "Horizontal timeline with three unlabeled nodes represented by shape and position only.",
+      "contains_people": false,
+      "end_seconds": 492.8,
+      "environment": "Minimal dark neutral graphic field.",
+      "final_budget_treatment": "GRAPHICS",
+      "graphics_spec": {
+        "animation": "Pan from pre-action to post-action, animate a reverse arrow, stop it exactly at the action node.",
+        "format": "animated_vector_timeline",
+        "layers": [
+          "horizontal_line",
+          "pre_action_node",
+          "action_node",
+          "post_action_path",
+          "reverse_arrow"
+        ],
+        "post_production_notes": "Use shape and timing only; do not add explanatory slogans or theological labels.",
+        "text_policy": "no_text_generated_or_rendered"
+      },
+      "queue_index": 42,
+      "reuse_justification": "Independent one-time causal diagram for the limited hadith clarification.",
+      "runware_negative_prompt_en": "Readable text, Arabic text, labels, captions, logos, watermark, deity, demon, creature, faces, bodies, courtroom imagery, chains, fatalistic machine, map, invented quotation.",
+      "runware_positive_prompt_en": "Minimal high-resolution 16:9 graphic plate, independently generated clean unlabeled horizontal causal timeline on a dark neutral field, three abstract nodes represented by circles and a non-material seam mark, a thin arrow moves backward and stops at the central action point, no text or labels.",
+      "segment_ids": [
+        "SEG-009"
+      ],
+      "semantic_beat": "A causal timeline shows that a later appeal cannot travel backward through the point of action.",
+      "shot_id": "EP002-SH-042",
+      "start_seconds": 475.6,
+      "subject": "Abstract timeline, action point, post-action segment, and a returning arrow stopped at the action point."
+    },
+    {
+      "beat_id": "BEAT-009",
+      "camera_angle": "Low three-quarter forward angle.",
+      "camera_movement": "Slow reverse camera move from the archival plane into a newly generated neutral earth-and-void field; the archival remnant exits laterally.",
+      "composition": "Layered depth with an abstract trace in foreground, open unmarked space midground, and an indistinct archival remnant far behind; no botanical object or organic fragment.",
+      "contains_people": false,
+      "end_seconds": 510.853,
+      "environment": "Hybrid field returning from archival neutral to muted earth and gray palette without a luminous route.",
+      "final_budget_treatment": "ANIMATED_STILL_COMPOSITING",
+      "queue_index": 43,
+      "reuse_justification": "Corrected to remove the unsupported botanical fragment from SEG-009; this is an independent return bridge using only neutral trace, open space, and archival remnant, with no botanical repetition or reused covering asset.",
+      "runware_negative_prompt_en": "Readable text, Arabic text, logos, watermark, full quotation, extra source, faces, bodies, deity, angel, demon, creature, leaf, membrane, botanical fragment, plant, tree, organic symbol, erased line, closed path, literal manuscript page, title card, triumphant glow, industrial paper, luminous guidance route.",
+      "runware_positive_prompt_en": "Cinematic 16:9 still plate, independently generated fine dark non-material trace in foreground, broad open unmarked space beyond it, distant indistinct archival card shape exiting laterally without readable text, muted earth and warm-gray palette, no leaf, membrane, plant, tree, organic fragment, botanical symbol, literal manuscript page, or luminous guidance route, designed for a slow return move.",
+      "segment_ids": [
+        "SEG-009"
+      ],
+      "semantic_beat": "The independent source layer recedes while a neutral trace and open field restore the primary arc; the hadith layer does not reopen the tree, leaf, or covering motif.",
+      "shot_id": "EP002-SH-043",
+      "start_seconds": 492.8,
+      "subject": "Fine dark non-material trace, open unmarked space, and a distant archival remnant leaving frame."
+    },
+    {
+      "beat_id": "BEAT-009",
+      "camera_angle": "Top-down close angle.",
+      "camera_movement": "0.45-second archival-plane retraction followed by an immediate lock.",
+      "composition": "Central non-material action trace remains visible beneath the receding dark plane.",
+      "contains_people": false,
+      "end_seconds": 511.303,
+      "environment": "Neutral dark field returning to the main palette.",
+      "final_budget_treatment": "GENERATED_VIDEO",
+      "queue_index": 44,
+      "reuse_justification": "Repaired to remove redundant botanical closure; independent half-second source-layer exit, not a loop.",
+      "runware_negative_prompt_en": "Any text, Arabic text, logos, watermark, face, body, deity, angel, demon, creature, erased action trace, botanical membrane, leaf, plant, tree, flash, camera shake, title card, industrial paper, physical crack.",
+      "runware_positive_prompt_en": "0.45-second cinematic 16:9 video, an independently generated dark matte archival plane retracts laterally to reveal a thin non-material consequence trace beneath it, image locks immediately, no botanical object, leaf, membrane, plant, tree, text, source card, or new event.",
+      "segment_ids": [
+        "SEG-009"
+      ],
+      "semantic_beat": "The source layer closes while the consequence remains available for synthesis; no botanical repetition is introduced.",
+      "shot_id": "EP002-SH-044",
+      "start_seconds": 510.853,
+      "subject": "A dark archival plane retracting to reveal an abstract consequence trace beneath it."
+    },
+    {
+      "beat_id": "BEAT-010",
+      "camera_angle": "Low lateral three-quarter angle.",
+      "camera_movement": "Long continuous dolly sideways through four independently generated trace planes with sequential focus pulls, no cuts.",
+      "composition": "Deep layered one-shot corridor of boundary trace, displaced action trace, confession trace, and open consequence field; no botanical fragment.",
+      "contains_people": false,
+      "end_seconds": 527.8,
+      "environment": "Unified dark-to-warm abstract space with earth and pearl tonal remnants.",
+      "final_budget_treatment": "ANIMATED_STILL_COMPOSITING",
+      "queue_index": 45,
+      "reuse_justification": "Repaired to remove the redundant botanical fragment from the synthesis shot; every trace plane is independently generated within one continuous compositing plate.",
+      "runware_negative_prompt_en": "Readable text, Arabic text, logos, watermark, faces, bodies, deity, angel, demon, creature, botanical fragment, leaf, membrane, plant, tree, four panels, collage, slideshow, repeated identical motifs, decorative montage, bright celebration, industrial paper, luminous path.",
+      "runware_positive_prompt_en": "Cinematic 16:9 layered still plate designed for one continuous camera move, independently generated fine boundary trace in foreground, displaced abstract action trace in middle depth, separate confession trace and open consequence field farther away, coherent dark-to-muted-warm environment, no people, botanical object, leaf, membrane, plant, recap montage, collage, or text.",
+      "segment_ids": [
+        "SEG-010"
+      ],
+      "semantic_beat": "The major causal motifs connect inside one continuous spatial movement rather than a botanical recap montage.",
+      "shot_id": "EP002-SH-045",
+      "start_seconds": 511.303,
+      "subject": "Several independently generated abstract traces arranged at different depths in one coherent dark-to-warm environment."
+    },
+    {
+      "beat_id": "BEAT-010",
+      "camera_angle": "Forward-facing low angle.",
+      "camera_movement": "Forward camera movement passes through one newly generated opaque membrane that peels aside in stages; the consequence trace remains visible and open space appears beyond.",
+      "composition": "One membrane occupies the foreground only at the beginning, then exits laterally; the persistent trace and neutral open space become dominant.",
+      "contains_people": false,
+      "end_seconds": 544.4,
+      "environment": "Muted gray-earth and warm neutral field.",
+      "final_budget_treatment": "ANIMATED_STILL_COMPOSITING",
+      "queue_index": 46,
+      "reuse_justification": "This is the sole deliberately retained late-synthesis botanical image and functions as a distinct final withdrawal; it is not a replay of the covering sequence and is not repeated in SH-043 or SH-048.",
+      "runware_negative_prompt_en": "Readable text, Arabic text, logos, watermark, faces, bodies, nudity, deity, angel, demon, creature, repeated membranes, membrane explosion, decorative collage, erased trace, celebratory light, literal road, slogans, industrial paper, luminous path.",
+      "runware_positive_prompt_en": "Cinematic 16:9 still plate, one independently generated broad opaque leaf-like membrane peeling aside in the foreground across three visible stages, a fine non-material consequence trace remains visible beneath it, open neutral space beyond, muted gray-earth and warm palette, no text, identifiable species, or route object.",
+      "segment_ids": [
+        "SEG-010"
+      ],
+      "semantic_beat": "The final distinct covering motif withdraws from the consequence while the future remains open without becoming a visible guidance path.",
+      "shot_id": "EP002-SH-046",
+      "start_seconds": 527.8,
+      "subject": "A single detached opaque botanical membrane peeling aside from a persistent non-material consequence trace."
+    },
+    {
+      "beat_id": "BEAT-010",
+      "camera_angle": "Wide frontal symmetrical angle with slight off-axis perspective.",
+      "camera_movement": "Three-stage observable progression across the full range: 544.4–550.2 seconds, the dark consequence mass remains fixed while the adjacent open area begins to widen; 550.2–556.1 seconds, the camera shifts laterally and the gap between mass and open area becomes clearly larger while the trace stays beside the mass; 556.1–562.8 seconds, the open area gains breadth and tonal coherence, the mass remains intact, and the trace does not turn into a route.",
+      "composition": "Dark consequence mass anchored left; separate open area expands on the right; abstract trace remains beside the mass throughout.",
+      "contains_people": false,
+      "end_seconds": 562.8,
+      "environment": "Balanced dark and muted neutral abstract field.",
+      "final_budget_treatment": "ANIMATED_STILL_COMPOSITING",
+      "queue_index": 47,
+      "reuse_justification": "Repaired with three explicit visual stages so the 18.4-second range contains observable progression; consequence and openness remain distinct and no prior asset is reused.",
+      "runware_negative_prompt_en": "Readable text, Arabic text, logos, watermark, faces, bodies, deity, angel, demon, creature, erased darkness, whitewashing, triumph, halo, wall, slogan, literal doorway, oversaturated gold, luminous path, route, sudden transformation.",
+      "runware_positive_prompt_en": "Cinematic 16:9 wide still plate designed for clearly staged compositing animation, an independently generated stable dark abstract consequence mass on the left, a separate unmarked open area on the right that visibly widens and becomes more coherent in three stages, a fine abstract trace remaining beside rather than entering the opening, muted blue-gray to neutral-warm balance, no doorway or guidance symbol.",
+      "segment_ids": [
+        "SEG-010"
+      ],
+      "semantic_beat": "The consequence remains visible while possibility expands beside it, preserving responsibility without defining mercy or guidance as an image.",
+      "shot_id": "EP002-SH-047",
+      "start_seconds": 544.4,
+      "subject": "A persistent abstract consequence mass, a separate unmarked open area, and a trace beside rather than through it."
+    },
+    {
+      "beat_id": "BEAT-010",
+      "camera_angle": "Low wide horizon angle.",
+      "camera_movement": "Slow pullback followed by gradual elevation revealing a fine abstract trace becoming a horizon relation; no botanical element enters or exits the frame.",
+      "composition": "Foreground consequence point leads into a broad open horizontal field; no botanical fragment, destination, or luminous route is revealed.",
+      "contains_people": false,
+      "end_seconds": 580.081,
+      "environment": "Generic muted earth plane opening toward a faint neutral horizon.",
+      "final_budget_treatment": "ANIMATED_STILL_COMPOSITING",
+      "queue_index": 48,
+      "reuse_justification": "Corrected to remove the redundant botanical fragment; this independent closure composition uses only the trace, ordinary earth field, and unfinished horizon, preserving a single late botanical withdrawal in SH-046.",
+      "runware_negative_prompt_en": "Readable text, Arabic text, logos, watermark, faces, bodies, deity, angel, demon, creature, leaf, membrane, plant, tree, botanical fragment, erased trace, closed horizon, literal map, specific landscape, triumph, celestial city, oversaturated sunset, industrial paper, luminous path, destination.",
+      "runware_positive_prompt_en": "Cinematic 16:9 still plate, one independently generated fine dark non-material trace beginning in the foreground with a visible irregularity at its origin and extending into an open horizontal earth field, muted gray earth and faint neutral warmth, unfinished horizon, no leaf, membrane, plant, tree, botanical fragment, destination, or guidance representation.",
+      "segment_ids": [
+        "SEG-010"
+      ],
+      "semantic_beat": "The consequence trace opens into a horizon relation without erasing its origin or defining the promise; the late botanical withdrawal has already concluded in SH-046.",
+      "shot_id": "EP002-SH-048",
+      "start_seconds": 562.8,
+      "subject": "A fine dark non-material trace with preserved irregularity opening into an ordinary horizontal earth field and unfinished horizon."
+    },
+    {
+      "beat_id": "BEAT-010",
+      "camera_angle": "Low wide angle.",
+      "camera_movement": "0.65-second locked hold with barely perceptible atmospheric drift.",
+      "composition": "Wide stable horizon with subdued contrast and no directional line.",
+      "contains_people": false,
+      "end_seconds": 580.731,
+      "environment": "Muted earth and soft warm-gray atmosphere.",
+      "final_budget_treatment": "GENERATED_VIDEO",
+      "queue_index": 49,
+      "reuse_justification": "Independent half-second bridge; not a replay of the preceding horizon plate.",
+      "runware_negative_prompt_en": "Text, Arabic text, logos, watermark, face, body, deity, angel, demon, creature, map, specific location, title card, flash, camera shake, completed ending, industrial paper, luminous path, guidance symbol.",
+      "runware_positive_prompt_en": "0.65-second cinematic 16:9 video hold, an open unresolved muted horizon and ordinary earth texture, soft neutral warmth, no figures, directional light, path symbol, detached membrane, botanical object, text, or new information, clean bridge into the grounded closing sequence.",
+      "segment_ids": [
+        "SEG-010"
+      ],
+      "semantic_beat": "The unresolved horizon holds as a bridge into the grounded closing sequence.",
+      "shot_id": "EP002-SH-049",
+      "start_seconds": 580.081,
+      "subject": "Open ordinary earth field and distant unresolved horizon."
+    },
+    {
+      "beat_id": "BEAT-011",
+      "camera_angle": "Ground-level lateral angle.",
+      "camera_movement": "Slow horizontal glide with focus passing from soil to ordinary path to sparse plants.",
+      "composition": "Low horizontal scan across foreground texture toward a quiet open distance.",
+      "contains_people": false,
+      "end_seconds": 594.8,
+      "environment": "Generic open earth surface with no settlement, architecture, or geographic markers.",
+      "final_budget_treatment": "ANIMATED_STILL_COMPOSITING",
+      "queue_index": 50,
+      "reuse_justification": "Independent grounded closing image; no surface or path file is reused from earlier earth shots.",
+      "runware_negative_prompt_en": "Readable text, Arabic text, logos, watermark, map, landmark, city, house, identifiable geography, lush garden, identifiable plant species, faces, bodies, deity, angel, demon, creature, fantasy landscape, saturated colors, luminous route.",
+      "runware_positive_prompt_en": "Cinematic 16:9 still plate, independently generated generic open earth surface with tactile muted soil, an ordinary ground path, distant undefined water glint, sparse unidentifiable plants moving gently in wind, no buildings or landmarks, no human figures, subdued gray-brown palette.",
+      "segment_ids": [
+        "SEG-011"
+      ],
+      "semantic_beat": "The frame settles into a general earthly surface of possibility without specifying time, place, or future life.",
+      "shot_id": "EP002-SH-050",
+      "start_seconds": 580.731,
+      "subject": "Ordinary ground path, subdued soil, distant undefined water glint, and sparse wind-touched plants."
+    },
+    {
+      "beat_id": "BEAT-011",
+      "camera_angle": "Low tracking angle rising slightly toward the far field.",
+      "camera_movement": "Follow an ordinary ground fork, then lift gently toward an unresolved distance without a separate luminous direction.",
+      "composition": "Two foreground branches diverge; distant field remains open and undefined.",
+      "contains_people": false,
+      "end_seconds": 608.9,
+      "environment": "Open generic earth plane with muted gray and soft neutral warmth.",
+      "final_budget_treatment": "ANIMATED_STILL_COMPOSITING",
+      "queue_index": 51,
+      "reuse_justification": "Independent ordinary divergence plate; no path is labeled or reused as a guidance symbol.",
+      "runware_negative_prompt_en": "Readable text, Arabic text, watermark, religious symbol, deity, angel, halo, demon, creature, faces, bodies, map, road sign, specific geography, completed guidance icon, saturated magical light, luminous horizon line.",
+      "runware_positive_prompt_en": "Cinematic 16:9 still plate, independently generated generic earth path branching into two ordinary foreground directions, distant open atmospheric field with no separate luminous line, no symbol, source, people, or claim that one path represents guidance, muted earth and warm-gray palette.",
+      "segment_ids": [
+        "SEG-011"
+      ],
+      "semantic_beat": "Earthly paths diverge while the distance remains open, without turning the promise of guidance into a defined visual form.",
+      "shot_id": "EP002-SH-051",
+      "start_seconds": 594.8,
+      "subject": "Two ordinary diverging ground paths and an unresolved distant atmospheric field."
+    },
+    {
+      "beat_id": "BEAT-011",
+      "camera_angle": "Long low forward angle from behind.",
+      "camera_movement": "Slow forward movement past very distant figures toward the ordinary horizon; figures remain secondary.",
+      "composition": "Figures tiny and low in frame; ordinary path and horizon occupy most of the image.",
+      "contains_people": true,
+      "end_seconds": 618.44,
+      "environment": "Open muted earth field and unresolved horizon.",
+      "final_budget_treatment": "ANIMATED_STILL_COMPOSITING",
+      "queue_index": 52,
+      "reuse_justification": "Independent closing human threshold; silhouettes are not reused from earlier scenes.",
+      "runware_negative_prompt_en": "Readable text, Arabic text, logos, watermark, faces, eyes, mouths, detailed bodies, heroic composition, character portrait, nudity, deity, angel, demon, creature, future event, city, map, specific landscape, dramatic destiny imagery.",
+      "runware_positive_prompt_en": "Cinematic 16:9 still plate, two extremely distant independently generated anonymous rear silhouettes at the beginning of an ordinary muted earth path, fully non-identifiable and secondary, broad open horizon ahead, no faces or body detail, camera prioritizing open space rather than figures.",
+      "segment_ids": [
+        "SEG-011"
+      ],
+      "semantic_beat": "Two anonymous figures remain far behind while the camera chooses the open earthly horizon over character-centered resolution.",
+      "shot_id": "EP002-SH-052",
+      "start_seconds": 608.9,
+      "subject": "Two tiny anonymous rear silhouettes at the beginning of an ordinary earth path with open space beyond."
+    },
+    {
+      "beat_id": "BEAT-011",
+      "camera_angle": "Wide low angle.",
+      "camera_movement": "One-second locked hold with faint ambient breathing and almost imperceptible wind.",
+      "composition": "Most of the frame is empty; ordinary ground line runs toward a distant unresolved horizon.",
+      "contains_people": false,
+      "end_seconds": 619.44,
+      "environment": "Sparse muted earth and soft atmospheric haze.",
+      "final_budget_treatment": "GENERATED_VIDEO",
+      "queue_index": 53,
+      "reuse_justification": "Independent one-second silence hold before PRE_OUTRO; no loop or replay.",
+      "runware_negative_prompt_en": "Any text, Arabic text, logos, watermark, faces, bodies, deity, angel, demon, creature, map, specific location, new objects, strong wind, dramatic flare, camera shake, title card, luminous guidance line.",
+      "runware_positive_prompt_en": "One-second cinematic 16:9 video, nearly empty muted earth horizon with an ordinary ground line leading into unresolved distance, no visible figures, text, directional light, symbolic route, faint atmospheric breathing and almost imperceptible wind only.",
+      "segment_ids": [
+        "SEG-011"
+      ],
+      "semantic_beat": "The nearly empty earthly horizon holds in deliberate silence before the closing bridge.",
+      "shot_id": "EP002-SH-053",
+      "start_seconds": 618.44,
+      "subject": "An ordinary earth line leading into an incomplete horizon with no visible human movement."
+    },
+    {
+      "beat_id": null,
+      "camera_angle": "Very wide low horizon angle.",
+      "camera_movement": "Extremely slow pullback revealing more negative space while preserving the origin trace and its irregularity.",
+      "composition": "Deep wide composition; ordinary earth path and abstract trace coexist without joining into a luminous route.",
+      "contains_people": false,
+      "end_seconds": 622.784,
+      "environment": "Generic open earth plane with restrained warm-gray atmosphere.",
+      "final_budget_treatment": "ANIMATED_STILL_COMPOSITING",
+      "queue_index": 54,
+      "reuse_justification": "Independent PRE_OUTRO composition; the trace and path are newly generated and remain separate.",
+      "runware_negative_prompt_en": "Readable text, Arabic text, watermark, faces, bodies, deity, angel, halo, demon, creature, erased irregularity, closed road, specific landscape, map, religious icon, final destination, triumphant ending, oversaturated gold, industrial paper, luminous path, directional beam.",
+      "runware_positive_prompt_en": "Cinematic 16:9 wide still plate, independently generated fine dark non-material trace beginning in the foreground with its irregularity visible, an ordinary open earth path continuing toward an unfinished horizon, no joining luminous line, no botanical fragment, no figures, no supernatural image, no visible source, designed for extremely slow pullback.",
+      "segment_ids": [
+        "PRE_OUTRO"
+      ],
+      "semantic_beat": "The earthly path and unresolved trace coexist without making the promise of guidance into an image or destination.",
+      "shot_id": "EP002-SH-054",
+      "start_seconds": 619.44,
+      "subject": "Foreground abstract trace, ordinary earth path, unfinished horizon, and restrained non-directional ambient warmth."
+    },
+    {
+      "beat_id": null,
+      "camera_angle": "Wide static horizon angle.",
+      "camera_movement": "0.8-second clean fade to black; horizon fades first and the fine dark trace disappears slightly later.",
+      "composition": "Horizon and trace slightly off-center; no botanical fragment, light point, symbol, or destination.",
+      "contains_people": false,
+      "end_seconds": 623.584,
+      "environment": "Minimal earth-gray-to-black fade field.",
+      "final_budget_treatment": "GENERATED_VIDEO",
+      "queue_index": 55,
+      "reuse_justification": "Independent final fade with no loop or reused horizon file; the slight trace persistence is an intentional editorial ending.",
+      "runware_negative_prompt_en": "Any text, Arabic text, subtitles, logos, watermark, face, body, deity, angel, demon, creature, symbol, title card, CTA, sudden cut, flash, completed circle, music visualization, industrial paper, botanical object, guidance light.",
+      "runware_positive_prompt_en": "0.8-second cinematic 16:9 video, an unresolved ordinary earth horizon fades gradually into black, a fine dark unclosed non-material trace remains visible slightly longer, ambient luminance fades without forming a symbol, no text, logo, new object, botanical element, or completed destination.",
+      "segment_ids": [
+        "PRE_OUTRO"
+      ],
+      "semantic_beat": "The unresolved earthly horizon fades to black while the unclosed trace remains slightly longer as responsibility, not guidance.",
+      "shot_id": "EP002-SH-055",
+      "start_seconds": 622.784,
+      "subject": "An ordinary distant horizon and one fine unclosed dark trace disappearing last."
+    }
+  ],
+  "repair_trace": [
+    {
+      "finding_id": "BLOCKER-VISUAL-REPETITION-001",
+      "repair_ar": "أزيلت الشظية النباتية بالكامل من EP002-SH-043، واستُبدلت بعودة أرشيفية محايدة إلى أثر غير مادي وفراغ مفتوح. وبذلك لا تعيد طبقة حديث محاجة آدم وموسى فتح رمز الشجرة أو الغشاء الذي ينفي السرد أن يكون الحديث مصدرًا له.",
+      "result": "PASS",
+      "shot_id": "EP002-SH-043"
+    },
+    {
+      "finding_id": "BLOCKER-VISUAL-REPETITION-001",
+      "repair_ar": "أزيلت الشظية النباتية من EP002-SH-048 أيضًا لتفادي تكرار نباتي غير ضروري في الخلاصة. بقي الظهور النباتي المتأخر المقصود في SH-046 فقط، بوظيفة انسحاب أخير مميزة للغطاء قبل اتساع المجال.",
+      "result": "PASS",
+      "shot_id": "EP002-SH-048"
+    },
+    {
+      "finding_id": "VISUAL-BOTANICAL-REPETITION",
+      "repair_ar": "تم تصحيح سجل التكرار: الظهور النباتي في اللقطات الافتتاحية ولقطات الخصْف ضمن SEG-001 وSEG-005 يخدم فعل الستر، بينما SH-046 هو الظهور النباتي المتأخر الوحيد في الخلاصة. لا يحتوي SH-043 أو SH-048 على ورق أو غشاء أو شظية نباتية بعد الإصلاح.",
+      "result": "PASS",
+      "shot_ids": [
+        "EP002-SH-001",
+        "EP002-SH-002",
+        "EP002-SH-003",
+        "EP002-SH-004",
+        "EP002-SH-022",
+        "EP002-SH-023",
+        "EP002-SH-024",
+        "EP002-SH-025",
+        "EP002-SH-043",
+        "EP002-SH-046",
+        "EP002-SH-048"
+      ]
+    },
+    {
+      "finding_id": "PROMPT-REPAIR-COMPLETENESS",
+      "repair_ar": "حُفظت جميع برومبتات التنفيذ الإيجابية والسلبية لكل اللقطات الخمس والخمسين، مع تحديث subject وsemantic_beat وreuse_justification والبرومبتين في SH-043 وSH-048 دون حذف أي متطلب إنتاجي.",
+      "result": "PASS"
+    },
+    {
+      "finding_id": "TIMELINE-INTEGRITY",
+      "repair_ar": "لم تُمدد أي لقطة ولم تُنقل حدود PRE_OUTRO. بقيت القسمة الزمنية السلطوية متصلة من 0.0 إلى 623.584 ثانية بلا فجوات أو تداخلات.",
+      "result": "PASS"
+    },
+    {
+      "finding_id": "TREATMENT-VALIDATION",
+      "repair_ar": "جميع قيم final_budget_treatment محصورة في ANIMATED_STILL_COMPOSITING وGENERATED_VIDEO وGRAPHICS فقط.",
+      "result": "PASS"
+    },
+    {
+      "finding_id": "GENERATED-VIDEO-BUDGET",
+      "repair_ar": "لم يتغير مجموع الفيديو المولد؛ بقي 21.669 ثانية من أصل 623.584 ثانية، أي نحو 3.4749%، وهو أدنى بكثير من سقف الثلثين.",
+      "result": "PASS"
+    }
+  ],
+  "self_review": {
+    "canonical_episode_duration_seconds": 623.584,
+    "duplicate_and_reuse_control": {
+      "botanical_repetition_repaired": true,
+      "late_synthesis_botanical_retained_only_in": "EP002-SH-046",
+      "loop_added": false,
+      "reuse_justifications_present_for_all_items": true,
+      "sh043_botanical_fragment_removed": true,
+      "sh048_botanical_fragment_removed": true,
+      "status": "PASS",
+      "unjustified_asset_reuse_added": false
+    },
+    "first_start_seconds": 0.0,
+    "generated_video_budget": {
+      "generated_video_ratio": 0.034749128,
+      "generated_video_seconds": 21.669,
+      "maximum_allowed_ratio": 0.6666666666666666,
+      "maximum_allowed_seconds": 415.722667,
+      "status": "PASS"
+    },
+    "item_count": 55,
+    "last_end_seconds": 623.584,
+    "pre_spend_eligibility_after_gate_reruns": "PASS_PENDING_EXECUTION",
+    "prompt_completeness": {
+      "items_with_nonempty_runware_negative_prompt_en": 55,
+      "items_with_nonempty_runware_positive_prompt_en": 55,
+      "status": "PASS"
+    },
+    "required_gate_reruns": {
+      "duplicate_gate": "REQUIRED_AFTER_REPAIR",
+      "independent_semantic_alignment_reaudit": "REQUIRED_AFTER_REPAIR",
+      "media_cost_preflight": "REQUIRED_AFTER_REPAIR"
+    },
+    "segment_binding": {
+      "all_script_segments_covered": true,
+      "beat_ids_match_segments": true,
+      "pre_outro_bound_correctly": true,
+      "segments_covered": 11
+    },
+    "semantic_alignment": {
+      "all_script_segments_covered": true,
+      "generated_arabic_text_added": false,
+      "hadith_layer_contains_no_botanical_fragment": true,
+      "material_crack_removed": true,
+      "prophetic_figures_non_identifying": true,
+      "religious_and_historical_consistency_preserved": true,
+      "sh043_supports_archival_neutral_return": true,
+      "sh048_supports_trace_and_horizon_without_botanical_repetition": true,
+      "shared_responsibility_preserved": true,
+      "status": "PASS",
+      "unspecified_words_not_visualized_as_text": true,
+      "unsupported_events_added": false,
+      "whispering_mechanism_not_visualized_as_literal_causal_entity": true
+    },
+    "status": "PASS",
+    "timeline": {
+      "adjacent_boundaries_match": true,
+      "audio_bound_storyboard_authority": "audio-bound-storyboard-v6-1.json",
+      "coverage": "FULL",
+      "discontinuity_count": 0,
+      "gaps": 0,
+      "overlaps": 0
+    },
+    "treatment_validation": {
+      "allowed_labels_only": [
+        "ANIMATED_STILL_COMPOSITING",
+        "GENERATED_VIDEO",
+        "GRAPHICS"
+      ],
+      "invalid_treatment_labels": 0,
+      "status": "PASS"
+    }
+  },
+  "status": "PASS",
+  "timeline_partition_normalization": {
+    "discontinuities": [],
+    "discontinuity_count": 0,
+    "episode_duration_seconds": 623.584,
+    "independent_alignment_reaudit_required": true,
+    "item_count": 55,
+    "normalization_strategy": "ADJACENT_BOUNDARY_MIDPOINT;FIRST_START_ZERO;LAST_END_FAIL_CLOSED_AUDIO_BOUND_AUTHORITY",
+    "schema_version": "siraj-alignment-timeline-partition-recovery-v6.6-r6.1",
+    "semantic_content_changed": false,
+    "status": "PASS"
+  }
+}

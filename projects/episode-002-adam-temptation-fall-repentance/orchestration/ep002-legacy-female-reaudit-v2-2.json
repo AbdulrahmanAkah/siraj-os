@@ -1,0 +1,2524 @@
+{
+  "SCHEMA_VERSION": "EP002_LEGACY_FEMALE_REAUDIT_V2_2",
+  "EPISODE_ID": "episode-002-adam-temptation-fall-repentance",
+  "CONSTITUTION_VERSION": "SIRAJ_VISUAL_PRODUCTION_CONSTITUTION_V2_2",
+  "CONSTITUTION_SHA256": "13aa92a91dd004e9e4bd9ed1ad596d5004bda0d5caabfd37e74feaff6927f841",
+  "INPUT_V21_STORYBOARD": "projects/episode-002-adam-temptation-fall-repentance/preproduction/EP002_SURGICAL_REPAIR_STORYBOARD_V2_1.json",
+  "INPUT_V21_STORYBOARD_SHA256": "63dad4f9a26c65079a8db28c91f893c7d02b6a4d26a032a231752c4b169a9981",
+  "REUSED_LEGACY_MICRO_SHOT_COUNT": 96,
+  "REUSED_LEGACY_ASSET_COUNT": 40,
+  "REUSED_MICRO_SHOT_AUDIT": [
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0000",
+      "ASSET_ID": "EP002-SH-013-V01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-013-V01.mp4",
+      "ASSET_SHA256": "d4b15eefdfe38583a01f33d9254cbc673dd1da7f12072b5a1e21d418c997a1b3",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0001",
+      "ASSET_ID": "EP002-SH-013-V02",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-013-V02.mp4",
+      "ASSET_SHA256": "cecf2292178283d1fc2e10b9e8963ef15cac8e75c91ab626bd0d657390b7f3fa",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0002",
+      "ASSET_ID": "EP002-SH-014-V01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-014-V01.mp4",
+      "ASSET_SHA256": "ab551226b773b1329162114b8a813a5e6722ce7c14632d3367c6e09c8ed4d563",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0003",
+      "ASSET_ID": "EP002-SH-009-I01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-009-I01.jpg",
+      "ASSET_SHA256": "17ec63a83014bd21455b92ff446d2ddc542e976b320a594ac6fe9c186c96db68",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FULL_IMAGE"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        6.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0004",
+      "ASSET_ID": "EP002-SH-014-I01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-014-I01.jpg",
+      "ASSET_SHA256": "9e641ca790541d9d912e4b0c74125bb381b6af38c4fa384d4acf1cd60c72cff7",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FULL_IMAGE"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        5.189
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0005",
+      "ASSET_ID": "EP002-SH-011-I01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-011-I01.jpg",
+      "ASSET_SHA256": "2780a32599c7b226706f22e05e6155ed7802862ecc5327446b4d2557a490cce1",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FULL_IMAGE"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        0.55
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0006",
+      "ASSET_ID": "EP002-SH-021-I01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-021-I01.jpg",
+      "ASSET_SHA256": "798c9cda4ddf136a45c1e8d95b3f2fc33f49805e6fe069236968c6edf252a15a",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FULL_IMAGE"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        0.25
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0007",
+      "ASSET_ID": "EP002-SH-013-V01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-013-V01.mp4",
+      "ASSET_SHA256": "d4b15eefdfe38583a01f33d9254cbc673dd1da7f12072b5a1e21d418c997a1b3",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0008",
+      "ASSET_ID": "EP002-SH-013-V02",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-013-V02.mp4",
+      "ASSET_SHA256": "cecf2292178283d1fc2e10b9e8963ef15cac8e75c91ab626bd0d657390b7f3fa",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0009",
+      "ASSET_ID": "EP002-SH-014-V01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-014-V01.mp4",
+      "ASSET_SHA256": "ab551226b773b1329162114b8a813a5e6722ce7c14632d3367c6e09c8ed4d563",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0010",
+      "ASSET_ID": "EP002-SH-009-I01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-009-I01.jpg",
+      "ASSET_SHA256": "17ec63a83014bd21455b92ff446d2ddc542e976b320a594ac6fe9c186c96db68",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FULL_IMAGE"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        6.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0011",
+      "ASSET_ID": "EP002-SH-014-I01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-014-I01.jpg",
+      "ASSET_SHA256": "9e641ca790541d9d912e4b0c74125bb381b6af38c4fa384d4acf1cd60c72cff7",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FULL_IMAGE"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        5.189
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0012",
+      "ASSET_ID": "EP002-SH-011-I01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-011-I01.jpg",
+      "ASSET_SHA256": "2780a32599c7b226706f22e05e6155ed7802862ecc5327446b4d2557a490cce1",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FULL_IMAGE"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        0.02200000000000557
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0013",
+      "ASSET_ID": "EP002-SH-021-I01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-021-I01.jpg",
+      "ASSET_SHA256": "798c9cda4ddf136a45c1e8d95b3f2fc33f49805e6fe069236968c6edf252a15a",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FULL_IMAGE"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        0.25
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0014",
+      "ASSET_ID": "EP002-SH-013-V01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-013-V01.mp4",
+      "ASSET_SHA256": "d4b15eefdfe38583a01f33d9254cbc673dd1da7f12072b5a1e21d418c997a1b3",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0015",
+      "ASSET_ID": "EP002-SH-013-V02",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-013-V02.mp4",
+      "ASSET_SHA256": "cecf2292178283d1fc2e10b9e8963ef15cac8e75c91ab626bd0d657390b7f3fa",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0016",
+      "ASSET_ID": "EP002-SH-014-V01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-014-V01.mp4",
+      "ASSET_SHA256": "ab551226b773b1329162114b8a813a5e6722ce7c14632d3367c6e09c8ed4d563",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0017",
+      "ASSET_ID": "EP002-SH-009-I01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-009-I01.jpg",
+      "ASSET_SHA256": "17ec63a83014bd21455b92ff446d2ddc542e976b320a594ac6fe9c186c96db68",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FULL_IMAGE"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        2.450000000000003
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0018",
+      "ASSET_ID": "EP002-SH-014-I01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-014-I01.jpg",
+      "ASSET_SHA256": "9e641ca790541d9d912e4b0c74125bb381b6af38c4fa384d4acf1cd60c72cff7",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FULL_IMAGE"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        3.343999999999994
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0019",
+      "ASSET_ID": "EP002-SH-011-I01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-011-I01.jpg",
+      "ASSET_SHA256": "2780a32599c7b226706f22e05e6155ed7802862ecc5327446b4d2557a490cce1",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FULL_IMAGE"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        0.55
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0020",
+      "ASSET_ID": "EP002-SH-021-I01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-021-I01.jpg",
+      "ASSET_SHA256": "798c9cda4ddf136a45c1e8d95b3f2fc33f49805e6fe069236968c6edf252a15a",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FULL_IMAGE"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        0.25
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0021",
+      "ASSET_ID": "EP002-SH-004-V01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-004-V01.mp4",
+      "ASSET_SHA256": "f0f7a9870a39b6230de93ec5f00b768be24f5f478ecc36a424c4e6c887e04ce6",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        5.856000000000009
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0022",
+      "ASSET_ID": "EP002-SH-005-V01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-005-V01.mp4",
+      "ASSET_SHA256": "94a3da14397a04e975c8290baa033e97e6dd387476ad418e7cfc58fb1203fdf6",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0023",
+      "ASSET_ID": "EP002-SH-024-V01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-024-V01.mp4",
+      "ASSET_SHA256": "74bbb017e6d9294c75dd93f5ae2ff13e2d09d37cf2e8d286ddea3566376a55cb",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0024",
+      "ASSET_ID": "EP002-SH-024-V02",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-024-V02.mp4",
+      "ASSET_SHA256": "2d612880c723dfead8012799268821d474c4ae950cd8167faacee53bec98897c",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0025",
+      "ASSET_ID": "EP002-SH-037-V01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-037-V01.mp4",
+      "ASSET_SHA256": "c8ee9c446d76bc1020596257fc06fcdd0d031a0bb4e9fe144cd08b4e5a61603d",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0026",
+      "ASSET_ID": "EP002-SH-038-V01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/cinematic/finalization-duplicate-rescue-v6/assets/EP002-SH-038-V01.mp4",
+      "ASSET_SHA256": "258c322b863316c95a02d1d35ff16de1526525c00a2a1cdfdb2b3885737fc9e6",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0027",
+      "ASSET_ID": "EP002-SH-045-V01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-045-V01.mp4",
+      "ASSET_SHA256": "45d17cbdc59d666c242649a8a35158c92b59d880dc1355bc4dd2739105ef11af",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        2.174999999999983
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0028",
+      "ASSET_ID": "EP002-SH-046-V01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-046-V01.mp4",
+      "ASSET_SHA256": "8e645733a4a4bf1a2fe19b9f51ea53d409b863c63965a507dbaa661f04aa7639",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0029",
+      "ASSET_ID": "EP002-SH-046-V02",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-046-V02.mp4",
+      "ASSET_SHA256": "04d5ae545b55285b46df1c0d016700df4fa1674e294853995715a3a521ea5750",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0030",
+      "ASSET_ID": "EP002-SH-047-V01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-047-V01.mp4",
+      "ASSET_SHA256": "5447ba55debf9d4f4e5c3a6f56baf7bd3f2c2ce67c04d0e39ed75fa0aa4e55ed",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        4.425000000000011
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0031",
+      "ASSET_ID": "EP002-SH-047-V02",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-047-V02.mp4",
+      "ASSET_SHA256": "f1ed7a3e8a8eedf5e48d50169bdc68969bbc9181a3a517562b616bf8a820d9d6",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0032",
+      "ASSET_ID": "EP002-SH-048-V01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/cinematic/finalization-duplicate-rescue-v6/assets/EP002-SH-048-V01.mp4",
+      "ASSET_SHA256": "a86715080cfc3f588beebbfc5fdd9ae4531a671f3c7d16854e5f65f8aa9bb92e",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0033",
+      "ASSET_ID": "EP002-SH-048-V02",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/cinematic/finalization-duplicate-rescue-v6/assets/EP002-SH-048-V02.mp4",
+      "ASSET_SHA256": "ab44039e07205f0fbc99e21d8401c5fdc9df64e501f46c5afa68a8ceeda6548e",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        0.6299999999999955
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0034",
+      "ASSET_ID": "EP002-SH-050-V01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-050-V01.mp4",
+      "ASSET_SHA256": "e1c7f5ebe6448423c41023ed35d2080b89cbf6c051d6d6892760c08a1def3118",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0035",
+      "ASSET_ID": "EP002-SH-050-V02",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/cinematic/finalization-duplicate-rescue-v6/assets/EP002-SH-050-V02.mp4",
+      "ASSET_SHA256": "470947426a17cfc6ac7bd8f0f410988f471447b3aab40e70310631f22149f913",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0036",
+      "ASSET_ID": "EP002-SH-051-V01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-051-V01.mp4",
+      "ASSET_SHA256": "d5fdde7b5a88c830992822f8ee9d2329a8da64c3381113e266701778fc7a912d",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0037",
+      "ASSET_ID": "EP002-SH-004-V02",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-004-V02.mp4",
+      "ASSET_SHA256": "4a159f4f81967893d0d3a21cfdcbb7936c74df9eb7ea03fb5809e583f72ed10e",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        6.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0038",
+      "ASSET_ID": "EP002-SH-005-V02",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-005-V02.mp4",
+      "ASSET_SHA256": "3c9fbafc51c24370f83c26fa19d10c43f4bc7ef87a070385f64169c90be5c38b",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        5.364000000000033
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0039",
+      "ASSET_ID": "EP002-SH-023-V01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-023-V01.mp4",
+      "ASSET_SHA256": "70ba5863f609d4b7f63f458d4b00dbb8b090a19a81e03a9c6c3a15532b82402a",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        6.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0040",
+      "ASSET_ID": "EP002-SH-037-V02",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-037-V02.mp4",
+      "ASSET_SHA256": "e378c08cdb3c1c27a185547a5e5f57ae5b578184b0de7866a53785a7bc14e40f",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        2.1059999999999945
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0041",
+      "ASSET_ID": "EP002-SH-034-V01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-034-V01.mp4",
+      "ASSET_SHA256": "f111e290fb320177ce368ee59b392db692b1e194c0ab24d85407a4d19ff0886d",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        4.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0042",
+      "ASSET_ID": "EP002-SH-046-V03",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-046-V03.mp4",
+      "ASSET_SHA256": "29bb91d8a153be4ddc1183c9b1d6333efcab477598a3fe936a68accab7a2ba16",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        4.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0043",
+      "ASSET_ID": "EP002-SH-047-V03",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-047-V03.mp4",
+      "ASSET_SHA256": "ade5213cb6c4e5b9032a3aff0f7888573b891fab83d2791af7b11210a3b5a022",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        4.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0044",
+      "ASSET_ID": "EP002-SH-048-V03",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-048-V03.mp4",
+      "ASSET_SHA256": "d02abd6ee64d2facd39c51bfa0b33be69c84b39902dfad4503d530a618f560fb",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        4.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0045",
+      "ASSET_ID": "EP002-SH-051-V02",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/cinematic/finalization-duplicate-rescue-v6/assets/EP002-SH-051-V02.mp4",
+      "ASSET_SHA256": "8aec82d8367ac7f675b63569f2b262fabf1b6a0be4b90dfc794fc04784d964b3",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        4.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0046",
+      "ASSET_ID": "EP002-SH-054-V01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/cinematic/finalization-duplicate-rescue-v6/assets/EP002-SH-054-V01.mp4",
+      "ASSET_SHA256": "220525c06b9c50746fa2e5e1a6133db570a5397d9fa30003ebe2481e02ee7c32",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        4.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0047",
+      "ASSET_ID": "EP002-SH-003-I01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-003-I01.jpg",
+      "ASSET_SHA256": "2e0c7fd619117d6d1f43a293fb252b3cd13e2321c977770e2cc88dcdb839d717",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FULL_IMAGE"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        3.491999999999962
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0048",
+      "ASSET_ID": "EP002-SH-023-I01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-023-I01.jpg",
+      "ASSET_SHA256": "47554066f28ae66ef883f14c97d537049a8a753e830c632ec65ed66ba5029cab",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FULL_IMAGE"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        6.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0049",
+      "ASSET_ID": "EP002-SH-045-I01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-045-I01.jpg",
+      "ASSET_SHA256": "a34df44797511f2207a6fce1280e4a7b3e0275577f2b4621d135849eab5602ad",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FULL_IMAGE"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        1.8079999999999927
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0050",
+      "ASSET_ID": "EP002-SH-051-I01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-051-I01.jpg",
+      "ASSET_SHA256": "f8583a18ef35e18e5bac66085f70ac00dfd61c85202f75a5d217c8f39a8808f1",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FULL_IMAGE"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        5.213
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0051",
+      "ASSET_ID": "EP002-SH-006-I01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-006-I01.jpg",
+      "ASSET_SHA256": "3ead6bd11d0f61258dde95b54ac20f6f75436ec53a48c5ee9fc97ac4e4e9a8f3",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FULL_IMAGE"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0052",
+      "ASSET_ID": "EP002-SH-049-I01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-049-I01.jpg",
+      "ASSET_SHA256": "f9b86a58d03e9053b53fb8f02a09695049fd81d5cdea06e0aaad69ae8c9d74cb",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FULL_IMAGE"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        0.65
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0053",
+      "ASSET_ID": "EP002-SH-025-I01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-025-I01.jpg",
+      "ASSET_SHA256": "553f02971b91948fa8f380e2151567420e977f18c2a9a57c8ff84ae9d825ad51",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FULL_IMAGE"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        0.45
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0054",
+      "ASSET_ID": "EP002-SH-004-V01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-004-V01.mp4",
+      "ASSET_SHA256": "f0f7a9870a39b6230de93ec5f00b768be24f5f478ecc36a424c4e6c887e04ce6",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0055",
+      "ASSET_ID": "EP002-SH-005-V01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-005-V01.mp4",
+      "ASSET_SHA256": "94a3da14397a04e975c8290baa033e97e6dd387476ad418e7cfc58fb1203fdf6",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0056",
+      "ASSET_ID": "EP002-SH-024-V01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-024-V01.mp4",
+      "ASSET_SHA256": "74bbb017e6d9294c75dd93f5ae2ff13e2d09d37cf2e8d286ddea3566376a55cb",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0057",
+      "ASSET_ID": "EP002-SH-024-V02",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-024-V02.mp4",
+      "ASSET_SHA256": "2d612880c723dfead8012799268821d474c4ae950cd8167faacee53bec98897c",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0058",
+      "ASSET_ID": "EP002-SH-037-V01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-037-V01.mp4",
+      "ASSET_SHA256": "c8ee9c446d76bc1020596257fc06fcdd0d031a0bb4e9fe144cd08b4e5a61603d",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        6.442000000000007
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0059",
+      "ASSET_ID": "EP002-SH-038-V01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/cinematic/finalization-duplicate-rescue-v6/assets/EP002-SH-038-V01.mp4",
+      "ASSET_SHA256": "258c322b863316c95a02d1d35ff16de1526525c00a2a1cdfdb2b3885737fc9e6",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0060",
+      "ASSET_ID": "EP002-SH-045-V01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-045-V01.mp4",
+      "ASSET_SHA256": "45d17cbdc59d666c242649a8a35158c92b59d880dc1355bc4dd2739105ef11af",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0061",
+      "ASSET_ID": "EP002-SH-050-V01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-050-V01.mp4",
+      "ASSET_SHA256": "e1c7f5ebe6448423c41023ed35d2080b89cbf6c051d6d6892760c08a1def3118",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0062",
+      "ASSET_ID": "EP002-SH-050-V02",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/cinematic/finalization-duplicate-rescue-v6/assets/EP002-SH-050-V02.mp4",
+      "ASSET_SHA256": "470947426a17cfc6ac7bd8f0f410988f471447b3aab40e70310631f22149f913",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0063",
+      "ASSET_ID": "EP002-SH-051-V01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-051-V01.mp4",
+      "ASSET_SHA256": "d5fdde7b5a88c830992822f8ee9d2329a8da64c3381113e266701778fc7a912d",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0064",
+      "ASSET_ID": "EP002-SH-037-V02",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-037-V02.mp4",
+      "ASSET_SHA256": "e378c08cdb3c1c27a185547a5e5f57ae5b578184b0de7866a53785a7bc14e40f",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        4.036999999999978
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0065",
+      "ASSET_ID": "EP002-SH-034-V01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-034-V01.mp4",
+      "ASSET_SHA256": "f111e290fb320177ce368ee59b392db692b1e194c0ab24d85407a4d19ff0886d",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        4.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0066",
+      "ASSET_ID": "EP002-SH-051-V02",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/cinematic/finalization-duplicate-rescue-v6/assets/EP002-SH-051-V02.mp4",
+      "ASSET_SHA256": "8aec82d8367ac7f675b63569f2b262fabf1b6a0be4b90dfc794fc04784d964b3",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        4.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0067",
+      "ASSET_ID": "EP002-SH-054-V01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/cinematic/finalization-duplicate-rescue-v6/assets/EP002-SH-054-V01.mp4",
+      "ASSET_SHA256": "220525c06b9c50746fa2e5e1a6133db570a5397d9fa30003ebe2481e02ee7c32",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        2.2630000000000337
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0068",
+      "ASSET_ID": "EP002-SH-045-I01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-045-I01.jpg",
+      "ASSET_SHA256": "a34df44797511f2207a6fce1280e4a7b3e0275577f2b4621d135849eab5602ad",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FULL_IMAGE"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        6.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0069",
+      "ASSET_ID": "EP002-SH-051-I01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-051-I01.jpg",
+      "ASSET_SHA256": "f8583a18ef35e18e5bac66085f70ac00dfd61c85202f75a5d217c8f39a8808f1",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FULL_IMAGE"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        5.213
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0070",
+      "ASSET_ID": "EP002-SH-049-I01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-049-I01.jpg",
+      "ASSET_SHA256": "f9b86a58d03e9053b53fb8f02a09695049fd81d5cdea06e0aaad69ae8c9d74cb",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FULL_IMAGE"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        0.65
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0071",
+      "ASSET_ID": "EP002-SH-037-V01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-037-V01.mp4",
+      "ASSET_SHA256": "c8ee9c446d76bc1020596257fc06fcdd0d031a0bb4e9fe144cd08b4e5a61603d",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        0.9370000000000118
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0072",
+      "ASSET_ID": "EP002-SH-038-V01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/cinematic/finalization-duplicate-rescue-v6/assets/EP002-SH-038-V01.mp4",
+      "ASSET_SHA256": "258c322b863316c95a02d1d35ff16de1526525c00a2a1cdfdb2b3885737fc9e6",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0073",
+      "ASSET_ID": "EP002-SH-045-V01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-045-V01.mp4",
+      "ASSET_SHA256": "45d17cbdc59d666c242649a8a35158c92b59d880dc1355bc4dd2739105ef11af",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0074",
+      "ASSET_ID": "EP002-SH-050-V01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-050-V01.mp4",
+      "ASSET_SHA256": "e1c7f5ebe6448423c41023ed35d2080b89cbf6c051d6d6892760c08a1def3118",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0075",
+      "ASSET_ID": "EP002-SH-050-V02",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/cinematic/finalization-duplicate-rescue-v6/assets/EP002-SH-050-V02.mp4",
+      "ASSET_SHA256": "470947426a17cfc6ac7bd8f0f410988f471447b3aab40e70310631f22149f913",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0076",
+      "ASSET_ID": "EP002-SH-051-V01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-051-V01.mp4",
+      "ASSET_SHA256": "d5fdde7b5a88c830992822f8ee9d2329a8da64c3381113e266701778fc7a912d",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0077",
+      "ASSET_ID": "EP002-SH-037-V02",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-037-V02.mp4",
+      "ASSET_SHA256": "e378c08cdb3c1c27a185547a5e5f57ae5b578184b0de7866a53785a7bc14e40f",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        6.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0078",
+      "ASSET_ID": "EP002-SH-034-V01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-034-V01.mp4",
+      "ASSET_SHA256": "f111e290fb320177ce368ee59b392db692b1e194c0ab24d85407a4d19ff0886d",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        4.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0079",
+      "ASSET_ID": "EP002-SH-051-V02",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/cinematic/finalization-duplicate-rescue-v6/assets/EP002-SH-051-V02.mp4",
+      "ASSET_SHA256": "8aec82d8367ac7f675b63569f2b262fabf1b6a0be4b90dfc794fc04784d964b3",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        4.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0080",
+      "ASSET_ID": "EP002-SH-054-V01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/cinematic/finalization-duplicate-rescue-v6/assets/EP002-SH-054-V01.mp4",
+      "ASSET_SHA256": "220525c06b9c50746fa2e5e1a6133db570a5397d9fa30003ebe2481e02ee7c32",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        4.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0081",
+      "ASSET_ID": "EP002-SH-045-I01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-045-I01.jpg",
+      "ASSET_SHA256": "a34df44797511f2207a6fce1280e4a7b3e0275577f2b4621d135849eab5602ad",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FULL_IMAGE"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        6.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0082",
+      "ASSET_ID": "EP002-SH-051-I01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-051-I01.jpg",
+      "ASSET_SHA256": "f8583a18ef35e18e5bac66085f70ac00dfd61c85202f75a5d217c8f39a8808f1",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FULL_IMAGE"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        5.213
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0083",
+      "ASSET_ID": "EP002-SH-049-I01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-049-I01.jpg",
+      "ASSET_SHA256": "f9b86a58d03e9053b53fb8f02a09695049fd81d5cdea06e0aaad69ae8c9d74cb",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FULL_IMAGE"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        0.65
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0084",
+      "ASSET_ID": "EP002-SH-046-V01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-046-V01.mp4",
+      "ASSET_SHA256": "8e645733a4a4bf1a2fe19b9f51ea53d409b863c63965a507dbaa661f04aa7639",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0085",
+      "ASSET_ID": "EP002-SH-046-V02",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-046-V02.mp4",
+      "ASSET_SHA256": "04d5ae545b55285b46df1c0d016700df4fa1674e294853995715a3a521ea5750",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0086",
+      "ASSET_ID": "EP002-SH-047-V01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-047-V01.mp4",
+      "ASSET_SHA256": "5447ba55debf9d4f4e5c3a6f56baf7bd3f2c2ce67c04d0e39ed75fa0aa4e55ed",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0087",
+      "ASSET_ID": "EP002-SH-047-V02",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-047-V02.mp4",
+      "ASSET_SHA256": "f1ed7a3e8a8eedf5e48d50169bdc68969bbc9181a3a517562b616bf8a820d9d6",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0088",
+      "ASSET_ID": "EP002-SH-048-V01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/cinematic/finalization-duplicate-rescue-v6/assets/EP002-SH-048-V01.mp4",
+      "ASSET_SHA256": "a86715080cfc3f588beebbfc5fdd9ae4531a671f3c7d16854e5f65f8aa9bb92e",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0089",
+      "ASSET_ID": "EP002-SH-048-V02",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/cinematic/finalization-duplicate-rescue-v6/assets/EP002-SH-048-V02.mp4",
+      "ASSET_SHA256": "ab44039e07205f0fbc99e21d8401c5fdc9df64e501f46c5afa68a8ceeda6548e",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        8.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0090",
+      "ASSET_ID": "EP002-SH-004-V02",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-004-V02.mp4",
+      "ASSET_SHA256": "4a159f4f81967893d0d3a21cfdcbb7936c74df9eb7ea03fb5809e583f72ed10e",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        6.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0091",
+      "ASSET_ID": "EP002-SH-005-V02",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-005-V02.mp4",
+      "ASSET_SHA256": "3c9fbafc51c24370f83c26fa19d10c43f4bc7ef87a070385f64169c90be5c38b",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        6.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0092",
+      "ASSET_ID": "EP002-SH-023-V01",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-023-V01.mp4",
+      "ASSET_SHA256": "70ba5863f609d4b7f63f458d4b00dbb8b090a19a81e03a9c6c3a15532b82402a",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "KEEP",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        6.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0093",
+      "ASSET_ID": "EP002-SH-046-V03",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-046-V03.mp4",
+      "ASSET_SHA256": "29bb91d8a153be4ddc1183c9b1d6333efcab477598a3fe936a68accab7a2ba16",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        4.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0094",
+      "ASSET_ID": "EP002-SH-047-V03",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-047-V03.mp4",
+      "ASSET_SHA256": "ade5213cb6c4e5b9032a3aff0f7888573b891fab83d2791af7b11210a3b5a022",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        4.0
+      ]
+    },
+    {
+      "MICRO_SHOT_ID": "EP002-V2-REUSE-0095",
+      "ASSET_ID": "EP002-SH-048-V03",
+      "ASSET_PATH": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/EP002-SH-048-V03.mp4",
+      "ASSET_SHA256": "d02abd6ee64d2facd39c51bfa0b33be69c84b39902dfad4503d530a618f560fb",
+      "FEMALE_PRESENT": "FALSE",
+      "UNCERTAIN_FEMALE_PRESENCE": false,
+      "REUSE_ALLOWED": true,
+      "MONTAGE_ELIGIBLE": true,
+      "FORENSIC_ASSET_PRESERVED": true,
+      "DISPOSITION": "REASSIGN",
+      "AUDIT_SCOPE": "ALL_96_CURRENTLY_PLANNED_REUSED_MICRO_SHOTS",
+      "AUDIT_METHOD": "existing local ffmpeg start/middle/end or full-image pixel review; V2.2 revalidation; fail-safe uncertain presence would be rejected",
+      "AUDIT_SAMPLE_TYPES": [
+        "FIRST_FRAME_OR_START_WINDOW",
+        "MIDDLE_FRAME_OR_MIDDLE_WINDOW",
+        "LAST_FRAME_OR_END_WINDOW"
+      ],
+      "PIXEL_INSPECTION_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+      "AUDIT_RESULT": "FEMALE_PRESENT_FALSE; NO_AMBIGUOUS_HUMAN_FIGURE_IN_REVIEWED_SAMPLES",
+      "NO_SALVAGE_TRANSFORM_USED": true,
+      "SOURCE_RANGE": [
+        0.0,
+        0.04810416666668971
+      ]
+    }
+  ],
+  "LEGACY_FEMALE_ASSETS_FOUND": [
+    "EP002-SH-002-I01",
+    "EP002-SH-002-V01",
+    "EP002-SH-007-V01",
+    "EP002-SH-007-V02",
+    "EP002-SH-007-V03",
+    "EP002-SH-008-V01",
+    "EP002-SH-008-V02",
+    "EP002-SH-012-V01",
+    "EP002-SH-012-V02",
+    "EP002-SH-012-V03",
+    "EP002-SH-014-V02",
+    "EP002-SH-015-I01",
+    "EP002-SH-016-V01",
+    "EP002-SH-026-I01",
+    "EP002-SH-027-V01",
+    "EP002-SH-027-V02",
+    "EP002-SH-027-V03",
+    "EP002-SH-028-V01",
+    "EP002-SH-028-V02",
+    "EP002-SH-028-V03",
+    "EP002-SH-030-V01",
+    "EP002-SH-030-V02",
+    "EP002-SH-031-V01",
+    "EP002-SH-031-V02",
+    "EP002-SH-052-I01"
+  ],
+  "LEGACY_FEMALE_ASSETS_FOUND_IN_REUSED_PLAN": [],
+  "LEGACY_FEMALE_ASSETS_EXCLUDED": [
+    "EP002-SH-002-I01",
+    "EP002-SH-002-V01",
+    "EP002-SH-007-V01",
+    "EP002-SH-007-V02",
+    "EP002-SH-007-V03",
+    "EP002-SH-008-V01",
+    "EP002-SH-008-V02",
+    "EP002-SH-012-V01",
+    "EP002-SH-012-V02",
+    "EP002-SH-012-V03",
+    "EP002-SH-014-V02",
+    "EP002-SH-015-I01",
+    "EP002-SH-016-V01",
+    "EP002-SH-026-I01",
+    "EP002-SH-027-V01",
+    "EP002-SH-027-V02",
+    "EP002-SH-027-V03",
+    "EP002-SH-028-V01",
+    "EP002-SH-028-V02",
+    "EP002-SH-028-V03",
+    "EP002-SH-030-V01",
+    "EP002-SH-030-V02",
+    "EP002-SH-031-V01",
+    "EP002-SH-031-V02",
+    "EP002-SH-052-I01"
+  ],
+  "LEGACY_FEMALE_REUSE_COUNT": 0,
+  "BLURRED_FEMALE_REUSE_COUNT": 0,
+  "MASKED_FEMALE_REUSE_COUNT": 0,
+  "CROPPED_FEMALE_REUSE_COUNT": 0,
+  "FRAME_TRIMMED_FEMALE_REUSE_COUNT": 0,
+  "UNCERTAIN_FEMALE_PRESENCE_IN_REUSE_PLAN": 0,
+  "NO_SALVAGE_TRANSFORMS_USED": true,
+  "FORENSIC_ASSET_PRESERVED": true,
+  "PRODUCTION_REUSE_ALLOWED_FOR_EXCLUDED": false,
+  "FINAL_MONTAGE_ALLOWED_FOR_EXCLUDED": false,
+  "STATUS": "PASS_ZERO_LEGACY_FEMALE_REUSE"
+}

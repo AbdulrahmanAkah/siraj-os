@@ -1,0 +1,210 @@
+{
+  "SCHEMA_VERSION": "EP002_CHARACTER_EVIDENCE_DOSSIERS_V2",
+  "EPISODE_ID": "episode-002-adam-temptation-fall-repentance",
+  "CONSTITUTION_VERSION": "SIRAJ_VISUAL_PRODUCTION_CONSTITUTION_V2",
+  "CONSTITUTION_SHA256": "1a76fe3415854f0ad06b9376adaca2c17db3816850f776f22fa202832fbe6ac5",
+  "SOURCE_MATRIX": "projects/episode-002-adam-temptation-fall-repentance/research/source-claim-matrix-v5.json",
+  "SOURCE_MATRIX_SHA256": "af5ff737f69de1b4946b64fe245e8ff5da321af6cd810b551ce71b7611a49fef",
+  "SOURCE_PACKAGE": "projects/episode-002-adam-temptation-fall-repentance/research/canonical-source-package-v5.json",
+  "SOURCE_PACKAGE_SHA256": "64e2e79d12a77304fba935151076e780a25886cf7623f6cde16c403851c98d7b",
+  "CHARACTERS": [
+    {
+      "CHARACTER_ID": "ADAM",
+      "SOURCE_BACKED_ATTRIBUTES": [
+        "Adam is the named male subject of the Quranic narrative package.",
+        "Adam and his spouse share the narrated temptation, eating, acknowledgment, descent, and guidance arc."
+      ],
+      "UNKNOWN_ATTRIBUTES": [
+        "complexion",
+        "height and build",
+        "hair, facial features, and exact age",
+        "historically specific wardrobe colors or materials"
+      ],
+      "DISPUTED_ATTRIBUTES": [],
+      "CONTEXT_DEPENDENT_ATTRIBUTES": [
+        "the Quranic text attributes a singular wording of disobedience to Adam in one passage while also describing shared actions in paired forms; visuals must not turn this into blame of the spouse alone"
+      ],
+      "SOURCE_REFERENCES": [
+        "research/source-claim-matrix-v5.json#CL-002",
+        "research/source-claim-matrix-v5.json#CL-004",
+        "research/source-claim-matrix-v5.json#CL-005",
+        "research/source-claim-matrix-v5.json#CL-006",
+        "research/source-claim-matrix-v5.json#CL-007",
+        "research/source-claim-matrix-v5.json#CL-008"
+      ],
+      "SOURCE_TIERS": [
+        "TIER_1_QURAN"
+      ],
+      "PHYSICAL_APPEARANCE_CONTRACT": {
+        "SOURCE_FACTS": [],
+        "UNKNOWN_REMAINS_UNKNOWN": true,
+        "SAFE_FRAMING": "rear, side, medium, or distant framing when an unsupported identifying trait would otherwise be invented"
+      },
+      "WARDROBE_CONTRACT": {
+        "SOURCE_BACKED": false,
+        "ART_DIRECTION": "opaque loose non-body-defining full-body garment suitable for a modest historical-religious visual treatment"
+      },
+      "FORBIDDEN_UNSUPPORTED_ASSUMPTIONS": [
+        "European or white archetype",
+        "specific complexion",
+        "specific ethnic stereotype",
+        "unsupported facial or hair detail"
+      ],
+      "ART_DIRECTION_DECISIONS": [
+        "consistent male silhouette across all shots",
+        "non-identifying rear/side/distant framing unless a human-approved close shot is later added",
+        "earth-tone loose opaque garment for continuity"
+      ],
+      "HUMAN_REVIEW_REQUIRED_ATTRIBUTES": [
+        "any material front-facing physical appearance choice",
+        "any unsupported complexion or exact wardrobe choice"
+      ],
+      "SOURCE_FACTS_AND_ART_DIRECTION_SEPARATED": true,
+      "VISUAL_BIBLE": {
+        "identity_consistency": true,
+        "complexion": "UNKNOWN",
+        "build": "UNKNOWN",
+        "hair": "UNKNOWN",
+        "safe_camera": "rear/side/distant preferred"
+      }
+    },
+    {
+      "CHARACTER_ID": "HAWWA_SPOUSE",
+      "SOURCE_BACKED_ATTRIBUTES": [
+        "A spouse is paired with Adam in the shared Quranic narrative of temptation, eating, acknowledgment, and descent."
+      ],
+      "UNKNOWN_ATTRIBUTES": [
+        "whether the local source package uses Hawwa as a named source fact",
+        "complexion, height, build, hair, face, and exact age",
+        "historically specific wardrobe details"
+      ],
+      "DISPUTED_ATTRIBUTES": [
+        "any account that makes the spouse alone responsible for the event is not accepted by the local source matrix"
+      ],
+      "CONTEXT_DEPENDENT_ATTRIBUTES": [
+        "the spouse must remain present when the narrated shared action requires her; strict coverage must not erase a required character"
+      ],
+      "SOURCE_REFERENCES": [
+        "research/source-claim-matrix-v5.json#CL-004",
+        "research/source-claim-matrix-v5.json#CL-005",
+        "research/source-claim-matrix-v5.json#CL-006",
+        "research/source-claim-matrix-v5.json#CL-008"
+      ],
+      "SOURCE_TIERS": [
+        "TIER_1_QURAN"
+      ],
+      "PHYSICAL_APPEARANCE_CONTRACT": {
+        "SOURCE_FACTS": [],
+        "UNKNOWN_REMAINS_UNKNOWN": true,
+        "SAFE_FRAMING": "rear, distant, over-shoulder, or covered-face composition"
+      },
+      "WARDROBE_CONTRACT": {
+        "SOURCE_BACKED": false,
+        "ART_DIRECTION": {
+          "female_visible_hair": false,
+          "female_visible_neck": false,
+          "female_visible_arms": false,
+          "female_visible_legs": false,
+          "female_visible_torso_skin": false,
+          "female_visible_hands": false,
+          "female_body_contour_emphasis": false,
+          "required_clothing": "opaque loose full-body garment; head, hair, neck, and body covered; opaque gloves or fully enclosed sleeves when hand action is required"
+        }
+      },
+      "FORBIDDEN_UNSUPPORTED_ASSUMPTIONS": [
+        "visible hair, neck, arms, legs, torso skin, or hands",
+        "tight, transparent, revealing, or body-defining clothing",
+        "nude or body-shaped silhouette",
+        "silent omission of the required spouse",
+        "European or white archetype"
+      ],
+      "ART_DIRECTION_DECISIONS": [
+        "opaque loose full-body garment with head, hair, neck, and body covered",
+        "opaque gloves or fully enclosed sleeves where an action needs an arm/hand cue",
+        "covered-face framing for the eating anchor; fruit contact and bite evidence carry the action",
+        "consistent covered silhouette across the episode"
+      ],
+      "HUMAN_REVIEW_REQUIRED_ATTRIBUTES": [
+        "every generated female frame before provider generation",
+        "any shot where compliance cannot be visually guaranteed"
+      ],
+      "SOURCE_FACTS_AND_ART_DIRECTION_SEPARATED": true,
+      "VISUAL_BIBLE": {
+        "identity_consistency": true,
+        "complexion": "UNKNOWN",
+        "build": "UNKNOWN",
+        "hair": "COVERED_BY_POLICY; SOURCE_ATTRIBUTE_UNKNOWN",
+        "safe_camera": "rear/distant/covered-face preferred",
+        "strict_modesty": {
+          "female_visible_hair": false,
+          "female_visible_neck": false,
+          "female_visible_arms": false,
+          "female_visible_legs": false,
+          "female_visible_torso_skin": false,
+          "female_visible_hands": false,
+          "female_body_contour_emphasis": false,
+          "required_clothing": "opaque loose full-body garment; head, hair, neck, and body covered; opaque gloves or fully enclosed sleeves when hand action is required"
+        }
+      }
+    },
+    {
+      "CHARACTER_ID": "MUSA",
+      "SOURCE_BACKED_ATTRIBUTES": [
+        "Musa/Moses is the distinct interlocutor in the authenticated Adam-Musa debate used for the episode's limited hadith illustration."
+      ],
+      "UNKNOWN_ATTRIBUTES": [
+        "complexion in the local episode evidence package",
+        "height, build, hair, facial features, and exact age",
+        "historically specific wardrobe details"
+      ],
+      "DISPUTED_ATTRIBUTES": [],
+      "CONTEXT_DEPENDENT_ATTRIBUTES": [
+        "the debate is a limited hadith illustration and must not be expanded into unsupported story details"
+      ],
+      "SOURCE_REFERENCES": [
+        "research/source-claim-matrix-v5.json#CL-009",
+        "research/canonical-source-package-v5.json#SRC-005",
+        "research/canonical-source-package-v5.json#SRC-006"
+      ],
+      "SOURCE_TIERS": [
+        "TIER_2_SAHIH_SUNNAH"
+      ],
+      "PHYSICAL_APPEARANCE_CONTRACT": {
+        "SOURCE_FACTS": [],
+        "UNKNOWN_REMAINS_UNKNOWN": true,
+        "SAFE_FRAMING": "distinct male figure in neutral medium/rear/side framing; no invented identifying prop"
+      },
+      "WARDROBE_CONTRACT": {
+        "SOURCE_BACKED": false,
+        "ART_DIRECTION": "simple loose opaque historical garment with no staff, book, table, badge, or identification prop"
+      },
+      "FORBIDDEN_UNSUPPORTED_ASSUMPTIONS": [
+        "generic fair or white European appearance",
+        "specific darker/brown complexion unless separately evidenced and approved",
+        "staff as an identification device",
+        "book, table, scholar room, timeline, or graphic source card"
+      ],
+      "ART_DIRECTION_DECISIONS": [
+        "distinct second male silhouette with continuity across the three debate anchors",
+        "serious conversational body language",
+        "neutral natural environment",
+        "non-identifying framing until material appearance is human-approved"
+      ],
+      "HUMAN_REVIEW_REQUIRED_ATTRIBUTES": [
+        "any concrete complexion or facial appearance decision",
+        "any identifying prop or close facial depiction"
+      ],
+      "SOURCE_FACTS_AND_ART_DIRECTION_SEPARATED": true,
+      "VISUAL_BIBLE": {
+        "identity_consistency": true,
+        "complexion": "UNKNOWN_IN_LOCAL_EPISODE_EVIDENCE",
+        "build": "UNKNOWN",
+        "hair": "UNKNOWN",
+        "safe_camera": "medium/rear/side preferred"
+      }
+    }
+  ],
+  "STATUS": "PASS",
+  "UNKNOWN_ATTRIBUTES_REMAIN_UNKNOWN": true,
+  "SOURCE_FACTS_AND_ART_DIRECTION_SEPARATED": true
+}

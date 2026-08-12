@@ -1,0 +1,15 @@
+{
+  "schema_version": "siraj-luna-pricing-policy-v4",
+  "status": "ACTIVE",
+  "applies_to": "EPISODE_002_AND_ALL_FUTURE_SIRAJ_EPISODES",
+  "model": "gpt-5.6-luna",
+  "base_input_usd_per_million": 0.2,
+  "base_output_usd_per_million": 1.2,
+  "long_context_multiplier": 2.0,
+  "long_context_threshold_tokens": null,
+  "threshold_policy": "DO_NOT_GUESS_REQUIRE_OFFICIAL_THRESHOLD_BEFORE_ENFORCEMENT",
+  "automatic_transient_retry": false,
+  "pricing_source": "USER_CONFIRMED_OFFICIAL_OPENAI_PRICING_PAGE",
+  "pricing_source_url": "https://openai.com/business/pricing/#api",
+  "created_or_updated_at_utc": "2026-08-08T02:19:36.833226Z"
+}

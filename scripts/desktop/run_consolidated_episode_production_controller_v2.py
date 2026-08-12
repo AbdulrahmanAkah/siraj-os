@@ -32,15 +32,13 @@ def main() -> int:
     if args.command == "status":
         result = inspect_consolidated_production_plan(repo).as_dict()
     else:
-        result = run_consolidated_production_to_human_gate(
-            repo,
-            openai_api_key=os.environ.get("OPENAI_API_KEY", ""),
-            runware_api_key=os.environ.get("RUNWARE_API_KEY", ""),
-            elevenlabs_api_key=os.environ.get("ELEVENLABS_API_KEY", ""),
-            confirmed_maximum_usd=args.authorized_maximum_usd,
-        ).as_dict()
+        result = {
+            "status": "BLOCKED",
+            "reason": "PRODUCTION_RESUME_ENTRYPOINT_DESKTOP_UI_ONLY",
+            "supported_launcher": "python -m src.presentation.desktop",
+        }
     print(json.dumps(result, ensure_ascii=False, indent=2))
-    return 0
+    return 4 if args.command == "run" else 0
 
 
 if __name__ == "__main__":

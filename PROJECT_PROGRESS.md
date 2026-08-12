@@ -2,7 +2,7 @@
 ## Master Development Roadmap
 
 آخر تحديث:
-2026-08-06
+2026-08-12
 
 ========================================================
 VISION
@@ -2202,7 +2202,7 @@ SIRAJ ACCEPTANCE RESUME BUTTON RECOVERY V1 — 2026-08-05
 NEXT_STAGE=END_TO_END_ACCEPTANCE_RUN_RETRY
 
 ============================================================
-SIRAJ EPISODE 001 PIPELINE ADOPTION V1 — 2026-08-06
+SIRAJ EPISODE 001 PIPELINE ADOPTION V1 — 2026-08-12
 ============================================================
 
 ✓ تحديد السبب الحقيقي: الحلقة الأولى موجودة لكن current_episode_id غير مربوط بالمنسق الجديد.
@@ -2215,7 +2215,7 @@ SIRAJ EPISODE 001 PIPELINE ADOPTION V1 — 2026-08-06
 NEXT_STAGE=AUTHORIZE_AND_EXECUTE_EPISODE_001_MEDIA_QUEUE
 
 ============================================================
-SIRAJ RUNWARE SEEDREAM NEGATIVE PROMPT RECOVERY V1 — 2026-08-06
+SIRAJ RUNWARE SEEDREAM NEGATIVE PROMPT RECOVERY V1 — 2026-08-12
 ============================================================
 
 ✓ تحديد أول عطل فعلي في تشغيل الوسائط: Seedream 5 Pro يرفض negativePrompt.
@@ -2227,7 +2227,7 @@ SIRAJ RUNWARE SEEDREAM NEGATIVE PROMPT RECOVERY V1 — 2026-08-06
 NEXT_STAGE=REAUTHORIZE_AND_RESUME_EPISODE_001_MEDIA_QUEUE
 
 ============================================================
-SIRAJ LOCAL GRAPHICS QML TEXT DIRECTION RECOVERY V1 — 2026-08-06
+SIRAJ LOCAL GRAPHICS QML TEXT DIRECTION RECOVERY V1 — 2026-08-12
 ============================================================
 
 ✓ إصلاح خاصية layoutDirection غير المدعومة في قوالب Qt Quick الستة.
@@ -2240,7 +2240,7 @@ SIRAJ LOCAL GRAPHICS QML TEXT DIRECTION RECOVERY V1 — 2026-08-06
 NEXT_STAGE=RESUME_EPISODE_001_MEDIA_QUEUE_FROM_PENDING_LOCAL_GRAPHICS
 
 ============================================================
-SIRAJ LOCAL GRAPHICS SUBPROCESS ISOLATION V1 — 2026-08-06
+SIRAJ LOCAL GRAPHICS SUBPROCESS ISOLATION V1 — 2026-08-12
 ============================================================
 
 ✓ تحديد سبب تجمد الواجهة: إنشاء QQuickView من QThread مع QGuiApplication الخاصة بالواجهة.
@@ -2252,7 +2252,7 @@ SIRAJ LOCAL GRAPHICS SUBPROCESS ISOLATION V1 — 2026-08-06
 NEXT_STAGE=RESUME_EPISODE_001_MEDIA_QUEUE_WITH_RESPONSIVE_DESKTOP
 
 ============================================================
-SIRAJ ELEVENLABS KEY VALIDATION AND RECOVERY V1 — 2026-08-06
+SIRAJ ELEVENLABS KEY VALIDATION AND RECOVERY V1 — 2026-08-12
 ============================================================
 
 ✓ منع حفظ أو استخدام مفتاح ElevenLabs لا يبدأ بـ sk_.
@@ -2265,7 +2265,7 @@ SIRAJ ELEVENLABS KEY VALIDATION AND RECOVERY V1 — 2026-08-06
 NEXT_STAGE=CONFIGURE_VALID_ELEVENLABS_KEY_AND_RESUME_EPISODE_001
 
 ============================================================
-SIRAJ MONTAGE PIXEL FORMAT NORMALIZATION AND RECOVERY V1 — 2026-08-06
+SIRAJ MONTAGE PIXEL FORMAT NORMALIZATION AND RECOVERY V1 — 2026-08-12
 ============================================================
 
 ✓ تثبيت إخراج المونتاج على H.264 High / yuv420p / BT.709 limited.
@@ -2277,7 +2277,7 @@ SIRAJ MONTAGE PIXEL FORMAT NORMALIZATION AND RECOVERY V1 — 2026-08-06
 NEXT_STAGE=RESUME_EPISODE_001_STRUCTURAL_MONTAGE
 
 ========================================================
-SERIES PRODUCTION QUALITY V2 — 2026-08-06
+SERIES PRODUCTION QUALITY V2 — 2026-08-12
 ========================================================
 
 Status:
@@ -2312,7 +2312,7 @@ Validation:
 - Paid generation is not authorized by this change.
 
 ========================================================
-ADAM VISUAL REPLAN AND COMPACT AUDIT V2 — 2026-08-06
+ADAM VISUAL REPLAN AND COMPACT AUDIT V2 — 2026-08-12
 ========================================================
 
 Status:
@@ -2334,7 +2334,7 @@ Scope:
 NEXT_STAGE=ARABIC_PERFORMANCE_SCRIPT_V2_AND_HUMAN_VISUAL_REVIEW
 
 ========================================================
-ADAM FINAL MOTION GATE RESOLUTION V2 — 2026-08-06
+ADAM FINAL MOTION GATE RESOLUTION V2 — 2026-08-12
 ========================================================
 
 Status:
@@ -2353,7 +2353,7 @@ Scope:
 NEXT_STAGE=UPLOAD_ARABIC_PERFORMANCE_SOURCE_FOR_FULL_DIACRITIZATION
 
 ========================================================
-ADAM APPROVED ARABIC PERFORMANCE V2 — 2026-08-06
+ADAM APPROVED ARABIC PERFORMANCE V2 — 2026-08-12
 ========================================================
 
 Status:
@@ -2371,7 +2371,7 @@ Scope:
 NEXT_STAGE=TTS_PREFLIGHT_AND_SHORT_SAMPLE_GENERATION
 
 ========================================================
-ADAM TTS PREFLIGHT TEST FIXTURES V2 — 2026-08-06
+ADAM TTS PREFLIGHT TEST FIXTURES V2 — 2026-08-12
 ========================================================
 
 Status:
@@ -2388,7 +2388,7 @@ Scope:
 NEXT_STAGE=EXPLICIT_SAMPLE_AUTHORIZATION_OR_CREDENTIAL_CONFIGURATION
 
 ========================================================
-ADAM STALE TTS LOCK AUDIT V2 — 2026-08-06
+ADAM STALE TTS LOCK AUDIT V2 — 2026-08-12
 ========================================================
 
 Status:
@@ -2405,7 +2405,7 @@ Scope:
 NEXT_STAGE=EXPLICIT_SAMPLE_AUTHORIZATION_OR_MANUAL_LOCK_REVIEW
 
 ========================================================
-ADAM AUTHORIZED TTS SAMPLE V2 — 2026-08-06
+ADAM AUTHORIZED TTS SAMPLE V2 — 2026-08-12
 ========================================================
 
 Status:
@@ -2422,7 +2422,7 @@ Scope:
 NEXT_STAGE=HUMAN_TTS_SAMPLE_REVIEW
 
 ========================================================
-ARABIC ACTUAL STOP WAQF V2 — 2026-08-06
+ARABIC ACTUAL STOP WAQF V2 — 2026-08-12
 ========================================================
 
 Status:
@@ -2444,7 +2444,7 @@ Scope:
 NEXT_STAGE=HUMAN_WAQF_DIFF_REVIEW_AND_SECOND_SAMPLE_AUTHORIZATION
 
 ========================================================
-ARABIC ACTUAL STOP WAQF V3 — 2026-08-06
+ARABIC ACTUAL STOP WAQF V3 — 2026-08-12
 ========================================================
 
 Status:
@@ -2461,7 +2461,7 @@ Scope:
 NEXT_STAGE=HUMAN_WAQF_V3_REVIEW_AND_SECOND_SAMPLE_AUTHORIZATION
 
 ========================================================
-ADAM AUTHORIZED WAQF V3 SAMPLE — 2026-08-06
+ADAM AUTHORIZED WAQF V3 SAMPLE — 2026-08-12
 ========================================================
 
 Status:
@@ -2478,7 +2478,7 @@ Scope:
 NEXT_STAGE=HUMAN_WAQF_V3_SAMPLE_REVIEW
 
 ========================================================
-SIRAJ SERIES PRODUCTION STANDARD V2 CAMERA AND BUDGET REPAIR — 2026-08-06
+SIRAJ SERIES PRODUCTION STANDARD V2 CAMERA AND BUDGET REPAIR — 2026-08-12
 ========================================================
 
 Status:
@@ -2497,7 +2497,7 @@ Resolved:
 NEXT_STAGE=CONSOLIDATED_FULL_EPISODE_REBUILD_AUTHORIZATION
 
 ========================================================
-LUNA CINEMATIC PROMPT DIRECTOR V2 — 2026-08-06
+LUNA CINEMATIC PROMPT DIRECTOR V2 — 2026-08-12
 ========================================================
 
 Status:
@@ -2518,7 +2518,7 @@ Completed:
 NEXT_STAGE=CONSOLIDATED_LUNA_PROMPT_AND_FULL_EPISODE_AUTHORIZATION
 
 ========================================================
-CONSOLIDATED EPISODE PRODUCTION CONTROLLER V2 — 2026-08-06
+CONSOLIDATED EPISODE PRODUCTION CONTROLLER V2 — 2026-08-12
 ========================================================
 
 Status:
@@ -2538,7 +2538,7 @@ NEXT_STAGE=ONE_CONSOLIDATED_DESKTOP_AUTHORIZATION
 
 
 ========================================================
-RUNTIME PRODUCTION V2 ENTRY REPAIR — 2026-08-06
+RUNTIME PRODUCTION V2 ENTRY REPAIR — 2026-08-12
 ========================================================
 
 Status:
@@ -2554,7 +2554,7 @@ READY_FOR_ONE_CONSOLIDATED_DESKTOP_AUTHORIZATION
 NEXT_STAGE=OPEN_SIRAJ_AND_AUTHORIZE_FROM_CONSOLIDATED_V2_BUTTON
 
 ========================================================
-LUNA JSON INTEGRITY HARDENING — 2026-08-06
+LUNA JSON INTEGRITY HARDENING — 2026-08-12
 ========================================================
 
 Status:
@@ -2571,7 +2571,7 @@ READY_FOR_EXPLICIT_LUNA_RETRY_AUTHORIZATION
 NEXT_STAGE=EXPLICIT_ONE_REQUEST_LUNA_RETRY_AUTHORIZATION
 
 ========================================================
-EXPLICIT LUNA INVALID OUTPUT RETRY V2 — 2026-08-06
+EXPLICIT LUNA INVALID OUTPUT RETRY V2 — 2026-08-12
 ========================================================
 
 Status:
@@ -2588,7 +2588,7 @@ READY_FOR_EXPLICIT_DESKTOP_RETRY_AUTHORIZATION
 NEXT_STAGE=CLICK_EXPLICIT_LUNA_RETRY_AND_CONTINUE
 
 ========================================================
-LUNA SAFE TECHNICAL REPAIR V1 — 2026-08-06
+LUNA SAFE TECHNICAL REPAIR V1 — 2026-08-12
 ========================================================
 
 Status:
@@ -2604,7 +2604,7 @@ AUTOMATIC_BOUNDED_REPAIR_ENABLED
 NEXT_STAGE=OPEN_SIRAJ_AND_CONTINUE_CONSOLIDATED_PRODUCTION
 
 ========================================================
-V2 STATE RESUME TTS FIXTURE FINALIZATION — 2026-08-06
+V2 STATE RESUME TTS FIXTURE FINALIZATION — 2026-08-12
 ========================================================
 
 Status:
@@ -2619,7 +2619,7 @@ READY_TO_RESUME_CERTIFIED_V2_MEDIA_QUEUE
 NEXT_STAGE=OPEN_SIRAJ_AND_CONTINUE_CONSOLIDATED_PRODUCTION
 
 ========================================================
-WINDOWS SNAPSHOT PERMISSION RECOVERY ANCHORLESS V2 — 2026-08-06
+WINDOWS SNAPSHOT PERMISSION RECOVERY ANCHORLESS V2 — 2026-08-12
 ========================================================
 
 Status:
@@ -2634,7 +2634,7 @@ READY_TO_RESUME_CONSOLIDATED_PRODUCTION
 NEXT_STAGE=OPEN_SIRAJ_AND_CONTINUE_CONSOLIDATED_PRODUCTION
 
 ========================================================
-NATIVE V2 FLOAT CONTRACT FINALIZATION — 2026-08-06
+NATIVE V2 FLOAT CONTRACT FINALIZATION — 2026-08-12
 ========================================================
 
 Status:
@@ -2699,3 +2699,26 @@ PASS_ACTIVE_PRODUCTION_REFRESH_FREEZE_REPAIRED
 - Paid provider requests during repair: 0.
 
 NEXT_STAGE=REOPEN_SIRAJ_AND_RESUME_FROM_THE_EXISTING_LOCK_OR_NEXT_ITEM
+
+========================================================
+EPISODE 002 PRODUCTION QUALITY CHECKPOINT — 2026-08-12
+========================================================
+
+Current production-quality work:
+
+- Episode 002 reached surgical visual repair preproduction V2.2.
+- V2.2 remains under human review and is NOT approved for visual generation.
+- Current narration is frozen as the episode duration authority.
+- Legacy female visuals are excluded from production reuse.
+- Graphics remain forbidden from the final episode.
+- No paid visual generation is authorized by this checkpoint.
+- Next engineering step: V2.3 surgical preproduction correction and human approval gate.
+
+Safety state:
+
+STORYBOARD_STATUS=AWAITING_HUMAN_APPROVAL
+VISUAL_GENERATION_ALLOWED=FALSE
+AUTOMATIC_PAID_RETRY=FALSE
+AUTOMATIC_PAID_RESUBMISSION=FALSE
+
+========================================================

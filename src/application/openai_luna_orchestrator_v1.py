@@ -15,11 +15,11 @@ from src.application.shamela_primary_research_v1 import (
 OPENAI_RESPONSES_URL = "https://api.openai.com/v1/responses"
 LUNA_MODEL = "gpt-5.6-luna"
 REQUEST_TIMEOUT_SECONDS = 300
-MAX_TRANSIENT_RETRIES = 2
+MAX_TRANSIENT_RETRIES = 0
 
-# Human-authorized pricing snapshot from the 2026-07-30 public announcement.
-# This is recorded for estimation only; provider usage/final billing remains source
-# of truth and the value is intentionally isolated from execution logic.
+# SIRAJ V4+ locked Luna base pricing: $0.20 / 1M input and $1.20 / 1M output.
+# Long-context pricing doubles; the exact token threshold is intentionally not guessed here.
+# Provider usage/final billing remains source of truth.
 LUNA_INPUT_USD_PER_MILLION = 0.20
 LUNA_OUTPUT_USD_PER_MILLION = 1.20
 

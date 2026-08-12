@@ -1,0 +1,26 @@
+{
+  "authorization_scope": "ALL_INITIAL_PAID_OPERATIONS_THROUGH_READY_FOR_FINAL_HUMAN_REVIEW",
+  "automatic_paid_resubmission": false,
+  "automatic_paid_retry": false,
+  "future_episode_event_review": {
+    "after_stage": "SOURCE_CLAIM_MATRIX",
+    "before_stage": "STORY_ARCHITECTURE",
+    "enabled": true,
+    "human_approval_required": true,
+    "luna_discussion_enabled": true,
+    "post_approval_autopilot": true,
+    "show_events_to_human": true
+  },
+  "live_production_monitor": {
+    "automatic_refresh": true,
+    "enabled": true,
+    "shows_current_action": true,
+    "shows_current_stage": true,
+    "shows_progress": true
+  },
+  "paid_retry_is_separate_exception": true,
+  "publishing": "HUMAN_ONLY",
+  "schema_version": "siraj-episode-autonomy-policy-v6.6",
+  "single_episode_authorization": true,
+  "status": "ACTIVE"
+}

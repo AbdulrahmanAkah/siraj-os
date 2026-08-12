@@ -1,0 +1,55 @@
+{
+  "schema_version": "siraj-v4-plus-production-contract-v1",
+  "status": "ACTIVE_FOR_EPISODE_002_AND_LATER",
+  "episode_001_status": "LEGACY_APPROVED_FINAL_DO_NOT_REOPEN",
+  "episode_002_restart": "FROM_ZERO",
+  "old_pre_v4_preproduction_reuse": "FORBIDDEN",
+  "duration_policy": "FINAL_TTS_DETERMINES_DURATION",
+  "fixed_visual_timeline_before_tts": "FORBIDDEN",
+  "pipeline": [
+    "SOURCE_RESEARCH_FROM_ZERO",
+    "SOURCE_CLAIM_MATRIX",
+    "FINAL_SCRIPT",
+    "PRONUNCIATION_AND_PERFORMANCE_GATE",
+    "FINAL_TTS",
+    "AUDIO_TIMESTAMPS_AND_BEATS",
+    "AUDIO_BOUND_STORYBOARD",
+    "LUNA_SEMANTIC_PROMPT_DIRECTION",
+    "NARRATION_VISUAL_ALIGNMENT_GATE",
+    "PROMPT_SIMILARITY_AND_DUPLICATE_GATE",
+    "COST_PREFLIGHT_AND_ATTEMPT_LEDGER",
+    "EXPLICIT_PAID_AUTHORIZATION",
+    "PROVIDER_EXECUTION",
+    "LOCAL_ASSEMBLY_AND_QA"
+  ],
+  "audio_rules": {
+    "hook_intro_pause_required": true,
+    "hook_intro_pause_min_seconds": 0.6,
+    "closing_performance_direction_required": true,
+    "pre_outro_pause_required": true,
+    "pre_outro_pause_min_seconds": 0.4,
+    "outro_cta_master_reused_across_episodes": true
+  },
+  "visual_rules": {
+    "every_shot_bound_to_actual_narration_beat": true,
+    "visual_rationale_required": true,
+    "pre_spend_semantic_alignment_required": true,
+    "generated_arabic_text_forbidden": true,
+    "exact_text_deterministic_local_overlay_only": true,
+    "perceptual_duplicate_gate_required": true,
+    "adjacent_fallback_duplication_forbidden": true
+  },
+  "cost_rules": {
+    "append_only_attempt_ledger_required": true,
+    "automatic_paid_retry": false,
+    "queue_specific_retry_authorization_required": true,
+    "provider_operation_count_reconciliation_required": true,
+    "explicit_paid_authorization_required": true
+  },
+  "luna_governance": {
+    "law": "projects/_series/siraj-luna-central-director-law-v4.json",
+    "preproduction_owner": "LUNA",
+    "production_role": "LUNA_SUPERVISOR",
+    "human_paid_authority": "REQUIRED"
+  }
+}

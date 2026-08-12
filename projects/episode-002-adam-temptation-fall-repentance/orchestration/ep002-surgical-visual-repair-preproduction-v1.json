@@ -1,0 +1,299 @@
+{
+  "DELETE_count": 33,
+  "KEEP_count": 18,
+  "NEW_GENERATION_REQUIRED_count": 23,
+  "REASSIGN_count": 27,
+  "REGENERATE_REQUIRED_count": 21,
+  "SCHEMA_VERSION": "EP002_SURGICAL_VISUAL_REPAIR_PREPRODUCTION_V1",
+  "accepted_master_receipt_duration_seconds": 623.511,
+  "approved_storyboard_sha256": null,
+  "audio_authority_file": "projects/episode-002-adam-temptation-fall-repentance/orchestration/montage-v6-2-1/narration-master-v6-2-1.wav",
+  "audio_authority_manifest": "projects/episode-002-adam-temptation-fall-repentance/preproduction/audio-timestamps-and-beats-v6-1.json",
+  "audio_authority_manifest_duration_seconds": 623.584,
+  "audio_authority_manifest_sha256": "91b9ac0197e2290e2d5dcd17bd490803a1a23615afa9e53e36e308030d93ebb3",
+  "audio_bytes": 179571300,
+  "audio_duration_boundary_note": "Current narration-master WAV and accepted master receipt are 623.511104s. PASS timeline manifest declares 623.584s; the 0.072896s difference is retained as evidence. Only repaired visual tail is bounded to actual narration master.",
+  "audio_duration_seconds": 623.5111041666667,
+  "audio_sha256": "1ac040b13db40b2aef87625bcd476d905a3157833d6ffb62de1e2ef0f2ec97a4",
+  "automatic_paid_resubmission": false,
+  "automatic_paid_retry": false,
+  "constitution_loaded": true,
+  "constitution_path": "projects/_series/siraj-visual-production-constitution-v1.json",
+  "constitution_sha256": "a923f5a517195580a820dae40679fab73f87d05d32177cc2b154bdabc220912f",
+  "constitution_version": "SIRAJ_VISUAL_PRODUCTION_CONSTITUTION_V1",
+  "continuity_defects_detected": [
+    {
+      "DEFECT_ID": "CONTINUITY-SH-008-2-3-2",
+      "OBSERVED": "two silhouettes, then a third translucent silhouette, then two",
+      "REPAIR": "delete current units; new shot fixes expected count at exactly two",
+      "SHOT_ID": "EP002-SH-008",
+      "UNIT_IDS": [
+        "EP002-SH-008-V01",
+        "EP002-SH-008-V02"
+      ]
+    }
+  ],
+  "current_canonical_stage_preserved": "READY_FOR_FINAL_HUMAN_REVIEW",
+  "episode_transition_ledger_after_sha256": "68e86b6fd1ab8f664d495d34eb640bb0c9f72f41099dd91a9f8601699c75bd1d",
+  "episode_transition_ledger_before_sha256": "68e86b6fd1ab8f664d495d34eb640bb0c9f72f41099dd91a9f8601699c75bd1d",
+  "episode_transition_ledger_unchanged": true,
+  "estimated_existing_visual_seconds_preserved": 276.2391041666666,
+  "estimated_new_visual_seconds_required": 347.27200000000005,
+  "graphics_detected": [
+    "EP002-SH-032",
+    "EP002-SH-040",
+    "EP002-SH-041",
+    "EP002-SH-042"
+  ],
+  "graphics_removed_from_repair_plan": [
+    "EP002-SH-032",
+    "EP002-SH-040",
+    "EP002-SH-041",
+    "EP002-SH-042"
+  ],
+  "image_generation_calls": 0,
+  "major_events_missing_suitable_existing_asset": [
+    "EV-002-EATING-ACTION",
+    "EV-003-BOUNDARY-ESTABLISHMENT",
+    "EV-004-TEMPTATION-WHISPER",
+    "EV-005-CHOICE-BECOMES-ACTION",
+    "EV-007-EATING-ACTION",
+    "EV-009-REVEAL-THEN-COVER",
+    "EV-011-SUPPLICATION",
+    "EV-013-RECEIVING-WORDS",
+    "EV-014-ACCEPTANCE",
+    "EV-016-DESCENT",
+    "EV-018-HADITH-DEBATE"
+  ],
+  "major_events_with_explicit_visual_contract": 11,
+  "major_literal_event_count": 11,
+  "mute_comprehension_precheck": {
+    "event_results": [
+      {
+        "ACTION_VISIBLE": true,
+        "EVENT_ID": "EV-002-EATING-ACTION",
+        "EVENT_VISIBLE": true,
+        "LITERAL_SHOT_IDS": [
+          "EP002-SH-001"
+        ],
+        "OBJECT_VISIBLE": true,
+        "RESULT_VISIBLE": true,
+        "SUBJECT_VISIBLE": true,
+        "UNDERSTANDABLE_WITH_AUDIO_MUTED": true
+      },
+      {
+        "ACTION_VISIBLE": true,
+        "EVENT_ID": "EV-003-BOUNDARY-ESTABLISHMENT",
+        "EVENT_VISIBLE": true,
+        "LITERAL_SHOT_IDS": [
+          "EP002-SH-007",
+          "EP002-SH-008"
+        ],
+        "OBJECT_VISIBLE": true,
+        "RESULT_VISIBLE": true,
+        "SUBJECT_VISIBLE": true,
+        "UNDERSTANDABLE_WITH_AUDIO_MUTED": true
+      },
+      {
+        "ACTION_VISIBLE": true,
+        "EVENT_ID": "EV-004-TEMPTATION-WHISPER",
+        "EVENT_VISIBLE": true,
+        "LITERAL_SHOT_IDS": [
+          "EP002-SH-010",
+          "EP002-SH-012"
+        ],
+        "OBJECT_VISIBLE": true,
+        "RESULT_VISIBLE": true,
+        "SUBJECT_VISIBLE": true,
+        "UNDERSTANDABLE_WITH_AUDIO_MUTED": true
+      },
+      {
+        "ACTION_VISIBLE": true,
+        "EVENT_ID": "EV-005-CHOICE-BECOMES-ACTION",
+        "EVENT_VISIBLE": true,
+        "LITERAL_SHOT_IDS": [
+          "EP002-SH-017",
+          "EP002-SH-018"
+        ],
+        "OBJECT_VISIBLE": true,
+        "RESULT_VISIBLE": true,
+        "SUBJECT_VISIBLE": true,
+        "UNDERSTANDABLE_WITH_AUDIO_MUTED": true
+      },
+      {
+        "ACTION_VISIBLE": true,
+        "EVENT_ID": "EV-007-EATING-ACTION",
+        "EVENT_VISIBLE": true,
+        "LITERAL_SHOT_IDS": [
+          "EP002-SH-019",
+          "EP002-SH-020"
+        ],
+        "OBJECT_VISIBLE": true,
+        "RESULT_VISIBLE": true,
+        "SUBJECT_VISIBLE": true,
+        "UNDERSTANDABLE_WITH_AUDIO_MUTED": true
+      },
+      {
+        "ACTION_VISIBLE": true,
+        "EVENT_ID": "EV-009-REVEAL-THEN-COVER",
+        "EVENT_VISIBLE": true,
+        "LITERAL_SHOT_IDS": [
+          "EP002-SH-022",
+          "EP002-SH-023"
+        ],
+        "OBJECT_VISIBLE": true,
+        "RESULT_VISIBLE": true,
+        "SUBJECT_VISIBLE": true,
+        "UNDERSTANDABLE_WITH_AUDIO_MUTED": true
+      },
+      {
+        "ACTION_VISIBLE": true,
+        "EVENT_ID": "EV-011-SUPPLICATION",
+        "EVENT_VISIBLE": true,
+        "LITERAL_SHOT_IDS": [
+          "EP002-SH-026",
+          "EP002-SH-027",
+          "EP002-SH-028"
+        ],
+        "OBJECT_VISIBLE": true,
+        "RESULT_VISIBLE": true,
+        "SUBJECT_VISIBLE": true,
+        "UNDERSTANDABLE_WITH_AUDIO_MUTED": true
+      },
+      {
+        "ACTION_VISIBLE": true,
+        "EVENT_ID": "EV-013-RECEIVING-WORDS",
+        "EVENT_VISIBLE": true,
+        "LITERAL_SHOT_IDS": [
+          "EP002-SH-030",
+          "EP002-SH-032"
+        ],
+        "OBJECT_VISIBLE": true,
+        "RESULT_VISIBLE": true,
+        "SUBJECT_VISIBLE": true,
+        "UNDERSTANDABLE_WITH_AUDIO_MUTED": true
+      },
+      {
+        "ACTION_VISIBLE": true,
+        "EVENT_ID": "EV-014-ACCEPTANCE",
+        "EVENT_VISIBLE": true,
+        "LITERAL_SHOT_IDS": [
+          "EP002-SH-031",
+          "EP002-SH-033"
+        ],
+        "OBJECT_VISIBLE": true,
+        "RESULT_VISIBLE": true,
+        "SUBJECT_VISIBLE": true,
+        "UNDERSTANDABLE_WITH_AUDIO_MUTED": true
+      },
+      {
+        "ACTION_VISIBLE": true,
+        "EVENT_ID": "EV-016-DESCENT",
+        "EVENT_VISIBLE": true,
+        "LITERAL_SHOT_IDS": [
+          "EP002-SH-035",
+          "EP002-SH-036"
+        ],
+        "OBJECT_VISIBLE": true,
+        "RESULT_VISIBLE": true,
+        "SUBJECT_VISIBLE": true,
+        "UNDERSTANDABLE_WITH_AUDIO_MUTED": true
+      },
+      {
+        "ACTION_VISIBLE": true,
+        "EVENT_ID": "EV-018-HADITH-DEBATE",
+        "EVENT_VISIBLE": true,
+        "LITERAL_SHOT_IDS": [
+          "EP002-SH-040",
+          "EP002-SH-041",
+          "EP002-SH-042",
+          "EP002-SH-043"
+        ],
+        "OBJECT_VISIBLE": true,
+        "RESULT_VISIBLE": true,
+        "SUBJECT_VISIBLE": true,
+        "UNDERSTANDABLE_WITH_AUDIO_MUTED": true
+      }
+    ],
+    "failures": [],
+    "status": "PASS"
+  },
+  "network_calls": 0,
+  "next_action": "HUMAN_STORYBOARD_REVIEW",
+  "no_authorization_created_or_consumed": true,
+  "no_visual_generation_performed": true,
+  "paid_calls": 0,
+  "paid_history_after_sha256": "53cafded523846bb85a5ade5479a5756f6d8d996449d72f0729a4fdf559992bc",
+  "paid_history_before_sha256": "53cafded523846bb85a5ade5479a5756f6d8d996449d72f0729a4fdf559992bc",
+  "paid_history_unchanged": true,
+  "percentage_episode_visuals_preserved": 44.30379865261019,
+  "planned_graphics_count": 0,
+  "provider_calls": 0,
+  "provider_evidence_manifest_after_sha256": "c882f08ea9cbfdb71ea4ef2d635b715c5b02ce5d6e96d347a51cfee97f4b2778",
+  "provider_evidence_manifest_before_sha256": "c882f08ea9cbfdb71ea4ef2d635b715c5b02ce5d6e96d347a51cfee97f4b2778",
+  "provider_evidence_unchanged": true,
+  "repair_review_stage": "PRE_PRODUCTION_VISUAL_REVIEW",
+  "root_cause": [
+    "abstract imagery replaced literal events",
+    "graphics/UI/placeholders escaped policy",
+    "unsafe silhouettes and SH-008 continuity were not blocked"
+  ],
+  "runware_calls": 0,
+  "source_files_inspected": [
+    "projects/episode-002-adam-temptation-fall-repentance/preproduction/audio-timestamps-and-beats-v6-1.json",
+    "projects/episode-002-adam-temptation-fall-repentance/preproduction/audio-bound-storyboard-v6-1.json",
+    "projects/episode-002-adam-temptation-fall-repentance/orchestration/media-production-queue-v6-2-1.json",
+    "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-timeline-evidence-v7.json",
+    "projects/episode-002-adam-temptation-fall-repentance/preproduction/luna-final-script-v5-1.json",
+    "projects/episode-002-adam-temptation-fall-repentance/deliverables/autopilot-v6-2-1/episode-master-autopilot-v6-2-1-receipt.json",
+    "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-technical-validation-v7.json",
+    "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-contact-sheet-v7.jpg",
+    "src/application/desktop_semantic_editorial_qa_v3.py",
+    "src/application/siraj_luna_upstream_transport_v6_3.py",
+    "src/application/paid_operation_gateway.py",
+    "src/application/siraj_one_click_autopilot_v6_4.py"
+  ],
+  "source_files_modified": [
+    "src/application/visual_production_constitution_v1.py",
+    "projects/_series/siraj-visual-production-constitution-v1.json",
+    "scripts/desktop/build_ep002_surgical_visual_repair_preproduction_v1.py",
+    "tests/test_visual_production_constitution_v1.py"
+  ],
+  "status": "PASS",
+  "storyboard_human_report": "projects/episode-002-adam-temptation-fall-repentance/preproduction/EP002_SURGICAL_REPAIR_STORYBOARD_V1.md",
+  "storyboard_json": "projects/episode-002-adam-temptation-fall-repentance/preproduction/EP002_SURGICAL_REPAIR_STORYBOARD_V1.json",
+  "storyboard_sha256": "e03e61439609ca92ac3d98faf966f4907be26cb41dee9a43a87be0836834bb12",
+  "storyboard_status": "AWAITING_HUMAN_APPROVAL",
+  "tests_run": [
+    "historical-fixture-venv-20260716\\Scripts\\python.exe -m pytest -q tests/test_visual_production_constitution_v1.py"
+  ],
+  "total_current_assets": 99,
+  "unsafe_female_assets_detected": [
+    "EP002-SH-007",
+    "EP002-SH-008",
+    "EP002-SH-012",
+    "EP002-SH-015",
+    "EP002-SH-026",
+    "EP002-SH-027",
+    "EP002-SH-028",
+    "EP002-SH-030",
+    "EP002-SH-031",
+    "EP002-SH-052"
+  ],
+  "unsafe_female_assets_removed_from_repair_plan": [
+    "EP002-SH-007",
+    "EP002-SH-008",
+    "EP002-SH-012",
+    "EP002-SH-015",
+    "EP002-SH-026",
+    "EP002-SH-027",
+    "EP002-SH-028",
+    "EP002-SH-030",
+    "EP002-SH-031",
+    "EP002-SH-052"
+  ],
+  "unsafe_female_visuals_allowed_in_repair_plan": 0,
+  "veo_calls": 0,
+  "video_generation_calls": 0,
+  "visual_generation_allowed": false
+}

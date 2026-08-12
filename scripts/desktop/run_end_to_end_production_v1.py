@@ -33,16 +33,13 @@ def main() -> int:
     elif args.command == "handoff-status":
         payload = load_youtube_handoff_status(args.repo_root)
     else:
-        result = run_to_next_human_gate(
-            args.repo_root,
-            openai_api_key=os.environ.get("OPENAI_API_KEY", ""),
-            runware_api_key=os.environ.get("RUNWARE_API_KEY", ""),
-            elevenlabs_api_key=os.environ.get("ELEVENLABS_API_KEY", ""),
-            confirmed_media_maximum_usd=args.confirm_media_max_usd,
-        )
-        payload = result.as_dict()
+        payload = {
+            "status": "BLOCKED",
+            "reason": "PRODUCTION_RESUME_ENTRYPOINT_DESKTOP_UI_ONLY",
+            "supported_launcher": "python -m src.presentation.desktop",
+        }
     print(json.dumps(payload, ensure_ascii=False, indent=2))
-    return 0
+    return 4 if args.command == "run" else 0
 
 
 if __name__ == "__main__":

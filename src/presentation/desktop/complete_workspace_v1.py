@@ -497,13 +497,40 @@ class ApprovalPage(_PageBase):
                     / "publishing/publish-package-v1/publish-manifest-v1.json",
                 ),
             ]
-            directive = resolve_resume_directive(snapshot.repo_root)
-            self.current_directive.setText(
-                "المرحلة المطلوبة الآن: "
-                + directive.label_ar
-                + " — "
-                + directive.detail_ar
+            authoritative_stage = next(
+                (
+                    blocker.split("=", 1)[1]
+                    for blocker in active.blockers
+                    if blocker.startswith("V6_STAGE=")
+                ),
+                None,
             )
+            authoritative_source = next(
+                (
+                    blocker.split("=", 1)[1]
+                    for blocker in active.blockers
+                    if blocker.startswith("AUTHORITATIVE_STATE=")
+                ),
+                None,
+            )
+            if authoritative_stage and authoritative_source:
+                self.current_directive.setText(
+                    "Current authoritative stage: "
+                    + authoritative_stage
+                    + " — source: "
+                    + authoritative_source
+                    + " — resume: DESKTOP_UI_ONLY"
+                )
+            else:
+                # Historical episodes retain the original read-only directive
+                # projection; EP002 is always overlaid by the ledger above.
+                directive = resolve_resume_directive(snapshot.repo_root)
+                self.current_directive.setText(
+                    "المرحلة المطلوبة الآن: "
+                    + directive.label_ar
+                    + " — "
+                    + directive.detail_ar
+                )
         self._paths = [path for _, _, path in rows]
         self.table.setRowCount(len(rows))
         for row, (gate, status, path) in enumerate(rows):
@@ -659,8 +686,8 @@ class SettingsPage(_PageBase):
         self.body.addWidget(self.status_box)
 
         policy = QLabel(
-            "السياسات الملزمة: حد الحلقة 40$، لا إنفاق مدفوع دون تأكيد، "
-            "لا موسيقى، إصلاح جزئي فقط، بوابتان بشريتان، ورفع YouTube يدوي."
+            "السياسات الملزمة V6: لا سقف تكلفة يضعه النظام، كل إنفاق مدفوع يحتاج تفويضًا صريحًا، "
+            "لا إعادة محاولة مدفوعة تلقائية، الإصلاح المحلي الآمن تلقائي، الفيديو المولد لا يتجاوز ثلثي الحلقة، لا موسيقى، والنشر يدوي."
         )
         policy.setWordWrap(True)
         policy.setObjectName("muted")

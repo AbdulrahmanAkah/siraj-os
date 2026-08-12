@@ -38,8 +38,15 @@ def test_veo_final_submission_removes_negative_prompt() -> None:
                 "includeCost": True,
                 "deliveryMethod": "async",
                 "duration": 8,
-                "positivePrompt": "Approved cinematic prompt.",
-                "negativePrompt": "text, watermark, duplicate subjects",
+                "positivePrompt": (
+                    "Approved cinematic prompt. The word is symbolic "
+                    "typography only, never a literal representation of "
+                    "Iblis. No faces or bodies. Stable camera motion."
+                ),
+                "negativePrompt": (
+                    "Iblis, demon, face, body, text, watermark, "
+                    "duplicate subjects"
+                ),
                 "providerSettings": {
                     "google": {
                         "generateAudio": False,
@@ -51,15 +58,56 @@ def test_veo_final_submission_removes_negative_prompt() -> None:
             "VID-SH-001-C01",
         )
     )
+
     assert "negativePrompt" not in task
     assert (
         "Strict exclusion constraints for this provider request:"
-        in task["positivePrompt"]
+        not in task["positivePrompt"]
     )
+
+    provider_prompt = task["positivePrompt"].casefold()
+    provider_tokens = media._siraj_veo_prompt_tokens_v2(provider_prompt)
+    for blocked in (
+        "iblis",
+        "demon",
+        "demons",
+        "humanoid",
+        "humanoids",
+        "face",
+        "faces",
+        "body",
+        "bodies",
+        "allah",
+        "angel",
+        "angels",
+        "prophet",
+        "prophets",
+        "person",
+        "persons",
+        "people",
+        "human",
+        "humans",
+        "figure",
+        "figures",
+        "being",
+        "beings",
+    ):
+        assert blocked not in provider_tokens
+
+    assert "purely abstract and object-based" in provider_prompt
     assert certification is not None
     assert certification[
         "unsupported_negativePrompt_parameter"
     ] == "REMOVED_BEFORE_NETWORK"
+    assert certification[
+        "negative_prompt_transport"
+    ] == "INTERNAL_ONLY_NOT_SENT_TO_VEO_PROVIDER"
+    assert certification[
+        "provider_parameter_allowlist_version"
+    ] == "RUNWARE_VEO_FINAL_SUBMISSION_SANITIZER_V2"
+    assert certification[
+        "provider_prompt_sanitizer_version"
+    ] == "SIRAJ_VEO_PROVIDER_CONTENT_FILTER_SAFE_V2"
 
 
 def test_mutable_asset_plan_is_not_raw_fingerprinted() -> None:

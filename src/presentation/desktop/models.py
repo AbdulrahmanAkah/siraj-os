@@ -30,7 +30,7 @@ class EpisodeRecord:
     title_ar: str
     project_path: Path
     stage: EpisodeStage
-    duration_seconds: int = 0
+    duration_seconds: float = 0.0
     shot_count: int = 0
     approved_shot_count: int = 0
     generated_shot_count: int = 0
@@ -135,7 +135,7 @@ class DashboardSnapshot:
         return self.episodes[0]
 
 
-def format_duration(seconds: int) -> str:
+def format_duration(seconds: float) -> str:
     safe_seconds = max(0, int(seconds))
     hours, remainder = divmod(safe_seconds, 3600)
     minutes, secs = divmod(remainder, 60)

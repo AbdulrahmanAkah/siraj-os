@@ -1,0 +1,110 @@
+{
+  "schema_version": "siraj-media-pricing-registry-v2",
+  "registry_version": "v2-runware-official-2026-08-09",
+  "generated_at_utc": "2026-08-09T20:36:12Z",
+  "currency_policy": "EXPLICIT_CURRENCY_REQUIRED",
+  "unknown_price_policy": "UNKNOWN_PRICING_BLOCKS_EXECUTION",
+  "source_policy": "OFFICIAL_PROVIDER_DOCUMENTATION_ONLY",
+  "research_scope": "Runware public model documentation; no generation or provider API calls",
+  "entries": [
+    {
+      "provider": "RUNWARE",
+      "model": "google:veo@3.1-lite",
+      "media_kind": "RUNWARE_VIDEO",
+      "status": "PRICED",
+      "billing_unit": "per_generated_video_second",
+      "unit_price": 0.05,
+      "currency": "USD",
+      "registry_version": "v2-runware-official-2026-08-09",
+      "source": "RUNWARE_OFFICIAL_MODEL_DOCUMENTATION",
+      "source_url": "https://runware.ai/docs/models/google-veo-3-1-lite",
+      "retrieved_at_utc": "2026-08-09T20:36:12Z",
+      "effective_at_utc": "2026-08-09T20:36:12Z",
+      "minimum_billing_unit": "one generated video second; request duration remains discrete",
+      "supported_durations_seconds": [4, 6, 8],
+      "variants": [
+        {
+          "id": "720p_no_audio",
+          "resolution": "720p",
+          "dimensions": [[1280, 720], [720, 1280]],
+          "generate_audio": false,
+          "billing_unit": "per_generated_video_second",
+          "unit_price": 0.05,
+          "currency": "USD"
+        },
+        {
+          "id": "1080p_no_audio",
+          "resolution": "1080p",
+          "dimensions": [[1920, 1080], [1080, 1920]],
+          "generate_audio": false,
+          "billing_unit": "per_generated_video_second",
+          "unit_price": 0.08,
+          "currency": "USD"
+        }
+      ],
+      "notes": "Official page lists 720p at $0.05/s and 1080p at $0.08/s; no audio surcharge is assumed because the planned request explicitly disables generateAudio."
+    },
+    {
+      "provider": "RUNWARE",
+      "model": "bytedance:seedream@5.0-pro",
+      "media_kind": "RUNWARE_IMAGE",
+      "status": "PRICED",
+      "billing_unit": "per_image",
+      "unit_price": 0.04815,
+      "currency": "USD",
+      "registry_version": "v2-runware-official-2026-08-09",
+      "source": "RUNWARE_OFFICIAL_MODEL_DOCUMENTATION",
+      "source_url": "https://runware.ai/docs/models/bytedance-seedream-5-0-pro",
+      "retrieved_at_utc": "2026-08-09T20:36:12Z",
+      "effective_at_utc": "2026-08-09T20:36:12Z",
+      "minimum_billing_unit": "one generated image",
+      "variants": [
+        {
+          "id": "1.5K",
+          "max_pixels": 2360000,
+          "billing_unit": "per_image",
+          "unit_price": 0.04815,
+          "currency": "USD"
+        },
+        {
+          "id": "2K",
+          "min_pixels": 2360001,
+          "max_pixels": 4624220,
+          "billing_unit": "per_image",
+          "unit_price": 0.0963,
+          "currency": "USD"
+        }
+      ],
+      "input_image_pricing": {
+        "first_input_image_price": 0.0,
+        "additional_input_image_price": 0.00321,
+        "currency": "USD"
+      },
+      "notes": "The approved route uses 1424x800 (1.1392 MP), which is within the official <=2.36 MP 1.5K tier; the plan has no reference inputs."
+    },
+    {
+      "provider": "RUNWARE",
+      "model": "google:4@3",
+      "media_kind": "RUNWARE_IMAGE",
+      "status": "PRICED",
+      "billing_unit": "per_image",
+      "unit_price": 0.06895,
+      "currency": "USD",
+      "registry_version": "v2-runware-official-2026-08-09",
+      "source": "RUNWARE_OFFICIAL_MODEL_DOCUMENTATION",
+      "source_url": "https://runware.ai/docs/models/google-nano-banana-2",
+      "retrieved_at_utc": "2026-08-09T20:36:12Z",
+      "effective_at_utc": "2026-08-09T20:36:12Z",
+      "minimum_billing_unit": "one generated image",
+      "variants": [
+        {"id": "0.5K", "billing_unit": "per_image", "unit_price": 0.04657, "currency": "USD"},
+        {"id": "1K", "dimensions": [[1376, 768]], "billing_unit": "per_image", "unit_price": 0.06895, "currency": "USD"},
+        {"id": "2K", "dimensions": [[2752, 1536]], "billing_unit": "per_image", "unit_price": 0.10255, "currency": "USD"},
+        {"id": "4K", "dimensions": [[5504, 3072]], "billing_unit": "per_image", "unit_price": 0.15295, "currency": "USD"}
+      ],
+      "input_image_pricing": {"additional_input_image_price": 0.00028, "currency": "USD"},
+      "grounded_search_addon": {"unit_price": 0.14, "currency": "USD"},
+      "notes": "The official 1K 16:9 dimension is 1376x768. The preserved proposal contains a legacy 1344x768 route, so its cost can be estimated at the 1K tier but the provider contract remains blocking until the route is regenerated."
+    }
+  ]
+}

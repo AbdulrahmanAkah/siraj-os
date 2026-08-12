@@ -5,7 +5,15 @@ import os
 from pathlib import Path
 import sys
 
-from .repository import find_repo_root
+if __package__ in {None, ""}:
+    # Support the documented direct launcher while keeping package imports
+    # canonical when invoked through ``python -m src.presentation.desktop``.
+    _REPO_ROOT = Path(__file__).resolve().parents[3]
+    if str(_REPO_ROOT) not in sys.path:
+        sys.path.insert(0, str(_REPO_ROOT))
+    from src.presentation.desktop.repository import find_repo_root
+else:
+    from .repository import find_repo_root
 
 
 def _parser() -> argparse.ArgumentParser:
@@ -33,7 +41,10 @@ def main(argv: list[str] | None = None) -> int:
         )
         return 5
 
-    from .main_window import SirajDesktopWindow
+    if __package__ in {None, ""}:
+        from src.presentation.desktop.main_window import SirajDesktopWindow
+    else:
+        from .main_window import SirajDesktopWindow
 
     args = _parser().parse_args(argv)
     repo_root = (
@@ -52,6 +63,9 @@ def main(argv: list[str] | None = None) -> int:
     application.setLayoutDirection(Qt.LayoutDirection.RightToLeft)
     application.setFont(QFont("Segoe UI", 10))
 
+    # The full designed dashboard is the user-facing composition root.  Its
+    # visible resume controls are injected with the ledger-backed canonical
+    # controller; opening the window remains read-only.
     window = SirajDesktopWindow(repo_root)
     window.show()
     return application.exec()

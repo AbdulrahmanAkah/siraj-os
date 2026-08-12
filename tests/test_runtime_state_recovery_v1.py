@@ -90,3 +90,58 @@ def test_valid_human_gate_is_not_rewritten(tmp_path: Path) -> None:
     assert diagnosis.needs_recovery is False
     result = recover_runtime_state_from_artifacts(repo)
     assert result.changed is False
+
+def test_pending_media_queue_outweighs_stale_final_master(
+    tmp_path: Path,
+) -> None:
+    repo = tmp_path / "repo"
+    episode = repo / "projects/episode-001-test"
+
+    final = episode / "deliverables/episode-master-v1.mp4"
+    final.parent.mkdir(parents=True, exist_ok=True)
+    final.write_bytes(b"stale-video")
+
+    write_json(
+        episode / "deliverables/episode-master-v1-receipt.json",
+        {"status": "COMPLETE"},
+    )
+    write_json(
+        episode / "orchestration/media-production-queue-v1.json",
+        {
+            "queues": {
+                "runware_images": [
+                    {"queue_id": "IMG-001", "status": "COMPLETE"}
+                ],
+                "runware_videos": [
+                    {
+                        "queue_id": "VID-001",
+                        "status": (
+                            "READY_EXPLICIT_PAID_AUTHORIZATION_REQUIRED"
+                        ),
+                    }
+                ],
+                "local_graphics": [],
+                "elevenlabs_tts": [],
+            }
+        },
+    )
+    write_json(
+        state_path(repo),
+        {
+            "current_episode_id": "episode-001-test",
+            "status": "FINAL_RENDER_READY_FOR_QA",
+            "stage": "AUTOMATIC_QA",
+        },
+    )
+
+    diagnosis = diagnose_runtime_state(repo)
+    assert diagnosis.needs_recovery is True
+    assert diagnosis.inferred_status == "MEDIA_QUEUE_READY"
+    assert diagnosis.inferred_stage == "DESKTOP_MEDIA_EXECUTION"
+    assert diagnosis.inferred_action == "OPEN_MEDIA_EXECUTION"
+
+    result = recover_runtime_state_from_artifacts(repo)
+    assert result.changed is True
+    assert result.recovered_status == "MEDIA_QUEUE_READY"
+    assert result.recovered_stage == "DESKTOP_MEDIA_EXECUTION"
+    assert result.recovered_action == "OPEN_MEDIA_EXECUTION"

@@ -6,9 +6,9 @@
     "output_tokens": 3726
   },
   "approved_scope_path_relative": null,
-  "audio_master_path_relative": "projects/episode-001-adam/audio/mix/episode-audio-master-v1.wav",
-  "audio_master_sha256": "f678193124943749856d7a0150d2bf14f93bf5b24ab08a7777116aeb370d524d",
-  "automatic_qa_report_path_relative": "projects/episode-001-adam/qa/automatic-qa-report-v1.json",
+  "audio_master_path_relative": "projects/episode-001-adam/audio/mix/production-standard-v2/episode-audio-master-v2.wav",
+  "audio_master_sha256": "2bbfc1af9c628a1ebaa60f8472a89f840e805db3f42fd4d85a6eb354e69c91f2",
+  "automatic_qa_report_path_relative": "projects/episode-001-adam/qa/automatic-qa-production-standard-v2.json",
   "automatic_qa_report_sha256": "769b311b69a1bc19e194a95f03f95f7016ce81199317c22b257bb4cb35170724",
   "autonomy_contract": {
     "automatic_after_scope_approval": true,
@@ -34,7 +34,7 @@
   "elevenlabs_key_recovery_release": "SIRAJ_ELEVENLABS_KEY_VALIDATION_AND_RECOVERY_V1",
   "elevenlabs_key_recovery_status": "NEW_VALID_KEY_REQUIRED",
   "final_master_path_relative": "projects/episode-001-adam/deliverables/episode-master-v1.mp4",
-  "final_master_sha256": "f8c6479579b415628f7ccd99b166a6ba506b2995bfb490f7ba71cca854dd4b91",
+  "final_master_sha256": "0844c07e460db732007daa82996b7d254e7266f8ffa1839b090497922c207dba",
   "full_episode_production_authorized": true,
   "full_stage_order": [
     "TOPIC_AND_EVENT_PROPOSAL",
@@ -52,7 +52,7 @@
     "HUMAN_FINAL_REVIEW",
     "READY_TO_PUBLISH"
   ],
-  "last_error": null,
+  "last_error": "[{\"code\": \"UNPLANNED_BLACK\", \"duration_seconds\": 10.066667}, {\"code\": \"UNPLANNED_BLACK\", \"duration_seconds\": 15.1}, {\"code\": \"UNPLANNED_BLACK\", \"duration_seconds\": 18.0}, {\"code\": \"UNPLANNED_BLACK\", \"duration_seconds\": 26.0}, {\"code\": \"UNPLANNED_BLACK\", \"duration_seconds\": 22.966667}, {\"code\": \"LONG_FREEZE\", \"duration_seconds\": 9.7}, {\"code\": \"LONG_FREEZE\", \"duration_seconds\": 18.0}, {\"code\": \"LONG_FREEZE\", \"duration_seconds\": 9.866667}, {\"code\": \"LONG_FREEZE\", \"duration_seconds\": 16.133333}, {\"code\": \"LONG_FREEZE\", \"duration_seconds\": 22.7}, {\"code\": \"UNPLANNED_SILENCE\", \"duration_seconds\": 15.439896}, {\"code\": \"UNPLANNED_SILENCE\", \"duration_seconds\": 119.42475}, {\"code\": \"UNPLANNED_SILENCE\", \"duration_seconds\": 160.42825}, {\"code\": \"UNPLANNED_SILENCE\", \"duration_seconds\": 16.297042}, {\"code\": \"UNPLANNED_SILENCE\", \"duration_seconds\": 35.483042}, {\"code\": \"UNPLANNED_SILENCE\", \"duration_seconds\": 14.829812}, {\"code\": \"UNPLANNED_SILENCE\", \"duration_seconds\": 50.127021}, {\"code\": \"UNPLANNED_SILENCE\", \"duration_seconds\": 22.948208}, {\"code\": \"UNPLANNED_SILENCE\", \"duration_seconds\": 33.624938}, {\"code\": \"UNPLANNED_SILENCE\", \"duration_seconds\": 15.946833}, {\"code\": \"UNPLANNED_SILENCE\", \"duration_seconds\": 48.473833}, {\"code\": \"UNPLANNED_SILENCE\", \"duration_seconds\": 120.452292}, {\"code\": \"UNPLANNED_SILENCE\", \"duration_seconds\": 110.522604}, {\"code\": \"UNPLANNED_SILENCE\", \"duration_seconds\": 15.250229}]",
   "last_provider_response_id": "resp_05b09ed93f17cc9d016a7392fa956881a0aec7fcfabcdb254c",
   "legacy_episode_adoption_release": "SIRAJ_EPISODE_001_PIPELINE_ADOPTION_V1",
   "legacy_episode_adoption_report_path_relative": "projects/episode-001-adam/orchestration/episode-001-pipeline-adoption-v1.json",
@@ -67,10 +67,10 @@
     "output_tokens": 3726
   },
   "media_queue_path_relative": "projects/episode-001-adam/orchestration/media-production-queue-v1.json",
-  "media_queue_sha256": "5bbb71644a25e2732e5ed20594d3b9282335d484792743073f1f7556402d58dd",
+  "media_queue_sha256": "511bd08e2fdcd0cf0b4e43f84ca7ea9578f906be65b9093add3e0841e9f368ce",
   "montage_pixel_format_recovery_release": "SIRAJ_MONTAGE_PIXEL_FORMAT_NORMALIZATION_AND_RECOVERY_V1",
   "montage_pixel_format_recovery_status": "READY_TO_RESUME",
-  "next_stage": "PRODUCTION_STANDARD_V2_NATIVE_MEDIA_EXECUTION",
+  "next_stage": "RESOLVE_V2_QA_BLOCKERS",
   "production_generation_id": "PSV2-ADAM-R1",
   "production_standard_v2_rebuild_state_rebase": {
     "automatic_paid_retry": "FORBIDDEN",
@@ -91,12 +91,24 @@
     "sfx": "LOCAL_FFMPEG_READY"
   },
   "release": "SIRAJ_AUTONOMOUS_EPISODE_ORCHESTRATOR_V1",
+  "runtime_state_recovery": {
+    "backup_path_relative": "projects/_orchestrator/runtime-state-backups/orchestrator-state-20260807T151617Z.json",
+    "evidence_paths": [
+      "projects\\episode-001-adam\\orchestration\\media-production-queue-v1.json"
+    ],
+    "previous_action": "OPEN_MEDIA_EXECUTION",
+    "previous_stage": "DESKTOP_MEDIA_EXECUTION",
+    "previous_status": "DESKTOP_MEDIA_EXECUTION_ACTIVE",
+    "reason": "MEDIA_QUEUE_HAS_PENDING_ITEMS",
+    "recovered_at_utc": "2026-08-07T15:16:17.364684Z",
+    "release": "SIRAJ_ACCEPTANCE_RESUME_BUTTON_RECOVERY_V1"
+  },
   "schema_version": "siraj-autonomous-episode-orchestrator-state-v1",
   "seedream_negative_prompt_recovery": "COMPLETE",
-  "sfx_audio_plan_path_relative": "projects/episode-001-adam/audio/sfx/sfx-audio-plan-v1.json",
-  "stage": "BUDGET_PREFLIGHT",
-  "status": "MEDIA_QUEUE_READY",
+  "sfx_audio_plan_path_relative": "projects/episode-001-adam/audio/sfx/production-standard-v2/sfx-audio-plan-v2.json",
+  "stage": "AUTOMATIC_QA",
+  "status": "AUTOMATIC_QA_BLOCKED",
   "stop_reason": null,
-  "structural_montage_plan_path_relative": "projects/episode-001-adam/orchestration/structural-montage-render-plan-v1.json",
-  "updated_at_utc": "2026-08-06T21:58:34.360223Z"
+  "structural_montage_plan_path_relative": "projects/episode-001-adam/orchestration/structural-montage-render-plan-v2.json",
+  "updated_at_utc": "2026-08-09T18:28:16.744307Z"
 }

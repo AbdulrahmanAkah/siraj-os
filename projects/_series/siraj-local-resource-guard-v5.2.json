@@ -1,0 +1,22 @@
+{
+  "schema_version": "siraj-local-resource-guard-v5.2",
+  "status": "ACTIVE",
+  "scope": "ALL_FUTURE_LUNA_CLIENT_PROCESSES",
+  "purpose": "KEEP_LOCAL_WINDOWS_MACHINE_RESPONSIVE_DURING_REMOTE_LUNA_WORK",
+  "local_controls": {
+    "windows_process_priority": "BELOW_NORMAL",
+    "windows_ecoqos": "REQUEST_WHEN_SUPPORTED",
+    "cpu_affinity_cap": null,
+    "fixed_sleep_or_pacing": null,
+    "native_math_thread_pool_default": 1
+  },
+  "remote_luna_controls": {
+    "reasoning_effort": "UNCHANGED_MAX",
+    "reasoning_mode": "UNCHANGED_PRO",
+    "iconic_cinematic_brain": "UNCHANGED_ACTIVE",
+    "assistant_authored_max_output_tokens": null,
+    "assistant_authored_call_limit": null,
+    "assistant_authored_cost_cap_usd": null
+  },
+  "automatic_paid_retry": false
+}

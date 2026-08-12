@@ -1,0 +1,50 @@
+{
+  "schema_version": "siraj-episode-restart-gate-v1",
+  "release": "SIRAJ_EPISODE002_RESTART_PHASE0_V1",
+  "episode_number": 2,
+  "status": "BLOCKED_UNTIL_ARCHITECTURE_HARDENING_PASS",
+  "old_preproduction_reuse": "FORBIDDEN",
+  "old_storyboard_reuse": "FORBIDDEN",
+  "old_source_pack_reuse": "FORBIDDEN_UNTIL_RESEARCHED_AND_REVALIDATED_FROM_ZERO",
+  "paid_generation": "FORBIDDEN",
+  "required_pipeline_order": [
+    "SOURCE_RESEARCH_FROM_ZERO",
+    "SOURCE_CLAIM_MATRIX",
+    "FINAL_SCRIPT",
+    "PRONUNCIATION_AND_PERFORMANCE_GATE",
+    "FINAL_TTS",
+    "AUDIO_TIMESTAMPS_AND_BEATS",
+    "AUDIO_BOUND_STORYBOARD",
+    "LUNA_SEMANTIC_PROMPT_DIRECTION",
+    "NARRATION_VISUAL_ALIGNMENT_GATE",
+    "PROMPT_SIMILARITY_AND_DUPLICATE_GATE",
+    "COST_PREFLIGHT_AND_ATTEMPT_LEDGER",
+    "EXPLICIT_PAID_AUTHORIZATION",
+    "PROVIDER_EXECUTION",
+    "LOCAL_ASSEMBLY_AND_QA"
+  ],
+  "hard_requirements": {
+    "narration_first": true,
+    "storyboard_must_be_derived_from_final_audio": true,
+    "episode_duration_must_follow_final_tts": true,
+    "hook_intro_pause_planned_in_tts": true,
+    "closing_performance_direction_required": true,
+    "short_pause_before_outro_required": true,
+    "persistent_outro_cta_master_required": true,
+    "generated_arabic_text_forbidden": true,
+    "visual_prompt_must_quote_or_bind_narration_beat": true,
+    "semantic_alignment_pre_spend_required": true,
+    "perceptual_duplicate_gate_required": true,
+    "append_only_attempt_cost_ledger_required": true,
+    "provider_task_uuid_must_persist_before_or_at_submission": true,
+    "automatic_paid_retry_forbidden": true,
+    "queue_specific_retry_authorization_required": true,
+    "provider_operation_count_reconciliation_required": true,
+    "luna_certification_required_before_provider_submission": true
+  },
+  "phase0": {
+    "apply_mode": true,
+    "episode2_directories_found": [],
+    "episode2_directories_archived": []
+  }
+}
