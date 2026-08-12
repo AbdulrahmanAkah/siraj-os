@@ -2722,3 +2722,43 @@ AUTOMATIC_PAID_RETRY=FALSE
 AUTOMATIC_PAID_RESUBMISSION=FALSE
 
 ========================================================
+
+========================================================
+EPISODE 002 SURGICAL VISUAL REPAIR V2.3 — 2026-08-12
+========================================================
+
+Status:
+PASS_AUTOMATED_V2_3_GATES_PENDING_HUMAN_TEMPORAL_AUDIT
+
+Completed:
+
+- Reduced V2.2 visual generation plan from 54 provider units / 362 provider seconds
+  to 23 provider units / 176 provider seconds.
+- Removed the generic support-generation explosion.
+- Kept only event-bearing surgical diversity anchors.
+- Fixed provider source-range capacity for consolidated generation units.
+- Canonical provider prompt is VISUAL_PROVIDER_PROMPT only.
+- Legacy COMPILED_PROVIDER_PROMPT is not consumable in V2.3 new shots.
+- Corrected Adam/Hawwa eating staging: occlusion/edit coverage; no fruit-through-fabric.
+- Corrected shared supplication.
+- Earth clips begin already on Earth; no provider-generated paradise-to-earth morph.
+- Musa core source-backed physical traits retained while authentic hair-texture variants remain non-canonicalized.
+- Separate Adam/Hawwa Earth staging classified as non-authoritative TIER_5 permissible lower-tier staging; exact geography forbidden.
+- Generated all-decoded-frame temporal contact sheets for every reused legacy video asset.
+- Full temporal female review remains human-gated.
+- No production network/provider/paid calls were made.
+- No visual generation was performed.
+- No montage was performed.
+
+Safety:
+
+STORYBOARD_STATUS=AWAITING_HUMAN_APPROVAL
+APPROVED_STORYBOARD_SHA256=NULL
+VISUAL_GENERATION_ALLOWED=FALSE
+TEMPORAL_FEMALE_HUMAN_REVIEW_STATUS=PENDING
+AUTOMATIC_PAID_RETRY=FALSE
+AUTOMATIC_PAID_RESUBMISSION=FALSE
+
+NEXT=HUMAN_STORYBOARD_V2_3_AND_TEMPORAL_FEMALE_AUDIT_REVIEW
+
+========================================================
