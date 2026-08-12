@@ -1,0 +1,319 @@
+{
+  "SCHEMA_VERSION": "EP002_CHARACTER_EVIDENCE_DOSSIERS_V2_4",
+  "EPISODE_ID": "episode-002-adam-temptation-fall-repentance",
+  "CONSTITUTION_VERSION": "SIRAJ_VISUAL_PRODUCTION_CONSTITUTION_V2_4",
+  "CONSTITUTION_SHA256": "5faa996be8ec9e4d18eb309d09bf4c561532829077997feb5d0320abfa8a7cfd",
+  "SOURCE_MATRIX": "projects/episode-002-adam-temptation-fall-repentance/research/source-claim-matrix-v5.json",
+  "SOURCE_MATRIX_SHA256": "af5ff737f69de1b4946b64fe245e8ff5da321af6cd810b551ce71b7611a49fef",
+  "SOURCE_PACKAGE": "projects/episode-002-adam-temptation-fall-repentance/research/canonical-source-package-v5.json",
+  "SOURCE_PACKAGE_SHA256": "64e2e79d12a77304fba935151076e780a25886cf7623f6cde16c403851c98d7b",
+  "HIGHER_TIER_RESEARCH_COMPLETED": true,
+  "HIGHER_TIERS_CHECKED": [
+    "TIER_1_QURAN",
+    "TIER_2_SAHIH_SUNNAH"
+  ],
+  "LOWER_TIERS_NOT_USED_AS_UNLABELLED_FACT": true,
+  "CHARACTERS": [
+    {
+      "CHARACTER_ID": "ADAM",
+      "SOURCE_BACKED_ATTRIBUTES": [
+        "Adam is the male participant in the garden, eating, error, repentance, and guidance passages.",
+        "Adam's creation-context stature is described as sixty cubits in authentic hadith."
+      ],
+      "UNKNOWN_ATTRIBUTES": [
+        "complexion",
+        "hair texture and colour",
+        "facial features",
+        "later-scene age and exact build",
+        "historically specified garment construction"
+      ],
+      "DISPUTED_ATTRIBUTES": [
+        "Whether the creation-stature report should be visually literal in a later scene."
+      ],
+      "CONTEXT_DEPENDENT_ATTRIBUTES": [
+        "The sixty-cubit stature belongs to a creation-context report and is not automatically applied to the later garden/earth staging."
+      ],
+      "SOURCE_REFERENCES": [
+        {
+          "SOURCE_ID": "SRC-002/SRC-003/SRC-004",
+          "TIER": "TIER_1_QURAN",
+          "REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/research/canonical-source-package-v5.json",
+          "CLAIM_SCOPE": "Adam and spouse are the named narrative participants in the garden, eating, error, repentance, descent, and guidance passages.",
+          "CERTAINTY": "HIGH",
+          "APPLICABILITY": "Narrative identity and actions; not physical complexion or costume."
+        },
+        {
+          "SOURCE_ID": "Bukhari-3326; Muslim-2841",
+          "TIER": "TIER_2_SAHIH_SUNNAH",
+          "REFERENCE": "https://sunnah.com/bukhari:3326; https://sunnah.com/muslim:2841",
+          "CLAIM_SCOPE": "Adam's creation stature is described as sixty cubits; later human stature is described as decreasing.",
+          "CERTAINTY": "HIGH",
+          "APPLICABILITY": "Creation-context source fact; applicability to the later visual scene is context-dependent and requires human review."
+        }
+      ],
+      "SOURCE_TIERS": [
+        "TIER_1_QURAN",
+        "TIER_2_SAHIH_SUNNAH",
+        "TIER_6_ART_DIRECTION"
+      ],
+      "PHYSICAL_APPEARANCE_CONTRACT": {
+        "SOURCE_BACKED": [
+          "creation-context stature: sixty cubits"
+        ],
+        "UNKNOWN": [
+          "complexion, facial details, hair details, later-scene exact build"
+        ],
+        "VISUAL_APPLICATION": "Do not force a scale comparison in the repaired shots; use a natural adult male silhouette and send the stature applicability to human review."
+      },
+      "WARDROBE_CONTRACT": {
+        "REQUIRED": [
+          "opaque loose non-body-defining garment",
+          "no exposed genital or torso detail"
+        ],
+        "NO_UNSUPPORTED_HISTORICAL_COSTUME": true
+      },
+      "FORBIDDEN_UNSUPPORTED_ASSUMPTIONS": [
+        "fair/white European complexion as an assumed fact",
+        "invented facial identity or age",
+        "literal sixty-cubit scale in a close shot without approval",
+        "modern clothing, text, props, or graphics"
+      ],
+      "ART_DIRECTION_DECISIONS": [
+        "continuity-safe adult male silhouette shared across garden and earth units",
+        "natural muted garment palette with no facial close-up requirement"
+      ],
+      "HUMAN_REVIEW_REQUIRED_ATTRIBUTES": [
+        "Applicability of the creation-stature report to the later visual timeline."
+      ],
+      "SOURCE_FACTS_AND_ART_DIRECTION_SEPARATED": true,
+      "VISUAL_BIBLE": {
+        "IDENTITY": "ADAM",
+        "CONTINUITY": "same adult male across all units",
+        "SOURCE_FACTS_USED": true
+      },
+      "RESEARCH_GATE": {
+        "HIGHER_TIER_LOOKUP_COMPLETED": true,
+        "MATERIAL_UNKNOWN_REVIEWED_BEFORE_DECLARATION": true,
+        "SOURCE_FACT_IS_NOT_ART_DIRECTION": true,
+        "UNKNOWN_REMAINS_UNKNOWN": true
+      }
+    },
+    {
+      "CHARACTER_ID": "HAWWA_SPOUSE",
+      "SOURCE_BACKED_ATTRIBUTES": [
+        "Adam's spouse is a shared narrative participant in the garden, eating, covering, repentance, descent, and guidance passages."
+      ],
+      "UNKNOWN_ATTRIBUTES": [
+        "complexion",
+        "hair, face, age, height, build, and bodily features",
+        "historically specified garment construction"
+      ],
+      "DISPUTED_ATTRIBUTES": [
+        "No source-backed physical features are accepted in this packet."
+      ],
+      "CONTEXT_DEPENDENT_ATTRIBUTES": [
+        "The name label HAWWA_SPOUSE is a production identity label, not a claim that the local Quran text supplies physical description."
+      ],
+      "SOURCE_REFERENCES": [
+        {
+          "SOURCE_ID": "SRC-002/SRC-003/SRC-004",
+          "TIER": "TIER_1_QURAN",
+          "REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/research/canonical-source-package-v5.json",
+          "CLAIM_SCOPE": "Adam's spouse participates in the shared garden, eating, error, covering, repentance, descent, and guidance narration.",
+          "CERTAINTY": "HIGH",
+          "APPLICABILITY": "Narrative role and shared actions; no physical features are specified by this package."
+        }
+      ],
+      "SOURCE_TIERS": [
+        "TIER_1_QURAN",
+        "TIER_6_ART_DIRECTION"
+      ],
+      "PHYSICAL_APPEARANCE_CONTRACT": {
+        "SOURCE_BACKED": [],
+        "UNKNOWN": [
+          "all physical features"
+        ],
+        "VISUAL_APPLICATION": "No source fact is invented; strict modesty is an art-direction and channel-policy requirement."
+      },
+      "WARDROBE_CONTRACT": {
+        "REQUIRED": [
+          "opaque",
+          "loose",
+          "full-body",
+          "head/hair/neck covered",
+          "non-body-defining"
+        ],
+        "FEMALE_VISIBLE_HAIR": false,
+        "FEMALE_VISIBLE_NECK": false,
+        "FEMALE_VISIBLE_ARMS": false,
+        "FEMALE_VISIBLE_LEGS": false,
+        "FEMALE_VISIBLE_TORSO_SKIN": false,
+        "FEMALE_VISIBLE_HANDS": false,
+        "FEMALE_BODY_CONTOUR_EMPHASIS": false,
+        "TIGHT_CLOTHING": false,
+        "TRANSPARENT_CLOTHING": false,
+        "REVEALING_CLOTHING": false,
+        "NUDE_OR_BODY_SHAPED_SILHOUETTE": false,
+        "FAIL_CLOSED_IF_PROVIDER_CANNOT_HOLD_CONTRACT": true
+      },
+      "FORBIDDEN_UNSUPPORTED_ASSUMPTIONS": [
+        "any legacy female visual reuse",
+        "visible hair, neck, arms, legs, torso skin, hands, body contour, or body-shaped silhouette",
+        "revealing, tight, transparent, wedding-like, or semi-bare clothing",
+        "omitting the spouse when the narration requires the shared action"
+      ],
+      "ART_DIRECTION_DECISIONS": [
+        "opaque loose full-body garment from first frame through last frame",
+        "head, hair, neck, body, and hands concealed; use safe distance/occlusion only as normal composition, never to salvage a legacy asset"
+      ],
+      "HUMAN_REVIEW_REQUIRED_ATTRIBUTES": [
+        "Every generated frame must be checked for strict coverage before any production use."
+      ],
+      "SOURCE_FACTS_AND_ART_DIRECTION_SEPARATED": true,
+      "VISUAL_BIBLE": {
+        "IDENTITY": "HAWWA_SPOUSE",
+        "SOURCE_PHYSICAL_FEATURES": "UNKNOWN",
+        "STRICT_MODESTY": true
+      },
+      "RESEARCH_GATE": {
+        "HIGHER_TIER_LOOKUP_COMPLETED": true,
+        "MATERIAL_UNKNOWN_REVIEWED_BEFORE_DECLARATION": true,
+        "SOURCE_FACT_IS_NOT_ART_DIRECTION": true,
+        "UNKNOWN_REMAINS_UNKNOWN": true
+      }
+    },
+    {
+      "CHARACTER_ID": "MUSA",
+      "SOURCE_BACKED_ATTRIBUTES": [
+        "Musa is the interlocutor in the limited Adam-Musa authentic-hadith dialogue.",
+        "Musa is described in authentic reports as brown-complexioned and tall/high in stature, with a substantial/sturdy build.",
+        "Authentic hadith variants differ on hair texture: Sahih al-Bukhari 3438 describes straight/lank hair (سبط), while Sahih al-Bukhari 5913 describes curly hair (جعد)."
+      ],
+      "UNKNOWN_ATTRIBUTES": [
+        "exact complexion shade beyond the source range",
+        "facial features, age, beard details, garment construction, and exact historical setting"
+      ],
+      "DISPUTED_ATTRIBUTES": [
+        "Hair texture has authentic variant descriptions (straight/lank and curly); V2.3 must not collapse the variants into one asserted canonical texture.",
+        "Comparison wording differs between authentic-hadith variants; no geographic or ethnic archetype is rendered as an identity claim."
+      ],
+      "CONTEXT_DEPENDENT_ATTRIBUTES": [
+        "The physical traits are continuity guidance for the debate unit, not a license to invent props, rooms, or unsupported biography."
+      ],
+      "SOURCE_REFERENCES": [
+        {
+          "SOURCE_ID": "SRC-005/SRC-006",
+          "TIER": "TIER_2_SAHIH_SUNNAH",
+          "REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/research/canonical-source-package-v5.json",
+          "CLAIM_SCOPE": "The Adam-Musa dialogue is a limited authentic-hadith context in the current source packet.",
+          "CERTAINTY": "HIGH",
+          "APPLICABILITY": "Dialogue identity and scope; not a license for graphics or invented props."
+        },
+        {
+          "SOURCE_ID": "Muslim-165a/165b; Muslim-168",
+          "TIER": "TIER_2_SAHIH_SUNNAH",
+          "REFERENCE": "https://sunnah.com/muslim/1/323; https://sunnah.com/muslim/1/324; https://sunnah.com/muslim/1/329",
+          "CLAIM_SCOPE": "Musa is described in variants as tall/high in stature, sturdy, with a brown or wheat-toned complexion and straight hair; wording and comparison vary by narration.",
+          "CERTAINTY": "HIGH_WITH_VARIANT_WORDING",
+          "APPLICABILITY": "Permitted source-backed visual traits for the Musa continuity group; exact shade and facial details remain unspecified."
+        },
+        {
+          "SOURCE_ID": "Bukhari-3438",
+          "TIER": "TIER_2_SAHIH_SUNNAH",
+          "REFERENCE": "https://sunnah.com/bukhari/60/109-111",
+          "CLAIM_SCOPE": "A variant describes Musa as tall, robust, with a brown complexion and straight hair.",
+          "CERTAINTY": "HIGH_WITH_VARIANT_WORDING",
+          "APPLICABILITY": "Use conservatively and consistently; do not convert variant phrasing into invented facial detail."
+        },
+        {
+          "SOURCE_ID": "Bukhari-5913",
+          "TIER": "TIER_2_SAHIH_SUNNAH",
+          "REFERENCE": "https://sunnah.com/bukhari:5913",
+          "CLAIM_SCOPE": "Authentic variant describing Musa as a brown-complexioned curly-haired man.",
+          "CERTAINTY": "HIGH_AUTHENTIC_VARIANT",
+          "APPLICABILITY": "Hair texture is variant evidence and must not be forced into one canonical rendering trait."
+        }
+      ],
+      "SOURCE_TIERS": [
+        "TIER_2_SAHIH_SUNNAH",
+        "TIER_6_ART_DIRECTION"
+      ],
+      "PHYSICAL_APPEARANCE_CONTRACT": {
+        "SOURCE_BACKED": [
+          "brown complexion",
+          "tall/high stature",
+          "substantial/sturdy build",
+          "hair texture has authentic variants: straight/lank and curly"
+        ],
+        "UNKNOWN": [
+          "exact complexion shade",
+          "facial features",
+          "age",
+          "beard details",
+          "garment construction",
+          "exact historical setting"
+        ],
+        "AUTHENTIC_VARIANT_ATTRIBUTES": {
+          "hair_texture": [
+            "straight/lank (Bukhari 3438)",
+            "curly (Bukhari 5913)"
+          ]
+        },
+        "VISUAL_APPLICATION": "Use brown complexion, tall/high stature, and sturdy build. Keep hair low-detail/non-emphasized at medium/wide distance; do not claim one texture as uniquely established."
+      },
+      "WARDROBE_CONTRACT": {
+        "REQUIRED": [
+          "opaque loose historically non-specific garment",
+          "same garment continuity across debate units"
+        ],
+        "FORBIDDEN_PROPS": [
+          "staff",
+          "book",
+          "table",
+          "scholar room",
+          "text card"
+        ]
+      },
+      "FORBIDDEN_UNSUPPORTED_ASSUMPTIONS": [
+        "generic fair/white European Musa without source basis",
+        "invented staff, book, table, classroom, scholar room, or graphic explainer",
+        "unrelated third character or continuity mutation"
+      ],
+      "ART_DIRECTION_DECISIONS": [
+        "same tall sturdy Musa across NEW-015/016/017",
+        "unmarked natural environment and two-person conversational axis"
+      ],
+      "HUMAN_REVIEW_REQUIRED_ATTRIBUTES": [
+        "Hair-texture authentic-variant handling before any close-detail generation.",
+        "Human review of source-backed traits and continuity before generation."
+      ],
+      "SOURCE_FACTS_AND_ART_DIRECTION_SEPARATED": true,
+      "VISUAL_BIBLE": {
+        "IDENTITY": "MUSA",
+        "SOURCE_BACKED_PHYSICAL_TRAITS": [
+          "brown complexion",
+          "tall/high stature",
+          "sturdy/substantial build"
+        ],
+        "CONTINUITY_GROUP": "MUSA_DEBATE_SHARED_SETUP",
+        "AUTHENTIC_VARIANTS": {
+          "hair_texture": [
+            "straight/lank",
+            "curly"
+          ]
+        },
+        "HAIR_RENDER_POLICY": "LOW_DETAIL_DO_NOT_CANONICALIZE_VARIANT"
+      },
+      "RESEARCH_GATE": {
+        "HIGHER_TIER_LOOKUP_COMPLETED": true,
+        "MATERIAL_UNKNOWN_REVIEWED_BEFORE_DECLARATION": true,
+        "SOURCE_FACT_IS_NOT_ART_DIRECTION": true,
+        "UNKNOWN_REMAINS_UNKNOWN": true
+      }
+    }
+  ],
+  "STATUS": "PASS_SOURCE_FACTS_AND_ART_DIRECTION_SEPARATED",
+  "UNKNOWN_ATTRIBUTES_REMAIN_UNKNOWN": true,
+  "SOURCE_FACTS_AND_ART_DIRECTION_SEPARATED": true,
+  "V2_4_NOTE": "No new physical-source claims added. V2.3 Musa authentic hair-texture variant handling remains authoritative."
+}

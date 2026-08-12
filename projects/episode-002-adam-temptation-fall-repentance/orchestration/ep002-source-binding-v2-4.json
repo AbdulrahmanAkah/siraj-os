@@ -1,0 +1,36 @@
+{
+  "SCHEMA_VERSION": "EP002_SOURCE_BINDING_V2_4",
+  "EPISODE_ID": "episode-002-adam-temptation-fall-repentance",
+  "CONSTITUTION_VERSION": "SIRAJ_VISUAL_PRODUCTION_CONSTITUTION_V2_4",
+  "CONSTITUTION_SHA256": "5faa996be8ec9e4d18eb309d09bf4c561532829077997feb5d0320abfa8a7cfd",
+  "SEPARATE_STAGING_SOURCE_STATUS": "TIER_5_PERMISSIBLE_LOWER_TIER_STAGING",
+  "SEPARATE_STAGING_SOURCE_TIER": "TIER_5_PERMISSIBLE_ISRAILIYYAT",
+  "SEPARATE_STAGING_SOURCE_LABEL": "EARLY_REPORT_VARIANTS_SUPPORT_SEPARATE_STAGING_WITHOUT_EXACT_LOCATION_ASSERTION",
+  "SEPARATE_STAGING_HUMAN_REVIEW_REQUIRED": true,
+  "EXACT_GEOGRAPHY_ASSERTED": false,
+  "LOWER_TIER_CONCRETE_REPORT_ACCEPTED": true,
+  "ISRAILIYYAT_FACT_USED": true,
+  "SOURCE_RECORDS": [
+    {
+      "SOURCE_TIER": "TIER_1_QURAN",
+      "SOURCE_LABEL": "Quranic descent and earth-settlement passages",
+      "CERTAINTY": "HIGH",
+      "ASSERTION_MODE": "SOURCE_FACT",
+      "ISRAILIYYAT_STATUS": "NOT_APPLICABLE"
+    },
+    {
+      "SOURCE_TIER": "TIER_5_PERMISSIBLE_ISRAILIYYAT",
+      "SOURCE_LABEL": "Early-report variants transmitted in Tafsir Ibn Kathir / Ibn Abi Hatim include separate landing-place reports for Adam and Hawwa; the reported exact locations conflict and are not authoritative.",
+      "SOURCE_REFERENCE": "https://quran.com/2:35/tafsirs/en-tafisr-ibn-kathir",
+      "CERTAINTY": "NON_AUTHORITATIVE_CONFLICTING_EARLY_REPORTS",
+      "ASSERTION_MODE": "PERMISSIBLE_VISUAL_STAGING_ONLY",
+      "ISRAILIYYAT_STATUS": "PERMISSIBLE_NON_CONFLICTING_STAGING",
+      "EXACT_LOCATIONS_RENDERABLE": false,
+      "EXACT_LOCATIONS_ASSERTED": false,
+      "HUMAN_REVIEW_REQUIRED": true
+    }
+  ],
+  "LOCAL_SOURCE_PACKAGE_REFERENCE": "projects/episode-002-adam-temptation-fall-repentance/research/canonical-source-package-v5.json",
+  "NOTE": "V2.3 permits only the non-authoritative staging idea that Adam and Hawwa may be shown in separate earthly environments. No exact landing place is named, mapped, or implied as Islamic certainty.",
+  "V2_4_NOTE": "Source hierarchy unchanged from V2.3. Separate Earth staging remains non-authoritative TIER_5 permissible lower-tier staging with exact geography suppressed."
+}
