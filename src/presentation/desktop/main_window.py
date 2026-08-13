@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from src.presentation.desktop.series_standard_v2_panel import install_series_standard_v2_dock
+from src.presentation.desktop.shorts_derivative_dock_v1 import install_shorts_derivative_dock
 
 from dataclasses import replace
 import json
@@ -124,6 +125,7 @@ class SirajDesktopWindow(QMainWindow):
         self.complete_workspace.set_dashboard(self._build_workspace())
         outer.addWidget(self.complete_workspace, 1)
         self.setCentralWidget(root)
+        install_shorts_derivative_dock(self)
 
     def _build_sidebar(self) -> QWidget:
         sidebar = QFrame()

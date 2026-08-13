@@ -1,0 +1,199 @@
+{
+  "capabilities": {
+    "AUDIO_EDIT": {
+      "implementation": "src/application/shorts_derivative_engine_v1.py",
+      "integration_point": "src/application/shorts_derivative_desktop_integration_v1.py",
+      "negative_tests": "tests/integration/test_shorts_derivative_adversarial_v1.py::audio_edit",
+      "status": "PASS",
+      "tests": "tests/unit/test_shorts_derivative_engine_v1.py::audio_edit"
+    },
+    "CACHE_INVALIDATION": {
+      "implementation": "src/application/shorts_derivative_engine_v1.py",
+      "integration_point": "src/application/shorts_derivative_desktop_integration_v1.py",
+      "negative_tests": "tests/integration/test_shorts_derivative_adversarial_v1.py::cache_invalidation",
+      "status": "PASS",
+      "tests": "tests/unit/test_shorts_derivative_engine_v1.py::cache_invalidation"
+    },
+    "CANDIDATE_DISCOVERY": {
+      "implementation": "src/application/shorts_derivative_engine_v1.py",
+      "integration_point": "src/application/shorts_derivative_desktop_integration_v1.py",
+      "negative_tests": "tests/integration/test_shorts_derivative_adversarial_v1.py::candidate_discovery",
+      "status": "PASS",
+      "tests": "tests/unit/test_shorts_derivative_engine_v1.py::candidate_discovery"
+    },
+    "CANDIDATE_SCORING": {
+      "implementation": "src/application/shorts_derivative_engine_v1.py",
+      "integration_point": "src/application/shorts_derivative_desktop_integration_v1.py",
+      "negative_tests": "tests/integration/test_shorts_derivative_adversarial_v1.py::candidate_scoring",
+      "status": "PASS",
+      "tests": "tests/unit/test_shorts_derivative_engine_v1.py::candidate_scoring"
+    },
+    "CAPTIONS_EXTERNAL_ONLY": {
+      "implementation": "src/application/shorts_derivative_engine_v1.py",
+      "integration_point": "src/application/shorts_derivative_desktop_integration_v1.py",
+      "negative_tests": "tests/integration/test_shorts_derivative_adversarial_v1.py::captions_external_only",
+      "status": "PASS",
+      "tests": "tests/unit/test_shorts_derivative_engine_v1.py::captions_external_only"
+    },
+    "CONSTITUTION_INHERITANCE": {
+      "implementation": "src/application/shorts_derivative_engine_v1.py",
+      "integration_point": "src/application/shorts_derivative_desktop_integration_v1.py",
+      "negative_tests": "tests/integration/test_shorts_derivative_adversarial_v1.py::constitution_inheritance",
+      "status": "PASS",
+      "tests": "tests/unit/test_shorts_derivative_engine_v1.py::constitution_inheritance"
+    },
+    "CONTEXT_ANALYSIS": {
+      "implementation": "src/application/shorts_derivative_engine_v1.py",
+      "integration_point": "src/application/shorts_derivative_desktop_integration_v1.py",
+      "negative_tests": "tests/integration/test_shorts_derivative_adversarial_v1.py::context_analysis",
+      "status": "PASS",
+      "tests": "tests/unit/test_shorts_derivative_engine_v1.py::context_analysis"
+    },
+    "CONTEXT_REPAIR": {
+      "implementation": "src/application/shorts_derivative_engine_v1.py",
+      "integration_point": "src/application/shorts_derivative_desktop_integration_v1.py",
+      "negative_tests": "tests/integration/test_shorts_derivative_adversarial_v1.py::context_repair",
+      "status": "PASS",
+      "tests": "tests/unit/test_shorts_derivative_engine_v1.py::context_repair"
+    },
+    "DETERMINISM": {
+      "implementation": "src/application/shorts_derivative_engine_v1.py",
+      "integration_point": "src/application/shorts_derivative_desktop_integration_v1.py",
+      "negative_tests": "tests/integration/test_shorts_derivative_adversarial_v1.py::determinism",
+      "status": "PASS",
+      "tests": "tests/unit/test_shorts_derivative_engine_v1.py::determinism"
+    },
+    "EPISODE_INTELLIGENCE": {
+      "implementation": "src/application/shorts_derivative_engine_v1.py",
+      "integration_point": "src/application/shorts_derivative_desktop_integration_v1.py",
+      "negative_tests": "tests/integration/test_shorts_derivative_adversarial_v1.py::episode_intelligence",
+      "status": "PASS",
+      "tests": "tests/unit/test_shorts_derivative_engine_v1.py::episode_intelligence"
+    },
+    "HUMAN_REVIEW": {
+      "implementation": "src/application/shorts_derivative_engine_v1.py",
+      "integration_point": "src/application/shorts_derivative_desktop_integration_v1.py",
+      "negative_tests": "tests/integration/test_shorts_derivative_adversarial_v1.py::human_review",
+      "status": "PASS",
+      "tests": "tests/unit/test_shorts_derivative_engine_v1.py::human_review"
+    },
+    "INGESTION": {
+      "implementation": "src/application/shorts_derivative_engine_v1.py",
+      "integration_point": "src/application/shorts_derivative_desktop_integration_v1.py",
+      "negative_tests": "tests/integration/test_shorts_derivative_adversarial_v1.py::ingestion",
+      "status": "PASS",
+      "tests": "tests/unit/test_shorts_derivative_engine_v1.py::ingestion"
+    },
+    "LOCAL_RENDER": {
+      "implementation": "src/application/shorts_derivative_engine_v1.py",
+      "integration_point": "src/application/shorts_derivative_desktop_integration_v1.py",
+      "negative_tests": "tests/integration/test_shorts_derivative_adversarial_v1.py::local_render",
+      "status": "PASS",
+      "tests": "tests/unit/test_shorts_derivative_engine_v1.py::local_render"
+    },
+    "LONGFORM_CONVERSION_SCORING": {
+      "implementation": "src/application/shorts_derivative_engine_v1.py",
+      "integration_point": "src/application/shorts_derivative_desktop_integration_v1.py",
+      "negative_tests": "tests/integration/test_shorts_derivative_adversarial_v1.py::longform_conversion_scoring",
+      "status": "PASS",
+      "tests": "tests/unit/test_shorts_derivative_engine_v1.py::longform_conversion_scoring"
+    },
+    "NARRATION_VISUAL_ALIGNMENT": {
+      "implementation": "src/application/shorts_derivative_engine_v1.py",
+      "integration_point": "src/application/shorts_derivative_desktop_integration_v1.py",
+      "negative_tests": "tests/integration/test_shorts_derivative_adversarial_v1.py::narration_visual_alignment",
+      "status": "PASS",
+      "tests": "tests/unit/test_shorts_derivative_engine_v1.py::narration_visual_alignment"
+    },
+    "NETWORK_BOUNDARY": {
+      "implementation": "src/application/shorts_derivative_engine_v1.py",
+      "integration_point": "src/application/shorts_derivative_desktop_integration_v1.py",
+      "negative_tests": "tests/integration/test_shorts_derivative_adversarial_v1.py::network_boundary",
+      "status": "PASS",
+      "tests": "tests/unit/test_shorts_derivative_engine_v1.py::network_boundary"
+    },
+    "PORTFOLIO_DIVERSITY": {
+      "implementation": "src/application/shorts_derivative_engine_v1.py",
+      "integration_point": "src/application/shorts_derivative_desktop_integration_v1.py",
+      "negative_tests": "tests/integration/test_shorts_derivative_adversarial_v1.py::portfolio_diversity",
+      "status": "PASS",
+      "tests": "tests/unit/test_shorts_derivative_engine_v1.py::portfolio_diversity"
+    },
+    "PROVIDER_BOUNDARY": {
+      "implementation": "src/application/shorts_derivative_engine_v1.py",
+      "integration_point": "src/application/shorts_derivative_desktop_integration_v1.py",
+      "negative_tests": "tests/integration/test_shorts_derivative_adversarial_v1.py::provider_boundary",
+      "status": "PASS",
+      "tests": "tests/unit/test_shorts_derivative_engine_v1.py::provider_boundary"
+    },
+    "PUBLICATION_BOUNDARY": {
+      "implementation": "src/application/shorts_derivative_engine_v1.py",
+      "integration_point": "src/application/shorts_derivative_desktop_integration_v1.py",
+      "negative_tests": "tests/integration/test_shorts_derivative_adversarial_v1.py::publication_boundary",
+      "status": "PASS",
+      "tests": "tests/unit/test_shorts_derivative_engine_v1.py::publication_boundary"
+    },
+    "PUBLISH_ORDER": {
+      "implementation": "src/application/shorts_derivative_engine_v1.py",
+      "integration_point": "src/application/shorts_derivative_desktop_integration_v1.py",
+      "negative_tests": "tests/integration/test_shorts_derivative_adversarial_v1.py::publish_order",
+      "status": "PASS",
+      "tests": "tests/unit/test_shorts_derivative_engine_v1.py::publish_order"
+    },
+    "RENDER_VALIDATION": {
+      "implementation": "src/application/shorts_derivative_engine_v1.py",
+      "integration_point": "src/application/shorts_derivative_desktop_integration_v1.py",
+      "negative_tests": "tests/integration/test_shorts_derivative_adversarial_v1.py::render_validation",
+      "status": "PASS",
+      "tests": "tests/unit/test_shorts_derivative_engine_v1.py::render_validation"
+    },
+    "SOURCE_HASHING": {
+      "implementation": "src/application/shorts_derivative_engine_v1.py",
+      "integration_point": "src/application/shorts_derivative_desktop_integration_v1.py",
+      "negative_tests": "tests/integration/test_shorts_derivative_adversarial_v1.py::source_hashing",
+      "status": "PASS",
+      "tests": "tests/unit/test_shorts_derivative_engine_v1.py::source_hashing"
+    },
+    "SPOILER_CONTROL": {
+      "implementation": "src/application/shorts_derivative_engine_v1.py",
+      "integration_point": "src/application/shorts_derivative_desktop_integration_v1.py",
+      "negative_tests": "tests/integration/test_shorts_derivative_adversarial_v1.py::spoiler_control",
+      "status": "PASS",
+      "tests": "tests/unit/test_shorts_derivative_engine_v1.py::spoiler_control"
+    },
+    "TRANSCRIPT_BINDING": {
+      "implementation": "src/application/shorts_derivative_engine_v1.py",
+      "integration_point": "src/application/shorts_derivative_desktop_integration_v1.py",
+      "negative_tests": "tests/integration/test_shorts_derivative_adversarial_v1.py::transcript_binding",
+      "status": "PASS",
+      "tests": "tests/unit/test_shorts_derivative_engine_v1.py::transcript_binding"
+    },
+    "VERTICAL_REFRAME": {
+      "implementation": "src/application/shorts_derivative_engine_v1.py",
+      "integration_point": "src/application/shorts_derivative_desktop_integration_v1.py",
+      "negative_tests": "tests/integration/test_shorts_derivative_adversarial_v1.py::vertical_reframe",
+      "status": "PASS",
+      "tests": "tests/unit/test_shorts_derivative_engine_v1.py::vertical_reframe"
+    }
+  },
+  "capability_boundary": {
+    "forbidden_capability_tokens": [],
+    "forbidden_imports": [],
+    "local_renderer_creative_authority": false,
+    "module": "C:\\SIRAJ\\Repositories\\siraj-os\\src\\application\\shorts_derivative_engine_v1.py",
+    "network_boundary": "LOCAL_ONLY",
+    "paid_boundary": "FORBIDDEN",
+    "pass": true,
+    "provider_boundary": "FORBIDDEN",
+    "short_analyzer_can_call_provider": false,
+    "short_qa_can_call_paid_provider": false,
+    "short_renderer_can_call_provider": false,
+    "short_scorer_can_call_provider": false,
+    "shorts_engine_can_auto_publish": false,
+    "shorts_engine_can_upload_youtube": false
+  },
+  "constitution_bundle_sha256": "77c451711eb1888664518c9fe89e176033fdf7612f4636e18c0e0ca4d3af4f54",
+  "constitution_version": "1.0.0",
+  "manifest_id": "SHORTS_ENGINE_COVERAGE_MANIFEST_V1",
+  "schema_version": "siraj-shorts-derivative-engine-v1"
+}

@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "profile"],
+  "properties": {
+    "schema_version": {"const": "siraj-shorts-derivative-profile-v1"},
+    "profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "profile_id", "version", "media_type", "output_orientation", "aspect_ratio",
+        "source_policy", "new_visual_generation", "new_narration_generation", "new_tts_generation",
+        "music", "burned_captions", "on_screen_subtitles", "external_closed_captions_allowed",
+        "public_title_generation", "thumbnail_generation", "automatic_publication", "max_shorts_per_day",
+        "target_duration_min_seconds", "target_duration_max_seconds", "duration_values_are",
+        "quality_over_slot_filling", "candidate_count_is_dynamic", "publication_count_is_dynamic",
+        "no_silent_defaults", "hard_gates", "scoring_weights", "candidate_types",
+        "constitutional_domains", "capability_contract"
+      ],
+      "properties": {
+        "profile_id": {"const": "SIRAJ_SHORTS_DERIVATIVE_PROFILE_V1"},
+        "version": {"const": "1.0.0"},
+        "media_type": {"const": "SHORT_DERIVATIVE"},
+        "output_orientation": {"const": "VERTICAL"},
+        "aspect_ratio": {"const": "9:16"},
+        "source_policy": {"const": "EXISTING_EPISODE_MATERIAL_ONLY"},
+        "new_visual_generation": {"const": false},
+        "new_narration_generation": {"const": false},
+        "new_tts_generation": {"const": false},
+        "music": {"const": false},
+        "burned_captions": {"const": false},
+        "on_screen_subtitles": {"const": false},
+        "external_closed_captions_allowed": {"const": true},
+        "public_title_generation": {"const": false},
+        "thumbnail_generation": {"const": false},
+        "automatic_publication": {"const": false},
+        "max_shorts_per_day": {"const": 1},
+        "target_duration_min_seconds": {"type": "number", "exclusiveMinimum": 0},
+        "target_duration_max_seconds": {"type": "number", "exclusiveMinimum": 0},
+        "duration_values_are": {"const": "CREATOR_STRATEGY_VALUES_NOT_PLATFORM_LIMITS"},
+        "quality_over_slot_filling": {"const": true},
+        "candidate_count_is_dynamic": {"const": true},
+        "publication_count_is_dynamic": {"const": true},
+        "no_silent_defaults": {"const": true},
+        "hard_gates": {
+          "type": "object",
+          "additionalProperties": {"type": "number", "minimum": 0, "maximum": 1},
+          "minProperties": 6
+        },
+        "scoring_weights": {
+          "type": "object",
+          "additionalProperties": {"type": "number", "minimum": 0},
+          "minProperties": 13
+        },
+        "candidate_types": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "constitutional_domains": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "capability_contract": {
+          "type": "object",
+          "additionalProperties": {"const": false},
+          "minProperties": 7
+        }
+      }
+    }
+  }
+}

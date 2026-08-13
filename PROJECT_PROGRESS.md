@@ -2901,3 +2901,46 @@ Safety:
 NEXT=WAIT_FOR_NEW_EXPLICIT_HUMAN_AUTHORIZATION
 
 ========================================================
+
+========================================================
+SIRAJ SHORTS DERIVATIVE ENGINE V1 - 2026-08-14
+========================================================
+
+Status:
+SHORTS_DERIVATIVE_ENGINE_V1_PASS_FOR_OFFLINE_CERTIFICATION
+
+Implementation:
+- Added the constitutional, extractive Shorts Director pipeline from local episode ingestion through intelligence, candidate discovery, explainable scoring, portfolio selection, context repair, shot-by-shot vertical reframe, source-audio editing, immutable render plans, local fixture rendering, QA, and human review/export contracts.
+- Added versioned SIRAJ_SHORTS_DERIVATIVE_PROFILE_V1 with no silent defaults, creator-strategy duration values, dynamic candidate/publication counts, external captions only, and no provider/network/paid/publication capability.
+- Added an integration point in the existing Desktop application; no second GUI was created. Public title and thumbnail remain human-owned.
+- Reused the unified constitution loader/enforcement and hash-bound provenance primitives. The unified constitution and core enforcement module were not modified.
+
+Certification:
+- Shorts unit/integration/adversarial/renderer suite: 28 passed, 0 failed.
+- Constitutional enforcement suite: 338 passed, 0 failed.
+- Constitutional adversarial/runtime/global regressions: 150 passed, 0 failed.
+- Full repository suite: 724 passed, 0 failed, 1 existing live-provider opt-in skip.
+- Python compileall and git diff checks: PASS.
+- Desktop Shorts dock offscreen construction: PASS.
+- Local renderer determinism, source immutability, exact plan binding, and hash-bound export: PASS.
+
+Safety:
+- Provider calls: 0.
+- Paid calls: 0.
+- Network production calls: 0.
+- YouTube API calls: 0.
+- Real episode short renders during certification: 0.
+- New TTS/visual generations: 0/0.
+- Music additions, automatic title/thumbnail generation, uploads, and publications: 0/0/0/0/0.
+- OPEN-M03 remains deferred; uncalibrated face detection cannot grant final visual PASS.
+- Real episode execution remains NO_GO pending explicit human authorization.
+
+Authority:
+- Unified constitution: SIRAJ_UNIFIED_PRODUCTION_CONSTITUTION 1.0.0.
+- Constitution bundle SHA256: 77c451711eb1888664518c9fe89e176033fdf7612f4636e18c0e0ca4d3af4f54.
+- Shorts profile: SIRAJ_SHORTS_DERIVATIVE_PROFILE_V1.
+- Certification packet: reports/shorts-derivative-engine-v1/.
+
+NEXT=USER_PROVIDES_SELECTED_EPISODE_FOR_FIRST_CONTROLLED_SHORTS_RUN
+
+========================================================
