@@ -1,0 +1,26 @@
+{
+    "schema_version":  "siraj-ep002-v24-production-arm-causality-v1",
+    "status":  "PASS_GREEN_CURRENT",
+    "baseline_commit":  "2d975f8881923e7868382905c9b25dfcb1b4f78e",
+    "baseline_default_full_pytest_status":  "PASS_KNOWN_PREEXISTING_UNTRACKED_FIXTURE_DEPENDENCY",
+    "baseline_default_full_pytest_returncode":  1,
+    "baseline_default_failed_nodeids":  [
+                                            "tests/regression/test_paid_retry_canonical_identity_v12.py::test_certification_records_exact_desktop_safe_boundary"
+                                        ],
+    "baseline_known_untracked_fixture_dependency":  "projects/episode-002-adam-temptation-fall-repentance/orchestration/ep002-paid-retry-canonical-identity-release-certification-v12-final.json",
+    "current_legacy_returncode":  0,
+    "baseline_legacy_returncode":  1,
+    "current_failed_nodeids":  [
+
+                               ],
+    "baseline_failed_nodeids":  [
+                                    "tests/regression/test_paid_retry_canonical_identity_v12.py::test_certification_records_exact_desktop_safe_boundary"
+                                ],
+    "patch_induced_failed_nodeids":  [
+
+                                     ],
+    "automatic_paid_retry":  false,
+    "automatic_paid_resubmission":  false,
+    "provider_calls":  0,
+    "paid_calls":  0
+}

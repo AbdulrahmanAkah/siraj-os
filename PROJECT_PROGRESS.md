@@ -2798,3 +2798,69 @@ AUTOMATIC_PAID_RESUBMISSION=FALSE
 NEXT=HUMAN_STORYBOARD_V2_4_FINAL_REVIEW
 
 ========================================================
+
+========================================================
+EPISODE 002 V2.4 PRODUCTION ARM FIX3 - 2026-08-13
+========================================================
+
+Status:
+PASS_READY_FOR_EXPLICIT_DESKTOP_FIRST_ATTEMPT_START
+
+Authority:
+- Storyboard SHA256: a01f945615bbd18409745607b98fba87bba39c71ffa99bc2019cc0462c9faef8
+- Provider-plan SHA256: 3ea9b8d751fd7f75433128e031c462e1837f633c4df99317660ebacf7234c152
+- 27 Veo 3.1 Lite first-attempt units / 208 provider seconds.
+- Planned cost USD 10.40; hard cap USD 12.00.
+
+FIX3 certification:
+- Exact baseline default full pytest: PASS_KNOWN_PREEXISTING_UNTRACKED_FIXTURE_DEPENDENCY.
+- Hard V2.4 release tests: PASS.
+- Legacy provider tests: PASS_GREEN_CURRENT.
+- Post-change default full pytest: PASS_GREEN_CURRENT.
+- No provider/paid generation occurred during recovery.
+- Stage-level completion receipt is now readable after all 27 durable completions.
+- Final render review package uses ALL decoded frames in 8x8 contact sheets, not 1-fps sampling.
+
+Safety:
+- First attempts only.
+- Stop on first FAILED / UNKNOWN / unresolved.
+- No automatic paid retry or resubmission.
+- No montage or QA until human render-conformance review.
+- Desktop click remains mandatory for first paid request.
+
+NEXT=EXPLICIT_DESKTOP_V24_FIRST_ATTEMPT_START
+
+========================================================
+
+========================================================
+EPISODE 002 V2.4 PRODUCTION ARM FIX5 - 2026-08-13
+========================================================
+
+Status:
+PASS_READY_FOR_EXPLICIT_DESKTOP_FIRST_ATTEMPT_START
+
+Authority:
+- Storyboard SHA256: a01f945615bbd18409745607b98fba87bba39c71ffa99bc2019cc0462c9faef8
+- Provider-plan SHA256: 3ea9b8d751fd7f75433128e031c462e1837f633c4df99317660ebacf7234c152
+- 27 Veo 3.1 Lite first-attempt units / 208 provider seconds.
+- Planned cost USD 10.40; hard cap USD 12.00.
+
+FIX5 certification:
+- Exact baseline default full pytest: PASS_KNOWN_PREEXISTING_UNTRACKED_FIXTURE_DEPENDENCY.
+- Hard V2.4 release tests: PASS.
+- Legacy provider tests: PASS_GREEN_CURRENT.
+- Post-change default full pytest: PASS_GREEN_CURRENT.
+- No provider/paid generation occurred during recovery.
+- Stage-level completion receipt is now readable after all 27 durable completions.
+- Final render review package uses ALL decoded frames in 8x8 contact sheets, not 1-fps sampling.
+
+Safety:
+- First attempts only.
+- Stop on first FAILED / UNKNOWN / unresolved.
+- No automatic paid retry or resubmission.
+- No montage or QA until human render-conformance review.
+- Desktop click remains mandatory for first paid request.
+
+NEXT=EXPLICIT_DESKTOP_V24_FIRST_ATTEMPT_START
+
+========================================================

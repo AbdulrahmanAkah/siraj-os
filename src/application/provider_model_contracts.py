@@ -55,6 +55,9 @@ RUNWARE_VIDEO_FIELDS = frozenset(
         "deliveryMethod",
         "includeCost",
         "providerSettings",
+        "resolution",
+        "inputs",
+        "seed",
     }
 )
 RUNWARE_IMAGE_FIELDS = frozenset(
@@ -166,8 +169,88 @@ def validate_runware_task(
             or duration not in VEO_31_SUPPORTED_DURATIONS_SECONDS
         ):
             raise ProviderModelContractError("VEO31_DURATION_OUT_OF_CONTRACT")
-        if (provider_payload.get("width"), provider_payload.get("height")) not in VEO_31_720P_DIMENSIONS:
-            raise ProviderModelContractError("VEO31_DIMENSIONS_INVALID")
+        # SIRAJ_EP002_V24_FRAME_CONTINUITY_CONTRACT_V1
+        inputs = provider_payload.get("inputs")
+        has_width = "width" in provider_payload
+        has_height = "height" in provider_payload
+        resolution = provider_payload.get("resolution")
+        if inputs is not None:
+            if has_width or has_height:
+                raise ProviderModelContractError(
+                    "VEO31_FRAME_IMAGES_DIMENSIONS_CONFLICT"
+                )
+            if resolution != "720p":
+                raise ProviderModelContractError(
+                    "VEO31_FRAME_IMAGES_720P_RESOLUTION_REQUIRED"
+                )
+            if not isinstance(inputs, Mapping) or set(inputs) != {"frameImages"}:
+                raise ProviderModelContractError(
+                    "VEO31_FRAME_IMAGES_INPUTS_INVALID"
+                )
+            frame_images = inputs.get("frameImages")
+            if (
+                not isinstance(frame_images, list)
+                or not 1 <= len(frame_images) <= 2
+            ):
+                raise ProviderModelContractError(
+                    "VEO31_FRAME_IMAGES_COUNT_INVALID"
+                )
+            positions: set[str] = set()
+            for frame_item in frame_images:
+                if isinstance(frame_item, str):
+                    if not frame_item.strip():
+                        raise ProviderModelContractError(
+                            "VEO31_FRAME_IMAGE_EMPTY"
+                        )
+                    continue
+                if not isinstance(frame_item, Mapping):
+                    raise ProviderModelContractError(
+                        "VEO31_FRAME_IMAGE_OBJECT_INVALID"
+                    )
+                if set(frame_item) - {"image", "frame"}:
+                    raise ProviderModelContractError(
+                        "VEO31_FRAME_IMAGE_FIELDS_INVALID"
+                    )
+                image_value = str(frame_item.get("image") or "").strip()
+                frame_value = str(frame_item.get("frame") or "").strip()
+                if not image_value:
+                    raise ProviderModelContractError(
+                        "VEO31_FRAME_IMAGE_EMPTY"
+                    )
+                if frame_value not in {"first", "last", "0", "-1"}:
+                    raise ProviderModelContractError(
+                        "VEO31_FRAME_IMAGE_POSITION_INVALID"
+                    )
+                normalized_position = (
+                    "first" if frame_value in {"first", "0"} else "last"
+                )
+                if normalized_position in positions:
+                    raise ProviderModelContractError(
+                        "VEO31_FRAME_IMAGE_POSITION_DUPLICATE"
+                    )
+                positions.add(normalized_position)
+        else:
+            if (
+                not has_width
+                or not has_height
+                or (
+                    provider_payload.get("width"),
+                    provider_payload.get("height"),
+                )
+                not in VEO_31_720P_DIMENSIONS
+            ):
+                raise ProviderModelContractError("VEO31_DIMENSIONS_INVALID")
+            if resolution is not None:
+                raise ProviderModelContractError(
+                    "VEO31_RESOLUTION_WITHOUT_FRAME_IMAGES_FORBIDDEN"
+                )
+        seed = provider_payload.get("seed")
+        if seed is not None and (
+            not isinstance(seed, int)
+            or isinstance(seed, bool)
+            or not 0 <= seed <= 4294967295
+        ):
+            raise ProviderModelContractError("VEO31_SEED_INVALID")
         if provider_payload.get("numberResults") != 1:
             raise ProviderModelContractError("VEO31_ONE_RESULT_REQUIRED")
         settings = provider_payload.get("providerSettings")
