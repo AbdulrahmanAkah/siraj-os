@@ -8,6 +8,11 @@ from pathlib import Path
 
 import pytest
 
+from historical_append_only_state_v1 import (
+    exclude_ep002_post_rejection_replacement_result,
+    materialize_ep002_provider_execution_ready,
+)
+
 from src.application.artifact_provenance_v1 import read_jsonl, sha256_file
 from src.application.desktop_media_cost_preflight_v1 import (
     read_persisted_media_cost_preflight,
@@ -82,6 +87,8 @@ def _clone(tmp_path: Path) -> Path:
     )
     if consumption.is_file():
         consumption.unlink()
+    materialize_ep002_provider_execution_ready(root)
+    exclude_ep002_post_rejection_replacement_result(root)
     return root
 
 

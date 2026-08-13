@@ -8,6 +8,10 @@ from pathlib import Path
 
 import pytest
 
+from historical_append_only_state_v1 import (
+    materialize_ep002_provider_execution_ready,
+)
+
 from src.application.artifact_provenance_v1 import read_jsonl
 from src.application.desktop_provider_execution_v1 import (
     CanonicalDesktopProviderExecutionExecutor,
@@ -40,6 +44,10 @@ def _actual_state_clone(tmp_path: Path) -> Path:
     )
     for rel in ("projects/_series", "projects/_orchestrator"):
         _copy(REPO / rel, root / rel)
+    materialize_ep002_provider_execution_ready(
+        root,
+        retain_unfinished_provider_session=True,
+    )
     return root
 
 
@@ -156,6 +164,18 @@ def test_recovery_helper_is_fail_closed_for_unsafe_reconciliation(
             **safe,
             "pending_attempts": [{"request_id": "PENDING-NO-OP-ID"}],
             "blocked_requests": [{"request_id": "PENDING-NO-OP-ID"}],
+        },
+    ) is None
+
+    assert _siraj_provider_execution_recovery_session_v2(
+        fixture,
+        EPISODE_002,
+        {
+            **safe,
+            "pending_attempts": ["PENDING-NO-OP-ID"],
+            "provider_operation_ids": {},
+            "request_attempts": {"PENDING-REQUEST": "PENDING-NO-OP-ID"},
+            "blocked_requests": ["PENDING-REQUEST"],
         },
     ) is None
 

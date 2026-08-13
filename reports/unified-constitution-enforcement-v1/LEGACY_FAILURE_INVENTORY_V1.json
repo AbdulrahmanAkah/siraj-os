@@ -1,0 +1,206 @@
+{
+  "schema_version": "siraj-legacy-failure-inventory-v1",
+  "task": "SIRAJ_E6_LEGACY_COMPATIBILITY_RECOVERY_AND_E7_FINAL_RECERTIFICATION_V1",
+  "initial_evidence": {
+    "path": "test-evidence/relevant-repository-suite-recovery-v1.xml",
+    "sha256": "f7fee30b11326ebee3042ff8b034734a8aa9990633880f94f73809c8e5c9dcdb",
+    "tests": 206,
+    "passed": 191,
+    "failures": 15,
+    "errors": 0,
+    "skipped": 0
+  },
+  "root_cause_groups": [
+    {
+      "group_id": "LFG-ALIGNMENT-HISTORY",
+      "count": 3,
+      "classification": "LEGACY_FIXTURE_STALE",
+      "error_code": "AUTHORITATIVE_ALIGNMENT_STATE_REQUIRED",
+      "root_cause": "Preserved-candidate review used the live final episode projection even though the candidate belongs to an earlier append-only alignment-failure head.",
+      "fix": "Permit review-only salvage to select the latest evidence-bound historical FAILED entry while preserving the live execution preflight requirement. Every authority artifact must match the hashes in that immutable failure entry."
+    },
+    {
+      "group_id": "LFG-PROVIDER-STAGE-HISTORY",
+      "count": 11,
+      "classification": "LEGACY_FIXTURE_STALE",
+      "error_code": "PREFLIGHT_REVIEW_REQUIRES_PROVIDER_EXECUTION_STAGE",
+      "root_cause": "Provider-stage tests cloned the mutable final episode state after it had advanced beyond PROVIDER_EXECUTION.",
+      "fix": "Materialize clone-only append-only ledger prefixes at verified historical receipt hashes; remove only verified later evidence from the clone when testing an earlier terminal-rejection instant."
+    },
+    {
+      "group_id": "LFG-UNFINISHED-SESSION-HISTORY",
+      "count": 1,
+      "classification": "LEGACY_FIXTURE_STALE",
+      "error_code": "UNFINISHED_SESSION_REQUIRED",
+      "root_cause": "The live stage receipt ledger now contains STAGE_COMPLETED, so no unfinished session remains at its current head.",
+      "fix": "Materialize the clone at the verified RESULTS_PERSISTED receipt head before STAGE_COMPLETED."
+    }
+  ],
+  "failures": [
+    {
+      "test_id": "tests.test_siraj_cinematic_director_v2::test_v2_is_backward_compatible_with_preserved_v1_candidate_and_never_calls_provider",
+      "error_type": "ControlledAlignmentValidationError",
+      "error_code": "AUTHORITATIVE_ALIGNMENT_STATE_REQUIRED",
+      "stack_root": "preserved_alignment_candidate_salvage_v1.derive_salvage_view -> controlled_alignment_validation_v1._preflight",
+      "affected_module": "src/application/controlled_alignment_validation_v1.py",
+      "likely_layer": "historical authority projection",
+      "initial_classification": "LEGACY_FIXTURE_STALE"
+    },
+    {
+      "test_id": "tests.test_siraj_cinematic_director_v2::test_v2_rejects_structural_mutation",
+      "error_type": "ControlledAlignmentValidationError",
+      "error_code": "AUTHORITATIVE_ALIGNMENT_STATE_REQUIRED",
+      "stack_root": "preserved_alignment_candidate_salvage_v1.derive_salvage_view -> controlled_alignment_validation_v1._preflight",
+      "affected_module": "src/application/controlled_alignment_validation_v1.py",
+      "likely_layer": "historical authority projection",
+      "initial_classification": "LEGACY_FIXTURE_STALE"
+    },
+    {
+      "test_id": "tests.test_siraj_cinematic_director_v2::test_v2_selective_review_preserves_all_paid_candidate_shots_by_default",
+      "error_type": "ControlledAlignmentValidationError",
+      "error_code": "AUTHORITATIVE_ALIGNMENT_STATE_REQUIRED",
+      "stack_root": "cinematic_director_v2_reporting_v1.build_v2_reports -> preserved_alignment_candidate_salvage_v1.derive_salvage_view",
+      "affected_module": "src/application/preserved_alignment_candidate_salvage_v1.py",
+      "likely_layer": "historical authority projection",
+      "initial_classification": "LEGACY_FIXTURE_STALE"
+    },
+    {
+      "test_id": "tests.test_provider_execution_stage_recovery_v5::test_actual_ep002_accumulated_state_selects_existing_session_and_suppresses_duplicate_start",
+      "error_type": "AssertionError",
+      "error_code": "UNFINISHED_SESSION_REQUIRED",
+      "stack_root": "_newest_unfinished_session(before_rows) returned None",
+      "affected_module": "tests/test_provider_execution_stage_recovery_v5.py",
+      "likely_layer": "historical provider-session fixture",
+      "initial_classification": "LEGACY_FIXTURE_STALE"
+    },
+    {
+      "test_id": "tests.test_terminal_provider_rejection_reconciliation_v1::test_live_failure_clone_reconciles_append_only_and_stays_blocked",
+      "error_type": "MediaCostPreflightError",
+      "error_code": "PREFLIGHT_REVIEW_REQUIRES_PROVIDER_EXECUTION_STAGE",
+      "stack_root": "read_persisted_media_cost_preflight",
+      "affected_module": "tests/test_terminal_provider_rejection_reconciliation_v1.py",
+      "likely_layer": "historical provider-stage fixture",
+      "initial_classification": "LEGACY_FIXTURE_STALE"
+    },
+    {
+      "test_id": "tests.test_terminal_provider_rejection_reconciliation_v1::test_exact_durable_append_is_idempotent",
+      "error_type": "MediaCostPreflightError",
+      "error_code": "PREFLIGHT_REVIEW_REQUIRES_PROVIDER_EXECUTION_STAGE",
+      "stack_root": "read_persisted_media_cost_preflight",
+      "affected_module": "tests/test_terminal_provider_rejection_reconciliation_v1.py",
+      "likely_layer": "historical provider-stage fixture",
+      "initial_classification": "LEGACY_FIXTURE_STALE"
+    },
+    {
+      "test_id": "tests.test_desktop_provider_execution_v1::test_fake_desktop_provider_execution_consumes_exact_plan",
+      "error_type": "MediaCostPreflightError",
+      "error_code": "PREFLIGHT_REVIEW_REQUIRES_PROVIDER_EXECUTION_STAGE",
+      "stack_root": "_ack -> read_persisted_media_cost_preflight",
+      "affected_module": "tests/test_desktop_provider_execution_v1.py",
+      "likely_layer": "historical provider-stage fixture",
+      "initial_classification": "LEGACY_FIXTURE_STALE"
+    },
+    {
+      "test_id": "tests.test_desktop_provider_execution_v1::test_provider_stage_requires_desktop_capability_context",
+      "error_type": "MediaCostPreflightError",
+      "error_code": "PREFLIGHT_REVIEW_REQUIRES_PROVIDER_EXECUTION_STAGE",
+      "stack_root": "_ack -> read_persisted_media_cost_preflight",
+      "affected_module": "tests/test_desktop_provider_execution_v1.py",
+      "likely_layer": "historical provider-stage fixture",
+      "initial_classification": "LEGACY_FIXTURE_STALE"
+    },
+    {
+      "test_id": "tests.test_desktop_provider_execution_v1::test_provider_stage_rejects_stale_plan_binding_before_gateway",
+      "error_type": "MediaCostPreflightError",
+      "error_code": "PREFLIGHT_REVIEW_REQUIRES_PROVIDER_EXECUTION_STAGE",
+      "stack_root": "_ack -> read_persisted_media_cost_preflight",
+      "affected_module": "tests/test_desktop_provider_execution_v1.py",
+      "likely_layer": "historical provider-stage fixture",
+      "initial_classification": "LEGACY_FIXTURE_STALE"
+    },
+    {
+      "test_id": "tests.test_desktop_provider_execution_v1::test_failure_is_terminal_and_never_automatically_resubmitted",
+      "error_type": "MediaCostPreflightError",
+      "error_code": "PREFLIGHT_REVIEW_REQUIRES_PROVIDER_EXECUTION_STAGE",
+      "stack_root": "_ack -> read_persisted_media_cost_preflight",
+      "affected_module": "tests/test_desktop_provider_execution_v1.py",
+      "likely_layer": "historical provider-stage fixture",
+      "initial_classification": "LEGACY_FIXTURE_STALE"
+    },
+    {
+      "test_id": "tests.test_desktop_provider_execution_v1::test_unknown_response_is_preserved_without_retry",
+      "error_type": "MediaCostPreflightError",
+      "error_code": "PREFLIGHT_REVIEW_REQUIRES_PROVIDER_EXECUTION_STAGE",
+      "stack_root": "_ack -> read_persisted_media_cost_preflight",
+      "affected_module": "tests/test_desktop_provider_execution_v1.py",
+      "likely_layer": "historical provider-stage fixture",
+      "initial_classification": "LEGACY_FIXTURE_STALE"
+    },
+    {
+      "test_id": "tests.test_desktop_provider_execution_v1::test_async_provider_id_is_durable_before_completion",
+      "error_type": "MediaCostPreflightError",
+      "error_code": "PREFLIGHT_REVIEW_REQUIRES_PROVIDER_EXECUTION_STAGE",
+      "stack_root": "_ack -> read_persisted_media_cost_preflight",
+      "affected_module": "tests/test_desktop_provider_execution_v1.py",
+      "likely_layer": "historical provider-stage fixture",
+      "initial_classification": "LEGACY_FIXTURE_STALE"
+    },
+    {
+      "test_id": "tests.test_desktop_provider_execution_v1::test_async_poll_timeout_keeps_original_operation_pending",
+      "error_type": "MediaCostPreflightError",
+      "error_code": "PREFLIGHT_REVIEW_REQUIRES_PROVIDER_EXECUTION_STAGE",
+      "stack_root": "_ack -> read_persisted_media_cost_preflight",
+      "affected_module": "tests/test_desktop_provider_execution_v1.py",
+      "likely_layer": "historical provider-stage fixture",
+      "initial_classification": "LEGACY_FIXTURE_STALE"
+    },
+    {
+      "test_id": "tests.test_desktop_provider_execution_v1::test_unknown_attempt_without_provider_id_remains_blocked",
+      "error_type": "MediaCostPreflightError",
+      "error_code": "PREFLIGHT_REVIEW_REQUIRES_PROVIDER_EXECUTION_STAGE",
+      "stack_root": "_ack -> read_persisted_media_cost_preflight",
+      "affected_module": "tests/test_desktop_provider_execution_v1.py",
+      "likely_layer": "historical provider-stage fixture",
+      "initial_classification": "LEGACY_FIXTURE_STALE"
+    },
+    {
+      "test_id": "tests.test_desktop_provider_execution_v1::test_results_persisted_before_transition_failure_is_recoverable",
+      "error_type": "MediaCostPreflightError",
+      "error_code": "PREFLIGHT_REVIEW_REQUIRES_PROVIDER_EXECUTION_STAGE",
+      "stack_root": "_ack -> read_persisted_media_cost_preflight",
+      "affected_module": "tests/test_desktop_provider_execution_v1.py",
+      "likely_layer": "historical provider-stage fixture",
+      "initial_classification": "LEGACY_FIXTURE_STALE"
+    }
+  ],
+  "secondary_root_causes_exposed_during_recovery": [
+    {
+      "classification": "LEGACY_CODE_DEFECT",
+      "error_code": "REQUEST_ATTEMPT_ID_DOMAIN_MISMATCH",
+      "root_cause": "Recovery compared blocked request IDs directly with pending attempt IDs instead of resolving request_attempts.",
+      "fix": "Resolve request ID to attempt ID and require a durable provider operation ID before session reuse."
+    },
+    {
+      "classification": "LEGACY_FIXTURE_STALE",
+      "error_code": "POST_REJECTION_EVIDENCE_PRESENT",
+      "root_cause": "Terminal-rejection clones included a later successful replacement result and later reconciliation for the same request.",
+      "fix": "Exclude only the uniquely named, SHA256-verified later result and truncate the clone-only reconciliation ledger at the verified historical receipt."
+    },
+    {
+      "classification": "LEGACY_CODE_DEFECT",
+      "error_code": "FAKE_GATEWAY_PROVIDER_RUNTIME_TRANSFORM",
+      "root_cause": "A provider-environment runtime transform was applied to the offline fake gateway after exact planned-payload validation.",
+      "fix": "Apply the provider compatibility transform only at gateways that require the real runtime UUID contract; fake gateways retain byte-equivalent planned payloads."
+    }
+  ],
+  "final_evidence": {
+    "path": "test-evidence/relevant-repository-suite-final-v1.xml",
+    "sha256": "923eb17f7e2a7c81495b23db725c3ceaecee5e09c2cd873bc8aaae32dd7f7c74",
+    "tests": 206,
+    "passed": 206,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "status": "PASS"
+  }
+}

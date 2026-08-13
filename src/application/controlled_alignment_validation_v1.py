@@ -177,7 +177,59 @@ def _semantic_findings(audit: AlignmentAudit) -> tuple[Any, ...]:
     )
 
 
-def _preflight(repo_root: Path, episode_id: str) -> dict[str, Any]:
+def _historical_failed_alignment_authority(
+    repo: Path,
+    episode_id: str,
+    *,
+    authority_paths: tuple[Path, ...],
+) -> dict[str, Any]:
+    """Return the latest evidence-bound historical alignment failure.
+
+    A preserved candidate remains reviewable after a later human closure, but
+    only while every source artifact still matches the immutable hashes bound
+    into the append-only failure entry.  This is deliberately separate from
+    the live execution preflight, which still requires the current stage to be
+    failed.
+    """
+
+    entries = read_entries(repo, episode_id)
+    indexed = list(enumerate(entries))
+    for index, entry in reversed(indexed):
+        if entry.get("stage") != STAGE or entry.get("status") != "FAILED":
+            continue
+        references = {
+            str(reference.get("path") or ""): str(reference.get("sha256") or "")
+            for reference in (
+                list(entry.get("input_artifacts") or [])
+                + list(entry.get("output_artifacts") or [])
+            )
+            if isinstance(reference, Mapping)
+        }
+        if not all(
+            references.get(_relative(repo, path)) == sha256_file(path)
+            for path in authority_paths
+        ):
+            continue
+        metadata = entry.get("metadata")
+        previous_hash = (
+            str(metadata.get("previous_entry_sha256") or "")
+            if isinstance(metadata, Mapping)
+            else ""
+        )
+        if index and previous_hash != str(entries[index - 1].get("entry_sha256") or ""):
+            continue
+        return entry
+    raise ControlledAlignmentValidationError(
+        "HISTORICAL_ALIGNMENT_FAILURE_AUTHORITY_REQUIRED"
+    )
+
+
+def _preflight(
+    repo_root: Path,
+    episode_id: str,
+    *,
+    allow_evidence_bound_historical_failure: bool = False,
+) -> dict[str, Any]:
     repo = Path(repo_root).resolve()
     ep = repo / "projects" / episode_id
     ledger = ledger_path(repo, episode_id)
@@ -190,7 +242,20 @@ def _preflight(repo_root: Path, episode_id: str) -> dict[str, Any]:
         if not path.is_file():
             raise ControlledAlignmentValidationError("AUTHORITY_ARTIFACT_MISSING:" + _relative(repo, path))
     projection = project_state(repo, episode_id)
-    if (
+    historical_failure = None
+    if allow_evidence_bound_historical_failure:
+        historical_failure = _historical_failed_alignment_authority(
+            repo,
+            episode_id,
+            authority_paths=(
+                timeline_path,
+                storyboard_path,
+                prompt_path,
+                audit_path,
+                script_path,
+            ),
+        )
+    elif (
         not projection.ledger_authoritative
         or projection.current_stage != STAGE
         or projection.status != "FAILED"
@@ -231,6 +296,7 @@ def _preflight(repo_root: Path, episode_id: str) -> dict[str, Any]:
         "episode_id": episode_id,
         "episode_root": ep,
         "projection": projection,
+        "historical_failure_authority": historical_failure,
         "paths": {
             "ledger": ledger,
             "timeline": timeline_path,

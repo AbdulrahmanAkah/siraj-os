@@ -1290,6 +1290,8 @@ def _siraj_provider_execution_recovery_session_v2(
         return None
 
     pending = reconciliation.get("pending_attempts") or []
+    provider_operation_ids = reconciliation.get("provider_operation_ids") or {}
+    request_attempts = reconciliation.get("request_attempts") or {}
     pending_ids: set[str] = set()
     for item in pending:
         request_id = _siraj_recovery_request_id_v2(item)
@@ -1298,11 +1300,16 @@ def _siraj_provider_execution_recovery_session_v2(
         if isinstance(item, Mapping):
             if not str(item.get("provider_operation_id") or "").strip():
                 return None
+        elif not str(provider_operation_ids.get(request_id) or "").strip():
+            return None
 
     unsafe_blocked: list[Any] = []
     for item in reconciliation.get("blocked_requests") or []:
         request_id = _siraj_recovery_request_id_v2(item)
-        if request_id and request_id in pending_ids:
+        pending_attempt_id = str(request_attempts.get(request_id) or "")
+        if request_id and (
+            request_id in pending_ids or pending_attempt_id in pending_ids
+        ):
             continue
         unsafe_blocked.append(item)
     if unsafe_blocked:
@@ -2509,13 +2516,15 @@ class CanonicalDesktopProviderExecutionExecutor:
                     task,
                     replacement_authorization,
                 )
-            task, _siraj_ep002_veo_mena_policy_v1 = (
-                _siraj_ep002_veo_mena_allow_adult_runtime_policy_v1(
-                    self.episode_id,
-                    unit,
-                    task,
+            _siraj_ep002_veo_mena_policy_v1 = None
+            if bool(getattr(self.gateway, "requires_uuid4", False)):
+                task, _siraj_ep002_veo_mena_policy_v1 = (
+                    _siraj_ep002_veo_mena_allow_adult_runtime_policy_v1(
+                        self.episode_id,
+                        unit,
+                        task,
+                    )
                 )
-            )
             if recovery_mode and _siraj_remaining_stage_guard_active_v1:
                 _siraj_remaining_stage_budget_unit_id_v1 = str(
                     unit.get("request_id") or unit.get("unit_id") or ""

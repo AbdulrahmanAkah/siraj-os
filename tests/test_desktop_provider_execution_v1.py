@@ -7,6 +7,10 @@ import shutil
 
 import pytest
 
+from historical_append_only_state_v1 import (
+    materialize_ep002_provider_execution_ready,
+)
+
 from src.application.artifact_provenance_v1 import read_jsonl, sha256_file
 from src.application.desktop_cost_envelope_reack_v1 import (
     DesktopCostEnvelopeReackService,
@@ -48,6 +52,7 @@ def _fixture(tmp_path: Path) -> Path:
             "provider-execution-v1",
         ),
     )
+    materialize_ep002_provider_execution_ready(root)
     return root
 
 

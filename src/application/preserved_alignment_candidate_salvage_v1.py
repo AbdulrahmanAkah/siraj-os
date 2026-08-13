@@ -128,7 +128,11 @@ def derive_salvage_view(repo_root: Path, episode_id: str) -> dict[str, Any]:
     """Read immutable evidence and construct the non-authoritative salvage view."""
 
     repo = Path(repo_root).resolve()
-    state = _preflight(repo, episode_id)
+    state = _preflight(
+        repo,
+        episode_id,
+        allow_evidence_bound_historical_failure=True,
+    )
     paths = _paths(repo, episode_id)
     for key in ("provider_record", "raw_response", "attempt_events", "attempt_request", "old_unknown"):
         if not paths[key].is_file():

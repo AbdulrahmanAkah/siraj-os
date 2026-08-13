@@ -2864,3 +2864,40 @@ Safety:
 NEXT=EXPLICIT_DESKTOP_V24_FIRST_ATTEMPT_START
 
 ========================================================
+
+========================================================
+UNIFIED CONSTITUTION OFFLINE ENFORCEMENT E6/E7 V1 - 2026-08-13
+========================================================
+
+Status:
+OFFLINE_ENFORCEMENT_PASS
+
+Certification:
+- E0 through E7: PASS.
+- Canonical rules covered: 51/51.
+- Critical/high unenforced rules: 0/0.
+- Constitutional enforcement suite: 338 passed, 0 failed, 0 skipped.
+- Relevant repository suite: 206 passed, 0 failed, 0 errors, 0 skipped.
+- Full repository suite: 696 passed, 0 failed, 0 errors, 1 existing live-provider opt-in skip.
+- Python compile-all and staged diff checks: PASS.
+- Type checking: NOT_CONFIGURED.
+
+Legacy recovery:
+- Initial relevant run exposed 15 failures across stale historical alignment/provider fixtures.
+- Preserved alignment review now requires immutable failure-ledger evidence bound to current authority artifact hashes.
+- Provider-stage tests materialize verified historical append-only prefixes in isolated clones.
+- Recovery maps request IDs to pending attempt IDs and still blocks any pending attempt without a durable provider operation ID.
+- E7 uses independently generated SHA256-bound raw evidence and has no final-certificate self-reference.
+
+Safety:
+- Provider calls: 0.
+- Paid calls: 0.
+- Network production calls: 0.
+- Retries/resubmissions: 0/0.
+- Montage/production/publication executions: 0/0/0.
+- Production authorization remains false.
+- Production, Episode 002 production, provider execution, paid execution, montage, and publication remain NO_GO.
+
+NEXT=WAIT_FOR_NEW_EXPLICIT_HUMAN_AUTHORIZATION
+
+========================================================

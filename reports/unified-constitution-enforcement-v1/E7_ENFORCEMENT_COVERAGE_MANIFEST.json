@@ -1,0 +1,2121 @@
+{
+  "bundle_id": "SIRAJ-CONSTITUTION-1.0.0-20260813",
+  "git_branch": "feature/series-production-quality-v2",
+  "git_commit": "7064cdc5036913363a82a57a268a37ff35c3b72e",
+  "timestamp": "2026-08-13T20:07:20.466581+00:00",
+  "test_evidence": {
+    "new_enforcement_suite": {
+      "path": "C:\\SIRAJ\\Repositories\\siraj-os\\reports\\unified-constitution-enforcement-v1\\test-evidence\\constitutional-enforcement-suite-final-v1.xml",
+      "sha256": "bf6f26177f7866fb40454602d1c8eae4f31ff97758992b0af8a8ae37b314e821",
+      "tests": 338,
+      "passed": 338,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "status": "PASS"
+    },
+    "relevant_repository_suite": {
+      "path": "C:\\SIRAJ\\Repositories\\siraj-os\\reports\\unified-constitution-enforcement-v1\\test-evidence\\relevant-repository-suite-final-v1.xml",
+      "sha256": "923eb17f7e2a7c81495b23db725c3ceaecee5e09c2cd873bc8aaae32dd7f7c74",
+      "tests": 206,
+      "passed": 206,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "status": "PASS"
+    },
+    "full_repository_suite": {
+      "path": "C:\\SIRAJ\\Repositories\\siraj-os\\reports\\unified-constitution-enforcement-v1\\test-evidence\\full-repository-suite-final-v1.xml",
+      "sha256": "60ba653cba04ef4371adf4a3750b4163c06aff5a47cac77d47df26a39b4dff5f",
+      "tests": 697,
+      "passed": 696,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1,
+      "status": "PASS"
+    }
+  },
+  "CONSTITUTION_ID": "SIRAJ_UNIFIED_PRODUCTION_CONSTITUTION",
+  "CONSTITUTION_VERSION": "1.0.0",
+  "BUNDLE_MANIFEST_SHA256": "77c451711eb1888664518c9fe89e176033fdf7612f4636e18c0e0ca4d3af4f54",
+  "RULE_COUNT": 51,
+  "COVERED_RULES": 51,
+  "UNCOVERED_RULES": 0,
+  "CRITICAL_RULES_UNENFORCED": 0,
+  "HIGH_RULES_UNENFORCED": 0,
+  "VALIDATOR_IMPLEMENTATIONS_COMPLETE": true,
+  "RULES": [
+    {
+      "RULE_ID": "SIRAJ.S01.ALL_HUMAN_FACES_VISIBLE",
+      "SECTION": 1,
+      "SEVERITY": "CRITICAL",
+      "COMPILER_BINDING": "compile_policy",
+      "OR_COMPILER_NA_RATIONALE": null,
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "structured_contract_validator",
+          "binding_kind": "AUTOMATED:PROMPT"
+        },
+        {
+          "name": "prompt_semantic_linter",
+          "binding_kind": "AUTOMATED:SEMANTIC"
+        },
+        {
+          "name": "reference_face_validator",
+          "binding_kind": "AUTOMATED:FACE"
+        },
+        {
+          "name": "all_frame_render_face_validator",
+          "binding_kind": "HUMAN_HASH_BOUND_EVIDENCE_RECEIPT"
+        },
+        {
+          "name": "human_render_conformance",
+          "binding_kind": "HUMAN_HASH_BOUND_EVIDENCE_RECEIPT"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_visible_face_synonyms",
+        "CANONICAL_TEST:reject_partial_face",
+        "CANONICAL_TEST:reject_background_face",
+        "CANONICAL_TEST:reject_reflected_or_depicted_face",
+        "CANONICAL_TEST:accept_face_excluded_composition"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_visible_face_synonyms",
+        "CANONICAL_TEST:reject_partial_face",
+        "CANONICAL_TEST:reject_background_face",
+        "CANONICAL_TEST:reject_reflected_or_depicted_face",
+        "CANONICAL_TEST:accept_face_excluded_composition"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "storyboard_gate",
+        "prompt_gate",
+        "pre_submit_gate",
+        "render_promotion_gate",
+        "montage_admission_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S01.MODESTY",
+      "SECTION": 1,
+      "SEVERITY": "CRITICAL",
+      "COMPILER_BINDING": "compile_policy",
+      "OR_COMPILER_NA_RATIONALE": null,
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "wardrobe_contract_validator",
+          "binding_kind": "AUTOMATED:MODESTY"
+        },
+        {
+          "name": "prompt_semantic_linter",
+          "binding_kind": "AUTOMATED:SEMANTIC"
+        },
+        {
+          "name": "all_frame_modesty_validator",
+          "binding_kind": "HUMAN_HASH_BOUND_EVIDENCE_RECEIPT"
+        },
+        {
+          "name": "human_render_conformance",
+          "binding_kind": "HUMAN_HASH_BOUND_EVIDENCE_RECEIPT"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_exposed_female_skin",
+        "CANONICAL_TEST:reject_body_defining_clothing",
+        "CANONICAL_TEST:reject_unnecessary_male_exposure",
+        "CANONICAL_TEST:reject_required_character_omission"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_exposed_female_skin",
+        "CANONICAL_TEST:reject_body_defining_clothing",
+        "CANONICAL_TEST:reject_unnecessary_male_exposure",
+        "CANONICAL_TEST:reject_required_character_omission"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "character_gate",
+        "prompt_gate",
+        "render_promotion_gate",
+        "montage_admission_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S01.NON_PROPHET_FACE_DEFAULT",
+      "SECTION": 1,
+      "SEVERITY": "CRITICAL",
+      "COMPILER_BINDING": "compile_policy",
+      "OR_COMPILER_NA_RATIONALE": null,
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "character_contract_validator",
+          "binding_kind": "AUTOMATED:CHARACTER"
+        },
+        {
+          "name": "prompt_semantic_linter",
+          "binding_kind": "AUTOMATED:SEMANTIC"
+        },
+        {
+          "name": "all_frame_render_face_validator",
+          "binding_kind": "HUMAN_HASH_BOUND_EVIDENCE_RECEIPT"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_non_prophet_partial_face",
+        "CANONICAL_TEST:reject_episode_override"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_non_prophet_partial_face",
+        "CANONICAL_TEST:reject_episode_override"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "prompt_gate",
+        "render_promotion_gate",
+        "montage_admission_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S01.PERIOD_AUTHENTICITY",
+      "SECTION": 1,
+      "SEVERITY": "HIGH",
+      "COMPILER_BINDING": "compile_policy",
+      "OR_COMPILER_NA_RATIONALE": null,
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "period_evidence_validator",
+          "binding_kind": "AUTOMATED:PERIOD"
+        },
+        {
+          "name": "storyboard_period_validator",
+          "binding_kind": "AUTOMATED:PERIOD"
+        },
+        {
+          "name": "prompt_period_validator",
+          "binding_kind": "AUTOMATED:PERIOD"
+        },
+        {
+          "name": "render_period_validator",
+          "binding_kind": "AUTOMATED:PERIOD"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_modern_detail",
+        "CANONICAL_TEST:reject_unsupported_period_claim",
+        "CANONICAL_TEST:accept_neutral_art_direction_for_unknown"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_modern_detail",
+        "CANONICAL_TEST:reject_unsupported_period_claim",
+        "CANONICAL_TEST:accept_neutral_art_direction_for_unknown"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "research_gate",
+        "storyboard_gate",
+        "prompt_gate",
+        "render_promotion_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S01.PROPHET_FACE_ABSOLUTE_BAN",
+      "SECTION": 1,
+      "SEVERITY": "CRITICAL",
+      "COMPILER_BINDING": "compile_policy",
+      "OR_COMPILER_NA_RATIONALE": null,
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "sacred_character_contract_validator",
+          "binding_kind": "AUTOMATED:FACE"
+        },
+        {
+          "name": "prompt_semantic_linter",
+          "binding_kind": "AUTOMATED:SEMANTIC"
+        },
+        {
+          "name": "all_frame_render_face_validator",
+          "binding_kind": "HUMAN_HASH_BOUND_EVIDENCE_RECEIPT"
+        },
+        {
+          "name": "human_render_conformance",
+          "binding_kind": "HUMAN_HASH_BOUND_EVIDENCE_RECEIPT"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_prophet_eye",
+        "CANONICAL_TEST:reject_prophet_mouth",
+        "CANONICAL_TEST:reject_prophet_profile",
+        "CANONICAL_TEST:reject_prophet_reflection"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_prophet_eye",
+        "CANONICAL_TEST:reject_prophet_mouth",
+        "CANONICAL_TEST:reject_prophet_profile",
+        "CANONICAL_TEST:reject_prophet_reflection"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "storyboard_gate",
+        "prompt_gate",
+        "pre_submit_gate",
+        "render_promotion_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S01.RECURRING_CHARACTER_CANONICAL_STILL",
+      "SECTION": 1,
+      "SEVERITY": "HIGH",
+      "COMPILER_BINDING": "compile_policy",
+      "OR_COMPILER_NA_RATIONALE": null,
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "canonical_still_validator",
+          "binding_kind": "AUTOMATED:CHARACTER"
+        },
+        {
+          "name": "reference_provenance_validator",
+          "binding_kind": "AUTOMATED:CHARACTER"
+        },
+        {
+          "name": "continuity_validator",
+          "binding_kind": "AUTOMATED:CHARACTER"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_missing_recurring_character_still",
+        "CANONICAL_TEST:reject_failed_render_as_reference",
+        "CANONICAL_TEST:reject_reference_hash_drift"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_missing_recurring_character_still",
+        "CANONICAL_TEST:reject_failed_render_as_reference",
+        "CANONICAL_TEST:reject_reference_hash_drift"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "character_gate",
+        "prompt_gate",
+        "pilot_gate",
+        "render_promotion_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S01.UNSEEN_NON_INVENTION",
+      "SECTION": 1,
+      "SEVERITY": "CRITICAL",
+      "COMPILER_BINDING": "compile_policy",
+      "OR_COMPILER_NA_RATIONALE": null,
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "source_claim_validator",
+          "binding_kind": "AUTOMATED:SOURCE"
+        },
+        {
+          "name": "unseen_representation_validator",
+          "binding_kind": "AUTOMATED:UNSEEN"
+        },
+        {
+          "name": "prompt_semantic_linter",
+          "binding_kind": "AUTOMATED:SEMANTIC"
+        },
+        {
+          "name": "human_theological_review",
+          "binding_kind": "HUMAN_HASH_BOUND_EVIDENCE_RECEIPT"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_divine_depiction",
+        "CANONICAL_TEST:reject_unsupported_angel_form",
+        "CANONICAL_TEST:reject_magic_visual_shortcut"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_divine_depiction",
+        "CANONICAL_TEST:reject_unsupported_angel_form",
+        "CANONICAL_TEST:reject_magic_visual_shortcut"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "research_gate",
+        "storyboard_gate",
+        "prompt_gate",
+        "render_promotion_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S02.ISRAILIYYAT",
+      "SECTION": 2,
+      "SEVERITY": "CRITICAL",
+      "COMPILER_BINDING": "compile_policy",
+      "OR_COMPILER_NA_RATIONALE": null,
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "source_classification_validator",
+          "binding_kind": "AUTOMATED:SOURCE"
+        },
+        {
+          "name": "aqidah_conflict_review",
+          "binding_kind": "HUMAN_HASH_BOUND_EVIDENCE_RECEIPT"
+        },
+        {
+          "name": "narrator_certainty_validator",
+          "binding_kind": "AUTOMATED:SOURCE"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_israiliyyat_aqidah_conflict",
+        "CANONICAL_TEST:reject_israiliyyat_jazm",
+        "CANONICAL_TEST:accept_disclosed_non_jazm_usage"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_israiliyyat_aqidah_conflict",
+        "CANONICAL_TEST:reject_israiliyyat_jazm",
+        "CANONICAL_TEST:accept_disclosed_non_jazm_usage"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "research_gate",
+        "script_gate",
+        "human_source_review_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S02.MATERIAL_DISAGREEMENT",
+      "SECTION": 2,
+      "SEVERITY": "HIGH",
+      "COMPILER_BINDING": "compile_policy",
+      "OR_COMPILER_NA_RATIONALE": null,
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "dispute_materiality_validator",
+          "binding_kind": "AUTOMATED:SOURCE"
+        },
+        {
+          "name": "script_disclosure_validator",
+          "binding_kind": "AUTOMATED:SOURCE"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_hidden_material_disagreement",
+        "CANONICAL_TEST:accept_shared_wording_for_immaterial_detail"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_hidden_material_disagreement",
+        "CANONICAL_TEST:accept_shared_wording_for_immaterial_detail"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "research_gate",
+        "script_gate",
+        "human_source_review_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S02.NO_VISUAL_CITATION_GRAPHICS",
+      "SECTION": 2,
+      "SEVERITY": "HIGH",
+      "COMPILER_BINDING": "compile_policy",
+      "OR_COMPILER_NA_RATIONALE": null,
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "storyboard_graphics_validator",
+          "binding_kind": "AUTOMATED:GRAPHICS"
+        },
+        {
+          "name": "render_graphics_validator",
+          "binding_kind": "AUTOMATED:GRAPHICS"
+        },
+        {
+          "name": "montage_overlay_validator",
+          "binding_kind": "AUTOMATED:GRAPHICS"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_source_card",
+        "CANONICAL_TEST:accept_narrated_source_disclosure"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_source_card",
+        "CANONICAL_TEST:accept_narrated_source_disclosure"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "storyboard_gate",
+        "render_promotion_gate",
+        "montage_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S02.SOURCE_HIERARCHY",
+      "SECTION": 2,
+      "SEVERITY": "CRITICAL",
+      "COMPILER_BINDING": "compile_policy",
+      "OR_COMPILER_NA_RATIONALE": null,
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "claim_ledger_validator",
+          "binding_kind": "AUTOMATED:SOURCE"
+        },
+        {
+          "name": "source_hierarchy_validator",
+          "binding_kind": "AUTOMATED:SOURCE"
+        },
+        {
+          "name": "script_claim_validator",
+          "binding_kind": "AUTOMATED:SOURCE"
+        },
+        {
+          "name": "visual_claim_validator",
+          "binding_kind": "AUTOMATED:SOURCE"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_unsourced_core_claim",
+        "CANONICAL_TEST:reject_lower_source_override",
+        "CANONICAL_TEST:reject_certainty_upgrade"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_unsourced_core_claim",
+        "CANONICAL_TEST:reject_lower_source_override",
+        "CANONICAL_TEST:reject_certainty_upgrade"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "research_gate",
+        "script_gate",
+        "storyboard_gate",
+        "final_source_qa_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S02.WEAK_HADITH",
+      "SECTION": 2,
+      "SEVERITY": "CRITICAL",
+      "COMPILER_BINDING": "compile_policy",
+      "OR_COMPILER_NA_RATIONALE": null,
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "hadith_grade_validator",
+          "binding_kind": "AUTOMATED:SOURCE"
+        },
+        {
+          "name": "scholarly_usage_review",
+          "binding_kind": "HUMAN_HASH_BOUND_EVIDENCE_RECEIPT"
+        },
+        {
+          "name": "script_certainty_validator",
+          "binding_kind": "AUTOMATED:SOURCE"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_weak_hadith_as_aqidah",
+        "CANONICAL_TEST:reject_hidden_grade",
+        "CANONICAL_TEST:reject_jazm_from_weak_hadith"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_weak_hadith_as_aqidah",
+        "CANONICAL_TEST:reject_hidden_grade",
+        "CANONICAL_TEST:reject_jazm_from_weak_hadith"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "research_gate",
+        "script_gate",
+        "human_source_review_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S03.EPISODE_DURATION",
+      "SECTION": 3,
+      "SEVERITY": "MEDIUM",
+      "COMPILER_BINDING": "compile_policy",
+      "OR_COMPILER_NA_RATIONALE": null,
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "duration_policy_validator",
+          "binding_kind": "AUTOMATED:DURATION"
+        },
+        {
+          "name": "filler_validator",
+          "binding_kind": "AUTOMATED:NARRATIVE"
+        },
+        {
+          "name": "material_omission_review",
+          "binding_kind": "HUMAN_HASH_BOUND_EVIDENCE_RECEIPT"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:accept_normal_duration",
+        "CANONICAL_TEST:block_unjustified_soft_exception",
+        "CANONICAL_TEST:block_normal_episode_above_18"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:accept_normal_duration",
+        "CANONICAL_TEST:block_unjustified_soft_exception",
+        "CANONICAL_TEST:block_normal_episode_above_18"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "script_gate",
+        "narration_gate",
+        "final_quality_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S03.HUMAN_PRESPEND_REVIEWS",
+      "SECTION": 3,
+      "SEVERITY": "CRITICAL",
+      "COMPILER_BINDING": null,
+      "OR_COMPILER_NA_RATIONALE": "Rule is enforced by independent validation and runtime gate; compiler has no applicable transformation.",
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "approval_receipt_validator",
+          "binding_kind": "AUTOMATED:APPROVAL"
+        },
+        {
+          "name": "approval_input_hash_validator",
+          "binding_kind": "AUTOMATED:APPROVAL"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_missing_review",
+        "CANONICAL_TEST:reject_stale_review",
+        "CANONICAL_TEST:reject_summary_only_prompt_review"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_missing_review",
+        "CANONICAL_TEST:reject_stale_review",
+        "CANONICAL_TEST:reject_summary_only_prompt_review"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "script_promotion_gate",
+        "storyboard_promotion_gate",
+        "prompt_promotion_gate",
+        "narration_master_gate",
+        "paid_execution_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S03.NARRATIVE_TRUTH_AND_ENGAGEMENT",
+      "SECTION": 3,
+      "SEVERITY": "HIGH",
+      "COMPILER_BINDING": "compile_policy",
+      "OR_COMPILER_NA_RATIONALE": null,
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "script_structure_validator",
+          "binding_kind": "AUTOMATED:NARRATIVE"
+        },
+        {
+          "name": "claim_script_validator",
+          "binding_kind": "AUTOMATED:SOURCE"
+        },
+        {
+          "name": "human_editorial_review",
+          "binding_kind": "HUMAN_HASH_BOUND_EVIDENCE_RECEIPT"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_false_hook",
+        "CANONICAL_TEST:reject_semantic_filler",
+        "CANONICAL_TEST:reject_unpaid_promise"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_false_hook",
+        "CANONICAL_TEST:reject_semantic_filler",
+        "CANONICAL_TEST:reject_unpaid_promise"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "script_gate",
+        "human_script_review_gate",
+        "final_quality_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S03.TTS_PERFORMANCE_SCRIPT",
+      "SECTION": 3,
+      "SEVERITY": "HIGH",
+      "COMPILER_BINDING": "compile_policy",
+      "OR_COMPILER_NA_RATIONALE": null,
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "script_semantic_equivalence_validator",
+          "binding_kind": "AUTOMATED:TTS"
+        },
+        {
+          "name": "diacritization_validator",
+          "binding_kind": "AUTOMATED:TTS"
+        },
+        {
+          "name": "waqf_wasl_validator",
+          "binding_kind": "AUTOMATED:TTS"
+        },
+        {
+          "name": "pronunciation_lexicon_validator",
+          "binding_kind": "AUTOMATED:TTS"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_uncontrolled_ambiguous_word",
+        "CANONICAL_TEST:reject_blind_final_diacritic_stripping",
+        "CANONICAL_TEST:reject_wrong_waqf_or_wasl"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_uncontrolled_ambiguous_word",
+        "CANONICAL_TEST:reject_blind_final_diacritic_stripping",
+        "CANONICAL_TEST:reject_wrong_waqf_or_wasl"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "tts_preflight_gate",
+        "narration_master_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S04.HARD_SHOT_PILOT",
+      "SECTION": 4,
+      "SEVERITY": "CRITICAL",
+      "COMPILER_BINDING": "compile_policy",
+      "OR_COMPILER_NA_RATIONALE": null,
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "pilot_coverage_validator",
+          "binding_kind": "AUTOMATED:PILOT"
+        },
+        {
+          "name": "pilot_render_conformance_validator",
+          "binding_kind": "HUMAN_HASH_BOUND_EVIDENCE_RECEIPT"
+        },
+        {
+          "name": "human_pilot_review_validator",
+          "binding_kind": "HUMAN_HASH_BOUND_EVIDENCE_RECEIPT"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_easy_only_pilot",
+        "CANONICAL_TEST:reject_missing_risk_class",
+        "CANONICAL_TEST:reject_large_batch_before_pilot_pass"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_easy_only_pilot",
+        "CANONICAL_TEST:reject_missing_risk_class",
+        "CANONICAL_TEST:reject_large_batch_before_pilot_pass"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "pilot_authorization_gate",
+        "paid_batch_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S04.REUSE_POLICY",
+      "SECTION": 4,
+      "SEVERITY": "MEDIUM",
+      "COMPILER_BINDING": "compile_policy",
+      "OR_COMPILER_NA_RATIONALE": null,
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "reuse_semantic_validator",
+          "binding_kind": "AUTOMATED:REUSE"
+        },
+        {
+          "name": "repetition_review",
+          "binding_kind": "HUMAN_HASH_BOUND_EVIDENCE_RECEIPT"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_empty_callback",
+        "CANONICAL_TEST:accept_meaningful_callback"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_empty_callback",
+        "CANONICAL_TEST:accept_meaningful_callback"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "storyboard_gate",
+        "montage_gate",
+        "final_quality_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S04.VIDEO_SHARE",
+      "SECTION": 4,
+      "SEVERITY": "HIGH",
+      "COMPILER_BINDING": "compile_policy",
+      "OR_COMPILER_NA_RATIONALE": null,
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "timeline_media_share_validator",
+          "binding_kind": "AUTOMATED:VIDEO_SHARE"
+        },
+        {
+          "name": "core_runtime_validator",
+          "binding_kind": "AUTOMATED:VIDEO_SHARE"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_below_minimum",
+        "CANONICAL_TEST:reject_above_maximum",
+        "CANONICAL_TEST:reject_intro_outro_ratio_padding"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_below_minimum",
+        "CANONICAL_TEST:reject_above_maximum",
+        "CANONICAL_TEST:reject_intro_outro_ratio_padding"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "storyboard_gate",
+        "montage_gate",
+        "final_qa_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S04.VISUAL_SEMANTIC_ALIGNMENT",
+      "SECTION": 4,
+      "SEVERITY": "HIGH",
+      "COMPILER_BINDING": "compile_policy",
+      "OR_COMPILER_NA_RATIONALE": null,
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "storyboard_semantic_validator",
+          "binding_kind": "AUTOMATED:VISUAL"
+        },
+        {
+          "name": "mute_comprehension_validator",
+          "binding_kind": "HUMAN_HASH_BOUND_EVIDENCE_RECEIPT"
+        },
+        {
+          "name": "render_semantic_validator",
+          "binding_kind": "AUTOMATED:VISUAL"
+        },
+        {
+          "name": "human_render_conformance",
+          "binding_kind": "HUMAN_HASH_BOUND_EVIDENCE_RECEIPT"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_action_inversion",
+        "CANONICAL_TEST:reject_required_action_not_visible",
+        "CANONICAL_TEST:reject_generic_filler"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_action_inversion",
+        "CANONICAL_TEST:reject_required_action_not_visible",
+        "CANONICAL_TEST:reject_generic_filler"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "storyboard_gate",
+        "prompt_gate",
+        "render_promotion_gate",
+        "montage_admission_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S05.PAID_RETRY_POLICY",
+      "SECTION": 5,
+      "SEVERITY": "CRITICAL",
+      "COMPILER_BINDING": null,
+      "OR_COMPILER_NA_RATIONALE": "Rule is enforced by independent validation and runtime gate; compiler has no applicable transformation.",
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "retry_root_cause_validator",
+          "binding_kind": "AUTOMATED:RETRY"
+        },
+        {
+          "name": "material_delta_validator",
+          "binding_kind": "AUTOMATED:RETRY"
+        },
+        {
+          "name": "new_preflight_validator",
+          "binding_kind": "AUTOMATED:RETRY"
+        },
+        {
+          "name": "new_authorization_validator",
+          "binding_kind": "AUTOMATED:RETRY"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_automatic_retry",
+        "CANONICAL_TEST:reject_identical_paid_retry",
+        "CANONICAL_TEST:reject_retry_without_material_fix"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_automatic_retry",
+        "CANONICAL_TEST:reject_identical_paid_retry",
+        "CANONICAL_TEST:reject_retry_without_material_fix"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "retry_gate",
+        "paid_execution_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S05.PRIMARY_VISUAL_PROVIDER",
+      "SECTION": 5,
+      "SEVERITY": "HIGH",
+      "COMPILER_BINDING": null,
+      "OR_COMPILER_NA_RATIONALE": "Rule is enforced by independent validation and runtime gate; compiler has no applicable transformation.",
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "provider_profile_validator",
+          "binding_kind": "AUTOMATED:PROVIDER"
+        },
+        {
+          "name": "model_profile_validator",
+          "binding_kind": "AUTOMATED:PROVIDER"
+        },
+        {
+          "name": "provider_approval_validator",
+          "binding_kind": "AUTOMATED:PROVIDER"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_silent_provider_switch",
+        "CANONICAL_TEST:reject_silent_model_fallback",
+        "CANONICAL_TEST:require_alternate_pilot_and_approval"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_silent_provider_switch",
+        "CANONICAL_TEST:reject_silent_model_fallback",
+        "CANONICAL_TEST:require_alternate_pilot_and_approval"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "provider_selection_gate",
+        "pilot_gate",
+        "paid_execution_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S05.PROGRESSIVE_BATCHING",
+      "SECTION": 5,
+      "SEVERITY": "CRITICAL",
+      "COMPILER_BINDING": "compile_policy",
+      "OR_COMPILER_NA_RATIONALE": null,
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "batch_risk_validator",
+          "binding_kind": "AUTOMATED:BATCH"
+        },
+        {
+          "name": "pilot_dependency_validator",
+          "binding_kind": "AUTOMATED:PILOT"
+        },
+        {
+          "name": "batch_scope_validator",
+          "binding_kind": "AUTOMATED:BATCH"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_unbounded_batch",
+        "CANONICAL_TEST:reject_batch_with_unpiloted_new_risk",
+        "CANONICAL_TEST:accept_reviewed_progression"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_unbounded_batch",
+        "CANONICAL_TEST:reject_batch_with_unpiloted_new_risk",
+        "CANONICAL_TEST:accept_reviewed_progression"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "batch_authorization_gate",
+        "between_batch_review_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S05.STRUCTURED_PROMPT_COMPILATION",
+      "SECTION": 5,
+      "SEVERITY": "CRITICAL",
+      "COMPILER_BINDING": "compile_policy",
+      "OR_COMPILER_NA_RATIONALE": null,
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "contract_completeness_validator",
+          "binding_kind": "AUTOMATED:PROMPT"
+        },
+        {
+          "name": "prompt_semantic_linter",
+          "binding_kind": "AUTOMATED:SEMANTIC"
+        },
+        {
+          "name": "payload_hash_validator",
+          "binding_kind": "AUTOMATED:PROMPT"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_freeform_policy_weakening",
+        "CANONICAL_TEST:reject_forbidden_face_phrase",
+        "CANONICAL_TEST:reject_missing_reference_binding",
+        "CANONICAL_TEST:prove_compiler_has_no_provider_capability"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_freeform_policy_weakening",
+        "CANONICAL_TEST:reject_forbidden_face_phrase",
+        "CANONICAL_TEST:reject_missing_reference_binding",
+        "CANONICAL_TEST:prove_compiler_has_no_provider_capability"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "prompt_compilation_gate",
+        "human_prompt_review_gate",
+        "pre_submit_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S06.EXTERNAL_CLOSED_CAPTIONS",
+      "SECTION": 6,
+      "SEVERITY": "HIGH",
+      "COMPILER_BINDING": "compile_policy",
+      "OR_COMPILER_NA_RATIONALE": null,
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "caption_separation_validator",
+          "binding_kind": "AUTOMATED:CAPTIONS"
+        },
+        {
+          "name": "render_text_overlay_validator",
+          "binding_kind": "AUTOMATED:GRAPHICS"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:accept_external_caption_file",
+        "CANONICAL_TEST:reject_burned_in_caption"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:accept_external_caption_file",
+        "CANONICAL_TEST:reject_burned_in_caption"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "montage_gate",
+        "publication_package_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S06.FULL_HUMAN_AUDIO_LISTEN",
+      "SECTION": 6,
+      "SEVERITY": "CRITICAL",
+      "COMPILER_BINDING": null,
+      "OR_COMPILER_NA_RATIONALE": "Rule is enforced by independent validation and runtime gate; compiler has no applicable transformation.",
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "human_audio_review_receipt_validator",
+          "binding_kind": "HUMAN_HASH_BOUND_EVIDENCE_RECEIPT"
+        },
+        {
+          "name": "audio_master_hash_binding_validator",
+          "binding_kind": "AUTOMATED:APPROVAL"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_sampling_only_review",
+        "CANONICAL_TEST:reject_review_for_different_audio_hash"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_sampling_only_review",
+        "CANONICAL_TEST:reject_review_for_different_audio_hash"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "narration_master_gate",
+        "final_audio_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S06.MUSIC_PROHIBITION",
+      "SECTION": 6,
+      "SEVERITY": "CRITICAL",
+      "COMPILER_BINDING": "compile_policy",
+      "OR_COMPILER_NA_RATIONALE": null,
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "asset_audio_stream_validator",
+          "binding_kind": "AUTOMATED:MUSIC"
+        },
+        {
+          "name": "music_content_validator",
+          "binding_kind": "AUTOMATED:MUSIC"
+        },
+        {
+          "name": "mix_timeline_validator",
+          "binding_kind": "AUTOMATED:MUSIC"
+        },
+        {
+          "name": "human_audio_review",
+          "binding_kind": "HUMAN_HASH_BOUND_EVIDENCE_RECEIPT"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_music_in_intro",
+        "CANONICAL_TEST:reject_music_under_narration",
+        "CANONICAL_TEST:reject_musical_transition",
+        "CANONICAL_TEST:accept_nonmusical_sfx"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_music_in_intro",
+        "CANONICAL_TEST:reject_music_under_narration",
+        "CANONICAL_TEST:reject_musical_transition",
+        "CANONICAL_TEST:accept_nonmusical_sfx"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "asset_admission_gate",
+        "mix_gate",
+        "final_audio_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S06.NARRATION_TIMELINE_AUTHORITY",
+      "SECTION": 6,
+      "SEVERITY": "CRITICAL",
+      "COMPILER_BINDING": "compile_policy",
+      "OR_COMPILER_NA_RATIONALE": null,
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "narration_hash_validator",
+          "binding_kind": "AUTOMATED:TIMELINE"
+        },
+        {
+          "name": "duration_authority_validator",
+          "binding_kind": "AUTOMATED:TIMELINE"
+        },
+        {
+          "name": "timeline_precision_validator",
+          "binding_kind": "AUTOMATED:TIMELINE"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_manual_duration_authority",
+        "CANONICAL_TEST:reject_duration_cache_drift",
+        "CANONICAL_TEST:invalidate_timeline_on_audio_change"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_manual_duration_authority",
+        "CANONICAL_TEST:reject_duration_cache_drift",
+        "CANONICAL_TEST:invalidate_timeline_on_audio_change"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "narration_master_gate",
+        "timeline_gate",
+        "storyboard_gate",
+        "montage_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S06.NARRATOR_IDENTITY",
+      "SECTION": 6,
+      "SEVERITY": "HIGH",
+      "COMPILER_BINDING": "compile_policy",
+      "OR_COMPILER_NA_RATIONALE": null,
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "voice_identity_validator",
+          "binding_kind": "AUTOMATED:NARRATOR"
+        },
+        {
+          "name": "pronunciation_validator",
+          "binding_kind": "AUTOMATED:NARRATOR"
+        },
+        {
+          "name": "human_full_audio_review",
+          "binding_kind": "HUMAN_HASH_BOUND_EVIDENCE_RECEIPT"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_silent_voice_change",
+        "CANONICAL_TEST:reject_voice_identity_drift",
+        "CANONICAL_TEST:require_revalidation_on_material_tts_change"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_silent_voice_change",
+        "CANONICAL_TEST:reject_voice_identity_drift",
+        "CANONICAL_TEST:require_revalidation_on_material_tts_change"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "tts_preflight_gate",
+        "narration_master_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S06.QURAN_AUDIO_INTEGRITY",
+      "SECTION": 6,
+      "SEVERITY": "CRITICAL",
+      "COMPILER_BINDING": "compile_policy",
+      "OR_COMPILER_NA_RATIONALE": null,
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "quran_text_integrity_validator",
+          "binding_kind": "AUTOMATED:QURAN"
+        },
+        {
+          "name": "quran_pronunciation_human_review_validator",
+          "binding_kind": "HUMAN_HASH_BOUND_EVIDENCE_RECEIPT"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_quran_text_mutation",
+        "CANONICAL_TEST:reject_unreviewed_quran_pronunciation",
+        "CANONICAL_TEST:distinguish_quote_from_paraphrase"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_quran_text_mutation",
+        "CANONICAL_TEST:reject_unreviewed_quran_pronunciation",
+        "CANONICAL_TEST:distinguish_quote_from_paraphrase"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "script_gate",
+        "tts_preflight_gate",
+        "narration_master_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S06.SFX_POLICY",
+      "SECTION": 6,
+      "SEVERITY": "HIGH",
+      "COMPILER_BINDING": "compile_policy",
+      "OR_COMPILER_NA_RATIONALE": null,
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "sfx_semantic_validator",
+          "binding_kind": "AUTOMATED:SFX"
+        },
+        {
+          "name": "period_audio_validator",
+          "binding_kind": "AUTOMATED:SFX"
+        },
+        {
+          "name": "audio_visual_sync_validator",
+          "binding_kind": "AUTOMATED:SFX"
+        },
+        {
+          "name": "human_audio_review",
+          "binding_kind": "HUMAN_HASH_BOUND_EVIDENCE_RECEIPT"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_unseen_factual_event_sfx",
+        "CANONICAL_TEST:reject_period_anachronism_sfx",
+        "CANONICAL_TEST:accept_supported_editorial_sfx"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_unseen_factual_event_sfx",
+        "CANONICAL_TEST:reject_period_anachronism_sfx",
+        "CANONICAL_TEST:accept_supported_editorial_sfx"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "sound_design_gate",
+        "mix_gate",
+        "final_audio_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S07.BRAND_ASSET_DISCOVERY",
+      "SECTION": 7,
+      "SEVERITY": "HIGH",
+      "COMPILER_BINDING": null,
+      "OR_COMPILER_NA_RATIONALE": "Rule is enforced by independent validation and runtime gate; compiler has no applicable transformation.",
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "brand_asset_cardinality_validator",
+          "binding_kind": "AUTOMATED:BRAND"
+        },
+        {
+          "name": "brand_asset_hash_validator",
+          "binding_kind": "AUTOMATED:BRAND"
+        },
+        {
+          "name": "brand_asset_policy_validator",
+          "binding_kind": "AUTOMATED:BRAND"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_zero_or_multiple_intro_candidates",
+        "CANONICAL_TEST:reject_zero_or_multiple_outro_candidates",
+        "CANONICAL_TEST:reject_hash_drift"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_zero_or_multiple_intro_candidates",
+        "CANONICAL_TEST:reject_zero_or_multiple_outro_candidates",
+        "CANONICAL_TEST:reject_hash_drift"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "brand_asset_binding_gate",
+        "montage_gate",
+        "final_qa_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S07.BRAND_GRAPHICS_EXCEPTION",
+      "SECTION": 7,
+      "SEVERITY": "CRITICAL",
+      "COMPILER_BINDING": "compile_policy",
+      "OR_COMPILER_NA_RATIONALE": null,
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "brand_asset_hash_validator",
+          "binding_kind": "AUTOMATED:BRAND"
+        },
+        {
+          "name": "graphics_whitelist_validator",
+          "binding_kind": "AUTOMATED:GRAPHICS"
+        },
+        {
+          "name": "face_policy_validator",
+          "binding_kind": "AUTOMATED:FACE"
+        },
+        {
+          "name": "music_policy_validator",
+          "binding_kind": "AUTOMATED:MUSIC"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:accept_exact_approved_brand_assets",
+        "CANONICAL_TEST:reject_modified_brand_asset",
+        "CANONICAL_TEST:reject_new_graphics",
+        "CANONICAL_TEST:prove_exception_does_not_override_face_or_music_rules"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:accept_exact_approved_brand_assets",
+        "CANONICAL_TEST:reject_modified_brand_asset",
+        "CANONICAL_TEST:reject_new_graphics",
+        "CANONICAL_TEST:prove_exception_does_not_override_face_or_music_rules"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "asset_admission_gate",
+        "montage_gate",
+        "final_qa_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S07.DOUBLE_HUMAN_MONTAGE_REVIEW",
+      "SECTION": 7,
+      "SEVERITY": "HIGH",
+      "COMPILER_BINDING": null,
+      "OR_COMPILER_NA_RATIONALE": "Rule is enforced by independent validation and runtime gate; compiler has no applicable transformation.",
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "montage_review_receipt_validator",
+          "binding_kind": "HUMAN_HASH_BOUND_EVIDENCE_RECEIPT"
+        },
+        {
+          "name": "final_candidate_hash_validator",
+          "binding_kind": "AUTOMATED:APPROVAL"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_single_review_pass",
+        "CANONICAL_TEST:reject_review_for_stale_candidate"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_single_review_pass",
+        "CANONICAL_TEST:reject_review_for_stale_candidate"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "montage_approval_gate",
+        "final_qa_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S07.INTRO_OUTRO_PLACEMENT",
+      "SECTION": 7,
+      "SEVERITY": "HIGH",
+      "COMPILER_BINDING": "compile_policy",
+      "OR_COMPILER_NA_RATIONALE": null,
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "intro_boundary_validator",
+          "binding_kind": "AUTOMATED:PLACEMENT"
+        },
+        {
+          "name": "outro_position_validator",
+          "binding_kind": "AUTOMATED:PLACEMENT"
+        },
+        {
+          "name": "core_runtime_validator",
+          "binding_kind": "AUTOMATED:VIDEO_SHARE"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_intro_inside_sentence",
+        "CANONICAL_TEST:reject_intro_breaking_critical_action",
+        "CANONICAL_TEST:reject_outro_before_core_end"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_intro_inside_sentence",
+        "CANONICAL_TEST:reject_intro_breaking_critical_action",
+        "CANONICAL_TEST:reject_outro_before_core_end"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "montage_plan_gate",
+        "montage_gate",
+        "final_qa_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S07.MONTAGE_ADMISSION",
+      "SECTION": 7,
+      "SEVERITY": "CRITICAL",
+      "COMPILER_BINDING": null,
+      "OR_COMPILER_NA_RATIONALE": "Rule is enforced by independent validation and runtime gate; compiler has no applicable transformation.",
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "asset_promotion_receipt_validator",
+          "binding_kind": "AUTOMATED:APPROVAL"
+        },
+        {
+          "name": "render_hash_validator",
+          "binding_kind": "AUTOMATED:MONTAGE"
+        },
+        {
+          "name": "constitutional_qa_validator",
+          "binding_kind": "AUTOMATED:MONTAGE"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_unreviewed_render",
+        "CANONICAL_TEST:reject_policy_failed_render",
+        "CANONICAL_TEST:reject_hash_changed_render"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_unreviewed_render",
+        "CANONICAL_TEST:reject_policy_failed_render",
+        "CANONICAL_TEST:reject_hash_changed_render"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "montage_admission_gate",
+        "montage_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S08.FINAL_HUMAN_CERTIFICATION",
+      "SECTION": 8,
+      "SEVERITY": "CRITICAL",
+      "COMPILER_BINDING": null,
+      "OR_COMPILER_NA_RATIONALE": "Rule is enforced by independent validation and runtime gate; compiler has no applicable transformation.",
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "all_domain_qa_validator",
+          "binding_kind": "AUTOMATED:FINAL_QA"
+        },
+        {
+          "name": "final_watch_receipt_validator",
+          "binding_kind": "HUMAN_HASH_BOUND_EVIDENCE_RECEIPT"
+        },
+        {
+          "name": "human_certification_validator",
+          "binding_kind": "HUMAN_HASH_BOUND_EVIDENCE_RECEIPT"
+        },
+        {
+          "name": "candidate_hash_validator",
+          "binding_kind": "AUTOMATED:APPROVAL"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_automated_publish_approval",
+        "CANONICAL_TEST:reject_certification_for_stale_candidate",
+        "CANONICAL_TEST:reject_partial_pass"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_automated_publish_approval",
+        "CANONICAL_TEST:reject_certification_for_stale_candidate",
+        "CANONICAL_TEST:reject_partial_pass"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "publish_ready_gate",
+        "publication_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S08.MANUAL_PUBLIC_TITLE_AND_THUMBNAIL",
+      "SECTION": 8,
+      "SEVERITY": "CRITICAL",
+      "COMPILER_BINDING": "compile_policy",
+      "OR_COMPILER_NA_RATIONALE": null,
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "publication_metadata_boundary_validator",
+          "binding_kind": "AUTOMATED:PUBLICATION"
+        },
+        {
+          "name": "working_title_leak_validator",
+          "binding_kind": "AUTOMATED:PUBLICATION"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_auto_published_working_title",
+        "CANONICAL_TEST:reject_siraj_thumbnail_generation",
+        "CANONICAL_TEST:accept_episode_pass_without_public_title_or_thumbnail"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_auto_published_working_title",
+        "CANONICAL_TEST:reject_siraj_thumbnail_generation",
+        "CANONICAL_TEST:accept_episode_pass_without_public_title_or_thumbnail"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "publication_package_gate",
+        "publication_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S08.RELEASE_QUALITY_BAR",
+      "SECTION": 8,
+      "SEVERITY": "HIGH",
+      "COMPILER_BINDING": null,
+      "OR_COMPILER_NA_RATIONALE": "Rule is enforced by independent validation and runtime gate; compiler has no applicable transformation.",
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "technical_qa_validator",
+          "binding_kind": "AUTOMATED:FINAL_QA"
+        },
+        {
+          "name": "editorial_quality_review",
+          "binding_kind": "HUMAN_HASH_BOUND_EVIDENCE_RECEIPT"
+        },
+        {
+          "name": "full_human_end_to_end_review",
+          "binding_kind": "HUMAN_HASH_BOUND_EVIDENCE_RECEIPT"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_technically_valid_but_mediocre",
+        "CANONICAL_TEST:reject_obvious_ai_feel",
+        "CANONICAL_TEST:require_all_domain_passes"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_technically_valid_but_mediocre",
+        "CANONICAL_TEST:reject_obvious_ai_feel",
+        "CANONICAL_TEST:require_all_domain_passes"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "professional_product_gate",
+        "publish_ready_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S09.COST_AUTHORIZATION",
+      "SECTION": 9,
+      "SEVERITY": "CRITICAL",
+      "COMPILER_BINDING": null,
+      "OR_COMPILER_NA_RATIONALE": "Rule is enforced by independent validation and runtime gate; compiler has no applicable transformation.",
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "cost_estimate_validator",
+          "binding_kind": "AUTOMATED:COST"
+        },
+        {
+          "name": "rate_profile_freshness_validator",
+          "binding_kind": "AUTOMATED:COST"
+        },
+        {
+          "name": "authorization_hash_validator",
+          "binding_kind": "AUTOMATED:APPROVAL"
+        },
+        {
+          "name": "cost_ceiling_validator",
+          "binding_kind": "AUTOMATED:COST"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_cost_above_ceiling",
+        "CANONICAL_TEST:reject_stale_rate_profile",
+        "CANONICAL_TEST:reject_changed_request_count",
+        "CANONICAL_TEST:reject_changed_provider_or_model"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_cost_above_ceiling",
+        "CANONICAL_TEST:reject_stale_rate_profile",
+        "CANONICAL_TEST:reject_changed_request_count",
+        "CANONICAL_TEST:reject_changed_provider_or_model"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "cost_preflight_gate",
+        "paid_execution_gate",
+        "cost_anomaly_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S09.HISTORICAL_UNKNOWN_ATTEMPT",
+      "SECTION": 9,
+      "SEVERITY": "CRITICAL",
+      "COMPILER_BINDING": null,
+      "OR_COMPILER_NA_RATIONALE": "Rule is enforced by independent validation and runtime gate; compiler has no applicable transformation.",
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "historical_attempt_ledger_validator",
+          "binding_kind": "AUTOMATED:HISTORICAL_UNKNOWN"
+        },
+        {
+          "name": "reconciliation_evidence_validator",
+          "binding_kind": "AUTOMATED:HISTORICAL_UNKNOWN"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_historical_status_cleanup_without_evidence",
+        "CANONICAL_TEST:reject_retry_for_historical_unknown"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_historical_status_cleanup_without_evidence",
+        "CANONICAL_TEST:reject_retry_for_historical_unknown"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "reconciliation_gate",
+        "paid_execution_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S09.IDEMPOTENT_TRANSACTION",
+      "SECTION": 9,
+      "SEVERITY": "CRITICAL",
+      "COMPILER_BINDING": null,
+      "OR_COMPILER_NA_RATIONALE": "Rule is enforced by independent validation and runtime gate; compiler has no applicable transformation.",
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "attempt_uniqueness_validator",
+          "binding_kind": "AUTOMATED:IDEMPOTENCY"
+        },
+        {
+          "name": "idempotency_validator",
+          "binding_kind": "AUTOMATED:IDEMPOTENCY"
+        },
+        {
+          "name": "authorization_consumption_validator",
+          "binding_kind": "AUTOMATED:IDEMPOTENCY"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_duplicate_click_submission",
+        "CANONICAL_TEST:reject_reused_authorization",
+        "CANONICAL_TEST:reject_missing_attempt_identity"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_duplicate_click_submission",
+        "CANONICAL_TEST:reject_reused_authorization",
+        "CANONICAL_TEST:reject_missing_attempt_identity"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "paid_execution_gate",
+        "transaction_lock_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S09.PAID_EXECUTION_BOUNDARY",
+      "SECTION": 9,
+      "SEVERITY": "CRITICAL",
+      "COMPILER_BINDING": null,
+      "OR_COMPILER_NA_RATIONALE": "Rule is enforced by independent validation and runtime gate; compiler has no applicable transformation.",
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "execution_origin_validator",
+          "binding_kind": "AUTOMATED:PAID"
+        },
+        {
+          "name": "human_click_nonce_validator",
+          "binding_kind": "AUTOMATED:PAID"
+        },
+        {
+          "name": "authorization_envelope_validator",
+          "binding_kind": "AUTOMATED:PAID"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_terminal_paid_call",
+        "CANONICAL_TEST:reject_cli_paid_call",
+        "CANONICAL_TEST:reject_recovery_paid_call",
+        "CANONICAL_TEST:reject_test_paid_call",
+        "CANONICAL_TEST:require_fresh_desktop_click"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_terminal_paid_call",
+        "CANONICAL_TEST:reject_cli_paid_call",
+        "CANONICAL_TEST:reject_recovery_paid_call",
+        "CANONICAL_TEST:reject_test_paid_call",
+        "CANONICAL_TEST:require_fresh_desktop_click"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "paid_execution_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S09.RECOVERY_PRESPEND_ONLY",
+      "SECTION": 9,
+      "SEVERITY": "CRITICAL",
+      "COMPILER_BINDING": null,
+      "OR_COMPILER_NA_RATIONALE": "Rule is enforced by independent validation and runtime gate; compiler has no applicable transformation.",
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "recovery_capability_validator",
+          "binding_kind": "AUTOMATED:RECOVERY"
+        },
+        {
+          "name": "network_provider_capability_validator",
+          "binding_kind": "AUTOMATED:RECOVERY"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:prove_recovery_cannot_submit",
+        "CANONICAL_TEST:allow_offline_state_rebuild",
+        "CANONICAL_TEST:allow_reconciliation_without_authorization"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:prove_recovery_cannot_submit",
+        "CANONICAL_TEST:allow_offline_state_rebuild",
+        "CANONICAL_TEST:allow_reconciliation_without_authorization"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "recovery_boundary_gate",
+        "paid_execution_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S09.UNKNOWN_NO_RESUBMIT",
+      "SECTION": 9,
+      "SEVERITY": "CRITICAL",
+      "COMPILER_BINDING": null,
+      "OR_COMPILER_NA_RATIONALE": "Rule is enforced by independent validation and runtime gate; compiler has no applicable transformation.",
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "attempt_state_validator",
+          "binding_kind": "AUTOMATED:UNKNOWN"
+        },
+        {
+          "name": "reconciliation_receipt_validator",
+          "binding_kind": "AUTOMATED:UNKNOWN"
+        },
+        {
+          "name": "ledger_head_binding_validator",
+          "binding_kind": "AUTOMATED:APPEND_ONLY"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_unknown_as_failed",
+        "CANONICAL_TEST:reject_unknown_resubmit",
+        "CANONICAL_TEST:prove_reconciliation_does_not_authorize_execution"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_unknown_as_failed",
+        "CANONICAL_TEST:reject_unknown_resubmit",
+        "CANONICAL_TEST:prove_reconciliation_does_not_authorize_execution"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "reconciliation_gate",
+        "retry_gate",
+        "paid_execution_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S10.APPEND_ONLY_EVIDENCE",
+      "SECTION": 10,
+      "SEVERITY": "CRITICAL",
+      "COMPILER_BINDING": null,
+      "OR_COMPILER_NA_RATIONALE": "Rule is enforced by independent validation and runtime gate; compiler has no applicable transformation.",
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "ledger_chain_validator",
+          "binding_kind": "AUTOMATED:APPEND_ONLY"
+        },
+        {
+          "name": "evidence_mutation_validator",
+          "binding_kind": "AUTOMATED:APPEND_ONLY"
+        },
+        {
+          "name": "ledger_head_binding_validator",
+          "binding_kind": "AUTOMATED:APPEND_ONLY"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_history_rewrite",
+        "CANONICAL_TEST:reject_reconciliation_against_stale_ledger_head",
+        "CANONICAL_TEST:preserve_unknown_evidence"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_history_rewrite",
+        "CANONICAL_TEST:reject_reconciliation_against_stale_ledger_head",
+        "CANONICAL_TEST:preserve_unknown_evidence"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "reconciliation_gate",
+        "paid_execution_gate",
+        "audit_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S10.APPROVAL_HASH_BINDING",
+      "SECTION": 10,
+      "SEVERITY": "CRITICAL",
+      "COMPILER_BINDING": null,
+      "OR_COMPILER_NA_RATIONALE": "Rule is enforced by independent validation and runtime gate; compiler has no applicable transformation.",
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "approval_receipt_validator",
+          "binding_kind": "AUTOMATED:APPROVAL"
+        },
+        {
+          "name": "dependency_graph_validator",
+          "binding_kind": "AUTOMATED:APPROVAL"
+        },
+        {
+          "name": "stale_state_validator",
+          "binding_kind": "AUTOMATED:APPROVAL"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:invalidate_on_constitution_change",
+        "CANONICAL_TEST:invalidate_on_prompt_change",
+        "CANONICAL_TEST:invalidate_on_reference_change",
+        "CANONICAL_TEST:invalidate_on_audio_change",
+        "CANONICAL_TEST:invalidate_on_cost_change"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:invalidate_on_constitution_change",
+        "CANONICAL_TEST:invalidate_on_prompt_change",
+        "CANONICAL_TEST:invalidate_on_reference_change",
+        "CANONICAL_TEST:invalidate_on_audio_change",
+        "CANONICAL_TEST:invalidate_on_cost_change"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "every_promotion_gate",
+        "paid_execution_gate",
+        "publish_ready_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S10.BUNDLE_HASH_MODEL",
+      "SECTION": 10,
+      "SEVERITY": "HIGH",
+      "COMPILER_BINDING": "compile_policy",
+      "OR_COMPILER_NA_RATIONALE": null,
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "bundle_manifest_validator",
+          "binding_kind": "AUTOMATED:GOVERNANCE"
+        },
+        {
+          "name": "artifact_constitution_binding_validator",
+          "binding_kind": "AUTOMATED:GOVERNANCE"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_false_shared_file_hash",
+        "CANONICAL_TEST:reject_artifact_bound_to_other_bundle"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_false_shared_file_hash",
+        "CANONICAL_TEST:reject_artifact_bound_to_other_bundle"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "process_boot_gate",
+        "artifact_promotion_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S10.ENFORCEMENT_CHAIN",
+      "SECTION": 10,
+      "SEVERITY": "CRITICAL",
+      "COMPILER_BINDING": "compile_policy",
+      "OR_COMPILER_NA_RATIONALE": null,
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "enforcement_coverage_validator",
+          "binding_kind": "AUTOMATED:COVERAGE"
+        },
+        {
+          "name": "runtime_gate_registration_validator",
+          "binding_kind": "AUTOMATED:COVERAGE"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_unenforced_hard_rule",
+        "CANONICAL_TEST:require_not_applicable_rationale",
+        "CANONICAL_TEST:reject_test_only_policy_evidence"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_unenforced_hard_rule",
+        "CANONICAL_TEST:require_not_applicable_rationale",
+        "CANONICAL_TEST:reject_test_only_policy_evidence"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "process_boot_gate",
+        "release_readiness_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S10.SEPARATION_OF_CAPABILITIES",
+      "SECTION": 10,
+      "SEVERITY": "CRITICAL",
+      "COMPILER_BINDING": null,
+      "OR_COMPILER_NA_RATIONALE": "Rule is enforced by independent validation and runtime gate; compiler has no applicable transformation.",
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "capability_boundary_validator",
+          "binding_kind": "AUTOMATED:CAPABILITY"
+        },
+        {
+          "name": "dependency_boundary_validator",
+          "binding_kind": "AUTOMATED:CAPABILITY"
+        },
+        {
+          "name": "network_fixture_validator",
+          "binding_kind": "AUTOMATED:CAPABILITY"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:prove_compiler_offline",
+        "CANONICAL_TEST:prove_validator_read_only",
+        "CANONICAL_TEST:prove_executor_exact_payload",
+        "CANONICAL_TEST:prove_tests_use_fakes"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:prove_compiler_offline",
+        "CANONICAL_TEST:prove_validator_read_only",
+        "CANONICAL_TEST:prove_executor_exact_payload",
+        "CANONICAL_TEST:prove_tests_use_fakes"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "process_boot_gate",
+        "pre_submit_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    },
+    {
+      "RULE_ID": "SIRAJ.S10.SINGLE_CANONICAL_AUTHORITY",
+      "SECTION": 10,
+      "SEVERITY": "CRITICAL",
+      "COMPILER_BINDING": "compile_policy",
+      "OR_COMPILER_NA_RATIONALE": null,
+      "VALIDATOR_BINDINGS": [
+        {
+          "name": "constitution_bundle_validator",
+          "binding_kind": "AUTOMATED:GOVERNANCE"
+        },
+        {
+          "name": "precedence_validator",
+          "binding_kind": "AUTOMATED:GOVERNANCE"
+        },
+        {
+          "name": "duplicate_policy_authority_validator",
+          "binding_kind": "AUTOMATED:GOVERNANCE"
+        }
+      ],
+      "POSITIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_have_positive_enforcement",
+        "CANONICAL_TEST:reject_missing_constitution",
+        "CANONICAL_TEST:reject_hash_mismatch",
+        "CANONICAL_TEST:reject_episode_weakening",
+        "CANONICAL_TEST:reject_hidden_policy_default"
+      ],
+      "NEGATIVE_TEST_BINDINGS": [
+        "tests/unit/test_unified_constitution_enforcement_v1.py::test_all_rules_fail_closed_without_required_evidence",
+        "CANONICAL_TEST:reject_missing_constitution",
+        "CANONICAL_TEST:reject_hash_mismatch",
+        "CANONICAL_TEST:reject_episode_weakening",
+        "CANONICAL_TEST:reject_hidden_policy_default"
+      ],
+      "RUNTIME_GATE_BINDINGS": [
+        "process_boot_gate",
+        "every_stage_gate"
+      ],
+      "AUDIT_EVIDENCE": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+      "STATUS": "COVERED"
+    }
+  ],
+  "PRODUCTION_AUTHORIZED": false,
+  "AUDIT_EVIDENCE_ARTIFACT": {
+    "path": "E7_RAW_ENFORCEMENT_EVIDENCE.json",
+    "sha256": "fdb52a1969903c3a089d65157e185312dd783707c9b9794f41206f309c622a90"
+  },
+  "checks": {
+    "rule_count": 51,
+    "covered_rules": 51,
+    "uncovered_rules": 0,
+    "critical_rules_unenforced": 0,
+    "high_rules_unenforced": 0,
+    "validator_implementations_complete": true,
+    "critical_unresolved": 0,
+    "high_unresolved": 0,
+    "policy_contradictions": 0,
+    "unenforced_hard_rules": 0,
+    "silent_defaults_for_sensitive_rules": 0,
+    "duplicate_policy_authorities": 0,
+    "unauthorized_network_capabilities": 0,
+    "non_circular_audit_evidence": true,
+    "audit_evidence_hash_bound": true
+  },
+  "status": "PASS"
+}

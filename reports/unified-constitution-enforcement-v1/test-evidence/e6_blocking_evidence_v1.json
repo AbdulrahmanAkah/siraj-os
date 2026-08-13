@@ -1,0 +1,54 @@
+{
+  "evidence_id": "SIRAJ-E6-BLOCKING-EVIDENCE-20260813-V1",
+  "relevant_repository_suite": {
+    "path": "FAIL_FAST_LOCAL_RUN_NO_JUNIT_DUE_DISK_EXHAUSTION",
+    "sha256": "NOT_AVAILABLE_OUTPUT_WAS_TERMINAL_ONLY",
+    "tests": 87,
+    "passed": 86,
+    "failures": 1,
+    "errors": 0,
+    "skipped": 0,
+    "adversarial_tests": 0,
+    "regression_tests": 0,
+    "test_names": [],
+    "status": "FAIL",
+    "first_blocker": {
+      "test": "tests/test_siraj_cinematic_director_v2.py::test_v2_is_backward_compatible_with_preserved_v1_candidate_and_never_calls_provider",
+      "error_type": "ControlledAlignmentValidationError",
+      "error_code": "AUTHORITATIVE_ALIGNMENT_STATE_REQUIRED",
+      "classification": "STALE_OR_MISSING_LEGACY_AUTHORITY_STATE_OUTSIDE_CONSTITUTION_IMPLEMENTATION_SCOPE"
+    },
+    "additional_attempt": {
+      "progress_reached": "100_PERCENT_TEST_EXECUTION_BEFORE_REPORT_WRITE",
+      "result_summary_unavailable": "JUNIT_WRITE_FAILED_WITH_OS_ERROR_28_NO_SPACE_LEFT_ON_DEVICE",
+      "observed": "MULTIPLE_LEGACY_FAILURES_AND_ERRORS_PRESENT"
+    }
+  },
+  "full_repository_suite": {
+    "path": "NOT_RUN_AFTER_RELEVANT_SUITE_BLOCKED",
+    "sha256": "NOT_APPLICABLE",
+    "tests": 0,
+    "passed": 0,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "adversarial_tests": 0,
+    "regression_tests": 0,
+    "test_names": [],
+    "status": "BLOCKED",
+    "blockers": [
+      "RELEVANT_REPOSITORY_SUITE_NOT_PASSING",
+      "C_DRIVE_EXHAUSTED_DURING_LEGACY_TEST_OUTPUT",
+      "ACTIVE_UNRELATED_LOCAL_VIDEO_AUDIT_PROCESSES_WERE_PRESERVED_AND_NOT_TERMINATED"
+    ]
+  },
+  "safety": {
+    "provider_calls": 0,
+    "paid_calls": 0,
+    "network_production_calls": 0,
+    "retries": 0,
+    "resubmissions": 0,
+    "montage_executions": 0,
+    "production_executions": 0
+  }
+}

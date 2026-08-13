@@ -1,0 +1,53 @@
+{
+  "evidence_id": "SIRAJ-BRAND-ASSET-OFFLINE-REVIEW-20260813-V1",
+  "reviewer": "CODEX_VISUAL_INSPECTION",
+  "review_time": "2026-08-13T00:00:00+03:00",
+  "scope": "READ_ONLY_CANONICAL_INTRO_AND_OUTRO_REVIEW",
+  "intro": {
+    "filename": "pixverse-v6-9c194a5a.mp4",
+    "sha256": "3de59689f16329fd7f701d010526a9280843917625d02dcac9aa5569250b37f4",
+    "container": "MP4",
+    "video_codec": "H264_HIGH",
+    "dimensions": "1920x1072",
+    "frame_rate": 24,
+    "duration_seconds": 5.04,
+    "decoded_frame_count": 121,
+    "audio_stream_count": 0,
+    "all_frames_reviewed": true,
+    "visible_human_faces_found": 0,
+    "contact_sheets": [
+      {
+        "path": "intro-frames-000-039.png",
+        "frames": [0, 39],
+        "sha256": "27ef6ac35ce3eb7a8b2fe8542d706e0451b2e1561fe8c7e41ea271e9babe07c4"
+      },
+      {
+        "path": "intro-frames-040-079.png",
+        "frames": [40, 79],
+        "sha256": "f078977df78694f624b25e947004c9e1d4430928eb3c6eea1ae340eb9fefb833"
+      },
+      {
+        "path": "intro-frames-080-120.png",
+        "frames": [80, 120],
+        "sha256": "a1001420b51672062f3a7c873667cd79597b5766708446dda34df4250c3319b8"
+      }
+    ],
+    "status": "PASS_OFFLINE_ALL_FRAME_VISUAL_REVIEW"
+  },
+  "outro": {
+    "filename": "ChatGPT Image Aug 8, 2026, 01_26_49 AM.png",
+    "sha256": "09c01a3e144b9c1fbfe3ddad5d08f2fb4759ef054d6b071ce17e255f7c614004",
+    "visible_human_faces_found": 0,
+    "status": "PASS_OFFLINE_VISUAL_REVIEW"
+  },
+  "limitations": [
+    "This evidence closes OPEN-L01 and OPEN-L02 for the exact reviewed bytes only.",
+    "It does not set face-detector calibration thresholds and does not close OPEN-M03.",
+    "It is not final human episode certification and does not authorize production, montage, paid execution, provider execution, or publication."
+  ],
+  "provider_calls": 0,
+  "paid_calls": 0,
+  "network_production_calls": 0,
+  "montage_executions": 0,
+  "production_executions": 0
+}
