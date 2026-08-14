@@ -1,0 +1,839 @@
+{
+  "manifest_id": "EP002_R27_REVIEW_INPUT_MANIFEST_V1",
+  "status": "PASS",
+  "episode_id": "episode-002-adam-temptation-fall-repentance",
+  "inventory_only": true,
+  "actual_asset_review_performed": false,
+  "human_review_decisions": 0,
+  "expected_unit_count": 27,
+  "actual_unit_count": 27,
+  "source_manifest_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/ep002-v2-4-repair-provider-execution-v1/render-conformance-review-v1/_MANIFEST.json",
+  "source_manifest_sha256": "102e4a474cce6def1496c18d3f77d3f7fad650a8ca18c6b1556448b52333ff69",
+  "source_provider_plan_sha256": "3ea9b8d751fd7f75433128e031c462e1837f633c4df99317660ebacf7234c152",
+  "source_storyboard_sha256": "a01f945615bbd18409745607b98fba87bba39c71ffa99bc2019cc0462c9faef8",
+  "montage_allowed": false,
+  "qa_allowed": false,
+  "provider_retry_allowed": false,
+  "asset_hashes_unchanged": true,
+  "units": [
+    {
+      "ordinal": 1,
+      "unit_id": "V23-GEN-001-EATING-ANCHOR",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-001-EATING-ANCHOR.mp4",
+      "asset_sha256_expected": "b2cad09fa0a05599f1bdf7cc530a5d149cb280fc08b5b4b71e01a4bb3b7ecd01",
+      "asset_sha256_actual": "b2cad09fa0a05599f1bdf7cc530a5d149cb280fc08b5b4b71e01a4bb3b7ecd01",
+      "asset_hash_matches_receipt": true,
+      "asset_hash_unchanged_after_inventory": true,
+      "member_shot_ids": [
+        "EP002-V2-NEW-001"
+      ],
+      "continuity_group": "ADAM_HAWWA_GARDEN",
+      "decoded_frames_reviewable": 192,
+      "metadata_inventory": {
+        "status": "PASS",
+        "width": 1280,
+        "height": 720,
+        "fps": 24.0,
+        "reported_frame_count": 192,
+        "manifest_decoded_frames_reviewable": 192,
+        "metadata_only": true,
+        "frames_human_reviewed": 0
+      },
+      "review_status": "PENDING_HUMAN_REVIEW",
+      "review_decision": "NOT_STARTED",
+      "approved_for_montage": false,
+      "approved_for_qa": false,
+      "provider_retry_allowed": false,
+      "review_mode": "ALL_DECODED_FRAMES_CONTACT_SHEET_8X8"
+    },
+    {
+      "ordinal": 2,
+      "unit_id": "V23-GEN-SUPPORT-001-COLD-AFTERMATH",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-SUPPORT-001-COLD-AFTERMATH.mp4",
+      "asset_sha256_expected": "3834e031161844c87f3666097ead4c474391eba37f3d17716b0a6b574784edaa",
+      "asset_sha256_actual": "3834e031161844c87f3666097ead4c474391eba37f3d17716b0a6b574784edaa",
+      "asset_hash_matches_receipt": true,
+      "asset_hash_unchanged_after_inventory": true,
+      "member_shot_ids": [
+        "EP002-V2-NEW-SUPPORT-001"
+      ],
+      "continuity_group": "ADAM_HAWWA_GARDEN",
+      "decoded_frames_reviewable": 192,
+      "metadata_inventory": {
+        "status": "PASS",
+        "width": 1280,
+        "height": 720,
+        "fps": 24.0,
+        "reported_frame_count": 192,
+        "manifest_decoded_frames_reviewable": 192,
+        "metadata_only": true,
+        "frames_human_reviewed": 0
+      },
+      "review_status": "PENDING_HUMAN_REVIEW",
+      "review_decision": "NOT_STARTED",
+      "approved_for_montage": false,
+      "approved_for_qa": false,
+      "provider_retry_allowed": false,
+      "review_mode": "ALL_DECODED_FRAMES_CONTACT_SHEET_8X8"
+    },
+    {
+      "ordinal": 3,
+      "unit_id": "V23-GEN-SUPPORT-002-COLD-COVERING",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-SUPPORT-002-COLD-COVERING.mp4",
+      "asset_sha256_expected": "baf1b779c86061c39f60cad001675e16e1bb43ef0e11ba63e80bedd179906bd7",
+      "asset_sha256_actual": "baf1b779c86061c39f60cad001675e16e1bb43ef0e11ba63e80bedd179906bd7",
+      "asset_hash_matches_receipt": true,
+      "asset_hash_unchanged_after_inventory": true,
+      "member_shot_ids": [
+        "EP002-V2-NEW-SUPPORT-002"
+      ],
+      "continuity_group": "ADAM_HAWWA_GARDEN",
+      "decoded_frames_reviewable": 192,
+      "metadata_inventory": {
+        "status": "PASS",
+        "width": 1280,
+        "height": 720,
+        "fps": 24.0,
+        "reported_frame_count": 192,
+        "manifest_decoded_frames_reviewable": 192,
+        "metadata_only": true,
+        "frames_human_reviewed": 0
+      },
+      "review_status": "PENDING_HUMAN_REVIEW",
+      "review_decision": "NOT_STARTED",
+      "approved_for_montage": false,
+      "approved_for_qa": false,
+      "provider_retry_allowed": false,
+      "review_mode": "ALL_DECODED_FRAMES_CONTACT_SHEET_8X8"
+    },
+    {
+      "ordinal": 4,
+      "unit_id": "V23-GEN-SUPPORT-003-COLD-REMORSE",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-SUPPORT-003-COLD-REMORSE.mp4",
+      "asset_sha256_expected": "90f875afcae02160b7c0e792c89531d724cd9b68803c2ff2424c6ea8a0907ede",
+      "asset_sha256_actual": "90f875afcae02160b7c0e792c89531d724cd9b68803c2ff2424c6ea8a0907ede",
+      "asset_hash_matches_receipt": true,
+      "asset_hash_unchanged_after_inventory": true,
+      "member_shot_ids": [
+        "EP002-V2-NEW-SUPPORT-003"
+      ],
+      "continuity_group": "ADAM_HAWWA_GARDEN",
+      "decoded_frames_reviewable": 192,
+      "metadata_inventory": {
+        "status": "PASS",
+        "width": 1280,
+        "height": 720,
+        "fps": 24.0,
+        "reported_frame_count": 192,
+        "manifest_decoded_frames_reviewable": 192,
+        "metadata_only": true,
+        "frames_human_reviewed": 0
+      },
+      "review_status": "PENDING_HUMAN_REVIEW",
+      "review_decision": "NOT_STARTED",
+      "approved_for_montage": false,
+      "approved_for_qa": false,
+      "provider_retry_allowed": false,
+      "review_mode": "ALL_DECODED_FRAMES_CONTACT_SHEET_8X8"
+    },
+    {
+      "ordinal": 5,
+      "unit_id": "V23-GEN-002-TREE-BOUNDARY",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-002-TREE-BOUNDARY.mp4",
+      "asset_sha256_expected": "6086e4fe9fae58826845081435d1f13f04abd9765b54d638b85d351849936a9c",
+      "asset_sha256_actual": "6086e4fe9fae58826845081435d1f13f04abd9765b54d638b85d351849936a9c",
+      "asset_hash_matches_receipt": true,
+      "asset_hash_unchanged_after_inventory": true,
+      "member_shot_ids": [
+        "EP002-V2-NEW-002",
+        "EP002-V2-NEW-SUPPORT-006"
+      ],
+      "continuity_group": "ADAM_HAWWA_GARDEN",
+      "decoded_frames_reviewable": 192,
+      "metadata_inventory": {
+        "status": "PASS",
+        "width": 1280,
+        "height": 720,
+        "fps": 24.0,
+        "reported_frame_count": 192,
+        "manifest_decoded_frames_reviewable": 192,
+        "metadata_only": true,
+        "frames_human_reviewed": 0
+      },
+      "review_status": "PENDING_HUMAN_REVIEW",
+      "review_decision": "NOT_STARTED",
+      "approved_for_montage": false,
+      "approved_for_qa": false,
+      "provider_retry_allowed": false,
+      "review_mode": "ALL_DECODED_FRAMES_CONTACT_SHEET_8X8"
+    },
+    {
+      "ordinal": 6,
+      "unit_id": "V23-GEN-003-WHISPER-SHARED",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-003-WHISPER-SHARED.mp4",
+      "asset_sha256_expected": "1065ea0dab4eb31f8454245d0437db252dc135c82a981190f3571235176a60f3",
+      "asset_sha256_actual": "1065ea0dab4eb31f8454245d0437db252dc135c82a981190f3571235176a60f3",
+      "asset_hash_matches_receipt": true,
+      "asset_hash_unchanged_after_inventory": true,
+      "member_shot_ids": [
+        "EP002-V2-NEW-003",
+        "EP002-V2-NEW-004"
+      ],
+      "continuity_group": "ADAM_HAWWA_GARDEN",
+      "decoded_frames_reviewable": 192,
+      "metadata_inventory": {
+        "status": "PASS",
+        "width": 1280,
+        "height": 720,
+        "fps": 24.0,
+        "reported_frame_count": 192,
+        "manifest_decoded_frames_reviewable": 192,
+        "metadata_only": true,
+        "frames_human_reviewed": 0
+      },
+      "review_status": "PENDING_HUMAN_REVIEW",
+      "review_decision": "NOT_STARTED",
+      "approved_for_montage": false,
+      "approved_for_qa": false,
+      "provider_retry_allowed": false,
+      "review_mode": "ALL_DECODED_FRAMES_CONTACT_SHEET_8X8"
+    },
+    {
+      "ordinal": 7,
+      "unit_id": "V23-GEN-004-CHOICE-SHARED",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-004-CHOICE-SHARED.mp4",
+      "asset_sha256_expected": "1b197f9f861a59b35676d6928f2d187dcadfc6c6642c2b8e136227dc106d857b",
+      "asset_sha256_actual": "1b197f9f861a59b35676d6928f2d187dcadfc6c6642c2b8e136227dc106d857b",
+      "asset_hash_matches_receipt": true,
+      "asset_hash_unchanged_after_inventory": true,
+      "member_shot_ids": [
+        "EP002-V2-NEW-005",
+        "EP002-V2-NEW-006"
+      ],
+      "continuity_group": "ADAM_HAWWA_GARDEN",
+      "decoded_frames_reviewable": 192,
+      "metadata_inventory": {
+        "status": "PASS",
+        "width": 1280,
+        "height": 720,
+        "fps": 24.0,
+        "reported_frame_count": 192,
+        "manifest_decoded_frames_reviewable": 192,
+        "metadata_only": true,
+        "frames_human_reviewed": 0
+      },
+      "review_status": "PENDING_HUMAN_REVIEW",
+      "review_decision": "NOT_STARTED",
+      "approved_for_montage": false,
+      "approved_for_qa": false,
+      "provider_retry_allowed": false,
+      "review_mode": "ALL_DECODED_FRAMES_CONTACT_SHEET_8X8"
+    },
+    {
+      "ordinal": 8,
+      "unit_id": "V23-GEN-005-EATING-AFTERMATH",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-005-EATING-AFTERMATH.mp4",
+      "asset_sha256_expected": "efad7068371f85fc93858352d99f0eaa967732902c2756303ebf6a2bb531136b",
+      "asset_sha256_actual": "efad7068371f85fc93858352d99f0eaa967732902c2756303ebf6a2bb531136b",
+      "asset_hash_matches_receipt": true,
+      "asset_hash_unchanged_after_inventory": true,
+      "member_shot_ids": [
+        "EP002-V2-NEW-007"
+      ],
+      "continuity_group": "ADAM_HAWWA_GARDEN",
+      "decoded_frames_reviewable": 192,
+      "metadata_inventory": {
+        "status": "PASS",
+        "width": 1280,
+        "height": 720,
+        "fps": 24.0,
+        "reported_frame_count": 192,
+        "manifest_decoded_frames_reviewable": 192,
+        "metadata_only": true,
+        "frames_human_reviewed": 0
+      },
+      "review_status": "PENDING_HUMAN_REVIEW",
+      "review_decision": "NOT_STARTED",
+      "approved_for_montage": false,
+      "approved_for_qa": false,
+      "provider_retry_allowed": false,
+      "review_mode": "ALL_DECODED_FRAMES_CONTACT_SHEET_8X8"
+    },
+    {
+      "ordinal": 9,
+      "unit_id": "V23-GEN-006-COVERING",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-006-COVERING.mp4",
+      "asset_sha256_expected": "d3f9f115db3f13ed43ccf327dba17ad85719ec354f081ef584d2e2a5724b81ef",
+      "asset_sha256_actual": "d3f9f115db3f13ed43ccf327dba17ad85719ec354f081ef584d2e2a5724b81ef",
+      "asset_hash_matches_receipt": true,
+      "asset_hash_unchanged_after_inventory": true,
+      "member_shot_ids": [
+        "EP002-V2-NEW-008"
+      ],
+      "continuity_group": "ADAM_HAWWA_GARDEN",
+      "decoded_frames_reviewable": 144,
+      "metadata_inventory": {
+        "status": "PASS",
+        "width": 1280,
+        "height": 720,
+        "fps": 24.0,
+        "reported_frame_count": 144,
+        "manifest_decoded_frames_reviewable": 144,
+        "metadata_only": true,
+        "frames_human_reviewed": 0
+      },
+      "review_status": "PENDING_HUMAN_REVIEW",
+      "review_decision": "NOT_STARTED",
+      "approved_for_montage": false,
+      "approved_for_qa": false,
+      "provider_retry_allowed": false,
+      "review_mode": "ALL_DECODED_FRAMES_CONTACT_SHEET_8X8"
+    },
+    {
+      "ordinal": 10,
+      "unit_id": "V23-GEN-007-REMORSE",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-007-REMORSE.mp4",
+      "asset_sha256_expected": "5245a421eb6485fefacfee35e100b1923f1ada78d94b1499aad9334295590714",
+      "asset_sha256_actual": "5245a421eb6485fefacfee35e100b1923f1ada78d94b1499aad9334295590714",
+      "asset_hash_matches_receipt": true,
+      "asset_hash_unchanged_after_inventory": true,
+      "member_shot_ids": [
+        "EP002-V2-NEW-009"
+      ],
+      "continuity_group": "ADAM_HAWWA_GARDEN",
+      "decoded_frames_reviewable": 192,
+      "metadata_inventory": {
+        "status": "PASS",
+        "width": 1280,
+        "height": 720,
+        "fps": 24.0,
+        "reported_frame_count": 192,
+        "manifest_decoded_frames_reviewable": 192,
+        "metadata_only": true,
+        "frames_human_reviewed": 0
+      },
+      "review_status": "PENDING_HUMAN_REVIEW",
+      "review_decision": "NOT_STARTED",
+      "approved_for_montage": false,
+      "approved_for_qa": false,
+      "provider_retry_allowed": false,
+      "review_mode": "ALL_DECODED_FRAMES_CONTACT_SHEET_8X8"
+    },
+    {
+      "ordinal": 11,
+      "unit_id": "V23-GEN-008-SUPPLICATION",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-008-SUPPLICATION.mp4",
+      "asset_sha256_expected": "576141f5d1ef3a4620d6434b73ead674d2fbece9933ffd1cf1cc911bae7c6229",
+      "asset_sha256_actual": "576141f5d1ef3a4620d6434b73ead674d2fbece9933ffd1cf1cc911bae7c6229",
+      "asset_hash_matches_receipt": true,
+      "asset_hash_unchanged_after_inventory": true,
+      "member_shot_ids": [
+        "EP002-V2-NEW-010"
+      ],
+      "continuity_group": "ADAM_HAWWA_GARDEN",
+      "decoded_frames_reviewable": 192,
+      "metadata_inventory": {
+        "status": "PASS",
+        "width": 1280,
+        "height": 720,
+        "fps": 24.0,
+        "reported_frame_count": 192,
+        "manifest_decoded_frames_reviewable": 192,
+        "metadata_only": true,
+        "frames_human_reviewed": 0
+      },
+      "review_status": "PENDING_HUMAN_REVIEW",
+      "review_decision": "NOT_STARTED",
+      "approved_for_montage": false,
+      "approved_for_qa": false,
+      "provider_retry_allowed": false,
+      "review_mode": "ALL_DECODED_FRAMES_CONTACT_SHEET_8X8"
+    },
+    {
+      "ordinal": 12,
+      "unit_id": "V23-GEN-009-RECEIVING-WORDS",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-009-RECEIVING-WORDS.mp4",
+      "asset_sha256_expected": "bedf53a07405922062eb28307a2a833c0c3bd86c87cd0d8e8b58fecc31699d9e",
+      "asset_sha256_actual": "bedf53a07405922062eb28307a2a833c0c3bd86c87cd0d8e8b58fecc31699d9e",
+      "asset_hash_matches_receipt": true,
+      "asset_hash_unchanged_after_inventory": true,
+      "member_shot_ids": [
+        "EP002-V2-NEW-011"
+      ],
+      "continuity_group": "ADAM",
+      "decoded_frames_reviewable": 192,
+      "metadata_inventory": {
+        "status": "PASS",
+        "width": 1280,
+        "height": 720,
+        "fps": 24.0,
+        "reported_frame_count": 192,
+        "manifest_decoded_frames_reviewable": 192,
+        "metadata_only": true,
+        "frames_human_reviewed": 0
+      },
+      "review_status": "PENDING_HUMAN_REVIEW",
+      "review_decision": "NOT_STARTED",
+      "approved_for_montage": false,
+      "approved_for_qa": false,
+      "provider_retry_allowed": false,
+      "review_mode": "ALL_DECODED_FRAMES_CONTACT_SHEET_8X8"
+    },
+    {
+      "ordinal": 13,
+      "unit_id": "V23-GEN-010-GUIDANCE",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-010-GUIDANCE.mp4",
+      "asset_sha256_expected": "7990dd8d494443debedb0beae4b26dbd6f4981fb0afe1cd3013a638e67f655b1",
+      "asset_sha256_actual": "7990dd8d494443debedb0beae4b26dbd6f4981fb0afe1cd3013a638e67f655b1",
+      "asset_hash_matches_receipt": true,
+      "asset_hash_unchanged_after_inventory": true,
+      "member_shot_ids": [
+        "EP002-V2-NEW-012"
+      ],
+      "continuity_group": "ADAM_HAWWA_GARDEN",
+      "decoded_frames_reviewable": 192,
+      "metadata_inventory": {
+        "status": "PASS",
+        "width": 1280,
+        "height": 720,
+        "fps": 24.0,
+        "reported_frame_count": 192,
+        "manifest_decoded_frames_reviewable": 192,
+        "metadata_only": true,
+        "frames_human_reviewed": 0
+      },
+      "review_status": "PENDING_HUMAN_REVIEW",
+      "review_decision": "NOT_STARTED",
+      "approved_for_montage": false,
+      "approved_for_qa": false,
+      "provider_retry_allowed": false,
+      "review_mode": "ALL_DECODED_FRAMES_CONTACT_SHEET_8X8"
+    },
+    {
+      "ordinal": 14,
+      "unit_id": "V23-GEN-011-ADAM-EARTH",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-011-ADAM-EARTH.mp4",
+      "asset_sha256_expected": "374ee21974d8b6c379b5319628fb00d82ff730f30534e70c92fbdb1d4011fb4a",
+      "asset_sha256_actual": "374ee21974d8b6c379b5319628fb00d82ff730f30534e70c92fbdb1d4011fb4a",
+      "asset_hash_matches_receipt": true,
+      "asset_hash_unchanged_after_inventory": true,
+      "member_shot_ids": [
+        "EP002-V2-NEW-013"
+      ],
+      "continuity_group": "ADAM_EARTH",
+      "decoded_frames_reviewable": 192,
+      "metadata_inventory": {
+        "status": "PASS",
+        "width": 1280,
+        "height": 720,
+        "fps": 24.0,
+        "reported_frame_count": 192,
+        "manifest_decoded_frames_reviewable": 192,
+        "metadata_only": true,
+        "frames_human_reviewed": 0
+      },
+      "review_status": "PENDING_HUMAN_REVIEW",
+      "review_decision": "NOT_STARTED",
+      "approved_for_montage": false,
+      "approved_for_qa": false,
+      "provider_retry_allowed": false,
+      "review_mode": "ALL_DECODED_FRAMES_CONTACT_SHEET_8X8"
+    },
+    {
+      "ordinal": 15,
+      "unit_id": "V23-GEN-012-HAWWA-EARTH",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-012-HAWWA-EARTH.mp4",
+      "asset_sha256_expected": "5ef2172139b81b19c13dc2c43a2f2af60d7b18d500d9d96c21e31ab4fc03fb2a",
+      "asset_sha256_actual": "5ef2172139b81b19c13dc2c43a2f2af60d7b18d500d9d96c21e31ab4fc03fb2a",
+      "asset_hash_matches_receipt": true,
+      "asset_hash_unchanged_after_inventory": true,
+      "member_shot_ids": [
+        "EP002-V2-NEW-014"
+      ],
+      "continuity_group": "HAWWA_EARTH",
+      "decoded_frames_reviewable": 192,
+      "metadata_inventory": {
+        "status": "PASS",
+        "width": 1280,
+        "height": 720,
+        "fps": 24.0,
+        "reported_frame_count": 192,
+        "manifest_decoded_frames_reviewable": 192,
+        "metadata_only": true,
+        "frames_human_reviewed": 0
+      },
+      "review_status": "PENDING_HUMAN_REVIEW",
+      "review_decision": "NOT_STARTED",
+      "approved_for_montage": false,
+      "approved_for_qa": false,
+      "provider_retry_allowed": false,
+      "review_mode": "ALL_DECODED_FRAMES_CONTACT_SHEET_8X8"
+    },
+    {
+      "ordinal": 16,
+      "unit_id": "V23-GEN-SUPPORT-015-ADAM-EARTH",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-SUPPORT-015-ADAM-EARTH.mp4",
+      "asset_sha256_expected": "dd355a6d0f2a42de33022bc0a8b15f5f366c1878967c8046a4dabab8853bc5c7",
+      "asset_sha256_actual": "dd355a6d0f2a42de33022bc0a8b15f5f366c1878967c8046a4dabab8853bc5c7",
+      "asset_hash_matches_receipt": true,
+      "asset_hash_unchanged_after_inventory": true,
+      "member_shot_ids": [
+        "EP002-V2-NEW-SUPPORT-015"
+      ],
+      "continuity_group": "ADAM_EARTH",
+      "decoded_frames_reviewable": 192,
+      "metadata_inventory": {
+        "status": "PASS",
+        "width": 1280,
+        "height": 720,
+        "fps": 24.0,
+        "reported_frame_count": 192,
+        "manifest_decoded_frames_reviewable": 192,
+        "metadata_only": true,
+        "frames_human_reviewed": 0
+      },
+      "review_status": "PENDING_HUMAN_REVIEW",
+      "review_decision": "NOT_STARTED",
+      "approved_for_montage": false,
+      "approved_for_qa": false,
+      "provider_retry_allowed": false,
+      "review_mode": "ALL_DECODED_FRAMES_CONTACT_SHEET_8X8"
+    },
+    {
+      "ordinal": 17,
+      "unit_id": "V23-GEN-SUPPORT-016-HAWWA-EARTH",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-SUPPORT-016-HAWWA-EARTH.mp4",
+      "asset_sha256_expected": "215a5a60e951b93452ba08ad74156f060a94611e8aee41eee7444a7d1bce9db7",
+      "asset_sha256_actual": "215a5a60e951b93452ba08ad74156f060a94611e8aee41eee7444a7d1bce9db7",
+      "asset_hash_matches_receipt": true,
+      "asset_hash_unchanged_after_inventory": true,
+      "member_shot_ids": [
+        "EP002-V2-NEW-SUPPORT-016"
+      ],
+      "continuity_group": "HAWWA_EARTH",
+      "decoded_frames_reviewable": 192,
+      "metadata_inventory": {
+        "status": "PASS",
+        "width": 1280,
+        "height": 720,
+        "fps": 24.0,
+        "reported_frame_count": 192,
+        "manifest_decoded_frames_reviewable": 192,
+        "metadata_only": true,
+        "frames_human_reviewed": 0
+      },
+      "review_status": "PENDING_HUMAN_REVIEW",
+      "review_decision": "NOT_STARTED",
+      "approved_for_montage": false,
+      "approved_for_qa": false,
+      "provider_retry_allowed": false,
+      "review_mode": "ALL_DECODED_FRAMES_CONTACT_SHEET_8X8"
+    },
+    {
+      "ordinal": 18,
+      "unit_id": "V23-GEN-SUPPORT-017-ADAM-EARTH",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-SUPPORT-017-ADAM-EARTH.mp4",
+      "asset_sha256_expected": "723997f58131e92ea305ff8705964c0a0b497aa9769508598aab05b3478fcb8f",
+      "asset_sha256_actual": "723997f58131e92ea305ff8705964c0a0b497aa9769508598aab05b3478fcb8f",
+      "asset_hash_matches_receipt": true,
+      "asset_hash_unchanged_after_inventory": true,
+      "member_shot_ids": [
+        "EP002-V2-NEW-SUPPORT-017"
+      ],
+      "continuity_group": "ADAM_EARTH",
+      "decoded_frames_reviewable": 192,
+      "metadata_inventory": {
+        "status": "PASS",
+        "width": 1280,
+        "height": 720,
+        "fps": 24.0,
+        "reported_frame_count": 192,
+        "manifest_decoded_frames_reviewable": 192,
+        "metadata_only": true,
+        "frames_human_reviewed": 0
+      },
+      "review_status": "PENDING_HUMAN_REVIEW",
+      "review_decision": "NOT_STARTED",
+      "approved_for_montage": false,
+      "approved_for_qa": false,
+      "provider_retry_allowed": false,
+      "review_mode": "ALL_DECODED_FRAMES_CONTACT_SHEET_8X8"
+    },
+    {
+      "ordinal": 19,
+      "unit_id": "V23-GEN-SUPPORT-018-HAWWA-EARTH",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-SUPPORT-018-HAWWA-EARTH.mp4",
+      "asset_sha256_expected": "68ab91ead9e3968aabd18b938d880d7d3c5b6ef97046457e2ea769c9d43dc993",
+      "asset_sha256_actual": "68ab91ead9e3968aabd18b938d880d7d3c5b6ef97046457e2ea769c9d43dc993",
+      "asset_hash_matches_receipt": true,
+      "asset_hash_unchanged_after_inventory": true,
+      "member_shot_ids": [
+        "EP002-V2-NEW-SUPPORT-018"
+      ],
+      "continuity_group": "HAWWA_EARTH",
+      "decoded_frames_reviewable": 192,
+      "metadata_inventory": {
+        "status": "PASS",
+        "width": 1280,
+        "height": 720,
+        "fps": 24.0,
+        "reported_frame_count": 192,
+        "manifest_decoded_frames_reviewable": 192,
+        "metadata_only": true,
+        "frames_human_reviewed": 0
+      },
+      "review_status": "PENDING_HUMAN_REVIEW",
+      "review_decision": "NOT_STARTED",
+      "approved_for_montage": false,
+      "approved_for_qa": false,
+      "provider_retry_allowed": false,
+      "review_mode": "ALL_DECODED_FRAMES_CONTACT_SHEET_8X8"
+    },
+    {
+      "ordinal": 20,
+      "unit_id": "V23-GEN-013-DEBATE-A",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-013-DEBATE-A.mp4",
+      "asset_sha256_expected": "03ca2784f2b4a0cdef8a679ea9ff4b0d602461834f14f1ef07f2b73b9e699886",
+      "asset_sha256_actual": "03ca2784f2b4a0cdef8a679ea9ff4b0d602461834f14f1ef07f2b73b9e699886",
+      "asset_hash_matches_receipt": true,
+      "asset_hash_unchanged_after_inventory": true,
+      "member_shot_ids": [
+        "EP002-V2-NEW-015",
+        "EP002-V2-NEW-016"
+      ],
+      "continuity_group": "MUSA_DEBATE_SHARED_SETUP",
+      "decoded_frames_reviewable": 192,
+      "metadata_inventory": {
+        "status": "PASS",
+        "width": 1280,
+        "height": 720,
+        "fps": 24.0,
+        "reported_frame_count": 192,
+        "manifest_decoded_frames_reviewable": 192,
+        "metadata_only": true,
+        "frames_human_reviewed": 0
+      },
+      "review_status": "PENDING_HUMAN_REVIEW",
+      "review_decision": "NOT_STARTED",
+      "approved_for_montage": false,
+      "approved_for_qa": false,
+      "provider_retry_allowed": false,
+      "review_mode": "ALL_DECODED_FRAMES_CONTACT_SHEET_8X8"
+    },
+    {
+      "ordinal": 21,
+      "unit_id": "V23-GEN-014-DEBATE-B",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-014-DEBATE-B.mp4",
+      "asset_sha256_expected": "b6985b822808221e7a8dbb46c687fd67d7097ca34115c5010529c8610c939a92",
+      "asset_sha256_actual": "b6985b822808221e7a8dbb46c687fd67d7097ca34115c5010529c8610c939a92",
+      "asset_hash_matches_receipt": true,
+      "asset_hash_unchanged_after_inventory": true,
+      "member_shot_ids": [
+        "EP002-V2-NEW-017"
+      ],
+      "continuity_group": "MUSA_DEBATE_SHARED_SETUP",
+      "decoded_frames_reviewable": 96,
+      "metadata_inventory": {
+        "status": "PASS",
+        "width": 1280,
+        "height": 720,
+        "fps": 24.0,
+        "reported_frame_count": 96,
+        "manifest_decoded_frames_reviewable": 96,
+        "metadata_only": true,
+        "frames_human_reviewed": 0
+      },
+      "review_status": "PENDING_HUMAN_REVIEW",
+      "review_decision": "NOT_STARTED",
+      "approved_for_montage": false,
+      "approved_for_qa": false,
+      "provider_retry_allowed": false,
+      "review_mode": "ALL_DECODED_FRAMES_CONTACT_SHEET_8X8"
+    },
+    {
+      "ordinal": 22,
+      "unit_id": "V23-GEN-SUPPORT-01920-DEBATE",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-SUPPORT-01920-DEBATE.mp4",
+      "asset_sha256_expected": "d10b65b1d34831f33bb657cfd2911c397443b1377da6e1dd2796917fae8751ed",
+      "asset_sha256_actual": "d10b65b1d34831f33bb657cfd2911c397443b1377da6e1dd2796917fae8751ed",
+      "asset_hash_matches_receipt": true,
+      "asset_hash_unchanged_after_inventory": true,
+      "member_shot_ids": [
+        "EP002-V2-NEW-SUPPORT-019",
+        "EP002-V2-NEW-SUPPORT-020"
+      ],
+      "continuity_group": "MUSA_DEBATE_SHARED_SETUP",
+      "decoded_frames_reviewable": 192,
+      "metadata_inventory": {
+        "status": "PASS",
+        "width": 1280,
+        "height": 720,
+        "fps": 24.0,
+        "reported_frame_count": 192,
+        "manifest_decoded_frames_reviewable": 192,
+        "metadata_only": true,
+        "frames_human_reviewed": 0
+      },
+      "review_status": "PENDING_HUMAN_REVIEW",
+      "review_decision": "NOT_STARTED",
+      "approved_for_montage": false,
+      "approved_for_qa": false,
+      "provider_retry_allowed": false,
+      "review_mode": "ALL_DECODED_FRAMES_CONTACT_SHEET_8X8"
+    },
+    {
+      "ordinal": 23,
+      "unit_id": "V23-GEN-SUPPORT-02122-DEBATE",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-SUPPORT-02122-DEBATE.mp4",
+      "asset_sha256_expected": "f7bcf05c0aed72ddff19c674f57b9ab0e943db4bbfbf233b4bf6d1c85a3dc01a",
+      "asset_sha256_actual": "f7bcf05c0aed72ddff19c674f57b9ab0e943db4bbfbf233b4bf6d1c85a3dc01a",
+      "asset_hash_matches_receipt": true,
+      "asset_hash_unchanged_after_inventory": true,
+      "member_shot_ids": [
+        "EP002-V2-NEW-SUPPORT-021",
+        "EP002-V2-NEW-SUPPORT-022"
+      ],
+      "continuity_group": "MUSA_DEBATE_SHARED_SETUP",
+      "decoded_frames_reviewable": 144,
+      "metadata_inventory": {
+        "status": "PASS",
+        "width": 1280,
+        "height": 720,
+        "fps": 24.0,
+        "reported_frame_count": 144,
+        "manifest_decoded_frames_reviewable": 144,
+        "metadata_only": true,
+        "frames_human_reviewed": 0
+      },
+      "review_status": "PENDING_HUMAN_REVIEW",
+      "review_decision": "NOT_STARTED",
+      "approved_for_montage": false,
+      "approved_for_qa": false,
+      "provider_retry_allowed": false,
+      "review_mode": "ALL_DECODED_FRAMES_CONTACT_SHEET_8X8"
+    },
+    {
+      "ordinal": 24,
+      "unit_id": "V24-GEN-015-DEBATE-C",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V24-GEN-015-DEBATE-C.mp4",
+      "asset_sha256_expected": "99576b8cba4f282449079e642e3bfd063ee7ea245ee110a27591900bbd21c23f",
+      "asset_sha256_actual": "99576b8cba4f282449079e642e3bfd063ee7ea245ee110a27591900bbd21c23f",
+      "asset_hash_matches_receipt": true,
+      "asset_hash_unchanged_after_inventory": true,
+      "member_shot_ids": [
+        "EP002-V2-NEW-SUPPORT-023"
+      ],
+      "continuity_group": "MUSA_DEBATE_SHARED_SETUP",
+      "decoded_frames_reviewable": 192,
+      "metadata_inventory": {
+        "status": "PASS",
+        "width": 1280,
+        "height": 720,
+        "fps": 24.0,
+        "reported_frame_count": 192,
+        "manifest_decoded_frames_reviewable": 192,
+        "metadata_only": true,
+        "frames_human_reviewed": 0
+      },
+      "review_status": "PENDING_HUMAN_REVIEW",
+      "review_decision": "NOT_STARTED",
+      "approved_for_montage": false,
+      "approved_for_qa": false,
+      "provider_retry_allowed": false,
+      "review_mode": "ALL_DECODED_FRAMES_CONTACT_SHEET_8X8"
+    },
+    {
+      "ordinal": 25,
+      "unit_id": "V24-GEN-016-DEBATE-D",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V24-GEN-016-DEBATE-D.mp4",
+      "asset_sha256_expected": "8ad0988c771a959f77db000c1a4586f08016b04ce972ffddba7bf984ab19277b",
+      "asset_sha256_actual": "8ad0988c771a959f77db000c1a4586f08016b04ce972ffddba7bf984ab19277b",
+      "asset_hash_matches_receipt": true,
+      "asset_hash_unchanged_after_inventory": true,
+      "member_shot_ids": [
+        "EP002-V2-NEW-SUPPORT-024"
+      ],
+      "continuity_group": "MUSA_DEBATE_SHARED_SETUP",
+      "decoded_frames_reviewable": 192,
+      "metadata_inventory": {
+        "status": "PASS",
+        "width": 1280,
+        "height": 720,
+        "fps": 24.0,
+        "reported_frame_count": 192,
+        "manifest_decoded_frames_reviewable": 192,
+        "metadata_only": true,
+        "frames_human_reviewed": 0
+      },
+      "review_status": "PENDING_HUMAN_REVIEW",
+      "review_decision": "NOT_STARTED",
+      "approved_for_montage": false,
+      "approved_for_qa": false,
+      "provider_retry_allowed": false,
+      "review_mode": "ALL_DECODED_FRAMES_CONTACT_SHEET_8X8"
+    },
+    {
+      "ordinal": 26,
+      "unit_id": "V24-GEN-017-DEBATE-E",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V24-GEN-017-DEBATE-E.mp4",
+      "asset_sha256_expected": "ac87abb2130d99341ef560e5bc34d1ec2ea94697913eb9abefb4baa100723898",
+      "asset_sha256_actual": "ac87abb2130d99341ef560e5bc34d1ec2ea94697913eb9abefb4baa100723898",
+      "asset_hash_matches_receipt": true,
+      "asset_hash_unchanged_after_inventory": true,
+      "member_shot_ids": [
+        "EP002-V2-NEW-SUPPORT-025"
+      ],
+      "continuity_group": "MUSA_DEBATE_SHARED_SETUP",
+      "decoded_frames_reviewable": 192,
+      "metadata_inventory": {
+        "status": "PASS",
+        "width": 1280,
+        "height": 720,
+        "fps": 24.0,
+        "reported_frame_count": 192,
+        "manifest_decoded_frames_reviewable": 192,
+        "metadata_only": true,
+        "frames_human_reviewed": 0
+      },
+      "review_status": "PENDING_HUMAN_REVIEW",
+      "review_decision": "NOT_STARTED",
+      "approved_for_montage": false,
+      "approved_for_qa": false,
+      "provider_retry_allowed": false,
+      "review_mode": "ALL_DECODED_FRAMES_CONTACT_SHEET_8X8"
+    },
+    {
+      "ordinal": 27,
+      "unit_id": "V24-GEN-018-DEBATE-F",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V24-GEN-018-DEBATE-F.mp4",
+      "asset_sha256_expected": "9d0b4044e6402d3e695a40bcf30459d29440c7b8a7ed008dea49ebff9de0db74",
+      "asset_sha256_actual": "9d0b4044e6402d3e695a40bcf30459d29440c7b8a7ed008dea49ebff9de0db74",
+      "asset_hash_matches_receipt": true,
+      "asset_hash_unchanged_after_inventory": true,
+      "member_shot_ids": [
+        "EP002-V2-NEW-SUPPORT-026"
+      ],
+      "continuity_group": "MUSA_DEBATE_SHARED_SETUP",
+      "decoded_frames_reviewable": 192,
+      "metadata_inventory": {
+        "status": "PASS",
+        "width": 1280,
+        "height": 720,
+        "fps": 24.0,
+        "reported_frame_count": 192,
+        "manifest_decoded_frames_reviewable": 192,
+        "metadata_only": true,
+        "frames_human_reviewed": 0
+      },
+      "review_status": "PENDING_HUMAN_REVIEW",
+      "review_decision": "NOT_STARTED",
+      "approved_for_montage": false,
+      "approved_for_qa": false,
+      "provider_retry_allowed": false,
+      "review_mode": "ALL_DECODED_FRAMES_CONTACT_SHEET_8X8"
+    }
+  ],
+  "network_production_calls": 0,
+  "paid_calls": 0,
+  "document_sha256": "a4ec0f0c7c2225309c2b225246be13c731e713e09cc065edd965f9d159bca6bf"
+}

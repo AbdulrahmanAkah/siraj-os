@@ -1,0 +1,49 @@
+{
+  "closure_id": "OPEN-M01-AUDIO-DELIVERY-CLOSURE-V1",
+  "status": "PASS",
+  "profile_id": "SIRAJ_TECHNICAL_DELIVERY_PROFILE_V1",
+  "profile_hash": "deb7c5e55883cc7577f03dbedc474d877f698e520f0a15f63f5ec5ed52560b1b",
+  "fixture": {
+    "path": "tests/fixtures/pr01_audio/pr01_synthetic_delivery.wav",
+    "sha256": "ca973c40ddea408d717c83f8b4caef010562e79fb87fd14ed6541172170cf650",
+    "synthetic": true,
+    "actual_bytes_measured": true
+  },
+  "measurement": {
+    "status": "MEASURED",
+    "audio_sha256": "ca973c40ddea408d717c83f8b4caef010562e79fb87fd14ed6541172170cf650",
+    "integrated_lufs": -15.95,
+    "true_peak_dbtp": -15.92,
+    "lra": 0.0,
+    "duration_seconds": 4.0,
+    "tool": "FFmpeg loudnorm first-pass",
+    "measurement_standard": "EBU R128"
+  },
+  "classification": {
+    "status": "PASS",
+    "duration_seconds": 4.0,
+    "duration_authority": "INPUT_DURATION",
+    "duration_preserved": true,
+    "measurement": {
+      "status": "MEASURED",
+      "audio_sha256": "ca973c40ddea408d717c83f8b4caef010562e79fb87fd14ed6541172170cf650",
+      "integrated_lufs": -15.95,
+      "true_peak_dbtp": -15.92,
+      "lra": 0.0,
+      "duration_seconds": 4.0,
+      "tool": "FFmpeg loudnorm first-pass",
+      "measurement_standard": "EBU R128"
+    }
+  },
+  "duration_test": {
+    "authoritative_input_seconds": 4.0,
+    "measured_output_seconds": 4.0,
+    "preserved": true,
+    "policy": "INPUT_DURATION"
+  },
+  "unknown_measurement_blocks": true,
+  "no_silent_pass": true,
+  "network_production_calls": 0,
+  "paid_calls": 0,
+  "document_sha256": "998c634d57fd8d58858fc86653d28058ab8a5e67d903fe1b80df493530effbb6"
+}

@@ -1,0 +1,24 @@
+{
+  "detector_id": "SIRAJ_PR01_OFFLINE_FACE_DETECTOR_YUNET_V1",
+  "algorithm": "YuNet",
+  "model_file": "config/pr01/face_detector/face_detection_yunet_2023mar.onnx",
+  "model_release": "face_detection_yunet_2023mar.onnx",
+  "model_sha256": "8f2383e4dd3cfbb4553ea8718107fc0423210dc964f9f4280604804ed2552fa4",
+  "runtime": "OpenCV FaceDetectorYN",
+  "runtime_version_verified": "4.12.0",
+  "source_url": "https://github.com/opencv/opencv_zoo/tree/main/models/face_detection_yunet",
+  "download_url": "https://media.githubusercontent.com/media/opencv/opencv_zoo/main/models/face_detection_yunet/face_detection_yunet_2023mar.onnx",
+  "license": "Apache-2.0",
+  "purpose": "Local pixel-level screening helper for human-face presence; never a final approver.",
+  "default_score_threshold": 0.8,
+  "nms_threshold": 0.3,
+  "top_k": 5000,
+  "coverage_policy": {
+    "scan_all_decoded_frames": true,
+    "frame_count_mismatch_blocks": true,
+    "all_frame_human_review_required": true,
+    "model_threshold_or_input_change_invalidates_calibration": true
+  },
+  "network_calls": 0,
+  "paid_calls": 0
+}

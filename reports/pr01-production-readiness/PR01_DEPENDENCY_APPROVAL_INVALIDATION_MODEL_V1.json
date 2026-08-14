@@ -1,0 +1,118 @@
+{
+  "model_id": "PR01_DEPENDENCY_APPROVAL_INVALIDATION_MODEL_V1",
+  "status": "FAIL_CLOSED",
+  "nodes": [
+    {
+      "id": "constitution",
+      "hash": "77c451711eb1888664518c9fe89e176033fdf7612f4636e18c0e0ca4d3af4f54",
+      "approval_required": false
+    },
+    {
+      "id": "technical_profile",
+      "hash": "deb7c5e55883cc7577f03dbedc474d877f698e520f0a15f63f5ec5ed52560b1b",
+      "approval_required": false
+    },
+    {
+      "id": "provider_binding",
+      "hash": "3c2656faeb778c8b8149e9c3c88e03b5941ece004361da3585bc44c654f843ef",
+      "approval_required": false
+    },
+    {
+      "id": "pricing_snapshot",
+      "hash": "5407ba513e336db7a62ca9640af668884c2210879d4d47e837799d95fd512208",
+      "approval_required": true
+    },
+    {
+      "id": "prompt_set",
+      "approval_required": true
+    },
+    {
+      "id": "payload_set",
+      "approval_required": true
+    },
+    {
+      "id": "face_calibration",
+      "hash": "8dcdcf24b9e044c3af44cc86133df9e549cf4f14fc684818f8f2811903ad2240",
+      "approval_required": false
+    },
+    {
+      "id": "brand_assets",
+      "hashes": [
+        "3de59689f16329fd7f701d010526a9280843917625d02dcac9aa5569250b37f4",
+        "09c01a3e144b9c1fbfe3ddad5d08f2fb4759ef054d6b071ce17e255f7c614004"
+      ],
+      "approval_required": false
+    },
+    {
+      "id": "desktop_paid_start_card",
+      "approval_required": true
+    },
+    {
+      "id": "human_final_certification",
+      "approval_required": true
+    }
+  ],
+  "edges": [
+    {
+      "from": "constitution",
+      "to": "technical_profile",
+      "invalidates": true
+    },
+    {
+      "from": "technical_profile",
+      "to": "desktop_paid_start_card",
+      "invalidates": true
+    },
+    {
+      "from": "provider_binding",
+      "to": "payload_set",
+      "invalidates": true
+    },
+    {
+      "from": "pricing_snapshot",
+      "to": "desktop_paid_start_card",
+      "invalidates": true
+    },
+    {
+      "from": "prompt_set",
+      "to": "payload_set",
+      "invalidates": true
+    },
+    {
+      "from": "payload_set",
+      "to": "desktop_paid_start_card",
+      "invalidates": true
+    },
+    {
+      "from": "face_calibration",
+      "to": "human_final_certification",
+      "invalidates": true
+    },
+    {
+      "from": "brand_assets",
+      "to": "human_final_certification",
+      "invalidates": true
+    }
+  ],
+  "invalidating_events": [
+    "constitution_bundle_changed",
+    "technical_delivery_profile_changed",
+    "provider_binding_changed",
+    "provider_model_id_changed",
+    "prompt_changed",
+    "payload_changed",
+    "pricing_snapshot_changed",
+    "cost_cap_changed",
+    "batch_membership_changed",
+    "compatibility_transform_changed",
+    "audio_measurement_changed",
+    "face_detector_model_changed",
+    "face_detector_threshold_changed",
+    "face_calibration_corpus_changed",
+    "brand_asset_hash_changed",
+    "human_approval_revoked"
+  ],
+  "approval_stale_behavior": "BLOCK_AND_REQUIRE_NEW_DESKTOP_HUMAN_APPROVAL",
+  "automatic_retry_or_resubmission": false,
+  "document_sha256": "9e67658654b6148f461a962c7bb8b2df1278cf98363a0998e9a7bb96c8ceea61"
+}

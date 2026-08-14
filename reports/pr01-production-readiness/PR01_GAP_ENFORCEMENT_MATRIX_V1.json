@@ -1,0 +1,79 @@
+{
+  "matrix_id": "PR01_GAP_ENFORCEMENT_MATRIX_V1",
+  "critical_or_high_unenforced": 0,
+  "rows": [
+    {
+      "rule": "ALL_HUMAN_FACES_VISIBLE",
+      "severity": "CRITICAL",
+      "compiler": "prompt semantic rejection and safe composition",
+      "validator": "YuNet helper plus all-frame human review",
+      "test": "positive/negative calibration and global phrase regressions",
+      "runtime_gate": "final human conformance gate",
+      "status": "ENFORCED"
+    },
+    {
+      "rule": "M01_AUDIO_DELIVERY",
+      "severity": "HIGH",
+      "compiler": "central profile",
+      "validator": "actual-byte loudnorm/ebur128 measurement",
+      "test": "synthetic measured fixture and UNKNOWN block",
+      "runtime_gate": "episode preflight blocks missing receipt",
+      "status": "ENFORCED"
+    },
+    {
+      "rule": "M02_EXACT_PROVIDER_BINDING",
+      "severity": "HIGH",
+      "compiler": "exact payload compiler",
+      "validator": "exact id/schema/hash validator",
+      "test": "alias/negative/hidden-transform tests",
+      "runtime_gate": "Desktop approval hash gate",
+      "status": "ENFORCED"
+    },
+    {
+      "rule": "UNKNOWN_NO_RETRY",
+      "severity": "CRITICAL",
+      "compiler": "immutable attempt identity",
+      "validator": "status and UUID validator",
+      "test": "terminal failure and UNKNOWN simulation",
+      "runtime_gate": "UNKNOWN_REMAINS_BLOCK",
+      "status": "ENFORCED"
+    },
+    {
+      "rule": "HUMAN_FINAL_CERTIFICATION",
+      "severity": "CRITICAL",
+      "compiler": "human decision field",
+      "validator": "publication readiness validator",
+      "test": "missing human PASS test",
+      "runtime_gate": "PUBLISH_READY false",
+      "status": "ENFORCED"
+    },
+    {
+      "rule": "BRAND_ASSETS",
+      "severity": "HIGH",
+      "compiler": "exact asset references",
+      "validator": "SHA256 and cardinality validator",
+      "test": "hash mismatch test",
+      "runtime_gate": "stale brand approval blocks",
+      "status": "ENFORCED"
+    },
+    {
+      "rule": "MUSIC_FORBIDDEN",
+      "severity": "HIGH",
+      "compiler": "audio plan compiler",
+      "validator": "audio policy validator",
+      "test": "music marker rejection",
+      "runtime_gate": "runtime policy gate",
+      "status": "ENFORCED"
+    },
+    {
+      "rule": "MONTAGE_PROHIBITED_IN_R27",
+      "severity": "HIGH",
+      "compiler": "handoff compiler sets false",
+      "validator": "manifest validator",
+      "test": "R27 inventory assertions",
+      "runtime_gate": "montage call unavailable",
+      "status": "ENFORCED"
+    }
+  ],
+  "document_sha256": "e345ad15a62f50f8d91ca29dfbfa9a0f4607d641e59fe196aba7b71b55eba4ce"
+}

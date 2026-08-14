@@ -1,0 +1,62 @@
+{
+  "rule_model_id": "SIRAJ_PR01_PRODUCTION_READINESS_RULE_MODEL_V1",
+  "version": "1.0.0",
+  "authority": "SIRAJ_UNIFIED_PRODUCTION_CONSTITUTION_1.0.0",
+  "mode": "OFFLINE_AND_DOCUMENTATION_READONLY_PRODUCTION_READINESS_CERTIFICATION",
+  "fail_closed": true,
+  "production_authorized": false,
+  "rules": [
+    {
+      "id": "PR01.M01.AUDIO_DELIVERY",
+      "severity": "HIGH",
+      "statement": "Actual audio bytes must be measured with EBU R128-compatible FFmpeg statistics; missing or UNKNOWN measurement blocks.",
+      "compiler_obligation": "Bind the central Technical Delivery Profile and preserve authoritative duration.",
+      "validator_obligation": "Check integrated loudness window and true-peak ceiling.",
+      "runtime_gate": "No production readiness without a measured PASS receipt."
+    },
+    {
+      "id": "PR01.M02.EXACT_PROVIDER_BINDING",
+      "severity": "HIGH",
+      "statement": "Only exact provider/model/task schema bindings may enter a future paid preflight; aliases and hidden creative transforms are rejected.",
+      "compiler_obligation": "Compile the exact google:veo@3.1-lite payload without negativePrompt or creative additions.",
+      "validator_obligation": "Hash prompt, payload, provider binding, compatibility transform, and pricing snapshot.",
+      "runtime_gate": "Only an explicitly approved Desktop click may cross the paid boundary."
+    },
+    {
+      "id": "PR01.M03.PIXEL_FACE_SCREENING",
+      "severity": "CRITICAL",
+      "statement": "The local detector scans decoded frames as a helper; the global all-human-face prohibition and human review remain authoritative.",
+      "compiler_obligation": "Reject face-positive semantics and require safe composition.",
+      "validator_obligation": "Calibrate local YuNet on positive and negative classes with 100% critical-positive recall.",
+      "runtime_gate": "No detector PASS can replace all-frame human final review."
+    },
+    {
+      "id": "PR01.UNKNOWN_NO_RETRY",
+      "severity": "CRITICAL",
+      "statement": "Historical UNKNOWN submission state remains blocked and is never retried, resubmitted, or guessed.",
+      "compiler_obligation": "Carry immutable attempt and task identities.",
+      "validator_obligation": "Reject unrecoverable or planning-only identities.",
+      "runtime_gate": "UNKNOWN_REMAINS_BLOCK."
+    },
+    {
+      "id": "PR01.HUMAN_RELEASE",
+      "severity": "CRITICAL",
+      "statement": "Human final certification is mandatory; thumbnail and public title remain human-owned.",
+      "compiler_obligation": "Keep internal working title separate from public metadata.",
+      "validator_obligation": "Require human final decision and prohibit autonomous publication.",
+      "runtime_gate": "PUBLISH_READY remains false until human PASS."
+    }
+  ],
+  "capability_separation": {
+    "compiler_can_spend": false,
+    "validator_can_spend": false,
+    "test_can_spend": false,
+    "terminal_can_spend": false,
+    "cli_can_spend": false,
+    "recovery_can_spend": false,
+    "desktop_explicit_click_is_only_paid_origin": true,
+    "network_production_calls_during_pr01": 0,
+    "paid_calls_during_pr01": 0
+  },
+  "binding_sha256": "1b736209f5cdfd57818e48acde12d4fd799c5b68d9970bf3bd356ae71a088277"
+}

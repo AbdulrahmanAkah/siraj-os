@@ -1,0 +1,201 @@
+{
+  "closure_id": "OPEN-M03-FACE-DETECTION-CALIBRATION-CLOSURE-V1",
+  "status": "PASS",
+  "detector": {
+    "detector_id": "SIRAJ_PR01_OFFLINE_FACE_DETECTOR_YUNET_V1",
+    "algorithm": "YuNet",
+    "model_file": "config/pr01/face_detector/face_detection_yunet_2023mar.onnx",
+    "model_release": "face_detection_yunet_2023mar.onnx",
+    "model_sha256": "8f2383e4dd3cfbb4553ea8718107fc0423210dc964f9f4280604804ed2552fa4",
+    "runtime": "OpenCV FaceDetectorYN",
+    "runtime_version_verified": "4.12.0",
+    "source_url": "https://github.com/opencv/opencv_zoo/tree/main/models/face_detection_yunet",
+    "download_url": "https://media.githubusercontent.com/media/opencv/opencv_zoo/main/models/face_detection_yunet/face_detection_yunet_2023mar.onnx",
+    "license": "Apache-2.0",
+    "purpose": "Local pixel-level screening helper for human-face presence; never a final approver.",
+    "default_score_threshold": 0.8,
+    "nms_threshold": 0.3,
+    "top_k": 5000,
+    "coverage_policy": {
+      "scan_all_decoded_frames": true,
+      "frame_count_mismatch_blocks": true,
+      "all_frame_human_review_required": true,
+      "model_threshold_or_input_change_invalidates_calibration": true
+    },
+    "network_calls": 0,
+    "paid_calls": 0
+  },
+  "opencv_runtime_version": "4.12.0",
+  "model_sha256": "8f2383e4dd3cfbb4553ea8718107fc0423210dc964f9f4280604804ed2552fa4",
+  "calibration_corpus": {
+    "corpus_id": "SIRAJ_PR01_FACE_CALIBRATION_CORPUS_V1",
+    "status": "CALIBRATION_ONLY_NOT_EP002_REVIEW",
+    "positive_records": [
+      {
+        "path": "tests/fixtures/pr01_face_calibration/positive_historical_failure_001.png",
+        "class": "POSITIVE_CRITICAL_FACE",
+        "source_asset": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-001-EATING-ANCHOR.mp4",
+        "source_asset_sha256": "b2cad09fa0a05599f1bdf7cc530a5d149cb280fc08b5b4b71e01a4bb3b7ecd01",
+        "source_frame_index": 0,
+        "source_read_only": true,
+        "label_basis": "historical_failure_calibration_input_only; no R27 review decision",
+        "sha256": "a8c9d764a08795e0af7777e722d2b01ff9bcc8f2c3b19ee5a0aa35b92ae4aa19"
+      },
+      {
+        "path": "tests/fixtures/pr01_face_calibration/positive_historical_failure_002.png",
+        "class": "POSITIVE_CRITICAL_FACE",
+        "source_asset": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-001-EATING-ANCHOR.mp4",
+        "source_asset_sha256": "b2cad09fa0a05599f1bdf7cc530a5d149cb280fc08b5b4b71e01a4bb3b7ecd01",
+        "source_frame_index": 60,
+        "source_read_only": true,
+        "label_basis": "historical_failure_calibration_input_only; no R27 review decision",
+        "sha256": "070a03edb6b3261269304ad99c110334fb3f8d93c70abf0584e1286e291dc779"
+      },
+      {
+        "path": "tests/fixtures/pr01_face_calibration/positive_historical_failure_003.png",
+        "class": "POSITIVE_CRITICAL_FACE",
+        "source_asset": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-001-EATING-ANCHOR.mp4",
+        "source_asset_sha256": "b2cad09fa0a05599f1bdf7cc530a5d149cb280fc08b5b4b71e01a4bb3b7ecd01",
+        "source_frame_index": 120,
+        "source_read_only": true,
+        "label_basis": "historical_failure_calibration_input_only; no R27 review decision",
+        "sha256": "26d5e62b1c19385a17f89bb727fbbb1d0a39b837abe66e6c608383c231ee0303"
+      },
+      {
+        "path": "tests/fixtures/pr01_face_calibration/positive_historical_failure_004.png",
+        "class": "POSITIVE_CRITICAL_FACE",
+        "source_asset": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-001-EATING-ANCHOR.mp4",
+        "source_asset_sha256": "b2cad09fa0a05599f1bdf7cc530a5d149cb280fc08b5b4b71e01a4bb3b7ecd01",
+        "source_frame_index": 180,
+        "source_read_only": true,
+        "label_basis": "historical_failure_calibration_input_only; no R27 review decision",
+        "sha256": "09daa143e81a5eab60a23676ec7e51c473524962ee6e5cefa84e980034facd5a"
+      }
+    ],
+    "negative_records": [
+      {
+        "path": "tests/fixtures/pr01_face_calibration/negative_black.png",
+        "class": "NEGATIVE_NO_FACE",
+        "synthetic": true,
+        "sha256": "2850a4f35769b099c0691950b4e216ced94d11b764e95af82eaee5065bb44b78"
+      },
+      {
+        "path": "tests/fixtures/pr01_face_calibration/negative_abstract_gradient.png",
+        "class": "NEGATIVE_NO_FACE",
+        "synthetic": true,
+        "sha256": "688c81a9b55b64a1ca40c34911326561636695ae60bfdbc4c025e95d448f665c"
+      }
+    ],
+    "all_source_assets_read_only": true,
+    "human_review_decisions": 0
+  },
+  "calibration_corpus_sha256": "8dcdcf24b9e044c3af44cc86133df9e549cf4f14fc684818f8f2811903ad2240",
+  "calibration": {
+    "selected_threshold": 0.8,
+    "critical_positive_recall": 1.0,
+    "selected_false_positive_rate": 0.0,
+    "threshold_sweep": [
+      {
+        "threshold": 0.1,
+        "positive_count": 4,
+        "positive_detected": 4,
+        "negative_count": 2,
+        "negative_detected": 0,
+        "positive_recall": 1.0,
+        "false_positive_rate": 0.0
+      },
+      {
+        "threshold": 0.2,
+        "positive_count": 4,
+        "positive_detected": 4,
+        "negative_count": 2,
+        "negative_detected": 0,
+        "positive_recall": 1.0,
+        "false_positive_rate": 0.0
+      },
+      {
+        "threshold": 0.3,
+        "positive_count": 4,
+        "positive_detected": 4,
+        "negative_count": 2,
+        "negative_detected": 0,
+        "positive_recall": 1.0,
+        "false_positive_rate": 0.0
+      },
+      {
+        "threshold": 0.4,
+        "positive_count": 4,
+        "positive_detected": 4,
+        "negative_count": 2,
+        "negative_detected": 0,
+        "positive_recall": 1.0,
+        "false_positive_rate": 0.0
+      },
+      {
+        "threshold": 0.5,
+        "positive_count": 4,
+        "positive_detected": 4,
+        "negative_count": 2,
+        "negative_detected": 0,
+        "positive_recall": 1.0,
+        "false_positive_rate": 0.0
+      },
+      {
+        "threshold": 0.6,
+        "positive_count": 4,
+        "positive_detected": 4,
+        "negative_count": 2,
+        "negative_detected": 0,
+        "positive_recall": 1.0,
+        "false_positive_rate": 0.0
+      },
+      {
+        "threshold": 0.7,
+        "positive_count": 4,
+        "positive_detected": 4,
+        "negative_count": 2,
+        "negative_detected": 0,
+        "positive_recall": 1.0,
+        "false_positive_rate": 0.0
+      },
+      {
+        "threshold": 0.8,
+        "positive_count": 4,
+        "positive_detected": 4,
+        "negative_count": 2,
+        "negative_detected": 0,
+        "positive_recall": 1.0,
+        "false_positive_rate": 0.0
+      },
+      {
+        "threshold": 0.9,
+        "positive_count": 4,
+        "positive_detected": 3,
+        "negative_count": 2,
+        "negative_detected": 0,
+        "positive_recall": 0.75,
+        "false_positive_rate": 0.0
+      }
+    ],
+    "positive_count": 4,
+    "negative_count": 2,
+    "all_decoded_frames_human_review_required": true,
+    "detector_is_final_approver": false,
+    "calibration_invalidating_changes": [
+      "model_sha256",
+      "opencv_runtime_version",
+      "score_threshold",
+      "nms_threshold",
+      "input_resize_policy",
+      "calibration_corpus_hash",
+      "frame_coverage_policy"
+    ]
+  },
+  "critical_positive_recall_100_percent": true,
+  "pixel_detector_is_helper_only": true,
+  "all_decoded_frames_human_final_review_required": true,
+  "historical_failure_assets_review_decisions": 0,
+  "network_production_calls": 0,
+  "paid_calls": 0,
+  "document_sha256": "cc202f63d5b35d10ffdad740cae54d25d52d1c92e7d06345657cf3f5bd9d4467"
+}

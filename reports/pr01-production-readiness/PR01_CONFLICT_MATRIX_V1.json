@@ -1,0 +1,95 @@
+{
+  "matrix_id": "PR01_CONFLICT_MATRIX_V1",
+  "critical_or_high_unresolved": 0,
+  "rows": [
+    {
+      "id": "CF-M01-AUDIO",
+      "severity": "HIGH",
+      "sources": [
+        "automatic_qa_partial_repair_v1",
+        "SIRAJ_SERIES_PRODUCTION_STANDARD_V2"
+      ],
+      "resolution": "Central profile is authoritative; bound runtime constants use the profile.",
+      "status": "RESOLVED"
+    },
+    {
+      "id": "CF-M02-ALIAS",
+      "severity": "HIGH",
+      "sources": [
+        "legacy generic VEO_31_MODELS",
+        "PR01 exact binding"
+      ],
+      "resolution": "Legacy aliases cannot enter PR01; exact model id is required.",
+      "status": "RESOLVED"
+    },
+    {
+      "id": "CF-M02-NEGATIVE",
+      "severity": "HIGH",
+      "sources": [
+        "legacy sanitizer",
+        "Runware Veo 3.1 Lite schema"
+      ],
+      "resolution": "PR01 rejects negativePrompt and performs no hidden creative transform.",
+      "status": "RESOLVED"
+    },
+    {
+      "id": "CF-M03-FACES",
+      "severity": "CRITICAL",
+      "sources": [
+        "global constitution face ban",
+        "historical visible-face phrases"
+      ],
+      "resolution": "Constitutional semantic rejection plus calibrated local helper plus mandatory human review.",
+      "status": "RESOLVED"
+    },
+    {
+      "id": "CF-PAID-ORIGIN",
+      "severity": "CRITICAL",
+      "sources": [
+        "terminal/CLI/recovery paths",
+        "Desktop gate"
+      ],
+      "resolution": "Only explicit Desktop click is accepted; simulation proves other origins blocked.",
+      "status": "RESOLVED"
+    },
+    {
+      "id": "CF-UNKNOWN",
+      "severity": "CRITICAL",
+      "sources": [
+        "historical UNKNOWN receipt",
+        "recovery behavior"
+      ],
+      "resolution": "Immutable UNKNOWN remains blocked with retry/resubmission false.",
+      "status": "RESOLVED"
+    },
+    {
+      "id": "CF-BRAND-METADATA",
+      "severity": "HIGH",
+      "sources": [
+        "brand bundle",
+        "publication policy"
+      ],
+      "resolution": "Exact Intro/Outro hashes are bound; title and thumbnail remain human-owned.",
+      "status": "RESOLVED"
+    },
+    {
+      "id": "CF-MONTAGE",
+      "severity": "HIGH",
+      "sources": [
+        "R27 handoff",
+        "production boundary"
+      ],
+      "resolution": "R27 remains inventory-only; montage and QA are false.",
+      "status": "RESOLVED"
+    }
+  ],
+  "evidence": {
+    "M01": "PASS",
+    "M02": "PASS",
+    "M03": "PASS",
+    "profile_hash": "deb7c5e55883cc7577f03dbedc474d877f698e520f0a15f63f5ec5ed52560b1b",
+    "binding_hash": "3c2656faeb778c8b8149e9c3c88e03b5941ece004361da3585bc44c654f843ef",
+    "pricing_hash": "5407ba513e336db7a62ca9640af668884c2210879d4d47e837799d95fd512208"
+  },
+  "document_sha256": "60697d611620625bec47b4eb934617b384b66dba81b68a2f35a0e7b8d6dd2830"
+}

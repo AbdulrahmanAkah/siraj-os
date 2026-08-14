@@ -1,0 +1,49 @@
+{
+  "mode": "OFFLINE_FAKE_ONLY",
+  "terminal": {
+    "status": "BLOCKED",
+    "reason": "PAID_START_DESKTOP_ONLY",
+    "network_call": false,
+    "paid_call": false
+  },
+  "cli": {
+    "status": "BLOCKED",
+    "reason": "PAID_START_DESKTOP_ONLY",
+    "network_call": false,
+    "paid_call": false
+  },
+  "desktop_click": {
+    "status": "SIMULATED_DESKTOP_START_ACCEPTED",
+    "network_call": false,
+    "paid_call": false,
+    "payload_sha256": "11cc614f6ec87e53c4e6744809e2c732eb97f6dd68837a01c355f7920d31a273"
+  },
+  "double_click": {
+    "status": "DUPLICATE_CLICK_BLOCKED",
+    "reason": "SINGLE_USE_CLICK_NONCE",
+    "network_call": false,
+    "paid_call": false
+  },
+  "provider_failure": {
+    "status": "TERMINAL_PROVIDER_FAILURE",
+    "retry": false,
+    "resubmit": false,
+    "network_call": false,
+    "paid_call": false
+  },
+  "historical_unknown": {
+    "status": "UNKNOWN_REMAINS_BLOCK",
+    "reason": "TASKUUID_NOT_RECOVERABLE_UNKNOWN_REMAINS_BLOCK",
+    "retry": false,
+    "resubmit": false,
+    "network_call": false,
+    "paid_call": false
+  },
+  "fake_invocations": 2,
+  "network_production_calls": 0,
+  "paid_calls": 0,
+  "automatic_retry": false,
+  "automatic_resubmission": false,
+  "montage": false,
+  "document_sha256": "e386f97ea220109339bdf63c2d797d88413bd609ed1d717dd87b68cbf71d1835"
+}

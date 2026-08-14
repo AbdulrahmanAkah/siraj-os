@@ -1,0 +1,18 @@
+{
+  "audit_id": "PR01_CAPABILITY_SEPARATION_AUDIT_V1",
+  "status": "PASS",
+  "compiler_can_spend": false,
+  "validator_can_spend": false,
+  "test_can_spend": false,
+  "terminal_can_spend": false,
+  "cli_can_spend": false,
+  "recovery_can_spend": false,
+  "desktop_explicit_click_is_only_paid_origin": true,
+  "real_gateway_pre_transport_gate": "PR01_DESKTOP_APPROVAL_REQUIRED",
+  "network_production_calls": 0,
+  "paid_calls": 0,
+  "retry_or_resubmission": 0,
+  "montage": 0,
+  "publication": 0,
+  "document_sha256": "6fed9e747474272270f74d8e59452ec25c413d4f27c111752cd093d59a0cf2ee"
+}

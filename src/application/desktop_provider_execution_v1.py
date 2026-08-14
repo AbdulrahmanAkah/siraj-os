@@ -759,6 +759,11 @@ class CanonicalRunwarePaidGateway:
             request.payload,
             require_uuid_v4=True,
         ).payload
+        from src.application.pr01_production_readiness_v1 import (
+            enforce_pr01_desktop_paid_gate,
+        )
+
+        enforce_pr01_desktop_paid_gate(request=request, unit=unit)
         # The contract validator rejects Veo negativePrompt before transport.
         if unit.get("model", "").startswith("google:veo@3.1") and "negativePrompt" in task:
             raise DesktopProviderExecutionError("VEO31_NEGATIVE_PROMPT_FIELD_FORBIDDEN")

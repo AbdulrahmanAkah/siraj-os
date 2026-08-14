@@ -1,0 +1,123 @@
+{
+  "binding_id": "SIRAJ_PR01_PROVIDER_BINDING_RUNWARE_VEO31_LITE_V1",
+  "version": "1.0.0",
+  "status": "ACTIVE_FOR_PR01_PREFLIGHT_ONLY",
+  "provider": "RUNWARE",
+  "exact_model_id": "google:veo@3.1-lite",
+  "model_aliases_allowed": [],
+  "task_type": "videoInference",
+  "operation_id": {
+    "request_field": "taskUUID",
+    "format": "UUIDv4",
+    "provider_identity_must_be_returned": true,
+    "planning_only_identity_is_not_submission_evidence": true
+  },
+  "execution": {
+    "asynchronous": true,
+    "max_results": 1,
+    "response_formats": [
+      "MP4",
+      "WEBM",
+      "MOV"
+    ],
+    "request_schema_version": "NOT_PUBLISHED_BY_SOURCE_DO_NOT_GUESS",
+    "response_schema_version": "NOT_PUBLISHED_BY_SOURCE_DO_NOT_GUESS"
+  },
+  "video_contract": {
+    "duration_seconds": [
+      4,
+      6,
+      8
+    ],
+    "aspect_ratios": {
+      "16:9": {
+        "720p": {
+          "width": 1280,
+          "height": 720
+        },
+        "1080p": {
+          "width": 1920,
+          "height": 1080
+        }
+      },
+      "9:16": {
+        "720p": {
+          "width": 720,
+          "height": 1280
+        },
+        "1080p": {
+          "width": 1080,
+          "height": 1920
+        }
+      }
+    },
+    "image_to_video": {
+      "supported": true,
+      "request_field": "inputs.frameImages",
+      "request_container": "inputs",
+      "min_images": 1,
+      "max_images": 2
+    },
+    "prompt_mapping": {
+      "positive_prompt_field": "positivePrompt",
+      "negative_prompt_supported": false,
+      "negative_prompt_field": null,
+      "hidden_prompt_transform": false,
+      "creative_authority": "NONE"
+    },
+    "seed": {
+      "supported": true,
+      "type": "UNSIGNED_32_BIT_INTEGER",
+      "omission_policy": "PROVIDER_DEFAULT"
+    },
+    "audio": {
+      "request_field": "providerSettings.google.generateAudio",
+      "pr01_value": false,
+      "music_policy": "FORBIDDEN"
+    },
+    "person_generation": {
+      "request_field": "providerSettings.google.personGeneration",
+      "current_pr01_value": "dont_allow",
+      "note": "Provider setting is not a substitute for the global all-human-face ban."
+    }
+  },
+  "request_payload_fields": [
+    "taskType",
+    "taskUUID",
+    "model",
+    "positivePrompt",
+    "duration",
+    "width",
+    "height",
+    "numberResults",
+    "seed",
+    "inputs",
+    "providerSettings"
+  ],
+  "compatibility_transform": {
+    "id": "SIRAJ_EP002_VEO_MENA_ALLOW_ADULT_RUNTIME_POLICY_V1",
+    "applies_at": "REAL_GATEWAY_BOUNDARY_ONLY",
+    "source": "src/application/desktop_provider_execution_v1.py:_siraj_ep002_veo_mena_allow_adult_runtime_policy_v1",
+    "source_sha256": "02118229b34c4365357ea0249414cdf442a3d9a10536c75e39b9e0c7d88b6461",
+    "creative_authority": false,
+    "must_be_hash_bound_in_episode_approval": true,
+    "hidden_transform_for_pr01_payload": false
+  },
+  "cost_contract": {
+    "currency": "USD",
+    "unit": "GENERATED_VIDEO_SECOND",
+    "pricing_source_snapshot": "config/pr01/provider_binding/provider_pricing_snapshot_v1.json",
+    "prices": {
+      "720p": "0.05",
+      "1080p": "0.08"
+    },
+    "price_changes_invalidate_approval": true,
+    "decimal_arithmetic_required": true
+  },
+  "source": {
+    "official_documentation_url": "https://runware.ai/docs/models/google-veo-3-1-lite",
+    "verified_at": "2026-08-14",
+    "network_production_calls": 0
+  },
+  "binding_sha256": "3c2656faeb778c8b8149e9c3c88e03b5941ece004361da3585bc44c654f843ef"
+}

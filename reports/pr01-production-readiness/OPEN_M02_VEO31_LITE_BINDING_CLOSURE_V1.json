@@ -1,0 +1,104 @@
+{
+  "closure_id": "OPEN-M02-VEO31-LITE-BINDING-CLOSURE-V1",
+  "status": "PASS",
+  "provider": "RUNWARE",
+  "exact_model_id": "google:veo@3.1-lite",
+  "provider_binding_hash": "3c2656faeb778c8b8149e9c3c88e03b5941ece004361da3585bc44c654f843ef",
+  "technical_profile_hash": "deb7c5e55883cc7577f03dbedc474d877f698e520f0a15f63f5ec5ed52560b1b",
+  "pricing_snapshot_hash": "5407ba513e336db7a62ca9640af668884c2210879d4d47e837799d95fd512208",
+  "task_uuid": "00000000-0000-4000-8000-000000000001",
+  "payload": {
+    "taskType": "videoInference",
+    "taskUUID": "00000000-0000-4000-8000-000000000001",
+    "model": "google:veo@3.1-lite",
+    "positivePrompt": "Abstract historically grounded earth surface with a concealed human-scale composition and no figures.",
+    "duration": 4,
+    "width": 1280,
+    "height": 720,
+    "numberResults": 1,
+    "providerSettings": {
+      "google": {
+        "generateAudio": false,
+        "personGeneration": "dont_allow"
+      }
+    },
+    "seed": 17
+  },
+  "prompt_sha256": "3a6f62445f576dcc309620356ffb7cde7dffd00ea77e87ec6ddf5c4ef4b94a2f",
+  "payload_sha256": "11cc614f6ec87e53c4e6744809e2c732eb97f6dd68837a01c355f7920d31a273",
+  "exact_model_alias_rejected": true,
+  "negative_prompt_rejected": true,
+  "hidden_creative_transform": false,
+  "compatibility_transform_hash_bound": "d7cce4f693d3b0e21efb06873554898d3e0dcbe55b6abd4e90c98e46ab50c86b",
+  "compatibility_transform_source_hash_matches": true,
+  "cost_preflight": {
+    "status": "PASS",
+    "provider": "RUNWARE",
+    "model": "google:veo@3.1-lite",
+    "currency": "USD",
+    "pricing_snapshot_hash": "5407ba513e336db7a62ca9640af668884c2210879d4d47e837799d95fd512208",
+    "maximum_cost_usd": "1.00",
+    "estimated_cost_usd": "0.20",
+    "lines": [
+      {
+        "unit_id": "PR01-SIM-001",
+        "duration_seconds": 4,
+        "resolution": "720p",
+        "price_per_second": "0.05",
+        "cost": "0.20"
+      }
+    ],
+    "decimal_arithmetic": true
+  },
+  "offline_gate_simulation": {
+    "mode": "OFFLINE_FAKE_ONLY",
+    "terminal": {
+      "status": "BLOCKED",
+      "reason": "PAID_START_DESKTOP_ONLY",
+      "network_call": false,
+      "paid_call": false
+    },
+    "cli": {
+      "status": "BLOCKED",
+      "reason": "PAID_START_DESKTOP_ONLY",
+      "network_call": false,
+      "paid_call": false
+    },
+    "desktop_click": {
+      "status": "SIMULATED_DESKTOP_START_ACCEPTED",
+      "network_call": false,
+      "paid_call": false,
+      "payload_sha256": "11cc614f6ec87e53c4e6744809e2c732eb97f6dd68837a01c355f7920d31a273"
+    },
+    "double_click": {
+      "status": "DUPLICATE_CLICK_BLOCKED",
+      "reason": "SINGLE_USE_CLICK_NONCE",
+      "network_call": false,
+      "paid_call": false
+    },
+    "provider_failure": {
+      "status": "TERMINAL_PROVIDER_FAILURE",
+      "retry": false,
+      "resubmit": false,
+      "network_call": false,
+      "paid_call": false
+    },
+    "historical_unknown": {
+      "status": "UNKNOWN_REMAINS_BLOCK",
+      "reason": "TASKUUID_NOT_RECOVERABLE_UNKNOWN_REMAINS_BLOCK",
+      "retry": false,
+      "resubmit": false,
+      "network_call": false,
+      "paid_call": false
+    },
+    "fake_invocations": 2,
+    "network_production_calls": 0,
+    "paid_calls": 0,
+    "automatic_retry": false,
+    "automatic_resubmission": false,
+    "montage": false
+  },
+  "network_production_calls": 0,
+  "paid_calls": 0,
+  "document_sha256": "67d217091ff97b8720a169e0e3074ab08298a1ef84bde82d4917c2cbe3ac344c"
+}

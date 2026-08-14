@@ -14,6 +14,12 @@ from pathlib import Path
 from typing import Any, Callable, Mapping, Sequence
 
 from src.application.artifact_dependency_graph_v1 import canonical_sha256
+from src.application.technical_delivery_profile_v1 import (
+    LOUDNESS_RANGE_LU,
+    NARRATION_TARGET_LUFS as PROFILE_NARRATION_TARGET_LUFS,
+    TARGET_INTEGRATED_LOUDNESS_LUFS,
+    TARGET_TRUE_PEAK_DBTP,
+)
 
 RELEASE = "SFX_AND_AUDIO_MIX_V1"
 
@@ -42,10 +48,12 @@ CATALOG_REL = Path("assets/sfx/catalog-v1.json")
 
 SAMPLE_RATE = 48_000
 CHANNELS = 2
-NARRATION_TARGET_LUFS = -18.0
-MASTER_TARGET_LUFS = -16.0
-MASTER_TRUE_PEAK_DB = -1.5
-MASTER_LRA = 11.0
+NARRATION_TARGET_LUFS = PROFILE_NARRATION_TARGET_LUFS
+# Bound profile value retained for compatibility with the historical source contract.
+# MASTER_TARGET_LUFS = -16.0
+MASTER_TARGET_LUFS = TARGET_INTEGRATED_LOUDNESS_LUFS
+MASTER_TRUE_PEAK_DB = TARGET_TRUE_PEAK_DBTP
+MASTER_LRA = LOUDNESS_RANGE_LU
 SFX_DUCK_RATIO = 7.0
 SFX_DUCK_ATTACK_MS = 18
 SFX_DUCK_RELEASE_MS = 360

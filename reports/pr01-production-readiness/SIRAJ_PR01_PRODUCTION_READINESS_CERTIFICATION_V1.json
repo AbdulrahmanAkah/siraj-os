@@ -1,0 +1,490 @@
+{
+  "certificate_id": "SIRAJ_PR01_PRODUCTION_READINESS_CERTIFICATION_V1",
+  "pr01_id": "SIRAJ_PR01_PRODUCTION_READINESS_BINDING_V1",
+  "PR01_STATUS": "PR01_PRODUCTION_READINESS_PASS",
+  "PRODUCTION_READINESS": "READY_FOR_EPISODE_SPECIFIC_PREFLIGHT",
+  "PRODUCTION_AUTHORIZED": false,
+  "PAID_EXECUTION_AUTHORIZED": false,
+  "PUBLICATION_AUTHORIZED": false,
+  "CONSTITUTION_ID": "SIRAJ_UNIFIED_PRODUCTION_CONSTITUTION",
+  "CONSTITUTION_VERSION": "1.0.0",
+  "CONSTITUTION_BUNDLE_SHA256": "77c451711eb1888664518c9fe89e176033fdf7612f4636e18c0e0ca4d3af4f54",
+  "CONSTITUTION_MODIFIED": false,
+  "OPEN_M01": {
+    "closure_id": "OPEN-M01-AUDIO-DELIVERY-CLOSURE-V1",
+    "status": "PASS",
+    "profile_id": "SIRAJ_TECHNICAL_DELIVERY_PROFILE_V1",
+    "profile_hash": "deb7c5e55883cc7577f03dbedc474d877f698e520f0a15f63f5ec5ed52560b1b",
+    "fixture": {
+      "path": "tests/fixtures/pr01_audio/pr01_synthetic_delivery.wav",
+      "sha256": "ca973c40ddea408d717c83f8b4caef010562e79fb87fd14ed6541172170cf650",
+      "synthetic": true,
+      "actual_bytes_measured": true
+    },
+    "measurement": {
+      "status": "MEASURED",
+      "audio_sha256": "ca973c40ddea408d717c83f8b4caef010562e79fb87fd14ed6541172170cf650",
+      "integrated_lufs": -15.95,
+      "true_peak_dbtp": -15.92,
+      "lra": 0.0,
+      "duration_seconds": 4.0,
+      "tool": "FFmpeg loudnorm first-pass",
+      "measurement_standard": "EBU R128"
+    },
+    "classification": {
+      "status": "PASS",
+      "duration_seconds": 4.0,
+      "duration_authority": "INPUT_DURATION",
+      "duration_preserved": true,
+      "measurement": {
+        "status": "MEASURED",
+        "audio_sha256": "ca973c40ddea408d717c83f8b4caef010562e79fb87fd14ed6541172170cf650",
+        "integrated_lufs": -15.95,
+        "true_peak_dbtp": -15.92,
+        "lra": 0.0,
+        "duration_seconds": 4.0,
+        "tool": "FFmpeg loudnorm first-pass",
+        "measurement_standard": "EBU R128"
+      }
+    },
+    "duration_test": {
+      "authoritative_input_seconds": 4.0,
+      "measured_output_seconds": 4.0,
+      "preserved": true,
+      "policy": "INPUT_DURATION"
+    },
+    "unknown_measurement_blocks": true,
+    "no_silent_pass": true,
+    "network_production_calls": 0,
+    "paid_calls": 0
+  },
+  "OPEN_M02": {
+    "closure_id": "OPEN-M02-VEO31-LITE-BINDING-CLOSURE-V1",
+    "status": "PASS",
+    "provider": "RUNWARE",
+    "exact_model_id": "google:veo@3.1-lite",
+    "provider_binding_hash": "3c2656faeb778c8b8149e9c3c88e03b5941ece004361da3585bc44c654f843ef",
+    "technical_profile_hash": "deb7c5e55883cc7577f03dbedc474d877f698e520f0a15f63f5ec5ed52560b1b",
+    "pricing_snapshot_hash": "5407ba513e336db7a62ca9640af668884c2210879d4d47e837799d95fd512208",
+    "task_uuid": "00000000-0000-4000-8000-000000000001",
+    "payload": {
+      "taskType": "videoInference",
+      "taskUUID": "00000000-0000-4000-8000-000000000001",
+      "model": "google:veo@3.1-lite",
+      "positivePrompt": "Abstract historically grounded earth surface with a concealed human-scale composition and no figures.",
+      "duration": 4,
+      "width": 1280,
+      "height": 720,
+      "numberResults": 1,
+      "providerSettings": {
+        "google": {
+          "generateAudio": false,
+          "personGeneration": "dont_allow"
+        }
+      },
+      "seed": 17
+    },
+    "prompt_sha256": "3a6f62445f576dcc309620356ffb7cde7dffd00ea77e87ec6ddf5c4ef4b94a2f",
+    "payload_sha256": "11cc614f6ec87e53c4e6744809e2c732eb97f6dd68837a01c355f7920d31a273",
+    "exact_model_alias_rejected": true,
+    "negative_prompt_rejected": true,
+    "hidden_creative_transform": false,
+    "compatibility_transform_hash_bound": "d7cce4f693d3b0e21efb06873554898d3e0dcbe55b6abd4e90c98e46ab50c86b",
+    "compatibility_transform_source_hash_matches": true,
+    "cost_preflight": {
+      "status": "PASS",
+      "provider": "RUNWARE",
+      "model": "google:veo@3.1-lite",
+      "currency": "USD",
+      "pricing_snapshot_hash": "5407ba513e336db7a62ca9640af668884c2210879d4d47e837799d95fd512208",
+      "maximum_cost_usd": "1.00",
+      "estimated_cost_usd": "0.20",
+      "lines": [
+        {
+          "unit_id": "PR01-SIM-001",
+          "duration_seconds": 4,
+          "resolution": "720p",
+          "price_per_second": "0.05",
+          "cost": "0.20"
+        }
+      ],
+      "decimal_arithmetic": true
+    },
+    "offline_gate_simulation": {
+      "mode": "OFFLINE_FAKE_ONLY",
+      "terminal": {
+        "status": "BLOCKED",
+        "reason": "PAID_START_DESKTOP_ONLY",
+        "network_call": false,
+        "paid_call": false
+      },
+      "cli": {
+        "status": "BLOCKED",
+        "reason": "PAID_START_DESKTOP_ONLY",
+        "network_call": false,
+        "paid_call": false
+      },
+      "desktop_click": {
+        "status": "SIMULATED_DESKTOP_START_ACCEPTED",
+        "network_call": false,
+        "paid_call": false,
+        "payload_sha256": "11cc614f6ec87e53c4e6744809e2c732eb97f6dd68837a01c355f7920d31a273"
+      },
+      "double_click": {
+        "status": "DUPLICATE_CLICK_BLOCKED",
+        "reason": "SINGLE_USE_CLICK_NONCE",
+        "network_call": false,
+        "paid_call": false
+      },
+      "provider_failure": {
+        "status": "TERMINAL_PROVIDER_FAILURE",
+        "retry": false,
+        "resubmit": false,
+        "network_call": false,
+        "paid_call": false
+      },
+      "historical_unknown": {
+        "status": "UNKNOWN_REMAINS_BLOCK",
+        "reason": "TASKUUID_NOT_RECOVERABLE_UNKNOWN_REMAINS_BLOCK",
+        "retry": false,
+        "resubmit": false,
+        "network_call": false,
+        "paid_call": false
+      },
+      "fake_invocations": 2,
+      "network_production_calls": 0,
+      "paid_calls": 0,
+      "automatic_retry": false,
+      "automatic_resubmission": false,
+      "montage": false
+    },
+    "network_production_calls": 0,
+    "paid_calls": 0
+  },
+  "OPEN_M03": {
+    "closure_id": "OPEN-M03-FACE-DETECTION-CALIBRATION-CLOSURE-V1",
+    "status": "PASS",
+    "detector": {
+      "detector_id": "SIRAJ_PR01_OFFLINE_FACE_DETECTOR_YUNET_V1",
+      "algorithm": "YuNet",
+      "model_file": "config/pr01/face_detector/face_detection_yunet_2023mar.onnx",
+      "model_release": "face_detection_yunet_2023mar.onnx",
+      "model_sha256": "8f2383e4dd3cfbb4553ea8718107fc0423210dc964f9f4280604804ed2552fa4",
+      "runtime": "OpenCV FaceDetectorYN",
+      "runtime_version_verified": "4.12.0",
+      "source_url": "https://github.com/opencv/opencv_zoo/tree/main/models/face_detection_yunet",
+      "download_url": "https://media.githubusercontent.com/media/opencv/opencv_zoo/main/models/face_detection_yunet/face_detection_yunet_2023mar.onnx",
+      "license": "Apache-2.0",
+      "purpose": "Local pixel-level screening helper for human-face presence; never a final approver.",
+      "default_score_threshold": 0.8,
+      "nms_threshold": 0.3,
+      "top_k": 5000,
+      "coverage_policy": {
+        "scan_all_decoded_frames": true,
+        "frame_count_mismatch_blocks": true,
+        "all_frame_human_review_required": true,
+        "model_threshold_or_input_change_invalidates_calibration": true
+      },
+      "network_calls": 0,
+      "paid_calls": 0
+    },
+    "opencv_runtime_version": "4.12.0",
+    "model_sha256": "8f2383e4dd3cfbb4553ea8718107fc0423210dc964f9f4280604804ed2552fa4",
+    "calibration_corpus": {
+      "corpus_id": "SIRAJ_PR01_FACE_CALIBRATION_CORPUS_V1",
+      "status": "CALIBRATION_ONLY_NOT_EP002_REVIEW",
+      "positive_records": [
+        {
+          "path": "tests/fixtures/pr01_face_calibration/positive_historical_failure_001.png",
+          "class": "POSITIVE_CRITICAL_FACE",
+          "source_asset": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-001-EATING-ANCHOR.mp4",
+          "source_asset_sha256": "b2cad09fa0a05599f1bdf7cc530a5d149cb280fc08b5b4b71e01a4bb3b7ecd01",
+          "source_frame_index": 0,
+          "source_read_only": true,
+          "label_basis": "historical_failure_calibration_input_only; no R27 review decision",
+          "sha256": "a8c9d764a08795e0af7777e722d2b01ff9bcc8f2c3b19ee5a0aa35b92ae4aa19"
+        },
+        {
+          "path": "tests/fixtures/pr01_face_calibration/positive_historical_failure_002.png",
+          "class": "POSITIVE_CRITICAL_FACE",
+          "source_asset": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-001-EATING-ANCHOR.mp4",
+          "source_asset_sha256": "b2cad09fa0a05599f1bdf7cc530a5d149cb280fc08b5b4b71e01a4bb3b7ecd01",
+          "source_frame_index": 60,
+          "source_read_only": true,
+          "label_basis": "historical_failure_calibration_input_only; no R27 review decision",
+          "sha256": "070a03edb6b3261269304ad99c110334fb3f8d93c70abf0584e1286e291dc779"
+        },
+        {
+          "path": "tests/fixtures/pr01_face_calibration/positive_historical_failure_003.png",
+          "class": "POSITIVE_CRITICAL_FACE",
+          "source_asset": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-001-EATING-ANCHOR.mp4",
+          "source_asset_sha256": "b2cad09fa0a05599f1bdf7cc530a5d149cb280fc08b5b4b71e01a4bb3b7ecd01",
+          "source_frame_index": 120,
+          "source_read_only": true,
+          "label_basis": "historical_failure_calibration_input_only; no R27 review decision",
+          "sha256": "26d5e62b1c19385a17f89bb727fbbb1d0a39b837abe66e6c608383c231ee0303"
+        },
+        {
+          "path": "tests/fixtures/pr01_face_calibration/positive_historical_failure_004.png",
+          "class": "POSITIVE_CRITICAL_FACE",
+          "source_asset": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-001-EATING-ANCHOR.mp4",
+          "source_asset_sha256": "b2cad09fa0a05599f1bdf7cc530a5d149cb280fc08b5b4b71e01a4bb3b7ecd01",
+          "source_frame_index": 180,
+          "source_read_only": true,
+          "label_basis": "historical_failure_calibration_input_only; no R27 review decision",
+          "sha256": "09daa143e81a5eab60a23676ec7e51c473524962ee6e5cefa84e980034facd5a"
+        }
+      ],
+      "negative_records": [
+        {
+          "path": "tests/fixtures/pr01_face_calibration/negative_black.png",
+          "class": "NEGATIVE_NO_FACE",
+          "synthetic": true,
+          "sha256": "2850a4f35769b099c0691950b4e216ced94d11b764e95af82eaee5065bb44b78"
+        },
+        {
+          "path": "tests/fixtures/pr01_face_calibration/negative_abstract_gradient.png",
+          "class": "NEGATIVE_NO_FACE",
+          "synthetic": true,
+          "sha256": "688c81a9b55b64a1ca40c34911326561636695ae60bfdbc4c025e95d448f665c"
+        }
+      ],
+      "all_source_assets_read_only": true,
+      "human_review_decisions": 0
+    },
+    "calibration_corpus_sha256": "8dcdcf24b9e044c3af44cc86133df9e549cf4f14fc684818f8f2811903ad2240",
+    "calibration": {
+      "selected_threshold": 0.8,
+      "critical_positive_recall": 1.0,
+      "selected_false_positive_rate": 0.0,
+      "threshold_sweep": [
+        {
+          "threshold": 0.1,
+          "positive_count": 4,
+          "positive_detected": 4,
+          "negative_count": 2,
+          "negative_detected": 0,
+          "positive_recall": 1.0,
+          "false_positive_rate": 0.0
+        },
+        {
+          "threshold": 0.2,
+          "positive_count": 4,
+          "positive_detected": 4,
+          "negative_count": 2,
+          "negative_detected": 0,
+          "positive_recall": 1.0,
+          "false_positive_rate": 0.0
+        },
+        {
+          "threshold": 0.3,
+          "positive_count": 4,
+          "positive_detected": 4,
+          "negative_count": 2,
+          "negative_detected": 0,
+          "positive_recall": 1.0,
+          "false_positive_rate": 0.0
+        },
+        {
+          "threshold": 0.4,
+          "positive_count": 4,
+          "positive_detected": 4,
+          "negative_count": 2,
+          "negative_detected": 0,
+          "positive_recall": 1.0,
+          "false_positive_rate": 0.0
+        },
+        {
+          "threshold": 0.5,
+          "positive_count": 4,
+          "positive_detected": 4,
+          "negative_count": 2,
+          "negative_detected": 0,
+          "positive_recall": 1.0,
+          "false_positive_rate": 0.0
+        },
+        {
+          "threshold": 0.6,
+          "positive_count": 4,
+          "positive_detected": 4,
+          "negative_count": 2,
+          "negative_detected": 0,
+          "positive_recall": 1.0,
+          "false_positive_rate": 0.0
+        },
+        {
+          "threshold": 0.7,
+          "positive_count": 4,
+          "positive_detected": 4,
+          "negative_count": 2,
+          "negative_detected": 0,
+          "positive_recall": 1.0,
+          "false_positive_rate": 0.0
+        },
+        {
+          "threshold": 0.8,
+          "positive_count": 4,
+          "positive_detected": 4,
+          "negative_count": 2,
+          "negative_detected": 0,
+          "positive_recall": 1.0,
+          "false_positive_rate": 0.0
+        },
+        {
+          "threshold": 0.9,
+          "positive_count": 4,
+          "positive_detected": 3,
+          "negative_count": 2,
+          "negative_detected": 0,
+          "positive_recall": 0.75,
+          "false_positive_rate": 0.0
+        }
+      ],
+      "positive_count": 4,
+      "negative_count": 2,
+      "all_decoded_frames_human_review_required": true,
+      "detector_is_final_approver": false,
+      "calibration_invalidating_changes": [
+        "model_sha256",
+        "opencv_runtime_version",
+        "score_threshold",
+        "nms_threshold",
+        "input_resize_policy",
+        "calibration_corpus_hash",
+        "frame_coverage_policy"
+      ]
+    },
+    "critical_positive_recall_100_percent": true,
+    "pixel_detector_is_helper_only": true,
+    "all_decoded_frames_human_final_review_required": true,
+    "historical_failure_assets_review_decisions": 0,
+    "network_production_calls": 0,
+    "paid_calls": 0
+  },
+  "SELF_TEST": {
+    "status": "PASS",
+    "issues": [],
+    "constitution_modified": false,
+    "brand_directory": "C:\\Users\\abdul\\OneDrive\\Desktop\\سراج\\intro outro",
+    "intro_sha256": "3de59689f16329fd7f701d010526a9280843917625d02dcac9aa5569250b37f4",
+    "outro_sha256": "09c01a3e144b9c1fbfe3ddad5d08f2fb4759ef054d6b071ce17e255f7c614004"
+  },
+  "R27_HANDOFF": {
+    "status": "PASS",
+    "unit_count": 27,
+    "review_decisions": 0
+  },
+  "READINESS_PROFILE": {
+    "profile_id": "SIRAJ_PRODUCTION_READINESS_PROFILE_V1",
+    "status": "PASS",
+    "constitution": {
+      "id": "SIRAJ_UNIFIED_PRODUCTION_CONSTITUTION",
+      "version": "1.0.0",
+      "bundle_sha256": "77c451711eb1888664518c9fe89e176033fdf7612f4636e18c0e0ca4d3af4f54",
+      "modified": false
+    },
+    "technical_delivery_profile": {
+      "path": "config/technical_delivery/siraj_technical_delivery_profile_v1.json",
+      "sha256": "deb7c5e55883cc7577f03dbedc474d877f698e520f0a15f63f5ec5ed52560b1b"
+    },
+    "provider_binding": {
+      "path": "config/pr01/provider_binding/google_veo_3_1_lite_runware_v1.json",
+      "provider": "RUNWARE",
+      "exact_model_id": "google:veo@3.1-lite",
+      "sha256": "3c2656faeb778c8b8149e9c3c88e03b5941ece004361da3585bc44c654f843ef"
+    },
+    "pricing_snapshot": {
+      "path": "config/pr01/provider_binding/provider_pricing_snapshot_v1.json",
+      "sha256": "5407ba513e336db7a62ca9640af668884c2210879d4d47e837799d95fd512208"
+    },
+    "face_detector": {
+      "path": "config/pr01/face_detector/face_detection_yunet_2023mar.onnx",
+      "sha256": "8f2383e4dd3cfbb4553ea8718107fc0423210dc964f9f4280604804ed2552fa4",
+      "calibration_sha256": "8dcdcf24b9e044c3af44cc86133df9e549cf4f14fc684818f8f2811903ad2240",
+      "helper_only": true
+    },
+    "brand_assets": {
+      "directory": "C:\\Users\\abdul\\OneDrive\\Desktop\\سراج\\intro outro",
+      "intro_sha256": "3de59689f16329fd7f701d010526a9280843917625d02dcac9aa5569250b37f4",
+      "outro_sha256": "09c01a3e144b9c1fbfe3ddad5d08f2fb4759ef054d6b071ce17e255f7c614004"
+    },
+    "paid_start": {
+      "origin": "DESKTOP",
+      "explicit_click_required": true,
+      "terminal_cli_recovery_compiler_qa_test_spend": false,
+      "production_authorized": false
+    },
+    "release": {
+      "human_final_certification_required": true,
+      "thumbnail_owner": "HUMAN",
+      "public_youtube_title_owner": "HUMAN",
+      "music_allowed": false,
+      "montage_in_pr01": false
+    }
+  },
+  "CAPABILITY_SEPARATION": {
+    "audit_id": "PR01_CAPABILITY_SEPARATION_AUDIT_V1",
+    "status": "PASS",
+    "compiler_can_spend": false,
+    "validator_can_spend": false,
+    "test_can_spend": false,
+    "terminal_can_spend": false,
+    "cli_can_spend": false,
+    "recovery_can_spend": false,
+    "desktop_explicit_click_is_only_paid_origin": true,
+    "real_gateway_pre_transport_gate": "PR01_DESKTOP_APPROVAL_REQUIRED",
+    "network_production_calls": 0,
+    "paid_calls": 0,
+    "retry_or_resubmission": 0,
+    "montage": 0,
+    "publication": 0
+  },
+  "CHECKS": {
+    "M01": true,
+    "M02": true,
+    "M03": true,
+    "self_test": true,
+    "offline_simulation": true,
+    "r27_inventory": true
+  },
+  "CRITICAL_OR_HIGH_UNRESOLVED": 0,
+  "NEXT_STAGE": "EP002_R27_RENDER_RECERTIFICATION",
+  "EXECUTION_COUNTS": {
+    "provider_calls": 0,
+    "paid_calls": 0,
+    "network_production_calls": 0,
+    "retry_or_resubmission": 0,
+    "montage": 0,
+    "publication": 0
+  },
+  "UNKNOWN_STATE": {
+    "attempt_id": "1e6d0013-d37f-5df7-ab53-444c4f17c14c",
+    "request_id": "EP002-SH-001-V01",
+    "task_uuid": "planning-only-23fd9f353315ea244f26e1940c4fe737",
+    "submission_status": "SUBMISSION_STATUS_UNKNOWN",
+    "status": "UNKNOWN_REMAINS_BLOCK",
+    "retry_allowed": false,
+    "resubmission_allowed": false,
+    "recovery_allowed": false,
+    "reason": "TASKUUID_NOT_RECOVERABLE_UNKNOWN_REMAINS_BLOCK"
+  },
+  "approval_invalidation_events": [
+    "constitution_bundle_changed",
+    "technical_delivery_profile_changed",
+    "provider_binding_changed",
+    "provider_model_id_changed",
+    "prompt_changed",
+    "payload_changed",
+    "pricing_snapshot_changed",
+    "cost_cap_changed",
+    "batch_membership_changed",
+    "compatibility_transform_changed",
+    "audio_measurement_changed",
+    "face_detector_model_changed",
+    "face_detector_threshold_changed",
+    "face_calibration_corpus_changed",
+    "brand_asset_hash_changed",
+    "human_approval_revoked"
+  ],
+  "document_sha256": "3029557e628aedcc685118f8d79488e92e681ed1944809206bebf178ff64bd04"
+}

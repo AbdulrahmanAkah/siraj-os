@@ -22,6 +22,14 @@ from src.application.production_standard_v2_native_assets import (
     GENERATION_ID,
     MEDIA_QUEUE_REL,
 )
+from src.application.technical_delivery_profile_v1 import (
+    LOUDNESS_RANGE_LU,
+    PASS_LOUDNESS_MAX_LUFS,
+    PASS_LOUDNESS_MIN_LUFS,
+    TARGET_INTEGRATED_LOUDNESS_LUFS,
+    TARGET_TRUE_PEAK_DBTP,
+    TRUE_PEAK_CEILING_DBTP,
+)
 
 
 RELEASE = "SIRAJ_PRODUCTION_STANDARD_V2_LOCAL_RUNTIME"
@@ -928,7 +936,7 @@ def _loudness(
             str(source),
             "-af",
             (
-                "loudnorm=I=-16:TP=-1.5:LRA=11:"
+                f"loudnorm=I={TARGET_INTEGRATED_LOUDNESS_LUFS}:TP={TARGET_TRUE_PEAK_DBTP}:LRA={LOUDNESS_RANGE_LU}:"
                 "print_format=json"
             ),
             "-f",
@@ -1091,9 +1099,9 @@ def run_v2_automatic_qa(
                 final_master,
             )
             if not (
-                -17.0
+                PASS_LOUDNESS_MIN_LUFS
                 <= loudness["integrated_lufs"]
-                <= -15.0
+                <= PASS_LOUDNESS_MAX_LUFS
             ):
                 blockers.append(
                     {
@@ -1101,7 +1109,7 @@ def run_v2_automatic_qa(
                         **loudness,
                     }
                 )
-            if loudness["true_peak_dbtp"] > -1.0:
+            if loudness["true_peak_dbtp"] > TRUE_PEAK_CEILING_DBTP:
                 blockers.append(
                     {
                         "code": "TRUE_PEAK_TOO_HIGH",

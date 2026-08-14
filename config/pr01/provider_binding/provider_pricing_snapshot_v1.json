@@ -1,0 +1,26 @@
+{
+  "snapshot_id": "SIRAJ_PR01_RUNWARE_PRICING_SNAPSHOT_V1",
+  "version": "1.0.0",
+  "status": "READ_ONLY_REFERENCE",
+  "provider": "RUNWARE",
+  "exact_model_id": "google:veo@3.1-lite",
+  "currency": "USD",
+  "basis": "GENERATED_VIDEO_SECOND",
+  "prices_per_second": {
+    "720p": "0.05",
+    "1080p": "0.08"
+  },
+  "source": {
+    "official_url": "https://runware.ai/docs/models/google-veo-3-1-lite",
+    "verified_at": "2026-08-14",
+    "source_class": "OFFICIAL_DOCUMENTATION_READ_ONLY",
+    "production_call": false
+  },
+  "preflight_policy": {
+    "decimal_arithmetic": true,
+    "human_review_required_before_paid_start": true,
+    "pricing_change_invalidates_approval": true,
+    "stale_snapshot_blocks": true
+  },
+  "snapshot_sha256": "5407ba513e336db7a62ca9640af668884c2210879d4d47e837799d95fd512208"
+}

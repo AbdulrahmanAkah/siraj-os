@@ -1,0 +1,98 @@
+{
+  "profile_id": "SIRAJ_TECHNICAL_DELIVERY_PROFILE_V1",
+  "version": "1.0.0",
+  "status": "ACTIVE_FOR_PR01",
+  "authority": {
+    "source_id": "SIRAJ_SERIES_PRODUCTION_STANDARD_V2",
+    "source_path": "docs/production/SIRAJ_SERIES_PRODUCTION_STANDARD_V2.md",
+    "selection_reason": "The series-wide Production Standard V2 is the stronger current audio authority; older runtime constants are recorded as legacy duplicates and cannot authorize PR01."
+  },
+  "constitution_binding": {
+    "constitution_id": "SIRAJ_UNIFIED_PRODUCTION_CONSTITUTION",
+    "constitution_version": "1.0.0",
+    "constitution_bundle_sha256": "77c451711eb1888664518c9fe89e176033fdf7612f4636e18c0e0ca4d3af4f54",
+    "rule_count": 51,
+    "critical_high_unenforced": 0
+  },
+  "audio_delivery": {
+    "target_integrated_loudness_lufs": -16.0,
+    "pass_loudness_min_lufs": -17.0,
+    "pass_loudness_max_lufs": -15.0,
+    "target_true_peak_dbtp": -1.5,
+    "true_peak_ceiling_dbtp": -1.0,
+    "measurement_standard": "EBU R128",
+    "measurement_tool": "FFmpeg loudnorm first-pass input_i/input_tp with ebur128-compatible statistics",
+    "sample_rate_hz": 48000,
+    "channel_policy": "STEREO",
+    "delivery_codec": "AAC",
+    "narration_target_lufs": -18.0,
+    "loudness_range_lu": 11.0,
+    "measurement_required_on_actual_bytes": true,
+    "unknown_measurement_is_blocking": true,
+    "normalization_policy": {
+      "duration_authority": "INPUT_DURATION",
+      "duration_must_be_preserved": true,
+      "duration_tolerance_seconds": 0.01,
+      "no_silent_pass": true
+    }
+  },
+  "visual_delivery": {
+    "primary_provider": "RUNWARE",
+    "exact_model_id": "google:veo@3.1-lite",
+    "supported_duration_seconds": [
+      4,
+      6,
+      8
+    ],
+    "supported_aspect_ratios": [
+      "16:9",
+      "9:16"
+    ],
+    "video_coverage_target_percent_min": 50,
+    "video_coverage_target_percent_max": 75,
+    "canonical_still_required_for_recurring_character": true
+  },
+  "face_policy": {
+    "all_human_faces_visible": false,
+    "prophet_face_visibility": "ABSOLUTELY_FORBIDDEN",
+    "non_prophet_face_default": "FULLY_CONCEALED",
+    "pixel_detector_helper_only": true,
+    "all_decoded_frames_human_review_required": true
+  },
+  "publication_policy": {
+    "thumbnail_owner": "HUMAN",
+    "public_youtube_title_owner": "HUMAN",
+    "human_final_certification_required": true,
+    "autonomous_publish_approval": false,
+    "music_allowed": false,
+    "external_closed_captions_allowed": true
+  },
+  "legacy_duplicate_authorities": [
+    {
+      "path": "src/application/automatic_qa_partial_repair_v1.py",
+      "old_values": {
+        "loudness_tolerance_lu": 2.0,
+        "true_peak_ceiling_dbtp": -0.8
+      },
+      "resolution": "SUPERSEDED_BY_PR01_PROFILE"
+    },
+    {
+      "path": "src/application/sfx_audio_mix_v1.py",
+      "old_values": {
+        "master_target_lufs": -16.0,
+        "master_target_true_peak_dbtp": -1.5
+      },
+      "resolution": "RETAINED_AS_PIPELINE_TARGETS_BUT_BOUND_TO_PR01_PROFILE"
+    },
+    {
+      "path": "src/application/production_standard_v2_runtime.py",
+      "old_values": {
+        "target_lufs": -16.0,
+        "target_true_peak_dbtp": -1.5,
+        "ceiling_dbtp": -1.0
+      },
+      "resolution": "BOUND_TO_PR01_PROFILE"
+    }
+  ],
+  "binding_sha256": "deb7c5e55883cc7577f03dbedc474d877f698e520f0a15f63f5ec5ed52560b1b"
+}

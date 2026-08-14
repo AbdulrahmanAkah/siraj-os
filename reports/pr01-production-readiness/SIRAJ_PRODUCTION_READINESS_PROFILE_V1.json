@@ -1,0 +1,49 @@
+{
+  "profile_id": "SIRAJ_PRODUCTION_READINESS_PROFILE_V1",
+  "status": "PASS",
+  "constitution": {
+    "id": "SIRAJ_UNIFIED_PRODUCTION_CONSTITUTION",
+    "version": "1.0.0",
+    "bundle_sha256": "77c451711eb1888664518c9fe89e176033fdf7612f4636e18c0e0ca4d3af4f54",
+    "modified": false
+  },
+  "technical_delivery_profile": {
+    "path": "config/technical_delivery/siraj_technical_delivery_profile_v1.json",
+    "sha256": "deb7c5e55883cc7577f03dbedc474d877f698e520f0a15f63f5ec5ed52560b1b"
+  },
+  "provider_binding": {
+    "path": "config/pr01/provider_binding/google_veo_3_1_lite_runware_v1.json",
+    "provider": "RUNWARE",
+    "exact_model_id": "google:veo@3.1-lite",
+    "sha256": "3c2656faeb778c8b8149e9c3c88e03b5941ece004361da3585bc44c654f843ef"
+  },
+  "pricing_snapshot": {
+    "path": "config/pr01/provider_binding/provider_pricing_snapshot_v1.json",
+    "sha256": "5407ba513e336db7a62ca9640af668884c2210879d4d47e837799d95fd512208"
+  },
+  "face_detector": {
+    "path": "config/pr01/face_detector/face_detection_yunet_2023mar.onnx",
+    "sha256": "8f2383e4dd3cfbb4553ea8718107fc0423210dc964f9f4280604804ed2552fa4",
+    "calibration_sha256": "8dcdcf24b9e044c3af44cc86133df9e549cf4f14fc684818f8f2811903ad2240",
+    "helper_only": true
+  },
+  "brand_assets": {
+    "directory": "C:\\Users\\abdul\\OneDrive\\Desktop\\سراج\\intro outro",
+    "intro_sha256": "3de59689f16329fd7f701d010526a9280843917625d02dcac9aa5569250b37f4",
+    "outro_sha256": "09c01a3e144b9c1fbfe3ddad5d08f2fb4759ef054d6b071ce17e255f7c614004"
+  },
+  "paid_start": {
+    "origin": "DESKTOP",
+    "explicit_click_required": true,
+    "terminal_cli_recovery_compiler_qa_test_spend": false,
+    "production_authorized": false
+  },
+  "release": {
+    "human_final_certification_required": true,
+    "thumbnail_owner": "HUMAN",
+    "public_youtube_title_owner": "HUMAN",
+    "music_allowed": false,
+    "montage_in_pr01": false
+  },
+  "document_sha256": "5a8cefc963f7af1ca664733dc2e6db4b98cace5d3e04a326bc15e953ca31b1fa"
+}
