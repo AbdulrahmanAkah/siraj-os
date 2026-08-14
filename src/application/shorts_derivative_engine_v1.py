@@ -43,6 +43,10 @@ from src.application.shorts_derivative_execution_v1 import (
     issue_authorization,
     validate_authorization,
 )
+from src.application.shorts_legacy_timing_resolver_v1 import (
+    LegacyTimingResolverError,
+    resolve_legacy_timing,
+)
 
 
 PROFILE_RELATIVE_PATH = Path("config/shorts/siraj_shorts_derivative_profile_v1.json")
@@ -253,6 +257,13 @@ def _read_json(path: Path, *, code: str) -> dict[str, Any]:
     if not isinstance(value, dict):
         raise ShortsBlockedError(code, str(path))
     return value
+
+
+def _read_json_value(path: Path, *, code: str) -> Any:
+    try:
+        return json.loads(path.read_text(encoding="utf-8-sig"))
+    except (OSError, UnicodeError, json.JSONDecodeError) as exc:
+        raise ShortsBlockedError(code, str(path)) from exc
 
 
 def load_shorts_profile(repo_root: Path) -> dict[str, Any]:
@@ -1113,11 +1124,20 @@ def _build_shots(metadata: Mapping[str, Any], duration: float) -> tuple[Shot, ..
     return tuple(shots)
 
 
-def _probe_with_ffmpeg(path: Path, ffmpeg_path: str | None = None) -> dict[str, Any]:
+def _probe_with_ffmpeg(
+    path: Path, ffmpeg_path: str | None = None, *, decode: bool = True
+) -> dict[str, Any]:
     executable = ffmpeg_path or find_ffmpeg()
     if executable is None:
         return {"available": False, "duration_seconds": None, "has_video": None, "has_audio": None}
-    command = [executable, "-hide_banner", "-i", str(path), "-f", "null", "-"]
+    command = [executable, "-hide_banner", "-i", str(path)]
+    if decode:
+        command.extend(["-f", "null", "-"])
+    else:
+        # Ingestion needs stream/duration metadata only. Render and QA keep the
+        # full decode default, while this bounded probe avoids decoding long legacy
+        # masters merely to establish that final audio exists.
+        command.extend(["-t", "0", "-f", "null", "-"])
     completed = subprocess.run(command, capture_output=True, text=True, check=False)
     output = (completed.stdout or "") + "\n" + (completed.stderr or "")
     duration_match = re.search(r"Duration:\s+(\d{2}:\d{2}:\d{2}[\.,]\d{2,3})", output)
@@ -1341,17 +1361,45 @@ def ingest_episode(
         source_metadata_hashes[_relative_or_absolute(source_metadata_path, Path(repo_root))] = _sha256_file(source_metadata_path)
     transcript_file = transcript_path.resolve() if transcript_path is not None else None
     transcript_segments: list[TranscriptSegment]
+    timing_resolution = None
     if transcript_file is not None:
         if transcript_file.suffix.casefold() in {".vtt", ".srt"}:
             transcript_segments = _parse_vtt_or_srt(transcript_file)
         else:
-            transcript_segments = _parse_transcript_payload(_read_json(transcript_file, code="SHORT_TRANSCRIPT_REQUIRED"))
+            transcript_segments = _parse_transcript_payload(
+                _read_json_value(transcript_file, code="SHORT_TRANSCRIPT_REQUIRED")
+            )
         source_metadata_hashes[_relative_or_absolute(transcript_file, Path(repo_root))] = _sha256_file(transcript_file)
     elif metadata.get("transcript") is not None or metadata.get("segments") is not None or metadata.get("cues") is not None:
         transcript_segments = _parse_transcript_payload(metadata)
     else:
-        raise SourceIntegrityError("SHORT_TRANSCRIPT_REQUIRED", "LOCAL_TRANSCRIPT_OR_TIMING_REQUIRED")
-    probe = _probe_with_ffmpeg(source_video)
+        try:
+            timing_resolution = resolve_legacy_timing(Path(repo_root), source_video)
+        except LegacyTimingResolverError as exc:
+            mapped_code = "SHORT_SOURCE_HASH_CHANGED" if exc.code == "TIMING_SOURCE_STALE" else "SHORT_TRANSCRIPT_REQUIRED"
+            raise SourceIntegrityError(mapped_code, f"{exc.code}:{exc.detail}") from exc
+        resolved_metadata = dict(timing_resolution.episode_metadata)
+        resolved_metadata.update(metadata)
+        metadata = resolved_metadata
+        transcript_segments = [
+            TranscriptSegment(
+                segment_id=segment.segment_id,
+                start_time=segment.start_seconds,
+                end_time=segment.end_seconds,
+                text=segment.text,
+            )
+            for segment in timing_resolution.segments
+        ]
+        for raw_path, expected_hash in timing_resolution.bound_hashes.items():
+            source_path = Path(raw_path)
+            source_metadata_hashes[_relative_or_absolute(source_path, Path(repo_root))] = expected_hash
+        source_metadata_hashes[
+            _relative_or_absolute(timing_resolution.canonical_path, Path(repo_root))
+        ] = _sha256_file(timing_resolution.canonical_path)
+        metadata["legacy_timing_resolution"] = timing_resolution.admission_fields()
+    probe = _probe_with_ffmpeg(source_video, decode=False)
+    if timing_resolution is not None and probe.get("available") is True and probe.get("has_audio") is not True:
+        raise SourceIntegrityError("SHORT_SOURCE_AUDIO_REQUIRED", "FINAL_AUDIO_STREAM_REQUIRED")
     duration_value = metadata.get("duration_seconds", metadata.get("duration"))
     duration = _parse_time(duration_value) if duration_value is not None else float(probe.get("duration_seconds") or max(segment.end_time for segment in transcript_segments))
     beats = _build_beats(metadata, transcript_segments)
@@ -1377,6 +1425,8 @@ def ingest_episode(
         "constitution_metadata_present": bool(metadata.get("constitution_version") or metadata.get("constitution")),
         "audio_probe": {"has_audio": probe.get("has_audio"), "available": probe.get("available")},
     }
+    if timing_resolution is not None:
+        source_admission.update(timing_resolution.admission_fields())
     return EpisodePackage(
         schema_version=SCHEMA_VERSION,
         episode_id=episode_id,

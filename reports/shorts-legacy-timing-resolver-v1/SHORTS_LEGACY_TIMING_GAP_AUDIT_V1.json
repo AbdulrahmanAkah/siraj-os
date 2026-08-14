@@ -1,0 +1,117 @@
+{
+  "schema_version": "SHORTS_LEGACY_TIMING_GAP_AUDIT_V1",
+  "task": "SIRAJ_SHORTS_LEGACY_TIMING_RESOLVER_V1",
+  "audit_scope": ["LTR-00", "LTR-01", "LTR-02", "LTR-05", "LTR-08"],
+  "audit_mode": "OFFLINE_READ_ONLY_BEFORE_AND_AFTER_IMPLEMENTATION",
+  "status": "PASS",
+  "root_cause": {
+    "code": "LEGACY_TIMING_DISCOVERY_GAP",
+    "before": [
+      "Shorts source discovery admitted nearby SRT/VTT and structured dictionary JSON timing, but did not interpret a top-level legacy timing array.",
+      "The engine stopped at SHORT_TRANSCRIPT_REQUIRED:LOCAL_TRANSCRIPT_OR_TIMING_REQUIRED when EP001 had trusted timing evidence but no manually selected transcript.",
+      "There was no generic authority resolver, final-audio binding, canonical timed-transcript cache, or desktop resume invalidation for this legacy path."
+    ],
+    "ep001_trigger": "tts-absolute-timeline-repair-v1.json is a 43-item absolute TTS/timeline-repair JSON array with canonical_text_ar, start_seconds, end_seconds, and a filter proof, rather than a nested segments object."
+  },
+  "current_discovery_paths": {
+    "source_discovery": {
+      "module": "src/application/shorts_source_discovery_v1.py",
+      "normal_path": "nearby metadata/transcript candidate discovery and deterministic hash matching",
+      "legacy_path": "discover_episode_sources -> resolve_legacy_timing when normal timing is absent",
+      "safe_result": "READY with ready_without_manual_file=true when the resolver returns a hash-bound resolution"
+    },
+    "engine_ingestion": {
+      "module": "src/application/shorts_derivative_engine_v1.py",
+      "normal_path": "explicit transcript or structured metadata timing",
+      "legacy_path": "ingest_episode -> resolve_legacy_timing -> TranscriptSegment conversion preserving source text",
+      "safe_result": "source_admission.status=PASS"
+    },
+    "desktop_resume": {
+      "module": "src/application/shorts_derivative_desktop_integration_v1.py",
+      "binding": "source_metadata_hashes are persisted and compared on restore",
+      "stale_result": "STALE_SOURCE_EVIDENCE with fail-closed invalidation"
+    },
+    "desktop_surface": {
+      "module": "src/presentation/desktop/shorts_derivative_dock_v1.py",
+      "user_state": "transcript status is completed and Analyze is enabled only after admission PASS",
+      "internal_details": "resolver internals remain outside the primary UX message"
+    }
+  },
+  "accepted_timing_formats": {
+    "before": ["SRT", "VTT", "structured JSON with segments/cues/transcript/narration_blocks/beats"],
+    "after": [
+      "canonical SRT",
+      "canonical VTT",
+      "canonical timed JSON",
+      "native NarrationTimingMap",
+      "absolute TTS/timeline-repair JSON arrays",
+      "trusted sentence/segment timing JSON",
+      "explicitly selected SRT/VTT/JSON fallback"
+    ],
+    "explicitly_not_supported": ["ASR", "Whisper", "cloud transcription", "speech recognition", "proportional timing estimation", "network transcription"]
+  },
+  "source_authority_order": [
+    {"level": 1, "name": "LEVEL_1_CANONICAL_BOUND_TIMED_SOURCE", "formats": ["SRT", "VTT", "canonical timed JSON"]},
+    {"level": 2, "name": "LEVEL_2_NATIVE_NARRATION_TIMING", "formats": ["NarrationTimingMap", "word-boundary timing"]},
+    {"level": 3, "name": "LEVEL_3_ABSOLUTE_TTS_TIMELINE_REPAIR", "formats": ["absolute TTS/timeline-repair JSON", "filter proof"]},
+    {"level": 4, "name": "LEVEL_4_TRUSTED_SENTENCE_SEGMENT_TIMING", "formats": ["trusted sentence/segment timing"]},
+    {"level": 5, "name": "LEVEL_5_EXPLICIT_USER_SELECTED_TIMED_SOURCE", "formats": ["user-selected SRT/VTT/JSON"]}
+  ],
+  "ep001_evidence_found": {
+    "episode_id": "episode-001-adam",
+    "video": "projects/episode-001-adam/deliverables/integrated-local-repair-v1/episode-master-local-repair-v2.mp4",
+    "video_sha256": "d24c4c3cba1dbc0b5ef8ae1be90cc1f710a274875793e2f477b0af4a2e155846",
+    "final_audio": "projects/episode-001-adam/deliverables/integrated-local-repair-v1/audio/narration-absolute-timeline-v1.m4a",
+    "final_audio_sha256": "9074f39d6afbd3f20a76e73c91918d2c5d477fbc13a325f73fc7bac5bf1535a4",
+    "timing_source": "projects/episode-001-adam/deliverables/integrated-local-repair-v1/reports/tts-absolute-timeline-repair-v1.json",
+    "timing_source_sha256": "3e04aa5f9be1688fb5e697c93056fabc821025074ebb4bba57e0ae15a8f736a2",
+    "timeline_repair_filter": "projects/episode-001-adam/deliverables/integrated-local-repair-v1/audio/narration-absolute-timeline-v1.filter.txt",
+    "timeline_repair_filter_sha256": "79844efe0761e027ff82c8fa63f04102ce5034079b41895c4791d93de254006e",
+    "performance_script": "projects/episode-001-adam/script/episode-script-production-standard-v2.json",
+    "performance_script_sha256": "5f3a78456cbb7bbf334f3c19d51e0731b480cc311633116b512fddd3b19ebe6b",
+    "performance_script_canonical_sha256": "533af090a7a26cd4e64e4940152958b1d1bf7063915e5cf7054d7360812653b6",
+    "segment_count": 43,
+    "first_timestamp": 0.6,
+    "last_timestamp": 1312.24483,
+    "authoritative_duration_seconds": 1320.0
+  },
+  "ambiguity_risks": {
+    "equal_authority_sources": "TIMING_SOURCE_AMBIGUOUS",
+    "declared_hash_mismatch": "TIMING_SOURCE_STALE",
+    "missing_final_audio_edge": "TIMING_EVIDENCE_INSUFFICIENT",
+    "narration_relative_without_explicit_offset": "TIMING_EVIDENCE_INSUFFICIENT",
+    "historical_script_versions": "accepted only when an explicit raw or canonical script hash selects one; otherwise no silent selection"
+  },
+  "hash_binding_gaps": {
+    "before": ["video hash was not part of a canonical timing artifact", "timing source and final audio were not one resolver decision", "cache key and evidence hashes were absent"],
+    "after": ["video, final audio, timing, script, evidence records, canonical transcript, and cache key are hash-bound", "unrelated output hashes in the same record are excluded from path binding"]
+  },
+  "persistence_gaps": {
+    "before": ["reconstruction was not persisted as a task-owned canonical transcript", "desktop resume did not carry legacy evidence hashes"],
+    "after": ["canonical transcript is persisted under artifacts/shorts-derivatives/_legacy-timing-cache", "cache key includes episode_id, source_video_sha256, source_audio_sha256, timing_source_sha256, script_source_sha256, evidence hashes, and resolver_version", "upstream changes invalidate the cache"]
+  },
+  "ux_impact": {
+    "before": "EP001 displayed missing timed transcript and required manual selection",
+    "after": "Desktop Source Discovery returns READY; ready_without_manual_file=true; Source Admission is PASS; Analyze is startable",
+    "manual_fallback": "still available for explicit user-selected SRT/VTT/JSON or insufficient/ambiguous evidence"
+  },
+  "safety_boundary": {
+    "provider_calls": 0,
+    "paid_calls": 0,
+    "network_production_calls": 0,
+    "new_tts": 0,
+    "new_narration": 0,
+    "new_visual_generation": 0,
+    "production_render": 0,
+    "montage": 0,
+    "publication": 0,
+    "retry": 0,
+    "resubmission": 0,
+    "asr": false,
+    "r27_review": false,
+    "ep002_regeneration": false
+  },
+  "constitution_modified": false,
+  "core_enforcement_modified": false,
+  "historical_evidence_policy": "all pre-existing untracked evidence was preserved and not staged"
+}

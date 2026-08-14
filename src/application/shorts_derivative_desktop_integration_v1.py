@@ -118,6 +118,7 @@ class ShortsDerivativeDesktopWorkflow:
             "resume_status": self.resume_status,
             "updated_at": utc_now(),
             "source_episode_sha256": self.episode.source_episode_sha256,
+            "source_metadata_hashes": dict(self.episode.source_metadata_hashes),
             "profile_sha256": self.engine.profile_sha256,
             "constitution_bundle_sha256": self.engine.constitution_bundle_sha256,
         }
@@ -131,6 +132,9 @@ class ShortsDerivativeDesktopWorkflow:
             state = json.loads(path.read_text(encoding="utf-8"))
             if state.get("source_episode_sha256") != self.episode.source_episode_sha256:
                 self.resume_status = "STALE_SOURCE"
+                return
+            if state.get("source_metadata_hashes") != dict(self.episode.source_metadata_hashes):
+                self.resume_status = "STALE_SOURCE_EVIDENCE"
                 return
             if state.get("profile_sha256") != self.engine.profile_sha256:
                 self.resume_status = "STALE_PROFILE"

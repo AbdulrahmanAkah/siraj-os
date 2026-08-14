@@ -5,6 +5,41 @@
 2026-08-12
 
 ========================================================
+SIRAJ SHORTS LEGACY TIMING RESOLVER V1 - 2026-08-14
+========================================================
+
+Status:
+LEGACY_TIMING_RESOLVER_READY_AND_EP001_SHORTS_SOURCE_ADMISSION_PASS
+
+Certification:
+- Generic offline resolver v1.0.4 added for canonical, native, absolute TTS/timeline-repair, sentence/segment, and explicit user-selected timing authorities.
+- EP001 timing was AUTO_DISCOVERED from the trusted absolute TTS/timeline-repair artifact and then CACHE_REUSED by the hash-bound canonical transcript.
+- EP001 Source Discovery: READY; ready_without_manual_file=true; manual transcript selection is not required.
+- EP001 Source Admission: PASS; 43 segments; FINAL_VIDEO_ABSOLUTE; first timestamp 0.6; last timestamp 1312.24483; duration 1320.0 seconds.
+- EP001 local Shorts analysis: startable; 229 candidates discovered; no render/export/montage/publication.
+- Equal-priority ambiguity, stale hashes, missing evidence, unsupported timebase, and upstream changes fail closed.
+- Full direct suite: 789 passed, 1 historical skip, 9 release-packaging errors from an existing ignored build/dist-info collision; release packaging itself passed 9/9 after reversible build isolation and restoration.
+- Resolver/Shorts/Desktop/PR01/constitutional matrix: 428 passed; additional Shorts integration: 12 passed.
+
+Safety:
+- Provider calls: 0.
+- Paid calls: 0.
+- Network production calls: 0.
+- New TTS/narration/visual generation: 0/0/0.
+- Production render/montage/publication: 0/0/0.
+- Retries/resubmissions: 0/0.
+- Unified constitution and core enforcement were not modified.
+- Historical untracked evidence was preserved and not staged.
+
+Evidence:
+- reports/shorts-legacy-timing-resolver-v1/SHORTS_LEGACY_TIMING_GAP_AUDIT_V1.json
+- reports/shorts-legacy-timing-resolver-v1/EP001_LEGACY_TIMING_RECOVERY_EVIDENCE_V1.json
+- reports/shorts-legacy-timing-resolver-v1/SIRAJ_SHORTS_LEGACY_TIMING_RESOLVER_CERTIFICATION_V1.json
+- reports/shorts-legacy-timing-resolver-v1/SIRAJ_SHORTS_LEGACY_TIMING_RESOLVER_FINAL_REPORT_V1.md
+
+NEXT=OPEN_SIRAJ -> SHORTS -> SELECT EPISODE 1 -> ANALYZE
+
+========================================================
 SIRAJ PR01 PRODUCTION READINESS BINDING - 2026-08-14
 ========================================================
 

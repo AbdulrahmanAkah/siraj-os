@@ -1,0 +1,138 @@
+{
+  "schema_version": "SIRAJ_SHORTS_LEGACY_TIMING_RESOLVER_CERTIFICATION_V1",
+  "task": "SIRAJ_SHORTS_LEGACY_TIMING_RESOLVER_V1",
+  "certification_mode": "OFFLINE_IMPLEMENTATION_AND_CERTIFICATION",
+  "resolver_id": "SIRAJ_SHORTS_LEGACY_TIMING_RESOLVER_V1",
+  "resolver_version": "1.0.4",
+  "legacy_timing_resolver": "PASS",
+  "ep001_legacy_timing_recovery": "PASS",
+  "ep001_shorts_source_admission": "PASS",
+  "ep001_shorts_analysis_startable": true,
+  "supported_timing_authorities": [
+    "LEVEL_1_CANONICAL_BOUND_TIMED_SOURCE",
+    "LEVEL_2_NATIVE_NARRATION_TIMING",
+    "LEVEL_3_ABSOLUTE_TTS_TIMELINE_REPAIR",
+    "LEVEL_4_TRUSTED_SENTENCE_SEGMENT_TIMING",
+    "LEVEL_5_EXPLICIT_USER_SELECTED_TIMED_SOURCE"
+  ],
+  "authority_order": [1, 2, 3, 4, 5],
+  "ambiguity_policy": {
+    "equal_priority": "TIMING_SOURCE_AMBIGUOUS",
+    "stale_hash": "TIMING_SOURCE_STALE",
+    "insufficient_evidence": "TIMING_EVIDENCE_INSUFFICIENT",
+    "unknown_is_not_resubmitted": true,
+    "no_silent_choice": true
+  },
+  "hash_binding": {
+    "required_inputs": [
+      "episode_id",
+      "source_video_sha256",
+      "source_audio_sha256",
+      "timing_source_sha256",
+      "script_source_sha256",
+      "evidence_sha256s",
+      "resolver_version"
+    ],
+    "audio_binding_method": "DECODED_PCM_SHA256_EQUAL",
+    "audio_binding_status": "PASS",
+    "video_timebase_binding": "FINAL_VIDEO_ABSOLUTE",
+    "offset_seconds": 0.0
+  },
+  "cache_policy": {
+    "root": "artifacts/shorts-derivatives/_legacy-timing-cache",
+    "content_addressed": true,
+    "cache_key": "c0cc8d79554dedc8d7c442052838fe0b6219b87bf2a7eb15ae7d0b75880d83b2",
+    "cache_file": "artifacts/shorts-derivatives/_legacy-timing-cache/episode-001-adam/canonical-timed-transcript-c0cc8d79554dedc8d7c442052838fe0b6219b87bf2a7eb15ae7d0b75880d83b2.json",
+    "cache_file_sha256": "979b7805b8a8b23a2f67c48fbfb5a7552de39d3f15f1ffd3dd028f279a477369",
+    "first_resolution": "AUTO_DISCOVERED",
+    "reuse_resolution": "CACHE_REUSED"
+  },
+  "invalidation_model": {
+    "video_changed": "invalidate",
+    "audio_changed": "invalidate",
+    "timing_evidence_changed": "invalidate",
+    "script_changed": "invalidate",
+    "resolver_version_changed": "invalidate",
+    "evidence_record_changed": "invalidate",
+    "manual_transcript_fallback": "preserved"
+  },
+  "ep001_source_evidence": {
+    "episode_id": "episode-001-adam",
+    "video": "projects/episode-001-adam/deliverables/integrated-local-repair-v1/episode-master-local-repair-v2.mp4",
+    "video_sha256": "d24c4c3cba1dbc0b5ef8ae1be90cc1f710a274875793e2f477b0af4a2e155846",
+    "final_narration": "projects/episode-001-adam/deliverables/integrated-local-repair-v1/audio/narration-absolute-timeline-v1.m4a",
+    "final_narration_sha256": "9074f39d6afbd3f20a76e73c91918d2c5d477fbc13a325f73fc7bac5bf1535a4",
+    "selected_timing_source": "projects/episode-001-adam/deliverables/integrated-local-repair-v1/reports/tts-absolute-timeline-repair-v1.json",
+    "timing_source_sha256": "3e04aa5f9be1688fb5e697c93056fabc821025074ebb4bba57e0ae15a8f736a2",
+    "timing_source_type": "LEGACY_ABSOLUTE_TTS_TIMELINE",
+    "script_source": "projects/episode-001-adam/script/episode-script-production-standard-v2.json",
+    "script_source_sha256": "5f3a78456cbb7bbf334f3c19d51e0731b480cc311633116b512fddd3b19ebe6b",
+    "script_canonical_sha256": "533af090a7a26cd4e64e4940152958b1d1bf7063915e5cf7054d7360812653b6",
+    "timebase": "FINAL_VIDEO_ABSOLUTE",
+    "offset_policy": "explicit_filter_proof_only",
+    "offset_seconds": 0.0,
+    "segment_count": 43,
+    "first_timestamp": 0.6,
+    "last_timestamp": 1312.24483,
+    "final_episode_duration_seconds": 1320.0,
+    "recovered_timed_transcript_sha256": "e1f59aa4d0b8711280ed0e7b9d103bf1c4aed7f5c14ca31206473b8a27f77e91",
+    "audio_pcm_sha256": "cd182b319589c4e6246b9df98888e5172fe8236cd443900df417717671ea0faf"
+  },
+  "desktop": {
+    "auto_discovery": "PASS",
+    "source_discovery_status": "READY",
+    "ready_without_manual_file": true,
+    "manual_transcript_required_for_ep001": false,
+    "analyze_button_condition": "enabled when source_admission.status=PASS",
+    "raw_internal_error_exposed": false
+  },
+  "test_results": {
+    "legacy_timing_tests": "24 passed",
+    "shorts_tests": "12 additional integration passed; 428 combined resolver/Shorts/Desktop/PR01/constitutional tests passed",
+    "desktop_tests": "19 Shorts/Desktop integration tests passed in isolated run",
+    "pr01_tests": "PASS within combined matrix",
+    "constitutional_tests": "338 passed in constitutional/runtime matrix",
+    "unit_suite": "373 passed",
+    "regression_suite": "26 passed",
+    "smoke_suite": "1 passed",
+    "release_packaging_isolated": "9 passed after reversible build isolation",
+    "release_storage_and_unicode": "15 passed",
+    "full_repository_suite_direct": {
+      "passed": 789,
+      "skipped": 1,
+      "errors": 9,
+      "error_scope": "release packaging fixture encountered WinError 183 from an existing build/bdist dist-info collision when run in the full suite order"
+    },
+    "full_repository_suite_interpretation": "all task-relevant and non-packaging repository tests pass; release packaging passes when its pre-existing ignored build directory is isolated and restored",
+    "new_skip_or_xfail_added": false
+  },
+  "static_checks": {
+    "python_compileall": "PASS",
+    "git_diff_check": "PASS",
+    "secret_scan": "PASS_NO_SUSPICIOUS_SECRET_LITERALS_IN_TASK_DIFF; configured scanner not present",
+    "ruff": "NOT_CONFIGURED",
+    "typecheck": "NOT_CONFIGURED"
+  },
+  "safety_counters": {
+    "provider_calls": 0,
+    "paid_calls": 0,
+    "network_production_calls": 0,
+    "new_tts": 0,
+    "production_render": 0,
+    "montage": 0,
+    "publication": 0,
+    "retry": 0,
+    "resubmission": 0
+  },
+  "constitution_modified": false,
+  "core_enforcement_modified": false,
+  "critical_unresolved": [],
+  "high_unresolved": [],
+  "environment_notes": [
+    "Direct full-suite packaging errors are a pre-existing ignored build-directory collision, not a Resolver or Shorts failure.",
+    "The build directory was moved reversibly for the isolated packaging run and restored; historical evidence was not removed or staged.",
+    "Canonical brand asset SHA256 remains deferred until the later execution stage as requested; this smoke did not use those assets."
+  ],
+  "final_decision": "LEGACY_TIMING_RESOLVER_READY_AND_EP001_SHORTS_SOURCE_ADMISSION_PASS",
+  "next_user_action": "OPEN_SIRAJ -> SHORTS -> SELECT EPISODE 1 -> ANALYZE"
+}

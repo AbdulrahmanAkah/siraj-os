@@ -15,6 +15,12 @@ import json
 from pathlib import Path
 from typing import Any, Mapping
 
+from src.application.shorts_legacy_timing_resolver_v1 import (
+    LegacyTimingResolution,
+    LegacyTimingResolverError,
+    resolve_legacy_timing,
+)
+
 
 VIDEO_SUFFIXES = (".mp4", ".mov", ".mkv", ".m4v", ".webm", ".avi")
 SUBTITLE_SUFFIXES = (".srt", ".vtt")
@@ -109,6 +115,7 @@ class SourceDiscoveryResult:
     matched_transcript: SourceCandidate | None
     scanned_files: int
     status: str
+    legacy_timing_resolution: LegacyTimingResolution | None = None
 
     @property
     def metadata_ambiguous(self) -> bool:
@@ -116,7 +123,13 @@ class SourceDiscoveryResult:
 
     @property
     def ready_without_manual_file(self) -> bool:
-        return self.matched_metadata is not None and (self.matched_metadata.has_timing or self.matched_transcript is not None)
+        return bool(
+            self.legacy_timing_resolution is not None
+            or (
+                self.matched_metadata is not None
+                and (self.matched_metadata.has_timing or self.matched_transcript is not None)
+            )
+        )
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -127,6 +140,11 @@ class SourceDiscoveryResult:
             "matched_transcript": None if self.matched_transcript is None else self.matched_transcript.to_dict(),
             "scanned_files": self.scanned_files,
             "status": self.status,
+            "legacy_timing_resolution": (
+                None
+                if self.legacy_timing_resolution is None
+                else self.legacy_timing_resolution.to_dict()
+            ),
         }
 
 
@@ -196,7 +214,11 @@ def _candidate_for(path: Path, video_path: Path, *, video_sha: str | None) -> So
     return SourceCandidate(path, episode_id, display_name, timing, relation, score, (hash_match if metadata_hash else None), _format_modified(path))
 
 
-def discover_episode_sources(video_path: Path) -> SourceDiscoveryResult:
+def discover_episode_sources(
+    video_path: Path,
+    *,
+    repo_root: Path | None = None,
+) -> SourceDiscoveryResult:
     """Discover local metadata/timing related to one explicitly chosen video."""
 
     video = Path(video_path).resolve()
@@ -211,8 +233,39 @@ def discover_episode_sources(video_path: Path) -> SourceDiscoveryResult:
         matched_transcript = None
     else:
         matched_transcript = transcripts[0] if len(transcripts) == 1 else None
-    status = "STALE_SOURCE" if stale_metadata else "READY" if matched_metadata is not None and (matched_metadata.has_timing or matched_transcript is not None) else "AMBIGUOUS" if len(metadata) > 1 else "TRANSCRIPT_REQUIRED" if matched_metadata is not None else "METADATA_REQUIRED"
-    return SourceDiscoveryResult(video, tuple(metadata), tuple(transcripts), matched_metadata, matched_transcript, len(local_files), status)
+    legacy_resolution: LegacyTimingResolution | None = None
+    if (
+        repo_root is not None
+        and not stale_metadata
+        and not (matched_metadata is not None and (matched_metadata.has_timing or matched_transcript is not None))
+        and not (len(metadata) > 1)
+    ):
+        try:
+            legacy_resolution = resolve_legacy_timing(repo_root, video)
+        except LegacyTimingResolverError:
+            legacy_resolution = None
+    status = (
+        "STALE_SOURCE"
+        if stale_metadata
+        else "READY"
+        if legacy_resolution is not None
+        or (matched_metadata is not None and (matched_metadata.has_timing or matched_transcript is not None))
+        else "AMBIGUOUS"
+        if len(metadata) > 1
+        else "TRANSCRIPT_REQUIRED"
+        if matched_metadata is not None
+        else "METADATA_REQUIRED"
+    )
+    return SourceDiscoveryResult(
+        video,
+        tuple(metadata),
+        tuple(transcripts),
+        matched_metadata,
+        matched_transcript,
+        len(local_files),
+        status,
+        legacy_resolution,
+    )
 
 
 __all__ = [

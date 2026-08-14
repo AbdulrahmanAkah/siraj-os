@@ -1,0 +1,206 @@
+{
+  "schema_version": "EP001_LEGACY_TIMING_RECOVERY_EVIDENCE_V1",
+  "task": "SIRAJ_SHORTS_LEGACY_TIMING_RESOLVER_V1",
+  "mode": "READ_ONLY_SOURCE_SMOKE_AND_ANALYSIS_ONLY",
+  "status": "PASS",
+  "episode_id": "episode-001-adam",
+  "episode_display_name": "آدم: التكريم والاختبار",
+  "evidence_graph": {
+    "nodes": [
+      {
+        "id": "video.final.local-repair-v2",
+        "role": "selected_final_episode_video_for_shorts_source_admission",
+        "path": "projects/episode-001-adam/deliverables/integrated-local-repair-v1/episode-master-local-repair-v2.mp4",
+        "sha256": "d24c4c3cba1dbc0b5ef8ae1be90cc1f710a274875793e2f477b0af4a2e155846",
+        "duration_seconds": 1320.0
+      },
+      {
+        "id": "audio.final.narration-absolute-timeline-v1",
+        "role": "final_narration_audio_bound_to_selected_video",
+        "path": "projects/episode-001-adam/deliverables/integrated-local-repair-v1/audio/narration-absolute-timeline-v1.m4a",
+        "sha256": "9074f39d6afbd3f20a76e73c91918d2c5d477fbc13a325f73fc7bac5bf1535a4",
+        "duration_seconds": 1320.0,
+        "decoded_pcm_sha256": "cd182b319589c4e6246b9df98888e5172fe8236cd443900df417717671ea0faf"
+      },
+      {
+        "id": "timing.legacy.absolute-tts-repair",
+        "role": "selected_level_3_timing_authority",
+        "path": "projects/episode-001-adam/deliverables/integrated-local-repair-v1/reports/tts-absolute-timeline-repair-v1.json",
+        "sha256": "3e04aa5f9be1688fb5e697c93056fabc821025074ebb4bba57e0ae15a8f736a2",
+        "format": "top_level_json_array",
+        "segment_count": 43
+      },
+      {
+        "id": "timing.repair.filter-proof",
+        "role": "explicit_absolute_delay_and_duration_proof",
+        "path": "projects/episode-001-adam/deliverables/integrated-local-repair-v1/audio/narration-absolute-timeline-v1.filter.txt",
+        "sha256": "79844efe0761e027ff82c8fa63f04102ce5034079b41895c4791d93de254006e",
+        "timebase_proof": "FINAL_VIDEO_ABSOLUTE",
+        "offset_seconds": 0.0
+      },
+      {
+        "id": "script.performance.production-standard-v2",
+        "role": "canonical_performance_script_selected_by_declared_canonical_hash",
+        "path": "projects/episode-001-adam/script/episode-script-production-standard-v2.json",
+        "sha256": "5f3a78456cbb7bbf334f3c19d51e0731b480cc311633116b512fddd3b19ebe6b",
+        "canonical_sha256": "533af090a7a26cd4e64e4940152958b1d1bf7063915e5cf7054d7360812653b6"
+      },
+      {
+        "id": "approval.narration.production-standard-v2",
+        "role": "script_canonical_hash_declaration",
+        "path": "projects/episode-001-adam/evidence/production-standard-v2-narration-final-approval.json",
+        "sha256": "70be8c3edaadf87c923eaad56b77b0903af260689da934ade231777868265448"
+      },
+      {
+        "id": "manifest.integrated-local-repair-v2",
+        "role": "video_candidate_and_duration_manifest",
+        "path": "projects/episode-001-adam/deliverables/integrated-local-repair-v1/reports/integrated-local-repair-summary-v2.json",
+        "sha256": "bdc048ddacc5896a4c4d1f9fa65c4c05e834623767a7e09c2906ed3841955858",
+        "candidate_sha256": "d24c4c3cba1dbc0b5ef8ae1be90cc1f710a274875793e2f477b0af4a2e155846"
+      },
+      {
+        "id": "manifest.editorial-rescue-v4",
+        "role": "source_master_reconciliation_manifest",
+        "path": "projects/episode-001-adam/deliverables/editorial-rescue-v4/reports/editorial-rescue-summary-v4.json",
+        "sha256": "f663851fc88e9950ce7a49270b3dc4def08ff728d65f8496ac9bbbdd45bf8b29",
+        "source_master_sha256": "d24c4c3cba1dbc0b5ef8ae1be90cc1f710a274875793e2f477b0af4a2e155846"
+      },
+      {
+        "id": "canonical.cache.ep001",
+        "role": "task_owned_canonical_timed_transcript_cache",
+        "path": "artifacts/shorts-derivatives/_legacy-timing-cache/episode-001-adam/canonical-timed-transcript-c0cc8d79554dedc8d7c442052838fe0b6219b87bf2a7eb15ae7d0b75880d83b2.json",
+        "sha256": "979b7805b8a8b23a2f67c48fbfb5a7552de39d3f15f1ffd3dd028f279a477369",
+        "canonical_transcript_sha256": "e1f59aa4d0b8711280ed0e7b9d103bf1c4aed7f5c14ca31206473b8a27f77e91",
+        "cache_key": "c0cc8d79554dedc8d7c442052838fe0b6219b87bf2a7eb15ae7d0b75880d83b2"
+      },
+      {
+        "id": "brand-assets.canonical",
+        "role": "external_canonical_brand_assets_not_used_by_this_smoke",
+        "path": "C:/Users/abdul/OneDrive/Desktop/سراج/intro outro",
+        "expected_contents": ["one Intro clip", "one Outro image"],
+        "sha256": null,
+        "sha256_status": "DEFERRED_UNTIL_EXECUTION_AS_REQUESTED",
+        "used_in_this_smoke": false
+      }
+    ],
+    "edges": [
+      {
+        "from": "manifest.integrated-local-repair-v2",
+        "to": "video.final.local-repair-v2",
+        "relation": "candidate_path_and_candidate_sha256"
+      },
+      {
+        "from": "manifest.editorial-rescue-v4",
+        "to": "video.final.local-repair-v2",
+        "relation": "source_master_path_and_source_master_sha256"
+      },
+      {
+        "from": "timing.legacy.absolute-tts-repair",
+        "to": "timing.repair.filter-proof",
+        "relation": "absolute_timing_segments_are_explained_by_adelay_and_atrim"
+      },
+      {
+        "from": "timing.legacy.absolute-tts-repair",
+        "to": "audio.final.narration-absolute-timeline-v1",
+        "relation": "selected_timing_source_is_bound_to_final_audio_evidence"
+      },
+      {
+        "from": "audio.final.narration-absolute-timeline-v1",
+        "to": "video.final.local-repair-v2",
+        "relation": "decoded_pcm_sha256_equal",
+        "status": "PASS"
+      },
+      {
+        "from": "approval.narration.production-standard-v2",
+        "to": "script.performance.production-standard-v2",
+        "relation": "script_canonical_sha256_matches"
+      },
+      {
+        "from": "timing.legacy.absolute-tts-repair",
+        "to": "script.performance.production-standard-v2",
+        "relation": "episode_identity_and_performance_script_binding"
+      },
+      {
+        "from": "video.final.local-repair-v2",
+        "to": "canonical.cache.ep001",
+        "relation": "source_video_sha256_bound"
+      },
+      {
+        "from": "audio.final.narration-absolute-timeline-v1",
+        "to": "canonical.cache.ep001",
+        "relation": "source_audio_sha256_bound"
+      },
+      {
+        "from": "timing.legacy.absolute-tts-repair",
+        "to": "canonical.cache.ep001",
+        "relation": "timing_source_sha256_bound"
+      },
+      {
+        "from": "script.performance.production-standard-v2",
+        "to": "canonical.cache.ep001",
+        "relation": "script_source_sha256_bound"
+      }
+    ]
+  },
+  "resolver": {
+    "resolver_id": "SIRAJ_SHORTS_LEGACY_TIMING_RESOLVER_V1",
+    "resolver_version": "1.0.4",
+    "selected_authority_level": 3,
+    "selected_source_type": "LEGACY_ABSOLUTE_TTS_TIMELINE",
+    "resolution_status": "AUTO_DISCOVERED",
+    "cache_reuse_status": "CACHE_REUSED",
+    "authority_timebase": "FINAL_VIDEO_ABSOLUTE",
+    "offset_seconds": 0.0,
+    "asr_used": false,
+    "text_transformation": "NONE"
+  },
+  "canonical_transcript": {
+    "schema_version": "SIRAJ_CANONICAL_TIMED_TRANSCRIPT_V1",
+    "path": "artifacts/shorts-derivatives/_legacy-timing-cache/episode-001-adam/canonical-timed-transcript-c0cc8d79554dedc8d7c442052838fe0b6219b87bf2a7eb15ae7d0b75880d83b2.json",
+    "sha256": "e1f59aa4d0b8711280ed0e7b9d103bf1c4aed7f5c14ca31206473b8a27f77e91",
+    "segment_count": 43,
+    "first_timestamp": 0.6,
+    "last_timestamp": 1312.24483,
+    "duration_seconds": 1320.0,
+    "arabic_text_preserved_exactly": true,
+    "all_segments_valid": true,
+    "segments_ordered": true,
+    "negative_timestamps": false,
+    "unsupported_overlaps": false,
+    "beyond_duration_segments": false
+  },
+  "source_discovery": {
+    "status": "READY",
+    "ready_without_manual_file": true,
+    "manual_transcript_required": false,
+    "normal_metadata_candidates": 0,
+    "normal_transcript_candidates": 0,
+    "legacy_resolution_available": true,
+    "scanned_files": 18
+  },
+  "source_admission": {
+    "status": "PASS",
+    "transcript_bound": true,
+    "metadata_bound": true,
+    "audio_probe_available": true,
+    "audio_probe_has_audio": true,
+    "timing_discovery": "CACHE_REUSED",
+    "timing_segment_count": 43,
+    "analysis_startable": true,
+    "analysis_candidate_count": 229,
+    "analysis_sha256": "622c8f2a295b0782aff7134d62cf047667324b1a83f727be7fff0b223c47c559"
+  },
+  "safety_counters": {
+    "provider_calls": 0,
+    "paid_calls": 0,
+    "network_production_calls": 0,
+    "new_tts": 0,
+    "new_narration": 0,
+    "new_visual_generation": 0,
+    "production_render": 0,
+    "montage": 0,
+    "publication": 0,
+    "retry": 0,
+    "resubmission": 0
+  }
+}

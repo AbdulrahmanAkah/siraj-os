@@ -121,6 +121,8 @@ def _friendly_error(raw: str) -> tuple[str, str]:
     full = raw.casefold()
     if "BLOCK_AMBIGUOUS_SOURCE" in full or code == "BLOCK_AMBIGUOUS_SOURCE":
         return "وجدنا أكثر من حزمة بيانات محتملة لهذه الحلقة.", code
+    if code == "SHORT_TRANSCRIPT_REQUIRED" and "ambiguous" in full:
+        return "وجدنا أكثر من مصدر توقيت ولم نختَر بصمت. اختر المصدر الموثوق يدويًا.", code
     messages = {
         "SHORT_SOURCE_MISSING": "تعذر العثور على بيانات الحلقة المطلوبة.",
         "SHORT_SOURCE_HASH_CHANGED": "بيانات الحلقة الموجودة لا تطابق هذا الفيديو. لم يتم اختيارها تلقائيًا.",
@@ -919,7 +921,7 @@ if _QT_AVAILABLE:
             self._selected_video = path
             self._selected_episode_directory = path.parent
             self._selected_transcript = None
-            self._last_discovery = discover_episode_sources(path)
+            self._last_discovery = discover_episode_sources(path, repo_root=self.repo_root)
             discovery = self._last_discovery
             if discovery.status == "STALE_SOURCE":
                 self._show_error(ShortsBlockedError("SHORT_SOURCE_HASH_CHANGED", "STALE_METADATA_HASH"))
