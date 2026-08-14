@@ -1,0 +1,90 @@
+{
+  "schema_version": "siraj-shorts-conflict-matrix-v1",
+  "report_id": "SHORTS_CONFLICT_MATRIX_V1",
+  "generated_at": "2026-08-13T23:53:56.141Z",
+  "resolution_rule": "The unified constitution and fail-closed runtime gates outrank local convenience, legacy behavior, and UI defaults.",
+  "conflicts": [
+    {
+      "id": "CM-01",
+      "left": "Legacy fixture-only render guard",
+      "right": "SR-01 real local Desktop readiness",
+      "decision": "Keep fixture mode only for synthetic tests; real mode requires SIRAJ_DESKTOP, live Qt runtime, explicit click, exact hashes, and single-use authorization.",
+      "status": "RESOLVED",
+      "authority": "SR-01 plus constitutional fail-closed boundary"
+    },
+    {
+      "id": "CM-02",
+      "left": "OPEN-M03 deferred automated face detection",
+      "right": "Global face prohibition and human final review",
+      "decision": "Automation may not grant final face PASS. FACE remains HUMAN_REVIEW_REQUIRED and no critical constitutional override exists.",
+      "status": "RESOLVED",
+      "authority": "Unified constitution; OPEN-M03 remains deferred"
+    },
+    {
+      "id": "CM-03",
+      "left": "External Closed Captions allowed",
+      "right": "In-video graphics and burned captions prohibited",
+      "decision": "Write only .vtt/.srt sidecars under Captions; no burned captions, title cards, lower thirds, or arbitrary graphics.",
+      "status": "RESOLVED",
+      "authority": "Shorts profile and runtime QA"
+    },
+    {
+      "id": "CM-04",
+      "left": "Manual public title and thumbnail ownership",
+      "right": "Desktop export metadata",
+      "decision": "Manifest carries public_title=null and thumbnail=null with HUMAN ownership; internal working labels never publish automatically.",
+      "status": "RESOLVED",
+      "authority": "Human publication boundary"
+    },
+    {
+      "id": "CM-05",
+      "left": "Canonical Intro/Outro brand assets",
+      "right": "No montage in Shorts activation",
+      "decision": "Brand directory is discovered and hash-bound for the wider SIRAJ system, but Shorts activation does not montage, alter, or copy those assets.",
+      "status": "RESOLVED",
+      "authority": "SR-13A storage scope and no-montage boundary"
+    },
+    {
+      "id": "CM-06",
+      "left": "Native episode auto-discovery",
+      "right": "Ambiguous metadata candidates",
+      "decision": "Ambiguity blocks admission. No EP001/EP002 hardcode or silent candidate selection is allowed; the user may supply a safe Video-plus-Transcript source.",
+      "status": "RESOLVED_AS_FAIL_CLOSED",
+      "authority": "SR-02 source admission"
+    },
+    {
+      "id": "CM-07",
+      "left": "Existing historical certification says real episode execution NO_GO",
+      "right": "Activation certification says direct human-controlled local readiness",
+      "decision": "The historical certification remains an earlier phase record. The activation certification is scoped only to the newly implemented local Desktop workflow and does not authorize provider, paid, network, upload, or publication execution.",
+      "status": "RESOLVED_BY_SCOPE",
+      "authority": "Phase-specific certification precedence"
+    },
+    {
+      "id": "CM-08",
+      "left": "Legacy tests expected provider behavior",
+      "right": "Legacy provider/paid/recovery surfaces are locked",
+      "decision": "Tests were updated to assert the lock and zero network reachability; no skip, xfail, deletion, or safety weakening was used.",
+      "status": "RESOLVED",
+      "authority": "SR-18 legacy classification"
+    },
+    {
+      "id": "CM-09",
+      "left": "Same slot receives a changed approved render",
+      "right": "No silent overwrite",
+      "decision": "Same hash returns ALREADY_EXPORTED; changed hash receives -v2, -v3, and so on. Existing bytes are never overwritten.",
+      "status": "RESOLVED",
+      "authority": "SR-13A canonical storage"
+    },
+    {
+      "id": "CM-10",
+      "left": "Human cancellation during FFmpeg",
+      "right": "Single-use authorization",
+      "decision": "Cancellation terminates the local process, removes task-owned temp output and lock, and leaves the consumed authorization non-reusable; a new explicit Desktop approval is required.",
+      "status": "RESOLVED_FAIL_CLOSED",
+      "authority": "SR-10 and SR-01"
+    }
+  ],
+  "critical_or_high_unresolved": 0,
+  "final_status": "NO_CRITICAL_OR_HIGH_CONFLICTS"
+}

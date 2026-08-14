@@ -8,6 +8,7 @@ import uuid
 import pytest
 
 import src.application.desktop_media_execution_v1 as execution
+from src.application.siraj_v4_plus_legacy_execution_lock_v1 import LegacyExecutionLockedError
 from src.application.desktop_media_execution_v1 import (
     DesktopMediaExecutionError,
     execute_runware_item,
@@ -169,8 +170,8 @@ def test_rows_expose_paid_limit(tmp_path: Path) -> None:
 def test_explicit_authorization_limit_must_match(tmp_path: Path) -> None:
     _prepare(tmp_path)
     with pytest.raises(
-        DesktopMediaExecutionError,
-        match="EXPLICIT_AUTHORIZATION_MAXIMUM_MISMATCH",
+        LegacyExecutionLockedError,
+        match="LEGACY_EXECUTION_LOCKED_AFTER_EPISODE_001_FINAL",
     ):
         execute_runware_item(
             tmp_path,
@@ -217,33 +218,17 @@ def test_runware_uses_uuid4_and_locks_before_network(
     monkeypatch.setattr(execution, "_post_json", fake_post)
     monkeypatch.setattr(execution, "_download_url", fake_download)
 
-    result = execute_runware_item(
-        tmp_path,
-        "IMG-SH-001",
-        "key",
-        confirmed_maximum_usd=0.15,
-    )
-    assert uuid.UUID(observed["task_uuid"]).version == 4
-    assert observed["lock_existed_before_network"] is True
-    lock_payload = json.loads(
-        (
-            root
-            / "orchestration/media-execution/locks/"
-            "IMG-SH-001-attempt-01.json"
-        ).read_text(encoding="utf-8")
-    )
-    assert lock_payload["luna_prompt_certification_v2"][
-        "luna_response_id"
-    ] == "resp_test_luna_prompt_certification"
-    assert result.actual_cost_usd == 0.048
-    assert result.output_path.is_file()
-
-    queue = json.loads(
-        (
-            root / "orchestration/media-production-queue-v1.json"
-        ).read_text(encoding="utf-8")
-    )
-    assert queue["queues"]["runware_images"][0]["status"] == "COMPLETE"
+    with pytest.raises(
+        LegacyExecutionLockedError,
+        match="LEGACY_EXECUTION_LOCKED_AFTER_EPISODE_001_FINAL",
+    ):
+        execute_runware_item(
+            tmp_path,
+            "IMG-SH-001",
+            "key",
+            confirmed_maximum_usd=0.15,
+        )
+    assert observed == {}
 
 
 def test_existing_lock_blocks_resubmission(tmp_path: Path) -> None:
@@ -255,8 +240,8 @@ def test_existing_lock_blocks_resubmission(tmp_path: Path) -> None:
     )
     _write(lock, {"task_uuid": str(uuid.uuid4())})
     with pytest.raises(
-        DesktopMediaExecutionError,
-        match="ATTEMPT_ALREADY_LOCKED_USE_RECOVERY",
+        LegacyExecutionLockedError,
+        match="LEGACY_EXECUTION_LOCKED_AFTER_EPISODE_001_FINAL",
     ):
         execute_runware_item(
             tmp_path,
@@ -288,8 +273,8 @@ def test_uncertified_runware_item_is_blocked_before_network(
     monkeypatch.setattr(execution, "_post_json", forbidden_post)
 
     with pytest.raises(
-        DesktopMediaExecutionError,
-        match="LUNA_PROMPT_CERTIFICATION_REQUIRED_BEFORE_PROVIDER_EXECUTION",
+        LegacyExecutionLockedError,
+        match="LEGACY_EXECUTION_LOCKED_AFTER_EPISODE_001_FINAL",
     ):
         execute_runware_item(
             tmp_path,
@@ -372,23 +357,15 @@ def test_runware_recovery_uses_locked_luna_certification(
     monkeypatch.setattr(execution, "_download_url", fake_download)
     monkeypatch.setattr(execution, "_post_json", forbidden_post)
 
-    result = execute_runware_item(
-        tmp_path,
-        "IMG-SH-001",
-        "key",
-        confirmed_maximum_usd=0.15,
-        recovery_only=True,
-    )
-    assert poll_called is True
-    assert result.actual_cost_usd == 0.047
-
-    receipt = json.loads(
-        (
-            root
-            / "orchestration/media-execution/receipts/"
-            "IMG-SH-001-attempt-01-receipt.json"
-        ).read_text(encoding="utf-8")
-    )
-    assert receipt["luna_prompt_certification_v2"][
-        "luna_response_id"
-    ] == "resp_test_luna_prompt_certification"
+    with pytest.raises(
+        LegacyExecutionLockedError,
+        match="LEGACY_EXECUTION_LOCKED_AFTER_EPISODE_001_FINAL",
+    ):
+        execute_runware_item(
+            tmp_path,
+            "IMG-SH-001",
+            "key",
+            confirmed_maximum_usd=0.15,
+            recovery_only=True,
+        )
+    assert poll_called is False

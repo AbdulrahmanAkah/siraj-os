@@ -154,6 +154,7 @@ class SirajDesktopWindow(QMainWindow):
             ("storyboard", "storyboard", "الستوريبورد", False),
             ("visual", "visual", "الحزم البصرية", False),
             ("video", "video", "الفيديو", False),
+            ("shorts", "video", "Shorts", False),
             ("approvals", "approvals", "الاعتمادات", False),
             ("reports", "reports", "التقارير", False),
             ("settings", "settings", "الإعدادات", False),
@@ -1512,6 +1513,22 @@ class SirajDesktopWindow(QMainWindow):
         self._refresh()
 
     def _navigate(self, section: str) -> None:
+        if section == "shorts":
+            dock = getattr(self, "_shorts_derivative_dock", None)
+            if dock is None:
+                QMessageBox.warning(self, "Shorts", "تعذر تحميل قسم Shorts داخل الواجهة الحالية.")
+                return
+            dock.show()
+            dock.raise_()
+            for key, button in self.nav_buttons.items():
+                active = key == section
+                button.setProperty("active", active)
+                button.setIcon(icon("video" if key == "shorts" else key, "gold" if active else "muted"))
+                button.style().unpolish(button)
+                button.style().polish(button)
+                button.update()
+            self._log("NAVIGATE shorts")
+            return
         if not self.complete_workspace.show_section(section):
             QMessageBox.warning(
                 self,
@@ -1523,7 +1540,7 @@ class SirajDesktopWindow(QMainWindow):
             active = key == section
             button.setProperty("active", active)
             button.setIcon(
-                icon(key, "gold" if active else "muted")
+                icon("video" if key == "shorts" else key, "gold" if active else "muted")
             )
             button.style().unpolish(button)
             button.style().polish(button)
@@ -1540,6 +1557,8 @@ class SirajDesktopWindow(QMainWindow):
             "الستوريبورد": "storyboard",
             "الحزم البصرية": "visual",
             "الفيديو": "video",
+            "Shorts": "shorts",
+            "الشورتس": "shorts",
             "الاعتمادات": "approvals",
             "التقارير": "reports",
             "الإعدادات": "settings",

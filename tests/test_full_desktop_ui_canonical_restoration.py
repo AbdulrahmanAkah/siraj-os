@@ -52,7 +52,7 @@ def test_full_ui_opens_idle_with_authoritative_ep002_state(monkeypatch) -> None:
         assert window.complete_workspace is not None
         assert window.v6_command_center is not None
         assert window._canonical_state is not None
-        assert window._canonical_state.current_stage == "PROVIDER_EXECUTION"
+        assert window._canonical_state.current_stage == "READY_FOR_FINAL_HUMAN_REVIEW"
         assert window._canonical_state.alignment_gate == "PASS"
         assert window._canonical_state.duplicate_gate == "PASS"
         assert window.snapshot.active_episode is not None
@@ -62,8 +62,8 @@ def test_full_ui_opens_idle_with_authoritative_ep002_state(monkeypatch) -> None:
         assert "duration=623.584s" in window.v6_command_center.authority_value.text()
         assert "shots=55" in window.v6_command_center.authority_value.text()
         assert "DISCONTINUITIES=0" in window.v6_command_center.gates_value.text()
-        assert window.v6_command_center.request_metric.text().endswith("95")
-        assert "$25.900900" in window.v6_command_center.character_metric.text()
+        assert window.v6_command_center.request_metric.text().endswith("—")
+        assert window.v6_command_center.character_metric.text().endswith("—")
         assert window.v6_command_center.primary.text() == "Resume current stage (Desktop UI)"
         approval_page = window.complete_workspace._pages["approvals"]
         assert "episode-transition-ledger-v1.jsonl" in approval_page.current_directive.text()

@@ -1,0 +1,50 @@
+{
+  "schema_version": "siraj-shorts-dependency-approval-invalidation-model-v1",
+  "report_id": "SHORTS_DEPENDENCY_APPROVAL_INVALIDATION_MODEL_V1",
+  "generated_at": "2026-08-13T23:53:56.141Z",
+  "principle": "Every approval is a hash-bound capability grant for one declared scope; any upstream identity change invalidates downstream state and never authorizes retry or resubmission.",
+  "hash_authorities": [
+    {"name":"CONSTITUTION","sha256":"77c451711eb1888664518c9fe89e176033fdf7612f4636e18c0e0ca4d3af4f54","owner":"unified constitution bundle","invalidates":["analysis","portfolio","plans","authorization","qa","review","export"]},
+    {"name":"PROFILE","owner":"config/shorts/siraj_shorts_derivative_profile_v1.json","invalidates":["analysis","portfolio","plans","authorization","qa","review","export"]},
+    {"name":"SOURCE_VIDEO","owner":"admitted local source","invalidates":["analysis","portfolio","plans","authorization","render","qa","review","export"]},
+    {"name":"SOURCE_METADATA","owner":"all selected native/timing/script/storyboard/transcript files","invalidates":["analysis","portfolio","plans","authorization","render","qa","review","export"]},
+    {"name":"PORTFOLIO","owner":"human-reviewed selected candidate ids and order","invalidates":["plans","authorization","render","qa","review","export"]},
+    {"name":"RENDER_PLAN","owner":"deterministic plan plus crop/audio/caption bindings","invalidates":["authorization","render","qa","review","export"]},
+    {"name":"RENDER_BYTES","owner":"local FFmpeg output","invalidates":["qa","review","export"]},
+    {"name":"HUMAN_REVIEW_RECEIPT","owner":"human reviewer and tracked playback session","invalidates":["export"]},
+    {"name":"DESKTOP_LIBRARY_ROOT","owner":"canonical Desktop settings and filesystem","invalidates":["export_destination"]}
+  ],
+  "approval_states": [
+    {"state":"SOURCE_ADMITTED","approval":"source selection plus source_admission PASS","required_hashes":["CONSTITUTION","PROFILE","SOURCE_VIDEO","SOURCE_METADATA"],"allowed_next":["ANALYZED"],"human_required":true},
+    {"state":"ANALYZED","approval":"deterministic candidate analysis","required_hashes":["CONSTITUTION","PROFILE","SOURCE_VIDEO","SOURCE_METADATA"],"allowed_next":["PORTFOLIO_REVIEW"],"human_required":false},
+    {"state":"PORTFOLIO_REVIEW","approval":"human keep/reject/reorder confirmation","required_hashes":["CONSTITUTION","PROFILE","SOURCE_VIDEO","SOURCE_METADATA","PORTFOLIO"],"allowed_next":["RENDER_PLAN_READY"],"human_required":true},
+    {"state":"RENDER_PLAN_READY","approval":"human portfolio approved and plan generated","required_hashes":["CONSTITUTION","PROFILE","SOURCE_VIDEO","SOURCE_METADATA","PORTFOLIO","RENDER_PLAN"],"allowed_next":["REAL_RENDER_AUTHORIZED"],"human_required":true},
+    {"state":"REAL_RENDER_AUTHORIZED","approval":"explicit Desktop click with single-use nonce","required_hashes":["CONSTITUTION","PROFILE","SOURCE_VIDEO","SOURCE_METADATA","RENDER_PLAN"],"allowed_next":["RENDERED"],"human_required":true},
+    {"state":"RENDERED","approval":"local FFmpeg output with source before/after hash equality","required_hashes":["CONSTITUTION","PROFILE","SOURCE_VIDEO","SOURCE_METADATA","RENDER_PLAN","RENDER_BYTES"],"allowed_next":["QA_PASS"],"human_required":false},
+    {"state":"QA_PASS","approval":"technical QA plus constitutional automated checks, with human face review still required","required_hashes":["CONSTITUTION","PROFILE","SOURCE_VIDEO","SOURCE_METADATA","RENDER_PLAN","RENDER_BYTES"],"allowed_next":["HUMAN_REVIEW"],"human_required":false},
+    {"state":"HUMAN_REVIEW","approval":"uninterrupted playback, seek-safe coverage, detail inspection, constitutional and quality review","required_hashes":["CONSTITUTION","PROFILE","SOURCE_VIDEO","RENDER_PLAN","RENDER_BYTES"],"allowed_next":["EXPORT_READY","REJECTED"],"human_required":true},
+    {"state":"EXPORT_READY","approval":"approved receipt plus atomic canonical copy and hash equality","required_hashes":["CONSTITUTION","PROFILE","SOURCE_VIDEO","RENDER_PLAN","RENDER_BYTES","HUMAN_REVIEW_RECEIPT","DESKTOP_LIBRARY_ROOT"],"allowed_next":[],"human_required":true}
+  ],
+  "invalidation_events": [
+    {"event":"CONSTITUTION_BUNDLE_CHANGED","action":"invalidate all downstream state; require fresh analysis and approvals"},
+    {"event":"PROFILE_CHANGED","action":"invalidate analysis, plans, authorizations, QA, review, and export"},
+    {"event":"SOURCE_VIDEO_CHANGED","action":"invalidate all derivative state and delete no source bytes"},
+    {"event":"SOURCE_METADATA_CHANGED","action":"invalidate all derivative state and block render"},
+    {"event":"PORTFOLIO_SELECTION_OR_ORDER_CHANGED","action":"invalidate plans and render approvals for affected short ids"},
+    {"event":"RENDER_PLAN_CHANGED","action":"invalidate authorization, render, QA, review, and export"},
+    {"event":"RENDER_BYTES_CHANGED","action":"invalidate QA, human review, and export"},
+    {"event":"REVIEW_DECISION_OR_EVIDENCE_CHANGED","action":"invalidate export"},
+    {"event":"LIBRARY_ROOT_MOVED_OR_MISSING","action":"block export and require locate/restore; never auto-migrate"}
+  ],
+  "forbidden_transitions": [
+    "UNKNOWN -> RESUBMIT",
+    "CONSUMED_AUTHORIZATION -> RENDER",
+    "STALE_STATE -> RESUME",
+    "TERMINAL_OR_CLI -> REAL_RENDER",
+    "QA_PASS_WITHOUT_HUMAN_REVIEW -> EXPORT",
+    "RENDER_HASH_MISMATCH -> EXPORT",
+    "WORKING_TITLE -> PUBLIC_YOUTUBE_TITLE",
+    "THUMBNAIL_ABSENT -> PRODUCTION_BLOCK"
+  ],
+  "final_status": "HASH_BOUND_APPROVAL_AND_INVALIDATION_MODEL_DEFINED"
+}

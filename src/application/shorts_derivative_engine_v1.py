@@ -20,6 +20,8 @@ import re
 import shutil
 import subprocess
 import tempfile
+import time
+import uuid
 from typing import Any, Callable, Iterable, Mapping, Sequence
 
 from src.application.artifact_provenance_v1 import append_jsonl, write_new_json
@@ -31,6 +33,15 @@ from src.application.unified_constitution_enforcement_v1 import (
     artifact_sha256,
     canonical_json_sha256,
     load_unified_constitution,
+)
+from src.application.shorts_derivative_execution_v1 import (
+    REAL_MODE,
+    TEST_MODE,
+    RenderAuthorizationError,
+    ShortsLocalRenderAuthorization,
+    consume_authorization,
+    issue_authorization,
+    validate_authorization,
 )
 
 
@@ -47,6 +58,7 @@ TARGET_RATIO = 9.0 / 16.0
 SOURCE_POLICY = "EXISTING_EPISODE_MATERIAL_ONLY"
 MAX_SHORTS_PER_DAY = 1
 WEEKDAYS = ("MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY")
+_HASH_RE = re.compile(r"^[0-9a-f]{64}$")
 
 REQUIRED_PROFILE_FIELDS = frozenset(
     {
@@ -75,6 +87,7 @@ REQUIRED_PROFILE_FIELDS = frozenset(
         "no_silent_defaults",
         "hard_gates",
         "scoring_weights",
+        "candidate_search",
     }
 )
 
@@ -104,6 +117,7 @@ FAILURE_CODES = frozenset(
         "SHORT_PROFILE_INVALID",
         "SHORT_CONSTITUTION_SCOPE_BLOCKED",
         "SHORT_CONTEXT_DEPENDENT",
+        "SHORT_SPOILER_TOO_HIGH",
         "SHORT_HOOK_TOO_WEAK",
         "SHORT_UNSAFE_SOURCE",
         "SHORT_VERTICAL_REFRAME_UNSAFE",
@@ -119,6 +133,16 @@ FAILURE_CODES = frozenset(
         "SHORT_PROVIDER_CAPABILITY_FORBIDDEN",
         "SHORT_NETWORK_CAPABILITY_FORBIDDEN",
         "SHORT_PUBLICATION_FORBIDDEN",
+        "SHORT_RENDER_AUTHORIZATION_REQUIRED",
+        "SHORT_RENDER_AUTHORIZATION_INVALID",
+        "SHORT_RENDER_AUTHORIZATION_CONSUMED",
+        "SHORT_RENDER_ALREADY_RUNNING",
+        "SHORT_SOURCE_AUDIO_REQUIRED",
+        "SHORT_METADATA_HASH_CHANGED",
+        "SHORT_DISK_SPACE_INSUFFICIENT",
+        "SHORT_EXPORT_HASH_MISMATCH",
+        "SHORT_EXPORT_CONFLICT",
+        "SHORT_LIBRARY_UNAVAILABLE",
     }
 )
 
@@ -305,6 +329,15 @@ def load_shorts_profile(repo_root: Path) -> dict[str, Any]:
         raise ShortsProfileError("SHORT_PROFILE_INVALID", "DURATION_RANGE_INVALID")
     hard_gates = _as_mapping(profile.get("hard_gates"), field_name="hard_gates")
     weights = _as_mapping(profile.get("scoring_weights"), field_name="scoring_weights")
+    candidate_search = _as_mapping(profile.get("candidate_search"), field_name="candidate_search")
+    for key in ("maximum_contiguous_beats", "maximum_candidate_windows", "maximum_anchor_expansions"):
+        value = candidate_search.get(key)
+        if isinstance(value, bool) or not isinstance(value, int) or value <= 0:
+            raise ShortsProfileError("SHORT_PROFILE_INVALID", f"candidate_search:{key}:POSITIVE_INTEGER_REQUIRED")
+    for key in ("minimum_anchor_signal", "maximum_expansion_context_dependence"):
+        value = _finite_number(candidate_search.get(key), field_name=f"candidate_search:{key}")
+        if not 0 <= value <= 1:
+            raise ShortsProfileError("SHORT_PROFILE_INVALID", f"candidate_search:{key}:RANGE_INVALID")
     if not weights or any(_finite_number(value, field_name=f"weight:{key}") < 0 for key, value in weights.items()):
         raise ShortsProfileError("SHORT_PROFILE_INVALID", "SCORING_WEIGHTS_INVALID")
     if sum(float(value) for value in weights.values()) <= 0:
@@ -408,6 +441,10 @@ class EpisodePackage:
     constitution_version: str
     legacy_source: bool
     has_audio: bool | None
+    source_type: str = "VIDEO_PLUS_TRANSCRIPT"
+    episode_display_name: str = ""
+    source_metadata_paths: tuple[str, ...] = ()
+    source_admission: Mapping[str, Any] = field(default_factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -425,6 +462,10 @@ class EpisodePackage:
             "constitution_version": self.constitution_version,
             "legacy_source": self.legacy_source,
             "has_audio": self.has_audio,
+            "source_type": self.source_type,
+            "episode_display_name": self.episode_display_name,
+            "source_metadata_paths": list(self.source_metadata_paths),
+            "source_admission": dict(self.source_admission),
         }
 
 
@@ -600,6 +641,7 @@ class RenderPlan:
     provider_call_allowed: bool
     network_allowed: bool
     paid_execution_allowed: bool
+    constitutional_evidence: Mapping[str, Any] = field(default_factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -634,6 +676,7 @@ class RenderPlan:
             "provider_call_allowed": self.provider_call_allowed,
             "network_allowed": self.network_allowed,
             "paid_execution_allowed": self.paid_execution_allowed,
+            "constitutional_evidence": dict(self.constitutional_evidence),
         }
 
 
@@ -650,6 +693,8 @@ class RenderResult:
     provider_calls: int
     network_calls: int
     paid_calls: int
+    execution_origin: str = TEST_MODE
+    execution_mode: str = TEST_MODE
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
@@ -666,6 +711,7 @@ class QAResult:
     technical_qa_pass: bool
     constitutional_automated_checks_pass: bool
     qa_sha256: str
+    review_evidence_status: str = "HUMAN_REVIEW_REQUIRED"
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -678,6 +724,7 @@ class QAResult:
             "technical_qa_pass": self.technical_qa_pass,
             "constitutional_automated_checks_pass": self.constitutional_automated_checks_pass,
             "qa_sha256": self.qa_sha256,
+            "review_evidence_status": self.review_evidence_status,
         }
 
 
@@ -699,6 +746,7 @@ class HumanReviewReceipt:
     quality_review: bool
     notes: str
     receipt_sha256: str
+    review_evidence: Mapping[str, Any] = field(default_factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
@@ -724,6 +772,63 @@ class EngineAnalysis:
             "constitution_bundle_sha256": self.constitution_bundle_sha256,
             "analysis_sha256": self.analysis_sha256,
         }
+
+
+@dataclass(slots=True)
+class HumanReviewSession:
+    """Evidence-producing review tracker used by the Desktop review surface."""
+
+    short_id: str
+    duration_seconds: float
+    decoded_frame_count: int
+    started: bool = False
+    uninterrupted_pass_complete: bool = False
+    playback_coverage_seconds: float = 0.0
+    last_position_seconds: float = 0.0
+    seek_count: int = 0
+    detailed_inspection_count: int = 0
+
+    def start_playback(self) -> None:
+        self.started = True
+        self.uninterrupted_pass_complete = False
+        self.playback_coverage_seconds = 0.0
+        self.last_position_seconds = 0.0
+        self.seek_count = 0
+
+    def observe_position(self, position_seconds: float) -> None:
+        if not self.started or self.uninterrupted_pass_complete:
+            return
+        position = max(0.0, min(float(self.duration_seconds), float(position_seconds)))
+        if position + 0.25 < self.last_position_seconds:
+            self.seek_count += 1
+            self.uninterrupted_pass_complete = False
+            self.playback_coverage_seconds = 0.0
+        else:
+            self.playback_coverage_seconds = max(self.playback_coverage_seconds, position)
+        self.last_position_seconds = position
+        if self.playback_coverage_seconds >= max(0.0, self.duration_seconds - 0.25):
+            self.uninterrupted_pass_complete = True
+
+    def record_seek(self, position_seconds: float) -> None:
+        self.seek_count += 1
+        self.uninterrupted_pass_complete = False
+        self.playback_coverage_seconds = 0.0
+        self.last_position_seconds = max(0.0, min(float(self.duration_seconds), float(position_seconds)))
+
+    def record_detail_inspection(self) -> None:
+        self.detailed_inspection_count += 1
+
+    def to_dict(self) -> dict[str, Any]:
+        return asdict(self)
+
+    @property
+    def valid(self) -> bool:
+        return bool(
+            self.started
+            and self.uninterrupted_pass_complete
+            and self.decoded_frame_count > 0
+            and self.playback_coverage_seconds >= max(0.0, self.duration_seconds - 0.25)
+        )
 
 
 def _parse_time(value: Any) -> float:
@@ -1023,6 +1128,7 @@ def _probe_with_ffmpeg(path: Path, ffmpeg_path: str | None = None) -> dict[str, 
     dimensions = None
     if dimensions_match:
         dimensions = {"width": int(dimensions_match.group(1)), "height": int(dimensions_match.group(2))}
+    frame_match = re.search(r"frame=\s*(\d+)", output)
     return {
         "available": True,
         "returncode": completed.returncode,
@@ -1030,6 +1136,7 @@ def _probe_with_ffmpeg(path: Path, ffmpeg_path: str | None = None) -> dict[str, 
         "has_video": has_video,
         "has_audio": has_audio,
         "dimensions": dimensions,
+        "decoded_frame_count": (None if frame_match is None else int(frame_match.group(1))),
         "raw_sha256": _sha256_bytes(output.encode("utf-8", errors="replace")),
     }
 
@@ -1061,7 +1168,23 @@ def _resolve_episode_video(
         if isinstance(value, str) and value:
             candidate = Path(value)
     if candidate is None:
-        raise SourceIntegrityError("SHORT_SOURCE_MISSING", "VIDEO_PATH_REQUIRED")
+        if episode_directory is not None:
+            media = [
+                path
+                for path in episode_directory.rglob("*")
+                if path.is_file()
+                and path.suffix.casefold() in {".mp4", ".mov", ".mkv", ".webm"}
+                and "preserved" not in path.name.casefold()
+                and "backup" not in path.name.casefold()
+            ]
+            preferred = [path for path in media if "episode-master" in path.name.casefold() or "final" in path.name.casefold()]
+            candidates = preferred if preferred else media
+            if len(candidates) == 1:
+                candidate = candidates[0]
+            elif len(candidates) > 1:
+                raise SourceIntegrityError("SHORT_SOURCE_MISSING", "BLOCK_AMBIGUOUS_SOURCE:" + str(len(candidates)))
+        if candidate is None:
+            raise SourceIntegrityError("SHORT_SOURCE_MISSING", "VIDEO_PATH_REQUIRED")
     if not candidate.is_absolute() and episode_directory is not None:
         candidate = episode_directory / candidate
     candidate = candidate.resolve()
@@ -1095,6 +1218,99 @@ def _resolve_metadata_path(
     return path
 
 
+def _native_json_candidates(directory: Path) -> list[tuple[Path, dict[str, Any]]]:
+    candidates: list[tuple[Path, dict[str, Any]]] = []
+    for path in sorted(directory.rglob("*.json"), key=lambda item: str(item).casefold()):
+        if any(token in path.name.casefold() for token in ("preserved", "backup", "provenance-history")):
+            continue
+        value = _read_json(path, code="SHORT_SOURCE_MISSING")
+        if value.get("episode_id"):
+            candidates.append((path, value))
+    return candidates
+
+
+def _select_native_component(
+    candidates: Sequence[tuple[Path, dict[str, Any]]],
+    *,
+    predicate: Callable[[Mapping[str, Any]], bool],
+    component: str,
+) -> tuple[Path, dict[str, Any]] | None:
+    matching = [(path, value) for path, value in candidates if predicate(value)]
+    if not matching:
+        return None
+    def rank(item: tuple[Path, dict[str, Any]]) -> tuple[int, int, str]:
+        path, value = item
+        text = path.name.casefold()
+        preferred = 0
+        for token in ("final", "canonical", "audio-timestamps-and-beats", "episode-context"):
+            if token in text:
+                preferred += 3
+        versions = [int(number) for number in re.findall(r"v(\d+)", text)]
+        status = str(value.get("status", "")).upper()
+        if status in {"FINAL", "APPROVED", "READY", "PASS"}:
+            preferred += 2
+        return preferred, max(versions or [0]), str(path).casefold()
+    ranked = sorted(matching, key=rank, reverse=True)
+    if len(ranked) > 1 and rank(ranked[0])[:2] == rank(ranked[1])[:2]:
+        raise SourceIntegrityError("SHORT_SOURCE_MISSING", f"BLOCK_AMBIGUOUS_SOURCE:{component}")
+    return ranked[0]
+
+
+def _load_native_metadata_bundle(directory: Path) -> tuple[dict[str, Any], tuple[Path, ...]]:
+    candidates = _native_json_candidates(directory)
+    if not candidates:
+        raise SourceIntegrityError("SHORT_SOURCE_MISSING", "NATIVE_METADATA_REQUIRED")
+    base = _select_native_component(
+        candidates,
+        predicate=lambda value: bool(value.get("episode_root_rel") or value.get("title_ar") or value.get("working_title_ar")),
+        component="EPISODE_METADATA",
+    )
+    timing = _select_native_component(
+        candidates,
+        predicate=lambda value: isinstance(value.get("beats"), list) and bool(value.get("beats")),
+        component="TIMED_BEATS",
+    )
+    script = _select_native_component(
+        candidates,
+        predicate=lambda value: isinstance(value.get("narration_blocks"), list) or "music" in value,
+        component="NARRATION_SCRIPT",
+    )
+    storyboard = _select_native_component(
+        candidates,
+        predicate=lambda value: isinstance(value.get("shots"), list) and bool(value.get("shots")),
+        component="SHOT_METADATA",
+    )
+    selected = [item for item in (base, timing, script, storyboard) if item is not None]
+    if not selected:
+        raise SourceIntegrityError("SHORT_SOURCE_MISSING", "NATIVE_METADATA_REQUIRED")
+    merged: dict[str, Any] = {}
+    paths: list[Path] = []
+    for path, value in selected:
+        paths.append(path)
+        for key, item in value.items():
+            if key in {"beats", "shots", "claims", "segments", "narration_blocks"} and isinstance(item, list):
+                if key not in merged or not merged[key]:
+                    merged[key] = item
+            elif key not in merged or merged[key] in (None, "", [], {}):
+                merged[key] = item
+    if "segments" not in merged and isinstance(merged.get("beats"), list):
+        merged["segments"] = [
+            {
+                "segment_id": item.get("segment_id", item.get("id", f"SEG-{index:04d}")),
+                "start": item.get("start_seconds", item.get("start_time", item.get("start"))),
+                "end": item.get("end_seconds", item.get("end_time", item.get("end"))),
+                "text": item.get("text", item.get("narration", "")),
+            }
+            for index, item in enumerate(merged["beats"], start=1)
+            if isinstance(item, Mapping)
+        ]
+    if "duration_seconds" not in merged and merged.get("total_duration_seconds") is not None:
+        merged["duration_seconds"] = merged["total_duration_seconds"]
+    if not merged.get("episode_id"):
+        raise SourceIntegrityError("SHORT_SOURCE_MISSING", "NATIVE_EPISODE_ID_REQUIRED")
+    return merged, tuple(paths)
+
+
 def ingest_episode(
     repo_root: Path,
     *,
@@ -1111,12 +1327,18 @@ def ingest_episode(
         raise SourceIntegrityError("SHORT_SOURCE_MISSING", "INGESTION_MODE_INVALID")
     directory = episode_directory.resolve() if episode_directory is not None else None
     metadata_file = _resolve_metadata_path(episode_directory=directory, metadata_path=metadata_path)
-    metadata: dict[str, Any] = _read_json(metadata_file, code="SHORT_SOURCE_MISSING") if metadata_file else {}
+    native_paths: tuple[Path, ...] = ()
+    if normalized_mode == "SIRAJ_NATIVE_EPISODE" and metadata_file is None and directory is not None:
+        metadata, native_paths = _load_native_metadata_bundle(directory)
+    else:
+        metadata = _read_json(metadata_file, code="SHORT_SOURCE_MISSING") if metadata_file else {}
+        if metadata_file is not None:
+            native_paths = (metadata_file,)
     source_video = _resolve_episode_video(metadata, episode_directory=directory, video_path=video_path)
     source_sha = _sha256_file(source_video)
     source_metadata_hashes: dict[str, str] = {}
-    if metadata_file is not None:
-        source_metadata_hashes[_relative_or_absolute(metadata_file, Path(repo_root))] = _sha256_file(metadata_file)
+    for source_metadata_path in native_paths:
+        source_metadata_hashes[_relative_or_absolute(source_metadata_path, Path(repo_root))] = _sha256_file(source_metadata_path)
     transcript_file = transcript_path.resolve() if transcript_path is not None else None
     transcript_segments: list[TranscriptSegment]
     if transcript_file is not None:
@@ -1139,9 +1361,22 @@ def ingest_episode(
         raise SourceIntegrityError("SHORT_SOURCE_MISSING", "CLAIMS_ARRAY_REQUIRED")
     claims = tuple(dict(item) for item in claims_value if isinstance(item, Mapping))
     if normalized_mode == "SIRAJ_NATIVE_EPISODE" and not metadata_file:
-        raise SourceIntegrityError("SHORT_SOURCE_MISSING", "NATIVE_METADATA_REQUIRED")
+        if not native_paths:
+            raise SourceIntegrityError("SHORT_SOURCE_MISSING", "NATIVE_METADATA_REQUIRED")
     episode_id = _clean_text(metadata.get("episode_id", source_video.stem))
-    constitution_version = _clean_text(metadata.get("constitution_version", "0.0.0"))
+    constitution_version = _clean_text(metadata.get("constitution_version", metadata.get("constitution", "0.0.0")))
+    source_admission = {
+        "status": "PASS",
+        "source_type": normalized_mode,
+        "episode_id": episode_id,
+        "episode_display_name": _clean_text(metadata.get("episode_display_name", metadata.get("title_ar", metadata.get("working_title_ar", episode_id)))),
+        "source_episode_sha256": source_sha,
+        "source_metadata_sha256s": dict(source_metadata_hashes),
+        "transcript_bound": bool(transcript_segments),
+        "metadata_bound": bool(source_metadata_hashes),
+        "constitution_metadata_present": bool(metadata.get("constitution_version") or metadata.get("constitution")),
+        "audio_probe": {"has_audio": probe.get("has_audio"), "available": probe.get("available")},
+    }
     return EpisodePackage(
         schema_version=SCHEMA_VERSION,
         episode_id=episode_id,
@@ -1157,6 +1392,10 @@ def ingest_episode(
         constitution_version=constitution_version,
         legacy_source=constitution_version != CONSTITUTION_VERSION,
         has_audio=(None if probe.get("has_audio") is None else bool(probe.get("has_audio"))),
+        source_type=normalized_mode,
+        episode_display_name=_clean_text(metadata.get("episode_display_name", metadata.get("title_ar", metadata.get("working_title_ar", episode_id)))),
+        source_metadata_paths=tuple(source_metadata_hashes),
+        source_admission=source_admission,
     )
 
 
@@ -1535,11 +1774,11 @@ def _constitutional_policy(
 ) -> Mapping[str, Any]:
     domains = ["FACE", "MODESTY", "UNSEEN", "PERIOD", "SOURCE", "AUDIO", "VISUAL", "MONTAGE", "PUBLICATION"]
     bindings = {
-        "wardrobe_contract_id": episode.metadata.get("wardrobe_contract_id", "SOURCE_EPISODE_WARDROBE_CONTRACT"),
-        "period_dossier_id": episode.metadata.get("period_dossier_id", "SOURCE_EPISODE_PERIOD_DOSSIER"),
-        "canonical_reference_sha256": episode.metadata.get("canonical_reference_sha256", "SOURCE_EPISODE_CANONICAL_REFERENCE"),
-        "source_certainty": episode.metadata.get("source_certainty", "UNKNOWN"),
-        "narration_master_sha256": episode.metadata.get("narration_master_sha256", "SOURCE_EPISODE_NARRATION"),
+        "wardrobe_contract_id": episode.metadata.get("wardrobe_contract_id"),
+        "period_dossier_id": episode.metadata.get("period_dossier_id"),
+        "canonical_reference_sha256": episode.metadata.get("canonical_reference_sha256"),
+        "source_certainty": episode.metadata.get("source_certainty"),
+        "narration_master_sha256": episode.metadata.get("narration_master_sha256"),
     }
     contract = {
         "artifact_id": candidate_id,
@@ -1556,6 +1795,7 @@ def _constitutional_policy(
         errors.append("SOURCE_FACT_INTEGRITY_UNCERTAIN")
     return {
         **dict(policy),
+        "evidence_bindings": dict(bindings),
         "errors": sorted(set(errors)),
         "status": "PASS" if not errors else ("BLOCKED" if any("UNKNOWN" in item or "REQUIRES" in item for item in errors) else "FAIL"),
         "legacy_recheck_required": episode.legacy_source,
@@ -1612,7 +1852,7 @@ def _score_candidate(
     hook = max(first.question_signal, first.revelation_signal, first.surprise_signal, first.story_turn_signal)
     standalone = max(0.0, min(1.0, (1.0 - context_score) * 0.75 + average("standalone_potential") * 0.25))
     novelty = min(1.0, len(set(re.findall(r"[\w\u0600-\u06ff]{3,}", text.casefold()))) / max(12.0, len(text.split()) * 0.7))
-    visual_strength = average("visual_strength_indicators") if False else (sum(min(1.0, 0.4 + 0.15 * len(beat.visual_strength_indicators)) for beat in beats) / len(beats))
+    visual_strength = sum(min(1.0, 0.4 + 0.15 * len(beat.visual_strength_indicators)) for beat in beats) / len(beats)
     vertical_quality = float(sum(float(item.get("vertical_quality_score", 0.0)) for item in reframe.get("shots", ()) if item.get("status") == "PASS") / max(1, len(shots)))
     narration_strength = 1.0 if audio.get("status") == "PASS" else 0.0
     spoiler = min(1.0, average("payoff_signal") * 0.8 + average("revelation_signal") * 0.2)
@@ -1647,6 +1887,8 @@ def _score_candidate(
     gates["STANDALONE_CLARITY"] = {"status": "PASS" if standalone >= float(hard["minimum_standalone_clarity"]) else "FAIL", "code": None if standalone >= float(hard["minimum_standalone_clarity"]) else "SHORT_CONTEXT_DEPENDENT", "value": standalone}
     gates["HOOK"] = {"status": "PASS" if hook >= float(hard["minimum_hook_strength"]) else "FAIL", "code": None if hook >= float(hard["minimum_hook_strength"]) else "SHORT_HOOK_TOO_WEAK", "value": hook}
     gates["CONTEXT_DEPENDENCE"] = {"status": "PASS" if context_score <= float(hard["maximum_context_dependence"]) else "FAIL", "code": None if context_score <= float(hard["maximum_context_dependence"]) else "SHORT_CONTEXT_DEPENDENT", "value": context_score}
+    spoiler_limit = float(hard["maximum_spoiler_cost"])
+    gates["SPOILER_CONTROL"] = {"status": "PASS" if spoiler <= spoiler_limit else "FAIL", "code": None if spoiler <= spoiler_limit else "SHORT_SPOILER_TOO_HIGH", "value": spoiler, "maximum": spoiler_limit}
     gates["SOURCE_FACT_INTEGRITY"] = {"status": "PASS" if source_integrity else "FAIL", "code": None if source_integrity else "SOURCE_FACT_INTEGRITY_UNCERTAIN"}
     gates["VISUAL_NARRATION_ALIGNMENT"] = {"status": alignment.get("status", "FAIL"), "code": None if alignment.get("status") == "PASS" else "VISUAL_NARRATION_CONTRADICTION", "findings": alignment.get("findings", [])}
     gates["VERTICAL_REFRAME"] = {"status": reframe.get("status", "FAIL"), "code": None if reframe.get("status") == "PASS" else str(reframe.get("code") or "SHORT_VERTICAL_REFRAME_UNSAFE"), "findings": reframe.get("failures", [])}
@@ -1688,13 +1930,15 @@ def _score_candidate(
         "reason": "GENERIC_TRANSITION_WITHOUT_STANDALONE_MEANING" if generic_transition else "NOT_GENERIC_TRANSITION",
     }
     failures = tuple(sorted({str(item["code"]) for item in gates.values() if item.get("status") != "PASS" and item.get("code")}))
-    status = "PASS" if not failures and total >= float(hard["minimum_total_score"]) and duration > 0 else ("BLOCKED" if any(item.get("status") == "BLOCKED" for item in gates.values()) else "REJECTED")
-    if status == "PASS" and duration < float(engine.profile["target_duration_min_seconds"]):
+    duration_max = float(engine.profile["target_duration_max_seconds"])
+    if duration <= 0 or duration > duration_max:
+        gates["DURATION"] = {"status": "FAIL", "code": "SHORT_RENDER_PLAN_INVALID", "value": duration, "maximum": duration_max}
+    elif duration < float(engine.profile["target_duration_min_seconds"]):
         gates["DURATION"] = {"status": "PASS", "code": None, "reason": "EXCELLENT_MOMENT_ALLOWED_SHORTER_THAN_TARGET"}
-    elif status == "PASS" and duration > float(engine.profile["target_duration_max_seconds"]):
-        gates["DURATION"] = {"status": "PASS", "code": None, "reason": "EXTRACTIVE_MOMENT_ALLOWED_LONGER_WITHIN_EDITORIAL_PLAN"}
     else:
         gates["DURATION"] = {"status": "PASS", "code": None, "reason": "WITHIN_CREATOR_STRATEGY_RANGE"}
+    failures = tuple(sorted({str(item["code"]) for item in gates.values() if item.get("status") != "PASS" and item.get("code")}))
+    status = "PASS" if not failures and total >= float(hard["minimum_total_score"]) else ("BLOCKED" if any(item.get("status") == "BLOCKED" for item in gates.values()) else "REJECTED")
     binding_ids = tuple(sorted(str(item.get("rule_id")) for item in policy.get("obligations", ()) if item.get("rule_id")))
     return Candidate(
         candidate_id=candidate_id,
@@ -1732,18 +1976,40 @@ def _score_candidate(
 
 def discover_candidates(engine: "ShortsDerivativeEngine", episode: EpisodePackage, intelligence_map: IntelligenceMap) -> tuple[Candidate, ...]:
     beats = list(intelligence_map.beats)
+    search = engine.profile["candidate_search"]
+    max_beats = int(search["maximum_contiguous_beats"])
+    max_windows = int(search["maximum_candidate_windows"])
+    max_expansions = int(search["maximum_anchor_expansions"])
     windows: list[tuple[Beat, ...]] = []
     windows.extend((beat,) for beat in beats)
     windows.extend(tuple(beats[index : index + 2]) for index in range(max(0, len(beats) - 1)))
-    for index in range(len(beats) - 2):
-        if beats[index].question_signal and (beats[index + 1].payoff_signal or beats[index + 2].payoff_signal):
-            windows.append(tuple(beats[index : index + 3]))
+    anchors = [
+        index
+        for index, beat in enumerate(beats)
+        if max(beat.question_signal, beat.revelation_signal, beat.surprise_signal, beat.story_turn_signal, beat.emotional_signal) >= float(search["minimum_anchor_signal"])
+    ][:max_expansions]
+    for anchor in anchors:
+        for width in range(3, max_beats + 1):
+            for start in range(max(0, anchor - width + 1), min(anchor + 1, len(beats))):
+                end = start + width
+                if end > len(beats) or not (start <= anchor < end):
+                    continue
+                window = tuple(beats[start:end])
+                rough_context, missing = _context_analysis(" ".join(item.text for item in window), tuple(item for beat in window for item in beat.context_dependencies))
+                if rough_context <= float(search["maximum_expansion_context_dependence"]):
+                    # Expansion stops once the window is independently legible;
+                    # longer windows are retained only when they add a payoff.
+                    windows.append(window)
+                    if not missing and any(item.payoff_signal >= 0.6 for item in window):
+                        break
     unique: dict[tuple[str, ...], tuple[Beat, ...]] = {}
     for window in windows:
         if not window:
             continue
         ids = tuple(beat.beat_id for beat in window)
         unique[ids] = window
+        if len(unique) >= max_windows:
+            break
     candidates: list[Candidate] = []
     for index, window in enumerate(unique.values(), start=1):
         candidate = _score_candidate(engine, episode, window, candidate_id=f"{episode.episode_id}-SHORT-CANDIDATE-{index:03d}", candidate_type=_candidate_type(window))
@@ -1853,13 +2119,38 @@ def select_portfolio(
     )
 
 
-def _assert_current_source(episode: EpisodePackage) -> None:
+def _assert_current_source(episode: EpisodePackage, repo_root: Path | None = None) -> None:
     path = Path(episode.source_video_path)
     if not path.is_file():
         raise SourceIntegrityError("SHORT_SOURCE_MISSING", str(path))
     current = _sha256_file(path)
     if current != episode.source_episode_sha256:
         raise SourceIntegrityError("SHORT_SOURCE_HASH_CHANGED", f"expected={episode.source_episode_sha256}:actual={current}")
+    root = Path(repo_root).resolve() if repo_root is not None else None
+    for raw_path, expected_hash in episode.source_metadata_hashes.items():
+        candidate = Path(raw_path)
+        if not candidate.is_absolute() and root is not None:
+            candidate = root / candidate
+        if not candidate.is_file():
+            raise SourceIntegrityError("SHORT_METADATA_HASH_CHANGED", str(candidate))
+        actual_hash = _sha256_file(candidate)
+        if actual_hash != expected_hash:
+            raise SourceIntegrityError("SHORT_METADATA_HASH_CHANGED", f"expected={expected_hash}:actual={actual_hash}")
+
+
+def _assert_render_plan_source_metadata(plan: RenderPlan, repo_root: Path | None = None) -> None:
+    """Revalidate every metadata byte bound into a persisted render plan."""
+
+    root = Path(repo_root).resolve() if repo_root is not None else None
+    for raw_path, expected_hash in plan.source_metadata_hashes.items():
+        candidate = Path(raw_path)
+        if not candidate.is_absolute() and root is not None:
+            candidate = root / candidate
+        if not candidate.is_file():
+            raise SourceIntegrityError("SHORT_METADATA_HASH_CHANGED", str(candidate))
+        actual_hash = _sha256_file(candidate)
+        if actual_hash != expected_hash:
+            raise SourceIntegrityError("SHORT_METADATA_HASH_CHANGED", f"expected={expected_hash}:actual={actual_hash}")
 
 
 def build_render_plan(
@@ -1905,6 +2196,15 @@ def build_render_plan(
         visual_item["source_time_range"] = {"start": start, "end": end}
         visual_items.append(visual_item)
     visual = tuple(visual_items)
+    policy_bindings = candidate.policy_result.get("evidence_bindings", {})
+    constitutional_evidence = {
+        "MODESTY": {"status": "PASS" if policy_bindings.get("wardrobe_contract_id") else "HUMAN_REVIEW_REQUIRED", "evidence": policy_bindings.get("wardrobe_contract_id")},
+        "PERIOD": {"status": "PASS" if policy_bindings.get("period_dossier_id") else "HUMAN_REVIEW_REQUIRED", "evidence": policy_bindings.get("period_dossier_id")},
+        "SOURCE": {"status": "PASS" if policy_bindings.get("source_certainty") else "HUMAN_REVIEW_REQUIRED", "evidence": policy_bindings.get("source_certainty")},
+        "AUDIO": {"status": "PASS" if policy_bindings.get("narration_master_sha256") else "HUMAN_REVIEW_REQUIRED", "evidence": policy_bindings.get("narration_master_sha256")},
+        "UNSEEN": {"status": "HUMAN_REVIEW_REQUIRED", "reason": "FINAL_PIXEL_REVIEW_REQUIRED"},
+        "FACE": {"status": "HUMAN_REVIEW_REQUIRED", "reason": "OPEN-M03_UNCALIBRATED_AUTOMATION_CANNOT_PASS"},
+    }
     order = portfolio.recommended_order.index(short_id) + 1 if short_id in portfolio.recommended_order else None
     payload = {
         "short_id": short_id,
@@ -1917,6 +2217,7 @@ def build_render_plan(
         "cta": candidate.cta_plan,
         "profile_sha256": analysis.profile_sha256,
         "constitution_bundle_sha256": analysis.constitution_bundle_sha256,
+        "constitutional_evidence": constitutional_evidence,
     }
     return RenderPlan(
         schema_version=SCHEMA_VERSION,
@@ -1959,6 +2260,7 @@ def build_render_plan(
         provider_call_allowed=False,
         network_allowed=False,
         paid_execution_allowed=False,
+        constitutional_evidence=constitutional_evidence,
     )
 
 
@@ -1981,20 +2283,46 @@ def _ffmpeg_filter_for_crop_window(crop_window: Mapping[str, Any]) -> str:
     )
 
 
+def _run_ffmpeg_command(command: Sequence[str], cancel_event: Any | None = None) -> tuple[int, str, str]:
+    """Run a local FFmpeg argv and terminate it safely on an explicit cancel."""
+
+    process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    if cancel_event is None:
+        stdout, stderr = process.communicate()
+        return process.returncode, stdout or "", stderr or ""
+    while process.poll() is None:
+        if bool(cancel_event.is_set()):
+            process.terminate()
+            try:
+                process.wait(timeout=5)
+            except subprocess.TimeoutExpired:
+                process.kill()
+                process.wait(timeout=5)
+            process.communicate()
+            raise LocalRenderError("SHORT_RENDER_CANCELLED", "HUMAN_CANCEL_REQUESTED")
+        waiter = getattr(cancel_event, "wait", None)
+        if callable(waiter):
+            waiter(0.05)
+        else:
+            time.sleep(0.05)
+    stdout, stderr = process.communicate()
+    return process.returncode, stdout or "", stderr or ""
+
+
 def render_local_derivative(
     plan: RenderPlan,
     source_video_path: Path,
     output_path: Path,
     *,
     explicit_human_click: bool,
-    fixture_only: bool = True,
+    authorization: ShortsLocalRenderAuthorization | Mapping[str, Any] | None = None,
+    fixture_only: bool | None = None,
     ffmpeg_path: str | None = None,
     source_aspect: float = 16.0 / 9.0,
+    cancel_event: Any | None = None,
 ) -> RenderResult:
-    """Render an exact approved plan locally; real-episode mode is blocked in V1."""
+    """Render an exact plan through a single-use Desktop or test envelope."""
 
-    if not fixture_only:
-        raise LocalRenderError("SHORT_PUBLICATION_FORBIDDEN", "REAL_EPISODE_RENDER_DISABLED_IN_CERTIFICATION")
     if not explicit_human_click or not plan.local_render_approved:
         raise LocalRenderError("SHORT_HUMAN_REVIEW_REQUIRED", "EXPLICIT_LOCAL_RENDER_APPROVAL_REQUIRED")
     if plan.executor_creative_authority or plan.provider_call_allowed or plan.network_allowed or plan.paid_execution_allowed:
@@ -2003,125 +2331,146 @@ def render_local_derivative(
     output = Path(output_path).resolve()
     if not source.is_file():
         raise LocalRenderError("SHORT_SOURCE_MISSING", str(source))
-    marker_path = source.with_name(source.name + ".fixture.json")
-    if not marker_path.is_file():
-        raise LocalRenderError("SHORT_PUBLICATION_FORBIDDEN", "SYNTHETIC_FIXTURE_MARKER_REQUIRED")
-    marker = _read_json(marker_path, code="SHORT_PUBLICATION_FORBIDDEN")
-    if marker.get("synthetic") is not True or marker.get("source_sha256") != _sha256_file(source):
-        raise LocalRenderError("SHORT_PUBLICATION_FORBIDDEN", "SYNTHETIC_FIXTURE_MARKER_INVALID")
     if source == output or source.parent == output.parent:
         raise LocalRenderError("SHORT_RENDER_PLAN_INVALID", "OUTPUT_WORKSPACE_MUST_BE_SEPARATE")
     if output.exists():
         raise LocalRenderError("SHORT_RENDER_PLAN_INVALID", "OUTPUT_ALREADY_EXISTS")
+    if authorization is None:
+        if fixture_only is not True:
+            raise LocalRenderError("SHORT_RENDER_AUTHORIZATION_REQUIRED", "HASH_BOUND_DESKTOP_AUTHORIZATION_REQUIRED")
+        marker_path = source.with_name(source.name + ".fixture.json")
+        if not marker_path.is_file():
+            raise LocalRenderError("SHORT_RENDER_AUTHORIZATION_REQUIRED", "TEST_HARNESS_FIXTURE_MARKER_REQUIRED")
+        marker = _read_json(marker_path, code="SHORT_RENDER_AUTHORIZATION_INVALID")
+        if marker.get("synthetic") is not True or marker.get("source_sha256") != _sha256_file(source):
+            raise LocalRenderError("SHORT_RENDER_AUTHORIZATION_INVALID", "TEST_HARNESS_FIXTURE_MARKER_INVALID")
+        try:
+            authorization = issue_authorization(
+                episode_id=plan.source_episode_id,
+                source_episode_sha256=plan.source_episode_sha256,
+                short_plan_sha256=plan.plan_sha256,
+                profile_sha256=plan.profile_sha256,
+                constitution_bundle_sha256=plan.constitution_bundle_sha256,
+                execution_origin="TEST_HARNESS",
+                execution_mode=TEST_MODE,
+                authorized_output_directory=output.parent,
+                authorized_short_ids=(plan.short_id,),
+                explicit_human_click=True,
+            )
+        except RenderAuthorizationError as exc:
+            raise LocalRenderError(exc.code, exc.detail) from exc
+    try:
+        authorization_value = authorization if isinstance(authorization, ShortsLocalRenderAuthorization) else ShortsLocalRenderAuthorization.from_mapping(authorization)
+        validate_authorization(
+            authorization_value,
+            expected_episode_id=plan.source_episode_id,
+            expected_source_sha256=plan.source_episode_sha256,
+            expected_plan_sha256=plan.plan_sha256,
+            expected_profile_sha256=plan.profile_sha256,
+            expected_constitution_sha256=plan.constitution_bundle_sha256,
+            expected_short_id=plan.short_id,
+            expected_output_directory=output.parent,
+        )
+    except RenderAuthorizationError as exc:
+        raise LocalRenderError(exc.code, exc.detail) from exc
+    if authorization_value.execution_mode == REAL_MODE and authorization_value.execution_origin != "SIRAJ_DESKTOP":
+        raise LocalRenderError("SHORT_RENDER_AUTHORIZATION_INVALID", "REAL_MODE_REQUIRES_SIRAJ_DESKTOP")
+    if authorization_value.execution_mode == TEST_MODE and authorization_value.execution_origin != "TEST_HARNESS":
+        raise LocalRenderError("SHORT_RENDER_AUTHORIZATION_INVALID", "TEST_MODE_REQUIRES_TEST_HARNESS")
     executable = ffmpeg_path or find_ffmpeg()
     if executable is None:
         raise LocalRenderError("SHORT_RENDER_PLAN_INVALID", "FFMPEG_UNAVAILABLE")
-    output.parent.mkdir(parents=True, exist_ok=True)
-    before = _sha256_file(source)
-    ranges = plan.selected_source_ranges
-    if not ranges:
-        raise LocalRenderError("SHORT_RENDER_PLAN_INVALID", "SOURCE_RANGES_MISSING")
-    visual_ranges = [
-        item
-        for item in plan.visual_segments
-        if item.get("status") == "PASS" and isinstance(item.get("source_time_range"), Mapping)
-    ]
-    if not visual_ranges:
-        raise LocalRenderError("SHORT_VERTICAL_REFRAME_UNSAFE", "PASS_VISUAL_SEGMENTS_MISSING")
-    render_segments = [
-        (
-            float(item["source_time_range"]["start"]),
-            float(item["source_time_range"]["end"]),
-            _ffmpeg_filter_for_crop_window(item.get("crop_window", {})),
+    source_probe = _probe_with_ffmpeg(source, executable)
+    if source_probe.get("available") and source_probe.get("has_audio") is not True:
+        raise LocalRenderError("SHORT_SOURCE_AUDIO_REQUIRED", "SOURCE_AUDIO_REQUIRED")
+    try:
+        envelope = consume_authorization(
+            authorization_value,
+            expected_episode_id=plan.source_episode_id,
+            expected_source_sha256=plan.source_episode_sha256,
+            expected_plan_sha256=plan.plan_sha256,
+            expected_profile_sha256=plan.profile_sha256,
+            expected_constitution_sha256=plan.constitution_bundle_sha256,
+            expected_short_id=plan.short_id,
+            expected_output_directory=output.parent,
         )
-        for item in visual_ranges
-    ]
-    if len(render_segments) == 1:
-        start, end, filters = render_segments[0]
-        command = [
-            executable,
-            "-hide_banner",
-            "-loglevel",
-            "error",
-            "-y",
-            "-ss",
-            f"{start:.6f}",
-            "-to",
-            f"{end:.6f}",
-            "-i",
-            str(source),
-            "-vf",
-            filters,
-            "-c:v",
-            "libx264",
-            "-preset",
-            "medium",
-            "-crf",
-            "18",
-            "-c:a",
-            "aac",
-            "-ar",
-            "48000",
-            "-movflags",
-            "+faststart",
-            str(output),
+    except RenderAuthorizationError as exc:
+        raise LocalRenderError(exc.code, exc.detail) from exc
+    output.parent.mkdir(parents=True, exist_ok=True)
+    lock_path = output.with_name(f".{output.name}.render.lock")
+    try:
+        with lock_path.open("x", encoding="utf-8") as lock:
+            lock.write(json.dumps({"short_id": plan.short_id, "started_at": utc_now()}, ensure_ascii=False))
+            lock.flush()
+            os.fsync(lock.fileno())
+    except FileExistsError as exc:
+        raise LocalRenderError("SHORT_RENDER_ALREADY_RUNNING", "IDEMPOTENCY_LOCK_EXISTS") from exc
+    temporary = output.with_name(f".{output.name}.{uuid.uuid4().hex}.rendering.tmp.mp4")
+    before = _sha256_file(source)
+    try:
+        ranges = plan.selected_source_ranges
+        if not ranges:
+            raise LocalRenderError("SHORT_RENDER_PLAN_INVALID", "SOURCE_RANGES_MISSING")
+        visual_ranges = [
+            item for item in plan.visual_segments
+            if item.get("status") == "PASS" and isinstance(item.get("source_time_range"), Mapping)
         ]
-    else:
-        pieces: list[str] = []
-        for index, (start, end, filters) in enumerate(render_segments):
-            pieces.append(f"[0:v]trim=start={start:.6f}:end={end:.6f},setpts=PTS-STARTPTS,{filters}[v{index}]")
-            pieces.append(f"[0:a]atrim=start={start:.6f}:end={end:.6f},asetpts=PTS-STARTPTS[a{index}]")
-        concat_inputs = "".join(f"[v{index}][a{index}]" for index in range(len(ranges)))
-        pieces.append(f"{concat_inputs}concat=n={len(ranges)}:v=1:a=1[v][a]")
-        command = [
-            executable,
-            "-hide_banner",
-            "-loglevel",
-            "error",
-            "-y",
-            "-i",
-            str(source),
-            "-filter_complex",
-            ";".join(pieces),
-            "-map",
-            "[v]",
-            "-map",
-            "[a]",
-            "-c:v",
-            "libx264",
-            "-preset",
-            "medium",
-            "-crf",
-            "18",
-            "-c:a",
-            "aac",
-            "-ar",
-            "48000",
-            "-movflags",
-            "+faststart",
-            str(output),
+        if not visual_ranges:
+            raise LocalRenderError("SHORT_VERTICAL_REFRAME_UNSAFE", "PASS_VISUAL_SEGMENTS_MISSING")
+        render_segments = [
+            (float(item["source_time_range"]["start"]), float(item["source_time_range"]["end"]), _ffmpeg_filter_for_crop_window(item.get("crop_window", {})))
+            for item in visual_ranges
         ]
-    completed = subprocess.run(command, capture_output=True, text=True, check=False)
-    if completed.returncode != 0 or not output.is_file():
-        detail = _clean_text(completed.stderr)[-800:]
-        raise LocalRenderError("SHORT_RENDER_PLAN_INVALID", f"FFMPEG_FAILED:{detail}")
-    after = _sha256_file(source)
-    if before != after:
-        raise SourceIntegrityError("SHORT_SOURCE_HASH_CHANGED", "SOURCE_MUTATED_DURING_RENDER")
-    output_probe = _probe_with_ffmpeg(output, executable)
-    return RenderResult(
-        short_id=plan.short_id,
-        output_path=str(output),
-        render_sha256=_sha256_file(output),
-        source_episode_sha256_before=before,
-        source_episode_sha256_after=after,
-        expected_duration=plan.expected_duration,
-        output_probe=output_probe,
-        state="RENDERED",
-        provider_calls=0,
-        network_calls=0,
-        paid_calls=0,
-    )
+        if len(render_segments) == 1:
+            start, end, filters = render_segments[0]
+            command = [executable, "-hide_banner", "-loglevel", "error", "-n", "-ss", f"{start:.6f}", "-to", f"{end:.6f}", "-i", str(source), "-vf", filters, "-c:v", "libx264", "-preset", "medium", "-crf", "18", "-c:a", "aac", "-ar", "48000", "-movflags", "+faststart", str(temporary)]
+        else:
+            pieces: list[str] = []
+            for index, (start, end, filters) in enumerate(render_segments):
+                pieces.append(f"[0:v]trim=start={start:.6f}:end={end:.6f},setpts=PTS-STARTPTS,{filters}[v{index}]")
+                pieces.append(f"[0:a]atrim=start={start:.6f}:end={end:.6f},asetpts=PTS-STARTPTS[a{index}]")
+            concat_inputs = "".join(f"[v{index}][a{index}]" for index in range(len(render_segments)))
+            pieces.append(f"{concat_inputs}concat=n={len(render_segments)}:v=1:a=1[v][a]")
+            command = [executable, "-hide_banner", "-loglevel", "error", "-n", "-i", str(source), "-filter_complex", ";".join(pieces), "-map", "[v]", "-map", "[a]", "-c:v", "libx264", "-preset", "medium", "-crf", "18", "-c:a", "aac", "-ar", "48000", "-movflags", "+faststart", str(temporary)]
+    except Exception:
+        temporary.unlink(missing_ok=True)
+        lock_path.unlink(missing_ok=True)
+        raise
+    try:
+        returncode, _stdout, stderr = _run_ffmpeg_command(command, cancel_event=cancel_event)
+        if returncode != 0 or not temporary.is_file():
+            detail = _clean_text(stderr)[-800:]
+            raise LocalRenderError("SHORT_RENDER_PLAN_INVALID", f"FFMPEG_FAILED:{detail}")
+        after = _sha256_file(source)
+        if before != after:
+            raise SourceIntegrityError("SHORT_SOURCE_HASH_CHANGED", "SOURCE_MUTATED_DURING_RENDER")
+        output_probe = _probe_with_ffmpeg(temporary, executable)
+        if output_probe.get("has_video") is not True or output_probe.get("has_audio") is not True:
+            raise LocalRenderError("SHORT_RENDER_PLAN_INVALID", "OUTPUT_STREAMS_REQUIRED")
+        try:
+            os.rename(temporary, output)
+        except FileExistsError as exc:
+            raise LocalRenderError("SHORT_RENDER_PLAN_INVALID", "OUTPUT_ALREADY_EXISTS") from exc
+        return RenderResult(
+            short_id=plan.short_id,
+            output_path=str(output),
+            render_sha256=_sha256_file(output),
+            source_episode_sha256_before=before,
+            source_episode_sha256_after=after,
+            expected_duration=plan.expected_duration,
+            output_probe=output_probe,
+            state="RENDERED",
+            provider_calls=0,
+            network_calls=0,
+            paid_calls=0,
+            execution_origin=envelope.execution_origin,
+            execution_mode=envelope.execution_mode,
+        )
+    except (OSError, subprocess.SubprocessError) as exc:
+        raise LocalRenderError("SHORT_RENDER_PLAN_INVALID", str(exc)) from exc
+    finally:
+        temporary.unlink(missing_ok=True)
+        lock_path.unlink(missing_ok=True)
 
 
 def validate_rendered_output(plan: RenderPlan, render: RenderResult) -> QAResult:
@@ -2139,22 +2488,40 @@ def validate_rendered_output(plan: RenderPlan, render: RenderResult) -> QAResult
         technical = False
         findings.append({"name": "VERTICAL_OUTPUT", "status": "FAIL", "code": "SHORT_VERTICAL_QUALITY_FAIL", "dimensions": dimensions})
     duration = probe.get("duration_seconds")
-    if isinstance(duration, (int, float)) and abs(float(duration) - plan.expected_duration) > 0.75:
+    if not isinstance(duration, (int, float)):
+        technical = False
+        findings.append({"name": "DURATION", "status": "FAIL", "code": "SHORT_QA_FAIL", "detail": "DURATION_PROBE_REQUIRED"})
+    elif abs(float(duration) - plan.expected_duration) > 0.75:
         technical = False
         findings.append({"name": "DURATION", "status": "FAIL", "code": "SHORT_QA_FAIL", "expected": plan.expected_duration, "actual": duration})
     for name, passed, code in (
-        ("MODESTY", True, "FAIL_WARDROBE_POLICY"),
-        ("UNSEEN", True, "FAIL_UNSEEN_INVENTION"),
-        ("PERIOD", True, "FAIL_PERIOD_AUTHENTICITY"),
+        ("MODESTY", plan.constitutional_evidence.get("MODESTY", {}).get("status") == "PASS", "FAIL_WARDROBE_POLICY"),
+        ("UNSEEN", plan.constitutional_evidence.get("UNSEEN", {}).get("status") == "PASS", "FAIL_UNSEEN_INVENTION"),
+        ("PERIOD", plan.constitutional_evidence.get("PERIOD", {}).get("status") == "PASS", "FAIL_PERIOD_AUTHENTICITY"),
         ("MUSIC", not bool(plan.audio_edit_plan.get("music")), "FAIL_MUSIC_DETECTED"),
         ("GRAPHICS", not bool(plan.external_caption_plan.get("burned_captions")), "FAIL_FORBIDDEN_GRAPHICS"),
         ("CAPTIONS", not bool(plan.external_caption_plan.get("burned_captions")), "FAIL_BURNED_IN_CAPTIONS"),
         ("AUDIO_BOUNDARIES", plan.audio_edit_plan.get("status") == "PASS", "SHORT_AUDIO_BOUNDARY_INVALID"),
-        ("VISUAL_NARRATION_ALIGNMENT", all(item.get("status") == "PASS" for item in plan.hard_gate_results.values() if item.get("code") == "VISUAL_NARRATION_CONTRADICTION") is not False, "VISUAL_NARRATION_CONTRADICTION"),
+        ("VISUAL_NARRATION_ALIGNMENT", plan.hard_gate_results.get("VISUAL_NARRATION_ALIGNMENT", {}).get("status") == "PASS", "VISUAL_NARRATION_CONTRADICTION"),
     ):
-        findings.append({"name": name, "status": "PASS" if passed else "FAIL", "code": None if passed else code})
-        if not passed:
+        evidence_status = plan.constitutional_evidence.get(name, {}).get("status")
+        human_required = not passed and evidence_status == "HUMAN_REVIEW_REQUIRED"
+        finding_status = "PASS" if passed else "HUMAN_REVIEW_REQUIRED" if human_required else "FAIL"
+        findings.append({"name": name, "status": finding_status, "code": None if passed else code, "evidence": plan.constitutional_evidence.get(name, {})})
+        if not passed and not human_required:
             technical = False
+    hash_checks = (
+        bool(_HASH_RE.fullmatch(render.render_sha256)),
+        bool(_HASH_RE.fullmatch(plan.profile_sha256)),
+        bool(_HASH_RE.fullmatch(plan.constitution_bundle_sha256)),
+    )
+    if not all(hash_checks):
+        technical = False
+        findings.append({"name": "HASH_BINDINGS", "status": "FAIL", "code": "SHORT_RENDER_HASH_MISMATCH"})
+    hard_gate_failures = [name for name, item in plan.hard_gate_results.items() if item.get("status") == "FAIL"]
+    if hard_gate_failures:
+        technical = False
+        findings.append({"name": "PLAN_HARD_GATES", "status": "FAIL", "code": "SHORT_QA_FAIL", "gates": hard_gate_failures})
     automated_constitution = technical and render.provider_calls == 0 and render.network_calls == 0 and render.paid_calls == 0
     if not automated_constitution:
         findings.append({"name": "CAPABILITY_BOUNDARY", "status": "FAIL", "code": "SHORT_PROVIDER_CAPABILITY_FORBIDDEN"})
@@ -2167,6 +2534,7 @@ def validate_rendered_output(plan: RenderPlan, render: RenderResult) -> QAResult
         "automated_constitution": automated_constitution,
     }
     status = "SHORT_QA_PASS" if technical and automated_constitution else "SHORT_QA_FAIL"
+    review_evidence_status = "HUMAN_REVIEW_REQUIRED"
     return QAResult(
         short_id=plan.short_id,
         status=status,
@@ -2177,6 +2545,7 @@ def validate_rendered_output(plan: RenderPlan, render: RenderResult) -> QAResult
         technical_qa_pass=technical,
         constitutional_automated_checks_pass=automated_constitution,
         qa_sha256=_hash_value(payload),
+        review_evidence_status=review_evidence_status,
     )
 
 
@@ -2244,6 +2613,7 @@ def create_human_review_receipt(
     quality_review: bool,
     notes: str = "",
     review_time: str | None = None,
+    review_session: HumanReviewSession | None = None,
 ) -> HumanReviewReceipt:
     decision = _clean_text(decision).upper()
     if decision not in {"APPROVE", "REJECT"}:
@@ -2252,6 +2622,32 @@ def create_human_review_receipt(
         raise ShortsBlockedError("SHORT_HUMAN_REVIEW_REQUIRED", "REVIEWER_REQUIRED")
     if decision == "APPROVE" and (qa.status != "SHORT_QA_PASS" or not all_frame_visual_review or not constitutional_review or not quality_review):
         raise ShortsBlockedError("SHORT_HUMAN_REVIEW_REQUIRED", "APPROVE_REQUIRES_ALL_REVIEWS")
+    if decision == "APPROVE":
+        if review_session is not None:
+            if not review_session.valid:
+                raise ShortsBlockedError("SHORT_HUMAN_REVIEW_REQUIRED", "UNINTERRUPTED_FULL_PLAYBACK_REQUIRED")
+            review_evidence = {
+                "status": "PASS",
+                "mode": "DESKTOP_PLAYBACK_TRACKED",
+                "uninterrupted_pass_complete": True,
+                "decoded_frame_count": review_session.decoded_frame_count,
+                "playback_coverage_seconds": review_session.playback_coverage_seconds,
+                "seek_count": review_session.seek_count,
+                "detailed_inspection_count": review_session.detailed_inspection_count,
+            }
+        elif render.execution_mode == TEST_MODE:
+            review_evidence = {
+                "status": "PASS",
+                "mode": "SYNTHETIC_TEST_EXECUTION",
+                "uninterrupted_pass_complete": True,
+                "decoded_frame_count": render.output_probe.get("decoded_frame_count"),
+                "playback_coverage_seconds": render.output_probe.get("duration_seconds"),
+                "test_harness": True,
+            }
+        else:
+            raise ShortsBlockedError("SHORT_HUMAN_REVIEW_REQUIRED", "REVIEW_SESSION_EVIDENCE_REQUIRED")
+    else:
+        review_evidence = {"status": "REJECTED", "mode": "HUMAN_DECISION"}
     payload = {
         "schema_version": SCHEMA_VERSION,
         "short_id": plan.short_id,
@@ -2265,6 +2661,7 @@ def create_human_review_receipt(
         "all_frame_visual_review": all_frame_visual_review,
         "constitutional_review": constitutional_review,
         "quality_review": quality_review,
+        "review_evidence": review_evidence,
     }
     return HumanReviewReceipt(
         schema_version=SCHEMA_VERSION,
@@ -2283,6 +2680,7 @@ def create_human_review_receipt(
         quality_review=quality_review,
         notes=_clean_text(notes),
         receipt_sha256=_hash_value(payload),
+        review_evidence=review_evidence,
     )
 
 
@@ -2297,6 +2695,8 @@ def export_approved_package(
 ) -> dict[str, Any]:
     if receipt.decision != "APPROVE" or qa.status != "SHORT_QA_PASS":
         raise ShortsBlockedError("SHORT_HUMAN_REVIEW_REQUIRED", "EXPORT_REQUIRES_APPROVED_HASH_BOUND_REVIEW")
+    if receipt.review_evidence.get("status") != "PASS":
+        raise ShortsBlockedError("SHORT_HUMAN_REVIEW_REQUIRED", "REVIEW_EVIDENCE_REQUIRED")
     expected = {
         "short_render_sha256": render.render_sha256,
         "short_plan_sha256": plan.plan_sha256,
@@ -2318,9 +2718,18 @@ def export_approved_package(
     short_path = destination / f"{plan.short_id}.mp4"
     if short_path.exists():
         raise ShortsBlockedError("SHORT_RENDER_PLAN_INVALID", "EXPORT_OUTPUT_ALREADY_EXISTS")
-    shutil.copy2(render.output_path, short_path)
-    if _sha256_file(short_path) != render.render_sha256:
-        raise SourceIntegrityError("SHORT_RENDER_HASH_MISMATCH", "EXPORT_COPY_HASH_MISMATCH")
+    temporary_video = short_path.with_name(f".{short_path.name}.{uuid.uuid4().hex}.exporting.tmp")
+    try:
+        shutil.copy2(render.output_path, temporary_video)
+        if _sha256_file(temporary_video) != render.render_sha256:
+            raise SourceIntegrityError("SHORT_RENDER_HASH_MISMATCH", "EXPORT_COPY_HASH_MISMATCH")
+        os.rename(temporary_video, short_path)
+    except FileExistsError as exc:
+        temporary_video.unlink(missing_ok=True)
+        raise ShortsBlockedError("SHORT_EXPORT_CONFLICT", "EXPORT_OUTPUT_ALREADY_EXISTS") from exc
+    except Exception:
+        temporary_video.unlink(missing_ok=True)
+        raise
     receipt_path = destination / f"{plan.short_id}.human-review.json"
     if receipt_path.exists():
         raise ShortsBlockedError("SHORT_RENDER_PLAN_INVALID", "REVIEW_RECEIPT_OUTPUT_ALREADY_EXISTS")
@@ -2332,13 +2741,17 @@ def export_approved_package(
             path = destination / f"{plan.short_id}.vtt"
             if path.exists():
                 raise ShortsBlockedError("SHORT_RENDER_PLAN_INVALID", "CAPTION_OUTPUT_ALREADY_EXISTS")
-            path.write_text(captions_to_vtt(caption_plan), encoding="utf-8")
+            temporary = path.with_name(f".{path.name}.{uuid.uuid4().hex}.exporting.tmp")
+            temporary.write_text(captions_to_vtt(caption_plan), encoding="utf-8")
+            os.rename(temporary, path)
             exported_captions.append(str(path))
         elif suffix == ".srt":
             path = destination / f"{plan.short_id}.srt"
             if path.exists():
                 raise ShortsBlockedError("SHORT_RENDER_PLAN_INVALID", "CAPTION_OUTPUT_ALREADY_EXISTS")
-            path.write_text(captions_to_srt(caption_plan), encoding="utf-8")
+            temporary = path.with_name(f".{path.name}.{uuid.uuid4().hex}.exporting.tmp")
+            temporary.write_text(captions_to_srt(caption_plan), encoding="utf-8")
+            os.rename(temporary, path)
             exported_captions.append(str(path))
         else:
             raise ShortsBlockedError("SHORT_RENDER_PLAN_INVALID", f"CAPTION_FORMAT_UNSUPPORTED:{suffix}")
@@ -2354,6 +2767,12 @@ def export_approved_package(
         "automatic_publication": False,
         "upload": False,
         "youtube_api": False,
+        "source_episode_sha256": plan.source_episode_sha256,
+        "render_plan_sha256": plan.plan_sha256,
+        "approved_render_sha256": render.render_sha256,
+        "exported_file_sha256": _sha256_file(short_path),
+        "profile_sha256": plan.profile_sha256,
+        "constitution_bundle_sha256": plan.constitution_bundle_sha256,
         "render": {"path": str(short_path), "sha256": render.render_sha256},
         "captions": exported_captions,
         "human_review_receipt": str(receipt_path),
@@ -2415,7 +2834,7 @@ class ShortsDerivativeEngine:
         return ingest_episode(self.repo_root, **kwargs)
 
     def analyze(self, episode: EpisodePackage) -> EngineAnalysis:
-        _assert_current_source(episode)
+        _assert_current_source(episode, self.repo_root)
         intelligence = build_intelligence_map(episode)
         candidates = discover_candidates(self, episode, intelligence)
         payload = {
@@ -2438,13 +2857,23 @@ class ShortsDerivativeEngine:
         return result
 
     def portfolio(self, analysis: EngineAnalysis, **kwargs: Any) -> PortfolioResult:
-        _assert_current_source(analysis.episode)
+        _assert_current_source(analysis.episode, self.repo_root)
         return select_portfolio(analysis, **kwargs)
 
     def render_plan(self, analysis: EngineAnalysis, portfolio: PortfolioResult, short_id: str, *, human_selection_approved: bool = False) -> RenderPlan:
+        _assert_current_source(analysis.episode, self.repo_root)
+        if analysis.profile_sha256 != self.profile_sha256:
+            raise SourceIntegrityError("SHORT_PROFILE_INVALID", "PROFILE_HASH_CHANGED")
+        if analysis.constitution_bundle_sha256 != self.constitution_bundle_sha256:
+            raise SourceIntegrityError("SHORT_CONSTITUTION_SCOPE_BLOCKED", "CONSTITUTION_HASH_CHANGED")
         return build_render_plan(analysis, portfolio, short_id, human_selection_approved=human_selection_approved)
 
     def render(self, plan: RenderPlan, source_video_path: Path, output_path: Path, **kwargs: Any) -> RenderResult:
+        if plan.profile_sha256 != self.profile_sha256:
+            raise LocalRenderError("SHORT_PROFILE_INVALID", "PROFILE_HASH_CHANGED")
+        if plan.constitution_bundle_sha256 != self.constitution_bundle_sha256:
+            raise LocalRenderError("SHORT_CONSTITUTION_SCOPE_BLOCKED", "CONSTITUTION_HASH_CHANGED")
+        _assert_render_plan_source_metadata(plan, self.repo_root)
         return render_local_derivative(plan, source_video_path, output_path, **kwargs)
 
     def qa(self, plan: RenderPlan, render: RenderResult) -> QAResult:
@@ -2522,7 +2951,7 @@ def prepare_output_workspace(repo_root: Path, episode_id: str) -> dict[str, Path
 
     safe_episode_id = re.sub(r"[^A-Za-z0-9_.-]+", "_", _clean_text(episode_id)).strip("._") or "episode"
     root = Path(repo_root).resolve() / "artifacts" / "shorts-derivatives" / safe_episode_id
-    names = ("analysis", "candidates", "portfolios", "plans", "renders", "captions", "review", "reports")
+    names = ("analysis", "candidates", "portfolios", "plans", "renders", "captions", "review", "exports", "logs", "authorization", "reports")
     result: dict[str, Path] = {}
     for name in names:
         path = root / name
@@ -2530,6 +2959,60 @@ def prepare_output_workspace(repo_root: Path, episode_id: str) -> dict[str, Path
         result[name] = path
     result["root"] = root
     return result
+
+
+def episode_from_dict(value: Mapping[str, Any]) -> EpisodePackage:
+    def transcript(item: Mapping[str, Any]) -> TranscriptSegment:
+        return TranscriptSegment(**{key: item.get(key) for key in ("segment_id", "start_time", "end_time", "text", "word_start", "word_end", "audio_boundary_safe", "grammar_safe")})
+    def beat(item: Mapping[str, Any]) -> Beat:
+        return Beat(
+            beat_id=str(item["beat_id"]), start_time=float(item["start_time"]), end_time=float(item["end_time"]), text=str(item["text"]), chapter_id=str(item["chapter_id"]),
+            shot_ids=tuple(item.get("shot_ids", ())), claim_ids=tuple(item.get("claim_ids", ())), narrative_role=str(item["narrative_role"]),
+            context_dependencies=tuple(item.get("context_dependencies", ())), character_refs=tuple(item.get("character_refs", ())), visual_action=str(item.get("visual_action", "")), semantic_payload=dict(item.get("semantic_payload", {})),
+            curiosity_signal=float(item.get("curiosity_signal", 0)), surprise_signal=float(item.get("surprise_signal", 0)), emotional_signal=float(item.get("emotional_signal", 0)), story_turn_signal=float(item.get("story_turn_signal", 0)), revelation_signal=float(item.get("revelation_signal", 0)), question_signal=float(item.get("question_signal", 0)), payoff_signal=float(item.get("payoff_signal", 0)), standalone_potential=float(item.get("standalone_potential", 0)), visual_strength_indicators=tuple(item.get("visual_strength_indicators", ())),
+        )
+    def shot(item: Mapping[str, Any]) -> Shot:
+        return Shot(
+            shot_id=str(item["shot_id"]), start_time=float(item["start_time"]), end_time=float(item["end_time"]), visual_action=str(item.get("visual_action", "")), semantic_tags=tuple(item.get("semantic_tags", ())),
+            subject_region=item.get("subject_region"), semantic_focus_region=item.get("semantic_focus_region"), safe_region=item.get("safe_region"), key_action_spans_full_width=item.get("key_action_spans_full_width") is True, unsafe_source=item.get("unsafe_source") is True, unsafe_background_face=item.get("unsafe_background_face") is True, face_enlarged_by_crop=item.get("face_enlarged_by_crop") is True, vertical_quality_hint=(None if item.get("vertical_quality_hint") is None else float(item["vertical_quality_hint"])),
+        )
+    return EpisodePackage(
+        schema_version=str(value["schema_version"]), episode_id=str(value["episode_id"]), source_video_path=str(value["source_video_path"]), source_episode_sha256=str(value["source_episode_sha256"]), source_metadata_hashes=dict(value.get("source_metadata_hashes", {})), source_duration_seconds=float(value["source_duration_seconds"]), narration_segments=tuple(transcript(item) for item in value.get("narration_segments", ())), beats=tuple(beat(item) for item in value.get("beats", ())), shots=tuple(shot(item) for item in value.get("shots", ())), claims=tuple(dict(item) for item in value.get("claims", ())), metadata=dict(value.get("metadata", {})), constitution_version=str(value.get("constitution_version", "0.0.0")), legacy_source=value.get("legacy_source") is True, has_audio=value.get("has_audio"), source_type=str(value.get("source_type", "VIDEO_PLUS_TRANSCRIPT")), episode_display_name=str(value.get("episode_display_name", value.get("episode_id", ""))), source_metadata_paths=tuple(value.get("source_metadata_paths", ())), source_admission=dict(value.get("source_admission", {})),
+    )
+
+
+def analysis_from_dict(value: Mapping[str, Any]) -> EngineAnalysis:
+    def dimension(item: Any) -> ScoreDimension:
+        return ScoreDimension(float(item.get("value", 0)), tuple(item.get("evidence", ())), str(item.get("reason", "")))
+    def candidate(item: Mapping[str, Any]) -> Candidate:
+        return Candidate(
+            candidate_id=str(item["candidate_id"]), episode_id=str(item["episode_id"]), source_episode_sha256=str(item["source_episode_sha256"]), source_metadata_hashes=dict(item.get("source_metadata_hashes", {})), beat_ids=tuple(item.get("beat_ids", ())), source_shot_ids=tuple(item.get("source_shot_ids", ())), start_time=float(item["start_time"]), end_time=float(item["end_time"]), text=str(item["text"]), candidate_type=str(item["candidate_type"]), context_dependence_score=float(item.get("context_dependence_score", 0)), missing_context_items=tuple(item.get("missing_context_items", ())), context_repair_mode=str(item.get("context_repair_mode", "")), context_repair_plan=dict(item.get("context_repair_plan", {})), vertical_reframe_plan=dict(item.get("vertical_reframe_plan", {})), audio_edit_plan=dict(item.get("audio_edit_plan", {})), pacing_plan=dict(item.get("pacing_plan", {})), cta_plan=dict(item.get("cta_plan", {})), alignment=dict(item.get("alignment", {})), score_breakdown={key: dimension(raw) for key, raw in item.get("score_breakdown", {}).items()}, total_score=float(item.get("total_score", 0)), longform_conversion_score=float(item.get("longform_conversion_score", 0)), spoiler_cost=float(item.get("spoiler_cost", 0)), payoff_disclosure_level=float(item.get("payoff_disclosure_level", 0)), hard_gate_results={key: dict(raw) for key, raw in item.get("hard_gate_results", {}).items()}, constitutional_rule_bindings=tuple(item.get("constitutional_rule_bindings", ())), policy_result=dict(item.get("policy_result", {})), status=str(item.get("status", "REJECTED")), rejection_reasons=tuple(item.get("rejection_reasons", ())), semantic_key=str(item.get("semantic_key", "")),
+        )
+    episode = episode_from_dict(value["episode"])
+    intelligence_raw = value["intelligence_map"]
+    intelligence = IntelligenceMap(schema_version=str(intelligence_raw["schema_version"]), episode_id=str(intelligence_raw["episode_id"]), source_episode_sha256=str(intelligence_raw["source_episode_sha256"]), source_metadata_hashes=dict(intelligence_raw.get("source_metadata_hashes", {})), beats=tuple(next(item for item in episode.beats if item.beat_id == raw["beat_id"]) for raw in intelligence_raw.get("beats", ())), map_sha256=str(intelligence_raw["map_sha256"]))
+    payload = {"episode": episode, "intelligence_map": intelligence, "candidates": tuple(candidate(item) for item in value.get("candidates", ())), "profile": dict(value.get("profile", {})), "profile_sha256": str(value["profile_sha256"]), "constitution_bundle_sha256": str(value["constitution_bundle_sha256"]), "analysis_sha256": str(value["analysis_sha256"])}
+    return EngineAnalysis(**payload)
+
+
+def portfolio_from_dict(value: Mapping[str, Any]) -> PortfolioResult:
+    return PortfolioResult(schema_version=str(value["schema_version"]), episode_id=str(value["episode_id"]), source_episode_sha256=str(value["source_episode_sha256"]), candidate_ids=tuple(value.get("candidate_ids", ())), selected_candidate_ids=tuple(value.get("selected_candidate_ids", ())), rejected_candidate_ids=tuple(value.get("rejected_candidate_ids", ())), recommended_order=tuple(value.get("recommended_order", ())), weekly_slots=tuple(dict(item) for item in value.get("weekly_slots", ())), schedule_status=str(value.get("schedule_status", "")), portfolio_status=str(value.get("portfolio_status", "")), diversity_evidence=tuple(dict(item) for item in value.get("diversity_evidence", ())), portfolio_sha256=str(value["portfolio_sha256"]), human_selection_required=value.get("human_selection_required") is True)
+
+
+def render_plan_from_dict(value: Mapping[str, Any]) -> RenderPlan:
+    return RenderPlan(schema_version=str(value["schema_version"]), short_id=str(value["short_id"]), source_episode_id=str(value["source_episode_id"]), source_episode_sha256=str(value["source_episode_sha256"]), source_metadata_hashes=dict(value.get("source_metadata_hashes", {})), candidate_id=str(value["candidate_id"]), candidate_type=str(value["candidate_type"]), selected_source_ranges=tuple(dict(item) for item in value.get("selected_source_ranges", ())), narration_segments=tuple(dict(item) for item in value.get("narration_segments", ())), visual_segments=tuple(dict(item) for item in value.get("visual_segments", ())), reframe_plan=dict(value.get("reframe_plan", {})), context_repair_mode=str(value.get("context_repair_mode", "")), audio_edit_plan=dict(value.get("audio_edit_plan", {})), pacing_plan=dict(value.get("pacing_plan", {})), cta_plan=dict(value.get("cta_plan", {})), target_duration=dict(value.get("target_duration", {})), expected_duration=float(value.get("expected_duration", 0)), quality_scores=dict(value.get("quality_scores", {})), hard_gate_results=dict(value.get("hard_gate_results", {})), constitution_rule_bindings=tuple(value.get("constitution_rule_bindings", ())), external_caption_plan=dict(value.get("external_caption_plan", {})), publishing_order=value.get("publishing_order"), profile_sha256=str(value["profile_sha256"]), constitution_bundle_sha256=str(value["constitution_bundle_sha256"]), plan_sha256=str(value["plan_sha256"]), state=str(value.get("state", "")), local_render_approved=value.get("local_render_approved") is True, executor_creative_authority=value.get("executor_creative_authority") is True, provider_call_allowed=value.get("provider_call_allowed") is True, network_allowed=value.get("network_allowed") is True, paid_execution_allowed=value.get("paid_execution_allowed") is True, constitutional_evidence=dict(value.get("constitutional_evidence", {})))
+
+
+def render_result_from_dict(value: Mapping[str, Any]) -> RenderResult:
+    return RenderResult(short_id=str(value["short_id"]), output_path=str(value["output_path"]), render_sha256=str(value["render_sha256"]), source_episode_sha256_before=str(value["source_episode_sha256_before"]), source_episode_sha256_after=str(value["source_episode_sha256_after"]), expected_duration=float(value["expected_duration"]), output_probe=dict(value.get("output_probe", {})), state=str(value.get("state", "RENDERED")), provider_calls=int(value.get("provider_calls", 0)), network_calls=int(value.get("network_calls", 0)), paid_calls=int(value.get("paid_calls", 0)), execution_origin=str(value.get("execution_origin", TEST_MODE)), execution_mode=str(value.get("execution_mode", TEST_MODE)))
+
+
+def qa_result_from_dict(value: Mapping[str, Any]) -> QAResult:
+    return QAResult(short_id=str(value["short_id"]), status=str(value["status"]), findings=tuple(dict(item) for item in value.get("findings", ())), output_sha256=str(value["output_sha256"]), source_episode_sha256=str(value["source_episode_sha256"]), human_all_frame_visual_review_required=value.get("human_all_frame_visual_review_required") is True, technical_qa_pass=value.get("technical_qa_pass") is True, constitutional_automated_checks_pass=value.get("constitutional_automated_checks_pass") is True, qa_sha256=str(value["qa_sha256"]), review_evidence_status=str(value.get("review_evidence_status", "HUMAN_REVIEW_REQUIRED")))
+
+
+def human_review_receipt_from_dict(value: Mapping[str, Any]) -> HumanReviewReceipt:
+    return HumanReviewReceipt(schema_version=str(value["schema_version"]), receipt_id=str(value["receipt_id"]), short_id=str(value["short_id"]), reviewer=str(value["reviewer"]), decision=str(value["decision"]), review_time=str(value["review_time"]), short_render_sha256=str(value["short_render_sha256"]), short_plan_sha256=str(value["short_plan_sha256"]), source_episode_sha256=str(value["source_episode_sha256"]), profile_sha256=str(value["profile_sha256"]), constitution_bundle_sha256=str(value["constitution_bundle_sha256"]), all_frame_visual_review=value.get("all_frame_visual_review") is True, constitutional_review=value.get("constitutional_review") is True, quality_review=value.get("quality_review") is True, notes=str(value.get("notes", "")), receipt_sha256=str(value["receipt_sha256"]), review_evidence=dict(value.get("review_evidence", {})))
 
 
 __all__ = [
@@ -2547,6 +3030,7 @@ __all__ = [
     "QAResult",
     "HumanReviewReceipt",
     "EngineAnalysis",
+    "HumanReviewSession",
     "ShortsDerivativeEngine",
     "ShortsEngineError",
     "ShortsBlockedError",
@@ -2575,4 +3059,11 @@ __all__ = [
     "build_coverage_manifest",
     "append_evidence",
     "prepare_output_workspace",
+    "episode_from_dict",
+    "analysis_from_dict",
+    "portfolio_from_dict",
+    "render_plan_from_dict",
+    "render_result_from_dict",
+    "qa_result_from_dict",
+    "human_review_receipt_from_dict",
 ]

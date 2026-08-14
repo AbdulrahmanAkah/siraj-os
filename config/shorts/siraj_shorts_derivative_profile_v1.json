@@ -48,6 +48,13 @@
       "EDITABILITY": 0.95,
       "VERTICAL_COMPATIBILITY": 1.10
     },
+    "candidate_search": {
+      "maximum_contiguous_beats": 6,
+      "maximum_candidate_windows": 256,
+      "maximum_anchor_expansions": 32,
+      "minimum_anchor_signal": 0.40,
+      "maximum_expansion_context_dependence": 0.44
+    },
     "candidate_types": [
       "CURIOSITY",
       "SURPRISE",

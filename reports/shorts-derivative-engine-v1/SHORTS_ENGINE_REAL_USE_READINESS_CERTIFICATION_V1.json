@@ -1,0 +1,113 @@
+{
+  "schema_version": "siraj-shorts-engine-real-use-readiness-certification-v1",
+  "report_id": "SHORTS_ENGINE_REAL_USE_READINESS_CERTIFICATION_V1",
+  "generated_at": "2026-08-13T23:53:56.141Z",
+  "repository": "C:\\SIRAJ\\Repositories\\siraj-os",
+  "branch": "feature/shorts-derivative-engine-v1",
+  "head_at_certification": "bbddac2a3dd8b2e3c62885abf6067186fdf5a8f4",
+  "target": "SHORTS_ENGINE_FULL_DIRECT_USE_READINESS",
+  "certification_status": "PASS",
+  "final_decision": "SHORTS_ENGINE_READY_FOR_DIRECT_HUMAN_CONTROLLED_LOCAL_USE",
+  "direct_use_scope": "An admitted safe local episode through SIRAJ Desktop, with explicit human control at portfolio, render, review, and export gates.",
+  "canonical_shorts_storage": {
+    "status": "READY",
+    "library_name": "SIRAJ Shorts",
+    "discovery": "QStandardPaths DesktopLocation, then Windows Known Folder fallback",
+    "root_policy": "Create once and reuse; no delete, recreate, rename, silent migration, or duplicate root",
+    "episode_identity": "Canonical episode_id with sanitized display-name suffix; title changes do not duplicate the episode folder",
+    "required_subdirectories": ["Shorts", "Captions", "Manifests", "Reviews"],
+    "atomic_export": true,
+    "no_silent_overwrite": true,
+    "same_render_hash": "ALREADY_EXPORTED",
+    "changed_render_hash": "VERSIONED_-v2_OR_HIGHER",
+    "rebuild_index": true,
+    "export_hash_equality": true
+  },
+  "constitution_and_policy": {
+    "constitution_bundle_sha256": "77c451711eb1888664518c9fe89e176033fdf7612f4636e18c0e0ca4d3af4f54",
+    "constitution_unchanged": true,
+    "core_enforcement_unchanged": true,
+    "global_face_prohibition": "PRESERVED",
+    "non_prophet_faces_currently": "BLOCKED_OR_HUMAN_REVIEW_REQUIRED; no automated final pass",
+    "women_modesty": "PRESERVED",
+    "period_authenticity": "PRESERVED",
+    "israiliyyat_and_weak_hadith_rules": "INHERITED_FROM_CANONICAL_CONSTITUTION",
+    "music": "FORBIDDEN",
+    "graphics": "FORBIDDEN_EXCEPT_CANONICAL_SCOPE_OUTSIDE_SHORTS; Shorts captions are external sidecars",
+    "open_m03": "DEFERRED; cannot grant final face PASS"
+  },
+  "execution_boundary": {
+    "provider_calls": 0,
+    "paid_calls": 0,
+    "network_production_calls": 0,
+    "youtube_api_calls": 0,
+    "retry_or_resubmission": 0,
+    "montage": 0,
+    "new_tts": 0,
+    "new_visuals": 0,
+    "music": 0,
+    "automatic_publication": false,
+    "terminal_real_render": false,
+    "cli_real_render": false,
+    "recovery_real_render": false,
+    "real_local_render": "SIRAJ_DESKTOP + live Qt + explicit click + exact hash-bound single-use authorization",
+    "unknown_resubmission": false
+  },
+  "desktop_workflow": {
+    "existing_window_surface": true,
+    "second_gui_created": false,
+    "stages": ["SOURCE", "ANALYZE", "CANDIDATES", "PORTFOLIO", "RENDER_PLANS", "LOCAL_RENDERS", "QA_REVIEW", "EXPORT"],
+    "async_qthread": true,
+    "cancel_event": true,
+    "persisted_state": true,
+    "hash_bound_resume": true,
+    "human_final_certification_required": true,
+    "public_title_owner": "HUMAN",
+    "thumbnail_owner": "HUMAN"
+  },
+  "brand_assets": {
+    "canonical_directory": "C:\\Users\\abdul\\OneDrive\\Desktop\\\u0633\u0631\u0627\u062c\\intro outro",
+    "discovery_status": "EXACTLY_ONE_VIDEO_AND_EXACTLY_ONE_IMAGE_CONFIRMED",
+    "intro_filename": "pixverse-v6-9c194a5a.mp4",
+    "intro_sha256": "3de59689f16329fd7f701d010526a9280843917625d02dcac9aa5569250b37f4",
+    "outro_filename": "ChatGPT Image Aug 8, 2026, 01_26_49 AM.png",
+    "outro_sha256": "09c01a3e144b9c1fbfe3ddad5d08f2fb4759ef054d6b071ce17e255f7c614004",
+    "shorts_action": "DISCOVERED_AND_HASH_BOUND; NOT_MONTAGED_OR_MODIFIED_BY_SHORTS"
+  },
+  "verification": {
+    "shorts_desktop_matrix": {"result": "67 passed", "scope": "activation, storage, engine, adversarial, renderer, Desktop workflow, Desktop UI, legacy locks"},
+    "canonical_storage_matrix": "23 passed",
+    "desktop_workflow_acceptance": "PASS: real local render, QA, tracked human review, canonical export, restart/resume",
+    "desktop_ui_offscreen": "PASS: existing window, four tested sizes, navigation and dock geometry",
+    "full_repository_matrix": "753 passed, 1 skipped",
+    "full_repository_skip": "Live provider verification requires explicit credentials and opt-in; no production call was made.",
+    "syntax_and_compile": "PASS",
+    "native_episode_smoke": "REAL_NATIVE_EPISODE_SMOKE=NOT_AVAILABLE_NO_SAFE_INPUT",
+    "native_smoke_reason": "EP002 native directory admission correctly blocked BLOCK_AMBIGUOUS_SOURCE:EPISODE_METADATA; no ambiguous input was rendered.",
+    "unresolved_critical": 0,
+    "unresolved_high": 0
+  },
+  "human_actions_still_required": [
+    "Select an admitted safe episode in SIRAJ Desktop -> Shorts.",
+    "Review and approve candidate portfolio.",
+    "Click Approve Local Render explicitly.",
+    "Watch the entire rendered short without interruption, inspect detail frames, and approve or reject.",
+    "Use the exported local package manually for any later public title, thumbnail, upload, or publication.",
+    "Do not treat the certification as permission for provider, paid, network, YouTube, or montage execution."
+  ],
+  "go_no_go": {
+    "go": "DIRECT_HUMAN_CONTROLLED_LOCAL_USE_ON_ADMITTED_SAFE_SOURCE",
+    "no_go": ["AUTOMATED_PRODUCTION", "PROVIDER_EXECUTION", "PAID_EXECUTION", "NETWORK_PRODUCTION", "RETRY_OR_RESUBMISSION", "YOUTUBE_UPLOAD", "AUTOMATIC_PUBLICATION", "MONTAGE"],
+    "reason": "All Critical and High gaps are closed for the declared offline local workflow; the remaining native smoke item is an informational safe-input availability condition, not a bypass."
+  },
+  "next_user_action": "Open SIRAJ Desktop -> Shorts -> Select Episode -> Produce Shorts; approved outputs go under Desktop/SIRAJ Shorts/<Episode>.",
+  "evidence_files": [
+    "reports/shorts-derivative-engine-v1/SHORTS_REAL_USE_READINESS_GAP_AUDIT_V1.json",
+    "reports/shorts-derivative-engine-v1/SHORTS_CONFLICT_MATRIX_V1.json",
+    "reports/shorts-derivative-engine-v1/SHORTS_GAP_ENFORCEMENT_MATRIX_V1.json",
+    "reports/shorts-derivative-engine-v1/SHORTS_DEPENDENCY_APPROVAL_INVALIDATION_MODEL_V1.json",
+    "tests/integration/test_shorts_desktop_workflow_v1.py",
+    "tests/integration/test_shorts_desktop_ui_v1.py",
+    "tests/unit/test_shorts_storage_v1.py"
+  ]
+}

@@ -2944,3 +2944,50 @@ Authority:
 NEXT=USER_PROVIDES_SELECTED_EPISODE_FOR_FIRST_CONTROLLED_SHORTS_RUN
 
 ========================================================
+
+========================================================
+SIRAJ SHORTS DIRECT-USE ACTIVATION AND CANONICAL DESKTOP STORAGE - 2026-08-14
+========================================================
+
+Status:
+SHORTS_ENGINE_READY_FOR_DIRECT_HUMAN_CONTROLLED_LOCAL_USE
+
+Completed:
+
+- Activated the existing Desktop Shorts surface through SOURCE, ANALYZE, CANDIDATES, PORTFOLIO, RENDER_PLANS, LOCAL_RENDERS, QA_REVIEW, and EXPORT stages.
+- Added hash-bound, single-use Desktop authorization with live Qt runtime validation, explicit click, nonce, consumed state, and idempotency lock.
+- Added source and metadata hash revalidation, stale-state invalidation, resumable workflow state, asynchronous QThread work, and cancellable local FFmpeg execution.
+- Added canonical Desktop discovery and the stable SIRAJ Shorts library with Shorts, Captions, Manifests, and Reviews folders.
+- Added atomic no-overwrite exports, ALREADY_EXPORTED handling, versioned -v2 outputs, manifest hash equality, moved-root detection, and filesystem index rebuild.
+- Preserved provider, paid, network production, retry/resubmission, montage, new TTS, new visual generation, upload, auto-publication, title automation, and thumbnail automation as forbidden.
+- Kept the unified constitution and core enforcement unchanged. Constitution bundle SHA256 remains 77c451711eb1888664518c9fe89e176033fdf7612f4636e18c0e0ca4d3af4f54.
+
+Certification:
+
+- Shorts/Desktop matrix: 67 passed.
+- Canonical storage matrix: 23 passed.
+- Full repository matrix: 753 passed, 1 skipped; the skip is live-provider opt-in only.
+- Native smoke: REAL_NATIVE_EPISODE_SMOKE=NOT_AVAILABLE_NO_SAFE_INPUT because EP002 native admission blocks ambiguous metadata.
+- Critical unresolved gaps: 0.
+- High unresolved gaps: 0.
+- Human final visual/constitutional certification remains mandatory.
+
+Safety:
+
+- Provider calls: 0.
+- Paid calls: 0.
+- Network production calls: 0.
+- Retries/resubmissions: 0/0.
+- Montage/YouTube/publication executions: 0/0/0.
+
+Evidence:
+
+- reports/shorts-derivative-engine-v1/SHORTS_ENGINE_REAL_USE_READINESS_CERTIFICATION_V1.json
+- reports/shorts-derivative-engine-v1/SHORTS_REAL_USE_READINESS_GAP_AUDIT_V1.json
+- reports/shorts-derivative-engine-v1/SHORTS_CONFLICT_MATRIX_V1.json
+- reports/shorts-derivative-engine-v1/SHORTS_GAP_ENFORCEMENT_MATRIX_V1.json
+- reports/shorts-derivative-engine-v1/SHORTS_DEPENDENCY_APPROVAL_INVALIDATION_MODEL_V1.json
+
+NEXT=OPEN_SIRAJ_DESKTOP_AND_SELECT_AN_ADMITTED_SAFE_EPISODE_FOR_THE_FIRST_CONTROLLED_LOCAL_SHORTS_RUN
+
+========================================================

@@ -1,0 +1,105 @@
+{
+  "schema_version": "siraj-shorts-real-use-readiness-gap-audit-v1",
+  "report_id": "SHORTS_REAL_USE_READINESS_GAP_AUDIT_V1",
+  "generated_at": "2026-08-13T23:53:56.141Z",
+  "repository": "C:\\SIRAJ\\Repositories\\siraj-os",
+  "branch": "feature/shorts-derivative-engine-v1",
+  "base_head": "bbddac2a3dd8b2e3c62885abf6067186fdf5a8f4",
+  "scope": "SR-00 through SR-25 and SR-13A offline readiness audit",
+  "safety_boundary": {
+    "provider_calls": 0,
+    "paid_calls": 0,
+    "network_production_calls": 0,
+    "youtube_calls": 0,
+    "retry_or_resubmission": 0,
+    "montage": 0,
+    "new_tts_generation": 0,
+    "new_visual_generation": 0,
+    "automatic_publication": false,
+    "public_title_owner": "HUMAN",
+    "thumbnail_owner": "HUMAN"
+  },
+  "constitutional_binding": {
+    "constitution_bundle_sha256": "77c451711eb1888664518c9fe89e176033fdf7612f4636e18c0e0ca4d3af4f54",
+    "constitution_modified": false,
+    "core_enforcement_modified": false,
+    "global_face_policy_preserved": true,
+    "open_m03": "DEFERRED_HUMAN_REVIEW_ONLY"
+  },
+  "initial_findings": [
+    {
+      "id": "SR-00-GAP-01",
+      "severity": "CRITICAL",
+      "finding": "Real local render was blocked behind fixture-only guard and had no Desktop hash-bound authorization.",
+      "resolution": "Closed by a single-use authorization envelope, explicit Desktop click, exact source/plan/profile/constitution hashes, runtime Qt check, and idempotency lock.",
+      "status": "CLOSED",
+      "evidence": ["src/application/shorts_derivative_execution_v1.py", "tests/unit/test_shorts_derivative_activation_v1.py", "tests/integration/test_shorts_desktop_workflow_v1.py"]
+    },
+    {
+      "id": "SR-00-GAP-02",
+      "severity": "HIGH",
+      "finding": "Desktop surface stopped before local render, QA, human review, and export.",
+      "resolution": "Closed by the eight-stage dock workflow, QThread jobs, cancellation event, QA gate, tracked review session, and export action.",
+      "status": "CLOSED",
+      "evidence": ["src/application/shorts_derivative_desktop_integration_v1.py", "src/presentation/desktop/shorts_derivative_dock_v1.py", "tests/integration/test_shorts_desktop_ui_v1.py"]
+    },
+    {
+      "id": "SR-00-GAP-03",
+      "severity": "HIGH",
+      "finding": "Source metadata and persisted workflow state were not fully hash-bound for resumed work.",
+      "resolution": "Closed by metadata hash revalidation at analyze, plan, render, persisted state invalidation, and deserializers with stale-state blocking.",
+      "status": "CLOSED",
+      "evidence": ["src/application/shorts_derivative_engine_v1.py", "src/application/shorts_derivative_desktop_integration_v1.py", "tests/integration/test_shorts_desktop_workflow_v1.py"]
+    },
+    {
+      "id": "SR-00-GAP-04",
+      "severity": "HIGH",
+      "finding": "Canonical Desktop storage, no-overwrite behavior, and exported hash verification were absent.",
+      "resolution": "Closed by discovered Desktop/SIRAJ Shorts root, stable episode identity, atomic export, v2 versioning, rebuild index, moved-root detection, and manifest hash equality.",
+      "status": "CLOSED",
+      "evidence": ["src/application/shorts_derivative_storage_v1.py", "tests/unit/test_shorts_storage_v1.py"]
+    },
+    {
+      "id": "SR-00-GAP-05",
+      "severity": "HIGH",
+      "finding": "QA could pass constitutional dimensions through missing placeholder evidence and did not expose human face review as a hard boundary.",
+      "resolution": "Closed by removing silent defaults, preserving HUMAN_REVIEW_REQUIRED for FACE and UNSEEN, and requiring review-session evidence before real export.",
+      "status": "CLOSED",
+      "evidence": ["src/application/shorts_derivative_engine_v1.py", "tests/unit/test_shorts_derivative_activation_v1.py"]
+    },
+    {
+      "id": "SR-00-GAP-06",
+      "severity": "MEDIUM",
+      "finding": "The native EP002 directory has ambiguous metadata candidates and no safe native smoke input was available.",
+      "resolution": "Kept fail-closed; native admission reports BLOCK_AMBIGUOUS_SOURCE:EPISODE_METADATA. Video-plus-transcript is the explicit safe-input path.",
+      "status": "OPEN_INFORMATIONAL_NOT_A_DEFECT",
+      "evidence": ["REAL_NATIVE_EPISODE_SMOKE=NOT_AVAILABLE_NO_SAFE_INPUT", "SHORT_SOURCE_MISSING:BLOCK_AMBIGUOUS_SOURCE:EPISODE_METADATA"]
+    }
+  ],
+  "legacy_six_classification": [
+    {"test": "tests/test_desktop_media_execution_v1.py::test_explicit_authorization_limit_must_match", "classification": "LEGACY_PAID_EXECUTION_LOCK", "final_status": "PASS"},
+    {"test": "tests/test_desktop_media_execution_v1.py::test_runware_uses_uuid4_and_locks_before_network", "classification": "LEGACY_PROVIDER_EXECUTION_LOCK", "final_status": "PASS"},
+    {"test": "tests/test_desktop_media_execution_v1.py::test_existing_lock_blocks_resubmission", "classification": "LEGACY_RESUBMISSION_LOCK", "final_status": "PASS"},
+    {"test": "tests/test_desktop_media_execution_v1.py::test_uncertified_runware_item_is_blocked_before_network", "classification": "LEGACY_PROVIDER_CERTIFICATION_LOCK", "final_status": "PASS"},
+    {"test": "tests/test_desktop_media_execution_v1.py::test_runware_recovery_uses_locked_luna_certification", "classification": "LEGACY_RECOVERY_PAID_LOCK", "final_status": "PASS"},
+    {"test": "tests/test_full_desktop_ui_canonical_restoration.py::test_full_ui_opens_idle_with_authoritative_ep002_state", "classification": "STALE_AUTHORITY_ASSERTION_UPDATED_TO_LIVE_STATE", "final_status": "PASS"}
+  ],
+  "verification": {
+    "shorts_desktop_matrix": "67 passed",
+    "full_repository_matrix": "753 passed, 1 skipped",
+    "full_repository_skip": "tests/integration/test_rc_hardening_phase2.py:50 - Live provider verification requires explicit credentials and opt-in.",
+    "compile_and_syntax": "PASS",
+    "qt_offscreen_geometry": "PASS",
+    "native_smoke": "NOT_AVAILABLE_NO_SAFE_INPUT",
+    "human_final_certification": "REQUIRED_AND_NOT_AUTOMATED"
+  },
+  "unresolved_counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "informational": 1
+  },
+  "verdict": "PASS_FOR_DIRECT_HUMAN_CONTROLLED_LOCAL_USE_ON_AN_ADMITTED_SAFE_SOURCE",
+  "forbidden_verdicts": ["AUTOMATED_PRODUCTION", "PROVIDER_EXECUTION", "PAID_EXECUTION", "NETWORK_PRODUCTION", "YOUTUBE_UPLOAD", "AUTOMATIC_PUBLICATION"]
+}
