@@ -3108,3 +3108,45 @@ Evidence:
 NEXT=OPEN_SIRAJ_DESKTOP_AND_SELECT_AN_ADMITTED_SAFE_EPISODE_FOR_THE_FIRST_CONTROLLED_LOCAL_SHORTS_RUN
 
 ========================================================
+
+========================================================
+SIRAJ SHORTS CONVERSION AND BURNED CAPTIONS DIRECTOR V1 - 2026-08-14
+========================================================
+
+Status:
+SHORTS_CONVERSION_DIRECTOR_AND_CAPTION_ENGINE_CERTIFIED_EP001_CAPTION_TIMING_BLOCKED_FAIL_CLOSED
+
+Completed:
+
+- Added the explicit Short-to-Longform Conversion Director with hook, retention, standalone value, open-loop, conversion, spoiler, payoff-overdisclosure, endpoint, provenance, and cumulative portfolio controls.
+- Added the Shorts-only burned narration caption engine with narration-only text authority, trusted hash binding, explicit Short local timebase remapping, safe-area/placement gates, two-line limit, RTL/mixed-direction contracts, and no proportional timing guessing.
+- Amended the unified constitution to version 1.1.0 with a scoped Shorts burned-narration-caption exception. Longform burned captions and on-screen subtitles remain forbidden and enforced.
+- Rebound PR01 against constitution bundle SHA256 c82097a3de2dfa9c4b7a4b6d2c7c1b1f7fab909d25575724167e8ea7f4e3c7b8; M01/M02/M03 inputs were unchanged and historical UNKNOWN remains blocked.
+- Added Shorts Desktop caption UX with default ON, technical-details-only disclosure, and an explicit no-caption-control Longform model.
+
+Certification:
+- Conversion/caption/UX integration matrix: 75 passed.
+- Relevant Shorts/Desktop/legacy/storage/PR01/constitutional matrix: 368 passed.
+- Full repository suite: 879 passed, 1 existing live-provider opt-in skip.
+- Python compileall, git diff checks, secret scan, PR01 rebind, and visual fixture manifest: PASS.
+- Representative 1080x1920 dark Arabic and bright mixed-direction synthetic frames were visually inspected; no production render or export was performed.
+- EP001 source admission: PASS, auto-discovered trusted timing, 43 segments, final-video absolute timebase, source and final narration hashes bound, 229 analysis candidates.
+- EP001 caption planning: CAPTION_TIMING_INSUFFICIENT. The historical evidence is coarse; no eligible 15-60 second candidate has sufficient trusted caption granularity. No ASR, proportional split, or invented timing was used.
+
+Safety:
+- Provider calls: 0.
+- Paid calls: 0.
+- Network production calls: 0.
+- Retries/resubmissions: 0/0.
+- Production renders/montage/publication/YouTube API: 0/0/0/0/0.
+- New TTS/narration/visual generation: 0/0/0.
+- Production and paid authorization remain false.
+
+Evidence:
+- reports/shorts-conversion-captions-v1/
+- reports/pr01-production-readiness/SIRAJ_PRODUCTION_READINESS_PROFILE_V1.json
+- tests/fixtures/shorts_caption_visual_fixtures_v1.json
+
+NEXT=SUPPLY_OR_SELECT_TRUSTED_WORD_OR_PHRASE_TIMING_FOR_EP001_THEN_RERUN_CAPTION_PLANNING
+
+========================================================

@@ -1,0 +1,126 @@
+{
+  "schema_version": "siraj-shorts-caption-visual-fixtures-v1",
+  "width": 1080,
+  "height": 1920,
+  "aspect_ratio": "9:16",
+  "max_lines": 2,
+  "scenarios": [
+    {
+      "id": "arabic",
+      "content_profile": "ARABIC",
+      "subject_position": "CENTER",
+      "background": "NEUTRAL",
+      "expected_placement": "PRIMARY_SAFE",
+      "expected_result": "PASS",
+      "expected_max_lines": 2
+    },
+    {
+      "id": "long_sentence",
+      "content_profile": "LONG_SENTENCE",
+      "subject_position": "CENTER",
+      "background": "NEUTRAL",
+      "expected_placement": "PRIMARY_SAFE",
+      "expected_result": "PASS_WITH_LINE_LIMIT",
+      "expected_max_lines": 2
+    },
+    {
+      "id": "arabic_english",
+      "content_profile": "ARABIC_ENGLISH",
+      "subject_position": "CENTER",
+      "background": "NEUTRAL",
+      "expected_placement": "PRIMARY_SAFE",
+      "expected_result": "MIXED_DIRECTION_CHECK",
+      "expected_max_lines": 2
+    },
+    {
+      "id": "arabic_numbers",
+      "content_profile": "ARABIC_NUMBERS",
+      "subject_position": "CENTER",
+      "background": "NEUTRAL",
+      "expected_placement": "PRIMARY_SAFE",
+      "expected_result": "MIXED_DIRECTION_CHECK",
+      "expected_max_lines": 2
+    },
+    {
+      "id": "two_lines",
+      "content_profile": "TWO_LINES",
+      "subject_position": "CENTER",
+      "background": "NEUTRAL",
+      "expected_placement": "PRIMARY_SAFE",
+      "expected_result": "MAX_TWO_LINES",
+      "expected_max_lines": 2
+    },
+    {
+      "id": "subject_near_bottom",
+      "content_profile": "ARABIC",
+      "subject_position": "NEAR_BOTTOM",
+      "background": "NEUTRAL",
+      "expected_placement": "PRIMARY_SAFE",
+      "expected_result": "COLLISION_CHECK",
+      "expected_max_lines": 2
+    },
+    {
+      "id": "subject_center",
+      "content_profile": "ARABIC",
+      "subject_position": "CENTER",
+      "background": "NEUTRAL",
+      "expected_placement": "PRIMARY_SAFE",
+      "expected_result": "COLLISION_CHECK",
+      "expected_max_lines": 2
+    },
+    {
+      "id": "subject_right",
+      "content_profile": "ARABIC",
+      "subject_position": "RIGHT",
+      "background": "NEUTRAL",
+      "expected_placement": "PRIMARY_SAFE",
+      "expected_result": "COLLISION_CHECK",
+      "expected_max_lines": 2
+    },
+    {
+      "id": "subject_left",
+      "content_profile": "ARABIC",
+      "subject_position": "LEFT",
+      "background": "NEUTRAL",
+      "expected_placement": "PRIMARY_SAFE",
+      "expected_result": "COLLISION_CHECK",
+      "expected_max_lines": 2
+    },
+    {
+      "id": "bright_background",
+      "content_profile": "ARABIC",
+      "subject_position": "CENTER",
+      "background": "BRIGHT",
+      "expected_placement": "PRIMARY_SAFE",
+      "expected_result": "CONTRAST_CHECK",
+      "expected_max_lines": 2
+    },
+    {
+      "id": "dark_background",
+      "content_profile": "ARABIC",
+      "subject_position": "CENTER",
+      "background": "DARK",
+      "expected_placement": "PRIMARY_SAFE",
+      "expected_result": "CONTRAST_CHECK",
+      "expected_max_lines": 2
+    },
+    {
+      "id": "fallback_placement",
+      "content_profile": "ARABIC",
+      "subject_position": "CENTER",
+      "background": "NEUTRAL",
+      "expected_placement": "FALLBACK_SAFE",
+      "expected_result": "FALLBACK_PLACEMENT",
+      "expected_max_lines": 2
+    },
+    {
+      "id": "impossible_placement",
+      "content_profile": "ARABIC",
+      "subject_position": "CENTER",
+      "background": "NEUTRAL",
+      "expected_placement": "NONE",
+      "expected_result": "CAPTION_PLACEMENT_BLOCKED",
+      "expected_max_lines": 2
+    }
+  ]
+}

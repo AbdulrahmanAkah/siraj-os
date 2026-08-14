@@ -77,8 +77,8 @@ def test_e0_canonical_metadata_and_counts(constitution) -> None:
     metadata = constitution.constitution
     assert metadata == {
         "id": "SIRAJ_UNIFIED_PRODUCTION_CONSTITUTION",
-        "version": "1.0.0",
-        "bundle_id": "SIRAJ-CONSTITUTION-1.0.0-20260813",
+        "version": "1.1.0",
+        "bundle_id": "SIRAJ-CONSTITUTION-1.1.0-20260814",
         "authority": "SYSTEM_ROOT",
         "scope": "SERIES_WIDE",
         "fail_closed": True,
@@ -322,6 +322,87 @@ def test_policy_compiler_has_no_silent_sensitive_default(registry) -> None:
     result = compile_policy(registry, contract, {})
     assert result["status"] == "BLOCKED"
     assert "FAIL_REQUIRED_BINDING:canonical_reference_sha256" in result["errors"]
+
+
+def test_policy_compiler_blocks_longform_caption_flags_and_unbound_short_exception(registry) -> None:
+    longform = _base_contract("safe rear view")
+    longform["burned_captions"] = True
+    result = compile_policy(registry, longform, {})
+    assert result["status"] == "BLOCKED"
+    assert "FAIL_LONGFORM_BURNED_CAPTIONS" in result["errors"]
+
+    short = _base_contract("safe rear view")
+    short["artifact_scope"] = "SHORT_DERIVATIVE"
+    short["burned_captions"] = True
+    result = compile_policy(registry, short, {})
+    assert result["status"] == "BLOCKED"
+    assert "FAIL_SHORT_CAPTION_SCOPE_CONTRACT" in result["errors"]
+
+
+def _short_caption_artifact(registry) -> dict:
+    rule = registry.require("SIRAJ.S06.EXTERNAL_CLOSED_CAPTIONS")
+    artifact = build_rule_test_artifact(rule, registry.constitution)
+    artifact["artifact_scope"] = "SHORT_DERIVATIVE"
+    artifact["burned_captions"] = True
+    artifact["on_screen_subtitles"] = False
+    artifact["graphics_contract"]["burned_captions"] = True
+    artifact["caption_contract"] = {
+        "mode": "BURNED_NARRATION_CAPTIONS",
+        "enabled": True,
+        "synced_to_narration": True,
+        "narration_only": True,
+        "text_is_verbatim": True,
+        "text_authority": "CANONICAL_TIMED_TRANSCRIPT",
+        "transcript_sha256": "a" * 64,
+        "timing_source_sha256": "b" * 64,
+        "invented_text": False,
+        "hook_text": False,
+        "title_card_text": False,
+        "cta_text": False,
+        "subscribe_text": False,
+        "decorative_prose": False,
+        "fact_overlay_text": False,
+        "unrelated_text": False,
+        "banner_text": False,
+        "promotional_text": False,
+    }
+    return artifact
+
+
+def test_longform_burned_captions_remain_blocked(registry) -> None:
+    rule = registry.require("SIRAJ.S06.EXTERNAL_CLOSED_CAPTIONS")
+    artifact = build_rule_test_artifact(rule, registry.constitution)
+    artifact["burned_captions"] = True
+    finding = ValidatorRegistry(registry).validate("caption_separation_validator", artifact)
+    assert finding.status == "BLOCKED"
+    assert finding.failure_code == "FAIL_BURNED_IN_CAPTIONS"
+
+
+def test_longform_on_screen_subtitles_remain_blocked(registry) -> None:
+    rule = registry.require("SIRAJ.S06.EXTERNAL_CLOSED_CAPTIONS")
+    artifact = build_rule_test_artifact(rule, registry.constitution)
+    artifact["on_screen_subtitles"] = True
+    finding = ValidatorRegistry(registry).validate("caption_separation_validator", artifact)
+    assert finding.status == "BLOCKED"
+    assert finding.failure_code == "FAIL_BURNED_IN_CAPTIONS"
+
+
+def test_short_derivative_allows_only_hash_bound_narration_captions(registry) -> None:
+    validators = ValidatorRegistry(registry)
+    artifact = _short_caption_artifact(registry)
+    caption = validators.validate("caption_separation_validator", artifact)
+    graphics = validators.validate("render_graphics_validator", artifact)
+    assert caption.status == "PASS"
+    assert graphics.status == "PASS"
+
+
+def test_short_derivative_caption_invented_text_or_missing_hash_blocks(registry) -> None:
+    artifact = _short_caption_artifact(registry)
+    artifact["caption_contract"]["cta_text"] = True
+    assert ValidatorRegistry(registry).validate("caption_separation_validator", artifact).status == "BLOCKED"
+    artifact = _short_caption_artifact(registry)
+    artifact["caption_contract"]["timing_source_sha256"] = "UNKNOWN"
+    assert ValidatorRegistry(registry).validate("caption_separation_validator", artifact).status == "BLOCKED"
 
 
 def _approval_mapping(constitution, subject: object) -> dict:

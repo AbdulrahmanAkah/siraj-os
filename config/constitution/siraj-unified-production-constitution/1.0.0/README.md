@@ -1,14 +1,25 @@
-# حزمة دستور سراج الموحد 1.0.0
+# حزمة دستور سراج الموحد 1.1.0
+
+هذه نسخة amendment مقصودة من الإصدار 1.0.0. التغيير الوحيد في السياسة هو إضافة نطاق مقيد يسمح بـShorts burned narration captions المتزامنة مع النص المنطوق؛ تبقى Longform burned captions وon-screen subtitles ممنوعة.
 
 هذه حزمة consolidation + audit + enforcement design فقط. لا تحتوي كودًا إنتاجيًا ولا تمنح إذنًا لأي مزود أو إنفاق أو إعادة إرسال أو مونتاج.
 
 ## الملفات
 
-- `SIRAJ_UNIFIED_PRODUCTION_CONSTITUTION_V1.md`: الدستور الموحد القابل للقراءة.
+- `SIRAJ_UNIFIED_PRODUCTION_CONSTITUTION_V1.md`: الدستور الموحد القابل للقراءة، الإصدار 1.1.0.
 - `siraj_unified_constitution_v1.rules.json`: مصدر القواعد المنظم المقترح للتنفيذ.
 - `siraj_unified_constitution_rule_model.schema.json`: مخطط بنية نموذج القواعد.
 - `SIRAJ_CONSOLIDATION_AUDIT_AND_ENFORCEMENT_DESIGN_V1.md`: مصفوفة التعارضات والفجوات والإنفاذ والإبطال والقرارات المفتوحة وقرار GO/NO-GO.
 - `bundle_manifest.json`: بصمات ملفات الحزمة وحالة حدود المرحلة.
+
+## Amendment: Shorts captions
+
+```text
+LONGFORM_BURNED_CAPTIONS = FORBIDDEN
+LONGFORM_ON_SCREEN_SUBTITLES = FORBIDDEN
+SHORT_DERIVATIVE_BURNED_NARRATION_CAPTIONS = ALLOWED_IF_SYNCED_AND_HASH_BOUND
+SHORT_DERIVATIVE_INVENTED_TEXT = FORBIDDEN
+```
 
 ## القرار
 

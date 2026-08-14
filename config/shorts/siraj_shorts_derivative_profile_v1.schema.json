@@ -11,7 +11,7 @@
       "required": [
         "profile_id", "version", "media_type", "output_orientation", "aspect_ratio",
         "source_policy", "new_visual_generation", "new_narration_generation", "new_tts_generation",
-        "music", "burned_captions", "on_screen_subtitles", "external_closed_captions_allowed",
+        "music", "burned_captions", "on_screen_subtitles", "external_closed_captions_allowed", "caption_policy",
         "public_title_generation", "thumbnail_generation", "automatic_publication", "max_shorts_per_day",
         "target_duration_min_seconds", "target_duration_max_seconds", "duration_values_are",
         "quality_over_slot_filling", "candidate_count_is_dynamic", "publication_count_is_dynamic",
@@ -20,7 +20,7 @@
       ],
       "properties": {
         "profile_id": {"const": "SIRAJ_SHORTS_DERIVATIVE_PROFILE_V1"},
-        "version": {"const": "1.0.0"},
+        "version": {"const": "1.1.0"},
         "media_type": {"const": "SHORT_DERIVATIVE"},
         "output_orientation": {"const": "VERTICAL"},
         "aspect_ratio": {"const": "9:16"},
@@ -29,9 +29,49 @@
         "new_narration_generation": {"const": false},
         "new_tts_generation": {"const": false},
         "music": {"const": false},
-        "burned_captions": {"const": false},
+        "burned_captions": {"const": true},
         "on_screen_subtitles": {"const": false},
         "external_closed_captions_allowed": {"const": true},
+        "caption_policy": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "default_enabled", "scope", "mode", "text_authority", "narration_only",
+            "allow_invented_text", "allow_hook_text", "allow_title_card_text", "allow_cta_text",
+            "allow_subscribe_text", "allow_decorative_prose", "allow_fact_overlay_text",
+            "allow_unrelated_text", "allow_banner_text", "allow_promotional_text",
+            "max_simultaneous_lines", "frame_width", "frame_height", "aspect_ratio",
+            "timing_authority_order", "coarse_timing_action", "safe_area_profile"
+          ],
+          "properties": {
+            "default_enabled": {"const": true},
+            "scope": {"const": "SHORT_DERIVATIVE_ONLY"},
+            "mode": {"const": "BURNED_NARRATION_CAPTIONS_ONLY"},
+            "text_authority": {
+              "const": ["CANONICAL_TIMED_TRANSCRIPT", "TRUSTED_HASH_BOUND_TIMING"]
+            },
+            "narration_only": {"const": true},
+            "allow_invented_text": {"const": false},
+            "allow_hook_text": {"const": false},
+            "allow_title_card_text": {"const": false},
+            "allow_cta_text": {"const": false},
+            "allow_subscribe_text": {"const": false},
+            "allow_decorative_prose": {"const": false},
+            "allow_fact_overlay_text": {"const": false},
+            "allow_unrelated_text": {"const": false},
+            "allow_banner_text": {"const": false},
+            "allow_promotional_text": {"const": false},
+            "max_simultaneous_lines": {"const": 2},
+            "frame_width": {"const": 1080},
+            "frame_height": {"const": 1920},
+            "aspect_ratio": {"const": "9:16"},
+            "timing_authority_order": {
+              "const": ["WORD_BOUNDARY", "PHRASE_CLAUSE_BOUNDARY", "SENTENCE_BOUNDARY"]
+            },
+            "coarse_timing_action": {"const": "CAPTION_TIMING_INSUFFICIENT"},
+            "safe_area_profile": {"const": "SHORTS_CAPTION_SAFE_AREA_PROFILE_V1"}
+          }
+        },
         "public_title_generation": {"const": false},
         "thumbnail_generation": {"const": false},
         "automatic_publication": {"const": false},

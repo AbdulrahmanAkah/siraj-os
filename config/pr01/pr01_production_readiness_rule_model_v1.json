@@ -1,7 +1,7 @@
 {
   "rule_model_id": "SIRAJ_PR01_PRODUCTION_READINESS_RULE_MODEL_V1",
   "version": "1.0.0",
-  "authority": "SIRAJ_UNIFIED_PRODUCTION_CONSTITUTION_1.0.0",
+  "authority": "SIRAJ_UNIFIED_PRODUCTION_CONSTITUTION_1.1.0",
   "mode": "OFFLINE_AND_DOCUMENTATION_READONLY_PRODUCTION_READINESS_CERTIFICATION",
   "fail_closed": true,
   "production_authorized": false,
@@ -58,5 +58,14 @@
     "network_production_calls_during_pr01": 0,
     "paid_calls_during_pr01": 0
   },
-  "binding_sha256": "1b736209f5cdfd57818e48acde12d4fd799c5b68d9970bf3bd356ae71a088277"
+  "constitution_rebind_policy": {
+    "invalidation_event": "constitution_bundle_changed",
+    "invalidate_prior_approvals": true,
+    "rebuild_m01_m02_m03_when_input_hashes_unchanged": false,
+    "compatibility_revalidation_required": true,
+    "production_authorized": false,
+    "paid_execution_authorized": false,
+    "historical_unknown": "UNKNOWN_REMAINS_BLOCK"
+  },
+  "binding_sha256": "e7a0bdf063092f73c84a60037c6eac85a159fd49480dab03522423f0ee5389cb"
 }

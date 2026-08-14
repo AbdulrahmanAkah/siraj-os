@@ -237,8 +237,8 @@ def _certify(args: argparse.Namespace) -> int:
     e0_checks = {
         "draft_2020_12_validator_version": constitution.schema_validator_version,
         "constitution_id": constitution.constitution["id"] == "SIRAJ_UNIFIED_PRODUCTION_CONSTITUTION",
-        "version": constitution.constitution["version"] == "1.0.0",
-        "bundle_id": constitution.constitution["bundle_id"] == "SIRAJ-CONSTITUTION-1.0.0-20260813",
+        "version": constitution.constitution["version"] == "1.1.0",
+        "bundle_id": constitution.constitution["bundle_id"] == "SIRAJ-CONSTITUTION-1.1.0-20260814",
         "authority": constitution.constitution["authority"] == "SYSTEM_ROOT",
         "scope": constitution.constitution["scope"] == "SERIES_WIDE",
         "fail_closed": constitution.constitution["fail_closed"] is True,

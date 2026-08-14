@@ -2,8 +2,8 @@
   "$schema": "./siraj_unified_constitution_rule_model.schema.json",
   "constitution": {
     "id": "SIRAJ_UNIFIED_PRODUCTION_CONSTITUTION",
-    "version": "1.0.0",
-    "bundle_id": "SIRAJ-CONSTITUTION-1.0.0-20260813",
+    "version": "1.1.0",
+    "bundle_id": "SIRAJ-CONSTITUTION-1.1.0-20260814",
     "authority": "SYSTEM_ROOT",
     "scope": "SERIES_WIDE",
     "fail_closed": true,
@@ -212,7 +212,24 @@
       "severity": "HIGH",
       "scope": "SERIES_WIDE",
       "norm": "FORBIDDEN",
-      "value": ["ON_SCREEN_CITATIONS", "SOURCE_CARDS", "TEXT_OVERLAYS", "INFOGRAPHICS", "DIAGRAMS", "GRAPHICAL_FOOTNOTES"],
+      "value": {
+        "longform_forbidden": ["ON_SCREEN_CITATIONS", "SOURCE_CARDS", "TEXT_OVERLAYS", "INFOGRAPHICS", "DIAGRAMS", "GRAPHICAL_FOOTNOTES", "BURNED_NARRATION_CAPTIONS", "ON_SCREEN_SUBTITLES"],
+        "short_derivative_exception": {
+          "mode": "BURNED_NARRATION_CAPTIONS_ONLY",
+          "synced_to_narration": true,
+          "text_authority": ["CANONICAL_TIMED_TRANSCRIPT", "TRUSTED_HASH_BOUND_TIMING"],
+          "narration_only": true,
+          "invented_text": false,
+          "hook_text": false,
+          "title_card_text": false,
+          "cta_text": false,
+          "subscribe_text": false,
+          "decorative_prose": false,
+          "fact_overlay_text": false,
+          "unrelated_text": false,
+          "promotional_text": false
+        }
+      },
       "fail_closed": true,
       "compiler": { "applies": true, "obligations": ["convert_required_disclosure_to_narration", "forbid_visual_citation_assets"] },
       "validators": ["storyboard_graphics_validator", "render_graphics_validator", "montage_overlay_validator"],
@@ -463,13 +480,25 @@
     {
       "id": "SIRAJ.S06.EXTERNAL_CLOSED_CAPTIONS",
       "section": 6,
-      "title": "السماح بالـClosed Captions الخارجية ومنع النص المحروق",
+      "title": "السماح بالـClosed Captions الخارجية وقصر captions السرد المحروقة على Shorts فقط",
       "severity": "HIGH",
       "scope": "PUBLICATION",
       "norm": "ALLOWED",
-      "value": { "external_optional": true, "burned_in": false, "on_screen_subtitles": false },
+      "value": {
+        "external_optional": true,
+        "longform": { "burned_in": false, "on_screen_subtitles": false },
+        "short_derivative": {
+          "burned_narration_captions": true,
+          "default_enabled": true,
+          "requires_narration_sync": true,
+          "text_authority": ["CANONICAL_TIMED_TRANSCRIPT", "TRUSTED_HASH_BOUND_TIMING"],
+          "narration_only": true,
+          "invented_text": false,
+          "forbidden_text": ["HOOK", "TITLE_CARD", "CTA", "SUBSCRIBE", "DECORATIVE_PROSE", "FACT_OVERLAY", "UNRELATED", "BANNER", "PROMOTIONAL"]
+        }
+      },
       "fail_closed": true,
-      "compiler": { "applies": true, "obligations": ["emit_separate_caption_artifact", "never_burn_captions_into_video"] },
+      "compiler": { "applies": true, "obligations": ["emit_separate_caption_artifact", "forbid_longform_burned_captions", "allow_only_hash_bound_short_narration_captions", "reject_invented_short_caption_text"] },
       "validators": ["caption_separation_validator", "render_text_overlay_validator"],
       "tests": ["accept_external_caption_file", "reject_burned_in_caption"],
       "runtime_gates": ["montage_gate", "publication_package_gate"],

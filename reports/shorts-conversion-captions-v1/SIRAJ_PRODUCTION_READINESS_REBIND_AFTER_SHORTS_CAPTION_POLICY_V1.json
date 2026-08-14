@@ -1,0 +1,43 @@
+{
+  "schema_version": "SIRAJ_PRODUCTION_READINESS_REBIND_AFTER_SHORTS_CAPTION_POLICY_V1",
+  "task": "SIRAJ_SHORTS_CONVERSION_AND_BURNED_CAPTIONS_DIRECTOR_V1",
+  "status": "PASS",
+  "finalization_state": "COMPLETE",
+  "offline_only": true,
+  "old_bundle_sha256": "77c451711eb1888664518c9fe89e176033fdf7612f4636e18c0e0ca4d3af4f54",
+  "new_bundle_sha256": "c82097a3de2dfa9c4b7a4b6d2c7c1b1f7fab909d25575724167e8ea7f4e3c7b8",
+  "old_constitution_version": "1.0.0",
+  "new_constitution_version": "1.1.0",
+  "invalidation": {
+    "old_readiness_binding_invalidated": true,
+    "m01_rebuilt": false,
+    "m02_rebuilt": false,
+    "m03_rebuilt": false,
+    "compatibility_revalidated": true,
+    "profile_rebound": true,
+    "historical_unknown_remains_blocked": true
+  },
+  "production_authorized": false,
+  "paid_execution_authorized": false,
+  "publication_authorized": false,
+  "provider_calls": 0,
+  "paid_calls": 0,
+  "network_production_calls": 0,
+  "safety_counters": {
+    "provider_calls": 0,
+    "paid_calls": 0,
+    "network_production_calls": 0,
+    "new_tts": 0,
+    "new_narration": 0,
+    "new_visual_generation": 0,
+    "production_render": 0,
+    "paid_render": 0,
+    "publication": 0,
+    "youtube_api": 0,
+    "retry": 0,
+    "resubmission": 0
+  },
+  "critical_unresolved": [],
+  "high_unresolved": [],
+  "final_decision": "PRODUCTION_READINESS_REBIND_PASS"
+}

@@ -9,10 +9,21 @@
   },
   "constitution_binding": {
     "constitution_id": "SIRAJ_UNIFIED_PRODUCTION_CONSTITUTION",
-    "constitution_version": "1.0.0",
-    "constitution_bundle_sha256": "77c451711eb1888664518c9fe89e176033fdf7612f4636e18c0e0ca4d3af4f54",
+    "constitution_version": "1.1.0",
+    "constitution_bundle_sha256": "c82097a3de2dfa9c4b7a4b6d2c7c1b1f7fab909d25575724167e8ea7f4e3c7b8",
     "rule_count": 51,
     "critical_high_unenforced": 0
+  },
+  "constitution_rebind": {
+    "status": "REBOUND_AFTER_CONSTITUTION_POLICY_AMENDMENT",
+    "invalidation_event": "constitution_bundle_changed",
+    "previous_constitution_version": "1.0.0",
+    "previous_constitution_bundle_sha256": "77c451711eb1888664518c9fe89e176033fdf7612f4636e18c0e0ca4d3af4f54",
+    "m01_m02_m03_input_hashes_unchanged": true,
+    "compatibility_revalidated": true,
+    "production_authorized": false,
+    "paid_execution_authorized": false,
+    "historical_unknown": "UNKNOWN_REMAINS_BLOCK"
   },
   "audio_delivery": {
     "target_integrated_loudness_lufs": -16.0,
@@ -65,7 +76,12 @@
     "human_final_certification_required": true,
     "autonomous_publish_approval": false,
     "music_allowed": false,
-    "external_closed_captions_allowed": true
+    "external_closed_captions_allowed": true,
+    "longform_burned_captions_allowed": false,
+    "longform_on_screen_subtitles_allowed": false,
+    "short_derivative_burned_narration_captions_allowed": true,
+    "shorts_caption_default_enabled": true,
+    "shorts_caption_text_authority": ["CANONICAL_TIMED_TRANSCRIPT", "TRUSTED_HASH_BOUND_TIMING"]
   },
   "legacy_duplicate_authorities": [
     {
@@ -94,5 +110,5 @@
       "resolution": "BOUND_TO_PR01_PROFILE"
     }
   ],
-  "binding_sha256": "deb7c5e55883cc7577f03dbedc474d877f698e520f0a15f63f5ec5ed52560b1b"
+  "binding_sha256": "a955edeb1b6a58c8b8affed1b433a36de1cbd387d0c86db9ccf0492908a14f5e"
 }

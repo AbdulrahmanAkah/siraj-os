@@ -23,6 +23,10 @@ from src.application.shorts_source_discovery_v1 import (
     SourceDiscoveryResult,
     discover_episode_sources,
 )
+from src.presentation.desktop.shorts_caption_ux_v1 import (
+    SURFACE_SHORTS_PRODUCTION,
+    build_shorts_caption_ux_view_model,
+)
 
 try:
     from PySide6.QtCore import QThread, QTimer, Qt, QUrl, Signal
@@ -127,6 +131,8 @@ def _friendly_error(raw: str) -> tuple[str, str]:
         "SHORT_SOURCE_MISSING": "تعذر العثور على بيانات الحلقة المطلوبة.",
         "SHORT_SOURCE_HASH_CHANGED": "بيانات الحلقة الموجودة لا تطابق هذا الفيديو. لم يتم اختيارها تلقائيًا.",
         "SHORT_TRANSCRIPT_REQUIRED": "لم يتم العثور على نص زمني لهذه الحلقة.",
+        "SHORT_CAPTION_TIMING_INSUFFICIENT": "التوقيت المتاح خشن لهذه اللقطة؛ لم نستخدم توقيتًا مخمّنًا.",
+        "SHORT_CAPTION_POLICY_BLOCKED": "لا يمكن تفعيل التسميات قبل اكتمال مصدر narration موثوق.",
         "SHORT_RENDER_PLAN_INVALID": "لا يمكن تجهيز الإنتاج قبل اكتمال اختيار المقاطع.",
         "SHORT_RENDER_AUTHORIZATION_REQUIRED": "لم يبدأ الإنتاج لأن تفويض سطح المكتب غير مكتمل.",
         "SHORT_QA_FAIL": "لم يجتز أحد المقاطع الفحص الآلي.",
@@ -571,6 +577,7 @@ if _QT_AVAILABLE:
             self.source_resolution_label = QLabel("—")
             self.source_audio_label = QLabel("—")
             self.source_transcript_label = QLabel("—")
+            self.source_caption_label = QLabel("—")
             self.source_data_label = QLabel("—")
             grid.addWidget(self.source_name_label, 0, 0, 1, 2)
             grid.addWidget(QLabel("المعرّف"), 1, 0)
@@ -583,8 +590,10 @@ if _QT_AVAILABLE:
             grid.addWidget(self.source_audio_label, 4, 1)
             grid.addWidget(QLabel("النص"), 5, 0)
             grid.addWidget(self.source_transcript_label, 5, 1)
-            grid.addWidget(QLabel("البيانات"), 6, 0)
-            grid.addWidget(self.source_data_label, 6, 1)
+            grid.addWidget(QLabel("التسميات"), 6, 0)
+            grid.addWidget(self.source_caption_label, 6, 1)
+            grid.addWidget(QLabel("البيانات"), 7, 0)
+            grid.addWidget(self.source_data_label, 7, 1)
             layout.addWidget(card)
             self.source_warning = QLabel()
             self.source_warning.setWordWrap(True)
@@ -694,6 +703,14 @@ if _QT_AVAILABLE:
             self.production_summary.setWordWrap(True)
             self.production_summary.setStyleSheet("font-size:15px; font-weight:700;")
             layout.addWidget(self.production_summary)
+            self.caption_toggle = QCheckBox("التسميات التوضيحية")
+            self.caption_toggle.setChecked(True)
+            self.caption_toggle.toggled.connect(self._toggle_captions)
+            layout.addWidget(self.caption_toggle)
+            self.caption_status_label = QLabel("مفعلة افتراضيًا ✓")
+            self.caption_status_label.setStyleSheet("color:#72e3a5;")
+            self.caption_status_label.setWordWrap(True)
+            layout.addWidget(self.caption_status_label)
             self.production_list = QListWidget()
             self.production_list.setObjectName("shortsProductionList")
             self.production_list.setMinimumHeight(150)
@@ -851,6 +868,16 @@ if _QT_AVAILABLE:
         def _toggle_schedule(self, visible: bool) -> None:
             self.schedule_combo.setVisible(visible)
 
+        def _toggle_captions(self, enabled: bool) -> None:
+            if enabled:
+                self.caption_status_label.setText("مفعلة افتراضيًا ✓")
+                self.caption_status_label.setStyleSheet("color:#72e3a5;")
+                self.produce_button.setEnabled(bool(self.workflow.render_plans))
+            else:
+                self.caption_status_label.setText("متوقفة — لن يبدأ الإنتاج ما لم تُفعّل")
+                self.caption_status_label.setStyleSheet("color:#ef8b36;")
+                self.produce_button.setEnabled(False)
+
         def _refresh_details(self) -> None:
             if not hasattr(self, "details"):
                 return
@@ -983,12 +1010,16 @@ if _QT_AVAILABLE:
             dimensions = episode.metadata.get("dimensions", episode.metadata.get("video_dimensions")) if isinstance(episode.metadata, dict) else None
             self.source_resolution_label.setText(f"{dimensions.get('width')}×{dimensions.get('height')}" if isinstance(dimensions, dict) and dimensions.get("width") and dimensions.get("height") else "متاحة في التفاصيل")
             self.source_audio_label.setText("متاح ✓" if episode.has_audio is True else "غير متاح")
-            self.source_transcript_label.setText("مكتمل ✓" if admission.get("transcript_bound") else "مطلوب")
+            timing_status = str(admission.get("timing_evidence_status", "")).upper()
+            transcript_bound = bool(admission.get("transcript_bound"))
+            auto_discovered = transcript_bound and timing_status in {"TRUSTED_HASH_BOUND", "PASS", "CANONICAL"}
+            self.source_transcript_label.setText("مكتشف تلقائيًا ✓" if auto_discovered else "مكتمل ✓" if transcript_bound else "مطلوب")
+            self.source_caption_label.setText("مفعلة ✓" if auto_discovered else "بانتظار التوقيت")
             self.source_data_label.setText("مطابقة ✓" if admission.get("metadata_bound") else "تحتاج اختيارًا")
-            self.analyze_button.setEnabled(admission.get("status") == "PASS")
-            self.transcript_button.setVisible(not bool(admission.get("transcript_bound")))
-            self.source_warning.setVisible(not bool(admission.get("transcript_bound")))
-            if not admission.get("transcript_bound"):
+            self.analyze_button.setEnabled(admission.get("status") == "PASS" and transcript_bound)
+            self.transcript_button.setVisible(not transcript_bound)
+            self.source_warning.setVisible(not transcript_bound)
+            if not transcript_bound:
                 self.source_warning.setText("لم يتم العثور على نص زمني للحلقة. اختر ملف SRT أو VTT أو JSON للمتابعة.")
             else:
                 self.source_warning.clear()
@@ -1167,11 +1198,23 @@ if _QT_AVAILABLE:
             plans = tuple(plans)
             self.production_list.clear()
             self.production_summary.setText(f"{len(plans)} Shorts جاهزة للإنتاج")
+            if plans:
+                first_plan = plans[0]
+                burned = getattr(first_plan, "burned_caption_plan", {})
+                details = {
+                    "timing_source": burned.get("timing_authority", "TRUSTED_TIMING_SOURCE"),
+                    "cue_count": len(burned.get("cues", ())),
+                    "status": "READY" if burned.get("cues") else "BLOCKED",
+                    "source_sha256": burned.get("timing_source_sha256"),
+                    "transcript_sha256": burned.get("canonical_transcript_sha256"),
+                }
+                ux = build_shorts_caption_ux_view_model(SURFACE_SHORTS_PRODUCTION, details)
+                self.caption_status_label.setText(f"{ux.toggle_label}: {ux.state_label} ✓ — {ux.technical_details.cue_count} مقطعًا")
             for index, plan in enumerate(plans, start=1):
                 item = QListWidgetItem(f"Short {index:02d}  ·  {_format_seconds(plan.expected_duration)}  ·  جاهز للإنتاج")
                 item.setData(Qt.ItemDataRole.UserRole, plan.short_id)
                 self.production_list.addItem(item)
-            self.produce_button.setEnabled(bool(plans))
+            self.produce_button.setEnabled(bool(plans) and self.caption_toggle.isChecked())
             self._set_message("تم تجهيز الإنتاج. انقر عند استعدادك.", "ok")
             self._refresh_details()
 
@@ -1188,6 +1231,9 @@ if _QT_AVAILABLE:
                 return
             if not self.workflow.render_plans:
                 self._show_error(ShortsBlockedError("SHORT_RENDER_PLAN_INVALID", "PLAN_NOT_FOUND"))
+                return
+            if not self.caption_toggle.isChecked():
+                self._show_error(ShortsBlockedError("SHORT_CAPTION_POLICY_BLOCKED", "CAPTIONS_DEFAULT_ON"))
                 return
             self._production_started = True
             self.produce_button.setEnabled(False)

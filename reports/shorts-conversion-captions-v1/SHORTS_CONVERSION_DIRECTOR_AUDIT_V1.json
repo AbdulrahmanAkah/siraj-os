@@ -1,0 +1,78 @@
+{
+  "schema_version": "SHORTS_CONVERSION_DIRECTOR_AUDIT_V1",
+  "task": "SIRAJ_SHORTS_CONVERSION_AND_BURNED_CAPTIONS_DIRECTOR_V1",
+  "status": "PASS",
+  "finalization_state": "COMPLETE",
+  "offline_only": true,
+  "required_conversion_fields": [
+    "SHORT_QUALITY",
+    "HOOK_STRENGTH",
+    "RETENTION_POTENTIAL",
+    "STANDALONE_VALUE",
+    "OPEN_LOOP_STRENGTH",
+    "LONGFORM_CONVERSION_SCORE",
+    "SPOILER_COST",
+    "PAYOFF_DISCLOSURE_LEVEL",
+    "PAYOFF_OVERDISCLOSURE",
+    "WITHHELD_PAYOFF_SUMMARY",
+    "CONVERSION_BRIDGE_STATUS",
+    "CONVERSION_BRIDGE_REASON",
+    "SOURCE_EPISODE_ID"
+  ],
+  "required_gate_codes": [
+    "FULL_PAYOFF_ALREADY_REVEALED",
+    "SHORT_SUMMARIZES_WHOLE_ANSWER",
+    "NO_REASON_TO_WATCH_LONGFORM",
+    "MISLEADING_OPEN_LOOP",
+    "CONTEXT_REQUIRED_BUT_MISSING",
+    "FABRICATED_CURIOSITY"
+  ],
+  "portfolio_controls": {
+    "cumulative_spoiler_field": "CUMULATIVE_SPOILER_COST",
+    "cumulative_payoff_field": "CUMULATIVE_PAYOFF_COVERAGE",
+    "episode_summary_downselect_required": true
+  },
+  "endpoint_policy": {
+    "source_derived_only": true,
+    "mid_meaning_cut": false,
+    "false_cliffhanger": false,
+    "semantic_completeness_required": true
+  },
+  "test_results": {
+    "conversion_signal_contract": "PASS — AGENT-E integration matrix",
+    "hard_gate_matrix": "PASS — AGENT-E integration matrix",
+    "endpoint_optimization": "PASS — conversion director unit suite",
+    "portfolio_spoiler_accounting": "PASS — AGENT-E integration matrix",
+    "invented_cta_rejection": "PASS — AGENT-E integration matrix"
+  },
+  "agent_e_integration_matrix": {
+    "status": "PASS",
+    "tests_passed": 18,
+    "tests_failed": 0,
+    "render_invoked": false,
+    "provider_calls": 0,
+    "paid_calls": 0,
+    "network_production_calls": 0
+  },
+  "production_authorized": false,
+  "paid_execution_authorized": false,
+  "safety_counters": {
+    "provider_calls": 0,
+    "paid_calls": 0,
+    "network_production_calls": 0,
+    "new_tts": 0,
+    "new_narration": 0,
+    "new_visual_generation": 0,
+    "production_render": 0,
+    "paid_render": 0,
+    "publication": 0,
+    "youtube_api": 0,
+    "retry": 0,
+    "resubmission": 0
+  },
+  "production_authorized": false,
+  "paid_execution_authorized": false,
+  "critical_unresolved": [],
+  "high_unresolved": [],
+  "final_decision": "SHORT_TO_LONGFORM_CONVERSION_DIRECTOR_PASS"
+}

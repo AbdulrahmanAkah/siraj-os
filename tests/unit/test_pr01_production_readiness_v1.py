@@ -8,6 +8,8 @@ import pytest
 
 from src.application.pr01_production_readiness_v1 import (
     BindingMismatchError,
+    CONSTITUTION_BUNDLE_SHA256,
+    CONSTITUTION_VERSION,
     EXACT_MODEL_ID,
     PaidStartDenied,
     PaidStartCard,
@@ -19,6 +21,7 @@ from src.application.pr01_production_readiness_v1 import (
     historical_unknown_state,
     load_pricing_snapshot,
     load_profile,
+    rebind_pr01_constitution_binding,
     validate_exact_provider_payload,
     validate_profile,
 )
@@ -32,8 +35,24 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 def test_profile_is_single_authority_and_face_policy_is_fail_closed() -> None:
     profile = load_profile(REPO_ROOT)
     assert validate_profile(profile) == []
+    assert profile["constitution_binding"]["constitution_version"] == CONSTITUTION_VERSION
+    assert profile["constitution_binding"]["constitution_bundle_sha256"] == CONSTITUTION_BUNDLE_SHA256
     assert profile["face_policy"]["all_human_faces_visible"] is False
     assert profile["publication_policy"]["human_final_certification_required"] is True
+
+
+def test_constitution_amendment_invalidates_and_rebinds_pr01_without_authorization() -> None:
+    result = rebind_pr01_constitution_binding(REPO_ROOT)
+    assert result["status"] == "PASS"
+    assert result["invalidation_event"] == "constitution_bundle_changed"
+    assert result["prior_approvals"] == "INVALIDATED"
+    assert result["m01_m02_m03_rebuild_required"] is False
+    assert result["m01_m02_m03_compatibility_revalidated"] is True
+    assert result["historical_unknown"]["status"] == "UNKNOWN_REMAINS_BLOCK"
+    assert result["historical_unknown"]["retry_allowed"] is False
+    assert result["historical_unknown"]["resubmission_allowed"] is False
+    assert result["production_authorized"] is False
+    assert result["paid_execution_authorized"] is False
 
 
 def test_exact_provider_binding_rejects_alias_and_negative_prompt() -> None:

@@ -24,8 +24,13 @@ from src.application.pr01_face_detection_v1 import EXPECTED_MODEL_SHA256
 
 PR01_ID = "SIRAJ_PR01_PRODUCTION_READINESS_BINDING_V1"
 CONSTITUTION_ID = "SIRAJ_UNIFIED_PRODUCTION_CONSTITUTION"
-CONSTITUTION_VERSION = "1.0.0"
-CONSTITUTION_BUNDLE_SHA256 = "77c451711eb1888664518c9fe89e176033fdf7612f4636e18c0e0ca4d3af4f54"
+CONSTITUTION_VERSION = "1.1.0"
+CONSTITUTION_BUNDLE_SHA256 = "c82097a3de2dfa9c4b7a4b6d2c7c1b1f7fab909d25575724167e8ea7f4e3c7b8"
+CONSTITUTION_BUNDLE_RELATIVE = Path(
+    "config/constitution/siraj-unified-production-constitution/1.0.0/bundle_manifest.json"
+)
+PREVIOUS_CONSTITUTION_VERSION = "1.0.0"
+PREVIOUS_CONSTITUTION_BUNDLE_SHA256 = "77c451711eb1888664518c9fe89e176033fdf7612f4636e18c0e0ca4d3af4f54"
 EXPECTED_RULE_COUNT = 51
 EXACT_PROVIDER = "RUNWARE"
 EXACT_MODEL_ID = "google:veo@3.1-lite"
@@ -143,8 +148,91 @@ def load_pricing_snapshot(repo_root: Path) -> dict[str, Any]:
     return read_json(config_path(repo_root, "config/pr01/provider_binding/provider_pricing_snapshot_v1.json"))
 
 
+def rebind_pr01_constitution_binding(
+    repo_root: Path,
+    *,
+    previous_constitution_version: str = PREVIOUS_CONSTITUTION_VERSION,
+    previous_constitution_bundle_sha256: str = PREVIOUS_CONSTITUTION_BUNDLE_SHA256,
+) -> dict[str, Any]:
+    """Validate the offline PR01 invalidation/rebind after a policy amendment.
+
+    This is a read-only state transition description. It never rebuilds M01/M02/M03,
+    starts production, invokes a provider, or authorizes a paid operation.
+    """
+
+    manifest_path = config_path(repo_root, str(CONSTITUTION_BUNDLE_RELATIVE))
+    if not manifest_path.is_file():
+        return {
+            "status": "BLOCKED",
+            "reason": "CONSTITUTION_MANIFEST_MISSING",
+            "production_authorized": False,
+            "paid_execution_authorized": False,
+        }
+    manifest = read_json(manifest_path)
+    current = {
+        "constitution_id": manifest.get("constitution_id"),
+        "constitution_version": manifest.get("version"),
+        "constitution_bundle_sha256": sha256_file(manifest_path),
+    }
+    previous = {
+        "constitution_id": CONSTITUTION_ID,
+        "constitution_version": previous_constitution_version,
+        "constitution_bundle_sha256": previous_constitution_bundle_sha256,
+    }
+    profile = load_profile(repo_root)
+    binding = profile.get("constitution_binding")
+    rebind = profile.get("constitution_rebind")
+    profile_matches = isinstance(binding, Mapping) and all(
+        binding.get(key) == value
+        for key, value in current.items()
+    ) and binding.get("rule_count") == EXPECTED_RULE_COUNT
+    revalidation_recorded = isinstance(rebind, Mapping) and (
+        rebind.get("status") == "REBOUND_AFTER_CONSTITUTION_POLICY_AMENDMENT"
+        and rebind.get("invalidation_event") == "constitution_bundle_changed"
+        and rebind.get("m01_m02_m03_input_hashes_unchanged") is True
+        and rebind.get("compatibility_revalidated") is True
+    )
+    changed = previous != current
+    status = "PASS" if changed and profile_matches and revalidation_recorded else "BLOCKED"
+    return {
+        "status": status,
+        "invalidation_event": "constitution_bundle_changed" if changed else "NO_MATERIAL_CONSTITUTION_CHANGE",
+        "previous_binding": previous,
+        "current_binding": current,
+        "prior_approvals": "INVALIDATED",
+        "m01_m02_m03_rebuild_required": False if revalidation_recorded else True,
+        "m01_m02_m03_compatibility_revalidated": revalidation_recorded,
+        "historical_unknown": historical_unknown_state(),
+        "production_authorized": False,
+        "paid_execution_authorized": False,
+        "provider_calls": 0,
+        "paid_calls": 0,
+        "network_production_calls": 0,
+        "retry_or_resubmission": 0,
+    }
+
+
 def validate_profile(profile: Mapping[str, Any]) -> list[str]:
     issues: list[str] = []
+    constitution = profile.get("constitution_binding")
+    if not isinstance(constitution, Mapping):
+        issues.append("CONSTITUTION_BINDING_MISSING")
+    else:
+        if constitution.get("constitution_id") != CONSTITUTION_ID:
+            issues.append("CONSTITUTION_ID_MISMATCH")
+        if constitution.get("constitution_version") != CONSTITUTION_VERSION:
+            issues.append("CONSTITUTION_VERSION_MISMATCH")
+        if constitution.get("constitution_bundle_sha256") != CONSTITUTION_BUNDLE_SHA256:
+            issues.append("CONSTITUTION_BUNDLE_HASH_MISMATCH")
+        if constitution.get("rule_count") != EXPECTED_RULE_COUNT:
+            issues.append("CONSTITUTION_RULE_COUNT_MISMATCH")
+    rebind = profile.get("constitution_rebind")
+    if not isinstance(rebind, Mapping) or rebind.get("status") != "REBOUND_AFTER_CONSTITUTION_POLICY_AMENDMENT":
+        issues.append("CONSTITUTION_REBIND_MISSING")
+    elif rebind.get("invalidation_event") != "constitution_bundle_changed":
+        issues.append("CONSTITUTION_REBIND_EVENT_MISMATCH")
+    elif rebind.get("m01_m02_m03_input_hashes_unchanged") is not True or rebind.get("compatibility_revalidated") is not True:
+        issues.append("PR01_COMPATIBILITY_REVALIDATION_MISSING")
     audio = profile.get("audio_delivery")
     if not isinstance(audio, Mapping):
         return ["AUDIO_PROFILE_MISSING"]
@@ -648,13 +736,15 @@ def run_offline_gate_simulation(payload: Mapping[str, Any]) -> dict[str, Any]:
 def constitution_and_brand_self_test(repo_root: Path, *, check_external_brand_assets: bool = True) -> dict[str, Any]:
     repo_root = Path(repo_root).resolve()
     issues: list[str] = []
-    manifest_path = repo_root / "config/constitution/siraj-unified-production-constitution/1.0.0/bundle_manifest.json"
+    manifest_path = repo_root / CONSTITUTION_BUNDLE_RELATIVE
     if not manifest_path.is_file():
         issues.append("CONSTITUTION_MANIFEST_MISSING")
         return {"status": "BLOCKED", "issues": issues}
     manifest = read_json(manifest_path)
     if manifest.get("constitution_id") != CONSTITUTION_ID or manifest.get("version") != CONSTITUTION_VERSION:
         issues.append("CONSTITUTION_ID_VERSION_MISMATCH")
+    if sha256_file(manifest_path) != CONSTITUTION_BUNDLE_SHA256:
+        issues.append("CONSTITUTION_BUNDLE_HASH_MISMATCH")
     for entry in manifest.get("files", []):
         path = manifest_path.parent / str(entry.get("path") or "")
         if not path.is_file() or sha256_file(path) != entry.get("sha256"):
@@ -663,6 +753,9 @@ def constitution_and_brand_self_test(repo_root: Path, *, check_external_brand_as
         issues.append("CONSTITUTION_PROVIDER_CALL_COUNT_NONZERO")
     if manifest.get("phase_status", {}).get("paid_calls") != 0:
         issues.append("CONSTITUTION_PAID_CALL_COUNT_NONZERO")
+    rebind = rebind_pr01_constitution_binding(repo_root)
+    if rebind.get("status") != "PASS":
+        issues.append("PR01_CONSTITUTION_REBIND_BLOCKED")
     if check_external_brand_assets:
         brand = manifest.get("brand_assets", {})
         if not BRAND_ASSETS_DIRECTORY.is_dir():
@@ -681,6 +774,7 @@ def constitution_and_brand_self_test(repo_root: Path, *, check_external_brand_as
         "brand_directory": str(BRAND_ASSETS_DIRECTORY),
         "intro_sha256": BRAND_INTRO_SHA256,
         "outro_sha256": BRAND_OUTRO_SHA256,
+        "constitution_rebind": rebind,
     }
 
 

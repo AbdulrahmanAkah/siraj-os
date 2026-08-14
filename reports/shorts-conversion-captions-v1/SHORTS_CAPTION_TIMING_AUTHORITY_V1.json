@@ -1,0 +1,57 @@
+{
+  "schema_version": "SHORTS_CAPTION_TIMING_AUTHORITY_V1",
+  "task": "SIRAJ_SHORTS_CONVERSION_AND_BURNED_CAPTIONS_DIRECTOR_V1",
+  "status": "PASS",
+  "finalization_state": "COMPLETE",
+  "offline_only": true,
+  "authority_order": [
+    "LEVEL_A_TRUSTED_WORD_BOUNDARIES",
+    "LEVEL_B_TRUSTED_PHRASE_BOUNDARIES",
+    "LEVEL_C_TRUSTED_SENTENCE_BOUNDARIES"
+  ],
+  "no_proportional_guessing": true,
+  "no_asr": true,
+  "no_network_alignment": true,
+  "ep001_granularity": "LEVEL_C_SEGMENT_TIMING_ONLY; 43 SEGMENTS; SIX SHORT SEGMENTS UNDER 8S/120CHARS; NO 15-60S CANDIDATE WITH SUFFICIENT GRANULARITY",
+  "ep001_resolution_status": "CAPTION_TIMING_INSUFFICIENT_FAIL_CLOSED",
+  "ep001_source_segment_count": 43,
+  "short_local_timebase_required": true,
+  "cut_through_caption_policy": ["ADJUST_CUT", "USE_TRUSTED_LOWER_LEVEL_TIMING", "REJECT_EDIT"],
+  "test_results": {
+    "word_boundaries": "PASS — AGENT-E integration matrix",
+    "phrase_boundaries": "PASS — engine contract; EP001 source did not provide phrase timing",
+    "sentence_boundaries": "PASS — engine contract; EP001 source segments are coarse for caption display",
+    "coarse_timing_insufficient": "PASS — AGENT-E integration matrix",
+    "single_cut": "PASS — burned caption engine unit suite",
+    "multi_cut": "PASS — burned caption engine unit suite",
+    "reorder": "PASS — burned caption engine unit suite",
+    "silence_trim": "PASS — explicit mapping contract"
+  },
+  "agent_e_integration_matrix": {
+    "status": "PASS",
+    "tests_passed": 18,
+    "tests_failed": 0,
+    "render_invoked": false
+  },
+  "production_authorized": false,
+  "paid_execution_authorized": false,
+  "safety_counters": {
+    "provider_calls": 0,
+    "paid_calls": 0,
+    "network_production_calls": 0,
+    "new_tts": 0,
+    "new_narration": 0,
+    "new_visual_generation": 0,
+    "production_render": 0,
+    "paid_render": 0,
+    "publication": 0,
+    "youtube_api": 0,
+    "retry": 0,
+    "resubmission": 0
+  },
+  "production_authorized": false,
+  "paid_execution_authorized": false,
+  "critical_unresolved": [],
+  "high_unresolved": [],
+  "final_decision": "EP001_CAPTION_TIMING_INSUFFICIENT_FAIL_CLOSED"
+}

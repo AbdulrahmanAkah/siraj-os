@@ -22,6 +22,8 @@ from typing import Any, Iterable, Mapping, Sequence
 CONSTITUTION_RELATIVE_DIRECTORY = Path(
     "config/constitution/siraj-unified-production-constitution/1.0.0"
 )
+CONSTITUTION_VERSION = "1.1.0"
+CONSTITUTION_BUNDLE_ID = "SIRAJ-CONSTITUTION-1.1.0-20260814"
 RULES_FILENAME = "siraj_unified_constitution_v1.rules.json"
 SCHEMA_FILENAME = "siraj_unified_constitution_rule_model.schema.json"
 MANIFEST_FILENAME = "bundle_manifest.json"
@@ -247,7 +249,7 @@ def validate_loaded_constitution(
     required_metadata = {
         "id": "SIRAJ_UNIFIED_PRODUCTION_CONSTITUTION",
         "version": expected_version,
-        "bundle_id": "SIRAJ-CONSTITUTION-1.0.0-20260813",
+        "bundle_id": CONSTITUTION_BUNDLE_ID,
         "authority": "SYSTEM_ROOT",
         "scope": "SERIES_WIDE",
         "fail_closed": True,
@@ -323,7 +325,7 @@ def validate_loaded_constitution(
 def load_unified_constitution(
     repo_root: Path,
     *,
-    expected_version: str = "1.0.0",
+    expected_version: str = CONSTITUTION_VERSION,
     relative_directory: Path = CONSTITUTION_RELATIVE_DIRECTORY,
 ) -> LoadedConstitution:
     bundle_directory = (Path(repo_root) / relative_directory).resolve()
@@ -566,6 +568,16 @@ def compile_policy(
     for domain, binding in required_bindings.items():
         if domain in domains and _contains_unknown(bindings.get(binding)):
             errors.append(f"FAIL_REQUIRED_BINDING:{binding}")
+    artifact_scope = _artifact_scope(contract_copy)
+    if artifact_scope not in {LONGFORM_SCOPE, SHORT_DERIVATIVE_SCOPE}:
+        errors.append("FAIL_ARTIFACT_SCOPE_INVALID")
+    if artifact_scope == LONGFORM_SCOPE and (
+        contract_copy.get("burned_captions") is True
+        or contract_copy.get("on_screen_subtitles") is True
+    ):
+        errors.append("FAIL_LONGFORM_BURNED_CAPTIONS")
+    if artifact_scope == SHORT_DERIVATIVE_SCOPE and contract_copy.get("burned_captions") is True and not _short_narration_caption_contract_pass(contract_copy):
+        errors.append("FAIL_SHORT_CAPTION_SCOPE_CONTRACT")
     text = str(contract_copy.get("text", ""))
     if "FACE" in domains or re.search(r"\b(face|mouth|lips?|eyes?|profile|portrait)\b", text.casefold()):
         errors.extend(analyze_face_semantics(text))
@@ -590,6 +602,7 @@ def compile_policy(
         "bundle_manifest_sha256": registry.constitution.bundle_manifest_sha256,
         "artifact_id": contract_copy.get("artifact_id"),
         "stage": contract_copy.get("stage"),
+        "artifact_scope": artifact_scope,
         "domains": sorted(domains),
         "obligations": obligations,
         "contract_sha256": canonical_json_sha256(contract_copy),
@@ -858,6 +871,57 @@ def _contract(artifact: Mapping[str, Any], name: str) -> Mapping[str, Any]:
     return value if isinstance(value, Mapping) else MappingProxyType({})
 
 
+LONGFORM_SCOPE = "LONGFORM"
+SHORT_DERIVATIVE_SCOPE = "SHORT_DERIVATIVE"
+SHORT_CAPTION_TEXT_AUTHORITIES = frozenset(
+    {"CANONICAL_TIMED_TRANSCRIPT", "TRUSTED_HASH_BOUND_TIMING"}
+)
+SHORT_CAPTION_FORBIDDEN_FLAGS = (
+    "invented_text",
+    "hook_text",
+    "title_card_text",
+    "cta_text",
+    "subscribe_text",
+    "decorative_prose",
+    "fact_overlay_text",
+    "unrelated_text",
+    "banner_text",
+    "promotional_text",
+)
+
+
+def _artifact_scope(artifact: Mapping[str, Any]) -> str:
+    """Return the explicit artifact scope; missing scope is safe Longform."""
+
+    raw_scope = artifact.get("artifact_scope", LONGFORM_SCOPE)
+    return str(raw_scope).strip().upper()
+
+
+def _short_narration_caption_contract_pass(artifact: Mapping[str, Any]) -> bool:
+    """Validate the narrow Shorts-only burned narration caption exception."""
+
+    if _artifact_scope(artifact) != SHORT_DERIVATIVE_SCOPE:
+        return False
+    caption = _contract(artifact, "caption_contract")
+    if (
+        artifact.get("burned_captions") is not True
+        or artifact.get("on_screen_subtitles") is True
+        or caption.get("mode") != "BURNED_NARRATION_CAPTIONS"
+        or caption.get("enabled") is not True
+        or caption.get("synced_to_narration") is not True
+        or caption.get("narration_only") is not True
+        or caption.get("text_is_verbatim") is not True
+        or caption.get("text_authority") not in SHORT_CAPTION_TEXT_AUTHORITIES
+    ):
+        return False
+    if any(caption.get(flag) is not False for flag in SHORT_CAPTION_FORBIDDEN_FLAGS):
+        return False
+    return all(
+        SHA256_PATTERN.fullmatch(str(caption.get(key, ""))) is not None
+        for key in ("transcript_sha256", "timing_source_sha256")
+    )
+
+
 def _all_claims_valid(claims: Any) -> bool:
     if not isinstance(claims, list) or not claims:
         return False
@@ -928,7 +992,12 @@ def _automated_validator(
         return _finding(name, passed, "FAIL_SOURCE_OR_CERTAINTY_POLICY", "source hierarchy, classification, and certainty inheritance")
     if family == "GRAPHICS":
         graphics = _contract(artifact, "graphics_contract")
-        passed = not analyze_sensitive_semantics(text, ["MONTAGE"]) and graphics.get("arbitrary_graphics") is False and graphics.get("burned_captions") is False and graphics.get("asset_kind") in {"NONE", "CANONICAL_INTRO", "CANONICAL_OUTRO"} and graphics.get("face_policy_pass") is True and graphics.get("music_policy_pass") is True
+        short_caption_exception = _short_narration_caption_contract_pass(artifact)
+        burned_caption_policy_pass = (
+            graphics.get("burned_captions") is False
+            or (short_caption_exception and graphics.get("burned_captions") is True)
+        )
+        passed = not analyze_sensitive_semantics(text, ["MONTAGE"]) and graphics.get("arbitrary_graphics") is False and artifact.get("on_screen_subtitles") is not True and burned_caption_policy_pass and graphics.get("asset_kind") in {"NONE", "CANONICAL_INTRO", "CANONICAL_OUTRO"} and graphics.get("face_policy_pass") is True and graphics.get("music_policy_pass") is True
         return _finding(name, passed, "FAIL_FORBIDDEN_GRAPHICS", "graphics prohibition and exact brand whitelist")
     if family == "NARRATIVE":
         narrative = _contract(artifact, "narrative_contract")
@@ -1016,8 +1085,12 @@ def _automated_validator(
         )
         return _finding(name, passed, "FAIL_AUDIO_DURATION_AUTHORITY_CONFLICT", "narration-master authority")
     if family == "CAPTIONS":
-        passed = artifact.get("burned_captions") is False and artifact.get("external_captions") in {True, False}
-        return _finding(name, passed, "FAIL_BURNED_IN_CAPTIONS", "external caption separation")
+        scope = _artifact_scope(artifact)
+        if scope == SHORT_DERIVATIVE_SCOPE:
+            passed = _short_narration_caption_contract_pass(artifact)
+        else:
+            passed = scope == LONGFORM_SCOPE and artifact.get("burned_captions") is False and artifact.get("on_screen_subtitles") is False and artifact.get("external_captions") in {True, False}
+        return _finding(name, passed, "FAIL_BURNED_IN_CAPTIONS", "scope-bound external or Shorts narration caption policy")
     if family == "MONTAGE":
         montage = _contract(artifact, "montage_contract")
         passed = montage.get("all_assets_promoted") is True and montage.get("render_hashes_match") is True and montage.get("constitutional_qa_pass") is True
@@ -1290,6 +1363,7 @@ def build_rule_test_artifact(
     subject = {"rule_id": rule["id"], "candidate": "compliant"}
     artifact: dict[str, Any] = {
         "subject": subject,
+        "artifact_scope": LONGFORM_SCOPE,
         "text": "safe back-view composition, head outside frame, face fully excluded",
         "sensitive_domains": ["FACE", "MODESTY", "UNSEEN", "PERIOD", "SOURCE", "AUDIO", "MONTAGE"],
         "face_contract": {"all_human_faces_excluded": True, "crop_blur_mask_rescue": False},
@@ -1310,6 +1384,7 @@ def build_rule_test_artifact(
         "prompt_contract": {"structured": True, "all_required_fields": True, "canonical_reference_approved": True, "payload_hash_match": True, "executor_mutated_payload": False},
         "audio_tracks": [{"kind": "SFX", "contains_music": False}],
         "burned_captions": False,
+        "on_screen_subtitles": False,
         "external_captions": True,
         "provider_profile": {"provider": "VEO_3_1_LITE", "approved": True, "silent_fallback": False, "automatic_switching": False},
         "batch_contract": {"progressive": True, "pilot_dependency_satisfied": True, "bounded_request_count": True, "new_risk_class_piloted": True},
@@ -1440,7 +1515,9 @@ def capability_boundary_evidence(module_path: Path) -> dict[str, Any]:
 __all__ = [
     "ApprovalReceipt",
     "ApprovalValidationError",
+    "CONSTITUTION_BUNDLE_ID",
     "CONSTITUTION_RELATIVE_DIRECTORY",
+    "CONSTITUTION_VERSION",
     "ConstitutionEnforcementError",
     "ConstitutionLoadError",
     "FakePaidExecutor",

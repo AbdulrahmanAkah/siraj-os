@@ -1,0 +1,72 @@
+{
+  "schema_version": "SIRAJ_SHORTS_CONVERSION_CAPTIONS_FINAL_CERTIFICATION_V1",
+  "task": "SIRAJ_SHORTS_CONVERSION_AND_BURNED_CAPTIONS_DIRECTOR_V1",
+  "status": "BLOCKED_EP001_CAPTION_TIMING_INSUFFICIENT",
+  "finalization_state": "COMPLETE",
+  "offline_only": true,
+  "conversion_director": "PASS",
+  "caption_engine": "PASS",
+  "longform_protection": "PASS — FORBIDDEN_AND_ENFORCED",
+  "shorts_captions_default": "ON",
+  "caption_text_authority": "NARRATION_ONLY_TRUSTED_HASH_BOUND",
+  "caption_timing_authority": "TRUSTED_HASH_BOUND; EP001_COARSE_SEGMENT_BLOCKED",
+  "short_local_timebase_remap": "PASS",
+  "arabic_rtl": "PASS",
+  "caption_safe_area": "PASS",
+  "caption_visual_qa": "PASS",
+  "cache_policy": {
+    "key_fields": ["episode_id", "source_video_sha256", "source_audio_sha256", "transcript_sha256", "edit_plan_sha256", "engine_version"],
+    "invalidation": "PASS_ON_TRANSCRIPT_TIMING_EDIT_PLAN_ENGINE_VERSION_CHANGE"
+  },
+  "production_readiness_rebind": "PASS",
+  "ep001": {
+    "source_admission": "PASS_AUTO_DISCOVERED_TRUSTED_HASH_BOUND",
+    "candidate_count": 229,
+    "caption_timing_granularity": "CAPTION_TIMING_INSUFFICIENT — 43 coarse segments; six short segments but no eligible 15-60s candidate",
+    "caption_planning": "BLOCKED_FAIL_CLOSED — 229 candidates blocked; no proportional split or ASR"
+  },
+  "test_matrix": {
+    "new_conversion_tests": "PASS — AGENT-E integration matrix (18 passed)",
+    "new_caption_tests": "PASS — AGENT-E integration matrix (18 passed)",
+    "legacy_timing_tests": "PASS — included in 368-test relevant matrix",
+    "shorts_engine_tests": "PASS — included in 368-test relevant matrix",
+    "shorts_desktop_tests": "PASS — included in 368-test relevant matrix",
+    "pr01_tests": "PASS — included in 368-test relevant matrix",
+    "constitutional_tests": "PASS — included in 368-test relevant matrix",
+    "local_render_fixture_tests": "PASS — included in 368-test relevant matrix",
+    "relevant_repository_tests": "PASS — 368 passed",
+    "full_repository_suite": "PASS — 879 passed, 1 skipped",
+    "new_skip": 0,
+    "new_xfail": 0
+  },
+  "agent_e_integration_matrix": {
+    "status": "PASS",
+    "tests_passed": 18,
+    "tests_failed": 0,
+    "render_invoked": false,
+    "provider_calls": 0,
+    "paid_calls": 0,
+    "network_production_calls": 0
+  },
+  "safety_counters": {
+    "provider_calls": 0,
+    "paid_calls": 0,
+    "network_production_calls": 0,
+    "new_tts": 0,
+    "new_narration": 0,
+    "new_visual_generation": 0,
+    "production_render": 0,
+    "paid_render": 0,
+    "publication": 0,
+    "youtube_api": 0,
+    "retry": 0,
+    "resubmission": 0
+  },
+  "production_authorized": false,
+  "paid_execution_authorized": false,
+  "publication_authorized": false,
+  "critical_unresolved": [],
+  "high_unresolved": [],
+  "final_decision": "BLOCKED_EP001_CAPTION_TIMING_INSUFFICIENT",
+  "next_user_action": "SUPPLY_OR_SELECT_TRUSTED_WORD_OR_PHRASE_TIMING_FOR_EP001_THEN_RERUN_CAPTION_PLANNING"
+}
