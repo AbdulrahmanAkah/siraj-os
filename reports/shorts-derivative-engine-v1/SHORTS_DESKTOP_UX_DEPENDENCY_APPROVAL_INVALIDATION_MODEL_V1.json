@@ -1,0 +1,39 @@
+{
+  "schema_version": "siraj-shorts-desktop-ux-dependency-approval-invalidation-v1",
+  "report_id": "SHORTS_DESKTOP_UX_DEPENDENCY_APPROVAL_INVALIDATION_MODEL_V1",
+  "task": "SIRAJ_SHORTS_DESKTOP_UX_PRODUCTION_REDESIGN_V1",
+  "principle": "UI simplification changes presentation only; dependency and approval invalidation remains fail-closed.",
+  "nodes": [
+    {"id":"SOURCE_VIDEO","approval":"human selects exactly one existing local video","invalidated_by":["file missing","video hash changed","unsupported extension"]},
+    {"id":"SOURCE_METADATA","approval":"automatic match or explicit human choice","invalidated_by":["metadata hash changed","stale source hash","ambiguous candidates","invalid JSON"]},
+    {"id":"TRANSCRIPT","approval":"automatic binding or explicit subtitle choice","invalidated_by":["timing hash changed","invalid timing payload","missing timing"]},
+    {"id":"ANALYSIS","approval":"analysis completes locally","invalidated_by":["source invalidation","metadata invalidation","profile hash changed","constitution hash changed"]},
+    {"id":"PORTFOLIO","approval":"human chooses and optionally reorders candidates","invalidated_by":["candidate selection changed","analysis invalidation","source invalidation"]},
+    {"id":"RENDER_PLAN","approval":"generated internally after human Continue","invalidated_by":["portfolio invalidation","source or metadata invalidation","profile/constitution change"]},
+    {"id":"AUTHORIZATION","approval":"explicit Desktop Produce click","invalidated_by":["plan hash mismatch","source hash mismatch","single-use consumed","wrong execution origin","cancelled job"]},
+    {"id":"LOCAL_RENDER","approval":"one authorized local render attempt","invalidated_by":["authorization failure","source changed during render","output hash mismatch","cancel"]},
+    {"id":"AUTOMATED_QA","approval":"runs automatically after render","invalidated_by":["render missing","render hash mismatch","technical QA fail","constitutional evidence unknown"]},
+    {"id":"HUMAN_REVIEW","approval":"full uninterrupted playback, detailed inspection, checklist","invalidated_by":["seek during required pass","render changed","QA missing","source/render hash mismatch"]},
+    {"id":"EXPORT","approval":"human Save click after approved receipt","invalidated_by":["review receipt missing","render hash mismatch","destination conflict","source identity mismatch"]}
+  ],
+  "rules": {
+    "unknown_is_not_resubmitted": true,
+    "retry_is_not_automatic": true,
+    "recovery_does_not_authorize_execution": true,
+    "terminal_paid_execution": false,
+    "publication": "HUMAN_ONLY",
+    "title_and_thumbnail": "HUMAN_ONLY"
+  },
+  "ui_mapping": {
+    "hidden_internal_actions": ["Generate Render Plans", "Approve Local Render", "Automated QA"],
+    "user_actions": {"select":"اختيار الحلقة","analyze":"تحليل الحلقة","choose":"متابعة","produce":"إنتاج الشورتس","review":"اعتماد الشورت","save":"حفظ الشورت"}
+  },
+  "runtime_evidence": {
+    "windows_screenshot_states": 18,
+    "qt_geometry_cases": 20,
+    "native_picker": "PASS",
+    "desktop_e2e": "PASS",
+    "full_repository_tests": 764
+  },
+  "status": "PASS_EXISTING_BACKEND_CONTRACT_PRESERVED_AND_RUNTIME_CERTIFIED"
+}

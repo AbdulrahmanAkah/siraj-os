@@ -1,0 +1,29 @@
+{
+  "schema_version": "siraj-shorts-desktop-ux-e2e-certification-v1",
+  "status": "PASS",
+  "composition_root": "src.presentation.desktop.main_window.SirajDesktopWindow",
+  "fixture_only": true,
+  "workflow": "local video picker boundary -> source admission -> analysis -> candidate selection -> portfolio -> local render plan -> explicit local render -> automated QA -> human review -> local export",
+  "steps_passed": 7,
+  "steps": [
+    "episode_picker_and_source_admission",
+    "analysis_and_candidate_cards",
+    "candidate_selection_and_portfolio",
+    "local_render_plan_preparation",
+    "desktop_local_render_and_automated_qa",
+    "human_full_review_detail_review_and_approval",
+    "local_export_and_saved_library"
+  ],
+  "local_render": true,
+  "automated_qa": true,
+  "human_review_gate": true,
+  "saved_item_count": 1,
+  "exported_mp4_count": 1,
+  "output_sha256": "83abc243c4e43842bc40fd65f2daae03b097716a5558658892201419c24ef995",
+  "provider_calls": 0,
+  "network_calls": 0,
+  "paid_calls": 0,
+  "retry_or_resubmission": false,
+  "publication": false,
+  "note": "The human-review evidence path was driven through the UI start-review action and the local review-position event boundary; public title, thumbnail, and publication remain human-owned."
+}

@@ -1,0 +1,40 @@
+{
+  "schema_version": "siraj-shorts-desktop-ux-audit-v1",
+  "report_id": "SHORTS_DESKTOP_UX_AUDIT_V1",
+  "task": "SIRAJ_SHORTS_DESKTOP_UX_PRODUCTION_REDESIGN_V1",
+  "audit_date": "2026-08-14",
+  "scope": [
+    "src/presentation/desktop/main_window.py",
+    "src/presentation/desktop/shorts_derivative_dock_v1.py",
+    "src/application/shorts_derivative_desktop_integration_v1.py",
+    "src/application/shorts_derivative_engine_v1.py",
+    "src/application/shorts_derivative_storage_v1.py",
+    "tests/integration/test_shorts_desktop_ui_v1.py",
+    "tests/integration/test_shorts_desktop_workflow_v1.py"
+  ],
+  "initial_findings": [
+    {"id":"UX-00-001","severity":"CRITICAL","screen":"landing/source","current_behavior":"Select Episode opened a directory picker.","user_impact":"A non-technical user could not choose one video directly.","root_cause":"QFileDialog.getExistingDirectory was used.","required_fix":"Use an ExistingFile native video picker with the ordered video filters.","status":"CLOSED"},
+    {"id":"UX-00-002","severity":"HIGH","screen":"all","current_behavior":"Eight internal stages and raw state names were presented as the primary workflow.","user_impact":"The user had to understand implementation vocabulary.","root_cause":"The dock rendered the backend state machine directly.","required_fix":"Use a five-step progressive disclosure surface and keep technical details collapsed.","status":"CLOSED"},
+    {"id":"UX-00-003","severity":"HIGH","screen":"all","current_behavior":"Analysis, portfolio, render-plan, authorization, QA, review, and export buttons were visible together.","user_impact":"No clear next action and high risk of an invalid sequence.","root_cause":"One flat vertical layout owned every action.","required_fix":"Progressive pages with one primary action and limited secondary actions.","status":"CLOSED"},
+    {"id":"UX-00-004","severity":"HIGH","screen":"source","current_behavior":"The user had to select an implementation mode and package directory.","user_impact":"The normal video-first workflow was not discoverable.","root_cause":"No local source discovery orchestration existed in the presentation layer.","required_fix":"Discover related metadata and timing files locally; stop on ambiguity and offer a clear choice.","status":"CLOSED"},
+    {"id":"UX-00-005","severity":"HIGH","screen":"errors","current_behavior":"Raw BLOCKED and internal error codes were shown in the main status area and dialogs.","user_impact":"The user could not understand what action was needed.","root_cause":"Exception strings were used as user-facing copy.","required_fix":"Map errors to Arabic guidance and retain raw details only under technical details.","status":"CLOSED"},
+    {"id":"UX-00-006","severity":"HIGH","screen":"review","current_behavior":"Playback, frame controls, review approval, QA, and export controls occupied the same main surface.","user_impact":"The required uninterrupted review was not visually primary.","root_cause":"Review was implemented as another button row instead of a dedicated phase.","required_fix":"Use a large in-app player, required full playback, then a collapsed detailed toolbar and checklist.","status":"CLOSED"},
+    {"id":"UX-00-007","severity":"HIGH","screen":"analysis/render","current_behavior":"Long work was launched asynchronously but the visible progress contract was an internal RUNNING label.","user_impact":"The user could not tell what was happening without reading technical state.","root_cause":"The job thread was exposed without a user-facing progress stage.","required_fix":"Use indeterminate progress with human-readable stage labels and a cancel action only while active.","status":"CLOSED"},
+    {"id":"UX-00-008","severity":"MEDIUM","screen":"all","current_behavior":"The dock used a flat form with oversized empty areas and mixed-language labels.","user_impact":"Poor hierarchy, clipping risk, and low confidence in the next step.","root_cause":"No page/card hierarchy or Arabic-first copy contract.","required_fix":"Rebuild the layout with existing SIRAJ dark panels, RTL, cards, spacing, and Arabic labels.","status":"CLOSED"}
+  ],
+  "initial_critical": 1,
+  "initial_high": 6,
+  "final_critical": 0,
+  "final_high": 0,
+  "final_status": "CLOSED_AND_RUNTIME_CERTIFIED",
+  "runtime_certification": {
+    "visual_screenshots_reviewed": 18,
+    "geometry_matrix_passed": 20,
+    "native_picker_passed": true,
+    "desktop_e2e_passed": true,
+    "shorts_desktop_tests_passed": 68,
+    "full_repository_tests_passed": 764,
+    "critical_unresolved": 0,
+    "high_unresolved": 0
+  }
+}

@@ -5,6 +5,48 @@
 2026-08-12
 
 ========================================================
+
+========================================================
+SIRAJ SHORTS DESKTOP UX ENVIRONMENT RECOVERY AND FINAL CERTIFICATION - 2026-08-14
+========================================================
+
+Status:
+SHORTS_DESKTOP_UX_READY_FOR_PRODUCTION_USE
+
+Certification:
+- Canonical Desktop environment: historical-fixture-venv-20260716, Python 3.13.14.
+- Full repository suite: 764 passed, 1 external_ai deselected, 0 failed, 0 errors, 0 skipped.
+- Shorts/Desktop matrix: 68 passed, 0 failed, 0 errors, 0 skipped.
+- Qt geometry matrix: 20/20 passed across 1280x720, 1366x768, 1600x900, 1920x1080, 2560x1440 and 100/125/150/200% scale factors.
+- Windows visual review: 18/18 representative states passed.
+- Native episode picker: ExistingFile, AcceptOpen, ordered video filters, native interaction fixture PASS.
+- Full offline/local Desktop E2E: source admission, analysis, candidate selection, portfolio, local render, QA, human review, and local export PASS.
+- Critical unresolved gaps: 0.
+- High unresolved gaps: 0.
+- Medium unresolved gaps: 0.
+- Python compileall, pip check, secret scan, and staged diff check: PASS.
+- Ruff/typecheck: NOT_CONFIGURED.
+
+Safety:
+- Provider calls: 0.
+- Paid calls: 0.
+- Network production calls: 0.
+- YouTube/publication calls: 0/0.
+- Retries/resubmissions: 0/0.
+- Montage/new TTS/new visual generation: 0/0/0.
+- Human final episode certification, public title, and thumbnail remain human-owned.
+- Paid execution remains explicit Desktop click only.
+- Unified constitution and core enforcement were not modified.
+
+Evidence:
+- reports/shorts-derivative-engine-v1/SHORTS_DESKTOP_UX_FINAL_CERTIFICATION_V1.json
+- reports/shorts-derivative-engine-v1/SHORTS_DESKTOP_UX_FINAL_REPORT_V1.md
+- reports/shorts-derivative-engine-v1/SHORTS_DESKTOP_UX_GEOMETRY_MATRIX_V1.json
+- reports/shorts-derivative-engine-v1/SHORTS_DESKTOP_UX_FILE_PICKER_CERTIFICATION_V1.json
+- reports/shorts-derivative-engine-v1/SHORTS_DESKTOP_UX_E2E_CERTIFICATION_V1.json
+- reports/shorts-derivative-engine-v1/SHORTS_UX_VISUAL_REVIEW_V1.json
+
+NEXT=HUMAN_SELECTS_AN_ADMITTED_EPISODE_FOR_A_CONTROLLED_LOCAL_SHORTS_RUN
 VISION
 ========================================================
 

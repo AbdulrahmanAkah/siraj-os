@@ -1,0 +1,24 @@
+{
+  "schema_version": "siraj-shorts-desktop-ux-gap-enforcement-v1",
+  "report_id": "SHORTS_DESKTOP_UX_GAP_ENFORCEMENT_MATRIX_V1",
+  "task": "SIRAJ_SHORTS_DESKTOP_UX_PRODUCTION_REDESIGN_V1",
+  "columns": ["rule", "compiler", "validator", "test", "runtime_gate", "status"],
+  "rows": [
+    {"rule":"Episode selection is exactly one existing local video file","compiler":"configure_episode_file_dialog","validator":"ExistingFile, ordered video filters, suffix allow-list","test":"contract test plus native Windows picker probe","runtime_gate":"اختيار الحلقة","status":"PASS_RUNTIME_CERTIFIED"},
+    {"rule":"Supported video extensions are MP4, MOV, MKV, M4V, WEBM, AVI","compiler":"VIDEO_FILE_FILTER and suffix guard","validator":"selected file suffix and one-file cardinality","test":"contract test plus native Windows picker fixture","runtime_gate":"قبل source admission","status":"PASS_RUNTIME_CERTIFIED"},
+    {"rule":"Metadata and timing discovery is local, bounded, and deterministic","compiler":"discover_episode_sources","validator":"relationship score, package identity, ignored backup paths","test":"test_shorts_source_discovery_v1.py","runtime_gate":"بعد اختيار الفيديو وقبل ingest","status":"PASS"},
+    {"rule":"Ambiguous metadata never binds silently","compiler":"_SourceCandidateDialog","validator":"more than one candidate has no automatic match","test":"test_multiple_metadata_candidates_stop_for_human_choice plus Windows visual state","runtime_gate":"اختيار الحزمة الصحيحة","status":"PASS_RUNTIME_CERTIFIED"},
+    {"rule":"Stale metadata hash is fail-closed","compiler":"source_hash_match and STALE_SOURCE","validator":"metadata source hash must match selected video","test":"test_stale_metadata_hash_is_blocked_before_ingestion","runtime_gate":"قبل ingest","status":"PASS"},
+    {"rule":"User sees five progressive steps, not the internal eight-stage state machine","compiler":"_set_state and visible_stages","validator":"descriptor and visible widget contract","test":"descriptor test plus 18-state Windows screenshot review","runtime_gate":"all UI screens","status":"PASS_RUNTIME_CERTIFIED"},
+    {"rule":"Render plans and automated QA are not primary UI actions","compiler":"_continue_from_portfolio and _render_all_and_qa","validator":"internal calls occur behind Continue/Produce","test":"68-test matrix plus Windows E2E and screenshot review","runtime_gate":"متابعة ثم إنتاج الشورتس","status":"PASS_RUNTIME_CERTIFIED"},
+    {"rule":"Real local render still requires explicit Desktop click and single-use authorization","compiler":"workflow.approve_local_render invoked only from Produce click","validator":"existing execution authorization and engine tests","test":"existing activation and desktop workflow tests; environment missing jsonschema","runtime_gate":"إنتاج الشورتس","status":"UNCHANGED_EXISTING_CONTRACT"},
+    {"rule":"Automatic QA runs after every local render","compiler":"_render_all_and_qa","validator":"QA result required before review queue","test":"existing workflow QA tests; environment missing jsonschema","runtime_gate":"بعد الإنتاج","status":"PASS_STATIC_EXISTING_CONTRACT"},
+    {"rule":"Human review remains uninterrupted then detailed and checklist-backed","compiler":"_start_full_playback, HumanReviewSession, _approve_review","validator":"session.valid, detail inspection, checklist, human receipt","test":"existing review tests plus full Desktop E2E","runtime_gate":"المراجعة","status":"PASS_RUNTIME_CERTIFIED"},
+    {"rule":"Canonical export remains human-triggered and no-overwrite","compiler":"_save_approved -> workflow.export_short","validator":"existing storage hash and conflict gates","test":"existing storage and desktop workflow tests; environment missing jsonschema","runtime_gate":"حفظ الشورت","status":"UNCHANGED_EXISTING_CONTRACT"},
+    {"rule":"Provider, network production, paid, upload, YouTube, retry, and auto-publication remain unavailable","compiler":"descriptor and existing workflow boundaries","validator":"zero boundary counters and no terminal authorization","test":"existing boundary tests; environment missing jsonschema","runtime_gate":"all screens and jobs","status":"UNCHANGED_EXISTING_CONTRACT"}
+  ],
+  "critical_or_high_open": 0,
+  "runtime_certification_blocker": null,
+  "runtime_evidence": {"visual_screenshots": 18, "geometry_cases": 20, "native_picker": "PASS", "desktop_e2e": "PASS", "full_repository_tests": 764},
+  "final_status": "FULL_OFFLINE_RUNTIME_CERTIFIED"
+}

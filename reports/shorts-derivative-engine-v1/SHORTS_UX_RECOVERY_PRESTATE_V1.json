@@ -1,0 +1,84 @@
+{
+  "schema_version": "siraj-shorts-ux-recovery-prestate-v1",
+  "captured_at_utc": "2026-08-14T02:02:00.2473242Z",
+  "repo_root": "C:\\SIRAJ\\Repositories\\siraj-os",
+  "branch": "feature/shorts-derivative-engine-v1",
+  "head": "cdca1f0e6b49905cde198eba8d028599f5d5e22c",
+  "expected_branch": "feature/shorts-derivative-engine-v1",
+  "expected_head": "cdca1f0e6b49905cde198eba8d028599f5d5e22c",
+  "worktree_dirty_expected": true,
+  "tracked_modified": [
+    "reports/shorts-derivative-engine-v1/README.md",
+    "src/presentation/desktop/shorts_derivative_dock_v1.py"
+  ],
+  "tracked_added": [],
+  "staged_files": [],
+  "untracked_task_files": [
+    "reports/shorts-derivative-engine-v1/SHORTS_DESKTOP_UX_AUDIT_V1.json",
+    "reports/shorts-derivative-engine-v1/SHORTS_DESKTOP_UX_CONFLICT_MATRIX_V1.json",
+    "reports/shorts-derivative-engine-v1/SHORTS_DESKTOP_UX_DEPENDENCY_APPROVAL_INVALIDATION_MODEL_V1.json",
+    "reports/shorts-derivative-engine-v1/SHORTS_DESKTOP_UX_FINAL_REPORT_V1.md",
+    "reports/shorts-derivative-engine-v1/SHORTS_DESKTOP_UX_GAP_ENFORCEMENT_MATRIX_V1.json",
+    "src/application/shorts_source_discovery_v1.py",
+    "tests/integration/test_shorts_desktop_ux_screenshots_v1.py",
+    "tests/integration/test_shorts_desktop_ux_v1.py",
+    "tests/unit/test_shorts_source_discovery_v1.py"
+  ],
+  "historical_untracked_count": 8052,
+  "total_untracked_count": 8061,
+  "tracked_diff_stat": "reports/shorts-derivative-engine-v1/README.md | 13 +; src/presentation/desktop/shorts_derivative_dock_v1.py | 1376 ++++++++++++++++----; 2 files changed, 1161 insertions(+), 228 deletions(-)",
+  "staged_diff_stat": "",
+  "tracked_modified_sha256": {
+    "reports/shorts-derivative-engine-v1/README.md": "4168BEFEDAF5CD0890FDC29FDE700163B7B17B3DF0A24C7AFB0BA017602DB4A3",
+    "src/presentation/desktop/shorts_derivative_dock_v1.py": "4AE22AE79E64A639779F50DF3E3578A509562CA99A19817EC6B35A3733563AE3"
+  },
+  "environment": {
+    "PATH": "C:\\Users\\abdul\\.codex\\tmp\\arg0\\codex-arg0nOx1GE;C:\\Users\\abdul\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\bin\\override;C:\\Program Files\\Eclipse Adoptium\\jdk-21.0.11.10-hotspot\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\eSpeak NG\\;C:\\Program Files\\GitHub CLI\\;C:\\Program Files\\nodejs\\;C:\\Users\\abdul\\AppData\\Local\\Programs\\Python\\Python313\\Scripts\\;C:\\Users\\abdul\\AppData\\Local\\Programs\\Python\\Python313\\;C:\\Users\\abdul\\AppData\\Local\\Programs\\Python\\Launcher\\;C:\\Users\\abdul\\AppData\\Local\\Microsoft\\WindowsApps",
+    "PYTHONPATH": null,
+    "VIRTUAL_ENV": null,
+    "CONDA_PREFIX": null,
+    "POETRY_ACTIVE": null,
+    "UV_PROJECT_ENVIRONMENT": null,
+    "PYENV_VERSION": null,
+    "PYTHONHOME": null
+  },
+  "candidate_python_import_status": [
+    {
+      "path": "C:\\SIRAJ\\Repositories\\historical-fixture-venv-20260716\\Scripts\\python.exe",
+      "exists": true,
+      "python_version": "3.13.14",
+      "prefix": "C:\\SIRAJ\\Repositories\\historical-fixture-venv-20260716",
+      "PySide6": {"import": true, "version": "6.11.1", "location": "C:\\SIRAJ\\Repositories\\historical-fixture-venv-20260716\\Lib\\site-packages"},
+      "jsonschema": {"import": true, "version": "4.26.0", "location": "C:\\SIRAJ\\Repositories\\historical-fixture-venv-20260716\\Lib\\site-packages"},
+      "pytest": {"import": true, "version": "9.1.1", "location": "C:\\SIRAJ\\Repositories\\historical-fixture-venv-20260716\\Lib\\site-packages"}
+    },
+    {
+      "path": "C:\\Users\\abdul\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "exists": true,
+      "python_version": "3.13.14",
+      "prefix": "C:\\Users\\abdul\\AppData\\Local\\Programs\\Python\\Python313",
+      "PySide6": {"import": false, "version": null, "location": null},
+      "jsonschema": {"import": false, "version": null, "location": null},
+      "pytest": {"import": true, "version": "9.1.1", "location": "C:\\Users\\abdul\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages"}
+    },
+    {
+      "path": "C:\\Users\\abdul\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "exists": true,
+      "python_version": "3.12.13",
+      "prefix": "C:\\Users\\abdul\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python",
+      "PySide6": {"import": false, "version": null, "location": null},
+      "jsonschema": {"import": false, "version": null, "location": null},
+      "pytest": {"import": false, "version": null, "location": null}
+    }
+  ],
+  "safety_counters_at_capture": {
+    "provider_calls": 0,
+    "paid_calls": 0,
+    "network_production_calls": 0,
+    "youtube_api_calls": 0,
+    "retries": 0,
+    "resubmissions": 0,
+    "montage_executions": 0,
+    "publication_executions": 0
+  }
+}

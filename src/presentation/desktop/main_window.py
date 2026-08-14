@@ -104,6 +104,7 @@ class SirajDesktopWindow(QMainWindow):
         self.resize(1520, 900)
         self.setMinimumSize(1180, 700)
         self.setStyleSheet(APP_STYLESHEET)
+        self._shorts_focus_active = False
         self._build_ui()
         self._populate(self.snapshot)
 
@@ -1518,6 +1519,12 @@ class SirajDesktopWindow(QMainWindow):
             if dock is None:
                 QMessageBox.warning(self, "Shorts", "تعذر تحميل قسم Shorts داخل الواجهة الحالية.")
                 return
+            # Shorts is a guided user workflow.  Keep the existing SIRAJ
+            # surface as its owner, but remove the legacy dashboard behind it
+            # so internal resume/debug vocabulary cannot dominate the task UI.
+            self.complete_workspace.hide()
+            self._shorts_focus_active = True
+            dock.setMinimumWidth(max(760, self.width() - 260))
             dock.show()
             dock.raise_()
             for key, button in self.nav_buttons.items():
@@ -1529,6 +1536,12 @@ class SirajDesktopWindow(QMainWindow):
                 button.update()
             self._log("NAVIGATE shorts")
             return
+        dock = getattr(self, "_shorts_derivative_dock", None)
+        if dock is not None:
+            dock.hide()
+            dock.setMinimumWidth(560)
+        self.complete_workspace.show()
+        self._shorts_focus_active = False
         if not self.complete_workspace.show_section(section):
             QMessageBox.warning(
                 self,

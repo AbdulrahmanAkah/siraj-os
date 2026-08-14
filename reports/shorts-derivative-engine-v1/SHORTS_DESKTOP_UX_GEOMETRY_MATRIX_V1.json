@@ -1,0 +1,35 @@
+{
+  "schema_version": "siraj-shorts-desktop-ux-geometry-matrix-v1",
+  "status": "PASS",
+  "test_mode": "offline_qt_geometry",
+  "platform": "offscreen",
+  "requested_sizes": [
+    [1280, 720],
+    [1366, 768],
+    [1600, 900],
+    [1920, 1080],
+    [2560, 1440]
+  ],
+  "qt_scale_factors": [1.0, 1.25, 1.5, 2.0],
+  "case_count": 20,
+  "pass_count": 20,
+  "fail_count": 0,
+  "case_result_rule": "Every size and scale combination passed dock visibility, Shorts focus isolation, page visibility, primary-button minimum geometry, compact zero-candidate recovery layout, and scroll-area checks.",
+  "logical_geometry_by_size": {
+    "1280x720": {"dock_width": 1020, "status": "PASS"},
+    "1366x768": {"dock_width": 1106, "status": "PASS"},
+    "1600x900": {"dock_width": 1340, "status": "PASS"},
+    "1920x1080": {"dock_width": 1660, "status": "PASS"},
+    "2560x1440": {"dock_width": 2300, "status": "PASS"}
+  },
+  "real_windows_probe": {
+    "requested_size": [1280, 720],
+    "actual_client_size": [1280, 700],
+    "status": "PASS",
+    "note": "Windows frame/taskbar constrained the client height by 20 logical pixels; all geometry assertions passed. Representative Windows captures were also reviewed at 1925x1050 physical pixels."
+  },
+  "provider_calls": 0,
+  "paid_calls": 0,
+  "network_calls": 0,
+  "retry_or_resubmission": false
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": "siraj-shorts-desktop-ux-conflict-matrix-v1",
+  "report_id": "SHORTS_DESKTOP_UX_CONFLICT_MATRIX_V1",
+  "task": "SIRAJ_SHORTS_DESKTOP_UX_PRODUCTION_REDESIGN_V1",
+  "rows": [
+    {"id":"UX-C-001","conflict":"UX-01 lists five journey stages while UX-19 names الحلقة، المقاطع، الإنتاج، المراجعة، الحفظ.","resolution":"Use the UX-19 five-step indicator; analysis is a substate of الحلقة and choice is represented by المقاطع.","status":"RESOLVED"},
+    {"id":"UX-C-002","conflict":"Hide internal render/authorization/QA actions without weakening safety.","resolution":"Keep calls in the existing workflow service and invoke them behind Continue/Produce; expose only technical details when expanded.","status":"RESOLVED"},
+    {"id":"UX-C-003","conflict":"Video-first picker versus native SIRAJ package ingestion.","resolution":"Video file is the primary action; native project folder remains under خيارات متقدمة only.","status":"RESOLVED"},
+    {"id":"UX-C-004","conflict":"Automatic discovery versus ambiguous or unrelated nearby metadata.","resolution":"Auto-bind only one bounded related candidate; stop and show file/path/id/modified/hash information when ambiguous or stale.","status":"RESOLVED"},
+    {"id":"UX-C-005","conflict":"Automated QA should be automatic but the user must still see review responsibility.","resolution":"Run QA directly after local render, show a human-readable pass/fail message, then require full human review.","status":"RESOLVED"},
+    {"id":"UX-C-006","conflict":"Full uninterrupted review versus detailed scrubbing/frame inspection.","resolution":"Require uninterrupted playback first; reveal the detailed toolbar only after valid coverage.","status":"RESOLVED"},
+    {"id":"UX-C-007","conflict":"Approval and saving could be combined but receipts must remain auditable.","resolution":"Keep اعتماد الشورت and حفظ الشورت as separate human actions.","status":"RESOLVED"},
+    {"id":"UX-C-008","conflict":"RTL Arabic UI versus paths, hashes, timestamps, and technical identifiers.","resolution":"Use RTL for the main surface and LTR/selectable text inside technical details and source dialogs.","status":"RESOLVED"},
+    {"id":"UX-C-009","conflict":"Cancel must be available during active work without becoming a retry path.","resolution":"Show إيقاف بأمان only while a job runs; a cancelled or failed render is terminal for that attempt and has no automatic resubmission.","status":"RESOLVED"}
+  ],
+  "critical_or_high_unresolved": 0,
+  "status": "NO_CONSTITUTIONAL_OR_BACKEND_BOUNDARY_CONFLICT_FOUND"
+}

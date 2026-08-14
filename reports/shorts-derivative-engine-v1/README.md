@@ -17,3 +17,21 @@ The V1 direct-use activation packet is recorded in:
 - `SHORTS_DEPENDENCY_APPROVAL_INVALIDATION_MODEL_V1.json`
 - `SHORTS_ENGINE_REAL_USE_READINESS_CERTIFICATION_V1.json`
 - `SHORTS_REAL_USE_READINESS_FINAL_REPORT_V1.md`
+
+The Desktop UX redesign packet is recorded in:
+
+- `SHORTS_DESKTOP_UX_AUDIT_V1.json`
+- `SHORTS_DESKTOP_UX_CONFLICT_MATRIX_V1.json`
+- `SHORTS_DESKTOP_UX_GAP_ENFORCEMENT_MATRIX_V1.json`
+- `SHORTS_DESKTOP_UX_DEPENDENCY_APPROVAL_INVALIDATION_MODEL_V1.json`
+- `SHORTS_DESKTOP_UX_FINAL_REPORT_V1.md`
+- `SHORTS_DESKTOP_UX_FINAL_CERTIFICATION_V1.json`
+- `SHORTS_DESKTOP_UX_GEOMETRY_MATRIX_V1.json`
+- `SHORTS_DESKTOP_UX_FILE_PICKER_CERTIFICATION_V1.json`
+- `SHORTS_DESKTOP_UX_E2E_CERTIFICATION_V1.json`
+- `SHORTS_UX_VISUAL_REVIEW_V1.json`
+
+The UX packet does not authorize provider execution, paid execution, network
+production calls, retry/resubmission, upload, or publication. Runtime visual
+certification is recorded only after the governed Qt geometry matrix, native
+file-picker probe, Windows screenshot review, and local Desktop E2E gates pass.

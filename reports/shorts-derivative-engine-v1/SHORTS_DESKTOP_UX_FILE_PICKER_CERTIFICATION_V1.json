@@ -1,0 +1,22 @@
+{
+  "schema_version": "siraj-shorts-desktop-ux-file-picker-certification-v1",
+  "status": "PASS",
+  "platform": "Windows",
+  "dialog_path": "native QFileDialog runtime probe",
+  "contract_pass": true,
+  "native_interaction_pass": true,
+  "file_mode": "ExistingFile",
+  "accept_mode": "AcceptOpen",
+  "dont_use_native_dialog": false,
+  "name_filters": [
+    "Video files (*.mp4 *.mov *.mkv *.m4v *.webm *.avi)",
+    "All files (*.*)"
+  ],
+  "selected_name_filter": "Video files (*.mp4 *.mov *.mkv *.m4v *.webm *.avi)",
+  "fixture_suffixes_seen": [".avi", ".m4v", ".mkv", ".mov", ".mp4", ".webm"],
+  "single_selected_file": true,
+  "fixture_only": true,
+  "provider_calls": 0,
+  "paid_calls": 0,
+  "network_calls": 0
+}

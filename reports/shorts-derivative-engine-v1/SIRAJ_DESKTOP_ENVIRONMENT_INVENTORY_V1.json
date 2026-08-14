@@ -1,0 +1,88 @@
+{
+  "schema_version": "siraj-desktop-environment-inventory-v1",
+  "captured_at_utc": "2026-08-14T02:06:00Z",
+  "repo_root": "C:\\SIRAJ\\Repositories\\siraj-os",
+  "canonical_decision": {
+    "canonical_desktop_python": "C:\\SIRAJ\\Repositories\\historical-fixture-venv-20260716\\Scripts\\python.exe",
+    "decision": "CANONICAL_DESKTOP_ENVIRONMENT_SELECTED",
+    "evidence": [
+      "scripts/desktop/run_siraj_desktop.ps1 defaults to this executable",
+      "docs/architecture/SIRAJ_DESKTOP_DASHBOARD_V1.md documents this environment",
+      "the environment satisfies the repository requires-python >=3.13 constraint",
+      "the environment imports all required Qt, jsonschema, pytest, and local-render dependencies"
+    ],
+    "system_python_rejected": "missing PySide6 and jsonschema",
+    "codex_runtime_python_rejected": "Python 3.12.13 and missing PySide6, jsonschema, and pytest"
+  },
+  "dependency_declarations": {
+    "source": "pyproject.toml",
+    "jsonschema": "dependencies = [\"jsonschema>=4.23,<5\"]",
+    "PySide6": "[project.optional-dependencies] desktop = [\"PySide6>=6.10,<7\"]",
+    "pytest": "test runner present in canonical environment; not a project runtime dependency",
+    "imageio-ffmpeg": "[project.optional-dependencies] audit = [\"imageio-ffmpeg>=0.6,<0.7\"]",
+    "dependency_contract_status": "DECLARED_JSONSCHEMA_AND_DESKTOP_PROFILE"
+  },
+  "candidates": [
+    {
+      "path": "C:\\SIRAJ\\Repositories\\historical-fixture-venv-20260716\\Scripts\\python.exe",
+      "exists": true,
+      "selected": true,
+      "python_version": "3.13.14",
+      "sys_prefix": "C:\\SIRAJ\\Repositories\\historical-fixture-venv-20260716",
+      "base_prefix": "C:\\Users\\abdul\\AppData\\Local\\Programs\\Python\\Python313",
+      "packages": {
+        "PySide6": {"version": "6.11.1", "import": true, "location": "C:\\SIRAJ\\Repositories\\historical-fixture-venv-20260716\\Lib\\site-packages\\PySide6"},
+        "jsonschema": {"version": "4.26.0", "import": true, "location": "C:\\SIRAJ\\Repositories\\historical-fixture-venv-20260716\\Lib\\site-packages\\jsonschema"},
+        "pytest": {"version": "9.1.1", "import": true, "location": "C:\\SIRAJ\\Repositories\\historical-fixture-venv-20260716\\Lib\\site-packages\\pytest"},
+        "imageio-ffmpeg": {"version": "0.6.0", "import": true, "location": "C:\\SIRAJ\\Repositories\\historical-fixture-venv-20260716\\Lib\\site-packages\\imageio_ffmpeg"}
+      },
+      "qt_modules": {
+        "PySide6.QtCore": "PASS",
+        "PySide6.QtGui": "PASS",
+        "PySide6.QtWidgets": "PASS",
+        "PySide6.QtMultimedia": "PASS",
+        "PySide6.QtMultimediaWidgets": "PASS",
+        "PySide6.QtSvg": "PASS"
+      },
+      "qt_offscreen_smoke": "PASS",
+      "jsonschema_smoke": "PASS",
+      "draft_validator": "Draft202012Validator"
+    },
+    {
+      "path": "C:\\Users\\abdul\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "exists": true,
+      "selected": false,
+      "python_version": "3.13.14",
+      "sys_prefix": "C:\\Users\\abdul\\AppData\\Local\\Programs\\Python\\Python313",
+      "packages": {
+        "PySide6": {"version": null, "import": false},
+        "jsonschema": {"version": null, "import": false},
+        "pytest": {"version": "9.1.1", "import": true},
+        "imageio-ffmpeg": {"version": "0.6.0", "import": true}
+      },
+      "rejection": "not dependency-complete for Desktop/Shorts"
+    },
+    {
+      "path": "C:\\Users\\abdul\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "exists": true,
+      "selected": false,
+      "python_version": "3.12.13",
+      "sys_prefix": "C:\\Users\\abdul\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python",
+      "packages": {
+        "PySide6": {"version": null, "import": false},
+        "jsonschema": {"version": null, "import": false},
+        "pytest": {"version": null, "import": false},
+        "imageio-ffmpeg": {"version": null, "import": false}
+      },
+      "rejection": "Python version and dependency set do not satisfy the project"
+    }
+  ],
+  "installation_policy": {
+    "provider_calls": 0,
+    "paid_calls": 0,
+    "network_production_calls": 0,
+    "dependency_installation_performed": false,
+    "dependency_network_used": false,
+    "canonical_environment_reused": true
+  }
+}

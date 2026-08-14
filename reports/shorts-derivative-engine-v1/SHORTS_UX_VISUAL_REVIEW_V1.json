@@ -1,0 +1,62 @@
+{
+  "schema_version": "siraj-shorts-ux-visual-review-v1",
+  "status": "PASS",
+  "platform": "Windows",
+  "composition_root": "src.presentation.desktop.main_window.SirajDesktopWindow",
+  "capture_directory": "C:\\Users\\abdul\\.codex\\.chatgpt-projects\\g-p-6a69706271188191b5b68d6117f0b6f0\\env_stage\\shorts_ux_screenshots_windows_fixture_certified",
+  "fixture_only": true,
+  "screenshots_reviewed": 18,
+  "screenshots_passed": 18,
+  "screenshots_failed": 0,
+  "states": [
+    "01_landing",
+    "02_episode_selected",
+    "03_transcript_missing",
+    "04_metadata_ambiguity",
+    "05_analysis_running",
+    "06_candidates",
+    "07_candidate_details",
+    "08_selected_portfolio",
+    "09_ready_to_produce",
+    "10_rendering",
+    "11_automated_qa_result",
+    "12_human_review_full_playback",
+    "13_detailed_review",
+    "14_ready_to_save",
+    "15_saved",
+    "16_error_state",
+    "17_zero_candidates",
+    "18_existing_shorts"
+  ],
+  "visual_defects_found": 3,
+  "visual_defects_fixed": 3,
+  "findings": [
+    {
+      "id": "UX-001",
+      "severity": "HIGH",
+      "finding": "Legacy dashboard vocabulary and content remained visible behind the Shorts workflow.",
+      "root_fix": "Shorts focus mode hides the legacy complete workspace while preserving the canonical main window and sidebar."
+    },
+    {
+      "id": "UX-002",
+      "severity": "HIGH",
+      "finding": "Zero-candidate state exposed an oversized empty preview/list area and an expanding recovery card.",
+      "root_fix": "Empty preview/list are collapsed; candidate-page heading/card bounds and top alignment keep the explanation and recovery action compact and visible."
+    },
+    {
+      "id": "UX-003",
+      "severity": "HIGH",
+      "finding": "Candidate checkbox selection emitted a boolean into a zero-argument signal and blocked the UI continuation path.",
+      "root_fix": "The checkbox signal is normalized through a zero-argument lambda before reaching the existing selection-change contract."
+    }
+  ],
+  "critical_unresolved": 0,
+  "high_unresolved": 0,
+  "medium_unresolved": 0,
+  "arabic_rtl_rendering": "PASS_WINDOWS_CAPTURE",
+  "technical_details_panel": "INTENTIONAL_ONLY_WHEN_EXPANDED",
+  "montage_created": false,
+  "provider_calls": 0,
+  "paid_calls": 0,
+  "network_calls": 0
+}

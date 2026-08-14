@@ -1,0 +1,339 @@
+{
+  "schema_version": "siraj-shorts-ux-post-environment-failure-inventory-v1",
+  "scope": [
+    "tests/unit/test_shorts_derivative_activation_v1.py",
+    "tests/unit/test_shorts_derivative_engine_v1.py",
+    "tests/unit/test_shorts_storage_v1.py",
+    "tests/integration/test_shorts_derivative_adversarial_v1.py",
+    "tests/integration/test_shorts_derivative_renderer_v1.py",
+    "tests/integration/test_shorts_desktop_workflow_v1.py",
+    "tests/integration/test_shorts_desktop_ui_v1.py",
+    "tests/integration/test_shorts_desktop_ux_v1.py",
+    "tests/integration/test_shorts_desktop_ux_screenshots_v1.py",
+    "tests/unit/test_shorts_source_discovery_v1.py"
+  ],
+  "previous_contaminated_result": {
+    "total": 67,
+    "passed": 38,
+    "failed": 22,
+    "errors": 3,
+    "skipped": 4,
+    "runtime": "C:\\Users\\abdul\\AppData\\Local\\Programs\\Python\\Python313\\python.exe"
+  },
+  "post_environment_result": {
+    "total": 67,
+    "passed": 67,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runtime": "C:\\SIRAJ\\Repositories\\historical-fixture-venv-20260716\\Scripts\\python.exe",
+    "command_mode": "fresh_process_offline_qt_offscreen"
+  },
+  "environment_failures_eliminated": 29,
+  "real_failures_remaining": 0,
+  "real_errors_remaining": 0,
+  "entries": [
+    {
+      "test_id": "tests/unit/test_shorts_derivative_activation_v1.py::test_real_ready_path_uses_same_guard_without_fixture_marker",
+      "before_result": "FAIL",
+      "error_type": "ModuleNotFoundError",
+      "error_message": "No module named 'jsonschema'; surfaced as SHORT_PROFILE_INVALID:SCHEMA_VALIDATOR_UNAVAILABLE",
+      "stack_root": "src/application/shorts_derivative_engine_v1.py::load_shorts_profile",
+      "affected_module": "ShortsDerivativeEngine profile validation",
+      "classification": "ENVIRONMENT_FIXED",
+      "likely_root_cause": "system Python did not contain declared jsonschema dependency"
+    },
+    {
+      "test_id": "tests/unit/test_shorts_derivative_activation_v1.py::test_authorization_is_single_use_and_terminal_is_forbidden",
+      "before_result": "FAIL",
+      "error_type": "ModuleNotFoundError",
+      "error_message": "No module named 'jsonschema'; surfaced as SHORT_PROFILE_INVALID:SCHEMA_VALIDATOR_UNAVAILABLE",
+      "stack_root": "src/application/shorts_derivative_engine_v1.py::load_shorts_profile",
+      "affected_module": "ShortsDerivativeEngine profile validation",
+      "classification": "ENVIRONMENT_FIXED",
+      "likely_root_cause": "system Python did not contain declared jsonschema dependency"
+    },
+    {
+      "test_id": "tests/unit/test_shorts_derivative_activation_v1.py::test_qa_never_asserts_placeholder_constitutional_pass",
+      "before_result": "FAIL",
+      "error_type": "ModuleNotFoundError",
+      "error_message": "No module named 'jsonschema'; surfaced as SHORT_PROFILE_INVALID:SCHEMA_VALIDATOR_UNAVAILABLE",
+      "stack_root": "src/application/shorts_derivative_engine_v1.py::load_shorts_profile",
+      "affected_module": "ShortsDerivativeEngine profile validation",
+      "classification": "ENVIRONMENT_FIXED",
+      "likely_root_cause": "system Python did not contain declared jsonschema dependency"
+    },
+    {
+      "test_id": "tests/unit/test_shorts_derivative_engine_v1.py::test_profile_is_versioned_and_fail_closed",
+      "before_result": "FAIL",
+      "error_type": "ModuleNotFoundError",
+      "error_message": "No module named 'jsonschema'; surfaced as SHORT_PROFILE_INVALID:SCHEMA_VALIDATOR_UNAVAILABLE",
+      "stack_root": "src/application/shorts_derivative_engine_v1.py::load_shorts_profile",
+      "affected_module": "ShortsDerivativeEngine profile validation",
+      "classification": "ENVIRONMENT_FIXED",
+      "likely_root_cause": "system Python did not contain declared jsonschema dependency"
+    },
+    {
+      "test_id": "tests/unit/test_shorts_derivative_engine_v1.py::test_ingestion_is_hash_bound_and_read_only",
+      "before_result": "FAIL",
+      "error_type": "ModuleNotFoundError",
+      "error_message": "No module named 'jsonschema'; surfaced as SHORT_PROFILE_INVALID:SCHEMA_VALIDATOR_UNAVAILABLE",
+      "stack_root": "src/application/shorts_derivative_engine_v1.py::load_shorts_profile",
+      "affected_module": "ShortsDerivativeEngine profile validation",
+      "classification": "ENVIRONMENT_FIXED",
+      "likely_root_cause": "system Python did not contain declared jsonschema dependency"
+    },
+    {
+      "test_id": "tests/unit/test_shorts_derivative_engine_v1.py::test_candidate_discovery_finds_question_answer_and_revelation",
+      "before_result": "FAIL",
+      "error_type": "ModuleNotFoundError",
+      "error_message": "No module named 'jsonschema'; surfaced as SHORT_PROFILE_INVALID:SCHEMA_VALIDATOR_UNAVAILABLE",
+      "stack_root": "src/application/shorts_derivative_engine_v1.py::load_shorts_profile",
+      "affected_module": "ShortsDerivativeEngine profile validation",
+      "classification": "ENVIRONMENT_FIXED",
+      "likely_root_cause": "system Python did not contain declared jsonschema dependency"
+    },
+    {
+      "test_id": "tests/unit/test_shorts_derivative_engine_v1.py::test_context_dependent_candidate_is_penalized",
+      "before_result": "FAIL",
+      "error_type": "ModuleNotFoundError",
+      "error_message": "No module named 'jsonschema'; surfaced as SHORT_PROFILE_INVALID:SCHEMA_VALIDATOR_UNAVAILABLE",
+      "stack_root": "src/application/shorts_derivative_engine_v1.py::load_shorts_profile",
+      "affected_module": "ShortsDerivativeEngine profile validation",
+      "classification": "ENVIRONMENT_FIXED",
+      "likely_root_cause": "system Python did not contain declared jsonschema dependency"
+    },
+    {
+      "test_id": "tests/unit/test_shorts_derivative_engine_v1.py::test_constitutional_face_failure_cannot_be_overridden_by_score",
+      "before_result": "FAIL",
+      "error_type": "ModuleNotFoundError",
+      "error_message": "No module named 'jsonschema'; surfaced as SHORT_PROFILE_INVALID:SCHEMA_VALIDATOR_UNAVAILABLE",
+      "stack_root": "src/application/shorts_derivative_engine_v1.py::load_shorts_profile",
+      "affected_module": "ShortsDerivativeEngine profile validation",
+      "classification": "ENVIRONMENT_FIXED",
+      "likely_root_cause": "system Python did not contain declared jsonschema dependency"
+    },
+    {
+      "test_id": "tests/unit/test_shorts_derivative_engine_v1.py::test_vertical_reframe_is_left_or_right_aware_and_not_face_tracking",
+      "before_result": "FAIL",
+      "error_type": "ModuleNotFoundError",
+      "error_message": "No module named 'jsonschema'; surfaced as SHORT_PROFILE_INVALID:SCHEMA_VALIDATOR_UNAVAILABLE",
+      "stack_root": "src/application/shorts_derivative_engine_v1.py::load_shorts_profile",
+      "affected_module": "ShortsDerivativeEngine profile validation",
+      "classification": "ENVIRONMENT_FIXED",
+      "likely_root_cause": "system Python did not contain declared jsonschema dependency"
+    },
+    {
+      "test_id": "tests/unit/test_shorts_derivative_engine_v1.py::test_full_width_vertical_action_is_rejected",
+      "before_result": "FAIL",
+      "error_type": "ModuleNotFoundError",
+      "error_message": "No module named 'jsonschema'; surfaced as SHORT_PROFILE_INVALID:SCHEMA_VALIDATOR_UNAVAILABLE",
+      "stack_root": "src/application/shorts_derivative_engine_v1.py::load_shorts_profile",
+      "affected_module": "ShortsDerivativeEngine profile validation",
+      "classification": "ENVIRONMENT_FIXED",
+      "likely_root_cause": "system Python did not contain declared jsonschema dependency"
+    },
+    {
+      "test_id": "tests/unit/test_shorts_derivative_engine_v1.py::test_portfolio_is_dynamic_and_schedule_only_blocks_without_publish_day",
+      "before_result": "FAIL",
+      "error_type": "ModuleNotFoundError",
+      "error_message": "No module named 'jsonschema'; surfaced as SHORT_PROFILE_INVALID:SCHEMA_VALIDATOR_UNAVAILABLE",
+      "stack_root": "src/application/shorts_derivative_engine_v1.py::load_shorts_profile",
+      "affected_module": "ShortsDerivativeEngine profile validation",
+      "classification": "ENVIRONMENT_FIXED",
+      "likely_root_cause": "system Python did not contain declared jsonschema dependency"
+    },
+    {
+      "test_id": "tests/unit/test_shorts_derivative_engine_v1.py::test_render_plan_requires_human_selection_and_click",
+      "before_result": "FAIL",
+      "error_type": "ModuleNotFoundError",
+      "error_message": "No module named 'jsonschema'; surfaced as SHORT_PROFILE_INVALID:SCHEMA_VALIDATOR_UNAVAILABLE",
+      "stack_root": "src/application/shorts_derivative_engine_v1.py::load_shorts_profile",
+      "affected_module": "ShortsDerivativeEngine profile validation",
+      "classification": "ENVIRONMENT_FIXED",
+      "likely_root_cause": "system Python did not contain declared jsonschema dependency"
+    },
+    {
+      "test_id": "tests/unit/test_shorts_derivative_engine_v1.py::test_legacy_source_is_analyzed_but_not_grandfathered",
+      "before_result": "FAIL",
+      "error_type": "ModuleNotFoundError",
+      "error_message": "No module named 'jsonschema'; surfaced as SHORT_PROFILE_INVALID:SCHEMA_VALIDATOR_UNAVAILABLE",
+      "stack_root": "src/application/shorts_derivative_engine_v1.py::load_shorts_profile",
+      "affected_module": "ShortsDerivativeEngine profile validation",
+      "classification": "ENVIRONMENT_FIXED",
+      "likely_root_cause": "system Python did not contain declared jsonschema dependency"
+    },
+    {
+      "test_id": "tests/integration/test_shorts_derivative_adversarial_v1.py::test_adversarial_inputs_are_not_silently_promoted[<lambda>-CONTEXT]",
+      "before_result": "FAIL",
+      "error_type": "ModuleNotFoundError",
+      "error_message": "No module named 'jsonschema'; surfaced as SHORT_PROFILE_INVALID:SCHEMA_VALIDATOR_UNAVAILABLE",
+      "stack_root": "src/application/shorts_derivative_engine_v1.py::load_shorts_profile",
+      "affected_module": "ShortsDerivativeEngine profile validation",
+      "classification": "ENVIRONMENT_FIXED",
+      "likely_root_cause": "system Python did not contain declared jsonschema dependency"
+    },
+    {
+      "test_id": "tests/integration/test_shorts_derivative_adversarial_v1.py::test_adversarial_inputs_are_not_silently_promoted[<lambda>-FACE]",
+      "before_result": "FAIL",
+      "error_type": "ModuleNotFoundError",
+      "error_message": "No module named 'jsonschema'; surfaced as SHORT_PROFILE_INVALID:SCHEMA_VALIDATOR_UNAVAILABLE",
+      "stack_root": "src/application/shorts_derivative_engine_v1.py::load_shorts_profile",
+      "affected_module": "ShortsDerivativeEngine profile validation",
+      "classification": "ENVIRONMENT_FIXED",
+      "likely_root_cause": "system Python did not contain declared jsonschema dependency"
+    },
+    {
+      "test_id": "tests/integration/test_shorts_derivative_adversarial_v1.py::test_adversarial_inputs_are_not_silently_promoted[<lambda>-MUSIC]",
+      "before_result": "FAIL",
+      "error_type": "ModuleNotFoundError",
+      "error_message": "No module named 'jsonschema'; surfaced as SHORT_PROFILE_INVALID:SCHEMA_VALIDATOR_UNAVAILABLE",
+      "stack_root": "src/application/shorts_derivative_engine_v1.py::load_shorts_profile",
+      "affected_module": "ShortsDerivativeEngine profile validation",
+      "classification": "ENVIRONMENT_FIXED",
+      "likely_root_cause": "system Python did not contain declared jsonschema dependency"
+    },
+    {
+      "test_id": "tests/integration/test_shorts_derivative_adversarial_v1.py::test_adversarial_inputs_are_not_silently_promoted[<lambda>-SFX]",
+      "before_result": "FAIL",
+      "error_type": "ModuleNotFoundError",
+      "error_message": "No module named 'jsonschema'; surfaced as SHORT_PROFILE_INVALID:SCHEMA_VALIDATOR_UNAVAILABLE",
+      "stack_root": "src/application/shorts_derivative_engine_v1.py::load_shorts_profile",
+      "affected_module": "ShortsDerivativeEngine profile validation",
+      "classification": "ENVIRONMENT_FIXED",
+      "likely_root_cause": "system Python did not contain declared jsonschema dependency"
+    },
+    {
+      "test_id": "tests/integration/test_shorts_derivative_adversarial_v1.py::test_adversarial_inputs_are_not_silently_promoted[<lambda>-VERTICAL]",
+      "before_result": "FAIL",
+      "error_type": "ModuleNotFoundError",
+      "error_message": "No module named 'jsonschema'; surfaced as SHORT_PROFILE_INVALID:SCHEMA_VALIDATOR_UNAVAILABLE",
+      "stack_root": "src/application/shorts_derivative_engine_v1.py::load_shorts_profile",
+      "affected_module": "ShortsDerivativeEngine profile validation",
+      "classification": "ENVIRONMENT_FIXED",
+      "likely_root_cause": "system Python did not contain declared jsonschema dependency"
+    },
+    {
+      "test_id": "tests/integration/test_shorts_derivative_adversarial_v1.py::test_source_change_invalidates_analysis",
+      "before_result": "FAIL",
+      "error_type": "ModuleNotFoundError",
+      "error_message": "No module named 'jsonschema'; surfaced as SHORT_PROFILE_INVALID:SCHEMA_VALIDATOR_UNAVAILABLE",
+      "stack_root": "src/application/shorts_derivative_engine_v1.py::load_shorts_profile",
+      "affected_module": "ShortsDerivativeEngine profile validation",
+      "classification": "ENVIRONMENT_FIXED",
+      "likely_root_cause": "system Python did not contain declared jsonschema dependency"
+    },
+    {
+      "test_id": "tests/integration/test_shorts_derivative_adversarial_v1.py::test_no_fillers_when_all_candidates_are_weak",
+      "before_result": "FAIL",
+      "error_type": "ModuleNotFoundError",
+      "error_message": "No module named 'jsonschema'; surfaced as SHORT_PROFILE_INVALID:SCHEMA_VALIDATOR_UNAVAILABLE",
+      "stack_root": "src/application/shorts_derivative_engine_v1.py::load_shorts_profile",
+      "affected_module": "ShortsDerivativeEngine profile validation",
+      "classification": "ENVIRONMENT_FIXED",
+      "likely_root_cause": "system Python did not contain declared jsonschema dependency"
+    },
+    {
+      "test_id": "tests/integration/test_shorts_derivative_renderer_v1.py::test_plan_to_local_render_to_qa_to_hash_bound_export",
+      "before_result": "FAIL",
+      "error_type": "ModuleNotFoundError",
+      "error_message": "No module named 'jsonschema'; surfaced as SHORT_PROFILE_INVALID:SCHEMA_VALIDATOR_UNAVAILABLE",
+      "stack_root": "src/application/shorts_derivative_engine_v1.py::load_shorts_profile",
+      "affected_module": "ShortsDerivativeEngine profile validation",
+      "classification": "ENVIRONMENT_FIXED",
+      "likely_root_cause": "system Python did not contain declared jsonschema dependency"
+    },
+    {
+      "test_id": "tests/integration/test_shorts_derivative_renderer_v1.py::test_renderer_rejects_without_explicit_local_approval",
+      "before_result": "FAIL",
+      "error_type": "ModuleNotFoundError",
+      "error_message": "No module named 'jsonschema'; surfaced as SHORT_PROFILE_INVALID:SCHEMA_VALIDATOR_UNAVAILABLE",
+      "stack_root": "src/application/shorts_derivative_engine_v1.py::load_shorts_profile",
+      "affected_module": "ShortsDerivativeEngine profile validation",
+      "classification": "ENVIRONMENT_FIXED",
+      "likely_root_cause": "system Python did not contain declared jsonschema dependency"
+    },
+    {
+      "test_id": "tests/integration/test_shorts_derivative_adversarial_v1.py::test_network_guard_is_real_for_engine_path",
+      "before_result": "ERROR",
+      "error_type": "ShortsProfileError",
+      "error_message": "SHORT_PROFILE_INVALID:SCHEMA_VALIDATOR_UNAVAILABLE",
+      "stack_root": "fixture setup -> ShortsDerivativeEngine -> load_shorts_profile",
+      "affected_module": "ShortsDerivativeEngine profile validation",
+      "classification": "ENVIRONMENT_FIXED",
+      "likely_root_cause": "system Python did not contain declared jsonschema dependency"
+    },
+    {
+      "test_id": "tests/integration/test_shorts_derivative_adversarial_v1.py::test_provider_and_publication_boundaries_are_false",
+      "before_result": "ERROR",
+      "error_type": "ShortsProfileError",
+      "error_message": "SHORT_PROFILE_INVALID:SCHEMA_VALIDATOR_UNAVAILABLE",
+      "stack_root": "fixture setup -> ShortsDerivativeEngine -> load_shorts_profile",
+      "affected_module": "ShortsDerivativeEngine profile validation",
+      "classification": "ENVIRONMENT_FIXED",
+      "likely_root_cause": "system Python did not contain declared jsonschema dependency"
+    },
+    {
+      "test_id": "tests/integration/test_shorts_derivative_adversarial_v1.py::test_deterministic_candidate_ordering",
+      "before_result": "ERROR",
+      "error_type": "ShortsProfileError",
+      "error_message": "SHORT_PROFILE_INVALID:SCHEMA_VALIDATOR_UNAVAILABLE",
+      "stack_root": "fixture setup -> ShortsDerivativeEngine -> load_shorts_profile",
+      "affected_module": "ShortsDerivativeEngine profile validation",
+      "classification": "ENVIRONMENT_FIXED",
+      "likely_root_cause": "system Python did not contain declared jsonschema dependency"
+    },
+    {
+      "test_id": "tests/integration/test_shorts_desktop_workflow_v1.py::test_desktop_workflow_real_local_render_resume_and_canonical_export",
+      "before_result": "SKIP",
+      "error_type": "PySide6Unavailable",
+      "error_message": "Qt-dependent test skipped because PySide6 was unavailable in system Python",
+      "stack_root": "pytest.importorskip('PySide6')",
+      "affected_module": "Desktop Qt runtime",
+      "classification": "ENVIRONMENT_FIXED",
+      "likely_root_cause": "system Python did not contain declared Desktop Qt dependency"
+    },
+    {
+      "test_id": "tests/integration/test_shorts_desktop_ui_v1.py::test_shorts_dock_is_existing_window_surface_and_geometry_safe",
+      "before_result": "SKIP",
+      "error_type": "PySide6Unavailable",
+      "error_message": "Qt-dependent test skipped because PySide6 was unavailable in system Python",
+      "stack_root": "pytest.importorskip('PySide6')",
+      "affected_module": "Desktop Qt runtime",
+      "classification": "ENVIRONMENT_FIXED",
+      "likely_root_cause": "system Python did not contain declared Desktop Qt dependency"
+    },
+    {
+      "test_id": "tests/integration/test_shorts_desktop_ux_v1.py::test_shorts_window_exposes_only_user_actions_when_qt_is_available",
+      "before_result": "SKIP",
+      "error_type": "PySide6Unavailable",
+      "error_message": "Qt-dependent test skipped because PySide6 was unavailable in system Python",
+      "stack_root": "pytest.importorskip('PySide6')",
+      "affected_module": "Desktop Qt runtime",
+      "classification": "ENVIRONMENT_FIXED",
+      "likely_root_cause": "system Python did not contain declared Desktop Qt dependency"
+    },
+    {
+      "test_id": "tests/integration/test_shorts_desktop_ux_screenshots_v1.py::test_short_ux_screenshots_are_captured_locally",
+      "before_result": "SKIP",
+      "error_type": "PySide6Unavailable",
+      "error_message": "Screenshot test skipped because PySide6 was unavailable in system Python",
+      "stack_root": "pytest.importorskip('PySide6')",
+      "affected_module": "Desktop Qt runtime",
+      "classification": "ENVIRONMENT_FIXED",
+      "likely_root_cause": "system Python did not contain declared Desktop Qt dependency"
+    }
+  ],
+  "remaining_failures": [],
+  "remaining_errors": [],
+  "remaining_unjustified_skips": [],
+  "classification_summary": {
+    "ENVIRONMENT_FIXED": 29,
+    "REAL_UX_DEFECT": 0,
+    "REAL_ENGINE_DEFECT": 0,
+    "TEST_DEFECT": 0,
+    "LEGACY_UNRELATED": 0,
+    "DEPENDENCY_CONTRACT_DEFECT": 0,
+    "EXPECTED_LIVE_SKIP": 0
+  }
+}
