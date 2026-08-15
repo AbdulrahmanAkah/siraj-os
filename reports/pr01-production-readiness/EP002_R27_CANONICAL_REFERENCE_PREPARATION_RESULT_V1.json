@@ -1,0 +1,39 @@
+{
+  "preparation_id": "EP002_R27_CANONICAL_REFERENCE_PREPARATION_RESULT_V1",
+  "status": "PASS_CANONICAL_REFERENCE_PREPARATION",
+  "episode_id": "episode-002-adam-temptation-fall-repentance",
+  "constitution": {
+    "version": "1.2.0",
+    "bundle_manifest_sha256": "b390d8a61382ece4e8daeb5993fc89bb013a9b74cd8d06b2fb6e41f0b7d001d5"
+  },
+  "human_approval_sha256": "c1720784f48dcaa878cde1244af8975437c82f8684bbbeb2938c88c85497a6a9",
+  "reference_states": [
+    "ADAM_GARDEN",
+    "ADAM_EARTH",
+    "ADAM_DEBATE",
+    "HAWWA_GARDEN",
+    "HAWWA_EARTH",
+    "MUSA_DEBATE"
+  ],
+  "reference_briefs_path": "reports/pr01-production-readiness/EP002_R27_CANONICAL_REFERENCE_BRIEFS_V1.json",
+  "acceptance_checklist_path": "reports/pr01-production-readiness/EP002_R27_CANONICAL_REFERENCE_ACCEPTANCE_CHECKLIST_V1.json",
+  "asset_intake_path": "reports/pr01-production-readiness/EP002_R27_CANONICAL_REFERENCE_ASSET_INTAKE_V1.json",
+  "reference_asset_directory": "projects/episode-002-adam-temptation-fall-repentance/orchestration/canonical-reference-v1/assets",
+  "reference_assets_created": 0,
+  "reference_validation_performed": false,
+  "current_r27_counts": {
+    "KEEP": 0,
+    "REGENERATE": 0,
+    "BLOCK": 27
+  },
+  "reclassification_performed": false,
+  "regeneration_authorized": false,
+  "media_or_frame_mutation_performed": false,
+  "provider_execution_authorized": false,
+  "paid_execution_authorized": false,
+  "provider_calls": 0,
+  "network_production_calls": 0,
+  "paid_calls": 0,
+  "publication": 0,
+  "next_stage": "EP002_R27_CANONICAL_REFERENCE_ASSET_ACQUISITION_AND_VALIDATION"
+}

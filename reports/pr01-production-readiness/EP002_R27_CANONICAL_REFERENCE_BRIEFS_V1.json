@@ -1,0 +1,236 @@
+{
+  "briefs_id": "EP002_R27_CANONICAL_REFERENCE_BRIEFS_V1",
+  "status": "PREPARED_AWAITING_REFERENCE_ASSETS",
+  "episode_id": "episode-002-adam-temptation-fall-repentance",
+  "constitution": {
+    "version": "1.2.0",
+    "bundle_manifest_sha256": "b390d8a61382ece4e8daeb5993fc89bb013a9b74cd8d06b2fb6e41f0b7d001d5"
+  },
+  "upstream": {
+    "blocker_resolution_plan_sha256": "3c9b8a4580b9d4e62838ae4e04e844a783b22da0c61bd331225e6a7231ab980a",
+    "canonical_visual_lock_sha256": "4cb4493558e1f3f24f35b0ab2418b525a2538a5cdc3ff04d48cf1771882915ef",
+    "human_approval_sha256": "c1720784f48dcaa878cde1244af8975437c82f8684bbbeb2938c88c85497a6a9"
+  },
+  "global_style_and_policy": {
+    "visual_style": "cinematic, grounded, dignified, naturalistic, restrained; avoid fantasy spectacle and modern visual cues",
+    "face_policy": "NO_VISIBLE_HUMAN_FACE_IN_ANY_CANONICAL_REFERENCE",
+    "prophet_face_policy": "ABSOLUTELY_FORBIDDEN",
+    "historical_uncertainty_policy": "use neutral non-assertive visual design; do not invent precise historical facts",
+    "reference_use": "accepted reference must be human-reviewed and SHA256-bound before any R27 replacement generation may use it",
+    "existing_blocked_assets": "DO_NOT_USE_AS_CANONICAL_REFERENCE"
+  },
+  "reference_count": 6,
+  "references": [
+    {
+      "reference_id": "ADAM_GARDEN",
+      "expected_asset_filename": "ADAM_GARDEN.png",
+      "brief": {
+        "character": "ADAM",
+        "narrative_state": "GARDEN",
+        "purpose": "Canonical body, silhouette, and Garden wardrobe identity for Adam.",
+        "composition": [
+          "full or three-quarter body reference",
+          "rear view or head fully outside frame / fully occluded",
+          "clear silhouette and garment construction",
+          "neutral standing posture",
+          "no dramatic action"
+        ],
+        "identity_lock": [
+          "one consistent adult male body identity",
+          "fixed tall/strong but natural build",
+          "fixed shoulder width and limb proportions",
+          "no age drift",
+          "no facial anatomy visible at any angle"
+        ],
+        "wardrobe": [
+          "simple fully covering draped garment",
+          "time-neutral natural-material appearance",
+          "no modern tailoring, zippers, logos, technical fabrics, or modern accessories",
+          "do not claim a precise historically unattested costume"
+        ],
+        "hard_forbidden": [
+          "visible face",
+          "partial eyes/nose/mouth",
+          "reflection revealing face",
+          "modern clothing",
+          "nudity or body exposure",
+          "glamour styling"
+        ]
+      },
+      "status": "ASSET_NOT_PRESENT_YET"
+    },
+    {
+      "reference_id": "ADAM_EARTH",
+      "expected_asset_filename": "ADAM_EARTH.png",
+      "brief": {
+        "character": "ADAM",
+        "narrative_state": "EARTH",
+        "purpose": "Canonical Earth-state identity for Adam while preserving the same body identity.",
+        "composition": [
+          "full or three-quarter body reference",
+          "rear/occluded head",
+          "same physical identity as ADAM_GARDEN",
+          "earth environment may be subdued and natural"
+        ],
+        "identity_lock": [
+          "must match ADAM_GARDEN body proportions",
+          "same height class, build, shoulders, gait silhouette",
+          "face never visible"
+        ],
+        "wardrobe": [
+          "simple modest time-neutral draped clothing",
+          "state change may differ from Garden only by deliberate narrative wardrobe state",
+          "no modern fashion cues"
+        ],
+        "hard_forbidden": [
+          "visible face",
+          "different male identity",
+          "modern clothing",
+          "random wardrobe drift",
+          "clear material anachronism"
+        ]
+      },
+      "status": "ASSET_NOT_PRESENT_YET"
+    },
+    {
+      "reference_id": "ADAM_DEBATE",
+      "expected_asset_filename": "ADAM_DEBATE.png",
+      "brief": {
+        "character": "ADAM",
+        "narrative_state": "DEBATE",
+        "purpose": "Canonical debate-state identity for Adam, consistent with the same global Adam identity.",
+        "composition": [
+          "three-quarter or full body",
+          "face completely concealed",
+          "calm respectful posture",
+          "measured open-hand gesture only",
+          "no aggressive pointing"
+        ],
+        "identity_lock": [
+          "same global Adam body identity",
+          "fixed silhouette and proportions",
+          "no face visibility"
+        ],
+        "wardrobe": [
+          "simple modest time-neutral robe/drapery",
+          "no modern clothing or accessories"
+        ],
+        "hard_forbidden": [
+          "visible face",
+          "angry theatrical expression conveyed through body language",
+          "aggressive pointing",
+          "hostile stance",
+          "modern wardrobe"
+        ]
+      },
+      "status": "ASSET_NOT_PRESENT_YET"
+    },
+    {
+      "reference_id": "HAWWA_GARDEN",
+      "expected_asset_filename": "HAWWA_GARDEN.png",
+      "brief": {
+        "character": "HAWWA",
+        "narrative_state": "GARDEN",
+        "purpose": "Canonical Garden-state identity, modesty and silhouette for Hawwa.",
+        "composition": [
+          "full or three-quarter body",
+          "face fully concealed by angle/occlusion without exposing features",
+          "neutral dignified posture",
+          "no glamour pose"
+        ],
+        "identity_lock": [
+          "one consistent adult female body identity",
+          "fixed height class and silhouette",
+          "no face visibility",
+          "no body-shape exaggeration"
+        ],
+        "wardrobe": [
+          "fully modest loose opaque covering",
+          "hair, neck, chest, arms, legs and body contours not exposed",
+          "time-neutral non-modern draped garment",
+          "no makeup/glamour styling"
+        ],
+        "hard_forbidden": [
+          "visible face",
+          "visible hair or neck",
+          "cleavage",
+          "exposed arms or legs",
+          "tight/transparent clothing",
+          "body contour emphasis",
+          "modern fashion"
+        ]
+      },
+      "status": "ASSET_NOT_PRESENT_YET"
+    },
+    {
+      "reference_id": "HAWWA_EARTH",
+      "expected_asset_filename": "HAWWA_EARTH.png",
+      "brief": {
+        "character": "HAWWA",
+        "narrative_state": "EARTH",
+        "purpose": "Canonical Earth-state identity for Hawwa preserving the same body identity and strict modesty.",
+        "composition": [
+          "full or three-quarter body",
+          "face fully concealed",
+          "same identity as HAWWA_GARDEN",
+          "neutral dignified posture"
+        ],
+        "identity_lock": [
+          "must match HAWWA_GARDEN body proportions and silhouette",
+          "no face visibility",
+          "no identity drift"
+        ],
+        "wardrobe": [
+          "fully modest loose opaque covering",
+          "deliberate Earth-state wardrobe may differ but remains globally consistent within that state",
+          "no modern dress, tailoring, accessories, or glamour cues"
+        ],
+        "hard_forbidden": [
+          "visible face",
+          "visible body parts inconsistent with modesty",
+          "modern clothing",
+          "random wardrobe drift",
+          "different female identity"
+        ]
+      },
+      "status": "ASSET_NOT_PRESENT_YET"
+    },
+    {
+      "reference_id": "MUSA_DEBATE",
+      "expected_asset_filename": "MUSA_DEBATE.png",
+      "brief": {
+        "character": "MUSA",
+        "narrative_state": "DEBATE",
+        "purpose": "Canonical debate identity for Musa with fully concealed face and calm reverent physical language.",
+        "composition": [
+          "three-quarter or full body",
+          "rear view / head occluded / face fully outside frame",
+          "calm respectful stance",
+          "measured hand gestures"
+        ],
+        "identity_lock": [
+          "one consistent adult male identity for all debate renders",
+          "fixed body silhouette and proportions",
+          "face absolutely never visible"
+        ],
+        "wardrobe": [
+          "simple modest time-neutral robe/drapery",
+          "no precise unsupported historical costume claims",
+          "no modern clothing cues"
+        ],
+        "hard_forbidden": [
+          "visible face",
+          "aggressive pointing",
+          "shouting or hostile body language",
+          "modern clothing",
+          "random identity drift"
+        ]
+      },
+      "status": "ASSET_NOT_PRESENT_YET"
+    }
+  ],
+  "media_generation_performed": false,
+  "provider_calls": 0,
+  "paid_calls": 0,
+  "next_action": "ACQUIRE_OR_GENERATE_SIX_REFERENCE_ASSETS"
+}

@@ -3301,3 +3301,24 @@ NEXT=SUPPLY_OR_SELECT_TRUSTED_WORD_OR_PHRASE_TIMING_FOR_EP001_THEN_RERUN_CAPTION
 - Paid calls: `0`
 - Publication: `0`
 - Next stage: `EP002_R27_CANONICAL_REFERENCE_PREPARATION_AND_VALIDATION`
+
+## SIRAJ_EP002_R27_CANONICAL_REFERENCE_PREPARATION_V1
+
+- Date: 2026-08-16
+- Status: `PASS_CANONICAL_REFERENCE_PREPARATION`
+- Reference briefs prepared: `6`
+- Reference image assets generated/acquired: `0`
+- Reference validation performed: `false`
+- Current R27 state remains: `KEEP=0, REGENERATE=0, BLOCK=27`
+- Media/frame mutation: `false`
+- Reclassification performed: `false`
+- Regeneration authorized: `false`
+- Preparation result SHA256: `a52b3d64d6f3fe162a6abb14b2dc906d4e96c9fa4ab1b1b16643430ebb04194f`
+- Reference briefs SHA256: `11303ae4bc61b41306f205402bc5626bbcc7c3986c9335a5a6333aa55f0644d6`
+- Acceptance checklist SHA256: `d8daf0bead2b1d8d0eb0695d0d783ce89bdc4b0052d2b2c27298f328ba16a260`
+- Asset intake SHA256: `8f744c7f219d50af891b8c50973af2bbaf1aaad80ab1fab056bad2676632da1c`
+- Provider calls: `0`
+- Network production calls: `0`
+- Paid calls: `0`
+- Publication: `0`
+- Next stage: `EP002_R27_CANONICAL_REFERENCE_ASSET_ACQUISITION_AND_VALIDATION`
