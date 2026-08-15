@@ -3194,3 +3194,29 @@ NEXT=SUPPLY_OR_SELECT_TRUSTED_WORD_OR_PHRASE_TIMING_FOR_EP001_THEN_RERUN_CAPTION
 - Publication: `0`
 - Coverage manifest SHA256: `81f34709967d9985fe6622edc959668a795c5fdd6d497e70a133ccc658a77e2f`
 - Next stage: `PR01_CONSTITUTION_1_2_REBINDING_AND_RESUME`
+
+## SIRAJ_PR01_CONSTITUTION_1_2_REBINDING_AND_RESUME_V1
+
+- Date: 2026-08-16
+- Status: `PASS_PR01_CONSTITUTION_1_2_REBINDING_AND_RESUME`
+- Constitution version: `1.2.0`
+- Constitution bundle SHA256: `b390d8a61382ece4e8daeb5993fc89bb013a9b74cd8d06b2fb6e41f0b7d001d5`
+- Previous constitution version: `1.1.0`
+- Previous constitution bundle SHA256: `c82097a3de2dfa9c4b7a4b6d2c7c1b1f7fab909d25575724167e8ea7f4e3c7b8`
+- Global enforcement coverage commit: `9e4e481c3dbc3dae1d4f5ea955b95bf241999e1d`
+- Global enforcement coverage manifest SHA256: `81f34709967d9985fe6622edc959668a795c5fdd6d497e70a133ccc658a77e2f`
+- Historical M01/M02/M03: `COMPATIBILITY_REVALIDATED`, rebuild not required
+- Historical PR01 certification: historical evidence only; not required to contain Constitution 1.2 identity
+- R27 units: `27`, all remain `PENDING_HUMAN_REVIEW / NOT_STARTED`
+- R27 live asset hashes: `27/27 MATCH`
+- Montage allowed: `false`
+- QA allowed: `false`
+- Provider retry allowed: `false`
+- Global production authorization: `false`
+- Paid execution authorization: `false`
+- Provider calls: `0`
+- Paid calls: `0`
+- Network production calls: `0`
+- Publication: `0`
+- Resume certification SHA256: `e43a53f70f74ee7cbb1bfc2aa3b71e545a04eb6f2c4c6bec739176431d04f3b2`
+- Next stage: `EP002_AUDIO_FREEZE`

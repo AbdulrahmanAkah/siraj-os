@@ -1,0 +1,79 @@
+{
+  "certification_id": "SIRAJ_PR01_CONSTITUTION_1_2_RESUME_CERTIFICATION_V1",
+  "status": "PASS_PR01_CONSTITUTION_1_2_REBINDING_AND_RESUME",
+  "constitution": {
+    "id": "SIRAJ_UNIFIED_PRODUCTION_CONSTITUTION",
+    "version": "1.2.0",
+    "bundle_manifest_sha256": "b390d8a61382ece4e8daeb5993fc89bb013a9b74cd8d06b2fb6e41f0b7d001d5",
+    "global_production_authorized": false
+  },
+  "previous_constitution": {
+    "version": "1.1.0",
+    "bundle_manifest_sha256": "c82097a3de2dfa9c4b7a4b6d2c7c1b1f7fab909d25575724167e8ea7f4e3c7b8"
+  },
+  "global_enforcement_coverage": {
+    "status": "PASS",
+    "commit": "9e4e481c3dbc3dae1d4f5ea955b95bf241999e1d",
+    "coverage_manifest_sha256": "81f34709967d9985fe6622edc959668a795c5fdd6d497e70a133ccc658a77e2f",
+    "rules": 51,
+    "covered": 51,
+    "uncovered": 0,
+    "critical_rules_unenforced": 0,
+    "high_rules_unenforced": 0
+  },
+  "historical_pr01": {
+    "m01": true,
+    "m02": true,
+    "m03": true,
+    "historical_certification_used_as_historical_evidence_only": true
+  },
+  "live_rebind_result": {
+    "status": "PASS",
+    "invalidation_event": "constitution_bundle_changed",
+    "previous_binding": {
+      "constitution_id": "SIRAJ_UNIFIED_PRODUCTION_CONSTITUTION",
+      "constitution_version": "1.1.0",
+      "constitution_bundle_sha256": "c82097a3de2dfa9c4b7a4b6d2c7c1b1f7fab909d25575724167e8ea7f4e3c7b8"
+    },
+    "current_binding": {
+      "constitution_id": "SIRAJ_UNIFIED_PRODUCTION_CONSTITUTION",
+      "constitution_version": "1.2.0",
+      "constitution_bundle_sha256": "b390d8a61382ece4e8daeb5993fc89bb013a9b74cd8d06b2fb6e41f0b7d001d5"
+    },
+    "prior_approvals": "INVALIDATED",
+    "m01_m02_m03_rebuild_required": false,
+    "m01_m02_m03_compatibility_revalidated": true,
+    "historical_unknown": {
+      "attempt_id": "1e6d0013-d37f-5df7-ab53-444c4f17c14c",
+      "request_id": "EP002-SH-001-V01",
+      "task_uuid": "planning-only-23fd9f353315ea244f26e1940c4fe737",
+      "submission_status": "SUBMISSION_STATUS_UNKNOWN",
+      "status": "UNKNOWN_REMAINS_BLOCK",
+      "retry_allowed": false,
+      "resubmission_allowed": false,
+      "recovery_allowed": false,
+      "reason": "TASKUUID_NOT_RECOVERABLE_UNKNOWN_REMAINS_BLOCK"
+    },
+    "production_authorized": false,
+    "paid_execution_authorized": false,
+    "provider_calls": 0,
+    "paid_calls": 0,
+    "network_production_calls": 0,
+    "retry_or_resubmission": 0
+  },
+  "r27_pre_recertification": {
+    "unit_count": 27,
+    "pending_human_review": 27,
+    "review_decisions": 0,
+    "live_asset_hashes_match": 27,
+    "montage_allowed": false,
+    "qa_allowed": false,
+    "provider_retry_allowed": false
+  },
+  "historical_certification_policy": "HISTORICAL_EVIDENCE_ONLY_NOT_REQUIRED_TO_CONTAIN_1_2_IDENTITY",
+  "provider_calls": 0,
+  "network_production_calls": 0,
+  "paid_calls": 0,
+  "publication": 0,
+  "next_stage": "EP002_AUDIO_FREEZE"
+}

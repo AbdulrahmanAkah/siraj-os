@@ -17,8 +17,8 @@
   "constitution_rebind": {
     "status": "REBOUND_AFTER_CONSTITUTION_POLICY_AMENDMENT",
     "invalidation_event": "constitution_bundle_changed",
-    "previous_constitution_version": "1.2.0",
-    "previous_constitution_bundle_sha256": "77c451711eb1888664518c9fe89e176033fdf7612f4636e18c0e0ca4d3af4f54",
+    "previous_constitution_version": "1.1.0",
+    "previous_constitution_bundle_sha256": "c82097a3de2dfa9c4b7a4b6d2c7c1b1f7fab909d25575724167e8ea7f4e3c7b8",
     "m01_m02_m03_input_hashes_unchanged": true,
     "compatibility_revalidated": true,
     "production_authorized": false,
@@ -81,7 +81,10 @@
     "longform_on_screen_subtitles_allowed": false,
     "short_derivative_burned_narration_captions_allowed": true,
     "shorts_caption_default_enabled": true,
-    "shorts_caption_text_authority": ["CANONICAL_TIMED_TRANSCRIPT", "TRUSTED_HASH_BOUND_TIMING"]
+    "shorts_caption_text_authority": [
+      "CANONICAL_TIMED_TRANSCRIPT",
+      "TRUSTED_HASH_BOUND_TIMING"
+    ]
   },
   "legacy_duplicate_authorities": [
     {
@@ -110,5 +113,5 @@
       "resolution": "BOUND_TO_PR01_PROFILE"
     }
   ],
-  "binding_sha256": "a955edeb1b6a58c8b8affed1b433a36de1cbd387d0c86db9ccf0492908a14f5e"
+  "binding_sha256": "6f8ca364ac3af06d58b8a59f2fc481192c9a7a230698ca94658dcc9dddc0fc87"
 }
