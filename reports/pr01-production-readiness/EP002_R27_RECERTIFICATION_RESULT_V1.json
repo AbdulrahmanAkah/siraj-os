@@ -1,0 +1,45 @@
+{
+  "recertification_id": "EP002_R27_RECERTIFICATION_RESULT_V1",
+  "status": "PASS_EP002_R27_RECERTIFICATION_FINALIZED",
+  "episode_id": "episode-002-adam-temptation-fall-repentance",
+  "constitution": {
+    "version": "1.2.0",
+    "bundle_manifest_sha256": "b390d8a61382ece4e8daeb5993fc89bb013a9b74cd8d06b2fb6e41f0b7d001d5"
+  },
+  "audio_freeze_manifest_sha256": "31c55d50726ac8a16d9b9f72986ed2343254829827b552c9cbdb7957aac424ac",
+  "source_r27_manifest_sha256": "53d70b7d344ab08cda7d928149fb83118b7738a73f55b3753e598e25d3c41f70",
+  "human_decisions": {
+    "path": "reports/pr01-production-readiness/EP002_R27_HUMAN_DECISIONS_V1.json",
+    "sha256": "096184647b328f0f4ca1482e2c7f89c1dd32dfe6c086d7a708ba11cd437dcb50",
+    "human_review_complete": true,
+    "decision_count": 27,
+    "counts": {
+      "KEEP": 0,
+      "REGENERATE": 0,
+      "BLOCK": 27
+    }
+  },
+  "decision_semantics": {
+    "KEEP": "UNCHANGED_AND_ELIGIBLE_TO_CONTINUE_WHEN_OTHER_GATES_PASS",
+    "REGENERATE": "SELECTIVE_REGENERATION_ELIGIBLE_ONLY_AFTER_REQUIRED_AUTHORIZATION",
+    "BLOCK": "STOP_ITEM_UNTIL_BLOCKER_RESOLVED_AND_RECLASSIFIED"
+  },
+  "selective_regeneration": {
+    "eligible_item_count": 0,
+    "eligible_unit_ids": [],
+    "authorized": false,
+    "reason": "NO_REGENERATE_DECISIONS_ALL_27_ARE_BLOCK"
+  },
+  "blocked_item_count": 27,
+  "blocker_register_path": "reports/pr01-production-readiness/EP002_R27_BLOCKER_REGISTER_V1.json",
+  "montage_allowed": false,
+  "qa_allowed": false,
+  "provider_retry_allowed": false,
+  "paid_execution_authorized": false,
+  "publication_allowed": false,
+  "provider_calls": 0,
+  "network_production_calls": 0,
+  "paid_calls": 0,
+  "publication": 0,
+  "next_stage": "EP002_R27_BLOCKER_RESOLUTION_PLANNING"
+}

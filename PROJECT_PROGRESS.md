@@ -3243,3 +3243,24 @@ NEXT=SUPPLY_OR_SELECT_TRUSTED_WORD_OR_PHRASE_TIMING_FOR_EP001_THEN_RERUN_CAPTION
 - Paid calls: `0`
 - Publication: `0`
 - Next stage: `EP002_R27_RECERTIFICATION`
+
+## SIRAJ_EP002_R27_RECERTIFICATION_FINALIZE_V1
+
+- Date: 2026-08-16
+- Status: `PASS_EP002_R27_RECERTIFICATION_FINALIZED`
+- Human decision evidence SHA256: `096184647b328f0f4ca1482e2c7f89c1dd32dfe6c086d7a708ba11cd437dcb50`
+- Source R27 manifest SHA256: `53d70b7d344ab08cda7d928149fb83118b7738a73f55b3753e598e25d3c41f70`
+- Audio freeze manifest SHA256: `31c55d50726ac8a16d9b9f72986ed2343254829827b552c9cbdb7957aac424ac`
+- KEEP: `0`
+- REGENERATE: `0`
+- BLOCK: `27`
+- Selective regeneration authorized items: `0`
+- Montage allowed: `false`
+- QA allowed: `false`
+- Provider retry allowed: `false`
+- Provider calls: `0`
+- Network production calls: `0`
+- Paid calls: `0`
+- Publication: `0`
+- Recertification result SHA256: `984ed517bd9c73410627e8c6a1503efea0e037611a0f57fad34e5b827a6fec63`
+- Next stage: `EP002_R27_BLOCKER_RESOLUTION_PLANNING`
