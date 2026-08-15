@@ -3264,3 +3264,21 @@ NEXT=SUPPLY_OR_SELECT_TRUSTED_WORD_OR_PHRASE_TIMING_FOR_EP001_THEN_RERUN_CAPTION
 - Publication: `0`
 - Recertification result SHA256: `984ed517bd9c73410627e8c6a1503efea0e037611a0f57fad34e5b827a6fec63`
 - Next stage: `EP002_R27_BLOCKER_RESOLUTION_PLANNING`
+
+## SIRAJ_EP002_R27_BLOCKER_RESOLUTION_PLANNING_V1
+
+- Date: 2026-08-16
+- Status: `PASS_PLANNING_COMPLETE_NO_RECLASSIFICATION`
+- Current R27 state: `BLOCK=27, REGENERATE=0, KEEP=0`
+- Frame/video bytes modified: `false`
+- Reclassification performed: `false`
+- Regeneration authorized: `false`
+- Canonical visual reference states required before regeneration: `6`
+- Blocker resolution plan SHA256: `3c9b8a4580b9d4e62838ae4e04e844a783b22da0c61bd331225e6a7231ab980a`
+- Canonical visual lock spec SHA256: `4cb4493558e1f3f24f35b0ab2418b525a2538a5cdc3ff04d48cf1771882915ef`
+- Reclassification proposal SHA256: `c521659aa11291f54060d6f03876a587d72606b0090e99c674e4202b7fe1c6b0`
+- Provider calls: `0`
+- Network production calls: `0`
+- Paid calls: `0`
+- Publication: `0`
+- Next stage: `EP002_R27_BLOCKER_RESOLUTION_PLAN_HUMAN_APPROVAL`

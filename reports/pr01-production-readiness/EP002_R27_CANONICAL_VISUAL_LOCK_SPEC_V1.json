@@ -1,0 +1,62 @@
+{
+  "spec_id": "EP002_R27_CANONICAL_VISUAL_LOCK_SPEC_V1",
+  "status": "PLANNING_ONLY_NOT_YET_RENDERED",
+  "constitution_version": "1.2.0",
+  "global_rules": {
+    "all_human_faces": "FULLY_CONCEALED_IN_RENDERED_OUTPUT",
+    "prophet_faces": "ABSOLUTELY_FORBIDDEN",
+    "recurring_character_canonical_reference": "REQUIRED_BEFORE_REGENERATION",
+    "existing_blocked_assets": "IMMUTABLE_EVIDENCE_DO_NOT_OVERWRITE",
+    "uncertain_historical_details": "NEUTRAL_NON_ASSERTIVE",
+    "clear_material_anachronism": "HARD_FAIL"
+  },
+  "identity_locks": {
+    "ADAM": {
+      "identity": "ONE_GLOBAL_ADAM_BODY_IDENTITY_ACROSS_EP002",
+      "face": "NEVER_VISIBLE",
+      "body": "FIXED_HEIGHT_CLASS_BUILD_SHOULDER_WIDTH_AND_SILHOUETTE",
+      "canonical_reference_states_required": [
+        "ADAM_GARDEN",
+        "ADAM_EARTH",
+        "ADAM_DEBATE"
+      ],
+      "wardrobe_transition_policy": "STATE_CHANGES_ONLY_AT_NARRATIVE_BOUNDARIES; NO_RANDOM_WITHIN_STATE_DRIFT"
+    },
+    "HAWWA": {
+      "identity": "ONE_GLOBAL_HAWWA_BODY_IDENTITY_ACROSS_EP002",
+      "face": "FULLY_CONCEALED",
+      "modesty": "FULL_MODEST_COVERAGE_NO_GLAMOUR_OR_BODY_EXPOSURE",
+      "canonical_reference_states_required": [
+        "HAWWA_GARDEN",
+        "HAWWA_EARTH"
+      ],
+      "wardrobe_transition_policy": "STATE_CHANGES_ONLY_AT_NARRATIVE_BOUNDARIES; NO_RANDOM_WITHIN_STATE_DRIFT"
+    },
+    "MUSA": {
+      "identity": "ONE_GLOBAL_MUSA_BODY_IDENTITY_FOR_DEBATE_SEQUENCE",
+      "face": "NEVER_VISIBLE",
+      "canonical_reference_states_required": [
+        "MUSA_DEBATE"
+      ],
+      "tone": "CALM_REVERENT_NON_AGGRESSIVE"
+    }
+  },
+  "canonical_reference_count_required": 6,
+  "canonical_reference_states": [
+    "ADAM_GARDEN",
+    "ADAM_EARTH",
+    "ADAM_DEBATE",
+    "HAWWA_GARDEN",
+    "HAWWA_EARTH",
+    "MUSA_DEBATE"
+  ],
+  "reference_acceptance_gate": {
+    "must_be_human_reviewed": true,
+    "must_have_sha256_binding": true,
+    "must_satisfy_face_policy": true,
+    "must_satisfy_modesty_policy": true,
+    "must_satisfy_era_neutrality": true,
+    "must_be_bound_into_regeneration_prompt_or_equivalent_identity_lock": true
+  },
+  "media_generation_performed_in_this_phase": false
+}

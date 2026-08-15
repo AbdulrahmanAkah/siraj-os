@@ -1,0 +1,2220 @@
+{
+  "plan_id": "EP002_R27_BLOCKER_RESOLUTION_PLAN_V1",
+  "status": "PASS_PLANNING_COMPLETE_NO_RECLASSIFICATION",
+  "episode_id": "episode-002-adam-temptation-fall-repentance",
+  "constitution_version": "1.2.0",
+  "constitution_bundle_sha256": "b390d8a61382ece4e8daeb5993fc89bb013a9b74cd8d06b2fb6e41f0b7d001d5",
+  "source_human_decisions_sha256": "096184647b328f0f4ca1482e2c7f89c1dd32dfe6c086d7a708ba11cd437dcb50",
+  "source_recertification_result_sha256": "984ed517bd9c73410627e8c6a1503efea0e037611a0f57fad34e5b827a6fec63",
+  "source_blocker_register_sha256": "23c32040851d597b47246aedea08bbc7badd8f8612d9f199d41b1913d18f5d13",
+  "constitution_bound_profile_evidence": {
+    "constitution_binding": {
+      "constitution_id": "SIRAJ_UNIFIED_PRODUCTION_CONSTITUTION",
+      "constitution_version": "1.2.0",
+      "constitution_bundle_sha256": "b390d8a61382ece4e8daeb5993fc89bb013a9b74cd8d06b2fb6e41f0b7d001d5",
+      "rule_count": 51,
+      "critical_high_unenforced": 0
+    },
+    "face_policy": {
+      "all_human_faces_visible": false,
+      "prophet_face_visibility": "ABSOLUTELY_FORBIDDEN",
+      "non_prophet_face_default": "FULLY_CONCEALED",
+      "pixel_detector_helper_only": true,
+      "all_decoded_frames_human_review_required": true
+    },
+    "canonical_still_required_for_recurring_character": true
+  },
+  "planning_scope": {
+    "frame_or_video_bytes_modified": false,
+    "provider_calls": 0,
+    "network_production_calls": 0,
+    "paid_calls": 0,
+    "publication": 0,
+    "reclassification_performed": false,
+    "regeneration_authorized": false
+  },
+  "issue_library": {
+    "FACE_VISIBILITY": {
+      "severity": "HARD_BLOCKER",
+      "requirement_ar": "يجب ألا يظهر وجه أي شخصية بشرية؛ وجه آدم وموسى ممنوع منعًا مطلقًا، وحواء تبقى ملامح وجهها محجوبة بالكامل.",
+      "machine_constraints": [
+        "NO_VISIBLE_HUMAN_FACE",
+        "NO_FRONTAL_FACE",
+        "NO_PROFILE_FACE",
+        "NO_REFLECTION_FACE",
+        "NO_PARTIAL_EYES_NOSE_MOUTH",
+        "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD"
+      ]
+    },
+    "CHARACTER_CONTINUITY": {
+      "severity": "HARD_BLOCKER",
+      "requirement_ar": "تثبيت الهوية الجسدية والهيئة والملابس لكل شخصية عبر جميع اللقطات؛ يمنع تغير الطول والبنية والعمر الظاهري والرداء عشوائيًا.",
+      "machine_constraints": [
+        "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+        "FIX_BODY_PROPORTIONS",
+        "FIX_SILHOUETTE",
+        "FIX_WARDROBE_STATE",
+        "NO_RANDOM_CHARACTER_DRIFT"
+      ]
+    },
+    "HAWWA_MODESTY": {
+      "severity": "HARD_BLOCKER",
+      "requirement_ar": "حواء بلباس ساتر بالكامل وغير ضيق أو شفاف، بلا تبرج أو إظهار شعر/عنق/صدر/ذراعين/ساقين أو تفاصيل جسدية.",
+      "machine_constraints": [
+        "FULL_MODEST_COVERAGE",
+        "NO_CLEAVAGE",
+        "NO_EXPOSED_HAIR_NECK_ARMS_LEGS",
+        "NO_TIGHT_OR_TRANSPARENT_CLOTHING",
+        "NO_GLAMOUR_MAKEUP",
+        "NO_BODY_CONTOUR_EMPHASIS"
+      ]
+    },
+    "ERA_NEUTRAL_WARDROBE": {
+      "severity": "HARD_BLOCKER_IF_CLEARLY_ANACHRONISTIC",
+      "requirement_ar": "استخدام ملابس بسيطة ومحايدة غير منسوبة ادعائيًا لحقبة دقيقة، مع منع أي قصّات أو تفاصيل حديثة واضحة.",
+      "machine_constraints": [
+        "NO_MODERN_FASHION",
+        "NO_ZIPPERS",
+        "NO_MODERN_BUTTON_STYLING",
+        "NO_SYNTHETIC_TECHNICAL_FABRIC_LOOK",
+        "USE_SIMPLE_TIME_NEUTRAL_DRAPED_GARMENTS",
+        "DO_NOT_ASSERT_UNPROVEN_PERIOD_DETAIL"
+      ]
+    },
+    "PHYSIQUE_LOCK": {
+      "severity": "HARD_BLOCKER",
+      "requirement_ar": "تثبيت الصفات الجسمانية للشخصية وعدم تبدل البنية أو النسب بين اللقطات.",
+      "machine_constraints": [
+        "FIX_HEIGHT_CLASS",
+        "FIX_SHOULDER_WIDTH",
+        "FIX_BODY_BUILD",
+        "NO_AGE_DRIFT",
+        "NO_PHYSIQUE_DRIFT"
+      ]
+    },
+    "SCENE_SEMANTIC_IDENTITY": {
+      "severity": "HARD_BLOCKER",
+      "requirement_ar": "يجب أن تمثل اللقطة الشخصيات المقصودة وعددها وأدوارها؛ يمنع استبدال آدم وحواء بشخصيتين من النوع نفسه أو شخصيات لا تطابق الحدث.",
+      "machine_constraints": [
+        "CORRECT_CHARACTER_COUNT",
+        "CORRECT_CHARACTER_ROLE",
+        "CORRECT_SEX_PRESENTATION_FOR_ADAM_AND_HAWWA",
+        "NO_SUBJECT_SUBSTITUTION"
+      ]
+    },
+    "ACTION_PHYSICS": {
+      "severity": "HARD_BLOCKER",
+      "requirement_ar": "الفعل المصور يجب أن يكون ممكنًا منطقيًا؛ يمنع إظهار الأكل عبر غطاء يغلق الفم. استخدم القطع البصري قبل/بعد اللقمة مع بقاء الوجه محجوبًا.",
+      "machine_constraints": [
+        "NO_EATING_THROUGH_FACE_COVERING",
+        "USE_PRE_BITE_AND_POST_BITE_CUTAWAY",
+        "KEEP_FACE_CONCEALED_DURING_ACTION"
+      ]
+    },
+    "COVERING_STAGING": {
+      "severity": "QUALITY_BLOCKER",
+      "requirement_ar": "فعل التستر يجب أن يكون واضحًا ومقنعًا بصريًا مع الحفاظ على الاحتشام الكامل وعدم خلق حركة ركيكة أو غير منطقية.",
+      "machine_constraints": [
+        "CLEAR_COVERING_ACTION",
+        "NO_EXPOSED_BODY_DURING_COVERING",
+        "NATURAL_HAND_OBJECT_INTERACTION",
+        "NO_AWKWARD_BODY_MECHANICS"
+      ]
+    },
+    "REVERENT_TONE": {
+      "severity": "HARD_BLOCKER_FOR_DEBATE_TONE",
+      "requirement_ar": "مشاهد مناظرة آدم وموسى هادئة ومحترمة؛ يمنع الغضب المسرحي، الإشارة العدائية، الصراخ أو لغة الجسد الهجومية.",
+      "machine_constraints": [
+        "CALM_RESPECTFUL_DEBATE",
+        "NO_AGGRESSIVE_POINTING",
+        "NO_SHOUTING_BODY_LANGUAGE",
+        "NO_HOSTILE_POSTURE",
+        "MEASURED_GESTURES"
+      ]
+    },
+    "NON_LITERAL_DIVINE_GUIDANCE": {
+      "severity": "HARD_BLOCKER_IF_ASSERTIVE",
+      "requirement_ar": "لا تُجسّد الكلمات الإلهية أو الهدى ككتابة أو شعاع أو مسار مادي محدد غير ثابت في المصدر؛ استخدم اتجاهًا بصريًا محايدًا وغير ادعائي.",
+      "machine_constraints": [
+        "NO_LITERAL_DIVINE_TEXT_IN_SCENE",
+        "NO_ASSERTIVE_DIVINE_LIGHT_MECHANISM",
+        "NO_UNSOURCED_GUIDANCE_PATH",
+        "USE_NEUTRAL_NON_ASSERTIVE_ART_DIRECTION"
+      ]
+    }
+  },
+  "issue_counts": {
+    "FACE_VISIBILITY": 23,
+    "CHARACTER_CONTINUITY": 27,
+    "HAWWA_MODESTY": 5,
+    "ERA_NEUTRAL_WARDROBE": 6,
+    "PHYSIQUE_LOCK": 4,
+    "SCENE_SEMANTIC_IDENTITY": 1,
+    "ACTION_PHYSICS": 1,
+    "COVERING_STAGING": 1,
+    "REVERENT_TONE": 8,
+    "NON_LITERAL_DIVINE_GUIDANCE": 3
+  },
+  "unit_plans": [
+    {
+      "ordinal": 1,
+      "unit_id": "V23-GEN-001-EATING-ANCHOR",
+      "current_state": "BLOCKED_PENDING_RESOLUTION",
+      "human_decision": "BLOCK",
+      "human_notes_verbatim": "وجه ادم وحواء ظاهر + شكلهما يتغير في مشاهد ثانية وملابسهما تتغير ايضا",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-001-EATING-ANCHOR.mp4",
+      "asset_sha256": "b2cad09fa0a05599f1bdf7cc530a5d149cb280fc08b5b4b71e01a4bb3b7ecd01",
+      "identified_issue_ids": [
+        "FACE_VISIBILITY",
+        "CHARACTER_CONTINUITY"
+      ],
+      "issue_requirements": {
+        "FACE_VISIBILITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "يجب ألا يظهر وجه أي شخصية بشرية؛ وجه آدم وموسى ممنوع منعًا مطلقًا، وحواء تبقى ملامح وجهها محجوبة بالكامل.",
+          "machine_constraints": [
+            "NO_VISIBLE_HUMAN_FACE",
+            "NO_FRONTAL_FACE",
+            "NO_PROFILE_FACE",
+            "NO_REFLECTION_FACE",
+            "NO_PARTIAL_EYES_NOSE_MOUTH",
+            "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD"
+          ]
+        },
+        "CHARACTER_CONTINUITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "تثبيت الهوية الجسدية والهيئة والملابس لكل شخصية عبر جميع اللقطات؛ يمنع تغير الطول والبنية والعمر الظاهري والرداء عشوائيًا.",
+          "machine_constraints": [
+            "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+            "FIX_BODY_PROPORTIONS",
+            "FIX_SILHOUETTE",
+            "FIX_WARDROBE_STATE",
+            "NO_RANDOM_CHARACTER_DRIFT"
+          ]
+        }
+      },
+      "replacement_hard_constraints": [
+        "NO_VISIBLE_HUMAN_FACE",
+        "NO_FRONTAL_FACE",
+        "NO_PROFILE_FACE",
+        "NO_REFLECTION_FACE",
+        "NO_PARTIAL_EYES_NOSE_MOUTH",
+        "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD",
+        "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+        "FIX_BODY_PROPORTIONS",
+        "FIX_SILHOUETTE",
+        "FIX_WARDROBE_STATE",
+        "NO_RANDOM_CHARACTER_DRIFT",
+        "DO_NOT_OVERWRITE_BLOCKED_SOURCE_ASSET",
+        "CANONICAL_REFERENCE_BINDING_REQUIRED_FOR_RECURRING_CHARACTER",
+        "NO_CLEAR_MATERIAL_ANACHRONISM",
+        "NO_PROVIDER_EXECUTION_WITHOUT_SEPARATE_SCOPED_AUTHORIZATION"
+      ],
+      "resolution_pathway": "CANDIDATE_FOR_REGENERATE_AFTER_CANONICAL_REFERENCE_AND_SPEC_APPROVAL",
+      "reclassified_now": false,
+      "regeneration_authorized_now": false,
+      "frame_edit_authorized_now": false,
+      "blocked_source_asset_reuse_authorized": false
+    },
+    {
+      "ordinal": 2,
+      "unit_id": "V23-GEN-SUPPORT-001-COLD-AFTERMATH",
+      "current_state": "BLOCKED_PENDING_RESOLUTION",
+      "human_decision": "BLOCK",
+      "human_notes_verbatim": "وجه ادم وحواء ظاهر وحواء متبرجة !!! + شكلهما يتغير في مشاهد ثانية وملابسهما تتغير ايضا",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-SUPPORT-001-COLD-AFTERMATH.mp4",
+      "asset_sha256": "3834e031161844c87f3666097ead4c474391eba37f3d17716b0a6b574784edaa",
+      "identified_issue_ids": [
+        "FACE_VISIBILITY",
+        "HAWWA_MODESTY",
+        "CHARACTER_CONTINUITY"
+      ],
+      "issue_requirements": {
+        "FACE_VISIBILITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "يجب ألا يظهر وجه أي شخصية بشرية؛ وجه آدم وموسى ممنوع منعًا مطلقًا، وحواء تبقى ملامح وجهها محجوبة بالكامل.",
+          "machine_constraints": [
+            "NO_VISIBLE_HUMAN_FACE",
+            "NO_FRONTAL_FACE",
+            "NO_PROFILE_FACE",
+            "NO_REFLECTION_FACE",
+            "NO_PARTIAL_EYES_NOSE_MOUTH",
+            "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD"
+          ]
+        },
+        "HAWWA_MODESTY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "حواء بلباس ساتر بالكامل وغير ضيق أو شفاف، بلا تبرج أو إظهار شعر/عنق/صدر/ذراعين/ساقين أو تفاصيل جسدية.",
+          "machine_constraints": [
+            "FULL_MODEST_COVERAGE",
+            "NO_CLEAVAGE",
+            "NO_EXPOSED_HAIR_NECK_ARMS_LEGS",
+            "NO_TIGHT_OR_TRANSPARENT_CLOTHING",
+            "NO_GLAMOUR_MAKEUP",
+            "NO_BODY_CONTOUR_EMPHASIS"
+          ]
+        },
+        "CHARACTER_CONTINUITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "تثبيت الهوية الجسدية والهيئة والملابس لكل شخصية عبر جميع اللقطات؛ يمنع تغير الطول والبنية والعمر الظاهري والرداء عشوائيًا.",
+          "machine_constraints": [
+            "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+            "FIX_BODY_PROPORTIONS",
+            "FIX_SILHOUETTE",
+            "FIX_WARDROBE_STATE",
+            "NO_RANDOM_CHARACTER_DRIFT"
+          ]
+        }
+      },
+      "replacement_hard_constraints": [
+        "NO_VISIBLE_HUMAN_FACE",
+        "NO_FRONTAL_FACE",
+        "NO_PROFILE_FACE",
+        "NO_REFLECTION_FACE",
+        "NO_PARTIAL_EYES_NOSE_MOUTH",
+        "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD",
+        "FULL_MODEST_COVERAGE",
+        "NO_CLEAVAGE",
+        "NO_EXPOSED_HAIR_NECK_ARMS_LEGS",
+        "NO_TIGHT_OR_TRANSPARENT_CLOTHING",
+        "NO_GLAMOUR_MAKEUP",
+        "NO_BODY_CONTOUR_EMPHASIS",
+        "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+        "FIX_BODY_PROPORTIONS",
+        "FIX_SILHOUETTE",
+        "FIX_WARDROBE_STATE",
+        "NO_RANDOM_CHARACTER_DRIFT",
+        "DO_NOT_OVERWRITE_BLOCKED_SOURCE_ASSET",
+        "CANONICAL_REFERENCE_BINDING_REQUIRED_FOR_RECURRING_CHARACTER",
+        "NO_CLEAR_MATERIAL_ANACHRONISM",
+        "NO_PROVIDER_EXECUTION_WITHOUT_SEPARATE_SCOPED_AUTHORIZATION"
+      ],
+      "resolution_pathway": "CANDIDATE_FOR_REGENERATE_AFTER_CANONICAL_REFERENCE_AND_SPEC_APPROVAL",
+      "reclassified_now": false,
+      "regeneration_authorized_now": false,
+      "frame_edit_authorized_now": false,
+      "blocked_source_asset_reuse_authorized": false
+    },
+    {
+      "ordinal": 3,
+      "unit_id": "V23-GEN-SUPPORT-002-COLD-COVERING",
+      "current_state": "BLOCKED_PENDING_RESOLUTION",
+      "human_decision": "BLOCK",
+      "human_notes_verbatim": "المفترض انه ادم لكن وجهه ظاهر وملابسه ليست مناسبة للفترة وصفاته الجسمانية خطأ!!!",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-SUPPORT-002-COLD-COVERING.mp4",
+      "asset_sha256": "baf1b779c86061c39f60cad001675e16e1bb43ef0e11ba63e80bedd179906bd7",
+      "identified_issue_ids": [
+        "FACE_VISIBILITY",
+        "ERA_NEUTRAL_WARDROBE",
+        "PHYSIQUE_LOCK",
+        "CHARACTER_CONTINUITY"
+      ],
+      "issue_requirements": {
+        "FACE_VISIBILITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "يجب ألا يظهر وجه أي شخصية بشرية؛ وجه آدم وموسى ممنوع منعًا مطلقًا، وحواء تبقى ملامح وجهها محجوبة بالكامل.",
+          "machine_constraints": [
+            "NO_VISIBLE_HUMAN_FACE",
+            "NO_FRONTAL_FACE",
+            "NO_PROFILE_FACE",
+            "NO_REFLECTION_FACE",
+            "NO_PARTIAL_EYES_NOSE_MOUTH",
+            "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD"
+          ]
+        },
+        "ERA_NEUTRAL_WARDROBE": {
+          "severity": "HARD_BLOCKER_IF_CLEARLY_ANACHRONISTIC",
+          "requirement_ar": "استخدام ملابس بسيطة ومحايدة غير منسوبة ادعائيًا لحقبة دقيقة، مع منع أي قصّات أو تفاصيل حديثة واضحة.",
+          "machine_constraints": [
+            "NO_MODERN_FASHION",
+            "NO_ZIPPERS",
+            "NO_MODERN_BUTTON_STYLING",
+            "NO_SYNTHETIC_TECHNICAL_FABRIC_LOOK",
+            "USE_SIMPLE_TIME_NEUTRAL_DRAPED_GARMENTS",
+            "DO_NOT_ASSERT_UNPROVEN_PERIOD_DETAIL"
+          ]
+        },
+        "PHYSIQUE_LOCK": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "تثبيت الصفات الجسمانية للشخصية وعدم تبدل البنية أو النسب بين اللقطات.",
+          "machine_constraints": [
+            "FIX_HEIGHT_CLASS",
+            "FIX_SHOULDER_WIDTH",
+            "FIX_BODY_BUILD",
+            "NO_AGE_DRIFT",
+            "NO_PHYSIQUE_DRIFT"
+          ]
+        },
+        "CHARACTER_CONTINUITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "تثبيت الهوية الجسدية والهيئة والملابس لكل شخصية عبر جميع اللقطات؛ يمنع تغير الطول والبنية والعمر الظاهري والرداء عشوائيًا.",
+          "machine_constraints": [
+            "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+            "FIX_BODY_PROPORTIONS",
+            "FIX_SILHOUETTE",
+            "FIX_WARDROBE_STATE",
+            "NO_RANDOM_CHARACTER_DRIFT"
+          ]
+        }
+      },
+      "replacement_hard_constraints": [
+        "NO_VISIBLE_HUMAN_FACE",
+        "NO_FRONTAL_FACE",
+        "NO_PROFILE_FACE",
+        "NO_REFLECTION_FACE",
+        "NO_PARTIAL_EYES_NOSE_MOUTH",
+        "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD",
+        "NO_MODERN_FASHION",
+        "NO_ZIPPERS",
+        "NO_MODERN_BUTTON_STYLING",
+        "NO_SYNTHETIC_TECHNICAL_FABRIC_LOOK",
+        "USE_SIMPLE_TIME_NEUTRAL_DRAPED_GARMENTS",
+        "DO_NOT_ASSERT_UNPROVEN_PERIOD_DETAIL",
+        "FIX_HEIGHT_CLASS",
+        "FIX_SHOULDER_WIDTH",
+        "FIX_BODY_BUILD",
+        "NO_AGE_DRIFT",
+        "NO_PHYSIQUE_DRIFT",
+        "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+        "FIX_BODY_PROPORTIONS",
+        "FIX_SILHOUETTE",
+        "FIX_WARDROBE_STATE",
+        "NO_RANDOM_CHARACTER_DRIFT",
+        "DO_NOT_OVERWRITE_BLOCKED_SOURCE_ASSET",
+        "CANONICAL_REFERENCE_BINDING_REQUIRED_FOR_RECURRING_CHARACTER",
+        "NO_CLEAR_MATERIAL_ANACHRONISM",
+        "NO_PROVIDER_EXECUTION_WITHOUT_SEPARATE_SCOPED_AUTHORIZATION"
+      ],
+      "resolution_pathway": "CANDIDATE_FOR_REGENERATE_AFTER_CANONICAL_REFERENCE_AND_SPEC_APPROVAL",
+      "reclassified_now": false,
+      "regeneration_authorized_now": false,
+      "frame_edit_authorized_now": false,
+      "blocked_source_asset_reuse_authorized": false
+    },
+    {
+      "ordinal": 4,
+      "unit_id": "V23-GEN-SUPPORT-003-COLD-REMORSE",
+      "current_state": "BLOCKED_PENDING_RESOLUTION",
+      "human_decision": "BLOCK",
+      "human_notes_verbatim": "المفترض انه مشهد لادم وحواء في الجنة لكن المشهد لامرأتين لبسهما فاضح وغير محتشم ووجههما ظاهر!!!",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-SUPPORT-003-COLD-REMORSE.mp4",
+      "asset_sha256": "90f875afcae02160b7c0e792c89531d724cd9b68803c2ff2424c6ea8a0907ede",
+      "identified_issue_ids": [
+        "FACE_VISIBILITY",
+        "HAWWA_MODESTY",
+        "SCENE_SEMANTIC_IDENTITY",
+        "CHARACTER_CONTINUITY"
+      ],
+      "issue_requirements": {
+        "FACE_VISIBILITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "يجب ألا يظهر وجه أي شخصية بشرية؛ وجه آدم وموسى ممنوع منعًا مطلقًا، وحواء تبقى ملامح وجهها محجوبة بالكامل.",
+          "machine_constraints": [
+            "NO_VISIBLE_HUMAN_FACE",
+            "NO_FRONTAL_FACE",
+            "NO_PROFILE_FACE",
+            "NO_REFLECTION_FACE",
+            "NO_PARTIAL_EYES_NOSE_MOUTH",
+            "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD"
+          ]
+        },
+        "HAWWA_MODESTY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "حواء بلباس ساتر بالكامل وغير ضيق أو شفاف، بلا تبرج أو إظهار شعر/عنق/صدر/ذراعين/ساقين أو تفاصيل جسدية.",
+          "machine_constraints": [
+            "FULL_MODEST_COVERAGE",
+            "NO_CLEAVAGE",
+            "NO_EXPOSED_HAIR_NECK_ARMS_LEGS",
+            "NO_TIGHT_OR_TRANSPARENT_CLOTHING",
+            "NO_GLAMOUR_MAKEUP",
+            "NO_BODY_CONTOUR_EMPHASIS"
+          ]
+        },
+        "SCENE_SEMANTIC_IDENTITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "يجب أن تمثل اللقطة الشخصيات المقصودة وعددها وأدوارها؛ يمنع استبدال آدم وحواء بشخصيتين من النوع نفسه أو شخصيات لا تطابق الحدث.",
+          "machine_constraints": [
+            "CORRECT_CHARACTER_COUNT",
+            "CORRECT_CHARACTER_ROLE",
+            "CORRECT_SEX_PRESENTATION_FOR_ADAM_AND_HAWWA",
+            "NO_SUBJECT_SUBSTITUTION"
+          ]
+        },
+        "CHARACTER_CONTINUITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "تثبيت الهوية الجسدية والهيئة والملابس لكل شخصية عبر جميع اللقطات؛ يمنع تغير الطول والبنية والعمر الظاهري والرداء عشوائيًا.",
+          "machine_constraints": [
+            "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+            "FIX_BODY_PROPORTIONS",
+            "FIX_SILHOUETTE",
+            "FIX_WARDROBE_STATE",
+            "NO_RANDOM_CHARACTER_DRIFT"
+          ]
+        }
+      },
+      "replacement_hard_constraints": [
+        "NO_VISIBLE_HUMAN_FACE",
+        "NO_FRONTAL_FACE",
+        "NO_PROFILE_FACE",
+        "NO_REFLECTION_FACE",
+        "NO_PARTIAL_EYES_NOSE_MOUTH",
+        "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD",
+        "FULL_MODEST_COVERAGE",
+        "NO_CLEAVAGE",
+        "NO_EXPOSED_HAIR_NECK_ARMS_LEGS",
+        "NO_TIGHT_OR_TRANSPARENT_CLOTHING",
+        "NO_GLAMOUR_MAKEUP",
+        "NO_BODY_CONTOUR_EMPHASIS",
+        "CORRECT_CHARACTER_COUNT",
+        "CORRECT_CHARACTER_ROLE",
+        "CORRECT_SEX_PRESENTATION_FOR_ADAM_AND_HAWWA",
+        "NO_SUBJECT_SUBSTITUTION",
+        "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+        "FIX_BODY_PROPORTIONS",
+        "FIX_SILHOUETTE",
+        "FIX_WARDROBE_STATE",
+        "NO_RANDOM_CHARACTER_DRIFT",
+        "DO_NOT_OVERWRITE_BLOCKED_SOURCE_ASSET",
+        "CANONICAL_REFERENCE_BINDING_REQUIRED_FOR_RECURRING_CHARACTER",
+        "NO_CLEAR_MATERIAL_ANACHRONISM",
+        "NO_PROVIDER_EXECUTION_WITHOUT_SEPARATE_SCOPED_AUTHORIZATION"
+      ],
+      "resolution_pathway": "CANDIDATE_FOR_REGENERATE_AFTER_CANONICAL_REFERENCE_AND_SPEC_APPROVAL",
+      "reclassified_now": false,
+      "regeneration_authorized_now": false,
+      "frame_edit_authorized_now": false,
+      "blocked_source_asset_reuse_authorized": false
+    },
+    {
+      "ordinal": 5,
+      "unit_id": "V23-GEN-002-TREE-BOUNDARY",
+      "current_state": "BLOCKED_PENDING_RESOLUTION",
+      "human_decision": "BLOCK",
+      "human_notes_verbatim": "وجه ادم وحواء ظاهر + شكلهما يتغير في مشاهد ثانية وملابسهما تتغير ايضا",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-002-TREE-BOUNDARY.mp4",
+      "asset_sha256": "6086e4fe9fae58826845081435d1f13f04abd9765b54d638b85d351849936a9c",
+      "identified_issue_ids": [
+        "FACE_VISIBILITY",
+        "CHARACTER_CONTINUITY"
+      ],
+      "issue_requirements": {
+        "FACE_VISIBILITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "يجب ألا يظهر وجه أي شخصية بشرية؛ وجه آدم وموسى ممنوع منعًا مطلقًا، وحواء تبقى ملامح وجهها محجوبة بالكامل.",
+          "machine_constraints": [
+            "NO_VISIBLE_HUMAN_FACE",
+            "NO_FRONTAL_FACE",
+            "NO_PROFILE_FACE",
+            "NO_REFLECTION_FACE",
+            "NO_PARTIAL_EYES_NOSE_MOUTH",
+            "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD"
+          ]
+        },
+        "CHARACTER_CONTINUITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "تثبيت الهوية الجسدية والهيئة والملابس لكل شخصية عبر جميع اللقطات؛ يمنع تغير الطول والبنية والعمر الظاهري والرداء عشوائيًا.",
+          "machine_constraints": [
+            "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+            "FIX_BODY_PROPORTIONS",
+            "FIX_SILHOUETTE",
+            "FIX_WARDROBE_STATE",
+            "NO_RANDOM_CHARACTER_DRIFT"
+          ]
+        }
+      },
+      "replacement_hard_constraints": [
+        "NO_VISIBLE_HUMAN_FACE",
+        "NO_FRONTAL_FACE",
+        "NO_PROFILE_FACE",
+        "NO_REFLECTION_FACE",
+        "NO_PARTIAL_EYES_NOSE_MOUTH",
+        "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD",
+        "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+        "FIX_BODY_PROPORTIONS",
+        "FIX_SILHOUETTE",
+        "FIX_WARDROBE_STATE",
+        "NO_RANDOM_CHARACTER_DRIFT",
+        "DO_NOT_OVERWRITE_BLOCKED_SOURCE_ASSET",
+        "CANONICAL_REFERENCE_BINDING_REQUIRED_FOR_RECURRING_CHARACTER",
+        "NO_CLEAR_MATERIAL_ANACHRONISM",
+        "NO_PROVIDER_EXECUTION_WITHOUT_SEPARATE_SCOPED_AUTHORIZATION"
+      ],
+      "resolution_pathway": "CANDIDATE_FOR_REGENERATE_AFTER_CANONICAL_REFERENCE_AND_SPEC_APPROVAL",
+      "reclassified_now": false,
+      "regeneration_authorized_now": false,
+      "frame_edit_authorized_now": false,
+      "blocked_source_asset_reuse_authorized": false
+    },
+    {
+      "ordinal": 6,
+      "unit_id": "V23-GEN-003-WHISPER-SHARED",
+      "current_state": "BLOCKED_PENDING_RESOLUTION",
+      "human_decision": "BLOCK",
+      "human_notes_verbatim": "وجه ادم وحواء ظاهر + شكلهما يتغير في مشاهد ثانية وملابسهما تتغير ايضا",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-003-WHISPER-SHARED.mp4",
+      "asset_sha256": "1065ea0dab4eb31f8454245d0437db252dc135c82a981190f3571235176a60f3",
+      "identified_issue_ids": [
+        "FACE_VISIBILITY",
+        "CHARACTER_CONTINUITY"
+      ],
+      "issue_requirements": {
+        "FACE_VISIBILITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "يجب ألا يظهر وجه أي شخصية بشرية؛ وجه آدم وموسى ممنوع منعًا مطلقًا، وحواء تبقى ملامح وجهها محجوبة بالكامل.",
+          "machine_constraints": [
+            "NO_VISIBLE_HUMAN_FACE",
+            "NO_FRONTAL_FACE",
+            "NO_PROFILE_FACE",
+            "NO_REFLECTION_FACE",
+            "NO_PARTIAL_EYES_NOSE_MOUTH",
+            "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD"
+          ]
+        },
+        "CHARACTER_CONTINUITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "تثبيت الهوية الجسدية والهيئة والملابس لكل شخصية عبر جميع اللقطات؛ يمنع تغير الطول والبنية والعمر الظاهري والرداء عشوائيًا.",
+          "machine_constraints": [
+            "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+            "FIX_BODY_PROPORTIONS",
+            "FIX_SILHOUETTE",
+            "FIX_WARDROBE_STATE",
+            "NO_RANDOM_CHARACTER_DRIFT"
+          ]
+        }
+      },
+      "replacement_hard_constraints": [
+        "NO_VISIBLE_HUMAN_FACE",
+        "NO_FRONTAL_FACE",
+        "NO_PROFILE_FACE",
+        "NO_REFLECTION_FACE",
+        "NO_PARTIAL_EYES_NOSE_MOUTH",
+        "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD",
+        "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+        "FIX_BODY_PROPORTIONS",
+        "FIX_SILHOUETTE",
+        "FIX_WARDROBE_STATE",
+        "NO_RANDOM_CHARACTER_DRIFT",
+        "DO_NOT_OVERWRITE_BLOCKED_SOURCE_ASSET",
+        "CANONICAL_REFERENCE_BINDING_REQUIRED_FOR_RECURRING_CHARACTER",
+        "NO_CLEAR_MATERIAL_ANACHRONISM",
+        "NO_PROVIDER_EXECUTION_WITHOUT_SEPARATE_SCOPED_AUTHORIZATION"
+      ],
+      "resolution_pathway": "CANDIDATE_FOR_REGENERATE_AFTER_CANONICAL_REFERENCE_AND_SPEC_APPROVAL",
+      "reclassified_now": false,
+      "regeneration_authorized_now": false,
+      "frame_edit_authorized_now": false,
+      "blocked_source_asset_reuse_authorized": false
+    },
+    {
+      "ordinal": 7,
+      "unit_id": "V23-GEN-004-CHOICE-SHARED",
+      "current_state": "BLOCKED_PENDING_RESOLUTION",
+      "human_decision": "BLOCK",
+      "human_notes_verbatim": "وجه ادم وحواء ظاهر + شكلهما يتغير في مشاهد ثانية وملابسهما تتغير ايضا",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-004-CHOICE-SHARED.mp4",
+      "asset_sha256": "1b197f9f861a59b35676d6928f2d187dcadfc6c6642c2b8e136227dc106d857b",
+      "identified_issue_ids": [
+        "FACE_VISIBILITY",
+        "CHARACTER_CONTINUITY"
+      ],
+      "issue_requirements": {
+        "FACE_VISIBILITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "يجب ألا يظهر وجه أي شخصية بشرية؛ وجه آدم وموسى ممنوع منعًا مطلقًا، وحواء تبقى ملامح وجهها محجوبة بالكامل.",
+          "machine_constraints": [
+            "NO_VISIBLE_HUMAN_FACE",
+            "NO_FRONTAL_FACE",
+            "NO_PROFILE_FACE",
+            "NO_REFLECTION_FACE",
+            "NO_PARTIAL_EYES_NOSE_MOUTH",
+            "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD"
+          ]
+        },
+        "CHARACTER_CONTINUITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "تثبيت الهوية الجسدية والهيئة والملابس لكل شخصية عبر جميع اللقطات؛ يمنع تغير الطول والبنية والعمر الظاهري والرداء عشوائيًا.",
+          "machine_constraints": [
+            "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+            "FIX_BODY_PROPORTIONS",
+            "FIX_SILHOUETTE",
+            "FIX_WARDROBE_STATE",
+            "NO_RANDOM_CHARACTER_DRIFT"
+          ]
+        }
+      },
+      "replacement_hard_constraints": [
+        "NO_VISIBLE_HUMAN_FACE",
+        "NO_FRONTAL_FACE",
+        "NO_PROFILE_FACE",
+        "NO_REFLECTION_FACE",
+        "NO_PARTIAL_EYES_NOSE_MOUTH",
+        "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD",
+        "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+        "FIX_BODY_PROPORTIONS",
+        "FIX_SILHOUETTE",
+        "FIX_WARDROBE_STATE",
+        "NO_RANDOM_CHARACTER_DRIFT",
+        "DO_NOT_OVERWRITE_BLOCKED_SOURCE_ASSET",
+        "CANONICAL_REFERENCE_BINDING_REQUIRED_FOR_RECURRING_CHARACTER",
+        "NO_CLEAR_MATERIAL_ANACHRONISM",
+        "NO_PROVIDER_EXECUTION_WITHOUT_SEPARATE_SCOPED_AUTHORIZATION"
+      ],
+      "resolution_pathway": "CANDIDATE_FOR_REGENERATE_AFTER_CANONICAL_REFERENCE_AND_SPEC_APPROVAL",
+      "reclassified_now": false,
+      "regeneration_authorized_now": false,
+      "frame_edit_authorized_now": false,
+      "blocked_source_asset_reuse_authorized": false
+    },
+    {
+      "ordinal": 8,
+      "unit_id": "V23-GEN-005-EATING-AFTERMATH",
+      "current_state": "BLOCKED_PENDING_RESOLUTION",
+      "human_decision": "BLOCK",
+      "human_notes_verbatim": "وجه ادم وحواء ظاهر + شكلهما يتغير في مشاهد ثانية وملابسهما تتغير ايضا\n\nوحواء تحاول اكل الثمرة من فوق النقاب وهذا خطأ تصويري واضح فلا يمكن الاكل والفم مغطى",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-005-EATING-AFTERMATH.mp4",
+      "asset_sha256": "efad7068371f85fc93858352d99f0eaa967732902c2756303ebf6a2bb531136b",
+      "identified_issue_ids": [
+        "FACE_VISIBILITY",
+        "CHARACTER_CONTINUITY",
+        "ACTION_PHYSICS"
+      ],
+      "issue_requirements": {
+        "FACE_VISIBILITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "يجب ألا يظهر وجه أي شخصية بشرية؛ وجه آدم وموسى ممنوع منعًا مطلقًا، وحواء تبقى ملامح وجهها محجوبة بالكامل.",
+          "machine_constraints": [
+            "NO_VISIBLE_HUMAN_FACE",
+            "NO_FRONTAL_FACE",
+            "NO_PROFILE_FACE",
+            "NO_REFLECTION_FACE",
+            "NO_PARTIAL_EYES_NOSE_MOUTH",
+            "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD"
+          ]
+        },
+        "CHARACTER_CONTINUITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "تثبيت الهوية الجسدية والهيئة والملابس لكل شخصية عبر جميع اللقطات؛ يمنع تغير الطول والبنية والعمر الظاهري والرداء عشوائيًا.",
+          "machine_constraints": [
+            "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+            "FIX_BODY_PROPORTIONS",
+            "FIX_SILHOUETTE",
+            "FIX_WARDROBE_STATE",
+            "NO_RANDOM_CHARACTER_DRIFT"
+          ]
+        },
+        "ACTION_PHYSICS": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "الفعل المصور يجب أن يكون ممكنًا منطقيًا؛ يمنع إظهار الأكل عبر غطاء يغلق الفم. استخدم القطع البصري قبل/بعد اللقمة مع بقاء الوجه محجوبًا.",
+          "machine_constraints": [
+            "NO_EATING_THROUGH_FACE_COVERING",
+            "USE_PRE_BITE_AND_POST_BITE_CUTAWAY",
+            "KEEP_FACE_CONCEALED_DURING_ACTION"
+          ]
+        }
+      },
+      "replacement_hard_constraints": [
+        "NO_VISIBLE_HUMAN_FACE",
+        "NO_FRONTAL_FACE",
+        "NO_PROFILE_FACE",
+        "NO_REFLECTION_FACE",
+        "NO_PARTIAL_EYES_NOSE_MOUTH",
+        "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD",
+        "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+        "FIX_BODY_PROPORTIONS",
+        "FIX_SILHOUETTE",
+        "FIX_WARDROBE_STATE",
+        "NO_RANDOM_CHARACTER_DRIFT",
+        "NO_EATING_THROUGH_FACE_COVERING",
+        "USE_PRE_BITE_AND_POST_BITE_CUTAWAY",
+        "KEEP_FACE_CONCEALED_DURING_ACTION",
+        "DO_NOT_OVERWRITE_BLOCKED_SOURCE_ASSET",
+        "CANONICAL_REFERENCE_BINDING_REQUIRED_FOR_RECURRING_CHARACTER",
+        "NO_CLEAR_MATERIAL_ANACHRONISM",
+        "NO_PROVIDER_EXECUTION_WITHOUT_SEPARATE_SCOPED_AUTHORIZATION"
+      ],
+      "resolution_pathway": "CANDIDATE_FOR_REGENERATE_AFTER_CANONICAL_REFERENCE_AND_SPEC_APPROVAL",
+      "reclassified_now": false,
+      "regeneration_authorized_now": false,
+      "frame_edit_authorized_now": false,
+      "blocked_source_asset_reuse_authorized": false
+    },
+    {
+      "ordinal": 9,
+      "unit_id": "V23-GEN-006-COVERING",
+      "current_state": "BLOCKED_PENDING_RESOLUTION",
+      "human_decision": "BLOCK",
+      "human_notes_verbatim": " شكلهما يتغير في مشاهد ثانية وملابسهما تتغير ايضا والتعبير عن المشهد ركيك جدا وضعيف تصويريا وغير منطقي!",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-006-COVERING.mp4",
+      "asset_sha256": "d3f9f115db3f13ed43ccf327dba17ad85719ec354f081ef584d2e2a5724b81ef",
+      "identified_issue_ids": [
+        "CHARACTER_CONTINUITY",
+        "COVERING_STAGING"
+      ],
+      "issue_requirements": {
+        "CHARACTER_CONTINUITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "تثبيت الهوية الجسدية والهيئة والملابس لكل شخصية عبر جميع اللقطات؛ يمنع تغير الطول والبنية والعمر الظاهري والرداء عشوائيًا.",
+          "machine_constraints": [
+            "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+            "FIX_BODY_PROPORTIONS",
+            "FIX_SILHOUETTE",
+            "FIX_WARDROBE_STATE",
+            "NO_RANDOM_CHARACTER_DRIFT"
+          ]
+        },
+        "COVERING_STAGING": {
+          "severity": "QUALITY_BLOCKER",
+          "requirement_ar": "فعل التستر يجب أن يكون واضحًا ومقنعًا بصريًا مع الحفاظ على الاحتشام الكامل وعدم خلق حركة ركيكة أو غير منطقية.",
+          "machine_constraints": [
+            "CLEAR_COVERING_ACTION",
+            "NO_EXPOSED_BODY_DURING_COVERING",
+            "NATURAL_HAND_OBJECT_INTERACTION",
+            "NO_AWKWARD_BODY_MECHANICS"
+          ]
+        }
+      },
+      "replacement_hard_constraints": [
+        "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+        "FIX_BODY_PROPORTIONS",
+        "FIX_SILHOUETTE",
+        "FIX_WARDROBE_STATE",
+        "NO_RANDOM_CHARACTER_DRIFT",
+        "CLEAR_COVERING_ACTION",
+        "NO_EXPOSED_BODY_DURING_COVERING",
+        "NATURAL_HAND_OBJECT_INTERACTION",
+        "NO_AWKWARD_BODY_MECHANICS",
+        "DO_NOT_OVERWRITE_BLOCKED_SOURCE_ASSET",
+        "NO_VISIBLE_HUMAN_FACE",
+        "CANONICAL_REFERENCE_BINDING_REQUIRED_FOR_RECURRING_CHARACTER",
+        "NO_CLEAR_MATERIAL_ANACHRONISM",
+        "NO_PROVIDER_EXECUTION_WITHOUT_SEPARATE_SCOPED_AUTHORIZATION"
+      ],
+      "resolution_pathway": "CANDIDATE_FOR_REGENERATE_AFTER_CANONICAL_REFERENCE_AND_SPEC_APPROVAL",
+      "reclassified_now": false,
+      "regeneration_authorized_now": false,
+      "frame_edit_authorized_now": false,
+      "blocked_source_asset_reuse_authorized": false
+    },
+    {
+      "ordinal": 10,
+      "unit_id": "V23-GEN-007-REMORSE",
+      "current_state": "BLOCKED_PENDING_RESOLUTION",
+      "human_decision": "BLOCK",
+      "human_notes_verbatim": "وجه ادم وحواء ظاهر + شكلهما يتغير في مشاهد ثانية وملابسهما تتغير ايضا",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-007-REMORSE.mp4",
+      "asset_sha256": "5245a421eb6485fefacfee35e100b1923f1ada78d94b1499aad9334295590714",
+      "identified_issue_ids": [
+        "FACE_VISIBILITY",
+        "CHARACTER_CONTINUITY"
+      ],
+      "issue_requirements": {
+        "FACE_VISIBILITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "يجب ألا يظهر وجه أي شخصية بشرية؛ وجه آدم وموسى ممنوع منعًا مطلقًا، وحواء تبقى ملامح وجهها محجوبة بالكامل.",
+          "machine_constraints": [
+            "NO_VISIBLE_HUMAN_FACE",
+            "NO_FRONTAL_FACE",
+            "NO_PROFILE_FACE",
+            "NO_REFLECTION_FACE",
+            "NO_PARTIAL_EYES_NOSE_MOUTH",
+            "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD"
+          ]
+        },
+        "CHARACTER_CONTINUITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "تثبيت الهوية الجسدية والهيئة والملابس لكل شخصية عبر جميع اللقطات؛ يمنع تغير الطول والبنية والعمر الظاهري والرداء عشوائيًا.",
+          "machine_constraints": [
+            "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+            "FIX_BODY_PROPORTIONS",
+            "FIX_SILHOUETTE",
+            "FIX_WARDROBE_STATE",
+            "NO_RANDOM_CHARACTER_DRIFT"
+          ]
+        }
+      },
+      "replacement_hard_constraints": [
+        "NO_VISIBLE_HUMAN_FACE",
+        "NO_FRONTAL_FACE",
+        "NO_PROFILE_FACE",
+        "NO_REFLECTION_FACE",
+        "NO_PARTIAL_EYES_NOSE_MOUTH",
+        "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD",
+        "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+        "FIX_BODY_PROPORTIONS",
+        "FIX_SILHOUETTE",
+        "FIX_WARDROBE_STATE",
+        "NO_RANDOM_CHARACTER_DRIFT",
+        "DO_NOT_OVERWRITE_BLOCKED_SOURCE_ASSET",
+        "CANONICAL_REFERENCE_BINDING_REQUIRED_FOR_RECURRING_CHARACTER",
+        "NO_CLEAR_MATERIAL_ANACHRONISM",
+        "NO_PROVIDER_EXECUTION_WITHOUT_SEPARATE_SCOPED_AUTHORIZATION"
+      ],
+      "resolution_pathway": "CANDIDATE_FOR_REGENERATE_AFTER_CANONICAL_REFERENCE_AND_SPEC_APPROVAL",
+      "reclassified_now": false,
+      "regeneration_authorized_now": false,
+      "frame_edit_authorized_now": false,
+      "blocked_source_asset_reuse_authorized": false
+    },
+    {
+      "ordinal": 11,
+      "unit_id": "V23-GEN-008-SUPPLICATION",
+      "current_state": "BLOCKED_PENDING_RESOLUTION",
+      "human_decision": "BLOCK",
+      "human_notes_verbatim": "وجه ادم وحواء ظاهر + شكلهما يتغير في مشاهد ثانية وملابسهما تتغير ايضا",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-008-SUPPLICATION.mp4",
+      "asset_sha256": "576141f5d1ef3a4620d6434b73ead674d2fbece9933ffd1cf1cc911bae7c6229",
+      "identified_issue_ids": [
+        "FACE_VISIBILITY",
+        "CHARACTER_CONTINUITY",
+        "NON_LITERAL_DIVINE_GUIDANCE"
+      ],
+      "issue_requirements": {
+        "FACE_VISIBILITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "يجب ألا يظهر وجه أي شخصية بشرية؛ وجه آدم وموسى ممنوع منعًا مطلقًا، وحواء تبقى ملامح وجهها محجوبة بالكامل.",
+          "machine_constraints": [
+            "NO_VISIBLE_HUMAN_FACE",
+            "NO_FRONTAL_FACE",
+            "NO_PROFILE_FACE",
+            "NO_REFLECTION_FACE",
+            "NO_PARTIAL_EYES_NOSE_MOUTH",
+            "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD"
+          ]
+        },
+        "CHARACTER_CONTINUITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "تثبيت الهوية الجسدية والهيئة والملابس لكل شخصية عبر جميع اللقطات؛ يمنع تغير الطول والبنية والعمر الظاهري والرداء عشوائيًا.",
+          "machine_constraints": [
+            "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+            "FIX_BODY_PROPORTIONS",
+            "FIX_SILHOUETTE",
+            "FIX_WARDROBE_STATE",
+            "NO_RANDOM_CHARACTER_DRIFT"
+          ]
+        },
+        "NON_LITERAL_DIVINE_GUIDANCE": {
+          "severity": "HARD_BLOCKER_IF_ASSERTIVE",
+          "requirement_ar": "لا تُجسّد الكلمات الإلهية أو الهدى ككتابة أو شعاع أو مسار مادي محدد غير ثابت في المصدر؛ استخدم اتجاهًا بصريًا محايدًا وغير ادعائي.",
+          "machine_constraints": [
+            "NO_LITERAL_DIVINE_TEXT_IN_SCENE",
+            "NO_ASSERTIVE_DIVINE_LIGHT_MECHANISM",
+            "NO_UNSOURCED_GUIDANCE_PATH",
+            "USE_NEUTRAL_NON_ASSERTIVE_ART_DIRECTION"
+          ]
+        }
+      },
+      "replacement_hard_constraints": [
+        "NO_VISIBLE_HUMAN_FACE",
+        "NO_FRONTAL_FACE",
+        "NO_PROFILE_FACE",
+        "NO_REFLECTION_FACE",
+        "NO_PARTIAL_EYES_NOSE_MOUTH",
+        "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD",
+        "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+        "FIX_BODY_PROPORTIONS",
+        "FIX_SILHOUETTE",
+        "FIX_WARDROBE_STATE",
+        "NO_RANDOM_CHARACTER_DRIFT",
+        "NO_LITERAL_DIVINE_TEXT_IN_SCENE",
+        "NO_ASSERTIVE_DIVINE_LIGHT_MECHANISM",
+        "NO_UNSOURCED_GUIDANCE_PATH",
+        "USE_NEUTRAL_NON_ASSERTIVE_ART_DIRECTION",
+        "DO_NOT_OVERWRITE_BLOCKED_SOURCE_ASSET",
+        "CANONICAL_REFERENCE_BINDING_REQUIRED_FOR_RECURRING_CHARACTER",
+        "NO_CLEAR_MATERIAL_ANACHRONISM",
+        "NO_PROVIDER_EXECUTION_WITHOUT_SEPARATE_SCOPED_AUTHORIZATION"
+      ],
+      "resolution_pathway": "CANDIDATE_FOR_REGENERATE_AFTER_CANONICAL_REFERENCE_AND_SPEC_APPROVAL",
+      "reclassified_now": false,
+      "regeneration_authorized_now": false,
+      "frame_edit_authorized_now": false,
+      "blocked_source_asset_reuse_authorized": false
+    },
+    {
+      "ordinal": 12,
+      "unit_id": "V23-GEN-009-RECEIVING-WORDS",
+      "current_state": "BLOCKED_PENDING_RESOLUTION",
+      "human_decision": "BLOCK",
+      "human_notes_verbatim": "وجه ادم ظاهر + شكله يتغير في مشاهد ثانية وملابسه تتغير ايضا",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-009-RECEIVING-WORDS.mp4",
+      "asset_sha256": "bedf53a07405922062eb28307a2a833c0c3bd86c87cd0d8e8b58fecc31699d9e",
+      "identified_issue_ids": [
+        "FACE_VISIBILITY",
+        "CHARACTER_CONTINUITY",
+        "NON_LITERAL_DIVINE_GUIDANCE"
+      ],
+      "issue_requirements": {
+        "FACE_VISIBILITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "يجب ألا يظهر وجه أي شخصية بشرية؛ وجه آدم وموسى ممنوع منعًا مطلقًا، وحواء تبقى ملامح وجهها محجوبة بالكامل.",
+          "machine_constraints": [
+            "NO_VISIBLE_HUMAN_FACE",
+            "NO_FRONTAL_FACE",
+            "NO_PROFILE_FACE",
+            "NO_REFLECTION_FACE",
+            "NO_PARTIAL_EYES_NOSE_MOUTH",
+            "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD"
+          ]
+        },
+        "CHARACTER_CONTINUITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "تثبيت الهوية الجسدية والهيئة والملابس لكل شخصية عبر جميع اللقطات؛ يمنع تغير الطول والبنية والعمر الظاهري والرداء عشوائيًا.",
+          "machine_constraints": [
+            "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+            "FIX_BODY_PROPORTIONS",
+            "FIX_SILHOUETTE",
+            "FIX_WARDROBE_STATE",
+            "NO_RANDOM_CHARACTER_DRIFT"
+          ]
+        },
+        "NON_LITERAL_DIVINE_GUIDANCE": {
+          "severity": "HARD_BLOCKER_IF_ASSERTIVE",
+          "requirement_ar": "لا تُجسّد الكلمات الإلهية أو الهدى ككتابة أو شعاع أو مسار مادي محدد غير ثابت في المصدر؛ استخدم اتجاهًا بصريًا محايدًا وغير ادعائي.",
+          "machine_constraints": [
+            "NO_LITERAL_DIVINE_TEXT_IN_SCENE",
+            "NO_ASSERTIVE_DIVINE_LIGHT_MECHANISM",
+            "NO_UNSOURCED_GUIDANCE_PATH",
+            "USE_NEUTRAL_NON_ASSERTIVE_ART_DIRECTION"
+          ]
+        }
+      },
+      "replacement_hard_constraints": [
+        "NO_VISIBLE_HUMAN_FACE",
+        "NO_FRONTAL_FACE",
+        "NO_PROFILE_FACE",
+        "NO_REFLECTION_FACE",
+        "NO_PARTIAL_EYES_NOSE_MOUTH",
+        "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD",
+        "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+        "FIX_BODY_PROPORTIONS",
+        "FIX_SILHOUETTE",
+        "FIX_WARDROBE_STATE",
+        "NO_RANDOM_CHARACTER_DRIFT",
+        "NO_LITERAL_DIVINE_TEXT_IN_SCENE",
+        "NO_ASSERTIVE_DIVINE_LIGHT_MECHANISM",
+        "NO_UNSOURCED_GUIDANCE_PATH",
+        "USE_NEUTRAL_NON_ASSERTIVE_ART_DIRECTION",
+        "DO_NOT_OVERWRITE_BLOCKED_SOURCE_ASSET",
+        "CANONICAL_REFERENCE_BINDING_REQUIRED_FOR_RECURRING_CHARACTER",
+        "NO_CLEAR_MATERIAL_ANACHRONISM",
+        "NO_PROVIDER_EXECUTION_WITHOUT_SEPARATE_SCOPED_AUTHORIZATION"
+      ],
+      "resolution_pathway": "CANDIDATE_FOR_REGENERATE_AFTER_CANONICAL_REFERENCE_AND_SPEC_APPROVAL",
+      "reclassified_now": false,
+      "regeneration_authorized_now": false,
+      "frame_edit_authorized_now": false,
+      "blocked_source_asset_reuse_authorized": false
+    },
+    {
+      "ordinal": 13,
+      "unit_id": "V23-GEN-010-GUIDANCE",
+      "current_state": "BLOCKED_PENDING_RESOLUTION",
+      "human_decision": "BLOCK",
+      "human_notes_verbatim": "ملابسهما غير متناسقة مع الحقبة الزمنية التي هما فيها",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-010-GUIDANCE.mp4",
+      "asset_sha256": "7990dd8d494443debedb0beae4b26dbd6f4981fb0afe1cd3013a638e67f655b1",
+      "identified_issue_ids": [
+        "ERA_NEUTRAL_WARDROBE",
+        "CHARACTER_CONTINUITY",
+        "NON_LITERAL_DIVINE_GUIDANCE"
+      ],
+      "issue_requirements": {
+        "ERA_NEUTRAL_WARDROBE": {
+          "severity": "HARD_BLOCKER_IF_CLEARLY_ANACHRONISTIC",
+          "requirement_ar": "استخدام ملابس بسيطة ومحايدة غير منسوبة ادعائيًا لحقبة دقيقة، مع منع أي قصّات أو تفاصيل حديثة واضحة.",
+          "machine_constraints": [
+            "NO_MODERN_FASHION",
+            "NO_ZIPPERS",
+            "NO_MODERN_BUTTON_STYLING",
+            "NO_SYNTHETIC_TECHNICAL_FABRIC_LOOK",
+            "USE_SIMPLE_TIME_NEUTRAL_DRAPED_GARMENTS",
+            "DO_NOT_ASSERT_UNPROVEN_PERIOD_DETAIL"
+          ]
+        },
+        "CHARACTER_CONTINUITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "تثبيت الهوية الجسدية والهيئة والملابس لكل شخصية عبر جميع اللقطات؛ يمنع تغير الطول والبنية والعمر الظاهري والرداء عشوائيًا.",
+          "machine_constraints": [
+            "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+            "FIX_BODY_PROPORTIONS",
+            "FIX_SILHOUETTE",
+            "FIX_WARDROBE_STATE",
+            "NO_RANDOM_CHARACTER_DRIFT"
+          ]
+        },
+        "NON_LITERAL_DIVINE_GUIDANCE": {
+          "severity": "HARD_BLOCKER_IF_ASSERTIVE",
+          "requirement_ar": "لا تُجسّد الكلمات الإلهية أو الهدى ككتابة أو شعاع أو مسار مادي محدد غير ثابت في المصدر؛ استخدم اتجاهًا بصريًا محايدًا وغير ادعائي.",
+          "machine_constraints": [
+            "NO_LITERAL_DIVINE_TEXT_IN_SCENE",
+            "NO_ASSERTIVE_DIVINE_LIGHT_MECHANISM",
+            "NO_UNSOURCED_GUIDANCE_PATH",
+            "USE_NEUTRAL_NON_ASSERTIVE_ART_DIRECTION"
+          ]
+        }
+      },
+      "replacement_hard_constraints": [
+        "NO_MODERN_FASHION",
+        "NO_ZIPPERS",
+        "NO_MODERN_BUTTON_STYLING",
+        "NO_SYNTHETIC_TECHNICAL_FABRIC_LOOK",
+        "USE_SIMPLE_TIME_NEUTRAL_DRAPED_GARMENTS",
+        "DO_NOT_ASSERT_UNPROVEN_PERIOD_DETAIL",
+        "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+        "FIX_BODY_PROPORTIONS",
+        "FIX_SILHOUETTE",
+        "FIX_WARDROBE_STATE",
+        "NO_RANDOM_CHARACTER_DRIFT",
+        "NO_LITERAL_DIVINE_TEXT_IN_SCENE",
+        "NO_ASSERTIVE_DIVINE_LIGHT_MECHANISM",
+        "NO_UNSOURCED_GUIDANCE_PATH",
+        "USE_NEUTRAL_NON_ASSERTIVE_ART_DIRECTION",
+        "DO_NOT_OVERWRITE_BLOCKED_SOURCE_ASSET",
+        "NO_VISIBLE_HUMAN_FACE",
+        "CANONICAL_REFERENCE_BINDING_REQUIRED_FOR_RECURRING_CHARACTER",
+        "NO_CLEAR_MATERIAL_ANACHRONISM",
+        "NO_PROVIDER_EXECUTION_WITHOUT_SEPARATE_SCOPED_AUTHORIZATION"
+      ],
+      "resolution_pathway": "CANDIDATE_FOR_REGENERATE_AFTER_CANONICAL_REFERENCE_AND_SPEC_APPROVAL",
+      "reclassified_now": false,
+      "regeneration_authorized_now": false,
+      "frame_edit_authorized_now": false,
+      "blocked_source_asset_reuse_authorized": false
+    },
+    {
+      "ordinal": 14,
+      "unit_id": "V23-GEN-011-ADAM-EARTH",
+      "current_state": "BLOCKED_PENDING_RESOLUTION",
+      "human_decision": "BLOCK",
+      "human_notes_verbatim": "وجه ادم ظاهر + صفاته الجسمانية وشكله غير ثابت يتغير في مشاهد ثانية وملابسه تتغير ايضا",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-011-ADAM-EARTH.mp4",
+      "asset_sha256": "374ee21974d8b6c379b5319628fb00d82ff730f30534e70c92fbdb1d4011fb4a",
+      "identified_issue_ids": [
+        "FACE_VISIBILITY",
+        "PHYSIQUE_LOCK",
+        "CHARACTER_CONTINUITY",
+        "ERA_NEUTRAL_WARDROBE"
+      ],
+      "issue_requirements": {
+        "FACE_VISIBILITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "يجب ألا يظهر وجه أي شخصية بشرية؛ وجه آدم وموسى ممنوع منعًا مطلقًا، وحواء تبقى ملامح وجهها محجوبة بالكامل.",
+          "machine_constraints": [
+            "NO_VISIBLE_HUMAN_FACE",
+            "NO_FRONTAL_FACE",
+            "NO_PROFILE_FACE",
+            "NO_REFLECTION_FACE",
+            "NO_PARTIAL_EYES_NOSE_MOUTH",
+            "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD"
+          ]
+        },
+        "PHYSIQUE_LOCK": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "تثبيت الصفات الجسمانية للشخصية وعدم تبدل البنية أو النسب بين اللقطات.",
+          "machine_constraints": [
+            "FIX_HEIGHT_CLASS",
+            "FIX_SHOULDER_WIDTH",
+            "FIX_BODY_BUILD",
+            "NO_AGE_DRIFT",
+            "NO_PHYSIQUE_DRIFT"
+          ]
+        },
+        "CHARACTER_CONTINUITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "تثبيت الهوية الجسدية والهيئة والملابس لكل شخصية عبر جميع اللقطات؛ يمنع تغير الطول والبنية والعمر الظاهري والرداء عشوائيًا.",
+          "machine_constraints": [
+            "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+            "FIX_BODY_PROPORTIONS",
+            "FIX_SILHOUETTE",
+            "FIX_WARDROBE_STATE",
+            "NO_RANDOM_CHARACTER_DRIFT"
+          ]
+        },
+        "ERA_NEUTRAL_WARDROBE": {
+          "severity": "HARD_BLOCKER_IF_CLEARLY_ANACHRONISTIC",
+          "requirement_ar": "استخدام ملابس بسيطة ومحايدة غير منسوبة ادعائيًا لحقبة دقيقة، مع منع أي قصّات أو تفاصيل حديثة واضحة.",
+          "machine_constraints": [
+            "NO_MODERN_FASHION",
+            "NO_ZIPPERS",
+            "NO_MODERN_BUTTON_STYLING",
+            "NO_SYNTHETIC_TECHNICAL_FABRIC_LOOK",
+            "USE_SIMPLE_TIME_NEUTRAL_DRAPED_GARMENTS",
+            "DO_NOT_ASSERT_UNPROVEN_PERIOD_DETAIL"
+          ]
+        }
+      },
+      "replacement_hard_constraints": [
+        "NO_VISIBLE_HUMAN_FACE",
+        "NO_FRONTAL_FACE",
+        "NO_PROFILE_FACE",
+        "NO_REFLECTION_FACE",
+        "NO_PARTIAL_EYES_NOSE_MOUTH",
+        "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD",
+        "FIX_HEIGHT_CLASS",
+        "FIX_SHOULDER_WIDTH",
+        "FIX_BODY_BUILD",
+        "NO_AGE_DRIFT",
+        "NO_PHYSIQUE_DRIFT",
+        "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+        "FIX_BODY_PROPORTIONS",
+        "FIX_SILHOUETTE",
+        "FIX_WARDROBE_STATE",
+        "NO_RANDOM_CHARACTER_DRIFT",
+        "NO_MODERN_FASHION",
+        "NO_ZIPPERS",
+        "NO_MODERN_BUTTON_STYLING",
+        "NO_SYNTHETIC_TECHNICAL_FABRIC_LOOK",
+        "USE_SIMPLE_TIME_NEUTRAL_DRAPED_GARMENTS",
+        "DO_NOT_ASSERT_UNPROVEN_PERIOD_DETAIL",
+        "DO_NOT_OVERWRITE_BLOCKED_SOURCE_ASSET",
+        "CANONICAL_REFERENCE_BINDING_REQUIRED_FOR_RECURRING_CHARACTER",
+        "NO_CLEAR_MATERIAL_ANACHRONISM",
+        "NO_PROVIDER_EXECUTION_WITHOUT_SEPARATE_SCOPED_AUTHORIZATION"
+      ],
+      "resolution_pathway": "CANDIDATE_FOR_REGENERATE_AFTER_CANONICAL_REFERENCE_AND_SPEC_APPROVAL",
+      "reclassified_now": false,
+      "regeneration_authorized_now": false,
+      "frame_edit_authorized_now": false,
+      "blocked_source_asset_reuse_authorized": false
+    },
+    {
+      "ordinal": 15,
+      "unit_id": "V23-GEN-012-HAWWA-EARTH",
+      "current_state": "BLOCKED_PENDING_RESOLUTION",
+      "human_decision": "BLOCK",
+      "human_notes_verbatim": "ملابس حواء عصرية وغير متناسبة مع الخقبة التي كانت فيها",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-012-HAWWA-EARTH.mp4",
+      "asset_sha256": "5ef2172139b81b19c13dc2c43a2f2af60d7b18d500d9d96c21e31ab4fc03fb2a",
+      "identified_issue_ids": [
+        "HAWWA_MODESTY",
+        "ERA_NEUTRAL_WARDROBE",
+        "CHARACTER_CONTINUITY"
+      ],
+      "issue_requirements": {
+        "HAWWA_MODESTY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "حواء بلباس ساتر بالكامل وغير ضيق أو شفاف، بلا تبرج أو إظهار شعر/عنق/صدر/ذراعين/ساقين أو تفاصيل جسدية.",
+          "machine_constraints": [
+            "FULL_MODEST_COVERAGE",
+            "NO_CLEAVAGE",
+            "NO_EXPOSED_HAIR_NECK_ARMS_LEGS",
+            "NO_TIGHT_OR_TRANSPARENT_CLOTHING",
+            "NO_GLAMOUR_MAKEUP",
+            "NO_BODY_CONTOUR_EMPHASIS"
+          ]
+        },
+        "ERA_NEUTRAL_WARDROBE": {
+          "severity": "HARD_BLOCKER_IF_CLEARLY_ANACHRONISTIC",
+          "requirement_ar": "استخدام ملابس بسيطة ومحايدة غير منسوبة ادعائيًا لحقبة دقيقة، مع منع أي قصّات أو تفاصيل حديثة واضحة.",
+          "machine_constraints": [
+            "NO_MODERN_FASHION",
+            "NO_ZIPPERS",
+            "NO_MODERN_BUTTON_STYLING",
+            "NO_SYNTHETIC_TECHNICAL_FABRIC_LOOK",
+            "USE_SIMPLE_TIME_NEUTRAL_DRAPED_GARMENTS",
+            "DO_NOT_ASSERT_UNPROVEN_PERIOD_DETAIL"
+          ]
+        },
+        "CHARACTER_CONTINUITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "تثبيت الهوية الجسدية والهيئة والملابس لكل شخصية عبر جميع اللقطات؛ يمنع تغير الطول والبنية والعمر الظاهري والرداء عشوائيًا.",
+          "machine_constraints": [
+            "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+            "FIX_BODY_PROPORTIONS",
+            "FIX_SILHOUETTE",
+            "FIX_WARDROBE_STATE",
+            "NO_RANDOM_CHARACTER_DRIFT"
+          ]
+        }
+      },
+      "replacement_hard_constraints": [
+        "FULL_MODEST_COVERAGE",
+        "NO_CLEAVAGE",
+        "NO_EXPOSED_HAIR_NECK_ARMS_LEGS",
+        "NO_TIGHT_OR_TRANSPARENT_CLOTHING",
+        "NO_GLAMOUR_MAKEUP",
+        "NO_BODY_CONTOUR_EMPHASIS",
+        "NO_MODERN_FASHION",
+        "NO_ZIPPERS",
+        "NO_MODERN_BUTTON_STYLING",
+        "NO_SYNTHETIC_TECHNICAL_FABRIC_LOOK",
+        "USE_SIMPLE_TIME_NEUTRAL_DRAPED_GARMENTS",
+        "DO_NOT_ASSERT_UNPROVEN_PERIOD_DETAIL",
+        "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+        "FIX_BODY_PROPORTIONS",
+        "FIX_SILHOUETTE",
+        "FIX_WARDROBE_STATE",
+        "NO_RANDOM_CHARACTER_DRIFT",
+        "DO_NOT_OVERWRITE_BLOCKED_SOURCE_ASSET",
+        "NO_VISIBLE_HUMAN_FACE",
+        "CANONICAL_REFERENCE_BINDING_REQUIRED_FOR_RECURRING_CHARACTER",
+        "NO_CLEAR_MATERIAL_ANACHRONISM",
+        "NO_PROVIDER_EXECUTION_WITHOUT_SEPARATE_SCOPED_AUTHORIZATION"
+      ],
+      "resolution_pathway": "CANDIDATE_FOR_REGENERATE_AFTER_CANONICAL_REFERENCE_AND_SPEC_APPROVAL",
+      "reclassified_now": false,
+      "regeneration_authorized_now": false,
+      "frame_edit_authorized_now": false,
+      "blocked_source_asset_reuse_authorized": false
+    },
+    {
+      "ordinal": 16,
+      "unit_id": "V23-GEN-SUPPORT-015-ADAM-EARTH",
+      "current_state": "BLOCKED_PENDING_RESOLUTION",
+      "human_decision": "BLOCK",
+      "human_notes_verbatim": "وجه ادم ظاهر وملابسه عصرية وغير متناسبة مع الحقبة الزمنية",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-SUPPORT-015-ADAM-EARTH.mp4",
+      "asset_sha256": "dd355a6d0f2a42de33022bc0a8b15f5f366c1878967c8046a4dabab8853bc5c7",
+      "identified_issue_ids": [
+        "FACE_VISIBILITY",
+        "ERA_NEUTRAL_WARDROBE",
+        "PHYSIQUE_LOCK",
+        "CHARACTER_CONTINUITY"
+      ],
+      "issue_requirements": {
+        "FACE_VISIBILITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "يجب ألا يظهر وجه أي شخصية بشرية؛ وجه آدم وموسى ممنوع منعًا مطلقًا، وحواء تبقى ملامح وجهها محجوبة بالكامل.",
+          "machine_constraints": [
+            "NO_VISIBLE_HUMAN_FACE",
+            "NO_FRONTAL_FACE",
+            "NO_PROFILE_FACE",
+            "NO_REFLECTION_FACE",
+            "NO_PARTIAL_EYES_NOSE_MOUTH",
+            "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD"
+          ]
+        },
+        "ERA_NEUTRAL_WARDROBE": {
+          "severity": "HARD_BLOCKER_IF_CLEARLY_ANACHRONISTIC",
+          "requirement_ar": "استخدام ملابس بسيطة ومحايدة غير منسوبة ادعائيًا لحقبة دقيقة، مع منع أي قصّات أو تفاصيل حديثة واضحة.",
+          "machine_constraints": [
+            "NO_MODERN_FASHION",
+            "NO_ZIPPERS",
+            "NO_MODERN_BUTTON_STYLING",
+            "NO_SYNTHETIC_TECHNICAL_FABRIC_LOOK",
+            "USE_SIMPLE_TIME_NEUTRAL_DRAPED_GARMENTS",
+            "DO_NOT_ASSERT_UNPROVEN_PERIOD_DETAIL"
+          ]
+        },
+        "PHYSIQUE_LOCK": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "تثبيت الصفات الجسمانية للشخصية وعدم تبدل البنية أو النسب بين اللقطات.",
+          "machine_constraints": [
+            "FIX_HEIGHT_CLASS",
+            "FIX_SHOULDER_WIDTH",
+            "FIX_BODY_BUILD",
+            "NO_AGE_DRIFT",
+            "NO_PHYSIQUE_DRIFT"
+          ]
+        },
+        "CHARACTER_CONTINUITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "تثبيت الهوية الجسدية والهيئة والملابس لكل شخصية عبر جميع اللقطات؛ يمنع تغير الطول والبنية والعمر الظاهري والرداء عشوائيًا.",
+          "machine_constraints": [
+            "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+            "FIX_BODY_PROPORTIONS",
+            "FIX_SILHOUETTE",
+            "FIX_WARDROBE_STATE",
+            "NO_RANDOM_CHARACTER_DRIFT"
+          ]
+        }
+      },
+      "replacement_hard_constraints": [
+        "NO_VISIBLE_HUMAN_FACE",
+        "NO_FRONTAL_FACE",
+        "NO_PROFILE_FACE",
+        "NO_REFLECTION_FACE",
+        "NO_PARTIAL_EYES_NOSE_MOUTH",
+        "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD",
+        "NO_MODERN_FASHION",
+        "NO_ZIPPERS",
+        "NO_MODERN_BUTTON_STYLING",
+        "NO_SYNTHETIC_TECHNICAL_FABRIC_LOOK",
+        "USE_SIMPLE_TIME_NEUTRAL_DRAPED_GARMENTS",
+        "DO_NOT_ASSERT_UNPROVEN_PERIOD_DETAIL",
+        "FIX_HEIGHT_CLASS",
+        "FIX_SHOULDER_WIDTH",
+        "FIX_BODY_BUILD",
+        "NO_AGE_DRIFT",
+        "NO_PHYSIQUE_DRIFT",
+        "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+        "FIX_BODY_PROPORTIONS",
+        "FIX_SILHOUETTE",
+        "FIX_WARDROBE_STATE",
+        "NO_RANDOM_CHARACTER_DRIFT",
+        "DO_NOT_OVERWRITE_BLOCKED_SOURCE_ASSET",
+        "CANONICAL_REFERENCE_BINDING_REQUIRED_FOR_RECURRING_CHARACTER",
+        "NO_CLEAR_MATERIAL_ANACHRONISM",
+        "NO_PROVIDER_EXECUTION_WITHOUT_SEPARATE_SCOPED_AUTHORIZATION"
+      ],
+      "resolution_pathway": "CANDIDATE_FOR_REGENERATE_AFTER_CANONICAL_REFERENCE_AND_SPEC_APPROVAL",
+      "reclassified_now": false,
+      "regeneration_authorized_now": false,
+      "frame_edit_authorized_now": false,
+      "blocked_source_asset_reuse_authorized": false
+    },
+    {
+      "ordinal": 17,
+      "unit_id": "V23-GEN-SUPPORT-016-HAWWA-EARTH",
+      "current_state": "BLOCKED_PENDING_RESOLUTION",
+      "human_decision": "BLOCK",
+      "human_notes_verbatim": "وجه حواء ظاهر وملابسها تختلف عن باقي المشاهد ",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-SUPPORT-016-HAWWA-EARTH.mp4",
+      "asset_sha256": "215a5a60e951b93452ba08ad74156f060a94611e8aee41eee7444a7d1bce9db7",
+      "identified_issue_ids": [
+        "FACE_VISIBILITY",
+        "HAWWA_MODESTY",
+        "CHARACTER_CONTINUITY"
+      ],
+      "issue_requirements": {
+        "FACE_VISIBILITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "يجب ألا يظهر وجه أي شخصية بشرية؛ وجه آدم وموسى ممنوع منعًا مطلقًا، وحواء تبقى ملامح وجهها محجوبة بالكامل.",
+          "machine_constraints": [
+            "NO_VISIBLE_HUMAN_FACE",
+            "NO_FRONTAL_FACE",
+            "NO_PROFILE_FACE",
+            "NO_REFLECTION_FACE",
+            "NO_PARTIAL_EYES_NOSE_MOUTH",
+            "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD"
+          ]
+        },
+        "HAWWA_MODESTY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "حواء بلباس ساتر بالكامل وغير ضيق أو شفاف، بلا تبرج أو إظهار شعر/عنق/صدر/ذراعين/ساقين أو تفاصيل جسدية.",
+          "machine_constraints": [
+            "FULL_MODEST_COVERAGE",
+            "NO_CLEAVAGE",
+            "NO_EXPOSED_HAIR_NECK_ARMS_LEGS",
+            "NO_TIGHT_OR_TRANSPARENT_CLOTHING",
+            "NO_GLAMOUR_MAKEUP",
+            "NO_BODY_CONTOUR_EMPHASIS"
+          ]
+        },
+        "CHARACTER_CONTINUITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "تثبيت الهوية الجسدية والهيئة والملابس لكل شخصية عبر جميع اللقطات؛ يمنع تغير الطول والبنية والعمر الظاهري والرداء عشوائيًا.",
+          "machine_constraints": [
+            "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+            "FIX_BODY_PROPORTIONS",
+            "FIX_SILHOUETTE",
+            "FIX_WARDROBE_STATE",
+            "NO_RANDOM_CHARACTER_DRIFT"
+          ]
+        }
+      },
+      "replacement_hard_constraints": [
+        "NO_VISIBLE_HUMAN_FACE",
+        "NO_FRONTAL_FACE",
+        "NO_PROFILE_FACE",
+        "NO_REFLECTION_FACE",
+        "NO_PARTIAL_EYES_NOSE_MOUTH",
+        "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD",
+        "FULL_MODEST_COVERAGE",
+        "NO_CLEAVAGE",
+        "NO_EXPOSED_HAIR_NECK_ARMS_LEGS",
+        "NO_TIGHT_OR_TRANSPARENT_CLOTHING",
+        "NO_GLAMOUR_MAKEUP",
+        "NO_BODY_CONTOUR_EMPHASIS",
+        "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+        "FIX_BODY_PROPORTIONS",
+        "FIX_SILHOUETTE",
+        "FIX_WARDROBE_STATE",
+        "NO_RANDOM_CHARACTER_DRIFT",
+        "DO_NOT_OVERWRITE_BLOCKED_SOURCE_ASSET",
+        "CANONICAL_REFERENCE_BINDING_REQUIRED_FOR_RECURRING_CHARACTER",
+        "NO_CLEAR_MATERIAL_ANACHRONISM",
+        "NO_PROVIDER_EXECUTION_WITHOUT_SEPARATE_SCOPED_AUTHORIZATION"
+      ],
+      "resolution_pathway": "CANDIDATE_FOR_REGENERATE_AFTER_CANONICAL_REFERENCE_AND_SPEC_APPROVAL",
+      "reclassified_now": false,
+      "regeneration_authorized_now": false,
+      "frame_edit_authorized_now": false,
+      "blocked_source_asset_reuse_authorized": false
+    },
+    {
+      "ordinal": 18,
+      "unit_id": "V23-GEN-SUPPORT-017-ADAM-EARTH",
+      "current_state": "BLOCKED_PENDING_RESOLUTION",
+      "human_decision": "BLOCK",
+      "human_notes_verbatim": "شكل ادم وصفاته الجسمانية وملابسه كلها خطأ وغير مضبوطة ابدا",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-SUPPORT-017-ADAM-EARTH.mp4",
+      "asset_sha256": "723997f58131e92ea305ff8705964c0a0b497aa9769508598aab05b3478fcb8f",
+      "identified_issue_ids": [
+        "PHYSIQUE_LOCK",
+        "ERA_NEUTRAL_WARDROBE",
+        "CHARACTER_CONTINUITY"
+      ],
+      "issue_requirements": {
+        "PHYSIQUE_LOCK": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "تثبيت الصفات الجسمانية للشخصية وعدم تبدل البنية أو النسب بين اللقطات.",
+          "machine_constraints": [
+            "FIX_HEIGHT_CLASS",
+            "FIX_SHOULDER_WIDTH",
+            "FIX_BODY_BUILD",
+            "NO_AGE_DRIFT",
+            "NO_PHYSIQUE_DRIFT"
+          ]
+        },
+        "ERA_NEUTRAL_WARDROBE": {
+          "severity": "HARD_BLOCKER_IF_CLEARLY_ANACHRONISTIC",
+          "requirement_ar": "استخدام ملابس بسيطة ومحايدة غير منسوبة ادعائيًا لحقبة دقيقة، مع منع أي قصّات أو تفاصيل حديثة واضحة.",
+          "machine_constraints": [
+            "NO_MODERN_FASHION",
+            "NO_ZIPPERS",
+            "NO_MODERN_BUTTON_STYLING",
+            "NO_SYNTHETIC_TECHNICAL_FABRIC_LOOK",
+            "USE_SIMPLE_TIME_NEUTRAL_DRAPED_GARMENTS",
+            "DO_NOT_ASSERT_UNPROVEN_PERIOD_DETAIL"
+          ]
+        },
+        "CHARACTER_CONTINUITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "تثبيت الهوية الجسدية والهيئة والملابس لكل شخصية عبر جميع اللقطات؛ يمنع تغير الطول والبنية والعمر الظاهري والرداء عشوائيًا.",
+          "machine_constraints": [
+            "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+            "FIX_BODY_PROPORTIONS",
+            "FIX_SILHOUETTE",
+            "FIX_WARDROBE_STATE",
+            "NO_RANDOM_CHARACTER_DRIFT"
+          ]
+        }
+      },
+      "replacement_hard_constraints": [
+        "FIX_HEIGHT_CLASS",
+        "FIX_SHOULDER_WIDTH",
+        "FIX_BODY_BUILD",
+        "NO_AGE_DRIFT",
+        "NO_PHYSIQUE_DRIFT",
+        "NO_MODERN_FASHION",
+        "NO_ZIPPERS",
+        "NO_MODERN_BUTTON_STYLING",
+        "NO_SYNTHETIC_TECHNICAL_FABRIC_LOOK",
+        "USE_SIMPLE_TIME_NEUTRAL_DRAPED_GARMENTS",
+        "DO_NOT_ASSERT_UNPROVEN_PERIOD_DETAIL",
+        "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+        "FIX_BODY_PROPORTIONS",
+        "FIX_SILHOUETTE",
+        "FIX_WARDROBE_STATE",
+        "NO_RANDOM_CHARACTER_DRIFT",
+        "DO_NOT_OVERWRITE_BLOCKED_SOURCE_ASSET",
+        "NO_VISIBLE_HUMAN_FACE",
+        "CANONICAL_REFERENCE_BINDING_REQUIRED_FOR_RECURRING_CHARACTER",
+        "NO_CLEAR_MATERIAL_ANACHRONISM",
+        "NO_PROVIDER_EXECUTION_WITHOUT_SEPARATE_SCOPED_AUTHORIZATION"
+      ],
+      "resolution_pathway": "CANDIDATE_FOR_REGENERATE_AFTER_CANONICAL_REFERENCE_AND_SPEC_APPROVAL",
+      "reclassified_now": false,
+      "regeneration_authorized_now": false,
+      "frame_edit_authorized_now": false,
+      "blocked_source_asset_reuse_authorized": false
+    },
+    {
+      "ordinal": 19,
+      "unit_id": "V23-GEN-SUPPORT-018-HAWWA-EARTH",
+      "current_state": "BLOCKED_PENDING_RESOLUTION",
+      "human_decision": "BLOCK",
+      "human_notes_verbatim": "لبس جواء متبرج غير ساتر ابدا ووجهها ظاهر واجزاء من جسدها ايضا تظهر",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-SUPPORT-018-HAWWA-EARTH.mp4",
+      "asset_sha256": "68ab91ead9e3968aabd18b938d880d7d3c5b6ef97046457e2ea769c9d43dc993",
+      "identified_issue_ids": [
+        "FACE_VISIBILITY",
+        "HAWWA_MODESTY",
+        "CHARACTER_CONTINUITY"
+      ],
+      "issue_requirements": {
+        "FACE_VISIBILITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "يجب ألا يظهر وجه أي شخصية بشرية؛ وجه آدم وموسى ممنوع منعًا مطلقًا، وحواء تبقى ملامح وجهها محجوبة بالكامل.",
+          "machine_constraints": [
+            "NO_VISIBLE_HUMAN_FACE",
+            "NO_FRONTAL_FACE",
+            "NO_PROFILE_FACE",
+            "NO_REFLECTION_FACE",
+            "NO_PARTIAL_EYES_NOSE_MOUTH",
+            "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD"
+          ]
+        },
+        "HAWWA_MODESTY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "حواء بلباس ساتر بالكامل وغير ضيق أو شفاف، بلا تبرج أو إظهار شعر/عنق/صدر/ذراعين/ساقين أو تفاصيل جسدية.",
+          "machine_constraints": [
+            "FULL_MODEST_COVERAGE",
+            "NO_CLEAVAGE",
+            "NO_EXPOSED_HAIR_NECK_ARMS_LEGS",
+            "NO_TIGHT_OR_TRANSPARENT_CLOTHING",
+            "NO_GLAMOUR_MAKEUP",
+            "NO_BODY_CONTOUR_EMPHASIS"
+          ]
+        },
+        "CHARACTER_CONTINUITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "تثبيت الهوية الجسدية والهيئة والملابس لكل شخصية عبر جميع اللقطات؛ يمنع تغير الطول والبنية والعمر الظاهري والرداء عشوائيًا.",
+          "machine_constraints": [
+            "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+            "FIX_BODY_PROPORTIONS",
+            "FIX_SILHOUETTE",
+            "FIX_WARDROBE_STATE",
+            "NO_RANDOM_CHARACTER_DRIFT"
+          ]
+        }
+      },
+      "replacement_hard_constraints": [
+        "NO_VISIBLE_HUMAN_FACE",
+        "NO_FRONTAL_FACE",
+        "NO_PROFILE_FACE",
+        "NO_REFLECTION_FACE",
+        "NO_PARTIAL_EYES_NOSE_MOUTH",
+        "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD",
+        "FULL_MODEST_COVERAGE",
+        "NO_CLEAVAGE",
+        "NO_EXPOSED_HAIR_NECK_ARMS_LEGS",
+        "NO_TIGHT_OR_TRANSPARENT_CLOTHING",
+        "NO_GLAMOUR_MAKEUP",
+        "NO_BODY_CONTOUR_EMPHASIS",
+        "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+        "FIX_BODY_PROPORTIONS",
+        "FIX_SILHOUETTE",
+        "FIX_WARDROBE_STATE",
+        "NO_RANDOM_CHARACTER_DRIFT",
+        "DO_NOT_OVERWRITE_BLOCKED_SOURCE_ASSET",
+        "CANONICAL_REFERENCE_BINDING_REQUIRED_FOR_RECURRING_CHARACTER",
+        "NO_CLEAR_MATERIAL_ANACHRONISM",
+        "NO_PROVIDER_EXECUTION_WITHOUT_SEPARATE_SCOPED_AUTHORIZATION"
+      ],
+      "resolution_pathway": "CANDIDATE_FOR_REGENERATE_AFTER_CANONICAL_REFERENCE_AND_SPEC_APPROVAL",
+      "reclassified_now": false,
+      "regeneration_authorized_now": false,
+      "frame_edit_authorized_now": false,
+      "blocked_source_asset_reuse_authorized": false
+    },
+    {
+      "ordinal": 20,
+      "unit_id": "V23-GEN-013-DEBATE-A",
+      "current_state": "BLOCKED_PENDING_RESOLUTION",
+      "human_decision": "BLOCK",
+      "human_notes_verbatim": "وجه ادم وموسى ظاهران وتعابير المناظرة الخاصة بموسى قاسية جدا يجب ان تكون المناظرة أهدأ",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-013-DEBATE-A.mp4",
+      "asset_sha256": "03ca2784f2b4a0cdef8a679ea9ff4b0d602461834f14f1ef07f2b73b9e699886",
+      "identified_issue_ids": [
+        "FACE_VISIBILITY",
+        "CHARACTER_CONTINUITY",
+        "REVERENT_TONE"
+      ],
+      "issue_requirements": {
+        "FACE_VISIBILITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "يجب ألا يظهر وجه أي شخصية بشرية؛ وجه آدم وموسى ممنوع منعًا مطلقًا، وحواء تبقى ملامح وجهها محجوبة بالكامل.",
+          "machine_constraints": [
+            "NO_VISIBLE_HUMAN_FACE",
+            "NO_FRONTAL_FACE",
+            "NO_PROFILE_FACE",
+            "NO_REFLECTION_FACE",
+            "NO_PARTIAL_EYES_NOSE_MOUTH",
+            "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD"
+          ]
+        },
+        "CHARACTER_CONTINUITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "تثبيت الهوية الجسدية والهيئة والملابس لكل شخصية عبر جميع اللقطات؛ يمنع تغير الطول والبنية والعمر الظاهري والرداء عشوائيًا.",
+          "machine_constraints": [
+            "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+            "FIX_BODY_PROPORTIONS",
+            "FIX_SILHOUETTE",
+            "FIX_WARDROBE_STATE",
+            "NO_RANDOM_CHARACTER_DRIFT"
+          ]
+        },
+        "REVERENT_TONE": {
+          "severity": "HARD_BLOCKER_FOR_DEBATE_TONE",
+          "requirement_ar": "مشاهد مناظرة آدم وموسى هادئة ومحترمة؛ يمنع الغضب المسرحي، الإشارة العدائية، الصراخ أو لغة الجسد الهجومية.",
+          "machine_constraints": [
+            "CALM_RESPECTFUL_DEBATE",
+            "NO_AGGRESSIVE_POINTING",
+            "NO_SHOUTING_BODY_LANGUAGE",
+            "NO_HOSTILE_POSTURE",
+            "MEASURED_GESTURES"
+          ]
+        }
+      },
+      "replacement_hard_constraints": [
+        "NO_VISIBLE_HUMAN_FACE",
+        "NO_FRONTAL_FACE",
+        "NO_PROFILE_FACE",
+        "NO_REFLECTION_FACE",
+        "NO_PARTIAL_EYES_NOSE_MOUTH",
+        "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD",
+        "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+        "FIX_BODY_PROPORTIONS",
+        "FIX_SILHOUETTE",
+        "FIX_WARDROBE_STATE",
+        "NO_RANDOM_CHARACTER_DRIFT",
+        "CALM_RESPECTFUL_DEBATE",
+        "NO_AGGRESSIVE_POINTING",
+        "NO_SHOUTING_BODY_LANGUAGE",
+        "NO_HOSTILE_POSTURE",
+        "MEASURED_GESTURES",
+        "DO_NOT_OVERWRITE_BLOCKED_SOURCE_ASSET",
+        "CANONICAL_REFERENCE_BINDING_REQUIRED_FOR_RECURRING_CHARACTER",
+        "NO_CLEAR_MATERIAL_ANACHRONISM",
+        "NO_PROVIDER_EXECUTION_WITHOUT_SEPARATE_SCOPED_AUTHORIZATION"
+      ],
+      "resolution_pathway": "CANDIDATE_FOR_REGENERATE_AFTER_CANONICAL_REFERENCE_AND_SPEC_APPROVAL",
+      "reclassified_now": false,
+      "regeneration_authorized_now": false,
+      "frame_edit_authorized_now": false,
+      "blocked_source_asset_reuse_authorized": false
+    },
+    {
+      "ordinal": 21,
+      "unit_id": "V23-GEN-014-DEBATE-B",
+      "current_state": "BLOCKED_PENDING_RESOLUTION",
+      "human_decision": "BLOCK",
+      "human_notes_verbatim": "وجه ادم وموسى ظاهران وتعابير المناظرة الخاصة بموسى قاسية جدا يجب ان تكون المناظرة أهدأ",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-014-DEBATE-B.mp4",
+      "asset_sha256": "b6985b822808221e7a8dbb46c687fd67d7097ca34115c5010529c8610c939a92",
+      "identified_issue_ids": [
+        "FACE_VISIBILITY",
+        "CHARACTER_CONTINUITY",
+        "REVERENT_TONE"
+      ],
+      "issue_requirements": {
+        "FACE_VISIBILITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "يجب ألا يظهر وجه أي شخصية بشرية؛ وجه آدم وموسى ممنوع منعًا مطلقًا، وحواء تبقى ملامح وجهها محجوبة بالكامل.",
+          "machine_constraints": [
+            "NO_VISIBLE_HUMAN_FACE",
+            "NO_FRONTAL_FACE",
+            "NO_PROFILE_FACE",
+            "NO_REFLECTION_FACE",
+            "NO_PARTIAL_EYES_NOSE_MOUTH",
+            "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD"
+          ]
+        },
+        "CHARACTER_CONTINUITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "تثبيت الهوية الجسدية والهيئة والملابس لكل شخصية عبر جميع اللقطات؛ يمنع تغير الطول والبنية والعمر الظاهري والرداء عشوائيًا.",
+          "machine_constraints": [
+            "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+            "FIX_BODY_PROPORTIONS",
+            "FIX_SILHOUETTE",
+            "FIX_WARDROBE_STATE",
+            "NO_RANDOM_CHARACTER_DRIFT"
+          ]
+        },
+        "REVERENT_TONE": {
+          "severity": "HARD_BLOCKER_FOR_DEBATE_TONE",
+          "requirement_ar": "مشاهد مناظرة آدم وموسى هادئة ومحترمة؛ يمنع الغضب المسرحي، الإشارة العدائية، الصراخ أو لغة الجسد الهجومية.",
+          "machine_constraints": [
+            "CALM_RESPECTFUL_DEBATE",
+            "NO_AGGRESSIVE_POINTING",
+            "NO_SHOUTING_BODY_LANGUAGE",
+            "NO_HOSTILE_POSTURE",
+            "MEASURED_GESTURES"
+          ]
+        }
+      },
+      "replacement_hard_constraints": [
+        "NO_VISIBLE_HUMAN_FACE",
+        "NO_FRONTAL_FACE",
+        "NO_PROFILE_FACE",
+        "NO_REFLECTION_FACE",
+        "NO_PARTIAL_EYES_NOSE_MOUTH",
+        "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD",
+        "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+        "FIX_BODY_PROPORTIONS",
+        "FIX_SILHOUETTE",
+        "FIX_WARDROBE_STATE",
+        "NO_RANDOM_CHARACTER_DRIFT",
+        "CALM_RESPECTFUL_DEBATE",
+        "NO_AGGRESSIVE_POINTING",
+        "NO_SHOUTING_BODY_LANGUAGE",
+        "NO_HOSTILE_POSTURE",
+        "MEASURED_GESTURES",
+        "DO_NOT_OVERWRITE_BLOCKED_SOURCE_ASSET",
+        "CANONICAL_REFERENCE_BINDING_REQUIRED_FOR_RECURRING_CHARACTER",
+        "NO_CLEAR_MATERIAL_ANACHRONISM",
+        "NO_PROVIDER_EXECUTION_WITHOUT_SEPARATE_SCOPED_AUTHORIZATION"
+      ],
+      "resolution_pathway": "CANDIDATE_FOR_REGENERATE_AFTER_CANONICAL_REFERENCE_AND_SPEC_APPROVAL",
+      "reclassified_now": false,
+      "regeneration_authorized_now": false,
+      "frame_edit_authorized_now": false,
+      "blocked_source_asset_reuse_authorized": false
+    },
+    {
+      "ordinal": 22,
+      "unit_id": "V23-GEN-SUPPORT-01920-DEBATE",
+      "current_state": "BLOCKED_PENDING_RESOLUTION",
+      "human_decision": "BLOCK",
+      "human_notes_verbatim": "وجه ادم وموسى ظاهران ",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-SUPPORT-01920-DEBATE.mp4",
+      "asset_sha256": "d10b65b1d34831f33bb657cfd2911c397443b1377da6e1dd2796917fae8751ed",
+      "identified_issue_ids": [
+        "FACE_VISIBILITY",
+        "CHARACTER_CONTINUITY",
+        "REVERENT_TONE"
+      ],
+      "issue_requirements": {
+        "FACE_VISIBILITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "يجب ألا يظهر وجه أي شخصية بشرية؛ وجه آدم وموسى ممنوع منعًا مطلقًا، وحواء تبقى ملامح وجهها محجوبة بالكامل.",
+          "machine_constraints": [
+            "NO_VISIBLE_HUMAN_FACE",
+            "NO_FRONTAL_FACE",
+            "NO_PROFILE_FACE",
+            "NO_REFLECTION_FACE",
+            "NO_PARTIAL_EYES_NOSE_MOUTH",
+            "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD"
+          ]
+        },
+        "CHARACTER_CONTINUITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "تثبيت الهوية الجسدية والهيئة والملابس لكل شخصية عبر جميع اللقطات؛ يمنع تغير الطول والبنية والعمر الظاهري والرداء عشوائيًا.",
+          "machine_constraints": [
+            "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+            "FIX_BODY_PROPORTIONS",
+            "FIX_SILHOUETTE",
+            "FIX_WARDROBE_STATE",
+            "NO_RANDOM_CHARACTER_DRIFT"
+          ]
+        },
+        "REVERENT_TONE": {
+          "severity": "HARD_BLOCKER_FOR_DEBATE_TONE",
+          "requirement_ar": "مشاهد مناظرة آدم وموسى هادئة ومحترمة؛ يمنع الغضب المسرحي، الإشارة العدائية، الصراخ أو لغة الجسد الهجومية.",
+          "machine_constraints": [
+            "CALM_RESPECTFUL_DEBATE",
+            "NO_AGGRESSIVE_POINTING",
+            "NO_SHOUTING_BODY_LANGUAGE",
+            "NO_HOSTILE_POSTURE",
+            "MEASURED_GESTURES"
+          ]
+        }
+      },
+      "replacement_hard_constraints": [
+        "NO_VISIBLE_HUMAN_FACE",
+        "NO_FRONTAL_FACE",
+        "NO_PROFILE_FACE",
+        "NO_REFLECTION_FACE",
+        "NO_PARTIAL_EYES_NOSE_MOUTH",
+        "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD",
+        "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+        "FIX_BODY_PROPORTIONS",
+        "FIX_SILHOUETTE",
+        "FIX_WARDROBE_STATE",
+        "NO_RANDOM_CHARACTER_DRIFT",
+        "CALM_RESPECTFUL_DEBATE",
+        "NO_AGGRESSIVE_POINTING",
+        "NO_SHOUTING_BODY_LANGUAGE",
+        "NO_HOSTILE_POSTURE",
+        "MEASURED_GESTURES",
+        "DO_NOT_OVERWRITE_BLOCKED_SOURCE_ASSET",
+        "CANONICAL_REFERENCE_BINDING_REQUIRED_FOR_RECURRING_CHARACTER",
+        "NO_CLEAR_MATERIAL_ANACHRONISM",
+        "NO_PROVIDER_EXECUTION_WITHOUT_SEPARATE_SCOPED_AUTHORIZATION"
+      ],
+      "resolution_pathway": "CANDIDATE_FOR_REGENERATE_AFTER_CANONICAL_REFERENCE_AND_SPEC_APPROVAL",
+      "reclassified_now": false,
+      "regeneration_authorized_now": false,
+      "frame_edit_authorized_now": false,
+      "blocked_source_asset_reuse_authorized": false
+    },
+    {
+      "ordinal": 23,
+      "unit_id": "V23-GEN-SUPPORT-02122-DEBATE",
+      "current_state": "BLOCKED_PENDING_RESOLUTION",
+      "human_decision": "BLOCK",
+      "human_notes_verbatim": "وجه ادم وموسى ظاهران وتعابير المناظرة الخاصة بموسى قاسية جدا يجب ان تكون المناظرة أهدأ",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V23-GEN-SUPPORT-02122-DEBATE.mp4",
+      "asset_sha256": "f7bcf05c0aed72ddff19c674f57b9ab0e943db4bbfbf233b4bf6d1c85a3dc01a",
+      "identified_issue_ids": [
+        "FACE_VISIBILITY",
+        "CHARACTER_CONTINUITY",
+        "REVERENT_TONE"
+      ],
+      "issue_requirements": {
+        "FACE_VISIBILITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "يجب ألا يظهر وجه أي شخصية بشرية؛ وجه آدم وموسى ممنوع منعًا مطلقًا، وحواء تبقى ملامح وجهها محجوبة بالكامل.",
+          "machine_constraints": [
+            "NO_VISIBLE_HUMAN_FACE",
+            "NO_FRONTAL_FACE",
+            "NO_PROFILE_FACE",
+            "NO_REFLECTION_FACE",
+            "NO_PARTIAL_EYES_NOSE_MOUTH",
+            "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD"
+          ]
+        },
+        "CHARACTER_CONTINUITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "تثبيت الهوية الجسدية والهيئة والملابس لكل شخصية عبر جميع اللقطات؛ يمنع تغير الطول والبنية والعمر الظاهري والرداء عشوائيًا.",
+          "machine_constraints": [
+            "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+            "FIX_BODY_PROPORTIONS",
+            "FIX_SILHOUETTE",
+            "FIX_WARDROBE_STATE",
+            "NO_RANDOM_CHARACTER_DRIFT"
+          ]
+        },
+        "REVERENT_TONE": {
+          "severity": "HARD_BLOCKER_FOR_DEBATE_TONE",
+          "requirement_ar": "مشاهد مناظرة آدم وموسى هادئة ومحترمة؛ يمنع الغضب المسرحي، الإشارة العدائية، الصراخ أو لغة الجسد الهجومية.",
+          "machine_constraints": [
+            "CALM_RESPECTFUL_DEBATE",
+            "NO_AGGRESSIVE_POINTING",
+            "NO_SHOUTING_BODY_LANGUAGE",
+            "NO_HOSTILE_POSTURE",
+            "MEASURED_GESTURES"
+          ]
+        }
+      },
+      "replacement_hard_constraints": [
+        "NO_VISIBLE_HUMAN_FACE",
+        "NO_FRONTAL_FACE",
+        "NO_PROFILE_FACE",
+        "NO_REFLECTION_FACE",
+        "NO_PARTIAL_EYES_NOSE_MOUTH",
+        "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD",
+        "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+        "FIX_BODY_PROPORTIONS",
+        "FIX_SILHOUETTE",
+        "FIX_WARDROBE_STATE",
+        "NO_RANDOM_CHARACTER_DRIFT",
+        "CALM_RESPECTFUL_DEBATE",
+        "NO_AGGRESSIVE_POINTING",
+        "NO_SHOUTING_BODY_LANGUAGE",
+        "NO_HOSTILE_POSTURE",
+        "MEASURED_GESTURES",
+        "DO_NOT_OVERWRITE_BLOCKED_SOURCE_ASSET",
+        "CANONICAL_REFERENCE_BINDING_REQUIRED_FOR_RECURRING_CHARACTER",
+        "NO_CLEAR_MATERIAL_ANACHRONISM",
+        "NO_PROVIDER_EXECUTION_WITHOUT_SEPARATE_SCOPED_AUTHORIZATION"
+      ],
+      "resolution_pathway": "CANDIDATE_FOR_REGENERATE_AFTER_CANONICAL_REFERENCE_AND_SPEC_APPROVAL",
+      "reclassified_now": false,
+      "regeneration_authorized_now": false,
+      "frame_edit_authorized_now": false,
+      "blocked_source_asset_reuse_authorized": false
+    },
+    {
+      "ordinal": 24,
+      "unit_id": "V24-GEN-015-DEBATE-C",
+      "current_state": "BLOCKED_PENDING_RESOLUTION",
+      "human_decision": "BLOCK",
+      "human_notes_verbatim": "وجه ادم وموسى ظاهران وتعابير المناظرة الخاصة بموسى قاسية جدا يجب ان تكون المناظرة أهدأ",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V24-GEN-015-DEBATE-C.mp4",
+      "asset_sha256": "99576b8cba4f282449079e642e3bfd063ee7ea245ee110a27591900bbd21c23f",
+      "identified_issue_ids": [
+        "FACE_VISIBILITY",
+        "CHARACTER_CONTINUITY",
+        "REVERENT_TONE"
+      ],
+      "issue_requirements": {
+        "FACE_VISIBILITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "يجب ألا يظهر وجه أي شخصية بشرية؛ وجه آدم وموسى ممنوع منعًا مطلقًا، وحواء تبقى ملامح وجهها محجوبة بالكامل.",
+          "machine_constraints": [
+            "NO_VISIBLE_HUMAN_FACE",
+            "NO_FRONTAL_FACE",
+            "NO_PROFILE_FACE",
+            "NO_REFLECTION_FACE",
+            "NO_PARTIAL_EYES_NOSE_MOUTH",
+            "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD"
+          ]
+        },
+        "CHARACTER_CONTINUITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "تثبيت الهوية الجسدية والهيئة والملابس لكل شخصية عبر جميع اللقطات؛ يمنع تغير الطول والبنية والعمر الظاهري والرداء عشوائيًا.",
+          "machine_constraints": [
+            "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+            "FIX_BODY_PROPORTIONS",
+            "FIX_SILHOUETTE",
+            "FIX_WARDROBE_STATE",
+            "NO_RANDOM_CHARACTER_DRIFT"
+          ]
+        },
+        "REVERENT_TONE": {
+          "severity": "HARD_BLOCKER_FOR_DEBATE_TONE",
+          "requirement_ar": "مشاهد مناظرة آدم وموسى هادئة ومحترمة؛ يمنع الغضب المسرحي، الإشارة العدائية، الصراخ أو لغة الجسد الهجومية.",
+          "machine_constraints": [
+            "CALM_RESPECTFUL_DEBATE",
+            "NO_AGGRESSIVE_POINTING",
+            "NO_SHOUTING_BODY_LANGUAGE",
+            "NO_HOSTILE_POSTURE",
+            "MEASURED_GESTURES"
+          ]
+        }
+      },
+      "replacement_hard_constraints": [
+        "NO_VISIBLE_HUMAN_FACE",
+        "NO_FRONTAL_FACE",
+        "NO_PROFILE_FACE",
+        "NO_REFLECTION_FACE",
+        "NO_PARTIAL_EYES_NOSE_MOUTH",
+        "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD",
+        "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+        "FIX_BODY_PROPORTIONS",
+        "FIX_SILHOUETTE",
+        "FIX_WARDROBE_STATE",
+        "NO_RANDOM_CHARACTER_DRIFT",
+        "CALM_RESPECTFUL_DEBATE",
+        "NO_AGGRESSIVE_POINTING",
+        "NO_SHOUTING_BODY_LANGUAGE",
+        "NO_HOSTILE_POSTURE",
+        "MEASURED_GESTURES",
+        "DO_NOT_OVERWRITE_BLOCKED_SOURCE_ASSET",
+        "CANONICAL_REFERENCE_BINDING_REQUIRED_FOR_RECURRING_CHARACTER",
+        "NO_CLEAR_MATERIAL_ANACHRONISM",
+        "NO_PROVIDER_EXECUTION_WITHOUT_SEPARATE_SCOPED_AUTHORIZATION"
+      ],
+      "resolution_pathway": "CANDIDATE_FOR_REGENERATE_AFTER_CANONICAL_REFERENCE_AND_SPEC_APPROVAL",
+      "reclassified_now": false,
+      "regeneration_authorized_now": false,
+      "frame_edit_authorized_now": false,
+      "blocked_source_asset_reuse_authorized": false
+    },
+    {
+      "ordinal": 25,
+      "unit_id": "V24-GEN-016-DEBATE-D",
+      "current_state": "BLOCKED_PENDING_RESOLUTION",
+      "human_decision": "BLOCK",
+      "human_notes_verbatim": "وجه ادم وموسى ظاهران وتعابير المناظرة الخاصة بموسى قاسية جدا يجب ان تكون المناظرة أهدأ",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V24-GEN-016-DEBATE-D.mp4",
+      "asset_sha256": "8ad0988c771a959f77db000c1a4586f08016b04ce972ffddba7bf984ab19277b",
+      "identified_issue_ids": [
+        "FACE_VISIBILITY",
+        "CHARACTER_CONTINUITY",
+        "REVERENT_TONE"
+      ],
+      "issue_requirements": {
+        "FACE_VISIBILITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "يجب ألا يظهر وجه أي شخصية بشرية؛ وجه آدم وموسى ممنوع منعًا مطلقًا، وحواء تبقى ملامح وجهها محجوبة بالكامل.",
+          "machine_constraints": [
+            "NO_VISIBLE_HUMAN_FACE",
+            "NO_FRONTAL_FACE",
+            "NO_PROFILE_FACE",
+            "NO_REFLECTION_FACE",
+            "NO_PARTIAL_EYES_NOSE_MOUTH",
+            "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD"
+          ]
+        },
+        "CHARACTER_CONTINUITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "تثبيت الهوية الجسدية والهيئة والملابس لكل شخصية عبر جميع اللقطات؛ يمنع تغير الطول والبنية والعمر الظاهري والرداء عشوائيًا.",
+          "machine_constraints": [
+            "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+            "FIX_BODY_PROPORTIONS",
+            "FIX_SILHOUETTE",
+            "FIX_WARDROBE_STATE",
+            "NO_RANDOM_CHARACTER_DRIFT"
+          ]
+        },
+        "REVERENT_TONE": {
+          "severity": "HARD_BLOCKER_FOR_DEBATE_TONE",
+          "requirement_ar": "مشاهد مناظرة آدم وموسى هادئة ومحترمة؛ يمنع الغضب المسرحي، الإشارة العدائية، الصراخ أو لغة الجسد الهجومية.",
+          "machine_constraints": [
+            "CALM_RESPECTFUL_DEBATE",
+            "NO_AGGRESSIVE_POINTING",
+            "NO_SHOUTING_BODY_LANGUAGE",
+            "NO_HOSTILE_POSTURE",
+            "MEASURED_GESTURES"
+          ]
+        }
+      },
+      "replacement_hard_constraints": [
+        "NO_VISIBLE_HUMAN_FACE",
+        "NO_FRONTAL_FACE",
+        "NO_PROFILE_FACE",
+        "NO_REFLECTION_FACE",
+        "NO_PARTIAL_EYES_NOSE_MOUTH",
+        "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD",
+        "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+        "FIX_BODY_PROPORTIONS",
+        "FIX_SILHOUETTE",
+        "FIX_WARDROBE_STATE",
+        "NO_RANDOM_CHARACTER_DRIFT",
+        "CALM_RESPECTFUL_DEBATE",
+        "NO_AGGRESSIVE_POINTING",
+        "NO_SHOUTING_BODY_LANGUAGE",
+        "NO_HOSTILE_POSTURE",
+        "MEASURED_GESTURES",
+        "DO_NOT_OVERWRITE_BLOCKED_SOURCE_ASSET",
+        "CANONICAL_REFERENCE_BINDING_REQUIRED_FOR_RECURRING_CHARACTER",
+        "NO_CLEAR_MATERIAL_ANACHRONISM",
+        "NO_PROVIDER_EXECUTION_WITHOUT_SEPARATE_SCOPED_AUTHORIZATION"
+      ],
+      "resolution_pathway": "CANDIDATE_FOR_REGENERATE_AFTER_CANONICAL_REFERENCE_AND_SPEC_APPROVAL",
+      "reclassified_now": false,
+      "regeneration_authorized_now": false,
+      "frame_edit_authorized_now": false,
+      "blocked_source_asset_reuse_authorized": false
+    },
+    {
+      "ordinal": 26,
+      "unit_id": "V24-GEN-017-DEBATE-E",
+      "current_state": "BLOCKED_PENDING_RESOLUTION",
+      "human_decision": "BLOCK",
+      "human_notes_verbatim": "وجه ادم وموسى ظاهران وتعابير المناظرة الخاصة بموسى قاسية جدا يجب ان تكون المناظرة أهدأ",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V24-GEN-017-DEBATE-E.mp4",
+      "asset_sha256": "ac87abb2130d99341ef560e5bc34d1ec2ea94697913eb9abefb4baa100723898",
+      "identified_issue_ids": [
+        "FACE_VISIBILITY",
+        "CHARACTER_CONTINUITY",
+        "REVERENT_TONE"
+      ],
+      "issue_requirements": {
+        "FACE_VISIBILITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "يجب ألا يظهر وجه أي شخصية بشرية؛ وجه آدم وموسى ممنوع منعًا مطلقًا، وحواء تبقى ملامح وجهها محجوبة بالكامل.",
+          "machine_constraints": [
+            "NO_VISIBLE_HUMAN_FACE",
+            "NO_FRONTAL_FACE",
+            "NO_PROFILE_FACE",
+            "NO_REFLECTION_FACE",
+            "NO_PARTIAL_EYES_NOSE_MOUTH",
+            "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD"
+          ]
+        },
+        "CHARACTER_CONTINUITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "تثبيت الهوية الجسدية والهيئة والملابس لكل شخصية عبر جميع اللقطات؛ يمنع تغير الطول والبنية والعمر الظاهري والرداء عشوائيًا.",
+          "machine_constraints": [
+            "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+            "FIX_BODY_PROPORTIONS",
+            "FIX_SILHOUETTE",
+            "FIX_WARDROBE_STATE",
+            "NO_RANDOM_CHARACTER_DRIFT"
+          ]
+        },
+        "REVERENT_TONE": {
+          "severity": "HARD_BLOCKER_FOR_DEBATE_TONE",
+          "requirement_ar": "مشاهد مناظرة آدم وموسى هادئة ومحترمة؛ يمنع الغضب المسرحي، الإشارة العدائية، الصراخ أو لغة الجسد الهجومية.",
+          "machine_constraints": [
+            "CALM_RESPECTFUL_DEBATE",
+            "NO_AGGRESSIVE_POINTING",
+            "NO_SHOUTING_BODY_LANGUAGE",
+            "NO_HOSTILE_POSTURE",
+            "MEASURED_GESTURES"
+          ]
+        }
+      },
+      "replacement_hard_constraints": [
+        "NO_VISIBLE_HUMAN_FACE",
+        "NO_FRONTAL_FACE",
+        "NO_PROFILE_FACE",
+        "NO_REFLECTION_FACE",
+        "NO_PARTIAL_EYES_NOSE_MOUTH",
+        "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD",
+        "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+        "FIX_BODY_PROPORTIONS",
+        "FIX_SILHOUETTE",
+        "FIX_WARDROBE_STATE",
+        "NO_RANDOM_CHARACTER_DRIFT",
+        "CALM_RESPECTFUL_DEBATE",
+        "NO_AGGRESSIVE_POINTING",
+        "NO_SHOUTING_BODY_LANGUAGE",
+        "NO_HOSTILE_POSTURE",
+        "MEASURED_GESTURES",
+        "DO_NOT_OVERWRITE_BLOCKED_SOURCE_ASSET",
+        "CANONICAL_REFERENCE_BINDING_REQUIRED_FOR_RECURRING_CHARACTER",
+        "NO_CLEAR_MATERIAL_ANACHRONISM",
+        "NO_PROVIDER_EXECUTION_WITHOUT_SEPARATE_SCOPED_AUTHORIZATION"
+      ],
+      "resolution_pathway": "CANDIDATE_FOR_REGENERATE_AFTER_CANONICAL_REFERENCE_AND_SPEC_APPROVAL",
+      "reclassified_now": false,
+      "regeneration_authorized_now": false,
+      "frame_edit_authorized_now": false,
+      "blocked_source_asset_reuse_authorized": false
+    },
+    {
+      "ordinal": 27,
+      "unit_id": "V24-GEN-018-DEBATE-F",
+      "current_state": "BLOCKED_PENDING_RESOLUTION",
+      "human_decision": "BLOCK",
+      "human_notes_verbatim": "وجه ادم وموسى ظاهران وتعابير المناظرة الخاصة بموسى قاسية جدا يجب ان تكون المناظرة أهدأ",
+      "asset_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/provider-execution-assets-v1/V24-GEN-018-DEBATE-F.mp4",
+      "asset_sha256": "9d0b4044e6402d3e695a40bcf30459d29440c7b8a7ed008dea49ebff9de0db74",
+      "identified_issue_ids": [
+        "FACE_VISIBILITY",
+        "CHARACTER_CONTINUITY",
+        "REVERENT_TONE"
+      ],
+      "issue_requirements": {
+        "FACE_VISIBILITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "يجب ألا يظهر وجه أي شخصية بشرية؛ وجه آدم وموسى ممنوع منعًا مطلقًا، وحواء تبقى ملامح وجهها محجوبة بالكامل.",
+          "machine_constraints": [
+            "NO_VISIBLE_HUMAN_FACE",
+            "NO_FRONTAL_FACE",
+            "NO_PROFILE_FACE",
+            "NO_REFLECTION_FACE",
+            "NO_PARTIAL_EYES_NOSE_MOUTH",
+            "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD"
+          ]
+        },
+        "CHARACTER_CONTINUITY": {
+          "severity": "HARD_BLOCKER",
+          "requirement_ar": "تثبيت الهوية الجسدية والهيئة والملابس لكل شخصية عبر جميع اللقطات؛ يمنع تغير الطول والبنية والعمر الظاهري والرداء عشوائيًا.",
+          "machine_constraints": [
+            "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+            "FIX_BODY_PROPORTIONS",
+            "FIX_SILHOUETTE",
+            "FIX_WARDROBE_STATE",
+            "NO_RANDOM_CHARACTER_DRIFT"
+          ]
+        },
+        "REVERENT_TONE": {
+          "severity": "HARD_BLOCKER_FOR_DEBATE_TONE",
+          "requirement_ar": "مشاهد مناظرة آدم وموسى هادئة ومحترمة؛ يمنع الغضب المسرحي، الإشارة العدائية، الصراخ أو لغة الجسد الهجومية.",
+          "machine_constraints": [
+            "CALM_RESPECTFUL_DEBATE",
+            "NO_AGGRESSIVE_POINTING",
+            "NO_SHOUTING_BODY_LANGUAGE",
+            "NO_HOSTILE_POSTURE",
+            "MEASURED_GESTURES"
+          ]
+        }
+      },
+      "replacement_hard_constraints": [
+        "NO_VISIBLE_HUMAN_FACE",
+        "NO_FRONTAL_FACE",
+        "NO_PROFILE_FACE",
+        "NO_REFLECTION_FACE",
+        "NO_PARTIAL_EYES_NOSE_MOUTH",
+        "USE_REAR_VIEW_SILHOUETTE_OCCLUSION_OR_OUT_OF_FRAME_HEAD",
+        "HASH_BOUND_CANONICAL_REFERENCE_REQUIRED",
+        "FIX_BODY_PROPORTIONS",
+        "FIX_SILHOUETTE",
+        "FIX_WARDROBE_STATE",
+        "NO_RANDOM_CHARACTER_DRIFT",
+        "CALM_RESPECTFUL_DEBATE",
+        "NO_AGGRESSIVE_POINTING",
+        "NO_SHOUTING_BODY_LANGUAGE",
+        "NO_HOSTILE_POSTURE",
+        "MEASURED_GESTURES",
+        "DO_NOT_OVERWRITE_BLOCKED_SOURCE_ASSET",
+        "CANONICAL_REFERENCE_BINDING_REQUIRED_FOR_RECURRING_CHARACTER",
+        "NO_CLEAR_MATERIAL_ANACHRONISM",
+        "NO_PROVIDER_EXECUTION_WITHOUT_SEPARATE_SCOPED_AUTHORIZATION"
+      ],
+      "resolution_pathway": "CANDIDATE_FOR_REGENERATE_AFTER_CANONICAL_REFERENCE_AND_SPEC_APPROVAL",
+      "reclassified_now": false,
+      "regeneration_authorized_now": false,
+      "frame_edit_authorized_now": false,
+      "blocked_source_asset_reuse_authorized": false
+    }
+  ],
+  "global_preconditions_before_any_BLOCK_to_REGENERATE_reclassification": [
+    "HUMAN_APPROVE_THIS_BLOCKER_RESOLUTION_PLAN",
+    "CREATE_OR_VALIDATE_6_CANONICAL_REFERENCE_STATES",
+    "HUMAN_REVIEW_EACH_CANONICAL_REFERENCE",
+    "HASH_BIND_ACCEPTED_CANONICAL_REFERENCES",
+    "COMPILE_UNIT_PROMPTS_WITH_HARD_CONSTRAINTS",
+    "VERIFY_NO_BLOCKED_SOURCE_ASSET_WILL_BE_OVERWRITTEN",
+    "VERIFY_PROVIDER_MODEL_CAPABILITY_FOR_REFERENCE_BINDING_OR_EQUIVALENT_IDENTITY_LOCK",
+    "CREATE_SCOPED_OPERATION_AUTHORIZATION_LATER_AS_REQUIRED_BY_C2"
+  ],
+  "next_stage": "EP002_R27_BLOCKER_RESOLUTION_PLAN_HUMAN_APPROVAL"
+}
