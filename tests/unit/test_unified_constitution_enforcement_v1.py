@@ -27,7 +27,7 @@ from src.application.unified_constitution_enforcement_v1 import (
 
 
 REPO = Path(__file__).resolve().parents[2]
-BUNDLE_RELATIVE = Path("config/constitution/siraj-unified-production-constitution/1.0.0")
+BUNDLE_RELATIVE = Path("config/constitution/siraj-unified-production-constitution/1.2.0")
 
 
 @pytest.fixture(scope="module")
@@ -77,8 +77,8 @@ def test_e0_canonical_metadata_and_counts(constitution) -> None:
     metadata = constitution.constitution
     assert metadata == {
         "id": "SIRAJ_UNIFIED_PRODUCTION_CONSTITUTION",
-        "version": "1.1.0",
-        "bundle_id": "SIRAJ-CONSTITUTION-1.1.0-20260814",
+        "version": "1.2.0",
+        "bundle_id": "SIRAJ-CONSTITUTION-1.2.0-20260815",
         "authority": "SYSTEM_ROOT",
         "scope": "SERIES_WIDE",
         "fail_closed": True,

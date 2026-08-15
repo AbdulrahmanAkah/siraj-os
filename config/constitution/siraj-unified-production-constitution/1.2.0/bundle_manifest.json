@@ -1,0 +1,58 @@
+{
+  "bundle_id": "SIRAJ-CONSTITUTION-1.2.0-20260815",
+  "constitution_id": "SIRAJ_UNIFIED_PRODUCTION_CONSTITUTION",
+  "version": "1.2.0",
+  "created_at": "2026-08-15",
+  "files": [
+    {
+      "path": "README.md",
+      "role": "BUNDLE_INDEX",
+      "bytes": 2274,
+      "sha256": "35a99dfa7a8e3689e463348f9fa8650e40d1550edcf4558fb9fa3722c863a4e4"
+    },
+    {
+      "path": "SIRAJ_UNIFIED_PRODUCTION_CONSTITUTION_V1.md",
+      "role": "HUMAN_READABLE_CONSTITUTION",
+      "bytes": 34678,
+      "sha256": "32b5a7f3dd886d6ea92ede398fcf87006dc03933abbaccdc291c00671de813a5"
+    },
+    {
+      "path": "siraj_unified_constitution_v1.rules.json",
+      "role": "MACHINE_READABLE_RULE_SOURCE",
+      "bytes": 60608,
+      "sha256": "ba5b168896c4e5bfcd16be12640c048957fd2f7caa947e6bed54b760d134587d"
+    },
+    {
+      "path": "siraj_unified_constitution_rule_model.schema.json",
+      "role": "RULE_MODEL_SCHEMA",
+      "bytes": 5603,
+      "sha256": "82704c67d1098f49608ea5de488d3937db495a68ae2cd4dda39a47b9aa466eea"
+    },
+    {
+      "path": "SIRAJ_CONSOLIDATION_AUDIT_AND_ENFORCEMENT_DESIGN_V1.md",
+      "role": "CONFLICT_GAP_INVALIDATION_AND_GO_NO_GO_REPORT",
+      "bytes": 23917,
+      "sha256": "63a0680e90425ccdd212f1d794bee111016fa53acf7e51012c3b88dc87a1f0b5"
+    }
+  ],
+  "brand_assets": {
+    "directory": "C:\\Users\\abdul\\OneDrive\\Desktop\\سراج\\intro outro",
+    "intro_discovery": "EXACTLY_ONE_VIDEO_FILE",
+    "outro_discovery": "EXACTLY_ONE_IMAGE_FILE",
+    "intro_filename": "pixverse-v6-9c194a5a.mp4",
+    "outro_filename": "ChatGPT Image Aug 8, 2026, 01_26_49 AM.png",
+    "intro_sha256": "3de59689f16329fd7f701d010526a9280843917625d02dcac9aa5569250b37f4",
+    "outro_sha256": "09c01a3e144b9c1fbfe3ddad5d08f2fb4759ef054d6b071ce17e255f7c614004",
+    "hash_binding_status": "OFFLINE_DISCOVERY_AND_SHA256_BOUND"
+  },
+  "phase_status": {
+    "consolidation": "PASS",
+    "enforcement_implementation": "NOT_STARTED",
+    "production": "SCOPED_AUTHORIZATION_REQUIRED",
+    "provider_calls": 0,
+    "paid_calls": 0,
+    "network_production_calls": 0,
+    "retry_or_resubmission": 0,
+    "montage": 0
+  }
+}

@@ -3150,3 +3150,23 @@ Evidence:
 NEXT=SUPPLY_OR_SELECT_TRUSTED_WORD_OR_PHRASE_TIMING_FOR_EP001_THEN_RERUN_CAPTION_PLANNING
 
 ========================================================
+
+## SIRAJ_CONSTITUTION_V1_2_SIX_FIXES_IMPLEMENTATION
+
+- Date: 2026-08-16
+- Constitution: `SIRAJ_UNIFIED_PRODUCTION_CONSTITUTION`
+- Version: `1.2.0`
+- Bundle ID: `SIRAJ-CONSTITUTION-1.2.0-20260815`
+- Bundle manifest SHA256: `b390d8a61382ece4e8daeb5993fc89bb013a9b74cd8d06b2fb6e41f0b7d001d5`
+- Scope: exactly `C2 + C3 + C6 + C8 + H3 + H4`
+- C2: no blanket authorization; existing machine-enforced paid/cost/hash-bound authorization stack retained.
+- C3: global rule is generic for any historical `SUBMISSION_UNKNOWN`; no EP002-specific attempt identity remains in the global rule or validator.
+- C6: burned narration captions allowed for Shorts only; Long-form remains forbidden.
+- C8: exactly one active machine rule source under `config/constitution`; 1.1.0 preserved in `config/constitution-archive`.
+- H3: material demonstrable anachronism is hard fail; minor uncertain detail is weighted review.
+- H4: pilot is risk-conditional and uses existing bound validators.
+- `C7`: unchanged.
+- Provider calls: `0`
+- Paid calls: `0`
+- Network production calls: `0`
+- Publication: `0`

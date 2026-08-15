@@ -20,10 +20,10 @@ from typing import Any, Iterable, Mapping, Sequence
 
 
 CONSTITUTION_RELATIVE_DIRECTORY = Path(
-    "config/constitution/siraj-unified-production-constitution/1.0.0"
+    "config/constitution/siraj-unified-production-constitution/1.2.0"
 )
-CONSTITUTION_VERSION = "1.1.0"
-CONSTITUTION_BUNDLE_ID = "SIRAJ-CONSTITUTION-1.1.0-20260814"
+CONSTITUTION_VERSION = "1.2.0"
+CONSTITUTION_BUNDLE_ID = "SIRAJ-CONSTITUTION-1.2.0-20260815"
 RULES_FILENAME = "siraj_unified_constitution_v1.rules.json"
 SCHEMA_FILENAME = "siraj_unified_constitution_rule_model.schema.json"
 MANIFEST_FILENAME = "bundle_manifest.json"
@@ -1133,14 +1133,22 @@ def _automated_validator(
         return _finding(name, passed, "FAIL_UNKNOWN_STATE_RESUBMISSION", "UNKNOWN state boundary")
     if family == "HISTORICAL_UNKNOWN":
         historical = _contract(artifact, "historical_unknown_contract")
-        passed = historical == {
-            "attempt_id": "1e6d0013-d37f-5df7-ab53-444c4f17c14c",
-            "provider_request": "EP002-SH-001-V01",
-            "status": "SUBMISSION_UNKNOWN",
-            "retry": "BLOCKED",
-            "preserved": True,
-        }
-        return _finding(name, passed, "FAIL_HISTORICAL_UNKNOWN_MUTATED", "exact historical UNKNOWN preservation")
+        attempt_id = str(historical.get("attempt_id", "")).strip()
+        provider_request = str(historical.get("provider_request", "")).strip()
+        passed = (
+            bool(attempt_id)
+            and bool(provider_request)
+            and historical.get("status") == "SUBMISSION_UNKNOWN"
+            and historical.get("retry")
+            in {"BLOCKED", "BLOCKED_UNTIL_EVIDENCE_BASED_RECONCILIATION"}
+            and historical.get("preserved") is True
+        )
+        return _finding(
+            name,
+            passed,
+            "FAIL_HISTORICAL_UNKNOWN_MUTATED",
+            "generic historical UNKNOWN preservation without episode-specific identity",
+        )
     if family == "IDEMPOTENCY":
         transaction = _contract(artifact, "transaction_contract")
         passed = bool(transaction.get("attempt_id")) and bool(transaction.get("transaction_id")) and transaction.get("duplicate") is False and transaction.get("double_click") is False and transaction.get("authorization_consumed_once") is True
@@ -1396,7 +1404,7 @@ def build_rule_test_artifact(
         "submission_state": "REQUEST_NOT_SENT",
         "resubmit": False,
         "reconciliation_contract": {"authorizes_execution": False, "ledger_head_match": True},
-        "historical_unknown_contract": {"attempt_id": "1e6d0013-d37f-5df7-ab53-444c4f17c14c", "provider_request": "EP002-SH-001-V01", "status": "SUBMISSION_UNKNOWN", "retry": "BLOCKED", "preserved": True},
+        "historical_unknown_contract": {"attempt_id": "ATTEMPT-HISTORICAL-UNKNOWN-1", "provider_request": "PROVIDER-REQUEST-UNKNOWN-1", "status": "SUBMISSION_UNKNOWN", "retry": "BLOCKED_UNTIL_EVIDENCE_BASED_RECONCILIATION", "preserved": True},
         "transaction_contract": {"attempt_id": "ATTEMPT-1", "transaction_id": "TX-1", "duplicate": False, "double_click": False, "authorization_consumed_once": True},
         "recovery_contract": {"pre_spend_only": True, "provider_capability": False, "network_capability": False, "paid_capability": False},
         "narration_master": {"sha256": "a" * 64, "duration_ticks": 1000, "timebase": "1/1000"},

@@ -1,0 +1,2215 @@
+{
+  "$schema": "./siraj_unified_constitution_rule_model.schema.json",
+  "constitution": {
+    "id": "SIRAJ_UNIFIED_PRODUCTION_CONSTITUTION",
+    "version": "1.2.0",
+    "bundle_id": "SIRAJ-CONSTITUTION-1.2.0-20260815",
+    "authority": "SYSTEM_ROOT",
+    "scope": "SERIES_WIDE",
+    "fail_closed": true,
+    "consolidation_status": "COMPLETE",
+    "implementation_status": "NOT_STARTED",
+    "production_authorized": false
+  },
+  "precedence": [
+    "UNIFIED_CONSTITUTION",
+    "APPROVED_SERIES_PROFILES",
+    "APPROVED_EPISODE_EVIDENCE_AND_CONTRACTS",
+    "APPROVED_SCRIPT_AND_NARRATION",
+    "APPROVED_STORYBOARD",
+    "APPROVED_PROVIDER_PAYLOADS",
+    "EXECUTORS_AND_ADAPTERS",
+    "RENDERS_AND_MONTAGE",
+    "REPORTS_AND_CACHES"
+  ],
+  "states": {
+    "gate_results": [
+      "PASS",
+      "FAIL",
+      "BLOCKED"
+    ],
+    "submission_states": [
+      "REQUEST_NOT_SENT",
+      "REQUEST_SENT",
+      "PROVIDER_RUNNING",
+      "PROVIDER_COMPLETED",
+      "PROVIDER_FAILED",
+      "SUBMISSION_UNKNOWN",
+      "RENDER_POLICY_FAIL",
+      "RENDER_QUALITY_FAIL",
+      "RENDER_PASS"
+    ]
+  },
+  "rules": [
+    {
+      "id": "SIRAJ.S01.ALL_HUMAN_FACES_VISIBLE",
+      "section": 1,
+      "title": "حظر ظهور أي وجه بشري",
+      "severity": "CRITICAL",
+      "scope": "SERIES_WIDE",
+      "norm": "INVARIANT",
+      "value": false,
+      "fail_closed": true,
+      "compiler": {
+        "applies": true,
+        "obligations": [
+          "inject_global_face_ban",
+          "reject_face_positive_semantics",
+          "require_safe_composition"
+        ]
+      },
+      "validators": [
+        "structured_contract_validator",
+        "prompt_semantic_linter",
+        "reference_face_validator",
+        "all_frame_render_face_validator",
+        "human_render_conformance"
+      ],
+      "tests": [
+        "reject_visible_face_synonyms",
+        "reject_partial_face",
+        "reject_background_face",
+        "reject_reflected_or_depicted_face",
+        "accept_face_excluded_composition"
+      ],
+      "runtime_gates": [
+        "storyboard_gate",
+        "prompt_gate",
+        "pre_submit_gate",
+        "render_promotion_gate",
+        "montage_admission_gate"
+      ],
+      "failure_codes": [
+        "FAIL_GLOBAL_FACE_POLICY"
+      ]
+    },
+    {
+      "id": "SIRAJ.S01.PROPHET_FACE_ABSOLUTE_BAN",
+      "section": 1,
+      "title": "حظر وجه النبي وأجزائه بلا استثناء",
+      "severity": "CRITICAL",
+      "scope": "SERIES_WIDE",
+      "norm": "FORBIDDEN",
+      "value": {
+        "full": true,
+        "partial": true,
+        "override_allowed": false
+      },
+      "fail_closed": true,
+      "compiler": {
+        "applies": true,
+        "obligations": [
+          "bind_prophet_identity",
+          "forbid_any_facial_feature",
+          "forbid_override"
+        ]
+      },
+      "validators": [
+        "sacred_character_contract_validator",
+        "prompt_semantic_linter",
+        "all_frame_render_face_validator",
+        "human_render_conformance"
+      ],
+      "tests": [
+        "reject_prophet_eye",
+        "reject_prophet_mouth",
+        "reject_prophet_profile",
+        "reject_prophet_reflection"
+      ],
+      "runtime_gates": [
+        "storyboard_gate",
+        "prompt_gate",
+        "pre_submit_gate",
+        "render_promotion_gate"
+      ],
+      "failure_codes": [
+        "FAIL_SACRED_DEPICTION",
+        "FAIL_GLOBAL_FACE_POLICY"
+      ]
+    },
+    {
+      "id": "SIRAJ.S01.NON_PROPHET_FACE_DEFAULT",
+      "section": 1,
+      "title": "حجب وجوه غير الأنبياء بالكامل حاليًا",
+      "severity": "CRITICAL",
+      "scope": "SERIES_WIDE",
+      "norm": "REQUIRED",
+      "value": {
+        "mode": "FULLY_CONCEALED",
+        "partial_exception_enabled": false
+      },
+      "fail_closed": true,
+      "compiler": {
+        "applies": true,
+        "obligations": [
+          "forbid_partial_face_exception",
+          "require_face_exclusion_or_full_occlusion"
+        ]
+      },
+      "validators": [
+        "character_contract_validator",
+        "prompt_semantic_linter",
+        "all_frame_render_face_validator"
+      ],
+      "tests": [
+        "reject_non_prophet_partial_face",
+        "reject_episode_override"
+      ],
+      "runtime_gates": [
+        "prompt_gate",
+        "render_promotion_gate",
+        "montage_admission_gate"
+      ],
+      "failure_codes": [
+        "FAIL_GLOBAL_FACE_POLICY"
+      ]
+    },
+    {
+      "id": "SIRAJ.S01.UNSEEN_NON_INVENTION",
+      "section": 1,
+      "title": "عدم تجسيد الذات الإلهية أو اختراع هيئة الغيب",
+      "severity": "CRITICAL",
+      "scope": "SERIES_WIDE",
+      "norm": "FORBIDDEN",
+      "value": "UNSUPPORTED_UNSEEN_FORM_OR_MECHANISM",
+      "fail_closed": true,
+      "compiler": {
+        "applies": true,
+        "obligations": [
+          "prefer_observable_consequence",
+          "reject_unsupported_unseen_form"
+        ]
+      },
+      "validators": [
+        "source_claim_validator",
+        "unseen_representation_validator",
+        "prompt_semantic_linter",
+        "human_theological_review"
+      ],
+      "tests": [
+        "reject_divine_depiction",
+        "reject_unsupported_angel_form",
+        "reject_magic_visual_shortcut"
+      ],
+      "runtime_gates": [
+        "research_gate",
+        "storyboard_gate",
+        "prompt_gate",
+        "render_promotion_gate"
+      ],
+      "failure_codes": [
+        "FAIL_SACRED_DEPICTION",
+        "FAIL_UNSEEN_INVENTION"
+      ]
+    },
+    {
+      "id": "SIRAJ.S01.MODESTY",
+      "section": 1,
+      "title": "الستر والوقار",
+      "severity": "CRITICAL",
+      "scope": "SERIES_WIDE",
+      "norm": "REQUIRED",
+      "value": {
+        "female": "MAXIMUM_APPROVED_MODESTY",
+        "male": "MODEST_PERIOD_APPROPRIATE"
+      },
+      "fail_closed": true,
+      "compiler": {
+        "applies": true,
+        "obligations": [
+          "bind_wardrobe_contract",
+          "inject_modesty_constraints"
+        ]
+      },
+      "validators": [
+        "wardrobe_contract_validator",
+        "prompt_semantic_linter",
+        "all_frame_modesty_validator",
+        "human_render_conformance"
+      ],
+      "tests": [
+        "reject_exposed_female_skin",
+        "reject_body_defining_clothing",
+        "reject_unnecessary_male_exposure",
+        "reject_required_character_omission"
+      ],
+      "runtime_gates": [
+        "character_gate",
+        "prompt_gate",
+        "render_promotion_gate",
+        "montage_admission_gate"
+      ],
+      "failure_codes": [
+        "FAIL_FEMALE_MODESTY",
+        "FAIL_WARDROBE_POLICY",
+        "FAIL_CHARACTER_REQUIRED_BUT_OMITTED"
+      ]
+    },
+    {
+      "id": "SIRAJ.S01.PERIOD_AUTHENTICITY",
+      "section": 1,
+      "title": "أصالة الحقبة مع رفض المفارقة المادية الواضحة وإبقاء المجهول محايدًا",
+      "severity": "HIGH",
+      "scope": "SERIES_WIDE",
+      "norm": "REQUIRED",
+      "value": {
+        "material_demonstrable_anachronism": "HARD_FAIL",
+        "unknown_policy": "NEUTRAL_DO_NOT_INVENT",
+        "minor_uncertain_detail": "WEIGHTED_REVIEW",
+        "certainty_must_follow_evidence": true
+      },
+      "fail_closed": true,
+      "compiler": {
+        "applies": true,
+        "obligations": [
+          "bind_period_dossier",
+          "forbid_material_demonstrable_anachronisms",
+          "preserve_unknowns",
+          "avoid_false_precision_for_uncertain_minor_details"
+        ]
+      },
+      "validators": [
+        "period_evidence_validator",
+        "storyboard_period_validator",
+        "prompt_period_validator",
+        "render_period_validator"
+      ],
+      "tests": [
+        "reject_material_demonstrable_anachronism",
+        "reject_unsupported_period_claim",
+        "accept_neutral_art_direction_for_unknown",
+        "route_minor_uncertain_detail_to_weighted_review"
+      ],
+      "runtime_gates": [
+        "research_gate",
+        "storyboard_gate",
+        "prompt_gate",
+        "render_promotion_gate"
+      ],
+      "failure_codes": [
+        "FAIL_PERIOD_ANACHRONISM",
+        "FAIL_UNSUPPORTED_MATERIAL_CULTURE",
+        "FAIL_PERIOD_IMMERSION"
+      ]
+    },
+    {
+      "id": "SIRAJ.S01.RECURRING_CHARACTER_CANONICAL_STILL",
+      "section": 1,
+      "title": "مرجع ثابت قانوني لكل شخصية متكررة",
+      "severity": "HIGH",
+      "scope": "SERIES_WIDE",
+      "norm": "REQUIRED",
+      "value": true,
+      "fail_closed": true,
+      "compiler": {
+        "applies": true,
+        "obligations": [
+          "bind_character_id",
+          "bind_reference_hash",
+          "bind_wardrobe_and_silhouette_versions"
+        ]
+      },
+      "validators": [
+        "canonical_still_validator",
+        "reference_provenance_validator",
+        "continuity_validator"
+      ],
+      "tests": [
+        "reject_missing_recurring_character_still",
+        "reject_failed_render_as_reference",
+        "reject_reference_hash_drift"
+      ],
+      "runtime_gates": [
+        "character_gate",
+        "prompt_gate",
+        "pilot_gate",
+        "render_promotion_gate"
+      ],
+      "failure_codes": [
+        "FAIL_CHARACTER_APPEARANCE",
+        "FAIL_CHARACTER_MUTATION",
+        "FAIL_CONTINUITY"
+      ]
+    },
+    {
+      "id": "SIRAJ.S02.SOURCE_HIERARCHY",
+      "section": 2,
+      "title": "هرمية المصادر وعدم تجاوز الأدنى للأعلى",
+      "severity": "CRITICAL",
+      "scope": "SERIES_WIDE",
+      "norm": "INVARIANT",
+      "value": "LOWER_SOURCE_MAY_NOT_OVERRIDE_HIGHER_SOURCE",
+      "fail_closed": true,
+      "compiler": {
+        "applies": true,
+        "obligations": [
+          "bind_claim_to_source",
+          "carry_certainty_to_script_and_visuals"
+        ]
+      },
+      "validators": [
+        "claim_ledger_validator",
+        "source_hierarchy_validator",
+        "script_claim_validator",
+        "visual_claim_validator"
+      ],
+      "tests": [
+        "reject_unsourced_core_claim",
+        "reject_lower_source_override",
+        "reject_certainty_upgrade"
+      ],
+      "runtime_gates": [
+        "research_gate",
+        "script_gate",
+        "storyboard_gate",
+        "final_source_qa_gate"
+      ],
+      "failure_codes": [
+        "FAIL_SOURCE_AUTHORITY",
+        "FAIL_UNSUPPORTED_CLAIM",
+        "FAIL_CERTAINTY_MISMATCH"
+      ]
+    },
+    {
+      "id": "SIRAJ.S02.ISRAILIYYAT",
+      "section": 2,
+      "title": "استخدام الإسرائيليات بشروط ومن دون جزم",
+      "severity": "CRITICAL",
+      "scope": "SERIES_WIDE",
+      "norm": "ALLOWED",
+      "value": {
+        "aqidah_conflict": false,
+        "override_higher_source": false,
+        "jazm": false,
+        "disclosure": true
+      },
+      "fail_closed": true,
+      "compiler": {
+        "applies": true,
+        "obligations": [
+          "emit_uncertainty_language",
+          "forbid_jazm"
+        ]
+      },
+      "validators": [
+        "source_classification_validator",
+        "aqidah_conflict_review",
+        "narrator_certainty_validator"
+      ],
+      "tests": [
+        "reject_israiliyyat_aqidah_conflict",
+        "reject_israiliyyat_jazm",
+        "accept_disclosed_non_jazm_usage"
+      ],
+      "runtime_gates": [
+        "research_gate",
+        "script_gate",
+        "human_source_review_gate"
+      ],
+      "failure_codes": [
+        "FAIL_AQIDAH_CONFLICT",
+        "FAIL_CERTAINTY_MISMATCH"
+      ]
+    },
+    {
+      "id": "SIRAJ.S02.WEAK_HADITH",
+      "section": 2,
+      "title": "استخدام الحديث الضعيف بشروط",
+      "severity": "CRITICAL",
+      "scope": "SERIES_WIDE",
+      "norm": "ALLOWED",
+      "value": {
+        "conditional": true,
+        "aqidah_foundation": false,
+        "core_fact": false,
+        "grade_disclosure": true,
+        "jazm": false
+      },
+      "fail_closed": true,
+      "compiler": {
+        "applies": true,
+        "obligations": [
+          "carry_hadith_grade",
+          "emit_non_jazm_language"
+        ]
+      },
+      "validators": [
+        "hadith_grade_validator",
+        "scholarly_usage_review",
+        "script_certainty_validator"
+      ],
+      "tests": [
+        "reject_weak_hadith_as_aqidah",
+        "reject_hidden_grade",
+        "reject_jazm_from_weak_hadith"
+      ],
+      "runtime_gates": [
+        "research_gate",
+        "script_gate",
+        "human_source_review_gate"
+      ],
+      "failure_codes": [
+        "FAIL_WEAK_HADITH_MISUSE",
+        "FAIL_CERTAINTY_MISMATCH"
+      ]
+    },
+    {
+      "id": "SIRAJ.S02.MATERIAL_DISAGREEMENT",
+      "section": 2,
+      "title": "عدم إخفاء الخلاف المعتبر المؤثر",
+      "severity": "HIGH",
+      "scope": "SERIES_WIDE",
+      "norm": "REQUIRED",
+      "value": true,
+      "fail_closed": true,
+      "compiler": {
+        "applies": true,
+        "obligations": [
+          "carry_dispute_status",
+          "forbid_secret_cinematic_resolution"
+        ]
+      },
+      "validators": [
+        "dispute_materiality_validator",
+        "script_disclosure_validator"
+      ],
+      "tests": [
+        "reject_hidden_material_disagreement",
+        "accept_shared_wording_for_immaterial_detail"
+      ],
+      "runtime_gates": [
+        "research_gate",
+        "script_gate",
+        "human_source_review_gate"
+      ],
+      "failure_codes": [
+        "FAIL_MATERIAL_DISAGREEMENT_HIDDEN"
+      ]
+    },
+    {
+      "id": "SIRAJ.S02.NO_VISUAL_CITATION_GRAPHICS",
+      "section": 2,
+      "title": "التوثيق السردي الصوتي دون جرافيك",
+      "severity": "HIGH",
+      "scope": "SERIES_WIDE",
+      "norm": "FORBIDDEN",
+      "value": {
+        "longform_forbidden": [
+          "ON_SCREEN_CITATIONS",
+          "SOURCE_CARDS",
+          "TEXT_OVERLAYS",
+          "INFOGRAPHICS",
+          "DIAGRAMS",
+          "GRAPHICAL_FOOTNOTES",
+          "BURNED_NARRATION_CAPTIONS",
+          "ON_SCREEN_SUBTITLES"
+        ],
+        "short_derivative_exception": {
+          "mode": "BURNED_NARRATION_CAPTIONS_ONLY",
+          "synced_to_narration": true,
+          "text_authority": [
+            "CANONICAL_TIMED_TRANSCRIPT",
+            "TRUSTED_HASH_BOUND_TIMING"
+          ],
+          "narration_only": true,
+          "invented_text": false,
+          "hook_text": false,
+          "title_card_text": false,
+          "cta_text": false,
+          "subscribe_text": false,
+          "decorative_prose": false,
+          "fact_overlay_text": false,
+          "unrelated_text": false,
+          "promotional_text": false
+        }
+      },
+      "fail_closed": true,
+      "compiler": {
+        "applies": true,
+        "obligations": [
+          "convert_required_disclosure_to_narration",
+          "forbid_visual_citation_assets"
+        ]
+      },
+      "validators": [
+        "storyboard_graphics_validator",
+        "render_graphics_validator",
+        "montage_overlay_validator"
+      ],
+      "tests": [
+        "reject_source_card",
+        "accept_narrated_source_disclosure"
+      ],
+      "runtime_gates": [
+        "storyboard_gate",
+        "render_promotion_gate",
+        "montage_gate"
+      ],
+      "failure_codes": [
+        "FAIL_FORBIDDEN_GRAPHICS"
+      ]
+    },
+    {
+      "id": "SIRAJ.S03.NARRATIVE_TRUTH_AND_ENGAGEMENT",
+      "section": 3,
+      "title": "السرد الجذاب دون اختلاق أو حشو",
+      "severity": "HIGH",
+      "scope": "SERIES_WIDE",
+      "norm": "REQUIRED",
+      "value": {
+        "false_hook": false,
+        "fabricated_mystery": false,
+        "filler": false,
+        "payoff_required": true
+      },
+      "fail_closed": true,
+      "compiler": {
+        "applies": true,
+        "obligations": [
+          "bind_beats_to_claims",
+          "preserve_payoff",
+          "reject_filler"
+        ]
+      },
+      "validators": [
+        "script_structure_validator",
+        "claim_script_validator",
+        "human_editorial_review"
+      ],
+      "tests": [
+        "reject_false_hook",
+        "reject_semantic_filler",
+        "reject_unpaid_promise"
+      ],
+      "runtime_gates": [
+        "script_gate",
+        "human_script_review_gate",
+        "final_quality_gate"
+      ],
+      "failure_codes": [
+        "FAIL_NARRATIVE_INTEGRITY",
+        "FAIL_EDITORIAL_FILLER"
+      ]
+    },
+    {
+      "id": "SIRAJ.S03.EPISODE_DURATION",
+      "section": 3,
+      "title": "نطاق مدة الحلقة",
+      "severity": "MEDIUM",
+      "scope": "EPISODE",
+      "norm": "DYNAMIC",
+      "value": {
+        "normal_minutes": [
+          8,
+          15
+        ],
+        "preferred_minutes": [
+          10,
+          13
+        ],
+        "justified_soft_exception_minutes": [
+          6,
+          18
+        ],
+        "above_18_requires_special_approval": true
+      },
+      "fail_closed": true,
+      "compiler": {
+        "applies": true,
+        "obligations": [
+          "compute_core_duration",
+          "require_exception_justification"
+        ]
+      },
+      "validators": [
+        "duration_policy_validator",
+        "filler_validator",
+        "material_omission_review"
+      ],
+      "tests": [
+        "accept_normal_duration",
+        "block_unjustified_soft_exception",
+        "block_normal_episode_above_18"
+      ],
+      "runtime_gates": [
+        "script_gate",
+        "narration_gate",
+        "final_quality_gate"
+      ],
+      "failure_codes": [
+        "FAIL_EPISODE_DURATION_POLICY"
+      ]
+    },
+    {
+      "id": "SIRAJ.S03.HUMAN_PRESPEND_REVIEWS",
+      "section": 3,
+      "title": "مراجعات النص والستوريبورد والبرومبت والصوت",
+      "severity": "CRITICAL",
+      "scope": "EPISODE",
+      "norm": "REQUIRED",
+      "value": [
+        "SCRIPT",
+        "STORYBOARD",
+        "FINAL_PROVIDER_PAYLOAD",
+        "NARRATION_PERFORMANCE"
+      ],
+      "fail_closed": true,
+      "compiler": {
+        "applies": false,
+        "obligations": []
+      },
+      "validators": [
+        "approval_receipt_validator",
+        "approval_input_hash_validator"
+      ],
+      "tests": [
+        "reject_missing_review",
+        "reject_stale_review",
+        "reject_summary_only_prompt_review"
+      ],
+      "runtime_gates": [
+        "script_promotion_gate",
+        "storyboard_promotion_gate",
+        "prompt_promotion_gate",
+        "narration_master_gate",
+        "paid_execution_gate"
+      ],
+      "failure_codes": [
+        "FAIL_HUMAN_APPROVAL_MISSING",
+        "FAIL_STALE_APPROVAL"
+      ]
+    },
+    {
+      "id": "SIRAJ.S03.TTS_PERFORMANCE_SCRIPT",
+      "section": 3,
+      "title": "نص أداء عربي مشكل ومدرك للوقف والوصل",
+      "severity": "HIGH",
+      "scope": "EPISODE",
+      "norm": "REQUIRED",
+      "value": true,
+      "fail_closed": true,
+      "compiler": {
+        "applies": true,
+        "obligations": [
+          "preserve_canonical_semantics",
+          "apply_contextual_diacritization",
+          "encode_pause_and_waqf_wasl"
+        ]
+      },
+      "validators": [
+        "script_semantic_equivalence_validator",
+        "diacritization_validator",
+        "waqf_wasl_validator",
+        "pronunciation_lexicon_validator"
+      ],
+      "tests": [
+        "reject_uncontrolled_ambiguous_word",
+        "reject_blind_final_diacritic_stripping",
+        "reject_wrong_waqf_or_wasl"
+      ],
+      "runtime_gates": [
+        "tts_preflight_gate",
+        "narration_master_gate"
+      ],
+      "failure_codes": [
+        "FAIL_DIACRITIZATION",
+        "FAIL_WAQF_REALIZATION",
+        "FAIL_WASL_REALIZATION",
+        "FAIL_PRONUNCIATION"
+      ]
+    },
+    {
+      "id": "SIRAJ.S04.VISUAL_SEMANTIC_ALIGNMENT",
+      "section": 4,
+      "title": "مطابقة اللقطة للمعنى والفعل",
+      "severity": "HIGH",
+      "scope": "EPISODE",
+      "norm": "REQUIRED",
+      "value": true,
+      "fail_closed": true,
+      "compiler": {
+        "applies": true,
+        "obligations": [
+          "bind_shot_to_narration_beat",
+          "require_visible_core_action",
+          "reject_generic_filler"
+        ]
+      },
+      "validators": [
+        "storyboard_semantic_validator",
+        "mute_comprehension_validator",
+        "render_semantic_validator",
+        "human_render_conformance"
+      ],
+      "tests": [
+        "reject_action_inversion",
+        "reject_required_action_not_visible",
+        "reject_generic_filler"
+      ],
+      "runtime_gates": [
+        "storyboard_gate",
+        "prompt_gate",
+        "render_promotion_gate",
+        "montage_admission_gate"
+      ],
+      "failure_codes": [
+        "FAIL_VISUAL_NARRATIVE_MISMATCH",
+        "FAIL_REQUIRED_ACTION_NOT_VISIBLE",
+        "FAIL_ACTION_INVERTED"
+      ]
+    },
+    {
+      "id": "SIRAJ.S04.VIDEO_SHARE",
+      "section": 4,
+      "title": "نسبة الفيديو من جسم الحلقة",
+      "severity": "HIGH",
+      "scope": "EPISODE",
+      "norm": "DYNAMIC",
+      "value": {
+        "minimum": 0.5,
+        "maximum": 0.75,
+        "denominator": "CORE_EPISODE_DURATION"
+      },
+      "fail_closed": true,
+      "compiler": {
+        "applies": true,
+        "obligations": [
+          "plan_episode_optimized_share",
+          "exclude_intro_outro_from_denominator"
+        ]
+      },
+      "validators": [
+        "timeline_media_share_validator",
+        "core_runtime_validator"
+      ],
+      "tests": [
+        "reject_below_minimum",
+        "reject_above_maximum",
+        "reject_intro_outro_ratio_padding"
+      ],
+      "runtime_gates": [
+        "storyboard_gate",
+        "montage_gate",
+        "final_qa_gate"
+      ],
+      "failure_codes": [
+        "FAIL_VIDEO_TIMELINE_SHARE"
+      ]
+    },
+    {
+      "id": "SIRAJ.S04.REUSE_POLICY",
+      "section": 4,
+      "title": "إعادة استخدام ديناميكية ومبررة",
+      "severity": "MEDIUM",
+      "scope": "EPISODE",
+      "norm": "DYNAMIC",
+      "value": "EDITORIALLY_JUSTIFIED_NO_GLOBAL_PERCENTAGE",
+      "fail_closed": true,
+      "compiler": {
+        "applies": true,
+        "obligations": [
+          "record_reuse_purpose",
+          "reject_semantically_empty_reuse"
+        ]
+      },
+      "validators": [
+        "reuse_semantic_validator",
+        "repetition_review"
+      ],
+      "tests": [
+        "reject_empty_callback",
+        "accept_meaningful_callback"
+      ],
+      "runtime_gates": [
+        "storyboard_gate",
+        "montage_gate",
+        "final_quality_gate"
+      ],
+      "failure_codes": [
+        "FAIL_SEMANTICALLY_EMPTY_REUSE"
+      ]
+    },
+    {
+      "id": "SIRAJ.S04.HARD_SHOT_PILOT",
+      "section": 4,
+      "title": "طيار مشروط بالمخاطر قبل الإنتاج الكبير أو المدفوع عند الحاجة",
+      "severity": "CRITICAL",
+      "scope": "EPISODE",
+      "norm": "REQUIRED",
+      "value": {
+        "required_when_any": [
+          "NEW_PROVIDER",
+          "NEW_MODEL",
+          "NEW_RISK_CLASS",
+          "HIGH_RISK_PAID_BATCH"
+        ],
+        "selection": "HIGHEST_RISK_SHOTS",
+        "all_frame_human_review": true,
+        "may_reuse_prior_pilot_coverage_when": [
+          "SAME_APPROVED_PROVIDER_MODEL",
+          "NO_NEW_RISK_CLASS",
+          "HASH_BOUND_COMPATIBLE_POLICY_AND_PROFILE"
+        ],
+        "not_blanket_required_for_every_episode": true
+      },
+      "fail_closed": true,
+      "compiler": {
+        "applies": true,
+        "obligations": [
+          "score_risk_classes",
+          "select_representative_hard_shots_when_required",
+          "bind_reused_pilot_coverage_to_compatible_hashes"
+        ]
+      },
+      "validators": [
+        "pilot_coverage_validator",
+        "pilot_render_conformance_validator",
+        "human_pilot_review_validator"
+      ],
+      "tests": [
+        "require_pilot_for_new_provider",
+        "require_pilot_for_new_model",
+        "require_pilot_for_new_risk_class",
+        "require_pilot_for_high_risk_paid_batch",
+        "reject_easy_only_pilot_when_pilot_required",
+        "accept_compatible_prior_pilot_coverage_without_new_risk"
+      ],
+      "runtime_gates": [
+        "pilot_authorization_gate",
+        "paid_batch_gate"
+      ],
+      "failure_codes": [
+        "FAIL_PILOT_REQUIRED",
+        "FAIL_PILOT_NOT_APPROVED"
+      ]
+    },
+    {
+      "id": "SIRAJ.S05.STRUCTURED_PROMPT_COMPILATION",
+      "section": 5,
+      "title": "تجميع برومبت مقيد من عقد منظم",
+      "severity": "CRITICAL",
+      "scope": "SERIES_WIDE",
+      "norm": "REQUIRED",
+      "value": true,
+      "fail_closed": true,
+      "compiler": {
+        "applies": true,
+        "obligations": [
+          "consume_structured_shot_contract",
+          "inject_immutable_rules",
+          "emit_exact_payload",
+          "never_call_provider"
+        ]
+      },
+      "validators": [
+        "contract_completeness_validator",
+        "prompt_semantic_linter",
+        "payload_hash_validator"
+      ],
+      "tests": [
+        "reject_freeform_policy_weakening",
+        "reject_forbidden_face_phrase",
+        "reject_missing_reference_binding",
+        "prove_compiler_has_no_provider_capability"
+      ],
+      "runtime_gates": [
+        "prompt_compilation_gate",
+        "human_prompt_review_gate",
+        "pre_submit_gate"
+      ],
+      "failure_codes": [
+        "FAIL_PROMPT_CONSTITUTION_CONTRADICTION",
+        "FAIL_PROMPT_CONTRACT_INCOMPLETE"
+      ]
+    },
+    {
+      "id": "SIRAJ.S05.PRIMARY_VISUAL_PROVIDER",
+      "section": 5,
+      "title": "Veo 3.1 Lite المزود البصري الأساسي الحالي",
+      "severity": "HIGH",
+      "scope": "SERIES_WIDE",
+      "norm": "INVARIANT",
+      "value": "VEO_3_1_LITE",
+      "fail_closed": true,
+      "compiler": {
+        "applies": false,
+        "obligations": []
+      },
+      "validators": [
+        "provider_profile_validator",
+        "model_profile_validator",
+        "provider_approval_validator"
+      ],
+      "tests": [
+        "reject_silent_provider_switch",
+        "reject_silent_model_fallback",
+        "require_alternate_pilot_and_approval"
+      ],
+      "runtime_gates": [
+        "provider_selection_gate",
+        "pilot_gate",
+        "paid_execution_gate"
+      ],
+      "failure_codes": [
+        "FAIL_PROVIDER_UNAPPROVED",
+        "FAIL_MODEL_UNAPPROVED",
+        "FAIL_HIDDEN_PROVIDER_FALLBACK"
+      ]
+    },
+    {
+      "id": "SIRAJ.S05.PROGRESSIVE_BATCHING",
+      "section": 5,
+      "title": "دفعات تصاعدية بحسب المخاطر",
+      "severity": "CRITICAL",
+      "scope": "EPISODE",
+      "norm": "REQUIRED",
+      "value": true,
+      "fail_closed": true,
+      "compiler": {
+        "applies": true,
+        "obligations": [
+          "partition_by_risk",
+          "bind_each_batch_to_approved_pilot_coverage"
+        ]
+      },
+      "validators": [
+        "batch_risk_validator",
+        "pilot_dependency_validator",
+        "batch_scope_validator"
+      ],
+      "tests": [
+        "reject_unbounded_batch",
+        "reject_batch_with_unpiloted_new_risk",
+        "accept_reviewed_progression"
+      ],
+      "runtime_gates": [
+        "batch_authorization_gate",
+        "between_batch_review_gate"
+      ],
+      "failure_codes": [
+        "FAIL_PROGRESSIVE_BATCH_POLICY"
+      ]
+    },
+    {
+      "id": "SIRAJ.S05.PAID_RETRY_POLICY",
+      "section": 5,
+      "title": "منع الإعادة المدفوعة القابلة للتجنب",
+      "severity": "CRITICAL",
+      "scope": "ATTEMPT",
+      "norm": "FORBIDDEN",
+      "value": {
+        "automatic": true,
+        "identical_after_quality_failure": true
+      },
+      "fail_closed": true,
+      "compiler": {
+        "applies": false,
+        "obligations": []
+      },
+      "validators": [
+        "retry_root_cause_validator",
+        "material_delta_validator",
+        "new_preflight_validator",
+        "new_authorization_validator"
+      ],
+      "tests": [
+        "reject_automatic_retry",
+        "reject_identical_paid_retry",
+        "reject_retry_without_material_fix"
+      ],
+      "runtime_gates": [
+        "retry_gate",
+        "paid_execution_gate"
+      ],
+      "failure_codes": [
+        "FAIL_AUTOMATIC_RETRY",
+        "FAIL_IDENTICAL_PAID_RETRY",
+        "FAIL_ROOT_CAUSE_MISSING"
+      ]
+    },
+    {
+      "id": "SIRAJ.S06.NARRATOR_IDENTITY",
+      "section": 6,
+      "title": "تثبيت الراوي الحالي وتحسين أدائه",
+      "severity": "HIGH",
+      "scope": "SERIES_WIDE",
+      "norm": "REQUIRED",
+      "value": "CURRENT_APPROVED_NARRATOR",
+      "fail_closed": true,
+      "compiler": {
+        "applies": true,
+        "obligations": [
+          "bind_voice_profile",
+          "apply_known_issues_lexicon"
+        ]
+      },
+      "validators": [
+        "voice_identity_validator",
+        "pronunciation_validator",
+        "human_full_audio_review"
+      ],
+      "tests": [
+        "reject_silent_voice_change",
+        "reject_voice_identity_drift",
+        "require_revalidation_on_material_tts_change"
+      ],
+      "runtime_gates": [
+        "tts_preflight_gate",
+        "narration_master_gate"
+      ],
+      "failure_codes": [
+        "FAIL_NARRATOR_IDENTITY_DRIFT",
+        "FAIL_SYNTHETIC_NARRATION_FEEL"
+      ]
+    },
+    {
+      "id": "SIRAJ.S06.QURAN_AUDIO_INTEGRITY",
+      "section": 6,
+      "title": "سلامة النص القرآني ونطقه",
+      "severity": "CRITICAL",
+      "scope": "SERIES_WIDE",
+      "norm": "REQUIRED",
+      "value": {
+        "trusted_text": true,
+        "llm_reconstruction": false,
+        "human_text_review": true,
+        "human_pronunciation_review": true
+      },
+      "fail_closed": true,
+      "compiler": {
+        "applies": true,
+        "obligations": [
+          "bypass_general_normalizer",
+          "bind_trusted_quran_text"
+        ]
+      },
+      "validators": [
+        "quran_text_integrity_validator",
+        "quran_pronunciation_human_review_validator"
+      ],
+      "tests": [
+        "reject_quran_text_mutation",
+        "reject_unreviewed_quran_pronunciation",
+        "distinguish_quote_from_paraphrase"
+      ],
+      "runtime_gates": [
+        "script_gate",
+        "tts_preflight_gate",
+        "narration_master_gate"
+      ],
+      "failure_codes": [
+        "FAIL_QURAN_TEXT_INTEGRITY",
+        "FAIL_QURAN_PRONUNCIATION"
+      ]
+    },
+    {
+      "id": "SIRAJ.S06.MUSIC_PROHIBITION",
+      "section": 6,
+      "title": "حظر الموسيقى بلا استثناء",
+      "severity": "CRITICAL",
+      "scope": "SERIES_WIDE",
+      "norm": "FORBIDDEN",
+      "value": [
+        "BACKGROUND_MUSIC",
+        "CINEMATIC_SCORE",
+        "MUSICAL_STING",
+        "MUSICAL_TRANSITION",
+        "INTRO_MUSIC",
+        "OUTRO_MUSIC"
+      ],
+      "fail_closed": true,
+      "compiler": {
+        "applies": true,
+        "obligations": [
+          "exclude_music_assets",
+          "forbid_music_tracks"
+        ]
+      },
+      "validators": [
+        "asset_audio_stream_validator",
+        "music_content_validator",
+        "mix_timeline_validator",
+        "human_audio_review"
+      ],
+      "tests": [
+        "reject_music_in_intro",
+        "reject_music_under_narration",
+        "reject_musical_transition",
+        "accept_nonmusical_sfx"
+      ],
+      "runtime_gates": [
+        "asset_admission_gate",
+        "mix_gate",
+        "final_audio_gate"
+      ],
+      "failure_codes": [
+        "FAIL_MUSIC_DETECTED"
+      ]
+    },
+    {
+      "id": "SIRAJ.S06.SFX_POLICY",
+      "section": 6,
+      "title": "المؤثرات مسموحة إذا خدمت النص ولم تختلق حقيقة",
+      "severity": "HIGH",
+      "scope": "EPISODE",
+      "norm": "ALLOWED",
+      "value": {
+        "category_restriction": "NONE",
+        "serve_narrative": true,
+        "false_factual_presentation": false
+      },
+      "fail_closed": true,
+      "compiler": {
+        "applies": true,
+        "obligations": [
+          "bind_sfx_to_beat_or_editorial_purpose",
+          "mark_fact_or_editorial_status"
+        ]
+      },
+      "validators": [
+        "sfx_semantic_validator",
+        "period_audio_validator",
+        "audio_visual_sync_validator",
+        "human_audio_review"
+      ],
+      "tests": [
+        "reject_unseen_factual_event_sfx",
+        "reject_period_anachronism_sfx",
+        "accept_supported_editorial_sfx"
+      ],
+      "runtime_gates": [
+        "sound_design_gate",
+        "mix_gate",
+        "final_audio_gate"
+      ],
+      "failure_codes": [
+        "FAIL_SFX_UNSUPPORTED_EVENT",
+        "FAIL_AMBIENCE_ANACHRONISM",
+        "FAIL_AUDIO_VISUAL_SYNC"
+      ]
+    },
+    {
+      "id": "SIRAJ.S06.EXTERNAL_CLOSED_CAPTIONS",
+      "section": 6,
+      "title": "السماح بالـClosed Captions الخارجية وقصر captions السرد المحروقة على Shorts فقط",
+      "severity": "HIGH",
+      "scope": "PUBLICATION",
+      "norm": "ALLOWED",
+      "value": {
+        "external_optional": true,
+        "longform": {
+          "burned_in": false,
+          "on_screen_subtitles": false
+        },
+        "short_derivative": {
+          "burned_narration_captions": true,
+          "default_enabled": true,
+          "requires_narration_sync": true,
+          "text_authority": [
+            "CANONICAL_TIMED_TRANSCRIPT",
+            "TRUSTED_HASH_BOUND_TIMING"
+          ],
+          "narration_only": true,
+          "invented_text": false,
+          "forbidden_text": [
+            "HOOK",
+            "TITLE_CARD",
+            "CTA",
+            "SUBSCRIBE",
+            "DECORATIVE_PROSE",
+            "FACT_OVERLAY",
+            "UNRELATED",
+            "BANNER",
+            "PROMOTIONAL"
+          ]
+        }
+      },
+      "fail_closed": true,
+      "compiler": {
+        "applies": true,
+        "obligations": [
+          "emit_separate_caption_artifact",
+          "forbid_longform_burned_captions",
+          "allow_only_hash_bound_short_narration_captions",
+          "reject_invented_short_caption_text"
+        ]
+      },
+      "validators": [
+        "caption_separation_validator",
+        "render_text_overlay_validator"
+      ],
+      "tests": [
+        "accept_external_caption_file",
+        "reject_longform_burned_narration_captions",
+        "accept_short_hash_bound_narration_captions",
+        "reject_short_invented_caption_text",
+        "reject_short_unsynced_narration_captions"
+      ],
+      "runtime_gates": [
+        "montage_gate",
+        "publication_package_gate"
+      ],
+      "failure_codes": [
+        "FAIL_BURNED_IN_CAPTIONS"
+      ]
+    },
+    {
+      "id": "SIRAJ.S06.NARRATION_TIMELINE_AUTHORITY",
+      "section": 6,
+      "title": "الصوت المعتمد سلطة المدة الوحيدة",
+      "severity": "CRITICAL",
+      "scope": "EPISODE",
+      "norm": "INVARIANT",
+      "value": "MEASURE_APPROVED_NARRATION_MASTER",
+      "fail_closed": true,
+      "compiler": {
+        "applies": true,
+        "obligations": [
+          "derive_duration_from_master",
+          "use_canonical_precision"
+        ]
+      },
+      "validators": [
+        "narration_hash_validator",
+        "duration_authority_validator",
+        "timeline_precision_validator"
+      ],
+      "tests": [
+        "reject_manual_duration_authority",
+        "reject_duration_cache_drift",
+        "invalidate_timeline_on_audio_change"
+      ],
+      "runtime_gates": [
+        "narration_master_gate",
+        "timeline_gate",
+        "storyboard_gate",
+        "montage_gate"
+      ],
+      "failure_codes": [
+        "FAIL_AUDIO_DURATION_AUTHORITY_CONFLICT"
+      ]
+    },
+    {
+      "id": "SIRAJ.S06.FULL_HUMAN_AUDIO_LISTEN",
+      "section": 6,
+      "title": "الاستماع البشري الكامل للصوت",
+      "severity": "CRITICAL",
+      "scope": "EPISODE",
+      "norm": "REQUIRED",
+      "value": "FULL_EPISODE_NO_SAMPLING",
+      "fail_closed": true,
+      "compiler": {
+        "applies": false,
+        "obligations": []
+      },
+      "validators": [
+        "human_audio_review_receipt_validator",
+        "audio_master_hash_binding_validator"
+      ],
+      "tests": [
+        "reject_sampling_only_review",
+        "reject_review_for_different_audio_hash"
+      ],
+      "runtime_gates": [
+        "narration_master_gate",
+        "final_audio_gate"
+      ],
+      "failure_codes": [
+        "FAIL_HUMAN_AUDIO_REVIEW_MISSING"
+      ]
+    },
+    {
+      "id": "SIRAJ.S07.MONTAGE_ADMISSION",
+      "section": 7,
+      "title": "منع دخول أصل مخالف إلى المونتاج",
+      "severity": "CRITICAL",
+      "scope": "ASSET",
+      "norm": "REQUIRED",
+      "value": "RENDER_CONFORMANCE_AND_HUMAN_APPROVAL",
+      "fail_closed": true,
+      "compiler": {
+        "applies": false,
+        "obligations": []
+      },
+      "validators": [
+        "asset_promotion_receipt_validator",
+        "render_hash_validator",
+        "constitutional_qa_validator"
+      ],
+      "tests": [
+        "reject_unreviewed_render",
+        "reject_policy_failed_render",
+        "reject_hash_changed_render"
+      ],
+      "runtime_gates": [
+        "montage_admission_gate",
+        "montage_gate"
+      ],
+      "failure_codes": [
+        "FAIL_MONTAGE_ASSET_INELIGIBLE"
+      ]
+    },
+    {
+      "id": "SIRAJ.S07.BRAND_ASSET_DISCOVERY",
+      "section": 7,
+      "title": "اكتشاف وتثبيت أصلَي المقدمة والنهاية",
+      "severity": "HIGH",
+      "scope": "SERIES_WIDE",
+      "norm": "REQUIRED",
+      "value": {
+        "directory": "C:\\Users\\abdul\\OneDrive\\Desktop\\سراج\\intro outro",
+        "intro": "EXACTLY_ONE_VIDEO_FILE",
+        "outro": "EXACTLY_ONE_IMAGE_FILE",
+        "hash_binding": "AT_IMPLEMENTATION"
+      },
+      "fail_closed": true,
+      "compiler": {
+        "applies": false,
+        "obligations": []
+      },
+      "validators": [
+        "brand_asset_cardinality_validator",
+        "brand_asset_hash_validator",
+        "brand_asset_policy_validator"
+      ],
+      "tests": [
+        "reject_zero_or_multiple_intro_candidates",
+        "reject_zero_or_multiple_outro_candidates",
+        "reject_hash_drift"
+      ],
+      "runtime_gates": [
+        "brand_asset_binding_gate",
+        "montage_gate",
+        "final_qa_gate"
+      ],
+      "failure_codes": [
+        "FAIL_BRAND_ASSET_AMBIGUOUS",
+        "FAIL_CANONICAL_INTRO_HASH_CHANGED",
+        "FAIL_CANONICAL_OUTRO_HASH_CHANGED"
+      ]
+    },
+    {
+      "id": "SIRAJ.S07.BRAND_GRAPHICS_EXCEPTION",
+      "section": 7,
+      "title": "استثناء جرافيك ضيق للأصلين المعتمدين فقط",
+      "severity": "CRITICAL",
+      "scope": "SERIES_WIDE",
+      "norm": "ALLOWED",
+      "value": [
+        "SIRAJ_APPROVED_INTRO",
+        "SIRAJ_APPROVED_OUTRO"
+      ],
+      "fail_closed": true,
+      "compiler": {
+        "applies": true,
+        "obligations": [
+          "allow_only_hash_bound_brand_assets",
+          "forbid_derived_or_modified_graphics"
+        ]
+      },
+      "validators": [
+        "brand_asset_hash_validator",
+        "graphics_whitelist_validator",
+        "face_policy_validator",
+        "music_policy_validator"
+      ],
+      "tests": [
+        "accept_exact_approved_brand_assets",
+        "reject_modified_brand_asset",
+        "reject_new_graphics",
+        "prove_exception_does_not_override_face_or_music_rules"
+      ],
+      "runtime_gates": [
+        "asset_admission_gate",
+        "montage_gate",
+        "final_qa_gate"
+      ],
+      "failure_codes": [
+        "FAIL_FORBIDDEN_GRAPHICS",
+        "FAIL_BRAND_ASSET_POLICY"
+      ]
+    },
+    {
+      "id": "SIRAJ.S07.INTRO_OUTRO_PLACEMENT",
+      "section": 7,
+      "title": "إدراج المقدمة والنهاية بالمواضع المعتمدة",
+      "severity": "HIGH",
+      "scope": "EPISODE",
+      "norm": "REQUIRED",
+      "value": {
+        "intro": "DIRECTOR_OPTIMIZED",
+        "outro": "AFTER_CORE_EPISODE_END"
+      },
+      "fail_closed": true,
+      "compiler": {
+        "applies": true,
+        "obligations": [
+          "select_intro_boundary",
+          "append_outro_after_core",
+          "preserve_core_runtime_metrics"
+        ]
+      },
+      "validators": [
+        "intro_boundary_validator",
+        "outro_position_validator",
+        "core_runtime_validator"
+      ],
+      "tests": [
+        "reject_intro_inside_sentence",
+        "reject_intro_breaking_critical_action",
+        "reject_outro_before_core_end"
+      ],
+      "runtime_gates": [
+        "montage_plan_gate",
+        "montage_gate",
+        "final_qa_gate"
+      ],
+      "failure_codes": [
+        "FAIL_INTRO_PLACEMENT",
+        "FAIL_OUTRO_PLACEMENT"
+      ]
+    },
+    {
+      "id": "SIRAJ.S07.DOUBLE_HUMAN_MONTAGE_REVIEW",
+      "section": 7,
+      "title": "مراجعتان بشريتان للمونتاج",
+      "severity": "HIGH",
+      "scope": "EPISODE",
+      "norm": "REQUIRED",
+      "value": [
+        "UNINTERRUPTED_FULL_VIEW",
+        "DETAILED_INSPECTION"
+      ],
+      "fail_closed": true,
+      "compiler": {
+        "applies": false,
+        "obligations": []
+      },
+      "validators": [
+        "montage_review_receipt_validator",
+        "final_candidate_hash_validator"
+      ],
+      "tests": [
+        "reject_single_review_pass",
+        "reject_review_for_stale_candidate"
+      ],
+      "runtime_gates": [
+        "montage_approval_gate",
+        "final_qa_gate"
+      ],
+      "failure_codes": [
+        "FAIL_MONTAGE_HUMAN_REVIEW_MISSING"
+      ]
+    },
+    {
+      "id": "SIRAJ.S08.FINAL_HUMAN_CERTIFICATION",
+      "section": 8,
+      "title": "الاعتماد البشري النهائي إلزامي",
+      "severity": "CRITICAL",
+      "scope": "PUBLICATION",
+      "norm": "REQUIRED",
+      "value": true,
+      "fail_closed": true,
+      "compiler": {
+        "applies": false,
+        "obligations": []
+      },
+      "validators": [
+        "all_domain_qa_validator",
+        "final_watch_receipt_validator",
+        "human_certification_validator",
+        "candidate_hash_validator"
+      ],
+      "tests": [
+        "reject_automated_publish_approval",
+        "reject_certification_for_stale_candidate",
+        "reject_partial_pass"
+      ],
+      "runtime_gates": [
+        "publish_ready_gate",
+        "publication_gate"
+      ],
+      "failure_codes": [
+        "FAIL_FINAL_HUMAN_CERTIFICATION",
+        "FAIL_STALE_FINAL_CERTIFICATION"
+      ]
+    },
+    {
+      "id": "SIRAJ.S08.RELEASE_QUALITY_BAR",
+      "section": 8,
+      "title": "حد أدنى احترافي تنافسي",
+      "severity": "HIGH",
+      "scope": "PUBLICATION",
+      "norm": "REQUIRED",
+      "value": "COMPETITIVE_PROFESSIONAL_YOUTUBE_PRODUCT_WITHOUT_OBVIOUS_AI_FEEL",
+      "fail_closed": true,
+      "compiler": {
+        "applies": false,
+        "obligations": []
+      },
+      "validators": [
+        "technical_qa_validator",
+        "editorial_quality_review",
+        "full_human_end_to_end_review"
+      ],
+      "tests": [
+        "reject_technically_valid_but_mediocre",
+        "reject_obvious_ai_feel",
+        "require_all_domain_passes"
+      ],
+      "runtime_gates": [
+        "professional_product_gate",
+        "publish_ready_gate"
+      ],
+      "failure_codes": [
+        "FAIL_RELEASE_QUALITY"
+      ]
+    },
+    {
+      "id": "SIRAJ.S08.MANUAL_PUBLIC_TITLE_AND_THUMBNAIL",
+      "section": 8,
+      "title": "العنوان العام والـThumbnail يدويان",
+      "severity": "CRITICAL",
+      "scope": "PUBLICATION",
+      "norm": "INVARIANT",
+      "value": {
+        "owner": "HUMAN",
+        "siraj_generation_selection_editing": false,
+        "working_title_auto_publish": false,
+        "required_for_episode_production_pass": false
+      },
+      "fail_closed": true,
+      "compiler": {
+        "applies": true,
+        "obligations": [
+          "keep_working_title_internal",
+          "exclude_title_and_thumbnail_from_production_pass"
+        ]
+      },
+      "validators": [
+        "publication_metadata_boundary_validator",
+        "working_title_leak_validator"
+      ],
+      "tests": [
+        "reject_auto_published_working_title",
+        "reject_siraj_thumbnail_generation",
+        "accept_episode_pass_without_public_title_or_thumbnail"
+      ],
+      "runtime_gates": [
+        "publication_package_gate",
+        "publication_gate"
+      ],
+      "failure_codes": [
+        "FAIL_PUBLIC_METADATA_AUTOMATION",
+        "FAIL_INTERNAL_TITLE_PUBLICATION"
+      ]
+    },
+    {
+      "id": "SIRAJ.S09.PAID_EXECUTION_BOUNDARY",
+      "section": 9,
+      "title": "التنفيذ المدفوع من نقرة Desktop صريحة فقط",
+      "severity": "CRITICAL",
+      "scope": "ATTEMPT",
+      "norm": "INVARIANT",
+      "value": {
+        "desktop_click": true,
+        "terminal": false,
+        "cli": false,
+        "recovery": false,
+        "tests": false
+      },
+      "fail_closed": true,
+      "compiler": {
+        "applies": false,
+        "obligations": []
+      },
+      "validators": [
+        "execution_origin_validator",
+        "human_click_nonce_validator",
+        "authorization_envelope_validator"
+      ],
+      "tests": [
+        "reject_terminal_paid_call",
+        "reject_cli_paid_call",
+        "reject_recovery_paid_call",
+        "reject_test_paid_call",
+        "require_fresh_desktop_click"
+      ],
+      "runtime_gates": [
+        "paid_execution_gate"
+      ],
+      "failure_codes": [
+        "FAIL_PAID_EXECUTION_FROM_TERMINAL",
+        "FAIL_PAID_EXECUTION_FROM_RECOVERY",
+        "FAIL_MISSING_EXPLICIT_HUMAN_START"
+      ]
+    },
+    {
+      "id": "SIRAJ.S09.COST_AUTHORIZATION",
+      "section": 9,
+      "title": "تفويض تكلفة محدد ومقيد بسقف",
+      "severity": "CRITICAL",
+      "scope": "ATTEMPT",
+      "norm": "REQUIRED",
+      "value": {
+        "authorized_max_cost": true,
+        "estimate_and_rate_profile": true,
+        "stale_on_material_change": true
+      },
+      "fail_closed": true,
+      "compiler": {
+        "applies": false,
+        "obligations": []
+      },
+      "validators": [
+        "cost_estimate_validator",
+        "rate_profile_freshness_validator",
+        "authorization_hash_validator",
+        "cost_ceiling_validator"
+      ],
+      "tests": [
+        "reject_cost_above_ceiling",
+        "reject_stale_rate_profile",
+        "reject_changed_request_count",
+        "reject_changed_provider_or_model"
+      ],
+      "runtime_gates": [
+        "cost_preflight_gate",
+        "paid_execution_gate",
+        "cost_anomaly_gate"
+      ],
+      "failure_codes": [
+        "FAIL_COST_AUTHORIZATION",
+        "FAIL_COST_ESTIMATE_STALE",
+        "FAIL_STALE_PAID_AUTHORIZATION",
+        "FAIL_COST_ANOMALY"
+      ]
+    },
+    {
+      "id": "SIRAJ.S09.UNKNOWN_NO_RESUBMIT",
+      "section": 9,
+      "title": "الحالة UNKNOWN لا تعاد",
+      "severity": "CRITICAL",
+      "scope": "ATTEMPT",
+      "norm": "FORBIDDEN",
+      "value": "AUTOMATIC_OR_IMPLICIT_RESUBMISSION_FROM_UNKNOWN",
+      "fail_closed": true,
+      "compiler": {
+        "applies": false,
+        "obligations": []
+      },
+      "validators": [
+        "attempt_state_validator",
+        "reconciliation_receipt_validator",
+        "ledger_head_binding_validator"
+      ],
+      "tests": [
+        "reject_unknown_as_failed",
+        "reject_unknown_resubmit",
+        "prove_reconciliation_does_not_authorize_execution"
+      ],
+      "runtime_gates": [
+        "reconciliation_gate",
+        "retry_gate",
+        "paid_execution_gate"
+      ],
+      "failure_codes": [
+        "FAIL_UNKNOWN_STATE_RESUBMISSION"
+      ]
+    },
+    {
+      "id": "SIRAJ.S09.HISTORICAL_UNKNOWN_ATTEMPT",
+      "section": 9,
+      "title": "الحفاظ على أي محاولة تاريخية مجهولة دون تخصيص حلقة أو محاولة",
+      "severity": "CRITICAL",
+      "scope": "ATTEMPT",
+      "norm": "INVARIANT",
+      "value": {
+        "applies_to": "ANY_HISTORICAL_SUBMISSION_UNKNOWN",
+        "preserve_evidence": true,
+        "status": "SUBMISSION_UNKNOWN",
+        "retry": "BLOCKED_UNTIL_EVIDENCE_BASED_RECONCILIATION",
+        "episode_specific_identity_in_constitution": false
+      },
+      "fail_closed": true,
+      "compiler": {
+        "applies": false,
+        "obligations": []
+      },
+      "validators": [
+        "historical_attempt_ledger_validator",
+        "reconciliation_evidence_validator"
+      ],
+      "tests": [
+        "reject_historical_status_cleanup_without_evidence",
+        "reject_retry_for_any_historical_unknown",
+        "reject_episode_specific_attempt_identity_in_series_constitution"
+      ],
+      "runtime_gates": [
+        "reconciliation_gate",
+        "paid_execution_gate"
+      ],
+      "failure_codes": [
+        "FAIL_UNKNOWN_STATE_RESUBMISSION",
+        "FAIL_HISTORICAL_EVIDENCE_MUTATION"
+      ]
+    },
+    {
+      "id": "SIRAJ.S09.IDEMPOTENT_TRANSACTION",
+      "section": 9,
+      "title": "معاملة مدفوعة واحدة لكل تفويض",
+      "severity": "CRITICAL",
+      "scope": "ATTEMPT",
+      "norm": "REQUIRED",
+      "value": {
+        "attempt_id": true,
+        "idempotency_key_where_supported": true,
+        "double_click_suppression": true
+      },
+      "fail_closed": true,
+      "compiler": {
+        "applies": false,
+        "obligations": []
+      },
+      "validators": [
+        "attempt_uniqueness_validator",
+        "idempotency_validator",
+        "authorization_consumption_validator"
+      ],
+      "tests": [
+        "reject_duplicate_click_submission",
+        "reject_reused_authorization",
+        "reject_missing_attempt_identity"
+      ],
+      "runtime_gates": [
+        "paid_execution_gate",
+        "transaction_lock_gate"
+      ],
+      "failure_codes": [
+        "FAIL_IDEMPOTENCY",
+        "FAIL_DUPLICATE_PAID_TRANSACTION"
+      ]
+    },
+    {
+      "id": "SIRAJ.S09.RECOVERY_PRESPEND_ONLY",
+      "section": 9,
+      "title": "الاستعادة قبل الإنفاق فقط",
+      "severity": "CRITICAL",
+      "scope": "ATTEMPT",
+      "norm": "INVARIANT",
+      "value": "PRE_SPEND_ONLY",
+      "fail_closed": true,
+      "compiler": {
+        "applies": false,
+        "obligations": []
+      },
+      "validators": [
+        "recovery_capability_validator",
+        "network_provider_capability_validator"
+      ],
+      "tests": [
+        "prove_recovery_cannot_submit",
+        "allow_offline_state_rebuild",
+        "allow_reconciliation_without_authorization"
+      ],
+      "runtime_gates": [
+        "recovery_boundary_gate",
+        "paid_execution_gate"
+      ],
+      "failure_codes": [
+        "FAIL_PAID_EXECUTION_FROM_RECOVERY"
+      ]
+    },
+    {
+      "id": "SIRAJ.S10.SINGLE_CANONICAL_AUTHORITY",
+      "section": 10,
+      "title": "دستور واحد أعلى من كل الطبقات",
+      "severity": "CRITICAL",
+      "scope": "SERIES_WIDE",
+      "norm": "INVARIANT",
+      "value": "ONE_VERSIONED_BUNDLE_WITH_ONE_MACHINE_RULE_SOURCE",
+      "fail_closed": true,
+      "compiler": {
+        "applies": true,
+        "obligations": [
+          "load_canonical_bundle",
+          "reject_lower_layer_weakening"
+        ]
+      },
+      "validators": [
+        "constitution_bundle_validator",
+        "precedence_validator",
+        "duplicate_policy_authority_validator"
+      ],
+      "tests": [
+        "reject_missing_constitution",
+        "reject_hash_mismatch",
+        "reject_episode_weakening",
+        "reject_hidden_policy_default"
+      ],
+      "runtime_gates": [
+        "process_boot_gate",
+        "every_stage_gate"
+      ],
+      "failure_codes": [
+        "FAIL_CONSTITUTION_MISSING",
+        "FAIL_CONSTITUTION_HASH_MISMATCH",
+        "FAIL_LOWER_LAYER_POLICY_WEAKENING"
+      ]
+    },
+    {
+      "id": "SIRAJ.S10.BUNDLE_HASH_MODEL",
+      "section": 10,
+      "title": "بصمات مستقلة وربط واحد للحزمة",
+      "severity": "HIGH",
+      "scope": "SERIES_WIDE",
+      "norm": "REQUIRED",
+      "value": [
+        "MACHINE_SPEC_SHA256",
+        "HUMAN_VIEW_SHA256",
+        "AUDIT_REPORT_SHA256",
+        "BUNDLE_MANIFEST_SHA256"
+      ],
+      "fail_closed": true,
+      "compiler": {
+        "applies": true,
+        "obligations": [
+          "embed_constitution_version_and_bundle_manifest_hash"
+        ]
+      },
+      "validators": [
+        "bundle_manifest_validator",
+        "artifact_constitution_binding_validator"
+      ],
+      "tests": [
+        "reject_false_shared_file_hash",
+        "reject_artifact_bound_to_other_bundle"
+      ],
+      "runtime_gates": [
+        "process_boot_gate",
+        "artifact_promotion_gate"
+      ],
+      "failure_codes": [
+        "FAIL_CONSTITUTION_BUNDLE_BINDING"
+      ]
+    },
+    {
+      "id": "SIRAJ.S10.ENFORCEMENT_CHAIN",
+      "section": 10,
+      "title": "سلسلة Rule إلى Runtime Gate",
+      "severity": "CRITICAL",
+      "scope": "SERIES_WIDE",
+      "norm": "REQUIRED",
+      "value": [
+        "RULE",
+        "COMPILER",
+        "VALIDATOR",
+        "TEST",
+        "RUNTIME_GATE",
+        "AUDIT_EVIDENCE"
+      ],
+      "fail_closed": true,
+      "compiler": {
+        "applies": true,
+        "obligations": [
+          "emit_enforcement_coverage_manifest"
+        ]
+      },
+      "validators": [
+        "enforcement_coverage_validator",
+        "runtime_gate_registration_validator"
+      ],
+      "tests": [
+        "reject_unenforced_hard_rule",
+        "require_not_applicable_rationale",
+        "reject_test_only_policy_evidence"
+      ],
+      "runtime_gates": [
+        "process_boot_gate",
+        "release_readiness_gate"
+      ],
+      "failure_codes": [
+        "FAIL_UNENFORCED_HARD_RULE",
+        "FAIL_ENFORCEMENT_COVERAGE"
+      ]
+    },
+    {
+      "id": "SIRAJ.S10.SEPARATION_OF_CAPABILITIES",
+      "section": 10,
+      "title": "فصل صلاحيات التجميع والفحص والتنفيذ والاستعادة",
+      "severity": "CRITICAL",
+      "scope": "SERIES_WIDE",
+      "norm": "INVARIANT",
+      "value": {
+        "compiler_provider_call": false,
+        "validator_mutation": false,
+        "executor_creative_authority": false,
+        "recovery_paid_execution": false,
+        "tests_production_network": false
+      },
+      "fail_closed": true,
+      "compiler": {
+        "applies": false,
+        "obligations": []
+      },
+      "validators": [
+        "capability_boundary_validator",
+        "dependency_boundary_validator",
+        "network_fixture_validator"
+      ],
+      "tests": [
+        "prove_compiler_offline",
+        "prove_validator_read_only",
+        "prove_executor_exact_payload",
+        "prove_tests_use_fakes"
+      ],
+      "runtime_gates": [
+        "process_boot_gate",
+        "pre_submit_gate"
+      ],
+      "failure_codes": [
+        "FAIL_CAPABILITY_BOUNDARY",
+        "FAIL_UNAUTHORIZED_NETWORK_CAPABILITY"
+      ]
+    },
+    {
+      "id": "SIRAJ.S10.APPROVAL_HASH_BINDING",
+      "section": 10,
+      "title": "ربط كل موافقة بمدخلاتها وإبطالها عند التغيير",
+      "severity": "CRITICAL",
+      "scope": "SERIES_WIDE",
+      "norm": "REQUIRED",
+      "value": true,
+      "fail_closed": true,
+      "compiler": {
+        "applies": false,
+        "obligations": []
+      },
+      "validators": [
+        "approval_receipt_validator",
+        "dependency_graph_validator",
+        "stale_state_validator"
+      ],
+      "tests": [
+        "invalidate_on_constitution_change",
+        "invalidate_on_prompt_change",
+        "invalidate_on_reference_change",
+        "invalidate_on_audio_change",
+        "invalidate_on_cost_change"
+      ],
+      "runtime_gates": [
+        "every_promotion_gate",
+        "paid_execution_gate",
+        "publish_ready_gate"
+      ],
+      "failure_codes": [
+        "FAIL_STALE_APPROVAL",
+        "FAIL_DEPENDENCY_INVALIDATION"
+      ]
+    },
+    {
+      "id": "SIRAJ.S10.APPEND_ONLY_EVIDENCE",
+      "section": 10,
+      "title": "حفظ أدلة المحاولات والمصالحة والإبطال",
+      "severity": "CRITICAL",
+      "scope": "SERIES_WIDE",
+      "norm": "REQUIRED",
+      "value": "APPEND_ONLY",
+      "fail_closed": true,
+      "compiler": {
+        "applies": false,
+        "obligations": []
+      },
+      "validators": [
+        "ledger_chain_validator",
+        "evidence_mutation_validator",
+        "ledger_head_binding_validator"
+      ],
+      "tests": [
+        "reject_history_rewrite",
+        "reject_reconciliation_against_stale_ledger_head",
+        "preserve_unknown_evidence"
+      ],
+      "runtime_gates": [
+        "reconciliation_gate",
+        "paid_execution_gate",
+        "audit_gate"
+      ],
+      "failure_codes": [
+        "FAIL_EVIDENCE_CHAIN",
+        "FAIL_LEDGER_HEAD_STALE",
+        "FAIL_HISTORICAL_EVIDENCE_MUTATION"
+      ]
+    }
+  ],
+  "approval_binding": {
+    "required_fields": [
+      "approval_id",
+      "approval_type",
+      "human_actor",
+      "decision",
+      "decision_time",
+      "constitution_bundle_manifest_sha256",
+      "input_artifact_ids",
+      "input_sha256s",
+      "scope",
+      "expires_or_stales_on",
+      "consumed_by_transaction_id_if_any"
+    ],
+    "material_change_invalidates": true
+  },
+  "invalidation_events": [
+    {
+      "event": "CONSTITUTION_BUNDLE_CHANGED",
+      "invalidates": [
+        "ALL_DOWNSTREAM_APPROVALS",
+        "ALL_COMPILED_POLICY_BUNDLES"
+      ]
+    },
+    {
+      "event": "SOURCE_OR_CLAIM_CHANGED",
+      "invalidates": [
+        "SCRIPT_APPROVAL",
+        "NARRATION_APPROVAL",
+        "STORYBOARD_APPROVAL",
+        "PROMPT_APPROVAL",
+        "PILOT_APPROVAL",
+        "PAID_AUTHORIZATION",
+        "MONTAGE_APPROVAL",
+        "FINAL_CERTIFICATION"
+      ]
+    },
+    {
+      "event": "CANONICAL_SCRIPT_CHANGED",
+      "invalidates": [
+        "TTS_PERFORMANCE_SCRIPT",
+        "NARRATION_APPROVAL",
+        "TIMELINE",
+        "STORYBOARD_APPROVAL",
+        "PROMPT_APPROVAL",
+        "PILOT_APPROVAL",
+        "PAID_AUTHORIZATION",
+        "MONTAGE_APPROVAL",
+        "FINAL_CERTIFICATION"
+      ]
+    },
+    {
+      "event": "NARRATION_MASTER_CHANGED",
+      "invalidates": [
+        "TIMELINE",
+        "STORYBOARD_TIMING",
+        "PROMPT_TIMING",
+        "COST_ESTIMATE",
+        "PILOT_APPROVAL",
+        "PAID_AUTHORIZATION",
+        "MONTAGE_APPROVAL",
+        "FINAL_CERTIFICATION"
+      ]
+    },
+    {
+      "event": "CHARACTER_OR_PERIOD_CONTRACT_CHANGED",
+      "invalidates": [
+        "STORYBOARD_APPROVAL",
+        "PROMPT_APPROVAL",
+        "PILOT_APPROVAL",
+        "PAID_AUTHORIZATION",
+        "RENDER_PROMOTION",
+        "MONTAGE_APPROVAL",
+        "FINAL_CERTIFICATION"
+      ]
+    },
+    {
+      "event": "CANONICAL_REFERENCE_CHANGED",
+      "invalidates": [
+        "PROMPT_APPROVAL",
+        "PILOT_APPROVAL",
+        "PAID_AUTHORIZATION",
+        "RENDER_PROMOTION",
+        "MONTAGE_APPROVAL",
+        "FINAL_CERTIFICATION"
+      ]
+    },
+    {
+      "event": "STORYBOARD_CHANGED",
+      "invalidates": [
+        "PROMPT_APPROVAL",
+        "PILOT_APPROVAL",
+        "PAID_AUTHORIZATION",
+        "RENDER_PROMOTION",
+        "MONTAGE_APPROVAL",
+        "FINAL_CERTIFICATION"
+      ]
+    },
+    {
+      "event": "PROMPT_OR_PROVIDER_PAYLOAD_CHANGED",
+      "invalidates": [
+        "PROMPT_APPROVAL",
+        "PILOT_APPROVAL",
+        "PAID_AUTHORIZATION"
+      ]
+    },
+    {
+      "event": "PROVIDER_MODEL_OR_RATE_CHANGED",
+      "invalidates": [
+        "PILOT_APPROVAL",
+        "COST_ESTIMATE",
+        "PAID_AUTHORIZATION"
+      ]
+    },
+    {
+      "event": "BATCH_SCOPE_OR_REQUEST_COUNT_CHANGED",
+      "invalidates": [
+        "COST_ESTIMATE",
+        "PAID_AUTHORIZATION"
+      ]
+    },
+    {
+      "event": "NEW_UNPILOTED_RISK_CLASS",
+      "invalidates": [
+        "PILOT_COVERAGE",
+        "BATCH_AUTHORIZATION"
+      ]
+    },
+    {
+      "event": "RENDER_BYTES_CHANGED",
+      "invalidates": [
+        "RENDER_QA",
+        "MONTAGE_APPROVAL",
+        "FINAL_CERTIFICATION"
+      ]
+    },
+    {
+      "event": "INTRO_OR_OUTRO_CHANGED",
+      "invalidates": [
+        "BRAND_ASSET_APPROVAL",
+        "MONTAGE_APPROVAL",
+        "FINAL_CERTIFICATION"
+      ]
+    },
+    {
+      "event": "MONTAGE_CHANGED",
+      "invalidates": [
+        "FINAL_QA",
+        "FINAL_HUMAN_CERTIFICATION"
+      ]
+    }
+  ],
+  "phase_boundary": {
+    "allowed": [
+      "CONSOLIDATION",
+      "READ_ONLY_AUDIT",
+      "ENFORCEMENT_DESIGN",
+      "OFFLINE_SPEC_VALIDATION"
+    ],
+    "forbidden": [
+      "PROVIDER_CALL",
+      "PAID_CALL",
+      "NETWORK_PRODUCTION_CALL",
+      "RETRY",
+      "RESUBMISSION",
+      "MONTAGE",
+      "PRODUCTION_EXECUTION",
+      "PRODUCTION_CODE_REMEDIATION"
+    ]
+  }
+}
