@@ -802,3 +802,126 @@ def production_readiness_result(*, m01: Mapping[str, Any], m02: Mapping[str, Any
         "montage": 0,
         "human_final_certification_required": True,
     }
+
+def enforce_pr01_desktop_canonical_reference_gate(
+    *,
+    request: Any,
+    reference_id: str,
+) -> dict[str, Any]:
+    """Separate Desktop-only gate for EP002 canonical-reference image starts.
+
+    This does not relax the existing video-only PR01 gate. It validates a
+    hash-bound, immutable Desktop authorization receipt for one exact Runware
+    image payload and keeps production/R27 authorization false.
+    """
+
+    authorization = getattr(request, "master_authorization_reference", None)
+    if not isinstance(authorization, Mapping):
+        raise PaidStartDenied("PR01_CANONICAL_REFERENCE_DESKTOP_APPROVAL_REQUIRED")
+    approval = authorization.get(
+        "pr01_canonical_reference_paid_start_authorization"
+    )
+    if not isinstance(approval, Mapping):
+        raise PaidStartDenied("PR01_CANONICAL_REFERENCE_DESKTOP_APPROVAL_REQUIRED")
+    required = {
+        "source": "DESKTOP",
+        "scope": "EP002_CANONICAL_REFERENCE_GENERATION_ONLY",
+        "reference_id": str(reference_id),
+        "explicit_click": True,
+        "human_approval": True,
+        "production_authorized": False,
+        "paid_execution_authorized": False,
+    }
+    for key, expected in required.items():
+        if approval.get(key) != expected:
+            raise PaidStartDenied(
+                "PR01_CANONICAL_REFERENCE_APPROVAL_INVALID:" + key
+            )
+    auth_id = str(approval.get("authorization_id") or "").strip()
+    click_nonce = str(approval.get("click_nonce") or "").strip()
+    if not auth_id or click_nonce != auth_id:
+        raise PaidStartDenied("PR01_CANONICAL_REFERENCE_CLICK_NONCE_INVALID")
+
+    repo = Path(getattr(request, "repo_root")).resolve()
+    receipt_path = Path(str(approval.get("authorization_receipt_path") or ""))
+    if not receipt_path.is_absolute():
+        receipt_path = repo / receipt_path
+    receipt_path = receipt_path.resolve()
+    try:
+        receipt_path.relative_to(repo)
+    except ValueError as exc:
+        raise PaidStartDenied(
+            "PR01_CANONICAL_REFERENCE_RECEIPT_OUTSIDE_REPOSITORY"
+        ) from exc
+
+    from src.application.artifact_provenance_v1 import (
+        canonical_sha256 as _canonical_sha256_v2,
+        sha256_file as _sha256_file_v2,
+    )
+    if (
+        not receipt_path.is_file()
+        or _sha256_file_v2(receipt_path)
+        != str(approval.get("authorization_receipt_sha256") or "")
+    ):
+        raise PaidStartDenied("PR01_CANONICAL_REFERENCE_RECEIPT_HASH_MISMATCH")
+    try:
+        receipt = json.loads(receipt_path.read_text(encoding="utf-8-sig"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise PaidStartDenied(
+            "PR01_CANONICAL_REFERENCE_RECEIPT_INVALID"
+        ) from exc
+    if not isinstance(receipt, dict):
+        raise PaidStartDenied("PR01_CANONICAL_REFERENCE_RECEIPT_INVALID")
+    signature = receipt.get("authorization_sha256")
+    unsigned = {
+        key: value
+        for key, value in receipt.items()
+        if key != "authorization_sha256"
+    }
+    if (
+        receipt.get("status") != "ACTIVE"
+        or receipt.get("source") != "DESKTOP"
+        or receipt.get("reference_id") != str(reference_id)
+        or receipt.get("single_use") is not True
+        or receipt.get("automatic_retry") is not False
+        or receipt.get("automatic_resubmission") is not False
+        or receipt.get("authorization_id") != auth_id
+        or signature != _canonical_sha256_v2(unsigned)
+    ):
+        raise PaidStartDenied("PR01_CANONICAL_REFERENCE_RECEIPT_INVALID")
+
+    if str(getattr(request, "provider", "")) != "RUNWARE":
+        raise PaidStartDenied("PR01_CANONICAL_REFERENCE_RUNWARE_REQUIRED")
+    from src.application.provider_model_contracts import (
+        ProviderModelContractError,
+        validate_runware_task,
+    )
+    from src.application.runware_image_model_routing_v1 import (
+        NANO_BANANA_MODEL,
+        SEEDREAM_MODEL,
+    )
+    try:
+        validated = validate_runware_task(
+            getattr(request, "payload"),
+            require_uuid_v4=True,
+        )
+    except ProviderModelContractError as exc:
+        raise PaidStartDenied(str(exc)) from exc
+    if validated.model not in {SEEDREAM_MODEL, NANO_BANANA_MODEL}:
+        raise PaidStartDenied("PR01_CANONICAL_REFERENCE_MODEL_UNSUPPORTED")
+    expected_payload_hash = _canonical_sha256_v2(dict(validated.payload))
+    if (
+        approval.get("payload_sha256") != expected_payload_hash
+        or receipt.get("payload_sha256") != expected_payload_hash
+    ):
+        raise PaidStartDenied("PR01_CANONICAL_REFERENCE_PAYLOAD_HASH_MISMATCH")
+
+    return {
+        "status": "PR01_CANONICAL_REFERENCE_DESKTOP_GATE_PASS",
+        "reference_id": str(reference_id),
+        "payload_sha256": expected_payload_hash,
+        "production_authorized": False,
+        "paid_execution_authorized": False,
+        "r27_reclassification_authorized": False,
+        "r27_regeneration_authorized": False,
+    }

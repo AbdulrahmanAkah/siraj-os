@@ -3322,3 +3322,24 @@ NEXT=SUPPLY_OR_SELECT_TRUSTED_WORD_OR_PHRASE_TIMING_FOR_EP001_THEN_RERUN_CAPTION
 - Paid calls: `0`
 - Publication: `0`
 - Next stage: `EP002_R27_CANONICAL_REFERENCE_ASSET_ACQUISITION_AND_VALIDATION`
+
+## SIRAJ_EP002_CANONICAL_REFERENCE_DESKTOP_INTEGRATION_IMPLEMENTATION_V4
+
+- Date: 2026-08-16
+- Status: `PASS_IMPLEMENTATION_PENDING_RUNTIME_DESKTOP_VALIDATION`
+- Scope: six EP002 canonical character/state reference images only
+- Desktop paid start: explicit human click required for each initial image-generation request
+- Authorization: immutable single-use Desktop receipt bound to exact provider payload SHA256
+- Automatic paid retry: `false`
+- Automatic paid resubmission: `false`
+- Reference continuity: accepted dependency images are embedded as Runware-supported Data URI reference inputs
+- Human acceptance: complete common + state-specific checklist required before SHA256 binding
+- Candidate preservation: generated candidates are preserved; rejection does not overwrite prior evidence
+- R27 state remains: `KEEP=0, REGENERATE=0, BLOCK=27`
+- R27 reclassification performed: `false`
+- R27 regeneration authorized: `false`
+- Provider calls during implementation: `0`
+- Network production calls during implementation: `0`
+- Paid calls during implementation: `0`
+- Publication: `0`
+- Next stage: `EP002_CANONICAL_REFERENCE_DESKTOP_INTEGRATION_VALIDATION`
