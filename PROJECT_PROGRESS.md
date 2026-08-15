@@ -3191,3 +3191,20 @@ Evidence:
 NEXT=SUPPLY_OR_SELECT_TRUSTED_WORD_OR_PHRASE_TIMING_FOR_EP001_THEN_RERUN_CAPTION_PLANNING
 
 ========================================================
+## 2026-08-15 — Shorts Arabic caption filter repair closure
+
+- Status: PASS
+- Scope: Arabic Shorts caption rendering.
+- Root cause confirmed: the FFmpeg `subtitles` filter path produced white/tofu box artifacts in Arabic burned captions, while direct `ass` filter rendering of the same ASS content was visually clean.
+- Fix: the production caption filter now uses `ass=filename='...'` instead of `subtitles=filename='...':charenc=UTF-8`.
+- Validation:
+  - targeted regressions: PASS
+  - current-engine C032 render: PASS
+  - output: 1080x1920
+  - visual result: clean Arabic captions with no white-box artifacts
+  - repaired render SHA256: `f73448bf01442075f95129e946003afa033f55cb2831d2975b54b19adda4f4a9`
+  - provider calls: 0
+  - network production calls: 0
+  - paid calls: 0
+- Evidence report: `C:\SIRAJ\Repositories\siraj-os\reports\shorts-final-caption-filter-repair-v2\20260815-212916\SIRAJ_SHORTS_FINAL_CAPTION_FILTER_REPAIR_V2_RESULT.json`
+- Final decision: `CAPTION_FILTER_REPAIRED_ASS_FILTER_VERIFIED_PASS`.

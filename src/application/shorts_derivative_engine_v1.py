@@ -3861,7 +3861,7 @@ def _caption_ass_content(plan: Mapping[str, Any]) -> str:
 
 def _caption_filter_for_ass(path: Path) -> str:
     escaped = str(path).replace("\\", "/").replace(":", r"\:").replace("'", r"\'")
-    return f"subtitles=filename='{escaped}':charenc=UTF-8"
+    return f"ass=filename='{escaped}'"
 
 
 def _run_ffmpeg_command(command: Sequence[str], cancel_event: Any | None = None) -> tuple[int, str, str]:
