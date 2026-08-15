@@ -3170,3 +3170,27 @@ NEXT=SUPPLY_OR_SELECT_TRUSTED_WORD_OR_PHRASE_TIMING_FOR_EP001_THEN_RERUN_CAPTION
 - Paid calls: `0`
 - Network production calls: `0`
 - Publication: `0`
+
+## SIRAJ_CONSTITUTION_1_2_GLOBAL_ENFORCEMENT_COVERAGE_RECERTIFICATION_V1
+
+- Date: 2026-08-16
+- Constitution: `SIRAJ_UNIFIED_PRODUCTION_CONSTITUTION`
+- Version: `1.2.0`
+- Bundle manifest SHA256: `b390d8a61382ece4e8daeb5993fc89bb013a9b74cd8d06b2fb6e41f0b7d001d5`
+- Starting commit: `30cac53e91f22a2bc9896b2c287874c44e421b3e`
+- Rule count: `51`
+- Covered rules: `51`
+- Uncovered rules: `0`
+- Critical rules unenforced: `0`
+- High rules unenforced: `0`
+- Validator implementations complete: `true`
+- Constitution test files executed: `9`
+- Constitution tests: `PASS`
+- Runtime enforcement coverage: `PASS`
+- Production authorized globally: `false`
+- Provider calls: `0`
+- Paid calls: `0`
+- Network production calls: `0`
+- Publication: `0`
+- Coverage manifest SHA256: `81f34709967d9985fe6622edc959668a795c5fdd6d497e70a133ccc658a77e2f`
+- Next stage: `PR01_CONSTITUTION_1_2_REBINDING_AND_RESUME`
