@@ -18,7 +18,10 @@
       "default_enabled": true,
       "scope": "SHORT_DERIVATIVE_ONLY",
       "mode": "BURNED_NARRATION_CAPTIONS_ONLY",
-      "text_authority": ["CANONICAL_TIMED_TRANSCRIPT", "TRUSTED_HASH_BOUND_TIMING"],
+      "text_authority": [
+        "CANONICAL_TIMED_TRANSCRIPT",
+        "TRUSTED_HASH_BOUND_TIMING"
+      ],
       "narration_only": true,
       "allow_invented_text": false,
       "allow_hook_text": false,
@@ -34,14 +37,18 @@
       "frame_width": 1080,
       "frame_height": 1920,
       "aspect_ratio": "9:16",
-      "timing_authority_order": ["WORD_BOUNDARY", "PHRASE_CLAUSE_BOUNDARY", "SENTENCE_BOUNDARY"],
+      "timing_authority_order": [
+        "WORD_BOUNDARY",
+        "PHRASE_CLAUSE_BOUNDARY",
+        "SENTENCE_BOUNDARY"
+      ],
       "coarse_timing_action": "CAPTION_TIMING_INSUFFICIENT",
       "safe_area_profile": "SHORTS_CAPTION_SAFE_AREA_PROFILE_V1"
     },
     "public_title_generation": false,
     "thumbnail_generation": false,
     "automatic_publication": false,
-    "max_shorts_per_day": 1,
+    "max_shorts_per_day": 2,
     "target_duration_min_seconds": 15.0,
     "target_duration_max_seconds": 60.0,
     "duration_values_are": "CREATOR_STRATEGY_VALUES_NOT_PLATFORM_LIMITS",
@@ -50,33 +57,33 @@
     "publication_count_is_dynamic": true,
     "no_silent_defaults": true,
     "hard_gates": {
-      "minimum_standalone_clarity": 0.60,
-      "minimum_hook_strength": 0.40,
-      "maximum_context_dependence": 0.44,
-      "minimum_total_score": 0.58,
-      "minimum_vertical_quality": 0.55,
-      "maximum_spoiler_cost": 0.90
+      "minimum_standalone_clarity": 0.0,
+      "minimum_hook_strength": 0.0,
+      "maximum_context_dependence": 1.0,
+      "minimum_total_score": 0.45,
+      "minimum_vertical_quality": 0.45,
+      "maximum_spoiler_cost": 1.0
     },
     "scoring_weights": {
-      "HOOK_STRENGTH": 1.20,
-      "STANDALONE_CLARITY": 1.25,
-      "CURIOSITY": 1.00,
-      "EMOTIONAL_FORCE": 0.75,
-      "NOVELTY": 0.55,
-      "VISUAL_STRENGTH": 0.90,
-      "NARRATION_STRENGTH": 0.85,
-      "RETENTION_POTENTIAL": 1.05,
-      "CONTEXT_DEPENDENCE": 1.15,
-      "LONGFORM_CONVERSION_POTENTIAL": 1.10,
-      "CONSTITUTIONAL_SAFETY": 2.00,
-      "EDITABILITY": 0.95,
-      "VERTICAL_COMPATIBILITY": 1.10
+      "HOOK_STRENGTH": 0.3,
+      "STANDALONE_CLARITY": 0.0,
+      "CURIOSITY": 0.3,
+      "EMOTIONAL_FORCE": 0.0,
+      "NOVELTY": 0.0,
+      "VISUAL_STRENGTH": 0.0,
+      "NARRATION_STRENGTH": 0.0,
+      "RETENTION_POTENTIAL": 0.0,
+      "CONTEXT_DEPENDENCE": 0.0,
+      "LONGFORM_CONVERSION_POTENTIAL": 0.2,
+      "CONSTITUTIONAL_SAFETY": 0.0,
+      "EDITABILITY": 0.0,
+      "VERTICAL_COMPATIBILITY": 0.2
     },
     "candidate_search": {
       "maximum_contiguous_beats": 6,
       "maximum_candidate_windows": 256,
       "maximum_anchor_expansions": 32,
-      "minimum_anchor_signal": 0.40,
+      "minimum_anchor_signal": 0.4,
       "maximum_expansion_context_dependence": 0.44
     },
     "candidate_types": [
@@ -110,6 +117,34 @@
       "automatic_publication": false,
       "real_episode_render_during_certification": false,
       "executor_creative_authority": false
+    },
+    "audience_growth_policy": {
+      "policy_id": "SIRAJ_SHORTS_AUDIENCE_GROWTH_TEASER_V1",
+      "objective": "EXPAND_LONGFORM_AUDIENCE",
+      "editorial_contract": "A Short is a source-faithful teaser for the original episode, not a standalone miniature documentary. Incompleteness and context dependence may be useful when they create honest curiosity. Reject only explicit truth/safety/source failures, broken technical output, actual visual contradiction, or an actually destructive vertical crop.",
+      "weights": {
+        "HOOK_STRENGTH": 0.3,
+        "CURIOSITY": 0.3,
+        "VERTICAL_COMPATIBILITY": 0.2,
+        "LONGFORM_CONVERSION_POTENTIAL": 0.2
+      },
+      "hard_gate_policy": {
+        "truth_safety_source_integrity": "HARD",
+        "explicit_misleading_hook": "HARD",
+        "actual_visual_contradiction": "HARD",
+        "unsafe_or_destructive_crop": "HARD",
+        "audio_boundary_integrity": "HARD",
+        "caption_text_timing_integrity": "HARD",
+        "standalone_clarity": "WEIGHTED_SIGNAL",
+        "context_dependence": "WEIGHTED_SIGNAL",
+        "spoiler_cost": "WEIGHTED_SIGNAL",
+        "missing_semantic_geometry": "HUMAN_REVIEW_REQUIRED_NOT_REJECT",
+        "caption_max_lines": "SEGMENT_AT_TRUSTED_WORD_BOUNDARIES_NOT_REJECT"
+      },
+      "publication_strategy": {
+        "max_shorts_per_day": 2,
+        "automatic_publication": false
+      }
     }
   }
 }

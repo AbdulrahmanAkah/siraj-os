@@ -50,14 +50,15 @@ CONVERSION_GATE_NAMES = (
 )
 
 DEFAULT_THRESHOLDS = {
-    "full_payoff": 0.90,
-    "whole_answer": 0.90,
-    "no_reason_open_loop": 0.10,
-    "no_reason_payoff": 0.75,
-    "context_dependence": 0.50,
-    "overdisclosure_spoiler": 0.75,
-    "overdisclosure_payoff": 0.80,
-    "minimum_open_loop": 0.30,
+    # Audience-growth teaser policy: these are ranking/advisory signals.
+    "full_payoff": 1.0,
+    "whole_answer": 1.0,
+    "no_reason_open_loop": 0.0,
+    "no_reason_payoff": 1.0,
+    "context_dependence": 1.0,
+    "overdisclosure_spoiler": 1.0,
+    "overdisclosure_payoff": 1.0,
+    "minimum_open_loop": 0.0,
 }
 
 _MISSING = object()

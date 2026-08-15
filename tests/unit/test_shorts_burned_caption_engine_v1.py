@@ -294,6 +294,59 @@ def test_word_boundaries_are_grouped_without_proportional_timing() -> None:
     assert plan.render_contract["karaoke"] is False
 
 
+def test_long_word_timed_arabic_phrase_splits_at_trusted_boundaries() -> None:
+    words = [
+        "هذه",
+        "عبارة",
+        "عربية",
+        "طويلة",
+        "تحتاج",
+        "إلى",
+        "عدة",
+        "مقاطع",
+        "زمنية",
+        "متتابعة",
+        "دون",
+        "حذف.",
+    ]
+    text = " ".join(words)
+    boundaries = [
+        {
+            "start_seconds": index * 0.2,
+            "end_seconds": (index + 1) * 0.2,
+            "text": word,
+        }
+        for index, word in enumerate(words)
+    ]
+    plan = build_caption_plan(
+        _transcript(
+            [
+                {
+                    "segment_id": "LONG-WORD-TIMED",
+                    "start_seconds": 0.0,
+                    "end_seconds": 2.4,
+                    "text": text,
+                    "word_boundaries": boundaries,
+                }
+            ]
+        ),
+        _edit_plan(
+            [{"source_start": 0.0, "source_end": 2.4, "short_start": 0.0}],
+            duration=2.4,
+        ),
+    )
+
+    assert len(plan.cues) >= 2
+    assert " ".join(cue.text for cue in plan.cues) == text
+    assert all(cue.line_count <= 2 for cue in plan.cues)
+    assert all(
+        current.end_seconds <= following.start_seconds + 1e-6
+        for current, following in zip(plan.cues, plan.cues[1:])
+    )
+    assert plan.cues[0].start_seconds == 0.0
+    assert plan.cues[-1].end_seconds == pytest.approx(2.4)
+
+
 def test_single_cut_maps_to_short_local_timebase() -> None:
     plan = _basic_plan()
     cue = plan.cues[0]

@@ -132,7 +132,7 @@ def _fixture_engine(tmp_path: Path, **metadata_flags):
 def test_profile_is_versioned_and_fail_closed() -> None:
     profile = load_shorts_profile(REPO)
     assert profile["profile"]["profile_id"] == "SIRAJ_SHORTS_DERIVATIVE_PROFILE_V1"
-    assert profile["profile"]["max_shorts_per_day"] == 1
+    assert profile["profile"]["max_shorts_per_day"] == 2
     assert profile["profile"]["music"] is False
     assert profile["profile"]["no_silent_defaults"] is True
 
@@ -160,19 +160,48 @@ def test_candidate_discovery_finds_question_answer_and_revelation(tmp_path: Path
 def test_context_dependent_candidate_is_penalized(tmp_path: Path) -> None:
     engine, episode = _fixture_engine(tmp_path, context_dependent=True)
     analysis = engine.analyze(episode)
-    dependent = [candidate for candidate in analysis.candidates if "PRONOUN" in candidate.missing_context_items or "DEFERRED_REFERENCE" in candidate.missing_context_items]
+    dependent = [
+        candidate
+        for candidate in analysis.candidates
+        if "PRONOUN" in candidate.missing_context_items
+        or "DEFERRED_REFERENCE" in candidate.missing_context_items
+    ]
     assert dependent
     assert all(candidate.context_dependence_score > 0 for candidate in dependent)
-    assert any(candidate.status != "PASS" for candidate in dependent)
-
+    assert all(
+        candidate.hard_gate_results["CONTEXT_DEPENDENCE"]["status"] == "PASS"
+        for candidate in dependent
+    )
+    # Audience-growth teaser policy: context dependence lowers the score but
+    # is not a hard rejection by itself.
+    assert any(
+        candidate.score_breakdown["CONTEXT_DEPENDENCE"].value < 1.0
+        for candidate in dependent
+    )
 
 def test_constitutional_face_failure_cannot_be_overridden_by_score(tmp_path: Path) -> None:
     engine, episode = _fixture_engine(tmp_path, unsafe_face=True)
     analysis = engine.analyze(episode)
-    assert any(candidate.status != "PASS" for candidate in analysis.candidates)
-    assert any("FAIL_GLOBAL_FACE_POLICY" in candidate.policy_result.get("errors", ()) or "SHORT_CONSTITUTION_SCOPE_BLOCKED" in candidate.rejection_reasons for candidate in analysis.candidates)
+
+    constitutionally_blocked = [
+        candidate
+        for candidate in analysis.candidates
+        if "FAIL_GLOBAL_FACE_POLICY" in candidate.policy_result.get("errors", ())
+        or "SHORT_CONSTITUTION_SCOPE_BLOCKED" in candidate.rejection_reasons
+    ]
+    assert constitutionally_blocked
+    assert all(candidate.status != "PASS" for candidate in constitutionally_blocked)
+
+    # Ranking changes may reorder candidates. Test the actually blocked item,
+    # not whichever candidate happens to be last after scoring.
+    blocked = constitutionally_blocked[0]
     with pytest.raises(ShortsBlockedError, match="CANNOT_OVERRIDE"):
-        select_portfolio(analysis, candidate_ids=[analysis.candidates[-1].candidate_id], human_selection_reviewed=True)
+        select_portfolio(
+            analysis,
+            candidate_ids=[blocked.candidate_id],
+            human_selection_reviewed=True,
+        )
+
 
 
 def test_vertical_reframe_is_left_or_right_aware_and_not_face_tracking(tmp_path: Path) -> None:

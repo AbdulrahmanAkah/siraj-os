@@ -792,33 +792,60 @@ def _source_text_slice(parent: str, first: str, last: str) -> str:
 
 
 def _group_word_units(units: Sequence[Mapping[str, Any]]) -> list[dict[str, Any]]:
-    """Group explicit word timings without proportional timing or karaoke."""
+    """Group trusted word timings into <=2-line cues without losing words.
+
+    AUDIENCE_GROWTH_WORD_SEGMENTATION_V1
+    A line-count overflow is a cue-segmentation problem, not a reason to reject
+    an otherwise good Short. Only trusted WORD_BOUNDARY units are regrouped;
+    all other caption failures remain fail-closed.
+    """
 
     grouped: list[dict[str, Any]] = []
     current: list[Mapping[str, Any]] = []
+
+    def fits(candidate: Sequence[Mapping[str, Any]]) -> bool:
+        if len(candidate) > MAX_WORDS_PER_CUE:
+            return False
+        parent = str(candidate[-1].get("parent_text", candidate[-1]["text"]))
+        candidate_text = _source_text_slice(
+            parent,
+            str(candidate[0]["text"]),
+            str(candidate[-1]["text"]),
+        )
+        try:
+            _wrap_text(candidate_text)
+            return True
+        except CaptionBlockedError as exc:
+            if exc.code == "CAPTION_MAX_LINES_EXCEEDED":
+                return False
+            raise
+
     for unit in units:
         if current and unit.get("parent_segment_id") != current[-1].get("parent_segment_id"):
             grouped.append(_word_group(current))
             current = []
+
         candidate = current + [unit]
-        parent = str(unit.get("parent_text", unit["text"]))
-        candidate_text = _source_text_slice(parent, str(candidate[0]["text"]), str(candidate[-1]["text"]))
         terminal = bool(re.search(r"[.!؟?؛:،]$", str(unit["text"]).strip()))
-        if current and (
-            len(candidate) > MAX_WORDS_PER_CUE
-            or len(_wrap_text(candidate_text)) > MAX_LINES
-        ):
+
+        if current and not fits(candidate):
             grouped.append(_word_group(current))
             current = [unit]
         else:
             current = candidate
+
         if terminal:
             grouped.append(_word_group(current))
             current = []
+
     if current:
         grouped.append(_word_group(current))
-    return grouped
 
+    # Fail closed if a single trusted word itself cannot fit the constitutional
+    # two-line display contract. This should not happen for ordinary Arabic.
+    for item in grouped:
+        _wrap_text(str(item["text"]))
+    return grouped
 
 def _word_group(units: Sequence[Mapping[str, Any]]) -> dict[str, Any]:
     parent = str(units[0].get("parent_text", units[0]["text"]))

@@ -67,6 +67,7 @@ RELEVANT_NAME_TOKENS = (
     "audio", "canonical", "cue", "definition", "episode", "final", "filter",
     "manifest", "metadata", "narration", "performance", "receipt", "repair",
     "script", "segment", "subtitle", "tim", "transcript", "tts", "vtt",
+    "conform", "cut", "sequence", "editorial", "mapping",
 )
 
 
@@ -248,6 +249,13 @@ def _resolve_path(raw: Any, *, record_path: Path, root: Path, repo_root: Path) -
         root / raw_path,
         repo_root / raw_path,
     ]
+    package_parts = tuple(part.casefold() for part in raw_path.parts)
+    if (
+        len(package_parts) >= 2
+        and package_parts[0] == "projects"
+        and package_parts[1] == root.name.casefold()
+    ):
+        candidates.append(root.joinpath(*raw_path.parts[2:]))
     for candidate in candidates:
         try:
             resolved = candidate.resolve()
@@ -280,29 +288,46 @@ def _walk_mappings(value: Any) -> Iterable[Mapping[str, Any]]:
 
 
 def _find_episode_root(video_path: Path, repo_root: Path) -> Path:
+    """Find the source package that actually owns a local video.
+
+    A clean code worktree may intentionally be separate from the media package.
+    The video ancestry is therefore authoritative for locating episode evidence;
+    repo_root remains the cache/config root and is never searched blindly.
+    """
+
+    # SIRAJ_SHORTS_EXTERNAL_LOCAL_EPISODE_PACKAGE_V1
     video = video_path.resolve()
     ancestors = [video.parent, *video.parents]
-    try:
-        repo = repo_root.resolve()
-        ancestors = [
-            item for item in ancestors
-            if item == repo or repo in item.parents or item == video.parent
-        ]
-    except OSError:
-        pass
+
     for ancestor in ancestors:
-        if (ancestor / "contracts" / "episode-definition-v1.json").is_file():
+        if (
+            ancestor
+            / "contracts"
+            / "episode-definition-v1.json"
+        ).is_file():
             return ancestor
-        if (ancestor / "episode.json").is_file() and (ancestor / "script").is_dir():
+        if (
+            (ancestor / "episode.json").is_file()
+            and (ancestor / "script").is_dir()
+        ):
             return ancestor
+
     for ancestor in ancestors:
         marker_count = sum(
             (ancestor / name).is_dir()
-            for name in ("contracts", "script", "evidence", "deliverables", "orchestration")
+            for name in (
+                "contracts",
+                "script",
+                "evidence",
+                "deliverables",
+                "orchestration",
+            )
         )
         if marker_count >= 3:
             return ancestor
+
     return video.parent
+
 
 
 def _is_ignored(path: Path) -> bool:
@@ -939,7 +964,10 @@ def _find_audio_source(
     return selected, actual, (selected,)
 
 
-def _filter_evidence(source: Path, segments: Sequence[CanonicalTimedSegment], duration: float) -> tuple[Path | None, float | None]:
+def _filter_evidence_details(
+    source: Path,
+    segments: Sequence[CanonicalTimedSegment],
+) -> tuple[Path | None, float | None]:
     directories = (source.parent, source.parent.parent, source.parent.parent / "audio")
     for directory in directories:
         if not directory.is_dir():
@@ -957,11 +985,24 @@ def _filter_evidence(source: Path, segments: Sequence[CanonicalTimedSegment], du
             delays = [int(value) / 1000.0 for value in re.findall(r"adelay=(\d+)\|\1", text)]
             if trim_match is None or len(delays) != len(segments):
                 continue
-            if abs(float(trim_match.group(1)) - duration) > DURATION_TOLERANCE_SECONDS:
-                continue
             if all(abs(delay - segment.start_seconds) <= 0.005 for delay, segment in zip(delays, segments)):
-                return path, 0.0
+                return path, float(trim_match.group(1))
     return None, None
+
+
+def _filter_evidence(
+    source: Path,
+    segments: Sequence[CanonicalTimedSegment],
+    duration: float,
+) -> tuple[Path | None, float | None]:
+    path, source_duration = _filter_evidence_details(source, segments)
+    if (
+        path is None
+        or source_duration is None
+        or abs(source_duration - duration) > DURATION_TOLERANCE_SECONDS
+    ):
+        return None, None
+    return path, 0.0
 
 
 def _timebase_and_offset(
@@ -1000,6 +1041,297 @@ def _timebase_and_offset(
     if source.suffix.casefold() in TIMED_SUFFIXES:
         return "FINAL_VIDEO", 0.0, None
     raise LegacyTimingResolverError("TIMING_EVIDENCE_INSUFFICIENT", "TIMEBASE_OFFSET_UNPROVEN")
+
+
+def _final_video_edit_mapping(
+    records: Sequence[_EvidenceRecord],
+    *,
+    files: Sequence[Path],
+    video: Path,
+    video_sha: str,
+    root: Path,
+    repo_root: Path,
+    source_duration: float,
+    final_duration: float,
+) -> dict[str, Any] | None:
+    """Build a proven source-to-final-video timebase from local edit receipts.
+
+    This is intentionally evidence-driven.  It admits only a final manifest
+    bound to the selected video, an editorial source/output receipt, and an
+    explicit sequence conform map.  It never derives a map from storyboard
+    durations or from a filename/version preference.
+    """
+
+    final_matches: list[tuple[_EvidenceRecord, Mapping[str, Any]]] = []
+    for record in records:
+        for mapping in _walk_mappings(record.value):
+            raw_hash = mapping.get("final_sha256")
+            if isinstance(raw_hash, str) and raw_hash.casefold() == video_sha.casefold():
+                final_matches.append((record, mapping))
+    if not final_matches:
+        return None
+    if len(final_matches) > 1:
+        paths = {record.path for record, _mapping in final_matches}
+        if len(paths) != 1:
+            raise LegacyTimingResolverError(
+                "TIMING_SOURCE_AMBIGUOUS", "FINAL_VIDEO_MANIFEST_AMBIGUOUS"
+            )
+    final_record, final_manifest = final_matches[0]
+
+    source_manifest_raw = final_manifest.get("episode_source")
+    source_manifest_path = _resolve_path(
+        source_manifest_raw,
+        record_path=final_record.path,
+        root=root,
+        repo_root=repo_root,
+    )
+    source_manifest_key = (
+        str(source_manifest_raw).replace("\\", "/").casefold()
+        if isinstance(source_manifest_raw, str)
+        else ""
+    )
+
+    summary_matches: list[tuple[_EvidenceRecord, Mapping[str, Any]]] = []
+    for record in records:
+        for mapping in _walk_mappings(record.value):
+            required = (
+                "source_duration_seconds",
+                "output_duration_seconds",
+                "source_master",
+                "source_master_sha256",
+                "output_master",
+                "output_master_sha256",
+            )
+            if not all(key in mapping for key in required):
+                continue
+            output_raw = mapping.get("output_master")
+            output_key = (
+                str(output_raw).replace("\\", "/").casefold()
+                if isinstance(output_raw, str)
+                else ""
+            )
+            output_path = _resolve_path(
+                output_raw,
+                record_path=record.path,
+                root=root,
+                repo_root=repo_root,
+            )
+            if (
+                source_manifest_path is not None
+                and output_path is not None
+                and output_path == source_manifest_path
+            ) or (source_manifest_key and output_key == source_manifest_key):
+                summary_matches.append((record, mapping))
+    if not summary_matches:
+        return None
+    if len(summary_matches) != 1:
+        raise LegacyTimingResolverError(
+            "TIMING_SOURCE_AMBIGUOUS", "EDITORIAL_SOURCE_OUTPUT_RECEIPT_AMBIGUOUS"
+        )
+    summary_record, summary = summary_matches[0]
+
+    try:
+        declared_source_duration = float(summary["source_duration_seconds"])
+        declared_output_duration = float(summary["output_duration_seconds"])
+    except (TypeError, ValueError) as exc:
+        raise LegacyTimingResolverError(
+            "TIMING_EVIDENCE_INSUFFICIENT", "EDIT_RECEIPT_DURATION_INVALID"
+        ) from exc
+    if abs(declared_source_duration - source_duration) > DURATION_TOLERANCE_SECONDS:
+        raise LegacyTimingResolverError(
+            "TIMING_SOURCE_STALE", "SOURCE_TIMELINE_DURATION_MISMATCH"
+        )
+
+    source_master = _resolve_path(
+        summary.get("source_master"),
+        record_path=summary_record.path,
+        root=root,
+        repo_root=repo_root,
+    )
+    output_master = _resolve_path(
+        summary.get("output_master"),
+        record_path=summary_record.path,
+        root=root,
+        repo_root=repo_root,
+    )
+    for path, expected_key, stale_code in (
+        (source_master, "source_master_sha256", "SOURCE_MASTER_HASH_MISMATCH"),
+        (output_master, "output_master_sha256", "EDITED_MASTER_HASH_MISMATCH"),
+    ):
+        expected = summary.get(expected_key)
+        if path is None or not path.is_file() or not isinstance(expected, str):
+            raise LegacyTimingResolverError(
+                "TIMING_EVIDENCE_INSUFFICIENT", f"EDIT_RECEIPT_PATH_REQUIRED:{expected_key}"
+            )
+        if _sha256_file(path).casefold() != expected.casefold():
+            raise LegacyTimingResolverError("TIMING_SOURCE_STALE", stale_code)
+    if output_master is not None and source_manifest_path is not None and output_master != source_manifest_path:
+        raise LegacyTimingResolverError(
+            "TIMING_SOURCE_AMBIGUOUS", "FINAL_EPISODE_SOURCE_MISMATCH"
+        )
+
+    sequence_records: list[tuple[_EvidenceRecord, Sequence[Any]]] = []
+    for record in records:
+        if "sequence" not in record.path.name.casefold() or "conform" not in record.path.name.casefold():
+            continue
+        if not isinstance(record.value, Sequence) or isinstance(record.value, (str, bytes, bytearray)):
+            continue
+        if record.value and all(
+            isinstance(item, Mapping)
+            and all(key in item for key in ("sequence", "start", "new_end", "new_duration"))
+            for item in record.value
+        ):
+            sequence_records.append((record, record.value))
+    if len(sequence_records) != 1:
+        if not sequence_records:
+            return None
+        raise LegacyTimingResolverError(
+            "TIMING_SOURCE_AMBIGUOUS", "SEQUENCE_CONFORM_RECEIPT_AMBIGUOUS"
+        )
+    sequence_record, raw_sequences = sequence_records[0]
+    normalized: list[dict[str, Any]] = []
+    for raw in raw_sequences:
+        try:
+            sequence = int(raw["sequence"])
+            start = float(raw["start"])
+            new_end = float(raw["new_end"])
+            new_duration = float(raw["new_duration"])
+        except (TypeError, ValueError) as exc:
+            raise LegacyTimingResolverError(
+                "TIMING_EVIDENCE_INSUFFICIENT", "SEQUENCE_CONFORM_VALUE_INVALID"
+            ) from exc
+        if sequence < 1 or start < 0 or new_end <= start or new_duration <= 0:
+            raise LegacyTimingResolverError(
+                "TIMING_EVIDENCE_INSUFFICIENT", "SEQUENCE_CONFORM_RANGE_INVALID"
+            )
+        if abs((new_end - start) - new_duration) > DURATION_TOLERANCE_SECONDS:
+            raise LegacyTimingResolverError(
+                "TIMING_EVIDENCE_INSUFFICIENT", "SEQUENCE_CONFORM_DURATION_INCONSISTENT"
+            )
+        normalized.append(
+            {
+                "sequence": sequence,
+                "source_start": start,
+                "source_end": new_end,
+                "target_start": 0.0,
+                "target_end": 0.0,
+                "target_duration": new_duration,
+            }
+        )
+    normalized.sort(key=lambda item: item["sequence"])
+    if not normalized or normalized[0]["source_start"] > DURATION_TOLERANCE_SECONDS:
+        raise LegacyTimingResolverError(
+            "TIMING_EVIDENCE_INSUFFICIENT", "SEQUENCE_CONFORM_SOURCE_START_INVALID"
+        )
+    cursor = 0.0
+    previous_end = None
+    for item in normalized:
+        if previous_end is not None and item["source_start"] < previous_end - DURATION_TOLERANCE_SECONDS:
+            raise LegacyTimingResolverError(
+                "TIMING_EVIDENCE_INSUFFICIENT", "SEQUENCE_CONFORM_SOURCE_OVERLAP"
+            )
+        item["target_start"] = cursor
+        cursor += item["target_duration"]
+        item["target_end"] = cursor
+        previous_end = item["source_end"]
+    if abs(cursor - declared_output_duration) > DURATION_TOLERANCE_SECONDS:
+        raise LegacyTimingResolverError(
+            "TIMING_SOURCE_STALE", "SEQUENCE_CONFORM_OUTPUT_DURATION_MISMATCH"
+        )
+
+    try:
+        parts = final_manifest["part_durations_seconds"]
+        cold_open = float(parts["cold_open"])
+        intro = float(parts["intro"])
+        continuation = float(parts["episode_continuation"])
+        outro = float(parts["outro"])
+        declared_final_duration = float(final_manifest["final_duration_seconds"])
+    except (KeyError, TypeError, ValueError) as exc:
+        raise LegacyTimingResolverError(
+            "TIMING_EVIDENCE_INSUFFICIENT", "FINAL_PACKAGING_TIMELINE_REQUIRED"
+        ) from exc
+    if (
+        abs(cold_open - normalized[0]["target_duration"]) > DURATION_TOLERANCE_SECONDS
+        or abs(continuation - sum(item["target_duration"] for item in normalized[1:]))
+        > DURATION_TOLERANCE_SECONDS
+        or abs(cold_open + intro + continuation + outro - declared_final_duration)
+        > DURATION_TOLERANCE_SECONDS
+        or abs(declared_final_duration - final_duration) > DURATION_TOLERANCE_SECONDS
+    ):
+        raise LegacyTimingResolverError(
+            "TIMING_SOURCE_STALE", "FINAL_PACKAGING_TIMELINE_MISMATCH"
+        )
+
+    evidence = tuple(
+        dict.fromkeys(
+            path.resolve()
+            for path in (
+                final_record.path,
+                summary_record.path,
+                sequence_record.path,
+                source_master,
+                output_master,
+            )
+            if path is not None and path.is_file()
+        )
+    )
+    return {
+        "source_duration_seconds": declared_source_duration,
+        "edited_duration_seconds": declared_output_duration,
+        "final_duration_seconds": declared_final_duration,
+        "intro_offset_seconds": intro,
+        "sequences": tuple(normalized),
+        "evidence_paths": evidence,
+    }
+
+
+def _remap_segments_to_final_video(
+    segments: Sequence[CanonicalTimedSegment],
+    *,
+    mapping: Mapping[str, Any],
+    final_duration: float,
+) -> tuple[CanonicalTimedSegment, ...]:
+    sequences = tuple(mapping["sequences"])
+    intro_offset = float(mapping["intro_offset_seconds"])
+
+    def map_time(value: float, *, end_point: bool) -> float | None:
+        for index, item in enumerate(sequences):
+            source_start = float(item["source_start"])
+            source_end = float(item["source_end"])
+            if end_point:
+                inside = source_start - 1e-6 <= value <= source_end + 1e-6
+            else:
+                inside = source_start - 1e-6 <= value < source_end - 1e-6
+                if index == len(sequences) - 1:
+                    inside = source_start - 1e-6 <= value <= source_end + 1e-6
+            if not inside:
+                continue
+            ratio = float(item["target_duration"]) / (source_end - source_start)
+            local = min(max(value, source_start), source_end) - source_start
+            mapped = float(item["target_start"]) + local * ratio
+            if index > 0:
+                mapped += intro_offset
+            return mapped
+        return None
+
+    transformed: list[CanonicalTimedSegment] = []
+    for segment in segments:
+        start = map_time(segment.start_seconds, end_point=False)
+        end = map_time(segment.end_seconds, end_point=True)
+        if start is None or end is None:
+            raise LegacyTimingResolverError(
+                "TIMING_EVIDENCE_INSUFFICIENT",
+                f"FINAL_VIDEO_TIMEBASE_UNMAPPED:{segment.segment_id}",
+            )
+        if end <= start or end > final_duration + DURATION_TOLERANCE_SECONDS:
+            raise LegacyTimingResolverError(
+                "TIMING_EVIDENCE_INSUFFICIENT",
+                f"FINAL_VIDEO_TIMEBASE_INVALID:{segment.segment_id}",
+            )
+        transformed.append(
+            CanonicalTimedSegment(segment.segment_id, start, end, segment.text)
+        )
+    return tuple(transformed)
 
 
 def _validate_segments(
@@ -1232,6 +1564,7 @@ def _candidate_from_source(
     root: Path,
     repo_root: Path,
     duration: float,
+    video_sha: str | None = None,
     fingerprint_cache: dict[Path, str] | None = None,
 ) -> TimingCandidate | None:
     source_record = next((record for record in records if record.path == source), None)
@@ -1257,21 +1590,6 @@ def _candidate_from_source(
     source_hash = _sha256_file(source)
     if declared_timing_hash is not None and declared_timing_hash != source_hash:
         raise LegacyTimingResolverError("TIMING_SOURCE_STALE", f"TIMING_HASH_MISMATCH:{source}")
-    audio_path, audio_hash, audio_evidence = _find_audio_source(
-        source,
-        video=video,
-        records=records,
-        bound=bound_records,
-        root=root,
-        repo_root=repo_root,
-    )
-    if audio_hash is None:
-        raise LegacyTimingResolverError("TIMING_EVIDENCE_INSUFFICIENT", f"AUDIO_SOURCE_REQUIRED:{source}")
-    declared_audio_hash = _declared_hash_for_path(
-        records, audio_path, root=root, repo_root=repo_root, audio=True
-    )
-    if declared_audio_hash is not None and declared_audio_hash != audio_hash:
-        raise LegacyTimingResolverError("TIMING_SOURCE_STALE", f"AUDIO_HASH_MISMATCH:{audio_path}")
     script_path, script_hash, script_evidence = _script_source(
         records,
         root=root,
@@ -1293,17 +1611,87 @@ def _candidate_from_source(
             raise LegacyTimingResolverError(
                 "TIMING_SOURCE_STALE", f"SCRIPT_HASH_MISMATCH:{script_path}"
             )
-    actual_duration = duration
-    source_duration = _find_duration(source_record.value if source_record is not None else None)
-    if source_duration is not None and abs(source_duration - duration) <= DURATION_TOLERANCE_SECONDS:
-        actual_duration = source_duration
-    timebase, offset, filter_path = _timebase_and_offset(
-        source_record.value if source_record is not None else {},
-        source=source,
-        segments=segments,
-        duration=actual_duration,
+
+    filter_path, filter_duration = _filter_evidence_details(source, segments)
+    source_duration = filter_duration or _find_duration(
+        source_record.value if source_record is not None else None
     )
-    transformed = _validate_segments(segments, duration=actual_duration, offset=offset)
+    timeline_duration = source_duration or duration
+    selected_video_sha = video_sha or _sha256_file(video)
+    edit_mapping = None
+    if (
+        source_duration is not None
+        and abs(source_duration - duration) > DURATION_TOLERANCE_SECONDS
+        and source.suffix.casefold() not in TIMED_SUFFIXES
+    ):
+        edit_mapping = _final_video_edit_mapping(
+            records,
+            files=(),
+            video=video,
+            video_sha=selected_video_sha,
+            root=root,
+            repo_root=repo_root,
+            source_duration=timeline_duration,
+            final_duration=duration,
+        )
+
+    if edit_mapping is not None:
+        if filter_path is None:
+            raise LegacyTimingResolverError(
+                "TIMING_EVIDENCE_INSUFFICIENT", "SOURCE_TIMELINE_FILTER_REQUIRED"
+            )
+        timebase, offset, _ = _timebase_and_offset(
+            source_record.value if source_record is not None else {},
+            source=source,
+            segments=segments,
+            duration=timeline_duration,
+        )
+        source_validated = _validate_segments(
+            segments, duration=timeline_duration, offset=offset
+        )
+        transformed = _remap_segments_to_final_video(
+            source_validated,
+            mapping=edit_mapping,
+            final_duration=duration,
+        )
+        actual_duration = duration
+        timebase = "FINAL_VIDEO_EDIT_REMAP"
+        offset = 0.0
+        audio_path = video
+        audio_hash = selected_video_sha
+        audio_evidence: tuple[Path, ...] = ()
+        mapping_evidence = tuple(edit_mapping["evidence_paths"])
+    else:
+        audio_path, audio_hash, audio_evidence = _find_audio_source(
+            source,
+            video=video,
+            records=records,
+            bound=bound_records,
+            root=root,
+            repo_root=repo_root,
+        )
+        if audio_hash is None:
+            raise LegacyTimingResolverError(
+                "TIMING_EVIDENCE_INSUFFICIENT", f"AUDIO_SOURCE_REQUIRED:{source}"
+            )
+        declared_audio_hash = _declared_hash_for_path(
+            records, audio_path, root=root, repo_root=repo_root, audio=True
+        )
+        if declared_audio_hash is not None and declared_audio_hash != audio_hash:
+            raise LegacyTimingResolverError("TIMING_SOURCE_STALE", f"AUDIO_HASH_MISMATCH:{audio_path}")
+        actual_duration = duration
+        if source_duration is not None and abs(source_duration - duration) <= DURATION_TOLERANCE_SECONDS:
+            actual_duration = source_duration
+        timebase, offset, discovered_filter_path = _timebase_and_offset(
+            source_record.value if source_record is not None else {},
+            source=source,
+            segments=segments,
+            duration=actual_duration,
+        )
+        if filter_path is None:
+            filter_path = discovered_filter_path
+        transformed = _validate_segments(segments, duration=actual_duration, offset=offset)
+        mapping_evidence = ()
     audio_binding = _audio_binding(
         video,
         audio_path,
@@ -1315,6 +1703,7 @@ def _candidate_from_source(
     evidence = [source, *audio_evidence, *script_evidence]
     if filter_path is not None:
         evidence.append(filter_path)
+    evidence.extend(mapping_evidence)
     evidence.extend(
         record.path for record in bound_records if record.path.suffix.casefold() == JSON_SUFFIX
     )
@@ -1371,20 +1760,27 @@ def _discover_candidates(
         elif suffix == JSON_SUFFIX:
             record = next((item for item in records if item.path == path), None)
             if record is None or record.parse_error is not None:
-                if any(token in path.name.casefold() for token in ("timing", "timeline", "transcript", "subtitle", "cue")):
+                if any(
+                    token in path.name.casefold()
+                    for token in ("timing", "timeline", "transcript", "subtitle", "cue")
+                ):
                     candidate_paths.append(path)
                 continue
             classification = _classify_json(
                 record.value,
                 path,
-                authority_hint=_json_authority_hint(records, path, root=root, repo_root=repo_root),
+                authority_hint=_json_authority_hint(
+                    records, path, root=root, repo_root=repo_root
+                ),
             )
             if classification is None:
                 continue
             if (
                 _record_references_path(record, video, root=root, repo_root=repo_root)
                 or any(
-                    _record_references_path(item, path, root=root, repo_root=repo_root)
+                    _record_references_path(
+                        item, path, root=root, repo_root=repo_root
+                    )
                     for item in bound_records
                 )
                 or (classification[0] == 3 and bound_records)
@@ -1400,10 +1796,11 @@ def _discover_candidates(
                 records=records,
                 bound_records=bound_records,
                 episode_id=episode_id,
-                video=video,
                 root=root,
                 repo_root=repo_root,
+                video=video,
                 duration=duration,
+                video_sha=video_sha,
                 fingerprint_cache=fingerprint_cache,
             )
         except LegacyTimingResolverError as exc:
@@ -1412,25 +1809,127 @@ def _discover_candidates(
         if candidate is not None:
             candidates.append(candidate)
     if not candidates:
-        stale = next((error for error in errors if error.code == "TIMING_SOURCE_STALE"), None)
+        stale = next(
+            (error for error in errors if error.code == "TIMING_SOURCE_STALE"),
+            None,
+        )
         if stale is not None:
             raise stale
         if errors:
             raise errors[0]
-        raise LegacyTimingResolverError("TIMING_EVIDENCE_INSUFFICIENT", "NO_TRUSTED_TIMING_SOURCE")
+        raise LegacyTimingResolverError(
+            "TIMING_EVIDENCE_INSUFFICIENT", "NO_TRUSTED_TIMING_SOURCE"
+        )
     return tuple(candidates)
 
 
-def _select_candidate(candidates: Sequence[TimingCandidate]) -> TimingCandidate:
-    minimum = min(candidate.authority_level for candidate in candidates)
-    same_level = [candidate for candidate in candidates if candidate.authority_level == minimum]
-    explicit = [candidate for candidate in same_level if candidate.canonical_explicit]
+
+def _select_candidate(
+    candidates: Sequence[TimingCandidate],
+) -> TimingCandidate:
+    if not candidates:
+        raise LegacyTimingResolverError(
+            "TIMING_EVIDENCE_INSUFFICIENT",
+            "NO_TRUSTED_TIMING_CANDIDATE",
+        )
+
+    explicit = [
+        candidate
+        for candidate in candidates
+        if candidate.canonical_explicit
+    ]
     if len(explicit) == 1:
         return explicit[0]
-    if len(same_level) != 1:
-        paths = ",".join(str(candidate.timing_source_path) for candidate in same_level)
-        raise LegacyTimingResolverError("TIMING_SOURCE_AMBIGUOUS", paths)
-    return same_level[0]
+    if len(explicit) > 1:
+        candidates = tuple(explicit)
+
+    best_level = min(
+        candidate.authority_level
+        for candidate in candidates
+    )
+    best = [
+        candidate
+        for candidate in candidates
+        if candidate.authority_level == best_level
+    ]
+    if len(best) == 1:
+        return best[0]
+
+    # Multiple files may be byte-different wrappers around the exact same
+    # timing contract. Such duplicates are not an evidence conflict.
+    def semantic_signature(
+        candidate: TimingCandidate,
+    ) -> str:
+        payload = {
+            "authority_level": candidate.authority_level,
+            "source_type": candidate.source_type,
+            "canonical_explicit": candidate.canonical_explicit,
+            "segments": [
+                {
+                    "id": segment.segment_id,
+                    "start": round(segment.start_seconds, 6),
+                    "end": round(segment.end_seconds, 6),
+                    "text": segment.text,
+                }
+                for segment in candidate.segments
+            ],
+            "source_audio_sha256": candidate.source_audio_sha256,
+            "timebase": candidate.timebase,
+            "offset_seconds": round(
+                candidate.offset_seconds,
+                6,
+            ),
+        }
+        return _sha256_bytes(_canonical_bytes(payload))
+
+    signatures = {
+        semantic_signature(candidate)
+        for candidate in best
+    }
+    if len(signatures) != 1:
+        raise LegacyTimingResolverError(
+            "TIMING_SOURCE_AMBIGUOUS",
+            "MULTIPLE_SAME_LEVEL_SOURCES:"
+            + "|".join(
+                str(candidate.timing_source_path)
+                for candidate in sorted(
+                    best,
+                    key=lambda item: str(
+                        item.timing_source_path
+                    ).casefold(),
+                )
+            ),
+        )
+
+    def deterministic_rank(
+        candidate: TimingCandidate,
+    ) -> tuple[int, int, str]:
+        name = candidate.timing_source_path.name.casefold()
+        score = 0
+        for token, weight in (
+            ("canonical", 30),
+            ("absolute-timeline", 25),
+            ("final", 20),
+            ("repair", 10),
+        ):
+            if token in name:
+                score += weight
+        versions = [
+            int(number)
+            for number in re.findall(r"v(\d+)", name)
+        ]
+        return (
+            score,
+            max(versions or [0]),
+            str(candidate.timing_source_path).casefold(),
+        )
+
+    return sorted(
+        best,
+        key=deterministic_rank,
+        reverse=True,
+    )[0]
+
 
 
 def _episode_identity(

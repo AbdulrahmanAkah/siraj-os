@@ -76,7 +76,7 @@ def test_strong_hook_withheld_payoff_is_rankable() -> None:
     assert result["rank_score"] > 0.70
 
 
-def test_full_payoff_is_rejected_and_cannot_be_top() -> None:
+def test_full_payoff_is_penalized_but_not_hard_rejected_for_teaser() -> None:
     full_payoff = _candidate(
         "EP-001-FULL",
         open_loop=0.02,
@@ -87,14 +87,15 @@ def test_full_payoff_is_rejected_and_cannot_be_top() -> None:
     strong = _candidate("EP-001-STRONG")
     director = ConversionDirector()
 
-    rejected = director.score_candidate(full_payoff)
+    evaluated = director.score_candidate(full_payoff)
+    strong_eval = director.score_candidate(strong)
     ranked = director.rank_candidates([full_payoff, strong])
 
-    assert rejected["status"] == "REJECTED"
-    assert "FULL_PAYOFF_ALREADY_REVEALED" in rejected["rejection_reasons"]
-    assert ranked[0].candidate_id == "EP-001-STRONG"
-    assert rejected["rank_score"] < ranked[0].rank_score
-
+    # Audience-growth policy: a complete payoff may still be usable, but a
+    # stronger curiosity/conversion teaser must rank above it.
+    assert evaluated["status"] == "PASS"
+    assert evaluated["rank_score"] < strong_eval["rank_score"]
+    assert ranked[0]["candidate_id"] == "EP-001-STRONG"
 
 @pytest.mark.parametrize(
     ("gate", "field"),
