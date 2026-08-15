@@ -1,0 +1,97 @@
+{
+  "freeze_id": "EP002_AUDIO_FREEZE_V1",
+  "status": "PASS_EP002_AUDIO_FREEZE",
+  "episode_id": "episode-002-adam-temptation-fall-repentance",
+  "constitution": {
+    "id": "SIRAJ_UNIFIED_PRODUCTION_CONSTITUTION",
+    "version": "1.2.0",
+    "bundle_manifest_sha256": "b390d8a61382ece4e8daeb5993fc89bb013a9b74cd8d06b2fb6e41f0b7d001d5"
+  },
+  "pr01_resume": {
+    "commit": "8376ba5b8c26b20e34782a158609f8f03b2340c0",
+    "certification_path": "reports/pr01-production-readiness/SIRAJ_PR01_CONSTITUTION_1_2_RESUME_CERTIFICATION_V1.json",
+    "certification_sha256": "e43a53f70f74ee7cbb1bfc2aa3b71e545a04eb6f2c4c6bec739176431d04f3b2"
+  },
+  "narration_master": {
+    "path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/montage-v6-2-1/narration-master-v6-2-1.wav",
+    "sha256": "1ac040b13db40b2aef87625bcd476d905a3157833d6ffb62de1e2ef0f2ec97a4",
+    "bytes": 179571300,
+    "duration_seconds": 623.511104,
+    "duration_tool": "C:\\Users\\abdul\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg.Shared_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-8.1.2-full_build-shared\\bin\\ffprobe.EXE",
+    "authority_docs": [
+      {
+        "path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/ep002-surgical-visual-repair-preproduction-v1.json",
+        "sha256": "f1f934e6f48b7c54c7f42bef2240a106e1a30da6701be95d955e2ecb8bbe82ff",
+        "master_reference": "projects/episode-002-adam-temptation-fall-repentance/orchestration/montage-v6-2-1/narration-master-v6-2-1.wav"
+      },
+      {
+        "path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/ep002-surgical-visual-repair-preproduction-v2.json",
+        "sha256": "c6816bc07c4ba629d54fff99f52942cfca3b1a60f48338aca341aff402fc00ac",
+        "master_reference": "projects/episode-002-adam-temptation-fall-repentance/orchestration/montage-v6-2-1/narration-master-v6-2-1.wav"
+      },
+      {
+        "path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/ep002-surgical-visual-repair-preproduction-v2-1.json",
+        "sha256": "df12d70cac19fba5b668223994c0fd3c51e655c8177135ea443d568f3c710720",
+        "master_reference": "projects/episode-002-adam-temptation-fall-repentance/orchestration/montage-v6-2-1/narration-master-v6-2-1.wav"
+      },
+      {
+        "path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/ep002-surgical-visual-repair-preproduction-v2-2.json",
+        "sha256": "b4703a018386ca8e1bc8f324ee3d8285a9e940f945a0782afbc63ac04255bfbb",
+        "master_reference": "projects/episode-002-adam-temptation-fall-repentance/orchestration/montage-v6-2-1/narration-master-v6-2-1.wav"
+      }
+    ],
+    "supporting_duration_docs": [
+      {
+        "path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/ep002-surgical-visual-repair-preproduction-v2-3.json",
+        "sha256": "5fc7d3e14e453daabd4ad26cff90636928c86bf5ea52a991c4ba79b2d5315730",
+        "supports_master_duration_623_511": true
+      },
+      {
+        "path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/ep002-surgical-visual-repair-preproduction-v2-4.json",
+        "sha256": "f123f4cf62cc7ec4dccfcbabd741277c0e8fcdb748da5462804c7142ee5d6f63",
+        "supports_master_duration_623_511": true
+      },
+      {
+        "path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/visual-repair-preproduction-state-v2-2.json",
+        "sha256": "785c89c41f23b4eb20819864250213bead4fa5d1fd9f08d0434ef33b13a15a83",
+        "supports_master_duration_623_511": true
+      },
+      {
+        "path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/final-qa-technical-validation-v7.json",
+        "sha256": "2cb06a10b5bda82173d2950d4dc7f5ec7364f0faecd51985423596507296e7db",
+        "supports_master_duration_623_511": true
+      }
+    ],
+    "timeline_declared_duration_seconds": 623.584,
+    "duration_difference_retained_as_evidence_seconds": 0.0728959999999006,
+    "selection_basis": "EXPLICIT_AUDIO_AUTHORITY_FILE_BINDING_IN_MULTIPLE_EP002_PREPRODUCTION_ARTIFACTS_PLUS_MATCHING_ACCEPTED_MASTER_DURATION",
+    "bytes_modified_by_freeze": false,
+    "freeze_semantics": "BIND_EXISTING_ACCEPTED_MASTER_BYTES"
+  },
+  "invalidation_basis": [
+    "CONSTITUTION_BUNDLE_CHANGED",
+    "NARRATION_MASTER_BINDING_ESTABLISHED"
+  ],
+  "downstream_state": {
+    "TIMELINE": "REVALIDATION_REQUIRED",
+    "STORYBOARD_TIMING": "REVALIDATION_REQUIRED",
+    "PROMPT_TIMING": "REVALIDATION_REQUIRED",
+    "COST_ESTIMATE": "REVALIDATION_REQUIRED",
+    "PILOT_APPROVAL": "REVALIDATION_REQUIRED",
+    "PAID_AUTHORIZATION": "REVALIDATION_REQUIRED",
+    "MONTAGE_APPROVAL": "REVALIDATION_REQUIRED",
+    "FINAL_CERTIFICATION": "REVALIDATION_REQUIRED"
+  },
+  "timeline_duration_discrepancy": {
+    "status": "RETAINED_AS_EVIDENCE_NOT_SILENTLY_REWRITTEN",
+    "master_duration_seconds": 623.511104,
+    "timeline_declared_duration_seconds": 623.584,
+    "difference_seconds": 0.0728959999999006
+  },
+  "r27_recertification_started": false,
+  "provider_calls": 0,
+  "network_production_calls": 0,
+  "paid_calls": 0,
+  "publication": 0,
+  "next_stage": "EP002_R27_RECERTIFICATION"
+}

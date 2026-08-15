@@ -3220,3 +3220,26 @@ NEXT=SUPPLY_OR_SELECT_TRUSTED_WORD_OR_PHRASE_TIMING_FOR_EP001_THEN_RERUN_CAPTION
 - Publication: `0`
 - Resume certification SHA256: `e43a53f70f74ee7cbb1bfc2aa3b71e545a04eb6f2c4c6bec739176431d04f3b2`
 - Next stage: `EP002_AUDIO_FREEZE`
+
+## SIRAJ_EP002_AUDIO_FREEZE_V1
+
+- Date: 2026-08-16
+- Status: `PASS_EP002_AUDIO_FREEZE`
+- Episode: `episode-002-adam-temptation-fall-repentance`
+- Constitution version: `1.2.0`
+- Constitution bundle SHA256: `b390d8a61382ece4e8daeb5993fc89bb013a9b74cd8d06b2fb6e41f0b7d001d5`
+- PR01 resume commit: `8376ba5b8c26b20e34782a158609f8f03b2340c0`
+- Frozen narration master: `projects/episode-002-adam-temptation-fall-repentance/orchestration/montage-v6-2-1/narration-master-v6-2-1.wav`
+- Frozen narration master SHA256: `1ac040b13db40b2aef87625bcd476d905a3157833d6ffb62de1e2ef0f2ec97a4`
+- Frozen narration duration seconds: `623.5111041666667`
+- Timeline declared duration seconds: `623.584`
+- Duration difference retained as evidence seconds: `0.0728958333332912`
+- Audio freeze manifest SHA256: `31c55d50726ac8a16d9b9f72986ed2343254829827b552c9cbdb7957aac424ac`
+- Narration bytes modified by freeze: `false`
+- Timeline/storyboard timing/prompt timing/cost/pilot/paid/montage/final certification: `REVALIDATION_REQUIRED`
+- R27 recertification started: `false`
+- Provider calls: `0`
+- Network production calls: `0`
+- Paid calls: `0`
+- Publication: `0`
+- Next stage: `EP002_R27_RECERTIFICATION`

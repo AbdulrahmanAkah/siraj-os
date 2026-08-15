@@ -1,0 +1,58 @@
+{
+  "ledger_id": "EP002_AUDIO_FREEZE_INVALIDATION_LEDGER_V1",
+  "status": "ACTIVE",
+  "episode_id": "episode-002-adam-temptation-fall-repentance",
+  "constitution_version": "1.2.0",
+  "constitution_bundle_sha256": "b390d8a61382ece4e8daeb5993fc89bb013a9b74cd8d06b2fb6e41f0b7d001d5",
+  "frozen_narration_master_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/montage-v6-2-1/narration-master-v6-2-1.wav",
+  "frozen_narration_master_sha256": "1ac040b13db40b2aef87625bcd476d905a3157833d6ffb62de1e2ef0f2ec97a4",
+  "frozen_narration_master_duration_seconds": 623.511104,
+  "basis": [
+    "CONSTITUTION_BUNDLE_CHANGED",
+    "NARRATION_MASTER_BINDING_ESTABLISHED"
+  ],
+  "invalidated_or_revalidation_required": [
+    {
+      "artifact_class": "TIMELINE",
+      "state": "REVALIDATION_REQUIRED"
+    },
+    {
+      "artifact_class": "STORYBOARD_TIMING",
+      "state": "REVALIDATION_REQUIRED"
+    },
+    {
+      "artifact_class": "PROMPT_TIMING",
+      "state": "REVALIDATION_REQUIRED"
+    },
+    {
+      "artifact_class": "COST_ESTIMATE",
+      "state": "REVALIDATION_REQUIRED"
+    },
+    {
+      "artifact_class": "PILOT_APPROVAL",
+      "state": "REVALIDATION_REQUIRED"
+    },
+    {
+      "artifact_class": "PAID_AUTHORIZATION",
+      "state": "REVALIDATION_REQUIRED"
+    },
+    {
+      "artifact_class": "MONTAGE_APPROVAL",
+      "state": "REVALIDATION_REQUIRED"
+    },
+    {
+      "artifact_class": "FINAL_CERTIFICATION",
+      "state": "REVALIDATION_REQUIRED"
+    }
+  ],
+  "timeline_duration_discrepancy_retained": true,
+  "montage_allowed": false,
+  "final_certification_valid": false,
+  "paid_authorization_valid": false,
+  "provider_retry_authorized": false,
+  "r27_recertification_started": false,
+  "provider_calls": 0,
+  "network_production_calls": 0,
+  "paid_calls": 0,
+  "publication": 0
+}
