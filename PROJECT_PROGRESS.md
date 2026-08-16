@@ -3450,3 +3450,16 @@ NEXT=SUPPLY_OR_SELECT_TRUSTED_WORD_OR_PHRASE_TIMING_FOR_EP001_THEN_RERUN_CAPTION
 - No provider/network/paid/media-generation/publication calls were made by this implementation runner.
 - Existing media/candidate bytes and R27 classifications are unchanged.
 - Next stage: `SIRAJ_VISUAL_CONTEXT_RESEARCH_DESKTOP_PAID_INTEGRATION_V1`.
+
+## SIRAJ_VISUAL_CONTEXT_RESEARCH_DESKTOP_PAID_INTEGRATION_V1
+
+- Date: 2026-08-16
+- Scope: visual-context research only; narrator evidence extraction is unchanged.
+- Added `VISUAL_CONTEXT_RESEARCH` as an explicitly authorized paid Luna stage.
+- Added a Desktop-only preparation gate requiring a live visible `SirajDesktopWindow`, GUI-thread execution, and an explicit human confirmation click before paid authorization.
+- Paid authorization binds the exact visual-context provider-request SHA.
+- Added a dedicated Luna execution path using the strict visual-context research contract and raw Responses API output, so external source provenance comes from actual provider web-search sources / URL citations.
+- Existing valid dossiers are reused with zero provider calls; explicit refresh requires a reason and the executor archives the previous dossier.
+- Automatic paid retry and automatic resubmission remain forbidden.
+- Added `Research selected` to the canonical-reference Desktop dock.
+- This integration does not generate media, does not reclassify R27, and does not modify narrator research/evidence extraction.

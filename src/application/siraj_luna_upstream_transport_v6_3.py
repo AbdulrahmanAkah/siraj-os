@@ -30,6 +30,10 @@ from src.application.artifact_provenance_v1 import (
     is_currently_valid,
     write_new_json,
 )
+from src.application.openai_luna_visual_context_research_contract_v1 import (
+    build_openai_visual_research_request,
+    parse_openai_visual_research_response,
+)
 from src.application.paid_operation_gateway import (
     PaidOperationRequest,
     execute_json as execute_paid_json,
@@ -64,6 +68,7 @@ PAID_UPSTREAM_STAGES = {
 }
 
 PAID_LUNA_DOWNSTREAM_STAGES = {
+    "VISUAL_CONTEXT_RESEARCH",
     "AUDIO_BOUND_STORYBOARD",
     "LUNA_SEMANTIC_PROMPT_DIRECTION",
     "NARRATION_VISUAL_ALIGNMENT_GATE",
@@ -956,3 +961,189 @@ def execute_authorized_stage(
                task_uuid=attempt_id, actual_cost_usd=float(usage["base_text_cost_usd"]),
                status="COMPLETE")
     return output_path
+
+def execute_authorized_visual_context_research_stage(
+    repo_root: Path,
+    episode_id: str,
+    *,
+    input_payload: Mapping[str, Any],
+):
+    stage = "VISUAL_CONTEXT_RESEARCH"
+    if stage not in PAID_LUNA_STAGES:
+        raise LunaTransportV63Error("UNKNOWN_PAID_UPSTREAM_STAGE:" + stage)
+
+    repo = Path(repo_root).resolve()
+    auth_path = resolve_active_authorization_path(repo, episode_id, stage)
+    if not auth_path.is_file():
+        raise LunaTransportV63Error(
+            "EXPLICIT_PAID_AUTHORIZATION_REQUIRED:" + stage
+        )
+    auth = _read(auth_path)
+    input_sha = canonical_sha256(input_payload)
+    if (
+        auth.get("status") != "ACTIVE"
+        or auth.get("stage") != stage
+        or auth.get("input_sha256") != input_sha
+        or auth.get("automatic_retry") is not False
+    ):
+        raise LunaTransportV63Error(
+            "LUNA_STAGE_AUTHORIZATION_INVALID:" + stage
+        )
+
+    api_key = str(read_openai_api_key() or "").strip()
+    if not api_key:
+        raise LunaTransportV63Error("OPENAI_API_KEY_REQUIRED")
+
+    request_payload = build_openai_visual_research_request(input_payload)
+    request_payload["model"] = str(auth.get("model"))
+    validate_openai_responses_payload(request_payload)
+
+    canonical_request_identity_sha256 = build_paid_operation_identity(
+        episode_id=episode_id,
+        stage=stage,
+        operation_type="OPENAI_RESPONSES",
+        provider="OPENAI",
+        model=str(auth.get("model")),
+        provider_contract_version=PROVIDER_CONTRACT_VERSION,
+        payload=request_payload,
+        input_artifact_hashes={"stage_input": input_sha},
+        operation_nonce=input_sha,
+        authorization_mode="EPISODE_MASTER",
+    )
+    final_provider_payload_sha256 = provider_payload_sha256(
+        request_payload
+    )
+    retry_context = _resolve_explicit_paid_retry_v9(
+        repo,
+        episode_id,
+        stage,
+        request_payload,
+        canonical_request_identity_sha256=(
+            canonical_request_identity_sha256
+        ),
+        provider_payload_sha256_value=final_provider_payload_sha256,
+    )
+    attempt_id = (
+        str(retry_context["new_attempt_id"])
+        if retry_context
+        else str(uuid.uuid4())
+    )
+    auth_episode = (
+        "NEXT_NEW_EPISODE"
+        if episode_id == "episode-bootstrap-next"
+        else episode_id
+    )
+    paid_request = PaidOperationRequest(
+        repo_root=repo,
+        episode_id=episode_id,
+        stage=stage,
+        operation_type="OPENAI_RESPONSES",
+        provider="OPENAI",
+        model=str(auth.get("model")),
+        provider_contract_version=PROVIDER_CONTRACT_VERSION,
+        payload=request_payload,
+        input_artifact_hashes={"stage_input": input_sha},
+        master_authorization_reference=master_authorization_reference(
+            repo,
+            auth_episode,
+        ),
+        operation_nonce=input_sha,
+        attempt_id=attempt_id,
+        retry_authorization_reference=(
+            retry_context.get("authorization")
+            if retry_context
+            else None
+        ),
+        prior_attempt_id=(
+            retry_context.get("prior_attempt_id")
+            if retry_context
+            else None
+        ),
+    )
+
+    emit_event(
+        repo,
+        episode_id,
+        "LUNA_REQUEST_STARTED",
+        stage=stage,
+        provider="OPENAI",
+        model=str(auth.get("model")),
+        task_uuid=attempt_id,
+        status="TRANSPORT_STARTING",
+    )
+    paid_result, response_payload = execute_paid_json(
+        paid_request,
+        http_json_transport(
+            url=OPENAI_RESPONSES_URL,
+            method="POST",
+            payload=request_payload,
+            headers={
+                "Authorization": "Bearer " + api_key,
+                "Content-Type": "application/json",
+            },
+            timeout_seconds=600,
+        ),
+        telemetry=lambda event_type, payload: bool(
+            emit_event(
+                repo,
+                episode_id,
+                event_type,
+                stage=stage,
+                provider="OPENAI",
+                model=str(auth.get("model")),
+                task_uuid=attempt_id,
+                status=str(payload.get("status") or "COMPLETE"),
+            ).get("telemetry_persisted", False)
+        ),
+    )
+    emit_event(
+        repo,
+        episode_id,
+        "LUNA_RESPONSE_RECEIVED",
+        stage=stage,
+        provider="OPENAI",
+        model=str(auth.get("model")),
+        task_uuid=attempt_id,
+        status="RESULT_PERSISTED",
+    )
+
+    result = parse_openai_visual_research_response(response_payload)
+    usage = _usage(response_payload)
+    ledger_path = (
+        repo
+        / "projects"
+        / episode_id
+        / "orchestration"
+        / "luna-v6-3"
+        / "attempt-ledger.jsonl"
+    )
+    _append_jsonl(
+        ledger_path,
+        {
+            "episode_id": episode_id,
+            "stage": stage,
+            "attempt_id": attempt_id,
+            "gateway_attempt_id": paid_result.attempt_id,
+            "response_id": response_payload.get("id"),
+            "status": "COMPLETE",
+            "model": auth.get("model"),
+            **usage,
+            "web_search_calls": result.web_search_calls,
+            "cited_url_count": len(result.cited_urls),
+            "automatic_retry": False,
+            "automatic_resubmission": False,
+            "timestamp_utc": _now(),
+        },
+    )
+    emit_event(
+        repo,
+        episode_id,
+        "TASK_COMPLETED",
+        stage=stage,
+        provider="OPENAI",
+        model=str(auth.get("model")),
+        task_uuid=attempt_id,
+        actual_cost_usd=float(usage["base_text_cost_usd"]),
+        status="COMPLETE",
+    )
+    return result

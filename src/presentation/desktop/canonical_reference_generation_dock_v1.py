@@ -34,6 +34,12 @@ from src.application.desktop_canonical_reference_generation_v1 import (
 )
 
 
+from src.application.visual_context_research_desktop_paid_integration_v1 import (
+    execute_prepared_visual_context_research,
+    prepare_visual_context_research_from_desktop,
+    visual_context_dossier_location,
+)
+
 class ReferenceGenerationThread(QThread):
     completed = Signal(object)
     failed = Signal(str)
@@ -53,6 +59,27 @@ class ReferenceGenerationThread(QThread):
             self.failed.emit(str(exc))
             return
         self.completed.emit(result)
+
+
+class VisualContextResearchThread(QThread):
+    succeeded = Signal(object)
+    failed = Signal(str)
+
+    def __init__(self, repo_root: Path, plan) -> None:
+        super().__init__()
+        self.repo_root = Path(repo_root)
+        self.plan = plan
+
+    def run(self) -> None:
+        try:
+            result = execute_prepared_visual_context_research(
+                self.repo_root,
+                plan=self.plan,
+            )
+        except Exception as exc:
+            self.failed.emit(str(exc))
+            return
+        self.succeeded.emit(result)
 
 
 class CanonicalReferenceGenerationDock(QDockWidget):
@@ -110,9 +137,11 @@ class CanonicalReferenceGenerationDock(QDockWidget):
         buttons1 = QHBoxLayout()
         self.refresh_btn = QPushButton("Refresh")
         self.generate_btn = QPushButton("Generate selected")
+        self.research_btn = QPushButton("Research selected")
         self.open_btn = QPushButton("Open asset folder")
         buttons1.addWidget(self.refresh_btn)
         buttons1.addWidget(self.generate_btn)
+        buttons1.addWidget(self.research_btn)
         buttons1.addWidget(self.open_btn)
         layout.addLayout(buttons1)
 
@@ -127,6 +156,7 @@ class CanonicalReferenceGenerationDock(QDockWidget):
 
         self.refresh_btn.clicked.connect(self.refresh)
         self.generate_btn.clicked.connect(self.generate_selected)
+        self.research_btn.clicked.connect(self.research_selected)
         self.accept_btn.clicked.connect(self.accept_selected)
         self.reject_btn.clicked.connect(self.reject_selected)
         self.open_btn.clicked.connect(self.open_assets)
@@ -233,6 +263,7 @@ class CanonicalReferenceGenerationDock(QDockWidget):
 
     def _set_busy(self, busy: bool) -> None:
         self.generate_btn.setEnabled(not busy)
+        self.research_btn.setEnabled(not busy)
         self.accept_btn.setEnabled(not busy)
         self.reject_btn.setEnabled(not busy)
         self.refresh_btn.setEnabled(not busy)
@@ -304,6 +335,128 @@ class CanonicalReferenceGenerationDock(QDockWidget):
             "SIRAJ",
             error + "\n\nNo automatic retry or resubmission was started.",
         )
+
+    def research_selected(self) -> None:
+        item = self.status_list.currentItem()
+        if item is None:
+            QMessageBox.warning(
+                self,
+                "SIRAJ",
+                "Select a reference first.",
+            )
+            return
+
+        reference_id = str(item.data(Qt.UserRole) or "").strip()
+        if not reference_id:
+            reference_id = (
+                str(item.text() or "")
+                .split("|", 1)[0]
+                .strip()
+                .split()[0]
+            )
+        if not reference_id:
+            QMessageBox.warning(
+                self,
+                "SIRAJ",
+                "Cannot resolve selected reference.",
+            )
+            return
+
+        dossier = visual_context_dossier_location(
+            self.repo_root,
+            reference_id=reference_id,
+        )
+        refresh_existing = False
+        refresh_reason = ""
+
+        if dossier.is_file():
+            choice = QMessageBox.question(
+                self,
+                "SIRAJ — visual context research",
+                (
+                    f"A dossier already exists for {reference_id}.\n\n"
+                    "Yes = reuse it without a paid call.\n"
+                    "No = refresh it with one explicitly authorized paid "
+                    "research call and archive the previous dossier.\n"
+                    "Cancel = abort."
+                ),
+                QMessageBox.StandardButton.Yes
+                | QMessageBox.StandardButton.No
+                | QMessageBox.StandardButton.Cancel,
+                QMessageBox.StandardButton.Yes,
+            )
+            if choice == QMessageBox.StandardButton.Cancel:
+                return
+            refresh_existing = (
+                choice == QMessageBox.StandardButton.No
+            )
+            if refresh_existing:
+                refresh_reason = (
+                    "Human desktop refresh requested for visual context."
+                )
+        else:
+            choice = QMessageBox.question(
+                self,
+                "SIRAJ — visual context research",
+                (
+                    f"Research visual context for {reference_id}?\n\n"
+                    "This action may make one paid OpenAI/Luna research call "
+                    "with web search. No media is generated. Automatic retry "
+                    "and automatic resubmission remain forbidden."
+                ),
+                QMessageBox.StandardButton.Yes
+                | QMessageBox.StandardButton.No,
+                QMessageBox.StandardButton.Yes,
+            )
+            if choice != QMessageBox.StandardButton.Yes:
+                return
+
+        try:
+            plan = prepare_visual_context_research_from_desktop(
+                self.repo_root,
+                reference_id=reference_id,
+                refresh_existing=refresh_existing,
+                refresh_reason=refresh_reason,
+            )
+        except Exception as exc:
+            QMessageBox.critical(self, "SIRAJ", str(exc))
+            return
+
+        self._set_busy(True)
+        self._visual_context_thread = VisualContextResearchThread(
+            self.repo_root,
+            plan,
+        )
+        self._visual_context_thread.succeeded.connect(
+            self._on_visual_context_research_succeeded
+        )
+        self._visual_context_thread.failed.connect(
+            self._on_visual_context_research_failed
+        )
+        self._visual_context_thread.finished.connect(
+            lambda: self._set_busy(False)
+        )
+        self._visual_context_thread.start()
+
+    def _on_visual_context_research_succeeded(self, result) -> None:
+        self.refresh()
+        QMessageBox.information(
+            self,
+            "SIRAJ",
+            (
+                "Visual-context research completed.\n\n"
+                f"status={getattr(result, 'status', 'UNKNOWN')}\n"
+                f"provider_calls={getattr(result, 'provider_calls', '')}\n"
+                f"web_search_calls={getattr(result, 'web_search_calls', '')}\n"
+                f"dossier={getattr(result, 'dossier_path', '')}"
+            ),
+        )
+
+    def _on_visual_context_research_failed(
+        self,
+        message: str,
+    ) -> None:
+        QMessageBox.critical(self, "SIRAJ", str(message))
 
     def accept_selected(self) -> None:
         reference_id = self._current_reference_id()
