@@ -26,6 +26,104 @@ from src.application.visual_context_research_executor_v1 import (
 CONTRACT_VERSION = "siraj-openai-luna-visual-context-research-contract-v1"
 
 
+
+_OPENAI_STRICT_UNSUPPORTED_SCHEMA_KEYWORDS = frozenset(
+    {
+        "uniqueItems",
+        "allOf",
+        "not",
+        "dependentRequired",
+        "dependentSchemas",
+        "if",
+        "then",
+        "else",
+    }
+)
+
+
+def _assert_openai_strict_schema_compatibility(
+    schema: Mapping[str, Any],
+) -> None:
+    """Reject provider-incompatible strict schemas before any paid call."""
+
+    def walk(node: Any, path: tuple[str, ...]) -> None:
+        if isinstance(node, Mapping):
+            for key in _OPENAI_STRICT_UNSUPPORTED_SCHEMA_KEYWORDS:
+                if key in node:
+                    raise VisualContextResearchExecutorError(
+                        "VISUAL_CONTEXT_OPENAI_STRICT_SCHEMA_UNSUPPORTED:"
+                        + ".".join((*path, key))
+                    )
+
+            if node.get("type") == "object":
+                if node.get("additionalProperties") is not False:
+                    raise VisualContextResearchExecutorError(
+                        "VISUAL_CONTEXT_OPENAI_STRICT_OBJECT_MUST_CLOSE:"
+                        + (".".join(path) or "$")
+                    )
+                properties = node.get("properties")
+                required = node.get("required")
+                if isinstance(properties, Mapping):
+                    property_names = {str(key) for key in properties}
+                    required_names = (
+                        {str(value) for value in required}
+                        if isinstance(required, list)
+                        else set()
+                    )
+                    missing = sorted(property_names - required_names)
+                    if missing:
+                        raise VisualContextResearchExecutorError(
+                            "VISUAL_CONTEXT_OPENAI_STRICT_FIELDS_MUST_BE_REQUIRED:"
+                            + (".".join(path) or "$")
+                            + ":"
+                            + ",".join(missing)
+                        )
+
+            for key, value in node.items():
+                walk(value, (*path, str(key)))
+            return
+
+        if isinstance(node, list):
+            for index, value in enumerate(node):
+                walk(value, (*path, str(index)))
+
+    walk(schema, ())
+
+
+def _normalise_provider_wire_dossier(
+    payload: dict[str, Any],
+) -> dict[str, Any]:
+    exhaustion = payload.get("research_exhaustion")
+    if not isinstance(exhaustion, dict):
+        return payload
+
+    unavailable = exhaustion.get("unavailable_source_classes")
+    if not isinstance(unavailable, list):
+        return payload
+
+    normalised: dict[str, str] = {}
+    for row in unavailable:
+        if not isinstance(row, Mapping):
+            raise VisualContextResearchExecutorError(
+                "VISUAL_CONTEXT_OPENAI_UNAVAILABLE_SOURCE_ROW_INVALID"
+            )
+        authority_class = str(row.get("authority_class") or "").strip()
+        reason = str(row.get("reason") or "").strip()
+        if not authority_class or not reason:
+            raise VisualContextResearchExecutorError(
+                "VISUAL_CONTEXT_OPENAI_UNAVAILABLE_SOURCE_ROW_INCOMPLETE"
+            )
+        if authority_class in normalised:
+            raise VisualContextResearchExecutorError(
+                "VISUAL_CONTEXT_OPENAI_UNAVAILABLE_SOURCE_DUPLICATE:"
+                + authority_class
+            )
+        normalised[authority_class] = reason
+
+    exhaustion["unavailable_source_classes"] = normalised
+    return payload
+
+
 def _source_schema(source_classes: Sequence[str]) -> dict[str, Any]:
     return {
         "type": "object",
@@ -220,11 +318,25 @@ def visual_context_dossier_schema(
                             "type": "string",
                             "enum": list(source_classes),
                         },
-                        "uniqueItems": True,
                     },
                     "unavailable_source_classes": {
-                        "type": "object",
-                        "additionalProperties": {"type": "string"},
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": False,
+                            "required": [
+                                "authority_class",
+                                "reason",
+                            ],
+                            "properties": {
+                                "authority_class": {
+                                    "type": "string",
+                                    "enum": list(source_classes),
+                                },
+                                "reason": {"type": "string"},
+                            },
+                        },
+                        "maxItems": len(source_classes),
                     },
                     "web_search_performed": {"type": "boolean"},
                     "cross_source_reconciliation_complete": {
@@ -322,6 +434,12 @@ UNCERTAIN/DISPUTED بتصوير محايد؛ unresolved_conflicts يجب أن ي
 
 أخرج JSON فقط وفق المخطط الصارم."""
 
+    schema = visual_context_dossier_schema(
+        source_classes,
+        dimensions,
+    )
+    _assert_openai_strict_schema_compatibility(schema)
+
     return {
         "model": LUNA_MODEL,
         "store": False,
@@ -357,10 +475,7 @@ UNCERTAIN/DISPUTED بتصوير محايد؛ unresolved_conflicts يجب أن ي
                 "type": "json_schema",
                 "name": "siraj_visual_context_dossier_v1",
                 "strict": True,
-                "schema": visual_context_dossier_schema(
-                    source_classes,
-                    dimensions,
-                ),
+                "schema": schema,
             },
         },
     }
@@ -458,6 +573,7 @@ def parse_openai_visual_research_response(
         raise VisualContextResearchExecutorError(
             "VISUAL_CONTEXT_OPENAI_DOSSIER_OBJECT_REQUIRED"
         )
+    payload = _normalise_provider_wire_dossier(payload)
     input_tokens, output_tokens, cached = _usage(response)
     return VisualResearchProviderResult(
         payload=payload,

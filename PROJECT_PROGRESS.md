@@ -3484,3 +3484,26 @@ Status: PASS_READY_FOR_MANUAL_DESKTOP_RESEARCH_RETRY
   publication call.
 - No automatic retry or resubmission is introduced. A new explicit Desktop
   click remains required before another paid research attempt.
+
+## SIRAJ_VISUAL_CONTEXT_RESEARCH_STRICT_SCHEMA_COMPAT_FIX_V2
+
+- Date: 2026-08-16
+- Trigger: ADAM_GARDEN visual-context research reached OpenAI and returned
+  HTTP 400 `invalid_json_schema`: `uniqueItems` is not permitted.
+- V1 repair runner rolled back cleanly because its patch expected a temporary
+  local `schema = ...` variable, while the actual request builder embeds
+  `visual_context_dossier_schema(...)` directly inside `text.format.schema`.
+- V2 patches the exact committed request shape.
+- Provider-facing `uniqueItems` was removed.
+- Provider-facing dynamic `unavailable_source_classes` object keys were
+  converted to a strict array of `{authority_class, reason}` records.
+- The provider wire array is normalized back to the existing internal mapping
+  before dossier validation/persistence, so the internal dossier contract is
+  unchanged.
+- Added a local strict-schema compatibility guard before paid transport:
+  unsupported composition keywords / `uniqueItems` are rejected, every object
+  must set `additionalProperties: false`, and every declared property must be
+  required.
+- Narrator/script evidence extraction and narrative research remain unchanged.
+- No provider/network/paid/media-generation/publication call was made by this
+  repair. No automatic retry/resubmission was introduced.
