@@ -3431,3 +3431,22 @@ NEXT=SUPPLY_OR_SELECT_TRUSTED_WORD_OR_PHRASE_TIMING_FOR_EP001_THEN_RERUN_CAPTION
 - Existing media/candidate bytes are not modified.
 - R27 remains `KEEP=0, REGENERATE=0, BLOCK=27`.
 - Provider/network/paid/media-generation/publication calls: `0`.
+
+## SIRAJ_VISUAL_CONTEXT_RESEARCH_EXECUTOR_V1
+
+- Date: 2026-08-16
+- Scope: SERIES-WIDE research execution backend; not EP002-specific.
+- Added a provider-agnostic Visual Context Research executor that collects all currently available local episode research context before any external research call.
+- Local context includes evidence package, approved scope, script, storyboard, source packages, and available Shamela corpus context.
+- The executor expands each context into all ten mandatory visual-research dimensions and all source classes required by the series policy.
+- External research is one-shot only: automatic retry/resubmission is forbidden.
+- Every web source returned by a provider must be proven in that provider response through web-search source metadata or URL-citation annotations.
+- Local evidence/Shamela/source-package citations are cross-checked against locally available provenance.
+- A dossier cannot persist until the series-wide validator confirms source-class exhaustion, conflict reconciliation, uncertainty posture, absolute no-face policy, optional-head policy, and motion-safe face exclusion.
+- Existing validated dossiers are reused without another provider call.
+- Explicit refresh requires a reason and archives the previous dossier before replacement.
+- Added an OpenAI/Luna request/response contract with strict JSON schema and web_search enabled, but deliberately NO network transport in this implementation stage.
+- Paid/network transport remains reserved for a later Desktop-only explicit-click integration through the approved paid boundary.
+- No provider/network/paid/media-generation/publication calls were made by this implementation runner.
+- Existing media/candidate bytes and R27 classifications are unchanged.
+- Next stage: `SIRAJ_VISUAL_CONTEXT_RESEARCH_DESKTOP_PAID_INTEGRATION_V1`.
