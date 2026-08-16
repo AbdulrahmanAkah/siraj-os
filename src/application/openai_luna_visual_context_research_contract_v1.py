@@ -351,7 +351,6 @@ UNCERTAIN/DISPUTED بتصوير محايد؛ unresolved_conflicts يجب أن ي
                 ],
             },
         ],
-        "max_output_tokens": 100000,
         "text": {
             "verbosity": "high",
             "format": {

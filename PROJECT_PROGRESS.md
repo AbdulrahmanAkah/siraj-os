@@ -3463,3 +3463,24 @@ NEXT=SUPPLY_OR_SELECT_TRUSTED_WORD_OR_PHRASE_TIMING_FOR_EP001_THEN_RERUN_CAPTION
 - Automatic paid retry and automatic resubmission remain forbidden.
 - Added `Research selected` to the canonical-reference Desktop dock.
 - This integration does not generate media, does not reclassify R27, and does not modify narrator research/evidence extraction.
+
+## SIRAJ_VISUAL_CONTEXT_RESEARCH_PROVIDER_CONTRACT_COMPAT_FIX_V1
+
+Date: 2026-08-16
+Status: PASS_READY_FOR_MANUAL_DESKTOP_RESEARCH_RETRY
+
+- The first ADAM_GARDEN Desktop visual-research attempt stopped before provider
+  transport with `PROVIDER_UNKNOWN_FIELDS_REJECTED:max_output_tokens`.
+- Root cause: the visual-research OpenAI request emitted `max_output_tokens`,
+  while the canonical SIRAJ OpenAI Responses provider contract does not admit
+  that field.
+- The visual-research request now conforms to the existing SIRAJ provider
+  contract. The provider contract itself was not relaxed.
+- A regression test now validates the built visual-research request through
+  `validate_openai_responses_payload` and requires `max_output_tokens` to be
+  absent.
+- Narrator/script evidence extraction and narrative research were not changed.
+- This repair performed no provider, network, paid, media-generation, or
+  publication call.
+- No automatic retry or resubmission is introduced. A new explicit Desktop
+  click remains required before another paid research attempt.

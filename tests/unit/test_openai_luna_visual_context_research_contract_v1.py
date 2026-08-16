@@ -2,6 +2,10 @@ from __future__ import annotations
 
 import json
 
+from src.application.provider_model_contracts import (
+    validate_openai_responses_payload,
+)
+
 from src.application.openai_luna_visual_context_research_contract_v1 import (
     build_openai_visual_research_request,
     extract_grounded_urls,
@@ -32,6 +36,8 @@ def test_openai_contract_enables_web_search_and_strict_schema():
     req = build_openai_visual_research_request(_provider_request())
     assert req["tools"] == [{"type": "web_search"}]
     assert req["text"]["format"]["strict"] is True
+    assert "max_output_tokens" not in req
+    validate_openai_responses_payload(req)
     schema = req["text"]["format"]["schema"]
     assert schema["properties"]["face_and_body_policy"]["properties"]["head_required"]["enum"] == [False]
 
