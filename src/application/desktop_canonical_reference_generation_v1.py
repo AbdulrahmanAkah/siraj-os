@@ -241,7 +241,11 @@ def required_checks(repo_root: Path, reference_id: str) -> tuple[str, ...]:
         raise CanonicalReferenceGenerationError(
             "REFERENCE_STATE_CHECKLIST_MISSING:" + reference_id
         )
-    return tuple(str(x) for x in [*common, *state])
+    checks = [str(x) for x in [*common, *state]]
+    for quality_check in SUPPLEMENTAL_REFERENCE_QUALITY_CHECKS:
+        if quality_check not in checks:
+            checks.append(quality_check)
+    return tuple(checks)
 
 
 def list_statuses(repo_root: Path) -> list[CanonicalReferenceStatus]:
@@ -272,6 +276,125 @@ def list_statuses(repo_root: Path) -> list[CanonicalReferenceStatus]:
     return rows
 
 
+ENVIRONMENT_PROMPT_CONTRACT_VERSION = (
+    "siraj-canonical-reference-environment-prompt-v1"
+)
+SUPPLEMENTAL_REFERENCE_QUALITY_CHECKS = (
+    "ENVIRONMENT_SUPPORTS_NARRATIVE_STATE",
+)
+
+
+def _clean_sequence(value: Any) -> tuple[str, ...]:
+    if not isinstance(value, Sequence) or isinstance(value, (str, bytes)):
+        return ()
+    return tuple(str(item).strip() for item in value if str(item).strip())
+
+
+def _reference_context_text(details: Mapping[str, Any]) -> str:
+    parts: list[str] = []
+    for key in ("character", "narrative_state", "purpose"):
+        value = str(details.get(key) or "").strip()
+        if value:
+            parts.append(value)
+    for key in ("composition", "identity_lock", "wardrobe", "hard_forbidden"):
+        parts.extend(_clean_sequence(details.get(key)))
+    return " ".join(parts).lower()
+
+
+def _derive_environment_direction(
+    *,
+    details: Mapping[str, Any],
+    global_style_and_policy: Mapping[str, Any],
+) -> tuple[str, ...]:
+    """Derive environment direction from narrative context without inventing lore."""
+
+    character = str(details.get("character") or "").strip().upper()
+    state = str(details.get("narrative_state") or "").strip().upper()
+    context = _reference_context_text(details)
+
+    common = (
+        "Environment contract: the surrounding environment is narrative content, "
+        "not generic filler; it must make the narrative state visually legible "
+        "without captions, text, symbols, or modern cues.",
+        "Compose enough environmental breadth, depth, foreground, midground and "
+        "background information to establish place while preserving the canonical "
+        "character silhouette and all face/modesty constraints.",
+        "Prefer specific visual evidence supported by the brief over a background "
+        "that could belong to an unrelated story.",
+    )
+
+    paradise_explicit = any(
+        cue in context for cue in ("paradise", "jannah", "eden", "paradisal")
+    )
+    adamic_garden = state == "GARDEN" and character in {"ADAM", "HAWWA"}
+
+    if paradise_explicit or adamic_garden:
+        state_direction = (
+            "For this Garden state, the environment must read immediately as an "
+            "extraordinary paradisal garden rather than an ordinary earthly park, "
+            "forest, farm, orchard, botanical garden, or landscaped garden.",
+            "Create exceptional natural abundance through layered flourishing "
+            "vegetation, varied healthy plant life, meaningful depth, serene pure "
+            "water where compositionally useful, harmonious terrain, luminous but "
+            "natural light, visual generosity and immaculate natural balance.",
+            "The sense of Paradise must come from scale, abundance, harmony, "
+            "serenity, depth, water, vegetation and light—not from magical effects "
+            "or invented supernatural spectacle.",
+            "Keep the Paradise depiction naturalistic, dignified and restrained: "
+            "no fantasy architecture, magic portals, impossible creatures, "
+            "celestial beings, literal divine presence, sci-fi surrealism, or "
+            "unsupported jeweled/palatial details.",
+            "Do not claim a precise physical topology or architecture of Paradise; "
+            "evoke an exceptional Garden through supported environmental quality "
+            "while preserving theological and historical uncertainty.",
+        )
+    elif state == "EARTH" or "earth-state" in context:
+        state_direction = (
+            "For this Earth state, make the environment unmistakably terrestrial, "
+            "materially grounded and naturally coherent rather than paradisal or "
+            "fantastical.",
+            "Use restrained terrain, vegetation, atmosphere, weathering and depth "
+            "appropriate to an ordinary earthly setting, without inventing a "
+            "precise historical location, settlement, culture or geography.",
+            "The environment may be simpler and more subdued than the Garden state, "
+            "but it must still feel intentionally composed rather than generic "
+            "stock scenery.",
+        )
+    elif state == "DEBATE" or "debate" in context:
+        state_direction = (
+            "For this Debate state, keep the setting calm, dignified, visually "
+            "uncluttered and secondary to respectful body language.",
+            "Do not invent a specific historical venue, palace, courtroom, crowd, "
+            "ritual setting or theatrical spectacle unless the approved brief "
+            "explicitly requires it.",
+            "Use neutral, non-assertive environmental context that supports a "
+            "reverent encounter without turning uncertain setting details into "
+            "historical claims.",
+        )
+    else:
+        state_direction = (
+            "Infer the strongest supported setting from the narrative state, "
+            "purpose and composition fields. If those fields do not establish a "
+            "specific place, use a neutral non-assertive environment that supports "
+            "the subject rather than inventing unsupported location details.",
+        )
+
+    uncertainty = str(
+        global_style_and_policy.get("historical_uncertainty_policy") or ""
+    ).strip()
+    guardrails = (
+        "Do not invent unsupported doctrinal, supernatural, geographic, "
+        "architectural or historical specifics merely to make the image more "
+        "spectacular.",
+        "Environmental richness must never weaken face concealment, modesty, "
+        "identity continuity, wardrobe constraints, or any hard-forbidden rule.",
+    )
+    if uncertainty:
+        guardrails = (*guardrails, "Uncertainty policy: " + uncertainty)
+
+    return (*common, *state_direction, *guardrails)
+
+
 def compose_reference_prompt(
     *,
     global_style_and_policy: Mapping[str, Any],
@@ -280,34 +403,72 @@ def compose_reference_prompt(
 ) -> str:
     details = brief.get("brief")
     if not isinstance(details, Mapping):
-        raise CanonicalReferenceGenerationError("REFERENCE_BRIEF_DETAILS_REQUIRED")
+        raise CanonicalReferenceGenerationError(
+            "REFERENCE_BRIEF_DETAILS_REQUIRED"
+        )
+
+    visual_style = str(
+        global_style_and_policy.get("visual_style") or ""
+    ).strip()
+
     sections: list[str] = [
-        str(global_style_and_policy.get("visual_style") or "").strip(),
+        "Primary objective: create a canonical recurring-character reference "
+        "whose character identity and surrounding environment both communicate "
+        "the approved narrative state at first glance.",
+        "Prompt contract: " + ENVIRONMENT_PROMPT_CONTRACT_VERSION,
+        visual_style,
         "No visible human face under any circumstance.",
         "Do not invent or expose facial anatomy.",
-        str(global_style_and_policy.get("historical_uncertainty_policy") or "").strip(),
     ]
+
+    sections.extend(
+        _derive_environment_direction(
+            details=details,
+            global_style_and_policy=global_style_and_policy,
+        )
+    )
+
     if has_reference_input:
         sections.append(
             "Preserve the same body identity, silhouette, body proportions and "
-            "non-facial continuity from the supplied canonical reference image."
+            "non-facial continuity from the supplied canonical reference image. "
+            "Change only what the new narrative state deliberately requires."
         )
+
     for key in ("purpose", "character", "narrative_state"):
         value = str(details.get(key) or "").strip()
         if value:
-            sections.append(f"{key.replace('_', ' ').title()}: {value}")
+            sections.append(
+                f"{key.replace('_', ' ').title()}: {value}"
+            )
+
     for label, key in (
         ("Composition", "composition"),
         ("Identity lock", "identity_lock"),
         ("Wardrobe", "wardrobe"),
         ("Hard forbidden", "hard_forbidden"),
     ):
-        value = details.get(key)
-        if isinstance(value, Sequence) and not isinstance(value, (str, bytes)):
-            cleaned = [str(x).strip() for x in value if str(x).strip()]
-            if cleaned:
-                sections.append(f"{label}: " + "; ".join(cleaned))
-    return " ".join(". ".join(part for part in sections if part).split())
+        cleaned = _clean_sequence(details.get(key))
+        if cleaned:
+            sections.append(f"{label}: " + "; ".join(cleaned))
+
+    sections.extend(
+        (
+            "Quality target: cinematic, naturalistic, coherent depth, believable "
+            "materials, deliberate lighting, clear silhouette, strong subject-to-"
+            "environment relationship, no generic filler and no arbitrary visual "
+            "decoration.",
+            "Priority order: hard constitutional/safety constraints first; "
+            "narrative-state environment second; recurring-character identity "
+            "third; composition and wardrobe continuity next; aesthetic polish "
+            "only after all higher priorities are satisfied.",
+        )
+    )
+
+    return " ".join(
+        ". ".join(part for part in sections if part).split()
+    )
+
 
 
 def _data_uri(path: Path) -> str:

@@ -3390,3 +3390,24 @@ NEXT=SUPPLY_OR_SELECT_TRUSTED_WORD_OR_PHRASE_TIMING_FOR_EP001_THEN_RERUN_CAPTION
 - R27 reclassification: `false`.
 - R27 regeneration authorization: `false`.
 - Next stage after successful recovery: `EP002_ADAM_GARDEN_HUMAN_REFERENCE_REVIEW`.
+
+## SIRAJ_CANONICAL_REFERENCE_ENVIRONMENT_AWARE_PROMPT_QUALITY_V1
+
+- Date: 2026-08-16
+- Trigger: the first `ADAM_GARDEN` candidate passed hard face/wardrobe constraints but rendered Paradise as an ordinary earthly garden/forest.
+- Root cause: canonical-reference prompt composition previously concatenated character/wardrobe constraints while providing no first-class environment-semantic contract for `GARDEN`.
+- Scope: prompt-quality/runtime human-review strengthening only; no media generation and no provider/network/paid execution.
+- Added context-driven environment inference from `character`, `narrative_state`, `purpose`, composition and existing policy.
+- `ADAM`/`HAWWA` + `GARDEN` now requires an extraordinary paradisal environment clearly distinct from ordinary earthly parks/forests/orchards while remaining naturalistic and restrained.
+- Paradise quality is expressed through supported natural abundance, depth, water, vegetation, harmony, serenity and light; unsupported supernatural/theological/historical literalization remains forbidden.
+- `EARTH`, `DEBATE`, and unknown states receive separate conservative environment directions.
+- Environment is explicitly treated as narrative evidence rather than generic filler.
+- Runtime human review is strengthened with `ENVIRONMENT_SUPPORTS_NARRATIVE_STATE`.
+- Constitution precedence remains explicit: hard constraints first, environment second, identity/continuity next, aesthetics last.
+- Existing candidate bytes are not modified by this implementation.
+- `src/application/shorts_derivative_engine_v1.py` remains untouched.
+- R27 remains `KEEP=0, REGENERATE=0, BLOCK=27`.
+- R27 reclassification: `false`.
+- R27 regeneration authorization: `false`.
+- Provider/network/paid/publication calls: `0`.
+- Next stage after PASS: human rejection of the weak `ADAM_GARDEN` candidate, then a new Desktop-only explicitly authorized generation using the improved prompt.
