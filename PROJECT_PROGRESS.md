@@ -3360,3 +3360,18 @@ NEXT=SUPPLY_OR_SELECT_TRUSTED_WORD_OR_PHRASE_TIMING_FOR_EP001_THEN_RERUN_CAPTION
 - Paid calls: `0`.
 - Publication: `0`.
 - Next stage: `EP002_CANONICAL_REFERENCE_DESKTOP_INTEGRATION_VALIDATION_V2`.
+
+## SIRAJ_DESKTOP_SHORTS_PROFILE_FAILSOFT_REMEDIATION_V1
+
+- Date: 2026-08-16
+- Trigger: the canonical Desktop launcher was healthy, but `SirajDesktopWindow` could not finish construction because the unrelated Shorts derivative dock raised `SHORT_PROFILE_INVALID:PROFILE_VERSION_MISMATCH`.
+- Scope: Desktop composition-root resilience only.
+- `src/application/shorts_derivative_engine_v1.py` is explicitly untouched and its pre-existing worktree change is preserved.
+- Behavior: a `ShortsProfileError` disables only the optional Shorts derivative dock and exposes the error in the Desktop status bar.
+- Unrelated Shorts startup exceptions are still re-raised; there is no blanket exception swallowing.
+- Canonical Reference dock installation continues after the isolated Shorts profile failure.
+- R27 remains `KEEP=0, REGENERATE=0, BLOCK=27`.
+- R27 reclassification: `false`.
+- R27 regeneration authorization: `false`.
+- Provider/network/paid/publication calls: `0`.
+- Next stage after validation: `EP002_CANONICAL_REFERENCE_FIRST_DESKTOP_GENERATION_ADAM_GARDEN`.

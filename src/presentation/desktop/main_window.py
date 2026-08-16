@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from src.presentation.desktop.series_standard_v2_panel import install_series_standard_v2_dock
 from src.presentation.desktop.shorts_derivative_dock_v1 import install_shorts_derivative_dock
+from src.application.shorts_derivative_engine_v1 import ShortsProfileError
 from src.presentation.desktop.canonical_reference_generation_dock_v1 import install_canonical_reference_generation_dock
 
 from dataclasses import replace
@@ -85,6 +86,24 @@ LEGACY_RELEASE_MARKER_V1_2 = "SIRAJ_DESKTOP_DASHBOARD_V1_2"
 PROJECT_HERO_COMPACT_V1_3 = True
 
 
+def _install_optional_shorts_derivative_dock(window: QMainWindow) -> None:
+    """Keep the production desktop available when the Shorts profile is invalid.
+
+    A Shorts profile-contract failure disables only the Shorts derivative dock.
+    Unrelated exceptions still propagate: this is not a blanket startup bypass.
+    """
+
+    try:
+        install_shorts_derivative_dock(window)
+    except ShortsProfileError as exc:
+        window._shorts_dock_startup_error = str(exc)
+        window.statusBar().showMessage(
+            "Shorts workspace unavailable: " + str(exc)
+        )
+        return
+    window._shorts_dock_startup_error = None
+
+
 class SirajDesktopWindow(QMainWindow):
     def __init__(self, repo_root: Path) -> None:
         super().__init__()
@@ -127,7 +146,7 @@ class SirajDesktopWindow(QMainWindow):
         self.complete_workspace.set_dashboard(self._build_workspace())
         outer.addWidget(self.complete_workspace, 1)
         self.setCentralWidget(root)
-        install_shorts_derivative_dock(self)
+        _install_optional_shorts_derivative_dock(self)
         install_canonical_reference_generation_dock(self)
 
     def _build_sidebar(self) -> QWidget:
