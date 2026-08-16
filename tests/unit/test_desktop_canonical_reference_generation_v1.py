@@ -23,6 +23,29 @@ def _write(path: Path, payload: dict) -> None:
     )
 
 
+def _png_bytes() -> bytes:
+    import struct
+    import zlib
+
+    def chunk(kind: bytes, data: bytes) -> bytes:
+        return (
+            struct.pack(">I", len(data))
+            + kind
+            + data
+            + struct.pack(">I", zlib.crc32(kind + data) & 0xFFFFFFFF)
+        )
+
+    signature = b"\x89PNG\r\n\x1a\n"
+    ihdr = struct.pack(">IIBBBBB", 1, 1, 8, 6, 0, 0, 0)
+    raw_scanline = b"\x00\x00\x00\x00\xff"
+    return (
+        signature
+        + chunk(b"IHDR", ihdr)
+        + chunk(b"IDAT", zlib.compress(raw_scanline))
+        + chunk(b"IEND", b"")
+    )
+
+
 def _seed_repo(tmp_path: Path) -> Path:
     repo = tmp_path
     reports = repo / "reports" / "pr01-production-readiness"
@@ -241,12 +264,12 @@ def test_accept_requires_complete_human_checklist(tmp_path: Path):
         / "candidate.png"
     )
     candidate.parent.mkdir(parents=True, exist_ok=True)
-    candidate.write_bytes(b"candidate")
+    candidate.write_bytes(_png_bytes())
     import hashlib
     intake = _intake(repo)
     row = next(x for x in intake["required_assets"] if x["reference_id"] == "ADAM_GARDEN")
     row["candidate_path"] = str(candidate.relative_to(repo)).replace("\\", "/")
-    row["candidate_sha256"] = hashlib.sha256(b"candidate").hexdigest()
+    row["candidate_sha256"] = hashlib.sha256(_png_bytes()).hexdigest()
     row["status"] = "CANDIDATE_PENDING_HUMAN_REVIEW"
     _write(intake_path, intake)
 
@@ -316,3 +339,76 @@ def test_reject_preserves_candidate_and_requires_reason(tmp_path: Path):
     assert rejected["accepted"] is False
     assert rejected["human_review"] == "REJECTED"
     assert candidate.is_file()
+
+def test_corrupt_candidate_bytes_cannot_be_human_accepted(tmp_path: Path):
+    repo = _seed_repo(tmp_path)
+    intake_path = (
+        repo
+        / "reports"
+        / "pr01-production-readiness"
+        / "EP002_R27_CANONICAL_REFERENCE_ASSET_INTAKE_V1.json"
+    )
+    candidate = (
+        repo
+        / "projects"
+        / EPISODE_ID
+        / "orchestration"
+        / "canonical-reference-v1"
+        / "candidates"
+        / "HAWWA_GARDEN"
+        / "corrupt.png"
+    )
+    candidate.parent.mkdir(parents=True, exist_ok=True)
+
+    import hashlib
+
+    def bind_candidate(data: bytes) -> None:
+        candidate.write_bytes(data)
+        intake = _intake(repo)
+        row = next(
+            x
+            for x in intake["required_assets"]
+            if x["reference_id"] == "HAWWA_GARDEN"
+        )
+        row["candidate_path"] = str(candidate.relative_to(repo)).replace("\\", "/")
+        row["candidate_sha256"] = hashlib.sha256(data).hexdigest()
+        row["status"] = "CANDIDATE_PENDING_HUMAN_REVIEW"
+        row["human_review"] = "PENDING"
+        row["accepted"] = False
+        _write(intake_path, intake)
+
+    # Case 1: arbitrary corrupt bytes fail the PNG signature gate.
+    bind_candidate(b"NOT_A_DECODABLE_IMAGE")
+    with pytest.raises(
+        CanonicalReferenceGenerationError,
+        match="REFERENCE_CANDIDATE_FORMAT_NOT_PNG",
+    ):
+        accept_reference_asset(
+            repo,
+            "HAWWA_GARDEN",
+            confirmed_checks=required_checks(repo, "HAWWA_GARDEN"),
+        )
+
+    # Case 2: correct PNG signature but broken payload reaches the decoder
+    # and must still fail closed.
+    bind_candidate(b"\x89PNG\r\n\x1a\nBROKEN_PNG_PAYLOAD")
+    with pytest.raises(
+        CanonicalReferenceGenerationError,
+        match="REFERENCE_CANDIDATE_IMAGE_DECODE_FAILED",
+    ):
+        accept_reference_asset(
+            repo,
+            "HAWWA_GARDEN",
+            confirmed_checks=required_checks(repo, "HAWWA_GARDEN"),
+        )
+
+    final = (
+        repo
+        / "projects"
+        / EPISODE_ID
+        / "orchestration"
+        / "canonical-reference-v1"
+        / "assets"
+        / "HAWWA_GARDEN.png"
+    )
+    assert not final.exists()

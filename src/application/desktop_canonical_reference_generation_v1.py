@@ -925,6 +925,57 @@ def _candidate_for_review(
     return intake, candidate
 
 
+def validate_reference_candidate_machine_checks(
+    candidate: Path,
+) -> dict[str, Any]:
+    """Decode actual PNG candidate bytes before any human PASS can bind them.
+
+    QImageReader.format() is not used as the format authority because it can
+    remain empty after successful content-based decoding on some Qt builds.
+    PNG identity is instead proven from the canonical 8-byte PNG signature,
+    while QImageReader independently proves that the image bytes decode.
+    """
+
+    candidate = Path(candidate).resolve()
+    if not candidate.is_file():
+        raise CanonicalReferenceGenerationError(
+            "REFERENCE_CANDIDATE_MISSING:" + str(candidate)
+        )
+    raw_prefix = candidate.read_bytes()[:8]
+    if raw_prefix != b"\x89PNG\r\n\x1a\n":
+        raise CanonicalReferenceGenerationError(
+            "REFERENCE_CANDIDATE_FORMAT_NOT_PNG:SIGNATURE_MISMATCH"
+        )
+    try:
+        from PySide6.QtGui import QImageReader
+    except Exception as exc:
+        raise CanonicalReferenceGenerationError(
+            "REFERENCE_IMAGE_DECODER_UNAVAILABLE"
+        ) from exc
+
+    reader = QImageReader(str(candidate))
+    reader.setDecideFormatFromContent(True)
+    if not reader.canRead():
+        raise CanonicalReferenceGenerationError(
+            "REFERENCE_CANDIDATE_IMAGE_DECODE_FAILED:"
+            + str(reader.errorString() or "UNREADABLE_IMAGE")
+        )
+    image = reader.read()
+    if image.isNull() or image.width() <= 0 or image.height() <= 0:
+        raise CanonicalReferenceGenerationError(
+            "REFERENCE_CANDIDATE_IMAGE_DECODE_FAILED:"
+            + str(reader.errorString() or "NULL_DECODED_IMAGE")
+        )
+    return {
+        "FILE_EXISTS_AND_DECODES": True,
+        "detected_format": "PNG",
+        "png_signature_verified": True,
+        "width": int(image.width()),
+        "height": int(image.height()),
+        "candidate_sha256": sha256_file(candidate),
+    }
+
+
 def accept_reference_asset(
     repo_root: Path,
     reference_id: str,
@@ -933,6 +984,7 @@ def accept_reference_asset(
 ) -> dict[str, Any]:
     repo_root = Path(repo_root).resolve()
     intake, candidate = _candidate_for_review(repo_root, reference_id)
+    machine_validation = validate_reference_candidate_machine_checks(candidate)
     required = set(required_checks(repo_root, reference_id))
     confirmed = {str(x) for x in confirmed_checks}
     if confirmed != required:
@@ -967,6 +1019,7 @@ def accept_reference_asset(
     entry["accepted"] = True
     entry["reviewed_at_utc"] = utc_now()
     entry["confirmed_checks"] = sorted(confirmed)
+    entry["machine_validation"] = machine_validation
     intake["accepted_count"] = sum(
         1
         for item in intake["required_assets"]
@@ -990,6 +1043,7 @@ def accept_reference_asset(
         "canonical_asset_path": _repo_relative(repo_root, final_path),
         "canonical_asset_sha256": sha256_file(final_path),
         "confirmed_checks": sorted(confirmed),
+        "machine_validation": machine_validation,
         "human_review_required": True,
         "automatic_pass": False,
         "reviewed_at_utc": utc_now(),

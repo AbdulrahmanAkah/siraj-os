@@ -3343,3 +3343,20 @@ NEXT=SUPPLY_OR_SELECT_TRUSTED_WORD_OR_PHRASE_TIMING_FOR_EP001_THEN_RERUN_CAPTION
 - Paid calls during implementation: `0`
 - Publication: `0`
 - Next stage: `EP002_CANONICAL_REFERENCE_DESKTOP_INTEGRATION_VALIDATION`
+
+## SIRAJ_EP002_CANONICAL_REFERENCE_IMAGE_DECODE_GATE_REMEDIATION_V5
+
+- Date: 2026-08-16
+- Validation finding: `CORRUPT_IMAGE_BYTES_BLOCKED` failed because human checklist confirmation could substitute for actual byte decoding.
+- Remediation: canonical reference PASS now requires machine decoding of the actual candidate bytes before any SHA256 binding/copy.
+- Canonical reference format: PNG only; corrupt or mislabeled bytes fail closed.
+- Human semantic checklist remains mandatory and is not replaced by machine validation.
+- Rejected candidates remain preserved.
+- R27 remains unchanged: `KEEP=0, REGENERATE=0, BLOCK=27`.
+- R27 reclassification performed: `false`.
+- R27 regeneration authorized: `false`.
+- Provider calls: `0`.
+- Network production calls: `0`.
+- Paid calls: `0`.
+- Publication: `0`.
+- Next stage: `EP002_CANONICAL_REFERENCE_DESKTOP_INTEGRATION_VALIDATION_V2`.
