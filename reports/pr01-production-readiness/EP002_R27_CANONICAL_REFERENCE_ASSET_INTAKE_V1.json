@@ -6,10 +6,23 @@
     {
       "reference_id": "ADAM_GARDEN",
       "filename": "ADAM_GARDEN.png",
-      "status": "MISSING",
+      "status": "CANDIDATE_PENDING_HUMAN_REVIEW",
       "sha256": null,
-      "human_review": "NOT_STARTED",
-      "accepted": false
+      "human_review": "PENDING",
+      "accepted": false,
+      "candidate_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/canonical-reference-v1/candidates/ADAM_GARDEN/14ff1739-75f5-4013-aa87-057515d64c72.png",
+      "candidate_sha256": "03c8e7ccd2746d9d282281724d1ae154b4cf34d768d9289d48aff1d169ef74b8",
+      "recovery": {
+        "mode": "EXISTING_ASSET_DOWNLOAD_RECOVERY",
+        "generation_attempt_id": "cc2b9629-6366-5397-8e5c-ede2cd31af91",
+        "failed_download_attempt_id": "7ec836ae-c305-5dcf-a0fb-6a18bde313d4",
+        "provider_task_uuid": "14ff1739-75f5-4013-aa87-057515d64c72",
+        "provider_operation_id": "4e1402ac-2fff-4c82-85cc-66a5eee40ac9",
+        "receipt_path": "projects/episode-002-adam-temptation-fall-repentance/orchestration/canonical-reference-v1/candidates/ADAM_GARDEN/14ff1739-75f5-4013-aa87-057515d64c72.recovery.json",
+        "generation_resubmission": false,
+        "generation_retry": false,
+        "new_paid_inference": false
+      }
     },
     {
       "reference_id": "ADAM_EARTH",

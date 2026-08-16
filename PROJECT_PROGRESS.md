@@ -3375,3 +3375,18 @@ NEXT=SUPPLY_OR_SELECT_TRUSTED_WORD_OR_PHRASE_TIMING_FOR_EP001_THEN_RERUN_CAPTION
 - R27 regeneration authorization: `false`.
 - Provider/network/paid/publication calls: `0`.
 - Next stage after validation: `EP002_CANONICAL_REFERENCE_FIRST_DESKTOP_GENERATION_ADAM_GARDEN`.
+
+## SIRAJ_EP002_ADAM_GARDEN_EXISTING_ASSET_DOWNLOAD_RECOVERY_V1
+
+- Date: 2026-08-16
+- Generation attempt `cc2b9629-6366-5397-8e5c-ede2cd31af91` was already COMPLETE and persisted by the paid-operation gateway.
+- Provider operation/image UUID: `4e1402ac-2fff-4c82-85cc-66a5eee40ac9`.
+- Provider task UUID: `14ff1739-75f5-4013-aa87-057515d64c72`.
+- Recovery scope: one GET of the already-created immutable image URL only.
+- No image-generation resubmission, no generation retry, no new paid inference.
+- Recovered bytes must pass the canonical PNG machine gate before they can become a pending human-review candidate.
+- Human acceptance remains required; recovery does not accept the reference.
+- R27 remains `KEEP=0, REGENERATE=0, BLOCK=27`.
+- R27 reclassification: `false`.
+- R27 regeneration authorization: `false`.
+- Next stage after successful recovery: `EP002_ADAM_GARDEN_HUMAN_REFERENCE_REVIEW`.
