@@ -3411,3 +3411,23 @@ NEXT=SUPPLY_OR_SELECT_TRUSTED_WORD_OR_PHRASE_TIMING_FOR_EP001_THEN_RERUN_CAPTION
 - R27 regeneration authorization: `false`.
 - Provider/network/paid/publication calls: `0`.
 - Next stage after PASS: human rejection of the weak `ADAM_GARDEN` candidate, then a new Desktop-only explicitly authorized generation using the improved prompt.
+
+## SIRAJ_VISUAL_CONTEXT_RESEARCH_ARCHITECTURE_V1
+
+- Date: 2026-08-16
+- Scope: SERIES-WIDE, not EP002-specific.
+- Added a reusable `visual_context_research_v1` contract before visual prompt/provider execution.
+- Narration silence no longer grants visual invention: missing visual facts require research before assertive depiction.
+- Research scope covers environment, non-facial character presentation, wardrobe, society/customs, material culture, architecture/settlement, era/chronology, geography/climate, flora/fauna/landscape, and motion/face safety.
+- Every configured source class must be checked or explicitly recorded unavailable with a reason before a visual-context dossier can be COMPLETE.
+- Assertive visual facts require direct/strong evidence and bound verified source IDs.
+- Uncertain/disputed evidence is neutralized instead of literalized; unresolved source conflicts fail closed.
+- Added series-wide absolute face policy: visible face is forbidden without exception.
+- The head is explicitly NOT required. SIRAJ selects hands, body detail, torso-without-head, full-body-without-head, rear body, or environment-dominant body fragment according to narrative utility.
+- Added motion-safe face exclusion: still images must not contain side-profile/cheek/nose/reflection geometry likely to reveal a face during animation.
+- Constitutional rules remain superior to research results and aesthetic choices.
+- Canonical-reference generation is now a consumer of the generic research dossier contract; generation must not proceed when the dossier is absent/incomplete.
+- No research network execution is performed by this implementation runner. The next phase is the series-wide Visual Context Research Executor that populates dossiers from available sources.
+- Existing media/candidate bytes are not modified.
+- R27 remains `KEEP=0, REGENERATE=0, BLOCK=27`.
+- Provider/network/paid/media-generation/publication calls: `0`.

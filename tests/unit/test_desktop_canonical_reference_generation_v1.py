@@ -177,6 +177,95 @@ def _seed_repo(tmp_path: Path) -> Path:
             ],
         },
     )
+    _write(
+        repo / "projects/_series/visual-context-research-policy-v1.json",
+        {
+            "schema_version": "siraj-visual-context-research-policy-v1",
+            "scope": "SERIES_WIDE",
+            "constitution_precedence": True,
+            "source_classes": [
+                {"id": "PRIMARY", "required_to_check": True},
+            ],
+            "face_policy": {
+                "visible_face": "FORBIDDEN_WITHOUT_EXCEPTION",
+                "head_required": False,
+            },
+        },
+    )
+    dossier_dir = (
+        repo
+        / "projects"
+        / EPISODE_ID
+        / "research"
+        / "visual-context-dossiers-v1"
+    )
+    dimensions = {
+        name: {
+            "status": "RESOLVED",
+            "facts": [
+                {
+                    "text": name + " fixture evidence",
+                    "certainty": "DIRECTLY_SUPPORTED",
+                    "source_ids": ["SRC-VIS-001"],
+                    "assertive_visualization": True,
+                }
+            ],
+        }
+        for name in (
+            "environment",
+            "character_physical_context",
+            "wardrobe",
+            "society_and_customs",
+            "material_culture",
+            "architecture_and_settlement",
+            "era_and_chronology",
+            "geography_and_climate",
+            "flora_fauna_and_landscape",
+            "motion_and_face_safety",
+        )
+    }
+    for ref_id in (
+        "ADAM_GARDEN",
+        "ADAM_EARTH",
+        "ADAM_DEBATE",
+        "HAWWA_GARDEN",
+        "HAWWA_EARTH",
+        "MUSA_DEBATE",
+    ):
+        _write(
+            dossier_dir / f"{ref_id}.json",
+            {
+                "schema_version": "siraj-visual-context-dossier-v1",
+                "episode_id": EPISODE_ID,
+                "context_id": ref_id,
+                "status": "COMPLETE",
+                "constitution_precedence": True,
+                "research_scope": {
+                    "purpose": "canonical recurring-character identity"
+                },
+                "sources": [
+                    {
+                        "source_id": "SRC-VIS-001",
+                        "authority_class": "PRIMARY",
+                        "verified": True,
+                        "title": "fixture source",
+                    }
+                ],
+                "research_exhaustion": {
+                    "search_complete": True,
+                    "source_classes_checked": ["PRIMARY"],
+                    "unavailable_source_classes": {},
+                },
+                "unresolved_conflicts": [],
+                "dimensions": dimensions,
+                "face_and_body_policy": {
+                    "face_visibility": "FORBIDDEN_WITHOUT_EXCEPTION",
+                    "head_required": False,
+                    "motion_safe_face_exclusion": True,
+                },
+                "framing_preferences": [],
+            },
+        )
     return repo
 
 

@@ -41,6 +41,12 @@ from src.application.runware_image_model_routing_v1 import (
 from src.application.siraj_episode_master_authorization_v6_6 import (
     master_authorization_reference,
 )
+from src.application.visual_context_research_v1 import (
+    VisualContextResearchError,
+    load_visual_context_dossier,
+    render_visual_context_prompt,
+    select_body_framing,
+)
 
 SCHEMA_VERSION = "siraj-desktop-canonical-reference-generation-v2"
 EPISODE_ID = "episode-002-adam-temptation-fall-repentance"
@@ -281,6 +287,8 @@ ENVIRONMENT_PROMPT_CONTRACT_VERSION = (
 )
 SUPPLEMENTAL_REFERENCE_QUALITY_CHECKS = (
     "ENVIRONMENT_SUPPORTS_NARRATIVE_STATE",
+    "VISUAL_CONTEXT_DOSSIER_MATCH",
+    "MOTION_SAFE_FACE_EXCLUSION",
 )
 
 
@@ -568,10 +576,39 @@ def prepare_reference_task(
         repo_root,
         reference_id,
     )
+    try:
+        visual_context_dossier = load_visual_context_dossier(
+            repo_root,
+            episode_id=EPISODE_ID,
+            context_id=reference_id,
+        )
+    except VisualContextResearchError as exc:
+        raise CanonicalReferenceGenerationError(
+            "VISUAL_CONTEXT_RESEARCH_REQUIRED:" + str(exc)
+        ) from exc
+
+    body_framing = select_body_framing(
+        dossier=visual_context_dossier,
+        visual_brief=ref,
+    )
+    research_prompt = render_visual_context_prompt(
+        dossier=visual_context_dossier,
+        framing=body_framing,
+    )
+
     prompt = compose_reference_prompt(
         global_style_and_policy=global_policy,
         brief=ref,
         has_reference_input=bool(reference_images),
+    )
+    prompt = " ".join(
+        (
+            prompt,
+            research_prompt,
+            "FINAL FRAMING AUTHORITY: the research-driven body-framing decision "
+            "supersedes generic composition suggestions where they conflict. "
+            "Never expose a face.",
+        )
     )
     shot: dict[str, Any] = {
         "label_ar": reference_id,
@@ -619,6 +656,12 @@ def prepare_reference_task(
         "payload_sha256": canonical_sha256(dict(validated.payload)),
         "dependency_hashes": dependency_hashes,
         "prompt": prompt,
+        "visual_context_research": {
+            "schema_version": visual_context_dossier.get("schema_version"),
+            "context_id": visual_context_dossier.get("context_id"),
+            "status": visual_context_dossier.get("status"),
+            "body_framing": body_framing,
+        },
         "pricing": pricing,
     }
 

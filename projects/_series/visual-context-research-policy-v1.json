@@ -1,0 +1,87 @@
+{
+  "schema_version": "siraj-visual-context-research-policy-v1",
+  "scope": "SERIES_WIDE",
+  "constitution_precedence": true,
+  "purpose": "Research all visually consequential context before assertive depiction when narration/brief does not itself establish the fact.",
+  "missing_visual_fact_policy": "RESEARCH_REQUIRED_BEFORE_ASSERTIVE_VISUALIZATION",
+  "search_exhaustion_required": true,
+  "source_classes": [
+    {
+      "id": "PRIMARY_OR_CANONICAL_TEXT",
+      "authority_rank": 10,
+      "required_to_check": true,
+      "description": "Direct canonical/primary source material governing the event."
+    },
+    {
+      "id": "AUTHENTICATED_PRIMARY_TRADITION_OR_RECORD",
+      "authority_rank": 20,
+      "required_to_check": true,
+      "description": "Authenticated tradition, primary record, or equivalent domain-authoritative evidence."
+    },
+    {
+      "id": "AUTHORITATIVE_COMMENTARY_OR_EXEGESIS",
+      "authority_rank": 30,
+      "required_to_check": true,
+      "description": "Authoritative commentary/exegesis used to understand context without promoting interpretation to primary fact."
+    },
+    {
+      "id": "SPECIALIST_HISTORICAL_REFERENCE",
+      "authority_rank": 40,
+      "required_to_check": true,
+      "description": "Specialist historical, archaeological, material-culture, geographic or period reference."
+    },
+    {
+      "id": "ACADEMIC_SCHOLARLY_CONTEXT",
+      "authority_rank": 50,
+      "required_to_check": true,
+      "description": "Academic/scholarly context for society, era, environment, clothing, architecture and material culture."
+    },
+    {
+      "id": "SECONDARY_CONTEXT",
+      "authority_rank": 60,
+      "required_to_check": true,
+      "description": "Secondary context only for gap discovery/corroboration; never allowed to overrule higher-authority evidence."
+    }
+  ],
+  "required_dimensions": [
+    "environment",
+    "character_physical_context",
+    "wardrobe",
+    "society_and_customs",
+    "material_culture",
+    "architecture_and_settlement",
+    "era_and_chronology",
+    "geography_and_climate",
+    "flora_fauna_and_landscape",
+    "motion_and_face_safety"
+  ],
+  "uncertainty_policy": {
+    "source_conflict": "FAIL_CLOSED_UNTIL_RECONCILED",
+    "weak_evidence": "NEUTRAL_NON_ASSERTIVE_DEPICTION",
+    "unsupported_detail": "OMIT",
+    "narration_silent": "RESEARCH_NOT_INVENT"
+  },
+  "face_policy": {
+    "visible_face": "FORBIDDEN_WITHOUT_EXCEPTION",
+    "head_required": false,
+    "body_part_selection": "SYSTEM_DECIDES_BY_NARRATIVE_UTILITY",
+    "allowed_examples": [
+      "hands_only",
+      "body_detail",
+      "torso_head_excluded",
+      "full_body_head_excluded",
+      "rear_body_motion_safe",
+      "environment_dominant_body_fragment"
+    ],
+    "motion_safe_face_occlusion": true,
+    "forbidden": [
+      "visible_face",
+      "partial_face",
+      "side_profile",
+      "cheek_contour",
+      "nose_silhouette",
+      "facial_reflection",
+      "animation_reveal_risk"
+    ]
+  }
+}

@@ -101,4 +101,6 @@ def test_unknown_state_falls_back_to_supported_context_instead_of_invented_lore(
 def test_environment_human_quality_check_is_runtime_supplement():
     assert SUPPLEMENTAL_REFERENCE_QUALITY_CHECKS == (
         "ENVIRONMENT_SUPPORTS_NARRATIVE_STATE",
+        "VISUAL_CONTEXT_DOSSIER_MATCH",
+        "MOTION_SAFE_FACE_EXCLUSION",
     )
