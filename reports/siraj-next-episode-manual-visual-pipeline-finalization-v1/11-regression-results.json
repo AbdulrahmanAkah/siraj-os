@@ -1,0 +1,22 @@
+{
+  "targeted_unit_desktop": {"status": "PASS", "passed": 12},
+  "clean_e2e": {"status": "PASS", "passed": 1},
+  "relevant_matrix": {"status": "PASS", "passed": 54, "seconds": 49.02},
+  "python_compileall": "PASS",
+  "git_diff_check": "PASS_WITH_PREEXISTING_CRLF_WARNING",
+  "secret_scan_changed_files": "PASS_NO_MATCHES",
+  "full_repository": {
+    "status": "INCOMPLETE_PREEXISTING_FAILURES_AND_RUNNER_HANG",
+    "collected": 1157,
+    "progress_before_interrupt_percent": 76,
+    "reason_for_interrupt": "NO_PROGRESS_FOR_APPROXIMATELY_NINE_MINUTES",
+    "first_diagnosed_failure": "tests/unit/test_desktop_canonical_reference_generation_v1.py::test_initial_reference_routes_to_character_consistency",
+    "first_failure_cause": "PREEXISTING_DIRTY_VISUAL_CONTEXT_SOURCE_RELEVANCE_CONTRACT_MISMATCH",
+    "additional_diagnosed_desktop_failure": "tests/integration/test_shorts_desktop_ui_v1.py::test_shorts_dock_is_existing_window_surface_and_geometry_safe",
+    "additional_failure_cause": "PREEXISTING_DIRTY_SHORTS_PROFILE_VERSION_MISMATCH_LEAVES_OPTIONAL_DOCK_UNINSTALLED",
+    "attributable_failure_found": false,
+    "certified_clean": false
+  },
+  "ruff": "NOT_CONFIGURED",
+  "typecheck": "NOT_CONFIGURED"
+}

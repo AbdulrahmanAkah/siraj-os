@@ -1,0 +1,21 @@
+{
+  "canonical_profile": "CANONICAL_NEXT_EPISODE_MANUAL_VISUAL_V1",
+  "legacy_profile": "LEGACY_PROVIDER_VISUAL_V1",
+  "canonical_visual_mode": "MANUAL_USER_PRODUCTION",
+  "desktop_paid_visual_controls_visible": false,
+  "automatic_visual_generation": false,
+  "provider_visual_fallback": false,
+  "primitive_diagram_fallback": false,
+  "gateway_guard_order": "BEFORE_AUTHORIZATION_ATTEMPT_OR_TRANSPORT",
+  "unknown_provider_visual_operation_policy": "FAIL_CLOSED",
+  "known_direct_routes": {
+    "desktop_media_execution": "LEGACY_BLOCKED_BEFORE_ACTIVE_EPISODE_EXECUTION",
+    "canonical_reference_generation": "LEGACY_EP002_AND_PAID_GATEWAY_BOUND",
+    "runware_execution_v1": "FIXED_LEGACY_EXECUTION_SPEC_NOT_CANONICAL_ROUTER",
+    "paid_operation_gateway": "MANUAL_PROFILE_VISUAL_REQUEST_BLOCKED"
+  },
+  "shared_canonical_episode_hardcoding": false,
+  "legacy_code_deleted": false,
+  "provider_calls_during_validation": 0,
+  "paid_calls_during_validation": 0
+}

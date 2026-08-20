@@ -23,6 +23,7 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Callable, Mapping, Sequence
+from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
 from src.application.shamela_primary_research_v1 import (
     build_shamela_primary_context,
@@ -195,6 +196,955 @@ def _source_package_locators(
             if cleaned.startswith("shamela://local/"):
                 result.add(cleaned)
     return result
+
+
+def _canonical_web_url(value: str) -> str:
+    # Canonicalise for provenance equality only; do not infer semantic identity.
+    text = str(value or "").strip()
+    if not text.startswith(("http://", "https://")):
+        return text
+    try:
+        parts = urlsplit(text)
+    except ValueError:
+        return text
+
+    scheme = parts.scheme.lower()
+    host = (parts.hostname or "").lower()
+    if not host:
+        return text
+
+    port = parts.port
+    if port is not None and not (
+        (scheme == "http" and port == 80)
+        or (scheme == "https" and port == 443)
+    ):
+        netloc = f"{host}:{port}"
+    else:
+        netloc = host
+
+    path = parts.path or "/"
+    if path != "/":
+        path = path.rstrip("/")
+
+    tracking = {
+        "fbclid",
+        "gclid",
+        "dclid",
+        "mc_cid",
+        "mc_eid",
+    }
+    query_pairs = [
+        (key, val)
+        for key, val in parse_qsl(
+            parts.query,
+            keep_blank_values=True,
+        )
+        if not key.lower().startswith("utm_")
+        and key.lower() not in tracking
+    ]
+    query = urlencode(sorted(query_pairs))
+    return urlunsplit((scheme, netloc, path, query, ""))
+
+
+def _canonical_web_urls(values: Sequence[str]) -> set[str]:
+    return {
+        _canonical_web_url(str(value))
+        for value in values
+        if str(value or "").strip().startswith(("http://", "https://"))
+    }
+
+
+def _source_package_web_urls(
+    source_packages: Sequence[Mapping[str, Any]],
+) -> set[str]:
+    result: set[str] = set()
+
+    def walk(value: Any) -> None:
+        if isinstance(value, Mapping):
+            for child in value.values():
+                walk(child)
+            return
+        if isinstance(value, Sequence) and not isinstance(
+            value, (str, bytes, bytearray)
+        ):
+            for child in value:
+                walk(child)
+            return
+        if isinstance(value, str):
+            text = value.strip()
+            if text.startswith(("http://", "https://")):
+                result.add(text)
+
+    for package in source_packages:
+        walk(package)
+    return result
+
+
+
+
+# SIRAJ_QURAN_PRIMARY_LOCAL_PROVENANCE_RECONCILIATION_V20_4
+def _provider_url_wire_normalized_v20_4(value: str) -> str:
+    text = str(value or "").strip()
+    if text.startswith("[") and "](" in text and text.endswith(")"):
+        marker = text.find("](")
+        destination = text[marker + 2 : -1].strip()
+        if destination.startswith(("http://", "https://")):
+            return destination
+    if text.startswith("<") and text.endswith(">"):
+        destination = text[1:-1].strip()
+        if destination.startswith(("http://", "https://")):
+            return destination
+    return text
+
+
+def _quran_reference_set_v20_4(value: str) -> set[tuple[int, int]]:
+    import re
+    from urllib.parse import unquote
+
+    text = unquote(str(value or ""))
+    refs: set[tuple[int, int]] = set()
+
+    for match in re.finditer(
+        r"(?<!\d)(\d{1,3})\s*[:/]\s*(\d{1,3})(?:\s*-\s*(\d{1,3}))?",
+        text,
+    ):
+        surah = int(match.group(1))
+        start = int(match.group(2))
+        end = int(match.group(3) or start)
+
+        # Defensive bounds. These are structural guards, not religious claims.
+        if surah < 1 or surah > 114:
+            continue
+        if start < 1 or end < start or end - start > 300:
+            continue
+
+        for verse in range(start, end + 1):
+            refs.add((surah, verse))
+
+    return refs
+
+
+def _remap_source_id_v20_4(
+    value: Any,
+    *,
+    old_source_id: str,
+    new_source_id: str,
+) -> None:
+    if isinstance(value, dict):
+        source_ids = value.get("source_ids")
+        if isinstance(source_ids, list):
+            replaced: list[str] = []
+            seen: set[str] = set()
+            for raw in source_ids:
+                sid = str(raw)
+                sid = new_source_id if sid == old_source_id else sid
+                if sid not in seen:
+                    replaced.append(sid)
+                    seen.add(sid)
+            value["source_ids"] = replaced
+
+        for child in value.values():
+            _remap_source_id_v20_4(
+                child,
+                old_source_id=old_source_id,
+                new_source_id=new_source_id,
+            )
+        return
+
+    if isinstance(value, list):
+        for child in value:
+            _remap_source_id_v20_4(
+                child,
+                old_source_id=old_source_id,
+                new_source_id=new_source_id,
+            )
+
+
+def _reconcile_unverified_quran_primary_to_local_v20_4(
+    dossier: Mapping[str, Any],
+    *,
+    cited_urls: Sequence[str],
+) -> dict[str, Any]:
+    # Conservative repair only:
+    # - source must claim PRIMARY_OR_CANONICAL_TEXT;
+    # - web URL must be quran.com-family and NOT exactly provider-grounded;
+    # - exactly one already-present local canonical source must cover every
+    #   verse reference claimed by the unsupported row;
+    # - facts are remapped to that existing local source;
+    # - the unsupported web row is removed rather than relabeled or invented.
+    repaired = json.loads(json.dumps(dict(dossier), ensure_ascii=False))
+    sources = repaired.get("sources", [])
+    if not isinstance(sources, list):
+        return repaired
+
+    grounded_exact = {
+        _provider_url_wire_normalized_v20_4(str(url)).rstrip("/")
+        for url in cited_urls
+        if str(url).strip()
+    }
+
+    local_rows: list[dict[str, Any]] = []
+    for row in sources:
+        if not isinstance(row, dict):
+            continue
+        if str(row.get("authority_class") or "") != "PRIMARY_OR_CANONICAL_TEXT":
+            continue
+        local_url = str(row.get("url") or "").strip()
+        if not local_url.startswith("shamela://local/"):
+            continue
+        coverage = _quran_reference_set_v20_4(
+            str(row.get("title") or "") + " " + local_url
+        )
+        if coverage:
+            local_rows.append(row)
+
+    to_remove: list[dict[str, Any]] = []
+
+    for row in list(sources):
+        if not isinstance(row, dict):
+            continue
+        if str(row.get("authority_class") or "") != "PRIMARY_OR_CANONICAL_TEXT":
+            continue
+
+        url = _provider_url_wire_normalized_v20_4(
+            str(row.get("url") or "")
+        )
+        lowered = url.lower()
+
+        if not url.startswith(("http://", "https://")):
+            continue
+        if "quran.com" not in lowered:
+            continue
+        if url.rstrip("/") in grounded_exact:
+            continue
+
+        claimed_refs = _quran_reference_set_v20_4(
+            str(row.get("title") or "") + " " + url
+        )
+        if not claimed_refs:
+            continue
+
+        candidates: list[dict[str, Any]] = []
+        for local in local_rows:
+            local_refs = _quran_reference_set_v20_4(
+                str(local.get("title") or "")
+                + " "
+                + str(local.get("url") or "")
+            )
+            if claimed_refs.issubset(local_refs):
+                candidates.append(local)
+
+        # Ambiguity stays fail-closed.
+        if len(candidates) != 1:
+            continue
+
+        local = candidates[0]
+        old_id = str(row.get("source_id") or "").strip()
+        new_id = str(local.get("source_id") or "").strip()
+        if not old_id or not new_id or old_id == new_id:
+            continue
+
+        _remap_source_id_v20_4(
+            repaired,
+            old_source_id=old_id,
+            new_source_id=new_id,
+        )
+
+        old_dims = row.get("relevance_dimensions")
+        new_dims = local.get("relevance_dimensions")
+        if isinstance(old_dims, list) and isinstance(new_dims, list):
+            merged: list[str] = []
+            seen: set[str] = set()
+            for raw in [*new_dims, *old_dims]:
+                dim = str(raw)
+                if dim and dim not in seen:
+                    merged.append(dim)
+                    seen.add(dim)
+            local["relevance_dimensions"] = merged
+
+        to_remove.append(row)
+
+    if to_remove:
+        repaired["sources"] = [
+            row for row in sources if row not in to_remove
+        ]
+
+    return repaired
+
+def _reconcile_source_provenance(
+    *,
+    dossier: Mapping[str, Any],
+    local_context: Mapping[str, Any],
+    cited_urls: Sequence[str],
+) -> dict[str, Any]:
+    # verification_method is derived from durable evidence, not model self-report.
+    reconciled = json.loads(
+        json.dumps(dict(dossier), ensure_ascii=False)
+    )
+    reconciled = _reconcile_unverified_quran_primary_to_local_v20_4(
+        reconciled,
+        cited_urls=cited_urls,
+    )
+
+    evidence = local_context.get("evidence_package")
+    evidence_urls = _canonical_web_urls(
+        tuple(
+            _source_urls_from_evidence(
+                evidence if isinstance(evidence, Mapping) else None
+            )
+        )
+    )
+
+    shamela = local_context.get("shamela_primary_context")
+    shamela_locators = _shamela_locators(
+        shamela if isinstance(shamela, Mapping) else {}
+    )
+
+    source_packages = local_context.get("source_packages", [])
+    if not isinstance(source_packages, Sequence) or isinstance(
+        source_packages, (str, bytes)
+    ):
+        source_packages = []
+    package_locators = _source_package_locators(source_packages)
+    package_urls = _canonical_web_urls(
+        tuple(_source_package_web_urls(source_packages))
+    )
+    provider_cited = _canonical_web_urls(tuple(cited_urls))
+
+    sources = reconciled.get("sources", [])
+    if not isinstance(sources, list):
+        raise VisualContextResearchExecutorError(
+            "VISUAL_CONTEXT_SOURCES_REQUIRED_FOR_PROVENANCE_RECONCILIATION"
+        )
+
+    for source in sources:
+        if not isinstance(source, dict):
+            raise VisualContextResearchExecutorError(
+                "VISUAL_CONTEXT_SOURCE_ROW_INVALID_FOR_PROVENANCE_RECONCILIATION"
+            )
+
+        source_id = str(source.get("source_id") or "").strip()
+        url = str(source.get("url") or "").strip()
+        canonical = _canonical_web_url(url)
+
+        if url.startswith("shamela://local/"):
+            if url in shamela_locators or url in package_locators:
+                source["verification_method"] = "SHAMELA_LOCAL"
+                source["verified"] = True
+                continue
+
+        if canonical in evidence_urls:
+            source["verification_method"] = "EPISODE_EVIDENCE_PACKAGE"
+            source["verified"] = True
+            continue
+
+        if canonical in package_urls or url in package_locators:
+            source["verification_method"] = "SOURCE_PACKAGE"
+            source["verified"] = True
+            continue
+
+        if url.startswith(("http://", "https://")):
+            if canonical in provider_cited:
+                source["verification_method"] = "WEB_SEARCH_TOOL"
+                source["verified"] = True
+                continue
+            raise VisualContextResearchExecutorError(
+                "VISUAL_CONTEXT_WEB_SOURCE_NOT_PROVIDER_CITED:"
+                + source_id
+                + ":"
+                + url
+            )
+
+        raise VisualContextResearchExecutorError(
+            "VISUAL_CONTEXT_SOURCE_PROVENANCE_UNRESOLVED:"
+            + source_id
+            + ":"
+            + url
+        )
+
+    return reconciled
+
+
+
+def _normalize_duplicate_source_ids(
+    dossier: Mapping[str, Any],
+) -> dict[str, Any]:
+    repaired = json.loads(json.dumps(dict(dossier), ensure_ascii=False))
+    sources = repaired.get("sources", [])
+    if not isinstance(sources, list):
+        raise VisualContextResearchExecutorError(
+            "VISUAL_CONTEXT_SOURCES_REQUIRED_FOR_DUPLICATE_ID_NORMALIZATION"
+        )
+
+    max_numeric = 0
+    for row in sources:
+        if not isinstance(row, Mapping):
+            continue
+        sid = str(row.get("source_id") or "").strip()
+        if sid.startswith("VCSRC-") and sid[6:].isdigit():
+            max_numeric = max(max_numeric, int(sid[6:]))
+
+    alias_map: dict[str, list[str]] = {}
+    seen_first: set[str] = set()
+
+    for row in sources:
+        if not isinstance(row, dict):
+            raise VisualContextResearchExecutorError(
+                "VISUAL_CONTEXT_SOURCE_ROW_INVALID_FOR_DUPLICATE_ID_NORMALIZATION"
+            )
+        sid = str(row.get("source_id") or "").strip()
+        if not sid:
+            raise VisualContextResearchExecutorError(
+                "VISUAL_CONTEXT_SOURCE_ID_INVALID_OR_DUPLICATE"
+            )
+
+        alias_map.setdefault(sid, [])
+
+        if sid not in seen_first:
+            seen_first.add(sid)
+            alias_map[sid].append(sid)
+            continue
+
+        max_numeric += 1
+        new_sid = f"VCSRC-{max_numeric:03d}"
+        while new_sid in seen_first:
+            max_numeric += 1
+            new_sid = f"VCSRC-{max_numeric:03d}"
+
+        row["source_id"] = new_sid
+        seen_first.add(new_sid)
+        alias_map[sid].append(new_sid)
+
+    def _walk(value: Any) -> None:
+        if isinstance(value, dict):
+            source_ids = value.get("source_ids")
+            if isinstance(source_ids, list):
+                expanded: list[str] = []
+                expanded_seen: set[str] = set()
+                for raw in source_ids:
+                    sid = str(raw)
+                    replacements = alias_map.get(sid, [sid])
+                    for item in replacements:
+                        if item not in expanded_seen:
+                            expanded.append(item)
+                            expanded_seen.add(item)
+                value["source_ids"] = expanded
+            for child in value.values():
+                _walk(child)
+            return
+        if isinstance(value, list):
+            for child in value:
+                _walk(child)
+
+    _walk(repaired)
+    return repaired
+
+
+
+# SIRAJ_VISUAL_RESEARCH_STRUCTURAL_NORMALIZATION_V17_1
+def _quran_route_signature_v17_1(value: str):
+    from urllib.parse import unquote
+
+    text = str(value or "").strip()
+    if not text.startswith(("http://", "https://")):
+        return None
+    try:
+        parts = urlsplit(text)
+    except ValueError:
+        return None
+
+    host = (parts.hostname or "").lower()
+    if host == "www.quran.com":
+        host = "quran.com"
+    if host != "quran.com":
+        return None
+
+    decoded = unquote(parts.path or "/").strip("/")
+    segments = [part for part in decoded.split("/") if part]
+    if not segments:
+        return None
+
+    surah = None
+    ayah = None
+    tail = []
+
+    first = segments[0]
+    if ":" in first:
+        left, right = first.split(":", 1)
+        if left.isdigit() and right.isdigit():
+            surah = int(left)
+            ayah = int(right)
+            tail = segments[1:]
+    elif (
+        len(segments) >= 2
+        and segments[0].isdigit()
+        and segments[1].isdigit()
+    ):
+        surah = int(segments[0])
+        ayah = int(segments[1])
+        tail = segments[2:]
+    elif first.isdigit():
+        surah = int(first)
+        query = {
+            str(key).strip().casefold(): str(val).strip()
+            for key, val in parse_qsl(
+                parts.query,
+                keep_blank_values=True,
+            )
+        }
+        for key in (
+            "startingverse",
+            "verse",
+            "ayah",
+            "ayahno",
+            "verse_number",
+        ):
+            val = query.get(key)
+            if val and val.isdigit():
+                ayah = int(val)
+                break
+        tail = segments[1:]
+
+    if surah is None or ayah is None:
+        return None
+
+    return (
+        (surah, ayah),
+        tuple(part.casefold() for part in tail),
+    )
+
+
+def _altafsir_identity_v17_1(value: str):
+    text = str(value or "").strip()
+    if not text.startswith(("http://", "https://")):
+        return None
+    try:
+        parts = urlsplit(text)
+    except ValueError:
+        return None
+
+    host = (parts.hostname or "").lower()
+    if host == "www.altafsir.com":
+        host = "altafsir.com"
+    if host != "altafsir.com":
+        return None
+
+    path = (parts.path or "/").rstrip("/").casefold() or "/"
+    aliases = {
+        "languageid": "languageid",
+        "userprofile": "userprofile",
+        "page": "page",
+        "size": "size",
+        "ayahno": "ayahno",
+        "tayahno": "ayahno",
+        "display": "display",
+        "tdisplay": "display",
+        "madhno": "madhno",
+        "tmadhno": "madhno",
+        "sorano": "sorano",
+        "tsorano": "sorano",
+        "tafsirno": "tafsirno",
+        "ttafsirno": "tafsirno",
+    }
+
+    identity = {}
+    for key, val in parse_qsl(
+        parts.query,
+        keep_blank_values=True,
+    ):
+        normalized = aliases.get(str(key).strip().casefold())
+        if normalized is not None:
+            identity[normalized] = str(val).strip()
+
+    return host, path, identity
+
+
+def _provider_exact_url_v17_1(
+    source_url: str,
+    cited_urls: Sequence[str],
+):
+    source_text = str(source_url or "").strip()
+    citations = tuple(
+        str(value).strip()
+        for value in cited_urls
+        if str(value or "").strip().startswith(("http://", "https://"))
+    )
+
+    canonical = _canonical_web_url(source_text)
+    exact = list(
+        dict.fromkeys(
+            value
+            for value in citations
+            if _canonical_web_url(value) == canonical
+        )
+    )
+    if len(exact) == 1:
+        return exact[0]
+    if len(exact) > 1:
+        return None
+
+    quran_signature = _quran_route_signature_v17_1(source_text)
+    if quran_signature is not None:
+        quran_matches = list(
+            dict.fromkeys(
+                value
+                for value in citations
+                if _quran_route_signature_v17_1(value)
+                == quran_signature
+            )
+        )
+        if len(quran_matches) == 1:
+            return quran_matches[0]
+
+    altafsir = _altafsir_identity_v17_1(source_text)
+    if altafsir is not None:
+        source_host, source_path, source_fields = altafsir
+        if (
+            {"ayahno", "tafsirno"}.issubset(source_fields)
+            and len(source_fields) >= 4
+        ):
+            matches = []
+            for candidate in citations:
+                parsed = _altafsir_identity_v17_1(candidate)
+                if parsed is None:
+                    continue
+                host, path, fields = parsed
+                if host != source_host or path != source_path:
+                    continue
+                if all(
+                    fields.get(key) == value
+                    for key, value in source_fields.items()
+                ):
+                    matches.append(candidate)
+            matches = list(dict.fromkeys(matches))
+            if len(matches) == 1:
+                return matches[0]
+
+    return None
+
+
+def _normalize_provider_urls_v17_1(
+    dossier: Mapping[str, Any],
+    *,
+    cited_urls: Sequence[str],
+):
+    repaired = json.loads(
+        json.dumps(dict(dossier), ensure_ascii=False)
+    )
+    sources = repaired.get("sources", [])
+    if not isinstance(sources, list):
+        return repaired
+
+    for source in sources:
+        if not isinstance(source, dict):
+            continue
+        url = str(source.get("url") or "").strip()
+        if not url.startswith(("http://", "https://")):
+            continue
+        exact = _provider_exact_url_v17_1(url, cited_urls)
+        if exact is not None:
+            source["url"] = exact
+
+    return repaired
+
+
+def _normalize_duplicate_source_ids_v17_1(
+    dossier: Mapping[str, Any],
+):
+    repaired = json.loads(
+        json.dumps(dict(dossier), ensure_ascii=False)
+    )
+    sources = repaired.get("sources", [])
+    if not isinstance(sources, list):
+        return repaired
+
+    max_numeric = 0
+    for row in sources:
+        if not isinstance(row, Mapping):
+            continue
+        sid = str(row.get("source_id") or "").strip()
+        if sid.startswith("VCSRC-") and sid[6:].isdigit():
+            max_numeric = max(max_numeric, int(sid[6:]))
+
+    aliases = {}
+    seen = set()
+
+    for row in sources:
+        if not isinstance(row, dict):
+            continue
+        sid = str(row.get("source_id") or "").strip()
+        if not sid:
+            continue
+
+        aliases.setdefault(sid, [])
+        if sid not in seen:
+            seen.add(sid)
+            aliases[sid].append(sid)
+            continue
+
+        max_numeric += 1
+        replacement = f"VCSRC-{max_numeric:03d}"
+        while replacement in seen:
+            max_numeric += 1
+            replacement = f"VCSRC-{max_numeric:03d}"
+
+        row["source_id"] = replacement
+        seen.add(replacement)
+        aliases[sid].append(replacement)
+
+    if not any(len(values) > 1 for values in aliases.values()):
+        return repaired
+
+    def walk(value):
+        if isinstance(value, dict):
+            source_ids = value.get("source_ids")
+            if isinstance(source_ids, list):
+                expanded = []
+                expanded_seen = set()
+                for raw in source_ids:
+                    sid = str(raw).strip()
+                    replacements = aliases.get(sid, [sid])
+                    for replacement in replacements:
+                        if (
+                            replacement
+                            and replacement not in expanded_seen
+                        ):
+                            expanded.append(replacement)
+                            expanded_seen.add(replacement)
+                value["source_ids"] = expanded
+            for child in value.values():
+                walk(child)
+        elif isinstance(value, list):
+            for child in value:
+                walk(child)
+
+    walk(repaired)
+    return repaired
+
+
+def _normalize_fact_graph_v17_1(
+    dossier: Mapping[str, Any],
+):
+    from src.application.visual_context_research_v1 import (
+        ASSERTIVE_CERTAINTY,
+    )
+
+    repaired = json.loads(
+        json.dumps(dict(dossier), ensure_ascii=False)
+    )
+    sources = repaired.get("sources", [])
+    dimensions = repaired.get("dimensions")
+
+    if not isinstance(sources, list) or not isinstance(
+        dimensions,
+        Mapping,
+    ):
+        return repaired
+
+    sources_by_id = {}
+    for row in sources:
+        if not isinstance(row, dict):
+            continue
+        sid = str(row.get("source_id") or "").strip()
+        if sid and sid not in sources_by_id:
+            sources_by_id[sid] = row
+
+    required_dimensions = {
+        sid: set()
+        for sid in sources_by_id
+    }
+
+    for dimension_name, dimension in dimensions.items():
+        if not isinstance(dimension, Mapping):
+            continue
+        facts = dimension.get("facts", [])
+        if not isinstance(facts, list):
+            continue
+
+        for fact in facts:
+            if not isinstance(fact, dict):
+                continue
+
+            raw_source_ids = [
+                str(value).strip()
+                for value in fact.get("source_ids", [])
+                if str(value).strip()
+            ]
+            valid_source_ids = [
+                sid
+                for sid in raw_source_ids
+                if sid in sources_by_id
+            ]
+            unknown_source_ids = [
+                sid
+                for sid in raw_source_ids
+                if sid not in sources_by_id
+            ]
+
+            # Remove only orphan pointers when the fact retains at least one
+            # real registered source. Never invent evidence.
+            if unknown_source_ids and valid_source_ids:
+                fact["source_ids"] = valid_source_ids
+                raw_source_ids = valid_source_ids
+
+            certainty = str(fact.get("certainty") or "").strip()
+            if fact.get("assertive_visualization") is True:
+                if (
+                    not raw_source_ids
+                    or certainty not in ASSERTIVE_CERTAINTY
+                ):
+                    fact["assertive_visualization"] = False
+
+            for sid in raw_source_ids:
+                if sid in required_dimensions:
+                    required_dimensions[sid].add(
+                        str(dimension_name)
+                    )
+
+    for sid, required in required_dimensions.items():
+        source = sources_by_id[sid]
+        current_raw = source.get("relevance_dimensions", [])
+        current = [
+            str(value).strip()
+            for value in current_raw
+            if str(value).strip()
+        ] if isinstance(current_raw, list) else []
+        seen = set(current)
+        for dimension_name in sorted(required):
+            if dimension_name not in seen:
+                current.append(dimension_name)
+                seen.add(dimension_name)
+        source["relevance_dimensions"] = current
+
+    return repaired
+
+
+def _structural_preflight_v17_1(
+    dossier: Mapping[str, Any],
+):
+    from src.application.visual_context_research_v1 import (
+        ASSERTIVE_CERTAINTY,
+    )
+
+    issues = []
+    sources = dossier.get("sources", [])
+    dimensions = dossier.get("dimensions")
+
+    if not isinstance(sources, list):
+        return
+    if not isinstance(dimensions, Mapping):
+        return
+
+    sources_by_id = {}
+    for index, row in enumerate(sources):
+        if not isinstance(row, Mapping):
+            issues.append(
+                {"type": "SOURCE_ROW_INVALID", "index": index}
+            )
+            continue
+        sid = str(row.get("source_id") or "").strip()
+        if not sid:
+            issues.append(
+                {"type": "SOURCE_ID_EMPTY", "index": index}
+            )
+            continue
+        if sid in sources_by_id:
+            issues.append(
+                {"type": "SOURCE_ID_DUPLICATE", "source_id": sid}
+            )
+            continue
+        sources_by_id[sid] = row
+
+    for dimension_name, dimension in dimensions.items():
+        if not isinstance(dimension, Mapping):
+            continue
+        facts = dimension.get("facts", [])
+        if not isinstance(facts, list):
+            continue
+
+        for fact in facts:
+            if not isinstance(fact, Mapping):
+                continue
+            fact_id = str(fact.get("fact_id") or "")
+            source_ids = [
+                str(value).strip()
+                for value in fact.get("source_ids", [])
+                if str(value).strip()
+            ]
+            certainty = str(fact.get("certainty") or "").strip()
+
+            for sid in source_ids:
+                source = sources_by_id.get(sid)
+                if source is None:
+                    issues.append(
+                        {
+                            "type": "FACT_SOURCE_UNKNOWN",
+                            "dimension": str(dimension_name),
+                            "fact_id": fact_id,
+                            "source_id": sid,
+                        }
+                    )
+                    continue
+                relevance = {
+                    str(value)
+                    for value in source.get(
+                        "relevance_dimensions",
+                        [],
+                    )
+                }
+                if str(dimension_name) not in relevance:
+                    issues.append(
+                        {
+                            "type": "FACT_SOURCE_DIMENSION_MISMATCH",
+                            "dimension": str(dimension_name),
+                            "fact_id": fact_id,
+                            "source_id": sid,
+                        }
+                    )
+
+            if fact.get("assertive_visualization") is True:
+                if not source_ids:
+                    issues.append(
+                        {
+                            "type": "ASSERTIVE_WITHOUT_SOURCE",
+                            "dimension": str(dimension_name),
+                            "fact_id": fact_id,
+                        }
+                    )
+                if certainty not in ASSERTIVE_CERTAINTY:
+                    issues.append(
+                        {
+                            "type": "ASSERTIVE_CERTAINTY_TOO_LOW",
+                            "dimension": str(dimension_name),
+                            "fact_id": fact_id,
+                            "certainty": certainty,
+                        }
+                    )
+
+    if issues:
+        raise VisualContextResearchExecutorError(
+            "VISUAL_CONTEXT_STRUCTURAL_PREFLIGHT_FAILED_V17_1:"
+            + json.dumps(
+                issues,
+                ensure_ascii=False,
+                sort_keys=True,
+            )
+        )
+
+
+def _normalize_provider_output_v17_1(
+    dossier: Mapping[str, Any],
+    *,
+    cited_urls: Sequence[str],
+):
+    value = _normalize_provider_urls_v17_1(
+        dossier,
+        cited_urls=cited_urls,
+    )
+    value = _normalize_duplicate_source_ids_v17_1(value)
+    value = _normalize_fact_graph_v17_1(value)
+    _structural_preflight_v17_1(value)
+    return value
 
 
 def _infer_domain_profile(
@@ -408,20 +1358,28 @@ def _verify_source_provenance(
     local_context: Mapping[str, Any],
     cited_urls: Sequence[str],
 ) -> None:
-    cited = {str(url).strip() for url in cited_urls if str(url).strip()}
-    evidence_urls = _source_urls_from_evidence(
-        local_context.get("evidence_package")
-        if isinstance(local_context, Mapping)
-        else None
+    cited = _canonical_web_urls(tuple(cited_urls))
+    evidence_urls = _canonical_web_urls(
+        tuple(
+            _source_urls_from_evidence(
+                local_context.get("evidence_package")
+                if isinstance(local_context, Mapping)
+                else None
+            )
+        )
     )
     shamela = local_context.get("shamela_primary_context")
     shamela_locators = _shamela_locators(
         shamela if isinstance(shamela, Mapping) else {}
     )
-    package_locators = _source_package_locators(
+    source_packages = (
         local_context.get("source_packages", [])
         if isinstance(local_context, Mapping)
         else []
+    )
+    package_locators = _source_package_locators(source_packages)
+    package_urls = _canonical_web_urls(
+        tuple(_source_package_web_urls(source_packages))
     )
 
     for source in dossier.get("sources", []):
@@ -432,7 +1390,10 @@ def _verify_source_provenance(
         method = str(source.get("verification_method") or "").strip()
 
         if method == "WEB_SEARCH_TOOL":
-            if not url.startswith(("http://", "https://")) or url not in cited:
+            if (
+                not url.startswith(("http://", "https://"))
+                or _canonical_web_url(url) not in cited
+            ):
                 raise VisualContextResearchExecutorError(
                     "VISUAL_CONTEXT_WEB_SOURCE_NOT_PROVIDER_CITED:"
                     + source_id
@@ -440,7 +1401,7 @@ def _verify_source_provenance(
                     + url
                 )
         elif method == "EPISODE_EVIDENCE_PACKAGE":
-            if url not in evidence_urls:
+            if _canonical_web_url(url) not in evidence_urls:
                 raise VisualContextResearchExecutorError(
                     "VISUAL_CONTEXT_EVIDENCE_SOURCE_NOT_LOCAL:"
                     + source_id
@@ -456,7 +1417,11 @@ def _verify_source_provenance(
                     + url
                 )
         elif method == "SOURCE_PACKAGE":
-            if url not in package_locators and url not in evidence_urls:
+            if (
+                url not in package_locators
+                and _canonical_web_url(url) not in package_urls
+                and _canonical_web_url(url) not in evidence_urls
+            ):
                 raise VisualContextResearchExecutorError(
                     "VISUAL_CONTEXT_SOURCE_PACKAGE_PROVENANCE_FAILED:"
                     + source_id
@@ -584,17 +1549,31 @@ def execute_visual_context_research(
             "VISUAL_CONTEXT_PROVIDER_RESULT_TYPE_INVALID"
         )
 
-    dossier = provider_result.payload
-    if dossier.get("episode_id") != episode_id:
+    provider_dossier = provider_result.payload
+    if provider_dossier.get("episode_id") != episode_id:
         raise VisualContextResearchExecutorError(
             "VISUAL_CONTEXT_PROVIDER_EPISODE_MISMATCH"
         )
-    if dossier.get("context_id") != context_id:
+    if provider_dossier.get("context_id") != context_id:
         raise VisualContextResearchExecutorError(
             "VISUAL_CONTEXT_PROVIDER_CONTEXT_MISMATCH"
         )
 
     local_context = request["local_context"]
+    provider_dossier = _normalize_provider_output_v17_1(
+        provider_dossier,
+        cited_urls=provider_result.cited_urls,
+    )
+    dossier = _reconcile_source_provenance(
+        dossier=provider_dossier,
+        local_context=local_context,
+        cited_urls=provider_result.cited_urls,
+    )
+    dossier = _normalize_duplicate_source_ids(dossier)
+    dossier = _normalize_provider_output_v17_1(
+        dossier,
+        cited_urls=provider_result.cited_urls,
+    )
     _verify_source_provenance(
         dossier=dossier,
         local_context=local_context,

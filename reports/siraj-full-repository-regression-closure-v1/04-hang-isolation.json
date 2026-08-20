@@ -1,0 +1,25 @@
+{
+  "schema_version": "siraj-hang-isolation-v1",
+  "hang_reproduced": true,
+  "hanging_nodeid": "tests/integration/test_shorts_desktop_ux_screenshots_v1.py::test_short_ux_screenshots_are_captured_locally",
+  "collection_index": 909,
+  "minimal_trigger_sequence": [
+    "tests/integration/test_shorts_desktop_ux_screenshots_v1.py::test_short_ux_screenshots_are_captured_locally"
+  ],
+  "root_cause": "Shorts engine/profile version drift omitted the dock; offscreen navigation entered a synchronous QMessageBox.warning with no operator to dismiss it.",
+  "process_forensics": {
+    "python_process_alive": true,
+    "child_processes": 0,
+    "ffmpeg_processes": 0,
+    "blocking_location": "src/presentation/desktop/main_window.py:1544"
+  },
+  "fix": "Restored the canonical engine profile authority to version 1.1.0, matching the tracked profile and schema; retained fail-closed initialization.",
+  "verified_no_hang": true,
+  "verification": [
+    "isolated hanging node: PASS",
+    "Shorts integration segment: 101 passed",
+    "repeatability matrix containing all three Shorts Desktop UI/UX files: 80 passed",
+    "full repository: 1156 passed, 1 skipped"
+  ],
+  "multiple_hangs_found": false
+}

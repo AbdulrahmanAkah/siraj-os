@@ -19,6 +19,10 @@ from src.application.shorts_derivative_execution_v1 import (
     issue_authorization,
 )
 from src.application.shorts_derivative_storage_v1 import CanonicalShortsLibrary, ShortsLibraryError
+from src.application.ready_episode_archive_v1 import (
+    READY_EPISODES_DIRNAME,
+    episode_archive_directory_name,
+)
 
 
 REPO = Path(__file__).resolve().parents[2]
@@ -108,9 +112,9 @@ def test_canonical_library_reuses_episode_and_rejects_silent_overwrite(tmp_path:
     library = CanonicalShortsLibrary(REPO, desktop_location=desktop, settings_path=settings)
     first = library.resolve()
     second = CanonicalShortsLibrary(REPO, desktop_location=desktop, settings_path=settings).resolve()
-    assert first.root == second.root == desktop / "SIRAJ Shorts"
+    assert first.root == second.root == desktop / READY_EPISODES_DIRNAME
     episode = library.episode_directory("EP001", "عنوان عربي / آمن")
-    assert episode.name.startswith("EP001 - ")
+    assert episode.name == episode_archive_directory_name("EP001")
     assert library.episode_directory("EP001", "عنوان مختلف") == episode
     source = tmp_path / "render.mp4"
     source.write_bytes(b"approved-render")

@@ -1,0 +1,20 @@
+{
+  "schema_version": "siraj-clean-isolated-validation-v1",
+  "status": "PASS",
+  "repository_copy_created": false,
+  "reason": "The live worktree contains valuable uncommitted and untracked mission files; duplicating or rebasing it would create provenance risk.",
+  "isolated_validations": [
+    {
+      "name": "manual_visual_clean_synthetic_e2e",
+      "status": "PASS",
+      "isolation": "pytest tmp_path episode and output roots"
+    },
+    {
+      "name": "release_wheel_source_and_install",
+      "status": "PASS",
+      "isolation": "temporary source copy, wheel directory, and clean venv",
+      "passed": 9
+    }
+  ],
+  "tracked_or_historical_artifacts_deleted": false
+}

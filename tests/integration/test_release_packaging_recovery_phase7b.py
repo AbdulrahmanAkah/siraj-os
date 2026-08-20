@@ -119,6 +119,17 @@ def built_wheel(
     tmp_path_factory: pytest.TempPathFactory,
 ) -> Path:
     wheel_root = tmp_path_factory.mktemp("siraj-wheel")
+    build_source = tmp_path_factory.mktemp("siraj-wheel-source")
+    shutil.copytree(
+        REPOSITORY_ROOT / "src",
+        build_source / "src",
+        ignore=shutil.ignore_patterns("__pycache__", "*.pyc", "*.pyo"),
+    )
+    for packaging_file in ("pyproject.toml", "MANIFEST.in"):
+        shutil.copy2(
+            REPOSITORY_ROOT / packaging_file,
+            build_source / packaging_file,
+        )
 
     result = _run(
         [
@@ -132,7 +143,7 @@ def built_wheel(
             "--wheel-dir",
             str(wheel_root),
         ],
-        cwd=REPOSITORY_ROOT,
+        cwd=build_source,
         timeout=180,
     )
 

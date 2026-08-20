@@ -2,7 +2,48 @@
 ## Master Development Roadmap
 
 آخر تحديث:
-2026-08-12
+2026-08-20
+
+========================================================
+SIRAJ NEXT EPISODE MANUAL VISUAL PIPELINE FINALIZATION - 2026-08-20
+========================================================
+
+Status:
+READY_FOR_NEXT_EPISODE
+
+Certification:
+- Canonical next-episode profile: CANONICAL_NEXT_EPISODE_MANUAL_VISUAL_V1.
+- Canonical visual mode: MANUAL_USER_PRODUCTION.
+- Pre-visual pipeline: PASS from episode creation through research, source/title lock, script, narration/timing, storyboard, visual contracts, and manual visual handoff.
+- Manual visual ingest: PASS with validation, SHA-bound asset authority, replacement handling, and scoped downstream invalidation.
+- Post-ingest assembly, montage, audio sync, separated QA, human final review gate, master, Shorts compatibility, and archive: PASS.
+- Targeted manual-pipeline regression: 56 passed (reconstructed superset of prior 54).
+- Clean manual-visual E2E: PASS.
+- Shorts regression: 101 passed.
+- Legacy regression: PASS.
+- Full repository regression: 1157 collected; 1156 passed; 1 justified skip; 0 failed; completed in 151.18 seconds.
+- Full repository repeatability: PASS twice.
+- Previous 76% hang root cause identified and fixed: Shorts profile version drift removed the dock, then an offscreen modal warning blocked screenshot capture.
+- Critical/high unresolved issues in the new pipeline: 0/0.
+- System readiness: YES.
+
+Safety:
+- New-episode paid visual generation: DISABLED.
+- New-episode provider visual fallback: DISABLED.
+- Paid visual calls during certification: 0.
+- Production provider calls during certification: 0.
+- Safety gates weakened: 0.
+- Tests deleted to pass: 0.
+- Unjustified skips added: 0.
+- Commit scope is manual-visual finalization plus regression-closure evidence only.
+- Push: not part of this certification commit.
+
+Evidence:
+- reports/siraj-next-episode-manual-visual-pipeline-finalization-v1/
+- reports/siraj-full-repository-regression-closure-v1/
+
+NEXT=OPEN_SIRAJ -> NEW EPISODE -> RUN PRE-VISUAL PIPELINE -> EXPORT MANUAL VISUAL PACK
+
 
 ========================================================
 SIRAJ SHORTS LEGACY TIMING RESOLVER V1 - 2026-08-14

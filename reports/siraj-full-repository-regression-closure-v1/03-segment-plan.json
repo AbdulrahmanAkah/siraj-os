@@ -1,0 +1,14 @@
+{
+  "schema_version": "siraj-full-regression-segment-plan-v1",
+  "collected_total": 1157,
+  "exact_once_partition": true,
+  "segments": [
+    {"id": "UNIT", "selection": "tests/unit", "collected": 590},
+    {"id": "INTEGRATION_SHORTS", "selection": "tests/integration -k shorts", "collected": 101},
+    {"id": "INTEGRATION_NON_SHORTS", "selection": "tests/integration -k not shorts", "collected": 381},
+    {"id": "REGRESSION_SMOKE", "selection": "tests/regression tests/smoke", "collected": 85}
+  ],
+  "network_calls_allowed": 0,
+  "provider_calls_allowed": 0,
+  "paid_calls_allowed": 0
+}

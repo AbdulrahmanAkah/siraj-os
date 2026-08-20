@@ -1,0 +1,98 @@
+{
+  "schema_version": "siraj-full-regression-failure-classification-v1",
+  "prior_interrupted_markers": {"failed": 30, "errors": 12, "skipped": 1},
+  "classification_complete": true,
+  "unknown_remaining": 0,
+  "groups": [
+    {
+      "id": "SHORTS_PROFILE_AUTHORITY_DRIFT",
+      "classification": "B",
+      "is_preexisting": true,
+      "is_caused_by_manual_visual_mission": false,
+      "root_cause": "Engine expected profile 1.2.0 while canonical JSON and schema were 1.1.0; Desktop fail-soft omitted the dock.",
+      "representative_reproduced_nodeids": [
+        "tests/unit/test_shorts_derivative_engine_v1.py::test_profile_is_versioned_and_fail_closed",
+        "tests/unit/test_shorts_derivative_activation_v1.py::test_real_ready_path_uses_same_guard_without_fixture_marker",
+        "tests/unit/test_shorts_legacy_timing_resolver_v1.py::test_engine_source_admission_uses_resolved_legacy_timing",
+        "tests/integration/test_shorts_desktop_ui_v1.py::test_shorts_dock_is_existing_window_surface_and_geometry_safe"
+      ],
+      "fix": "Align engine with canonical profile/schema 1.1.0 and retain revalidated legacy compatibility for 1.0.0/1.1.0.",
+      "verification": "44 focused Shorts unit tests and 101 Shorts integration tests passed."
+    },
+    {
+      "id": "SHORTS_STORAGE_OBSOLETE_EXPECTATION",
+      "classification": "D",
+      "is_preexisting": true,
+      "is_caused_by_manual_visual_mission": false,
+      "root_cause": "One old activation test asserted the retired Desktop/SIRAJ Shorts layout after the intentional ready-episode archive migration.",
+      "nodeid": "tests/unit/test_shorts_derivative_activation_v1.py::test_canonical_library_reuses_episode_and_rejects_silent_overwrite",
+      "fix": "Assert the shared ready-episode archive authority and episode directory helper.",
+      "verification": "Current storage matrix and activation matrix passed."
+    },
+    {
+      "id": "CANONICAL_REFERENCE_FIXTURE_RELEVANCE",
+      "classification": "D",
+      "is_preexisting": true,
+      "is_caused_by_manual_visual_mission": false,
+      "root_cause": "Fixture source SRC-VIS-001 omitted relevance_dimensions required by the already-intended strict fact/source contract.",
+      "nodeids": [
+        "tests/unit/test_desktop_canonical_reference_generation_v1.py::test_initial_reference_routes_to_character_consistency",
+        "tests/unit/test_desktop_canonical_reference_generation_v1.py::test_dependent_reference_uses_data_uri_after_acceptance"
+      ],
+      "fix": "Add truthful relevance dimensions to the fixture; validator unchanged.",
+      "verification": "Canonical-reference focused tests passed."
+    },
+    {
+      "id": "OPENAI_VISUAL_CONTEXT_REQUEST_EXPECTATION",
+      "classification": "D",
+      "is_preexisting": true,
+      "is_caused_by_manual_visual_mission": false,
+      "root_cause": "Test expected the older unbounded web_search tool shape after the request contract added bounded search, source inclusion, and explicit reasoning/verbosity.",
+      "nodeid": "tests/unit/test_openai_luna_visual_context_research_contract_v1.py::test_openai_contract_enables_web_search_and_strict_schema",
+      "fix": "Assert the complete bounded offline request contract; no live call.",
+      "verification": "Five request-contract tests passed."
+    },
+    {
+      "id": "VISUAL_CONTEXT_PROVENANCE_TAXONOMY",
+      "classification": "B",
+      "is_preexisting": true,
+      "is_caused_by_manual_visual_mission": false,
+      "root_cause": "New reconciliation rejected an uncited web URL generically before the specific provider-citation invariant.",
+      "nodeid": "tests/unit/test_visual_context_research_executor_v1.py::test_web_source_must_be_grounded_by_provider_citation",
+      "fix": "Preserve the specific WEB_SOURCE_NOT_PROVIDER_CITED error while continuing to reject the source.",
+      "verification": "Executor tests passed; fail-closed behavior retained."
+    },
+    {
+      "id": "RELEASE_WHEEL_BUILD_COLLISION",
+      "classification": "C",
+      "is_preexisting": true,
+      "is_caused_by_manual_visual_mission": false,
+      "root_cause": "Session fixture built in shared repository build/bdist.win-amd64 and collided with stale dist-info on Windows (WinError 183).",
+      "nodeids": [
+        "tests/integration/test_release_packaging_recovery_phase7b.py::test_wheel_contains_release_runtime_modules",
+        "tests/integration/test_release_packaging_recovery_phase7b.py::test_clean_venv_installed_cli_help",
+        "tests/integration/test_release_packaging_recovery_phase7b.py::test_clean_venv_imports_installed_package",
+        "tests/integration/test_release_packaging_recovery_phase7b.py::test_installed_wheel_runs_complete_pipeline",
+        "tests/integration/test_release_packaging_recovery_phase7b.py::test_installed_cli_preserves_unicode_json",
+        "tests/integration/test_release_packaging_recovery_phase7b.py::test_research_status_is_not_run_for_legacy_project",
+        "tests/integration/test_release_packaging_recovery_phase7b.py::test_corrupted_research_result_is_reported_without_traceback",
+        "tests/integration/test_release_packaging_recovery_phase7b.py::test_missing_research_artifact_is_reported_without_traceback",
+        "tests/integration/test_release_packaging_recovery_phase7b.py::test_reinstalled_wheel_does_not_require_repository_cwd"
+      ],
+      "fix": "Build from a temporary isolated copy of src plus pyproject.toml and MANIFEST.in.",
+      "verification": "9 packaging tests passed independently and inside full suite."
+    },
+    {
+      "id": "OFFSCREEN_SHORTS_MODAL_HANG",
+      "classification": "F",
+      "is_preexisting": true,
+      "is_caused_by_manual_visual_mission": false,
+      "nodeid": "tests/integration/test_shorts_desktop_ux_screenshots_v1.py::test_short_ux_screenshots_are_captured_locally",
+      "root_cause": "Downstream symptom of SHORTS_PROFILE_AUTHORITY_DRIFT; no predecessor required.",
+      "fix": "Restore valid dock initialization through the canonical profile authority.",
+      "verification": "Isolated, segmented, repeatability, and full-suite executions all completed."
+    }
+  ],
+  "manual_visual_mission_caused_failures": 0,
+  "unresolved_failures": 0
+}

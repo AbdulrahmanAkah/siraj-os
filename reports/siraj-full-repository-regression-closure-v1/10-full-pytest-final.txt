@@ -1,0 +1,13 @@
+COMMAND=C:\SIRAJ\Repositories\historical-fixture-venv-20260716\Scripts\python.exe -m pytest -q
+COLLECTED=1157
+PASSED=1156
+FAILED=0
+SKIPPED=1
+XFAILED=0
+WARNINGS=1
+DURATION=151.18s
+COMPLETED=YES
+SUMMARY=1156 passed, 1 skipped, 1 warning in 151.18s (0:02:31)
+FIRST_COMPLETED_RUN=1156 passed, 1 skipped, 1 warning in 159.86s (0:02:39)
+SECOND_COMPLETED_RUN=1156 passed, 1 skipped, 1 warning in 151.18s (0:02:31)
+WARNING=tests/integration/test_shorts_final_environment_v1.py uses deprecated jsonschema.__version__ access

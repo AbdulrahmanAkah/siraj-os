@@ -1,0 +1,11 @@
+{
+  "schema_version": "siraj-segmented-full-suite-results-v1",
+  "status": "PASS",
+  "segments": [
+    {"id": "UNIT", "collected": 590, "passed": 590, "failed": 0, "skipped": 0, "xfailed": 0, "duration_seconds": 27.89, "hang": false},
+    {"id": "INTEGRATION_SHORTS", "collected": 101, "passed": 101, "failed": 0, "skipped": 0, "xfailed": 0, "duration_seconds": 52.96, "hang": false},
+    {"id": "INTEGRATION_NON_SHORTS", "collected": 381, "passed": 380, "failed": 0, "skipped": 1, "xfailed": 0, "duration_seconds": 276.73, "hang": false},
+    {"id": "REGRESSION_SMOKE", "collected": 85, "passed": 85, "failed": 0, "skipped": 0, "xfailed": 0, "duration_seconds": 3.82, "hang": false}
+  ],
+  "totals": {"collected": 1157, "passed": 1156, "failed": 0, "skipped": 1, "xfailed": 0, "hangs": 0}
+}

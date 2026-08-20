@@ -36,6 +36,13 @@ from src.application.paid_operation_identity_v1 import (
     provider_payload_sha256,
 )
 from src.application.provider_model_contracts import validate_runware_task
+from src.application.provider_visual_autonomy_chokepoint_v1 import (
+    enforce_visual_autonomy_chokepoint,
+)
+from src.application.canonical_manual_visual_profile_v1 import (
+    CanonicalManualVisualProfileError,
+    enforce_manual_visual_provider_isolation,
+)
 
 
 SCHEMA_VERSION = "siraj-paid-operation-attempt-v1"
@@ -43,6 +50,38 @@ ATTEMPT_NAMESPACE = uuid.UUID("fcf7a385-926a-4a9e-a190-d1dfb30acdb8")
 CONTROLLED_ALIGNMENT_AUTHORIZATION_SCHEMA = (
     "siraj-controlled-alignment-validation-authorization-v1"
 )
+
+# SIRAJ_VISUAL_CONTEXT_TPM_ADMISSION_REPAIR_V1
+# Only safe response metadata is persisted. Request Authorization is never copied.
+_SAFE_PROVIDER_RESPONSE_HEADERS = frozenset(
+    {
+        "x-request-id",
+        "openai-organization",
+        "openai-project",
+        "x-ratelimit-limit-requests",
+        "x-ratelimit-limit-tokens",
+        "x-ratelimit-remaining-requests",
+        "x-ratelimit-remaining-tokens",
+        "x-ratelimit-reset-requests",
+        "x-ratelimit-reset-tokens",
+        "retry-after",
+    }
+)
+
+
+def _safe_provider_response_headers(headers: Any) -> dict[str, str]:
+    if headers is None:
+        return {}
+    try:
+        items = headers.items()
+    except Exception:
+        return {}
+    result: dict[str, str] = {}
+    for raw_key, raw_value in items:
+        key = str(raw_key or "").strip().lower()
+        if key in _SAFE_PROVIDER_RESPONSE_HEADERS:
+            result[key] = str(raw_value or "").strip()
+    return result
 
 PLANNED = "PLANNED"
 AUTHORIZED = "AUTHORIZED"
@@ -95,6 +134,7 @@ class PaidOperationRequest:
     prior_attempt_id: str | None = None
     operation_nonce: str | None = None
     attempt_id: str | None = None
+    visual_autonomy_reference: Mapping[str, Any] | None = None
 
     @property
     def payload_sha256(self) -> str:
@@ -182,17 +222,32 @@ class UrllibGatewayTransport:
                 "body_size": len(self.body or b""),
             },
         )
-        with urllib.request.urlopen(request, timeout=self.timeout_seconds) as response:
-            boundary(
-                RESPONSE_HEADERS_RECEIVED,
-                {
+        try:
+            with urllib.request.urlopen(
+                request, timeout=self.timeout_seconds
+            ) as response:
+                response_headers = getattr(response, "headers", None)
+                details: dict[str, Any] = {
                     "http_status": getattr(response, "status", None),
-                    "content_type": response.headers.get("Content-Type")
-                    if getattr(response, "headers", None)
+                    "content_type": response_headers.get("Content-Type")
+                    if response_headers
                     else None,
-                },
+                }
+                details.update(_safe_provider_response_headers(response_headers))
+                boundary(RESPONSE_HEADERS_RECEIVED, details)
+                return response.read()
+        except urllib.error.HTTPError as exc:
+            details: dict[str, Any] = {
+                "http_status": getattr(exc, "code", None),
+                "content_type": exc.headers.get("Content-Type")
+                if getattr(exc, "headers", None)
+                else None,
+            }
+            details.update(
+                _safe_provider_response_headers(getattr(exc, "headers", None))
             )
-            return response.read()
+            boundary(RESPONSE_HEADERS_RECEIVED, details)
+            raise
 
 
 def _attempt_root(request: PaidOperationRequest) -> Path:
@@ -366,6 +421,250 @@ def _validate_authorization(
             repo, request.master_authorization_reference, request
         )
         return
+    if request.authorization_mode == "EP002_R27_A1_HYBRID_BRIDGE":
+        from src.application.ep002_r27_a1_paid_authorization_v1 import (
+            A1ScopedPaidAuthorizationError,
+            validate_a1_scoped_paid_authorization,
+        )
+        try:
+            validate_a1_scoped_paid_authorization(
+                repo,
+                request.master_authorization_reference,
+                request,
+            )
+        except A1ScopedPaidAuthorizationError as exc:
+            raise PaidOperationGatewayError(str(exc)) from exc
+        return
+    if request.authorization_mode == "EP002_R27_A1_RECOVERY_ONLY":
+        from src.application.ep002_r27_a1_paid_authorization_v1 import (
+            A1ScopedPaidAuthorizationError,
+            validate_a1_recovery_authorization,
+        )
+        try:
+            validate_a1_recovery_authorization(
+                repo,
+                request.master_authorization_reference,
+                request,
+            )
+        except A1ScopedPaidAuthorizationError as exc:
+            raise PaidOperationGatewayError(str(exc)) from exc
+        return
+    if request.authorization_mode in {
+        "EP002_WHISPER_SHARED_ONE_SHOT",
+        "EP002_WHISPER_SHARED_RECOVERY_ONLY",
+    }:
+        from src.application.ep002_whisper_shared_paid_authorization_v1 import (
+            WhisperSharedPaidAuthorizationError,
+            validate_whisper_shared_paid_authorization,
+        )
+        try:
+            validate_whisper_shared_paid_authorization(
+                repo,
+                request.master_authorization_reference,
+                request,
+            )
+        except WhisperSharedPaidAuthorizationError as exc:
+            raise PaidOperationGatewayError(str(exc)) from exc
+        return
+    if request.authorization_mode in {
+        "EP002_CHOICE_SHARED_ONE_SHOT",
+        "EP002_CHOICE_SHARED_RECOVERY_ONLY",
+    }:
+        from src.application.ep002_choice_shared_paid_authorization_v1 import (
+            ChoiceSharedPaidAuthorizationError,
+            validate_choice_shared_paid_authorization,
+        )
+        try:
+            validate_choice_shared_paid_authorization(
+                repo,
+                request.master_authorization_reference,
+                request,
+            )
+        except ChoiceSharedPaidAuthorizationError as exc:
+            raise PaidOperationGatewayError(str(exc)) from exc
+        return
+    if request.authorization_mode in {
+        "EP002_CHOICE_SHARED_TAIL_CONTINUATION_ONE_SHOT",
+        "EP002_CHOICE_SHARED_TAIL_CONTINUATION_RECOVERY_ONLY",
+    }:
+        from src.application.ep002_choice_shared_tail_continuation_paid_authorization_v1 import (
+            ChoiceSharedTailContinuationPaidAuthorizationError,
+            validate_choice_shared_tail_continuation_paid_authorization,
+        )
+        try:
+            validate_choice_shared_tail_continuation_paid_authorization(repo, request.master_authorization_reference, request)
+        except ChoiceSharedTailContinuationPaidAuthorizationError as exc:
+            raise PaidOperationGatewayError(str(exc)) from exc
+        return
+    if request.authorization_mode in {
+        "EP002_GARDEN_BATCH1_GENERATION_ONE_SHOT",
+        "EP002_GARDEN_BATCH1_RECOVERY_ONLY",
+    }:
+        from src.application.ep002_garden_batch1_paid_authorization_v1 import (
+            GardenBatch1PaidAuthorizationError,
+            validate_garden_batch1_paid_authorization,
+        )
+        try:
+            validate_garden_batch1_paid_authorization(repo, request.master_authorization_reference, request)
+        except GardenBatch1PaidAuthorizationError as exc:
+            raise PaidOperationGatewayError(str(exc)) from exc
+        return
+    if request.authorization_mode in {
+        "EP002_GARDEN_REPAIR_COVERING_PILOT_ONE_SHOT",
+        "EP002_GARDEN_REPAIR_COVERING_PILOT_RECOVERY_ONLY",
+    }:
+        from src.application.ep002_garden_repair_covering_pilot_paid_authorization_v1 import (
+            GardenRepairCoveringPilotPaidAuthorizationError,
+            validate_garden_repair_covering_pilot_paid_authorization,
+        )
+        try:
+            validate_garden_repair_covering_pilot_paid_authorization(repo, request.master_authorization_reference, request)
+        except GardenRepairCoveringPilotPaidAuthorizationError as exc:
+            raise PaidOperationGatewayError(str(exc)) from exc
+        return
+    if request.authorization_mode in {
+        "EP002_GARDEN_COVERING_NATIVE_ONE_SHOT",
+        "EP002_GARDEN_COVERING_NATIVE_RECOVERY_ONLY",
+    }:
+        from src.application.ep002_garden_covering_native_paid_authorization_v2 import (
+            GardenRepairCoveringPilotPaidAuthorizationError,
+            validate_garden_repair_covering_pilot_paid_authorization,
+        )
+        try:
+            validate_garden_repair_covering_pilot_paid_authorization(repo, request.master_authorization_reference, request)
+        except GardenRepairCoveringPilotPaidAuthorizationError as exc:
+            raise PaidOperationGatewayError(str(exc)) from exc
+        return
+    if request.authorization_mode in {
+        "EP002_GARDEN_COVERING_CONTINUITY_SINGLE_ONE_SHOT",
+        "EP002_GARDEN_COVERING_CONTINUITY_SINGLE_RECOVERY_ONLY",
+    }:
+        from src.application.ep002_garden_covering_continuity_single_paid_authorization_v1 import (
+            GardenCoveringContinuitySinglePaidAuthorizationError,
+            validate_garden_covering_continuity_single_paid_authorization,
+        )
+        try:
+            validate_garden_covering_continuity_single_paid_authorization(repo, request.master_authorization_reference, request)
+        except GardenCoveringContinuitySinglePaidAuthorizationError as exc:
+            raise PaidOperationGatewayError(str(exc)) from exc
+        return
+    if request.authorization_mode in {
+        "EP002_GARDEN_REMORSE_CONTINUITY_SINGLE_ONE_SHOT",
+        "EP002_GARDEN_REMORSE_CONTINUITY_SINGLE_RECOVERY_ONLY",
+    }:
+        from src.application.ep002_garden_remorse_continuity_single_paid_authorization_v1 import (
+            GardenRemorseContinuitySinglePaidAuthorizationError,
+            validate_garden_remorse_continuity_single_paid_authorization,
+        )
+        try:
+            validate_garden_remorse_continuity_single_paid_authorization(repo, request.master_authorization_reference, request)
+        except GardenRemorseContinuitySinglePaidAuthorizationError as exc:
+            raise PaidOperationGatewayError(str(exc)) from exc
+        return
+    if request.authorization_mode in {
+        "EP002_GARDEN_SUPPLICATION_CONTINUITY_SINGLE_ONE_SHOT",
+        "EP002_GARDEN_SUPPLICATION_CONTINUITY_SINGLE_RECOVERY_ONLY",
+    }:
+        from src.application.ep002_garden_supplication_continuity_single_paid_authorization_v1 import (
+            GardenSupplicationContinuitySinglePaidAuthorizationError,
+            validate_garden_supplication_continuity_single_paid_authorization,
+        )
+        try:
+            validate_garden_supplication_continuity_single_paid_authorization(repo, request.master_authorization_reference, request)
+        except GardenSupplicationContinuitySinglePaidAuthorizationError as exc:
+            raise PaidOperationGatewayError(str(exc)) from exc
+        return
+    if request.authorization_mode in {
+        "EP002_GARDEN_RECEIVING_WORDS_CONTINUITY_SINGLE_ONE_SHOT",
+        "EP002_GARDEN_RECEIVING_WORDS_CONTINUITY_SINGLE_RECOVERY_ONLY",
+    }:
+        from src.application.ep002_garden_receiving_words_continuity_single_paid_authorization_v1 import (
+            GardenReceivingWordsContinuitySinglePaidAuthorizationError,
+            validate_garden_receiving_words_continuity_single_paid_authorization,
+        )
+        try:
+            validate_garden_receiving_words_continuity_single_paid_authorization(repo, request.master_authorization_reference, request)
+        except GardenReceivingWordsContinuitySinglePaidAuthorizationError as exc:
+            raise PaidOperationGatewayError(str(exc)) from exc
+        return
+    if request.authorization_mode in {
+        "EP002_GARDEN_GUIDANCE_CONTINUITY_SINGLE_ONE_SHOT_V1R2",
+        "EP002_GARDEN_GUIDANCE_CONTINUITY_SINGLE_RECOVERY_ONLY_V1R2",
+    }:
+        from src.application.ep002_garden_guidance_continuity_single_paid_authorization_v1r2 import (
+            GardenGuidanceContinuitySinglePaidAuthorizationError,
+            validate_garden_guidance_continuity_single_paid_authorization,
+        )
+        try:
+            validate_garden_guidance_continuity_single_paid_authorization(repo, request.master_authorization_reference, request)
+        except GardenGuidanceContinuitySinglePaidAuthorizationError as exc:
+            raise PaidOperationGatewayError(str(exc)) from exc
+        return
+    if request.authorization_mode in {
+        "EP002_ADAM_EARTH_SINGLE_ONE_SHOT_V1R2",
+        "EP002_ADAM_EARTH_SINGLE_RECOVERY_ONLY_V1R2",
+    }:
+        from src.application.ep002_adam_earth_single_paid_authorization_v1r2 import (
+            AdamEarthSinglePaidAuthorizationError,
+            validate_adam_earth_single_paid_authorization,
+        )
+        try:
+            validate_adam_earth_single_paid_authorization(repo, request.master_authorization_reference, request)
+        except AdamEarthSinglePaidAuthorizationError as exc:
+            raise PaidOperationGatewayError(str(exc)) from exc
+        return
+    if request.authorization_mode in {
+        "EP002_HAWWA_EARTH_SINGLE_ONE_SHOT_V1R1",
+        "EP002_HAWWA_EARTH_SINGLE_RECOVERY_ONLY_V1R1",
+    }:
+        from src.application.ep002_hawwa_earth_single_paid_authorization_v1r1 import (
+            HawwaEarthSinglePaidAuthorizationError,
+            validate_hawwa_earth_single_paid_authorization,
+        )
+        try:
+            validate_hawwa_earth_single_paid_authorization(repo, request.master_authorization_reference, request)
+        except HawwaEarthSinglePaidAuthorizationError as exc:
+            raise PaidOperationGatewayError(str(exc)) from exc
+        return
+    if request.authorization_mode in {
+        "EP002_DEBATE_A_SINGLE_ONE_SHOT_V1",
+        "EP002_DEBATE_A_SINGLE_RECOVERY_ONLY_V1",
+    }:
+        from src.application.ep002_debate_a_single_paid_authorization_v1 import (
+            DebateASinglePaidAuthorizationError,
+            validate_debate_a_single_paid_authorization,
+        )
+        try:
+            validate_debate_a_single_paid_authorization(repo, request.master_authorization_reference, request)
+        except DebateASinglePaidAuthorizationError as exc:
+            raise PaidOperationGatewayError(str(exc)) from exc
+        return
+    if request.authorization_mode in {
+        "EP002_DEBATE_A_FIRST_FRAME_ONE_SHOT_V2R1",
+        "EP002_DEBATE_A_FIRST_FRAME_RECOVERY_ONLY_V2R1",
+    }:
+        from src.application.ep002_debate_a_first_frame_v2r1_paid_authorization import (
+            DebateASinglePaidAuthorizationError,
+            validate_debate_a_single_paid_authorization,
+        )
+        try:
+            validate_debate_a_single_paid_authorization(repo, request.master_authorization_reference, request)
+        except DebateASinglePaidAuthorizationError as exc:
+            raise PaidOperationGatewayError(str(exc)) from exc
+        return
+    if request.authorization_mode in {
+        "EP002_DEBATE_B_LITE_FIRST_FRAME_ONE_SHOT_V1R2",
+        "EP002_DEBATE_B_LITE_FIRST_FRAME_RECOVERY_ONLY_V1R2",
+    }:
+        from src.application.ep002_debate_b_lite_first_frame_v1r2_paid_authorization import (
+            DebateBSinglePaidAuthorizationError,
+            validate_debate_b_single_paid_authorization,
+        )
+        try:
+            validate_debate_b_single_paid_authorization(repo, request.master_authorization_reference, request)
+        except DebateBSinglePaidAuthorizationError as exc:
+            raise PaidOperationGatewayError(str(exc)) from exc
+        return
     raise PaidOperationGatewayError(
         "AUTHORIZATION_MODE_UNSUPPORTED:" + request.authorization_mode
     )
@@ -416,6 +715,7 @@ def _append_attempt_event(
         "payload_sha256": request.payload_sha256,
         "episode_id": request.episode_id,
         "stage": request.stage,
+        "authorization_mode": request.authorization_mode,
         "operation_type": request.operation_type,
         "provider": request.provider,
         "model": request.model,
@@ -481,6 +781,7 @@ def _write_request_once(request: PaidOperationRequest) -> None:
         "request_identity_sha256": request.request_identity_sha256,
         "episode_id": request.episode_id,
         "stage": request.stage,
+        "authorization_mode": request.authorization_mode,
         "operation_type": request.operation_type,
         "provider": request.provider,
         "model": request.model,
@@ -489,6 +790,7 @@ def _write_request_once(request: PaidOperationRequest) -> None:
         "payload_sha256": request.payload_sha256,
         "input_artifact_hashes": dict(sorted(request.input_artifact_hashes.items())),
         "master_authorization_reference": dict(request.master_authorization_reference),
+        "visual_autonomy_reference": dict(request.visual_autonomy_reference or {}),
         "retry_authorization_reference": dict(request.retry_authorization_reference or {}),
         "prior_attempt_id": request.prior_attempt_id,
         "operation_nonce": request.operation_nonce,
@@ -548,8 +850,13 @@ def execute_bytes(
     telemetry: TelemetryCallback | None = None,
 ) -> PaidOperationResult:
     repo = Path(request.repo_root).resolve()
+    try:
+        enforce_manual_visual_provider_isolation(request)
+    except CanonicalManualVisualProfileError as exc:
+        raise PaidOperationGatewayError(str(exc)) from exc
     _validate_authorization(repo, request)
     _validate_runware_submission_identity(request)
+    visual_autonomy_gate = enforce_visual_autonomy_chokepoint(request)
     root = _attempt_root(request)
     raw_path = root / "raw-response.bin"
     events = _attempt_events(request)
@@ -588,7 +895,11 @@ def execute_bytes(
     _write_request_once(request)
     if not events:
         _append_attempt_event(request, PLANNED)
-        _append_attempt_event(request, AUTHORIZED)
+        _append_attempt_event(
+            request,
+            AUTHORIZED,
+            {"visual_autonomy_gate": visual_autonomy_gate},
+        )
         _append_attempt_event(request, RESERVED)
         if request.prior_attempt_id:
             record_retry_transport_state(
@@ -724,11 +1035,20 @@ def execute_bytes(
                 new_attempt_id=request.immutable_attempt_id,
                 event_type="RETRY_FAILED_OR_UNKNOWN",
             )
-        label = (
-            "NETWORK_RESULT_UNKNOWN_NO_AUTOMATIC_RETRY"
-            if status == NETWORK_RESULT_UNKNOWN
-            else "NOT_SUBMITTED_FAILED_NO_AUTOMATIC_RETRY"
-        )
+        if (
+            status == NETWORK_RESULT_UNKNOWN
+            and request.operation_type == "RUNWARE_CANONICAL_REFERENCE_DOWNLOAD"
+        ):
+            label = (
+                "ASSET_DOWNLOAD_INTERRUPTED_SAME_RESOURCE_RECONNECTS_EXHAUSTED_"
+                "NO_PROVIDER_GENERATION_RESUBMISSION"
+            )
+        else:
+            label = (
+                        "NETWORK_RESULT_UNKNOWN_NO_AUTOMATIC_RETRY"
+                        if status == NETWORK_RESULT_UNKNOWN
+                        else "NOT_SUBMITTED_FAILED_NO_AUTOMATIC_RETRY"
+                    )
         raise PaidOperationGatewayError(
             label + ":" + request.immutable_attempt_id
         ) from exc
@@ -813,13 +1133,283 @@ def http_json_transport(
     )
 
 
+# SIRAJ_RUNWARE_RESILIENT_ASSET_TRANSFER_V22_1
+class ResilientAssetDownloadTransportV22_1:
+    def __init__(
+        self,
+        *,
+        url: str,
+        method: str = "GET",
+        body: bytes | None = None,
+        headers: Mapping[str, str],
+        timeout_seconds: float,
+        max_attempts: int = 3,
+        chunk_size: int = 256 * 1024,
+        max_asset_bytes: int = 128 * 1024 * 1024,
+    ) -> None:
+        self.url = str(url)
+        # SIRAJ_RUNWARE_RESILIENT_ASSET_TRANSFER_V22_2
+        self.method = str(method or "").strip().upper()
+        self.body = body
+        if self.method != "GET":
+            raise ValueError("ASSET_DOWNLOAD_METHOD_MUST_BE_GET")
+        if self.body is not None:
+            raise ValueError("ASSET_DOWNLOAD_BODY_MUST_BE_NONE")
+        self.headers = dict(headers)
+        self.timeout_seconds = float(timeout_seconds)
+        self.max_attempts = int(max_attempts)
+        self.chunk_size = int(chunk_size)
+        self.max_asset_bytes = int(max_asset_bytes)
+        if self.max_attempts < 1:
+            raise ValueError("ASSET_DOWNLOAD_MAX_ATTEMPTS_INVALID")
+        if self.chunk_size < 1:
+            raise ValueError("ASSET_DOWNLOAD_CHUNK_SIZE_INVALID")
+        if self.max_asset_bytes < self.chunk_size:
+            raise ValueError("ASSET_DOWNLOAD_MAX_BYTES_INVALID")
+
+    @staticmethod
+    def _content_range_start(value: str) -> tuple[int, int | None]:
+        text = str(value or "").strip()
+        if not text.lower().startswith("bytes "):
+            raise PaidOperationGatewayError(
+                "ASSET_DOWNLOAD_CONTENT_RANGE_INVALID:" + text
+            )
+        spec = text[6:]
+        if "/" not in spec or "-" not in spec.split("/", 1)[0]:
+            raise PaidOperationGatewayError(
+                "ASSET_DOWNLOAD_CONTENT_RANGE_INVALID:" + text
+            )
+        interval, total_text = spec.split("/", 1)
+        start_text, _end_text = interval.split("-", 1)
+        try:
+            start = int(start_text)
+        except ValueError as exc:
+            raise PaidOperationGatewayError(
+                "ASSET_DOWNLOAD_CONTENT_RANGE_INVALID:" + text
+            ) from exc
+        total = None
+        if total_text != "*":
+            try:
+                total = int(total_text)
+            except ValueError as exc:
+                raise PaidOperationGatewayError(
+                    "ASSET_DOWNLOAD_CONTENT_RANGE_INVALID:" + text
+                ) from exc
+        return start, total
+
+    @staticmethod
+    def _retryable_transport_error(exc: BaseException) -> bool:
+        if isinstance(exc, urllib.error.HTTPError):
+            return False
+        return isinstance(
+            exc,
+            (
+                TimeoutError,
+                socket.timeout,
+                ConnectionError,
+                urllib.error.URLError,
+            ),
+        )
+
+    def __call__(
+        self,
+        boundary: Callable[[str, Mapping[str, Any] | None], None],
+    ) -> bytes:
+        buffer = bytearray()
+        expected_total: int | None = None
+        stable_etag: str | None = None
+        stable_last_modified: str | None = None
+        last_retryable: BaseException | None = None
+
+        for attempt in range(1, self.max_attempts + 1):
+            offset = len(buffer)
+            request_headers = dict(self.headers)
+            if offset:
+                request_headers["Range"] = f"bytes={offset}-"
+
+            request = urllib.request.Request(
+                self.url,
+                data=None,
+                method="GET",
+                headers=request_headers,
+            )
+            boundary(
+                REQUEST_BYTES_HANDED_TO_TRANSPORT,
+                {
+                    "url_origin": urllib.request.urlparse(self.url).netloc
+                    if hasattr(urllib.request, "urlparse")
+                    else self.url.split("/", 3)[2],
+                    "method": "GET",
+                    "asset_transfer_attempt": attempt,
+                    "asset_transfer_max_attempts": self.max_attempts,
+                    "same_resource_reconnect": attempt > 1,
+                    "resume_offset": offset,
+                    "provider_generation_resubmission": False,
+                },
+            )
+
+            try:
+                with urllib.request.urlopen(
+                    request,
+                    timeout=self.timeout_seconds,
+                ) as response:
+                    status = int(getattr(response, "status", 200) or 200)
+                    headers = getattr(response, "headers", None)
+                    content_type = (
+                        headers.get("Content-Type")
+                        if headers is not None
+                        else None
+                    )
+                    content_length_text = (
+                        headers.get("Content-Length")
+                        if headers is not None
+                        else None
+                    )
+                    content_range = (
+                        headers.get("Content-Range")
+                        if headers is not None
+                        else None
+                    )
+                    etag = (
+                        headers.get("ETag")
+                        if headers is not None
+                        else None
+                    )
+                    last_modified = (
+                        headers.get("Last-Modified")
+                        if headers is not None
+                        else None
+                    )
+
+                    boundary(
+                        RESPONSE_HEADERS_RECEIVED,
+                        {
+                            "http_status": status,
+                            "content_type": content_type,
+                            "content_length": content_length_text,
+                            "content_range": content_range,
+                            "asset_transfer_attempt": attempt,
+                            "resume_offset": offset,
+                            "provider_generation_resubmission": False,
+                        },
+                    )
+
+                    if stable_etag is None and etag:
+                        stable_etag = str(etag)
+                    elif stable_etag and etag and str(etag) != stable_etag:
+                        raise PaidOperationGatewayError(
+                            "ASSET_DOWNLOAD_RESOURCE_ETAG_CHANGED"
+                        )
+
+                    if stable_last_modified is None and last_modified:
+                        stable_last_modified = str(last_modified)
+                    elif (
+                        stable_last_modified
+                        and last_modified
+                        and str(last_modified) != stable_last_modified
+                    ):
+                        raise PaidOperationGatewayError(
+                            "ASSET_DOWNLOAD_RESOURCE_LAST_MODIFIED_CHANGED"
+                        )
+
+                    response_expected: int | None = None
+                    if content_length_text:
+                        try:
+                            response_expected = int(content_length_text)
+                        except ValueError as exc:
+                            raise PaidOperationGatewayError(
+                                "ASSET_DOWNLOAD_CONTENT_LENGTH_INVALID"
+                            ) from exc
+
+                    if offset:
+                        if status == 206:
+                            range_start, range_total = self._content_range_start(
+                                str(content_range or "")
+                            )
+                            if range_start != offset:
+                                raise PaidOperationGatewayError(
+                                    "ASSET_DOWNLOAD_RANGE_OFFSET_MISMATCH:"
+                                    f"expected={offset}:actual={range_start}"
+                                )
+                            if range_total is not None:
+                                if (
+                                    expected_total is not None
+                                    and expected_total != range_total
+                                ):
+                                    raise PaidOperationGatewayError(
+                                        "ASSET_DOWNLOAD_TOTAL_LENGTH_CHANGED"
+                                    )
+                                expected_total = range_total
+                        elif status == 200:
+                            buffer.clear()
+                            offset = 0
+                            if response_expected is not None:
+                                expected_total = response_expected
+                        else:
+                            raise PaidOperationGatewayError(
+                                "ASSET_DOWNLOAD_RESUME_HTTP_STATUS_INVALID:"
+                                + str(status)
+                            )
+                    elif response_expected is not None:
+                        expected_total = response_expected
+
+                    bytes_this_response = 0
+                    while True:
+                        chunk = response.read(self.chunk_size)
+                        if not chunk:
+                            break
+                        buffer.extend(chunk)
+                        bytes_this_response += len(chunk)
+                        if len(buffer) > self.max_asset_bytes:
+                            raise PaidOperationGatewayError(
+                                "ASSET_DOWNLOAD_MAX_BYTES_EXCEEDED"
+                            )
+
+                    if (
+                        response_expected is not None
+                        and bytes_this_response != response_expected
+                    ):
+                        raise TimeoutError(
+                            "ASSET_DOWNLOAD_SHORT_RESPONSE:"
+                            f"expected={response_expected}:"
+                            f"actual={bytes_this_response}"
+                        )
+
+                    if (
+                        expected_total is not None
+                        and len(buffer) != expected_total
+                    ):
+                        raise TimeoutError(
+                            "ASSET_DOWNLOAD_TOTAL_LENGTH_INCOMPLETE:"
+                            f"expected={expected_total}:actual={len(buffer)}"
+                        )
+
+                    return bytes(buffer)
+
+            except urllib.error.HTTPError:
+                raise
+            except Exception as exc:
+                if not self._retryable_transport_error(exc):
+                    raise
+                last_retryable = exc
+                if attempt >= self.max_attempts:
+                    raise
+                continue
+
+        if last_retryable is not None:
+            raise last_retryable
+        raise PaidOperationGatewayError(
+            "ASSET_DOWNLOAD_TRANSPORT_EXHAUSTED_WITHOUT_RESULT"
+        )
+
+
 def http_download_transport(
     *,
     url: str,
     headers: Mapping[str, str],
     timeout_seconds: float,
 ) -> UrllibGatewayTransport:
-    return UrllibGatewayTransport(
+    return ResilientAssetDownloadTransportV22_1(
         url=url,
         method="GET",
         body=None,

@@ -34,7 +34,13 @@ def _provider_request():
 
 def test_openai_contract_enables_web_search_and_strict_schema():
     req = build_openai_visual_research_request(_provider_request())
-    assert req["tools"] == [{"type": "web_search"}]
+    assert req["tools"] == [
+        {"type": "web_search", "search_context_size": "low"}
+    ]
+    assert req["max_tool_calls"] == 2
+    assert req["include"] == ["web_search_call.action.sources"]
+    assert req["reasoning"] == {"effort": "medium"}
+    assert req["text"]["verbosity"] == "medium"
     assert req["text"]["format"]["strict"] is True
     assert "max_output_tokens" not in req
     validate_openai_responses_payload(req)

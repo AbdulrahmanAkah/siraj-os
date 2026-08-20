@@ -249,6 +249,7 @@ def _seed_repo(tmp_path: Path) -> Path:
                         "authority_class": "PRIMARY",
                         "verified": True,
                         "title": "fixture source",
+                        "relevance_dimensions": list(dimensions),
                     }
                 ],
                 "research_exhaustion": {

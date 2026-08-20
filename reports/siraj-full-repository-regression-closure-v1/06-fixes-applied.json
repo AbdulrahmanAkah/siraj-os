@@ -1,0 +1,41 @@
+{
+  "schema_version": "siraj-full-regression-fixes-v1",
+  "fixes": [
+    {
+      "file": "src/application/shorts_derivative_engine_v1.py",
+      "change": "Rebound engine profile validation to canonical 1.1.0 and accepted compatibility-revalidated 1.0.0/1.1.0 episode contracts.",
+      "safety_effect": "No gate weakened; unknown versions remain legacy/fail-closed."
+    },
+    {
+      "file": "src/application/visual_context_research_executor_v1.py",
+      "change": "Emit the specific uncited-web-source error during reconciliation.",
+      "safety_effect": "Source remains rejected."
+    },
+    {
+      "file": "tests/unit/test_desktop_canonical_reference_generation_v1.py",
+      "change": "Completed fixture provenance with required relevance dimensions.",
+      "test_contract_effect": "No assertion removed or weakened."
+    },
+    {
+      "file": "tests/unit/test_openai_luna_visual_context_research_contract_v1.py",
+      "change": "Assert bounded search, source inclusion, reasoning, and verbosity fields.",
+      "test_contract_effect": "Assertions strengthened for the intentional contract."
+    },
+    {
+      "file": "tests/unit/test_shorts_derivative_activation_v1.py",
+      "change": "Use the canonical ready-episode archive naming authorities.",
+      "test_contract_effect": "Silent overwrite and stable reuse assertions retained."
+    },
+    {
+      "file": "tests/integration/test_release_packaging_recovery_phase7b.py",
+      "change": "Build the wheel from an isolated temporary source tree.",
+      "test_contract_effect": "Still builds, installs, and executes the actual current package."
+    }
+  ],
+  "tests_deleted": 0,
+  "skips_added": 0,
+  "xfails_added": 0,
+  "constitution_modified_by_closure": false,
+  "manual_visual_architecture_redesigned": false,
+  "provider_generation_reintroduced": false
+}

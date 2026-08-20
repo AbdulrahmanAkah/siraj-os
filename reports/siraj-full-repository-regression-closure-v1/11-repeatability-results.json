@@ -1,0 +1,24 @@
+{
+  "schema_version": "siraj-full-regression-repeatability-v1",
+  "status": "PASS",
+  "matrix": {
+    "previous_hanging_segment": "PASS",
+    "all_reproduced_previous_failures": "PASS",
+    "canonical_targeted_matrix": "PASS",
+    "clean_manual_visual_e2e": "PASS",
+    "combined_passed": 80,
+    "failed": 0,
+    "duration_seconds": 31.12
+  },
+  "second_full_suite_run": {
+    "status": "PASS",
+    "passed": 1156,
+    "failed": 0,
+    "skipped": 1,
+    "xfailed": 0,
+    "duration_seconds": 151.18
+  },
+  "full_suite_completed_once": true,
+  "full_suite_completed_twice": true,
+  "segmented_repeatability_pass": true
+}

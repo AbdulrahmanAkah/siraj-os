@@ -4,6 +4,10 @@ from src.presentation.desktop.series_standard_v2_panel import install_series_sta
 from src.presentation.desktop.shorts_derivative_dock_v1 import install_shorts_derivative_dock
 from src.application.shorts_derivative_engine_v1 import ShortsProfileError
 from src.presentation.desktop.canonical_reference_generation_dock_v1 import install_canonical_reference_generation_dock
+from src.presentation.desktop.manual_visual_pipeline_dock_v1 import (
+    focus_manual_visual_pipeline,
+    install_manual_visual_pipeline_dock,
+)
 
 from dataclasses import replace
 import json
@@ -148,6 +152,7 @@ class SirajDesktopWindow(QMainWindow):
         self.setCentralWidget(root)
         _install_optional_shorts_derivative_dock(self)
         install_canonical_reference_generation_dock(self)
+        install_manual_visual_pipeline_dock(self)
 
     def _build_sidebar(self) -> QWidget:
         sidebar = QFrame()
@@ -1198,13 +1203,11 @@ class SirajDesktopWindow(QMainWindow):
 
         self.complete_workspace.show_section("dashboard")
         active = self._active_episode()
+        if active is None:
+            focus_manual_visual_pipeline(self)
+            return
         if active is not None and active.episode_id != EPISODE_002:
-            QMessageBox.information(
-                self,
-                "SIRAJ",
-                "Canonical Desktop resume is not configured for this episode; "
-                "no legacy resume path is permitted.",
-            )
+            focus_manual_visual_pipeline(self, active.episode_id)
             return
         if self._resume_worker is not None and self._resume_worker.isRunning():
             self._log("DUPLICATE_RESUME_TRANSACTION_BLOCKED")

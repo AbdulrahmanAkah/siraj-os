@@ -58,6 +58,11 @@ from src.application.shorts_burned_caption_engine_v1 import (
     build_caption_plan,
     qa_caption_plan,
 )
+from src.application.shorts_fine_timing_resolver_v1 import (
+    FFmpegSilencePhraseAlignmentBackend,
+    FineTimingResolverError,
+    resolve_fine_timing,
+)
 
 
 PROFILE_RELATIVE_PATH = Path("config/shorts/siraj_shorts_derivative_profile_v1.json")
@@ -1268,15 +1273,203 @@ def _resolve_metadata_path(
     return path
 
 
-def _native_json_candidates(directory: Path) -> list[tuple[Path, dict[str, Any]]]:
+def _native_json_candidates(
+    directory: Path,
+) -> list[tuple[Path, dict[str, Any]]]:
+    # SIRAJ_SHORTS_NATIVE_JSON_CANDIDATE_DISCOVERY_V3
     candidates: list[tuple[Path, dict[str, Any]]] = []
-    for path in sorted(directory.rglob("*.json"), key=lambda item: str(item).casefold()):
-        if any(token in path.name.casefold() for token in ("preserved", "backup", "provenance-history")):
+
+    episode_id_marker = re.compile(r'["\']episode_id["\']\s*:')
+    canonical_authority_names = {
+        "manifest.json",
+        "metadata.json",
+        "episode_metadata.json",
+        "episode-metadata.json",
+        "episode-manifest.json",
+    }
+    canonical_authority_tokens = (
+        "episode-context",
+        "audio-timestamps-and-beats",
+        "canonical-timed-transcript",
+        "narration-script",
+        "storyboard",
+    )
+
+    for path in sorted(
+        Path(directory).rglob("*.json"),
+        key=lambda item: str(item).casefold(),
+    ):
+        lowered_name = path.name.casefold()
+        if any(
+            token in lowered_name
+            for token in ("preserved", "backup", "provenance-history")
+        ):
             continue
-        value = _read_json(path, code="SHORT_SOURCE_MISSING")
-        if value.get("episode_id"):
-            candidates.append((path, value))
+
+        try:
+            raw = path.read_text(encoding="utf-8-sig")
+        except (OSError, UnicodeError) as exc:
+            raise ShortsBlockedError(
+                "SHORT_SOURCE_MISSING",
+                str(path),
+            ) from exc
+
+        claims_episode_authority = bool(
+            episode_id_marker.search(raw)
+        )
+        filename_claims_authority = (
+            lowered_name in canonical_authority_names
+            or any(
+                token in lowered_name
+                for token in canonical_authority_tokens
+            )
+        )
+
+        try:
+            value = json.loads(raw)
+        except json.JSONDecodeError as exc:
+            if claims_episode_authority or filename_claims_authority:
+                raise ShortsBlockedError(
+                    "SHORT_SOURCE_MISSING",
+                    str(path),
+                ) from exc
+            continue
+
+        if not isinstance(value, dict):
+            continue
+        if not value.get("episode_id"):
+            continue
+        candidates.append((path, value))
+
     return candidates
+
+def _native_component_rank(
+    item: tuple[Path, dict[str, Any]],
+    *,
+    component: str,
+) -> tuple[int, int, int, int, str]:
+    """Rank a native metadata candidate by component-specific authority.
+
+    The previous generic rank treated any ``final``/``canonical`` filename as
+    equally authoritative across all metadata roles.  That is insufficient in
+    historical episode trees containing multiple valid derivatives.  This rank
+    first identifies the filename that explicitly names the requested role,
+    then considers lifecycle status, version and path depth.
+
+    The final path string exists only for deterministic ordering.  Ambiguity is
+    decided without that final tiebreaker by ``_select_native_component``.
+    """
+
+    path, value = item
+    text = path.name.casefold()
+    parts = tuple(part.casefold() for part in path.parts)
+
+    role_tokens: dict[str, tuple[tuple[str, int], ...]] = {
+        "EPISODE_METADATA": (
+            ("episode-context", 140),
+            ("episode_metadata", 135),
+            ("episode-metadata", 135),
+            ("episode-manifest", 130),
+            ("episode_manifest", 130),
+            ("metadata", 80),
+            ("manifest", 75),
+        ),
+        "TIMED_BEATS": (
+            ("audio-timestamps-and-beats", 150),
+            ("canonical-timed-transcript", 145),
+            ("timed-transcript", 135),
+            ("timing-map", 125),
+            ("timing", 100),
+            ("beats", 95),
+            ("waqf", 35),
+        ),
+        "NARRATION_SCRIPT": (
+            ("episode-script-production-standard", 155),
+            ("narration-script", 150),
+            ("episode-script", 140),
+            ("arabic-performance-source-production-standard", 130),
+            ("arabic-performance-source", 120),
+            ("script", 85),
+        ),
+        "SHOT_METADATA": (
+            ("storyboard", 150),
+            ("shot-metadata", 145),
+            ("shot_metadata", 145),
+            ("shot-plan", 135),
+            ("shot", 110),
+            ("cinematic", 60),
+        ),
+    }
+
+    authority = max(
+        (
+            score
+            for token, score in role_tokens.get(component, ())
+            if token in text
+        ),
+        default=0,
+    )
+
+    if "production-standard" in text:
+        authority += 24
+    if "canonical" in text:
+        authority += 18
+    if "final" in text:
+        authority += 14
+    if "approved" in text:
+        authority += 10
+    if "candidate" in text:
+        authority -= 14
+    if "draft" in text:
+        authority -= 24
+
+    derived_parts = {
+        "reports": 90,
+        "review-bundle": 70,
+        "review_bundle": 70,
+        "contact-sheets": 60,
+        "contact_sheets": 60,
+        "qa": 45,
+        "debug": 80,
+        "temp": 80,
+        "tmp": 80,
+    }
+    for part in parts:
+        authority -= derived_parts.get(part, 0)
+
+    component_path_bonus = {
+        "EPISODE_METADATA": {"orchestration": 18, "contracts": 8},
+        "TIMED_BEATS": {"audio": 12, "orchestration": 10},
+        "NARRATION_SCRIPT": {"script": 18, "audio": 6},
+        "SHOT_METADATA": {"cinematic": 18, "editorial": 6},
+    }
+    for part in parts:
+        authority += component_path_bonus.get(component, {}).get(part, 0)
+
+    status = str(value.get("status", "")).upper()
+    status_score = {
+        "FINAL": 30,
+        "APPROVED": 28,
+        "READY": 26,
+        "PASS": 24,
+        "CERTIFIED": 24,
+    }.get(status, 0)
+
+    versions = [
+        int(number)
+        for number in re.findall(r"v(\d+)", text)
+    ]
+    version = max(versions or [0])
+
+    # Shallower paths win only after role, lifecycle and version evidence.
+    depth_score = -len(path.parts)
+    return (
+        authority,
+        status_score,
+        version,
+        depth_score,
+        str(path).casefold(),
+    )
 
 
 def _select_native_component(
@@ -1285,81 +1478,655 @@ def _select_native_component(
     predicate: Callable[[Mapping[str, Any]], bool],
     component: str,
 ) -> tuple[Path, dict[str, Any]] | None:
-    matching = [(path, value) for path, value in candidates if predicate(value)]
+    matching = [
+        (path, value)
+        for path, value in candidates
+        if predicate(value)
+    ]
     if not matching:
         return None
-    def rank(item: tuple[Path, dict[str, Any]]) -> tuple[int, int, str]:
-        path, value = item
-        text = path.name.casefold()
-        preferred = 0
-        for token in ("final", "canonical", "audio-timestamps-and-beats", "episode-context"):
-            if token in text:
-                preferred += 3
-        versions = [int(number) for number in re.findall(r"v(\d+)", text)]
-        status = str(value.get("status", "")).upper()
-        if status in {"FINAL", "APPROVED", "READY", "PASS"}:
-            preferred += 2
-        return preferred, max(versions or [0]), str(path).casefold()
-    ranked = sorted(matching, key=rank, reverse=True)
-    if len(ranked) > 1 and rank(ranked[0])[:2] == rank(ranked[1])[:2]:
-        raise SourceIntegrityError("SHORT_SOURCE_MISSING", f"BLOCK_AMBIGUOUS_SOURCE:{component}")
+
+    ranked = sorted(
+        matching,
+        key=lambda item: _native_component_rank(
+            item,
+            component=component,
+        ),
+        reverse=True,
+    )
+
+    top_rank = _native_component_rank(
+        ranked[0],
+        component=component,
+    )[:4]
+    tied = [
+        item
+        for item in ranked
+        if _native_component_rank(
+            item,
+            component=component,
+        )[:4] == top_rank
+    ]
+
+    if len(tied) > 1:
+        # Exact semantic duplicates are not a source conflict. Select a stable
+        # path but retain fail-closed behavior for materially different data.
+        semantic_hashes = {
+            _hash_value(value)
+            for _path, value in tied
+        }
+        if len(semantic_hashes) != 1:
+            details = "|".join(
+                str(path).replace("\\", "/")
+                for path, _value in sorted(
+                    tied,
+                    key=lambda item: str(item[0]).casefold(),
+                )
+            )
+            raise SourceIntegrityError(
+                "SHORT_SOURCE_MISSING",
+                f"BLOCK_AMBIGUOUS_SOURCE:{component}:{details}",
+            )
+        return sorted(
+            tied,
+            key=lambda item: str(item[0]).casefold(),
+        )[0]
+
     return ranked[0]
 
+def _load_native_metadata_bundle(
+    directory: Path,
+) -> tuple[dict[str, Any], tuple[Path, ...]]:
+    """Load native metadata without granting timing authority to untimed arrays.
 
-def _load_native_metadata_bundle(directory: Path) -> tuple[dict[str, Any], tuple[Path, ...]]:
+    ``segments`` and ``shots`` may exist in semantic/editorial documents that
+    are not timeline authorities.  They are admitted into the runtime contract
+    only when every row carries explicit usable time bounds.  No proportional
+    timing, ordering inference, or duration splitting is allowed.
+    """
+
+    # SIRAJ_SHORTS_TIMED_SEGMENT_AUTHORITY_V1
+    # SIRAJ_SHORTS_SHOT_TIMING_AUTHORITY_V1
     candidates = _native_json_candidates(directory)
     if not candidates:
-        raise SourceIntegrityError("SHORT_SOURCE_MISSING", "NATIVE_METADATA_REQUIRED")
+        raise SourceIntegrityError(
+            "SHORT_SOURCE_MISSING",
+            "NATIVE_METADATA_REQUIRED",
+        )
+
+    def normalize_timed_segments(
+        raw_segments: Any,
+    ) -> list[dict[str, Any]] | None:
+        if (
+            not isinstance(raw_segments, Sequence)
+            or isinstance(raw_segments, (str, bytes, bytearray))
+            or not raw_segments
+        ):
+            return None
+
+        normalized: list[dict[str, Any]] = []
+        for index, item in enumerate(raw_segments, start=1):
+            if not isinstance(item, Mapping):
+                return None
+
+            start = item.get(
+                "start_time",
+                item.get(
+                    "start_seconds",
+                    item.get("start"),
+                ),
+            )
+            end = item.get(
+                "end_time",
+                item.get(
+                    "end_seconds",
+                    item.get("end"),
+                ),
+            )
+            text = item.get(
+                "text",
+                item.get("narration"),
+            )
+            if start is None or end is None or not _clean_text(text):
+                return None
+
+            normalized.append(
+                {
+                    **dict(item),
+                    "segment_id": item.get(
+                        "segment_id",
+                        item.get(
+                            "id",
+                            f"SEG-{index:04d}",
+                        ),
+                    ),
+                    "start": start,
+                    "end": end,
+                    "text": text,
+                }
+            )
+        return normalized
+
+    def normalize_timed_shots(
+        raw_shots: Any,
+    ) -> list[dict[str, Any]] | None:
+        if (
+            not isinstance(raw_shots, Sequence)
+            or isinstance(raw_shots, (str, bytes, bytearray))
+            or not raw_shots
+        ):
+            return None
+
+        normalized: list[dict[str, Any]] = []
+        for index, item in enumerate(raw_shots, start=1):
+            if not isinstance(item, Mapping):
+                return None
+
+            start = item.get(
+                "start_time",
+                item.get(
+                    "start_seconds",
+                    item.get("start"),
+                ),
+            )
+            end = item.get(
+                "end_time",
+                item.get(
+                    "end_seconds",
+                    item.get("end"),
+                ),
+            )
+            if start is None or end is None:
+                return None
+
+            # Validate the values with the exact runtime parser.  This does not
+            # infer anything; it only rejects non-temporal shot metadata.
+            try:
+                parsed_start = _parse_time(start)
+                parsed_end = _parse_time(end)
+            except ShortsBlockedError:
+                return None
+            if parsed_end <= parsed_start:
+                return None
+
+            normalized.append(
+                {
+                    **dict(item),
+                    "shot_id": item.get(
+                        "shot_id",
+                        item.get(
+                            "id",
+                            f"SHOT-{index:04d}",
+                        ),
+                    ),
+                    "start": start,
+                    "end": end,
+                }
+            )
+        return normalized
+
     base = _select_native_component(
         candidates,
-        predicate=lambda value: bool(value.get("episode_root_rel") or value.get("title_ar") or value.get("working_title_ar")),
+        predicate=lambda value: bool(
+            value.get("episode_root_rel")
+            or value.get("title_ar")
+            or value.get("working_title_ar")
+        ),
         component="EPISODE_METADATA",
     )
     timing = _select_native_component(
         candidates,
-        predicate=lambda value: isinstance(value.get("beats"), list) and bool(value.get("beats")),
+        predicate=lambda value: (
+            normalize_timed_segments(value.get("segments")) is not None
+            or normalize_timed_segments(value.get("beats")) is not None
+        ),
         component="TIMED_BEATS",
     )
     script = _select_native_component(
         candidates,
-        predicate=lambda value: isinstance(value.get("narration_blocks"), list) or "music" in value,
+        predicate=lambda value: (
+            isinstance(value.get("narration_blocks"), list)
+            or "music" in value
+        ),
         component="NARRATION_SCRIPT",
     )
     storyboard = _select_native_component(
         candidates,
-        predicate=lambda value: isinstance(value.get("shots"), list) and bool(value.get("shots")),
+        predicate=lambda value: (
+            normalize_timed_shots(value.get("shots")) is not None
+        ),
         component="SHOT_METADATA",
     )
-    selected = [item for item in (base, timing, script, storyboard) if item is not None]
+
+    selected = [
+        item
+        for item in (base, timing, script, storyboard)
+        if item is not None
+    ]
     if not selected:
-        raise SourceIntegrityError("SHORT_SOURCE_MISSING", "NATIVE_METADATA_REQUIRED")
+        raise SourceIntegrityError(
+            "SHORT_SOURCE_MISSING",
+            "NATIVE_METADATA_REQUIRED",
+        )
+
     merged: dict[str, Any] = {}
     paths: list[Path] = []
+
+    # Timeline-sensitive collections are resolved later from their specific
+    # authorities instead of generic first-wins merging.
     for path, value in selected:
         paths.append(path)
         for key, item in value.items():
-            if key in {"beats", "shots", "claims", "segments", "narration_blocks"} and isinstance(item, list):
+            if key in {"segments", "shots"}:
+                continue
+            if (
+                key
+                in {
+                    "beats",
+                    "claims",
+                    "narration_blocks",
+                }
+                and isinstance(item, list)
+            ):
                 if key not in merged or not merged[key]:
                     merged[key] = item
-            elif key not in merged or merged[key] in (None, "", [], {}):
+            elif (
+                key not in merged
+                or merged[key] in (None, "", [], {})
+            ):
                 merged[key] = item
-    if "segments" not in merged and isinstance(merged.get("beats"), list):
-        merged["segments"] = [
-            {
-                "segment_id": item.get("segment_id", item.get("id", f"SEG-{index:04d}")),
-                "start": item.get("start_seconds", item.get("start_time", item.get("start"))),
-                "end": item.get("end_seconds", item.get("end_time", item.get("end"))),
-                "text": item.get("text", item.get("narration", "")),
-            }
-            for index, item in enumerate(merged["beats"], start=1)
-            if isinstance(item, Mapping)
+
+    timing_value = timing[1] if timing is not None else None
+    authoritative_segments: list[dict[str, Any]] | None = None
+    if isinstance(timing_value, Mapping):
+        authoritative_segments = normalize_timed_segments(
+            timing_value.get("segments")
+        )
+        if authoritative_segments is None:
+            authoritative_segments = normalize_timed_segments(
+                timing_value.get("beats")
+            )
+
+    if authoritative_segments is not None:
+        merged["segments"] = authoritative_segments
+
+    storyboard_value = (
+        storyboard[1]
+        if storyboard is not None
+        else None
+    )
+    authoritative_shots: list[dict[str, Any]] | None = None
+    if isinstance(storyboard_value, Mapping):
+        authoritative_shots = normalize_timed_shots(
+            storyboard_value.get("shots")
+        )
+    if authoritative_shots is not None:
+        merged["shots"] = authoritative_shots
+
+    if (
+        "duration_seconds" not in merged
+        and merged.get("total_duration_seconds") is not None
+    ):
+        merged["duration_seconds"] = merged[
+            "total_duration_seconds"
         ]
-    if "duration_seconds" not in merged and merged.get("total_duration_seconds") is not None:
-        merged["duration_seconds"] = merged["total_duration_seconds"]
+
     if not merged.get("episode_id"):
-        raise SourceIntegrityError("SHORT_SOURCE_MISSING", "NATIVE_EPISODE_ID_REQUIRED")
+        raise SourceIntegrityError(
+            "SHORT_SOURCE_MISSING",
+            "NATIVE_EPISODE_ID_REQUIRED",
+        )
+
     return merged, tuple(paths)
 
+
+
+def _fine_timing_evidence_roots(
+    repo_root: Path,
+    source_video: Path,
+    episode_directory: Path | None,
+) -> tuple[Path, ...]:
+    roots: list[Path] = []
+    for candidate in (episode_directory, source_video.parent, *source_video.parents):
+        if candidate is None:
+            continue
+        resolved = Path(candidate).resolve()
+        try:
+            resolved.relative_to(Path(repo_root).resolve())
+        except ValueError:
+            continue
+        if resolved.is_dir() and resolved not in roots:
+            roots.append(resolved)
+        if len(roots) >= 4:
+            break
+    return tuple(roots)
+
+def _fine_timing_block_map(value: Any) -> dict[str, Mapping[str, Any]] | None:
+    if isinstance(value, Mapping):
+        raw_blocks = value.get("blocks")
+        if raw_blocks is None:
+            return None
+    elif isinstance(value, Sequence) and not isinstance(value, (str, bytes, bytearray)):
+        raw_blocks = value
+    else:
+        return None
+    if isinstance(raw_blocks, Mapping):
+        raw_items = tuple(raw_blocks.values())
+    elif isinstance(raw_blocks, Sequence) and not isinstance(raw_blocks, (str, bytes, bytearray)):
+        raw_items = tuple(raw_blocks)
+    else:
+        return None
+    result: dict[str, Mapping[str, Any]] = {}
+    for raw in raw_items:
+        if not isinstance(raw, Mapping):
+            return None
+        block_id = raw.get("block_id", raw.get("segment_id", raw.get("id")))
+        if not isinstance(block_id, str) or not block_id.strip():
+            return None
+        if block_id in result:
+            return None
+        events = raw.get("events", raw.get("stop_events", raw.get("phrase_boundaries")))
+        text = raw.get("text_before", raw.get("source_text", raw.get("text")))
+        if not isinstance(text, str) or not text.strip() or not isinstance(events, Sequence) or not events:
+            return None
+        result[block_id] = raw
+    return result or None
+
+def _discover_fine_timing_boundary_evidence(
+    *,
+    repo_root: Path,
+    source_video: Path,
+    episode_directory: Path | None,
+    segment_ids: Sequence[str],
+    audio_paths: Sequence[Path],
+) -> tuple[Path, Mapping[str, Any]] | None:
+    """Find one source-bound explicit boundary artifact, or return no adapter.
+
+    Candidate selection is structural and version-bound to the actual block
+    audio paths.  Equal candidates remain a hard ambiguity; no filename-only
+    fallback is allowed.
+    """
+
+    required = set(segment_ids)
+    if not required:
+        return None
+    audio_version_tokens = {
+        token.casefold()
+        for path in audio_paths
+        for token in re.findall(r"(?:^|[-_])v(\d+)(?:[-_.\\/]|$)", str(path))
+    }
+    candidates: list[tuple[Path, Mapping[str, Any], set[str]]] = []
+    seen_paths: set[Path] = set()
+    for root in _fine_timing_evidence_roots(repo_root, source_video, episode_directory):
+        try:
+            files = sorted(root.rglob("*.json"), key=lambda item: str(item).casefold())
+        except OSError:
+            continue
+        for path in files:
+            resolved = path.resolve()
+            if resolved in seen_paths:
+                continue
+            seen_paths.add(resolved)
+            try:
+                value = _read_json_value(resolved, code="SHORT_FINE_TIMING_EVIDENCE_INVALID")
+            except SourceIntegrityError:
+                continue
+            blocks = _fine_timing_block_map(value)
+            if blocks is None or not required.issubset(blocks):
+                continue
+            candidates.append((resolved, value, set(blocks)))
+    if not candidates:
+        return None
+
+    versioned = [
+        item
+        for item in candidates
+        if audio_version_tokens
+        and any(
+            f"v{version}" in item[0].stem.casefold()
+            for version in audio_version_tokens
+        )
+    ]
+    if len(versioned) == 1:
+        return versioned[0][0], versioned[0][1]
+    if versioned:
+        candidates = versioned
+    if len(candidates) == 1:
+        return candidates[0][0], candidates[0][1]
+
+    # Identical content is not a real ambiguity; different content at the
+    # same authority level must never be selected silently.
+    fingerprints = {_hash_value(item[1]) for item in candidates}
+    if len(fingerprints) == 1:
+        selected = sorted(candidates, key=lambda item: str(item[0]).casefold())[0]
+        return selected[0], selected[1]
+    raise SourceIntegrityError(
+        "SHORT_TIMING_SOURCE_AMBIGUOUS",
+        "MULTIPLE_EQUAL_PRIORITY_BOUNDARY_EVIDENCE_SOURCES",
+    )
+
+def _fine_timing_audio_blocks(
+    timing_source_path: Path,
+    *,
+    repo_root: Path,
+) -> tuple[dict[str, dict[str, str]], tuple[Path, ...]]:
+    value = _read_json_value(timing_source_path, code="SHORT_FINE_TIMING_SOURCE_INVALID")
+    if not isinstance(value, Sequence) or isinstance(value, (str, bytes, bytearray)):
+        raise SourceIntegrityError("SHORT_FINE_TIMING_SOURCE_INVALID", "BLOCK_TIMING_ARRAY_REQUIRED")
+    blocks: dict[str, dict[str, str]] = {}
+    paths: list[Path] = []
+    for raw in value:
+        if not isinstance(raw, Mapping):
+            raise SourceIntegrityError("SHORT_FINE_TIMING_SOURCE_INVALID", "BLOCK_TIMING_MAPPING_REQUIRED")
+        block_id = raw.get("block_id", raw.get("segment_id", raw.get("id")))
+        audio_raw = raw.get("path", raw.get("audio_path", raw.get("source_audio_path")))
+        if not isinstance(block_id, str) or not isinstance(audio_raw, (str, Path)):
+            raise SourceIntegrityError("SHORT_FINE_TIMING_SOURCE_INVALID", "BLOCK_AUDIO_BINDING_REQUIRED")
+        audio_path = Path(audio_raw)
+        if not audio_path.is_absolute():
+            audio_path = (Path(repo_root) / audio_path).resolve()
+        else:
+            audio_path = audio_path.resolve()
+        if not audio_path.is_file():
+            raise SourceIntegrityError("SHORT_FINE_TIMING_SOURCE_INVALID", f"BLOCK_AUDIO_MISSING:{audio_path}")
+        if block_id in blocks:
+            raise SourceIntegrityError("SHORT_FINE_TIMING_SOURCE_INVALID", f"DUPLICATE_BLOCK:{block_id}")
+        audio_hash = _sha256_file(audio_path)
+        blocks[block_id] = {"audio_path": str(audio_path), "audio_sha256": audio_hash}
+        paths.append(audio_path)
+    return blocks, tuple(paths)
+
+def _resolve_episode_fine_timing(
+    *,
+    repo_root: Path,
+    source_video: Path,
+    episode_directory: Path | None,
+    timing_resolution: Any | None,
+    transcript_segments: Sequence[TranscriptSegment],
+    episode_id: str,
+    native_transcript: Any = None,
+    metadata: Mapping[str, Any] | None = None,
+    transcript_source_path: Path | None = None,
+    duration_seconds: float | None = None,
+) -> dict[str, Any]:
+    """Resolve fine timing once, preserving a truthful candidate-local block."""
+
+    if timing_resolution is None:
+        source = native_transcript
+        if source is None and isinstance(metadata, Mapping):
+            source = metadata.get("transcript", metadata if metadata.get("segments") is not None else None)
+        if not isinstance(source, Mapping):
+            return {"status": "NOT_REQUESTED", "reason": "NO_NATIVE_FINE_TIMING_DOCUMENT"}
+        metadata_map = metadata if isinstance(metadata, Mapping) else {}
+        audio_raw = next(
+            (
+                source.get(key)
+                for key in (
+                    "final_audio_path",
+                    "source_audio_path",
+                    "narration_master_path",
+                    "final_narration_path",
+                    "audio_path",
+                )
+                if isinstance(source.get(key), (str, Path))
+            ),
+            next(
+                (
+                    metadata_map.get(key)
+                    for key in (
+                        "final_audio_path",
+                        "source_audio_path",
+                        "narration_master_path",
+                        "final_narration_path",
+                        "audio_path",
+                    )
+                    if isinstance(metadata_map.get(key), (str, Path))
+                ),
+                None,
+            ),
+        )
+        if audio_raw is None:
+            return {"status": "NOT_REQUESTED", "reason": "FINAL_AUDIO_PATH_NOT_DECLARED"}
+        audio_path = Path(audio_raw).resolve()
+        if not audio_path.is_file():
+            return {"status": "BLOCKED", "code": "TIMING_AUDIO_BINDING_REQUIRED", "detail": str(audio_path)}
+        raw_duration = duration_seconds
+        if raw_duration is None:
+            raw_duration = metadata_map.get("duration_seconds", metadata_map.get("duration"))
+        if raw_duration is None:
+            raw_segments = source.get("segments", ())
+            if not isinstance(raw_segments, Sequence) or isinstance(raw_segments, (str, bytes, bytearray)) or not raw_segments:
+                return {"status": "BLOCKED", "code": "TIMING_EVIDENCE_INSUFFICIENT", "detail": "DURATION_REQUIRED"}
+            raw_duration = max(
+                float(item.get("end_seconds", item.get("end", 0.0)))
+                for item in raw_segments
+                if isinstance(item, Mapping)
+            )
+        declared_uncertainty: list[Mapping[str, Any]] = []
+        top_level_uncertainty = source.get("uncertain_regions")
+        if isinstance(top_level_uncertainty, Sequence) and not isinstance(
+            top_level_uncertainty, (str, bytes, bytearray)
+        ):
+            declared_uncertainty.extend(
+                dict(item) for item in top_level_uncertainty if isinstance(item, Mapping)
+            )
+        raw_segments = source.get("segments", ())
+        if isinstance(raw_segments, Sequence) and not isinstance(raw_segments, (str, bytes, bytearray)):
+            for raw_segment in raw_segments:
+                if not isinstance(raw_segment, Mapping):
+                    continue
+                segment_uncertainty = raw_segment.get("uncertain_regions")
+                if not isinstance(segment_uncertainty, Sequence) or isinstance(
+                    segment_uncertainty, (str, bytes, bytearray)
+                ):
+                    continue
+                for item in segment_uncertainty:
+                    if isinstance(item, Mapping):
+                        declared_uncertainty.append(
+                            {
+                                "segment_id": raw_segment.get("segment_id", raw_segment.get("id")),
+                                **dict(item),
+                            }
+                        )
+        declared_configuration_hash = metadata_map.get("configuration_hash")
+        if declared_uncertainty:
+            configuration_hash: str | None = canonical_json_sha256(
+                {
+                    "declared_configuration_hash": declared_configuration_hash,
+                    "declared_uncertainty": declared_uncertainty,
+                }
+            )
+        else:
+            configuration_hash = declared_configuration_hash
+        native_request = {
+            "episode_id": episode_id,
+            "transcript": source,
+            "final_audio_path": str(audio_path),
+            "expected_audio_sha256": metadata_map.get("source_audio_sha256", metadata_map.get("final_narration_sha256")),
+            "duration_seconds": float(raw_duration),
+            "transcript_source_path": None if transcript_source_path is None else str(transcript_source_path),
+            "timing_source_path": metadata_map.get("timing_source_path", metadata_map.get("timing_evidence_path")),
+            "cache_root": str(Path(repo_root) / "artifacts" / "shorts-fine-timing-cache"),
+            "persist_cache": True,
+            "require_fine_timing": False,
+            "configuration_hash": configuration_hash,
+        }
+        try:
+            return resolve_fine_timing(native_request).to_dict()
+        except FineTimingResolverError as exc:
+            return {
+                "status": "BLOCKED",
+                "code": exc.code,
+                "detail": exc.detail,
+                "coarse_only": True,
+            }
+    candidate = timing_resolution.candidate
+    segment_payload: list[dict[str, Any]] = [
+        {
+            "segment_id": segment.segment_id,
+            "start_seconds": float(segment.start_time),
+            "end_seconds": float(segment.end_time),
+            "text": segment.text,
+        }
+        for segment in transcript_segments
+    ]
+    audio_blocks, block_audio_paths = _fine_timing_audio_blocks(
+        candidate.timing_source_path,
+        repo_root=repo_root,
+    )
+    discovered = _discover_fine_timing_boundary_evidence(
+        repo_root=repo_root,
+        source_video=source_video,
+        episode_directory=episode_directory,
+        segment_ids=[segment["segment_id"] for segment in segment_payload],
+        audio_paths=block_audio_paths,
+    )
+    if discovered is None:
+        return {
+            "status": "BLOCKED",
+            "code": "CAPTION_TIMING_INSUFFICIENT",
+            "detail": "NO_TRUSTED_FINE_BOUNDARY_EVIDENCE",
+            "coarse_only": True,
+        }
+    evidence_path, evidence_value = discovered
+    backend = FFmpegSilencePhraseAlignmentBackend(
+        stop_evidence=evidence_value,
+        audio_blocks=audio_blocks,
+        final_audio_binding={"final_audio_sha256": candidate.source_audio_sha256},
+        base_dir=repo_root,
+        min_silence_duration_seconds=0.4,
+    )
+    request = {
+        "episode_id": episode_id,
+        "transcript": {"timebase": "FINAL_AUDIO_TIMEBASE", "segments": segment_payload},
+        "final_audio_path": str(candidate.source_audio_path),
+        "expected_audio_sha256": candidate.source_audio_sha256,
+        "duration_seconds": candidate.duration_seconds,
+        "transcript_source_path": str(timing_resolution.canonical_path),
+        "timing_source_path": str(candidate.timing_source_path),
+        "cache_root": str(Path(repo_root) / "artifacts" / "shorts-fine-timing-cache"),
+        "persist_cache": True,
+        "forced_alignment_backend": backend,
+        "require_fine_timing": True,
+        "alignment_engine_id": backend.backend_id,
+        "alignment_engine_version": backend.backend_version,
+    }
+    try:
+        resolution = resolve_fine_timing(request)
+    except FineTimingResolverError as exc:
+        return {
+            "status": "BLOCKED",
+            "code": exc.code,
+            "detail": exc.detail,
+            "boundary_evidence_path": str(evidence_path),
+            "boundary_evidence_sha256": _sha256_file(evidence_path),
+            "coarse_only": True,
+        }
+    payload = resolution.to_dict()
+    payload["boundary_evidence_path"] = str(evidence_path)
+    payload["boundary_evidence_sha256"] = _sha256_file(evidence_path)
+    payload["candidate_local_readiness_policy"] = "UNCERTAIN_INTERSECTION_BLOCKS_ONLY_AFFECTED_CANDIDATE"
+    return payload
 
 def ingest_episode(
     repo_root: Path,
@@ -1455,6 +2222,59 @@ def ingest_episode(
         "constitution_metadata_present": bool(metadata.get("constitution_version") or metadata.get("constitution")),
         "audio_probe": {"has_audio": probe.get("has_audio"), "available": probe.get("available")},
     }
+    try:
+        fine_timing = _resolve_episode_fine_timing(
+            repo_root=Path(repo_root),
+            source_video=source_video,
+            episode_directory=directory,
+            timing_resolution=timing_resolution,
+            transcript_segments=transcript_segments,
+            episode_id=episode_id,
+            native_transcript=(
+                _read_json_value(transcript_file, code="SHORT_TRANSCRIPT_REQUIRED")
+                if transcript_file is not None and transcript_file.suffix.casefold() not in {".vtt", ".srt"}
+                else metadata
+            ),
+            metadata=metadata,
+            transcript_source_path=transcript_file,
+            duration_seconds=duration,
+        )
+    except SourceIntegrityError as exc:
+        fine_timing = {
+            "status": "BLOCKED",
+            "code": exc.code,
+            "detail": exc.detail,
+            "coarse_only": True,
+        }
+    source_admission["fine_timing"] = fine_timing
+    if isinstance(fine_timing, Mapping):
+        boundary_path = fine_timing.get("boundary_evidence_path")
+        boundary_hash = fine_timing.get("boundary_evidence_sha256")
+        if isinstance(boundary_path, str) and isinstance(boundary_hash, str) and _HASH_RE.fullmatch(boundary_hash):
+            source_metadata_hashes[_relative_or_absolute(Path(boundary_path), Path(repo_root))] = boundary_hash
+        if str(fine_timing.get("status", "")).upper() in {"READY", "READY_WITH_UNCERTAINTY", "READY_COARSE"}:
+            resolved_audio_hash = next(
+                (
+                    fine_timing.get(key)
+                    for key in ("source_audio_sha256", "final_audio_sha256")
+                    if isinstance(fine_timing.get(key), str)
+                    and _HASH_RE.fullmatch(str(fine_timing.get(key)).strip())
+                ),
+                None,
+            )
+            if resolved_audio_hash is not None:
+                source_admission["source_audio_sha256"] = str(resolved_audio_hash).strip().lower()
+            resolved_timing_hash = next(
+                (
+                    fine_timing.get(key)
+                    for key in ("timing_source_sha256", "alignment_sha256")
+                    if isinstance(fine_timing.get(key), str)
+                    and _HASH_RE.fullmatch(str(fine_timing.get(key)).strip())
+                ),
+                None,
+            )
+            if resolved_timing_hash is not None:
+                source_admission["timing_source_sha256"] = str(resolved_timing_hash).strip().lower()
     # Explicit local transcript inputs are already trusted source evidence in
     # VIDEO_PLUS_TRANSCRIPT mode.  Bind them into the same admission envelope
     # used by legacy timing recovery so Shorts captions do not have a second,
@@ -1502,10 +2322,10 @@ def ingest_episode(
         claims=claims,
         metadata=json.loads(json.dumps(metadata, ensure_ascii=False, sort_keys=True)),
         constitution_version=constitution_version,
-        # 1.0.0 is a compatibility-revalidated predecessor of the 1.1.0
+        # 1.0.0 and 1.1.0 are compatibility-revalidated predecessors of the 1.2.0
         # policy bundle; materially unknown or older episode contracts remain
         # legacy and receive the existing recheck path.
-        legacy_source=constitution_version not in {"1.0.0", CONSTITUTION_VERSION},
+        legacy_source=constitution_version not in {"1.0.0", "1.1.0", CONSTITUTION_VERSION},
         has_audio=(None if probe.get("has_audio") is None else bool(probe.get("has_audio"))),
         source_type=normalized_mode,
         episode_display_name=_clean_text(metadata.get("episode_display_name", metadata.get("title_ar", metadata.get("working_title_ar", episode_id)))),
@@ -1927,6 +2747,23 @@ def _caption_source_segments(episode: EpisodePackage, beats: Sequence[Beat]) -> 
 
     if not beats:
         return ()
+    fine_timing = episode.source_admission.get("fine_timing")
+    fine_words: dict[str, list[Mapping[str, Any]]] = {}
+    fine_phrases: dict[str, list[Mapping[str, Any]]] = {}
+    if isinstance(fine_timing, Mapping) and str(fine_timing.get("status", "")).upper() in {
+        "READY",
+        "READY_WITH_UNCERTAINTY",
+        "READY_COARSE",
+    }:
+        for key, target in (("words", fine_words), ("phrases", fine_phrases)):
+            raw_units = fine_timing.get(key, ())
+            if isinstance(raw_units, Sequence) and not isinstance(raw_units, (str, bytes, bytearray)):
+                for raw in raw_units:
+                    if not isinstance(raw, Mapping):
+                        continue
+                    segment_id = str(raw.get("segment_id", ""))
+                    if segment_id:
+                        target.setdefault(segment_id, []).append(raw)
     candidate_start = float(beats[0].start_time)
     candidate_end = float(beats[-1].end_time)
     selected: list[dict[str, Any]] = []
@@ -1938,8 +2775,7 @@ def _caption_source_segments(episode: EpisodePackage, beats: Sequence[Beat]) -> 
             continue
         if start < candidate_start - 1e-6 or end > candidate_end + 1e-6:
             return ()
-        selected.append(
-            {
+        payload: dict[str, Any] = {
                 "segment_id": segment.segment_id,
                 "start_time": start,
                 "end_time": end,
@@ -1949,7 +2785,27 @@ def _caption_source_segments(episode: EpisodePackage, beats: Sequence[Beat]) -> 
                 "audio_boundary_safe": segment.audio_boundary_safe,
                 "grammar_safe": segment.grammar_safe,
             }
-        )
+        if segment.segment_id in fine_words:
+            payload["word_boundaries"] = [
+                {
+                    "segment_id": str(unit.get("unit_id", unit.get("word_id", ""))),
+                    "start_seconds": float(unit["start_seconds"]),
+                    "end_seconds": float(unit["end_seconds"]),
+                    "text": str(unit["text"]),
+                }
+                for unit in fine_words[segment.segment_id]
+            ]
+        elif segment.segment_id in fine_phrases:
+            payload["phrase_boundaries"] = [
+                {
+                    "segment_id": str(unit.get("unit_id", unit.get("phrase_id", ""))),
+                    "start_seconds": float(unit["start_seconds"]),
+                    "end_seconds": float(unit["end_seconds"]),
+                    "text": str(unit["text"]),
+                }
+                for unit in fine_phrases[segment.segment_id]
+            ]
+        selected.append(payload)
     return tuple(selected)
 
 
@@ -1965,6 +2821,60 @@ def _caption_subject_regions(episode: EpisodePackage, beats: Sequence[Beat]) -> 
     return tuple(dict(item) for item in explicit if isinstance(item, Mapping))
 
 
+def _fine_timing_candidate_gate(
+    episode: EpisodePackage,
+    start_seconds: float,
+    end_seconds: float,
+) -> tuple[bool, str, str]:
+    fine_timing = episode.source_admission.get("fine_timing")
+    if not isinstance(fine_timing, Mapping):
+        return True, "", ""
+    status = str(fine_timing.get("status", "")).upper()
+    if status in {"BLOCKED", "FAIL", "INSUFFICIENT"}:
+        coarse_segments = [
+            segment
+            for segment in episode.narration_segments
+            if segment.start_time >= start_seconds - 1e-6
+            and segment.end_time <= end_seconds + 1e-6
+            and segment.end_time > start_seconds + 1e-6
+            and segment.start_time < end_seconds - 1e-6
+        ]
+        if coarse_segments and all(
+            segment.end_time - segment.start_time <= 8.0 + 1e-6
+            and len(segment.text) <= 120
+            for segment in coarse_segments
+        ):
+            return True, "", "EXPLICIT_SHORT_COARSE_SEGMENT_ADMISSION"
+        return False, str(fine_timing.get("code", "CAPTION_TIMING_INSUFFICIENT")), str(
+            fine_timing.get("detail", "FINE_TIMING_UNAVAILABLE")
+        )
+    uncertain = fine_timing.get("uncertain_regions", ())
+    if isinstance(uncertain, Sequence) and not isinstance(uncertain, (str, bytes, bytearray)):
+        for region in uncertain:
+            if not isinstance(region, Mapping):
+                continue
+            region_start = float(region.get("start_seconds", region.get("start", 0.0)))
+            region_end = float(region.get("end_seconds", region.get("end", 0.0)))
+            if region_end > start_seconds + 1e-6 and region_start < end_seconds - 1e-6:
+                return False, "CANDIDATE_TIMING_UNCERTAIN", str(
+                    region.get("reason", "UNCERTAIN_FINE_TIMING_REGION")
+                )
+    units = []
+    for key in ("words", "phrases"):
+        raw_units = fine_timing.get(key, ())
+        if isinstance(raw_units, Sequence) and not isinstance(raw_units, (str, bytes, bytearray)):
+            units.extend(item for item in raw_units if isinstance(item, Mapping))
+    if not units and status not in {"READY_COARSE", "NOT_REQUESTED"}:
+        return False, "CAPTION_TIMING_INSUFFICIENT", "NO_FINE_TIMING_UNITS"
+    if status not in {"NOT_REQUESTED", "READY_COARSE"} and not any(
+        float(item.get("end_seconds", item.get("end", 0.0))) > start_seconds + 1e-6
+        and float(item.get("start_seconds", item.get("start", 0.0))) < end_seconds - 1e-6
+        for item in units
+    ):
+        return False, "CAPTION_TIMING_INSUFFICIENT", "NO_FINE_UNIT_COVERS_CANDIDATE"
+    return True, "", ""
+
+
 def _caption_readiness_for_candidate(
     engine: "ShortsDerivativeEngine",
     episode: EpisodePackage,
@@ -1978,7 +2888,26 @@ def _caption_readiness_for_candidate(
     try:
         source_segments = _caption_source_segments(episode, beats)
         if not source_segments:
-            raise CaptionBlockedError("CAPTION_TIMING_INSUFFICIENT", "CANDIDATE_CUT_THROUGH_SOURCE_SEGMENT")
+            source_segments = tuple(
+                {
+                    "segment_id": segment.segment_id,
+                    "start_time": float(segment.start_time),
+                    "end_time": float(segment.end_time),
+                    "text": segment.text,
+                    "word_start": segment.word_start,
+                    "word_end": segment.word_end,
+                    "audio_boundary_safe": segment.audio_boundary_safe,
+                    "grammar_safe": segment.grammar_safe,
+                }
+                for segment in episode.narration_segments
+                if float(segment.end_time) > float(beats[0].start_time) + 1e-6
+                and float(segment.start_time) < float(beats[-1].end_time) - 1e-6
+            )
+        if not source_segments:
+            raise CaptionBlockedError(
+                "CAPTION_TIMING_INSUFFICIENT",
+                "CANDIDATE_HAS_NO_TRUSTED_SOURCE_SEGMENT",
+            )
         canonical_hash = _caption_hash_from_admission(
             episode,
             "canonical_timed_transcript_sha256",
@@ -2001,7 +2930,41 @@ def _caption_readiness_for_candidate(
             raise CaptionBlockedError("CAPTION_HASH_BINDING_REQUIRED", "CANONICAL_TIMING_AUDIO_HASHES")
         candidate_start = float(beats[0].start_time)
         candidate_end = float(beats[-1].end_time)
+        fine_ready, fine_code, fine_detail = _fine_timing_candidate_gate(
+            episode,
+            candidate_start,
+            candidate_end,
+        )
+        if not fine_ready:
+            raise CaptionBlockedError(fine_code, fine_detail)
         duration = candidate_end - candidate_start
+        # SIRAJ_CTC_CAPTION_INTEGRATION_V1_BEGIN
+        candidate_start = float(beats[0].start_time)
+        candidate_end = float(beats[-1].end_time)
+        try:
+            from src.application.shorts_ctc_acoustic_alignment_v1 import (
+                CTCAlignmentUnavailable,
+                refine_candidate_caption_segments,
+            )
+            refinement = refine_candidate_caption_segments(
+                source_video_path=episode.source_video_path,
+                episode_id=episode.episode_id,
+                all_segments=episode.narration_segments,
+                candidate_start=candidate_start,
+                candidate_end=candidate_end,
+                source_video_sha256=episode.source_episode_sha256,
+                source_audio_sha256=audio_hash,
+                canonical_transcript_sha256=canonical_hash,
+                coarse_timing_sha256=timing_hash,
+            )
+        except CTCAlignmentUnavailable as exc:
+            raise CaptionBlockedError(
+                "CAPTION_TIMING_INSUFFICIENT",
+                f"ACOUSTIC_ALIGNMENT:{exc}",
+            ) from exc
+        source_segments = tuple(refinement.segments)
+        timing_hash = refinement.fine_timing_sha256
+        # SIRAJ_CTC_CAPTION_INTEGRATION_V1_END
         transcript = CaptionTranscript.from_segments(
             source_segments,
             episode_id=episode.episode_id,

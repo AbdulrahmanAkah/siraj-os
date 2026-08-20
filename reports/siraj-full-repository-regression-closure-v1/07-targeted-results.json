@@ -1,0 +1,20 @@
+{
+  "schema_version": "siraj-full-regression-targeted-results-v1",
+  "results": [
+    {"scope": "focused_contract_and_shorts_fixes", "passed": 61, "failed": 0},
+    {"scope": "unit_full", "passed": 590, "failed": 0, "seconds": 27.89},
+    {"scope": "shorts_integration", "passed": 101, "failed": 0, "seconds": 52.96},
+    {"scope": "release_packaging_isolated", "passed": 9, "failed": 0, "seconds": 149.15},
+    {"scope": "regression_and_smoke", "passed": 85, "failed": 0, "seconds": 3.82},
+    {"scope": "manual_visual_pr01_reconstructed_superset", "passed": 56, "failed": 0, "seconds": 21.40},
+    {"scope": "repeatability_hang_failures_manual_e2e", "passed": 80, "failed": 0, "seconds": 31.12}
+  ],
+  "previous_targeted_54": "PASS_BY_56_TEST_RECONSTRUCTED_SUPERSET_AND_FULL_SUITE",
+  "clean_manual_visual_e2e": "PASS",
+  "shorts_regression": "PASS",
+  "canonical_reference_regression": "PASS",
+  "legacy_relevant_regression": "PASS",
+  "python_compileall": "PASS",
+  "git_diff_check": "PASS_WITH_PREEXISTING_CRLF_WARNINGS_ONLY",
+  "secret_scan_task_fix_diff": "PASS_NO_MATCHES"
+}
