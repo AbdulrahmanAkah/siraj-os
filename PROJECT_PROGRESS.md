@@ -3548,3 +3548,28 @@ Status: PASS_READY_FOR_MANUAL_DESKTOP_RESEARCH_RETRY
 - Narrator/script evidence extraction and narrative research remain unchanged.
 - No provider/network/paid/media-generation/publication call was made by this
   repair. No automatic retry/resubmission was introduced.
+
+========================================================
+EP004 APPROVED VISUAL REVIEW GITHUB AUTHORITY SYNC
+2026-09-07
+========================================================
+
+تم:
+
+- مزامنة الحزمة البصرية المعتمدة للحلقة الرابعة إلى فرع GitHub مخصص للقراءة والمراجعة.
+- authority branch: sync/ep004-approved-visual-review
+- manual visual production pack SHA256:
+  f7b2e321bf4dd2529436b010d576b9fe5d37b2844246de5d3dc387a97722a155
+- مزامنة pre-narration storyboard V2R3.
+- مزامنة جميع Human Approval Manifests الحالية.
+- المزامنة لا تعدل أصول الإنتاج المحلية ولا حالة الاعتماد البشري.
+- الغرض: إتاحة قراءة المراجعة البصرية المعتمدة مباشرة من GitHub أثناء استمرار إنتاج EP004.
+
+Source branch:
+feature/constitution-v1-2-0-six-fixes-v1
+
+Source HEAD:
+34b52ce75d6b1fdb6b9743d84e89442168de2b2d
+
+========================================================
+

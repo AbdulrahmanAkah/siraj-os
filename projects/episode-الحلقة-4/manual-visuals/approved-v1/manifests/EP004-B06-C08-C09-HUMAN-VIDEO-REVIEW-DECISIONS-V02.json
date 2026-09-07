@@ -1,0 +1,36 @@
+{
+  "beat_id": "B06",
+  "commit": false,
+  "episode_id": "episode-الحلقة-4",
+  "new_candidate_version": "V03",
+  "new_strategy": "FIRST_FRAME_ONLY_LOW_MOTION_NO_HABIL_BODY",
+  "push": false,
+  "rejections": [
+    {
+      "candidate_filename": "EP004-S04-006-C08-VIDEO-CANDIDATE-V02.mp4",
+      "candidate_version": "V02",
+      "decision": "REJECT",
+      "reasons": [
+        "HEAD_FACE_VISIBILITY",
+        "UNWANTED_BODY_GENERATION_OR_DRIFT",
+        "EXCESSIVE_MOTION",
+        "CONSTITUTIONAL_VIOLATION"
+      ],
+      "shot_id": "S04-006-C08"
+    },
+    {
+      "candidate_filename": "EP004-S04-006-C09-VIDEO-CANDIDATE-V02.mp4",
+      "candidate_version": "V02",
+      "decision": "REJECT",
+      "reasons": [
+        "HEAD_FACE_VISIBILITY",
+        "UNWANTED_BODY_GENERATION_OR_DRIFT",
+        "EXCESSIVE_MOTION",
+        "CONSTITUTIONAL_VIOLATION"
+      ],
+      "shot_id": "S04-006-C09"
+    }
+  ],
+  "schema_version": "siraj-human-video-review-decisions-v2",
+  "status": "V02_REJECTED_REGENERATE_FROM_NEW_FIRST_FRAMES"
+}

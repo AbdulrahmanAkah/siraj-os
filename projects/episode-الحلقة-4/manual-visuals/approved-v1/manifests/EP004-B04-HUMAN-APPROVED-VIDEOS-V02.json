@@ -1,0 +1,82 @@
+﻿{
+    "manifest_type":  "EP004_B04_FINAL_HUMAN_APPROVED_VIDEOS",
+    "episode":  "EP004",
+    "beat":  "B04",
+    "status":  "B04_VIDEO_SET_HUMAN_APPROVED_COMPLETE",
+    "approved_video_count":  5,
+    "approved_at_local":  "2026-09-04 21:28:20",
+    "policy":  "PRESERVE_REJECTED_SOURCE_AND_APPROVE_REPLACEMENT",
+    "prior_decision_manifest":  "C:\\SIRAJ\\Repositories\\siraj-os\\projects\\episode-الحلقة-4\\manual-visuals\\approved-v1\\manifests\\EP004-B04-HUMAN-VIDEO-REVIEW-DECISIONS-V01.json",
+    "rejected_versions":  [
+                              {
+                                  "shot_id":  "S04-004-C05",
+                                  "generation":  "V01",
+                                  "human_review_status":  "REJECTED",
+                                  "rejection_reason":  "CONSTITUTION_VIOLATION_HEAD_FACE_NECK_VISIBILITY",
+                                  "preserved_review_candidate_path":  "C:\\SIRAJ\\Repositories\\siraj-os\\projects\\episode-الحلقة-4\\manual-visuals\\review-v1\\videos\\EP004-S04-004-C05-VIDEO-CANDIDATE-V01.mp4",
+                                  "superseded_by":  "V02"
+                              }
+                          ],
+    "approved_assets":  [
+                            {
+                                "shot_id":  "S04-004-C01",
+                                "asset_type":  "VIDEO",
+                                "human_approval_status":  "APPROVED",
+                                "approved_generation":  "V01",
+                                "source_mode":  "FIRST_LAST_FRAME",
+                                "approved_asset_path":  "C:\\SIRAJ\\Repositories\\siraj-os\\projects\\episode-الحلقة-4\\manual-visuals\\approved-v1\\videos\\EP004-S04-004-C01-VIDEO-APPROVED-V01.mp4",
+                                "filename":  "EP004-S04-004-C01-VIDEO-APPROVED-V01.mp4",
+                                "size_bytes":  1809550,
+                                "sha256":  "F843E4C52509FBAA816B67FCC5D0BEF9DE26541CB791CBD7C4D8C3E0D6F391A8",
+                                "micro_freeze_qc":  "PASS"
+                            },
+                            {
+                                "shot_id":  "S04-004-C02",
+                                "asset_type":  "VIDEO",
+                                "human_approval_status":  "APPROVED",
+                                "approved_generation":  "V01",
+                                "source_mode":  "FIRST_LAST_FRAME",
+                                "approved_asset_path":  "C:\\SIRAJ\\Repositories\\siraj-os\\projects\\episode-الحلقة-4\\manual-visuals\\approved-v1\\videos\\EP004-S04-004-C02-VIDEO-APPROVED-V01.mp4",
+                                "filename":  "EP004-S04-004-C02-VIDEO-APPROVED-V01.mp4",
+                                "size_bytes":  1873018,
+                                "sha256":  "DC1D010A16CB5B7D11E0E6731DCC9650C0841BD6737FE443617811785B5A4CF5",
+                                "micro_freeze_qc":  "PASS"
+                            },
+                            {
+                                "shot_id":  "S04-004-C05",
+                                "asset_type":  "VIDEO",
+                                "human_approval_status":  "APPROVED",
+                                "approved_generation":  "V02",
+                                "source_mode":  "FIRST_LAST_FRAME",
+                                "approved_asset_path":  "C:\\SIRAJ\\Repositories\\siraj-os\\projects\\episode-الحلقة-4\\manual-visuals\\approved-v1\\videos\\EP004-S04-004-C05-VIDEO-APPROVED-V02.mp4",
+                                "filename":  "EP004-S04-004-C05-VIDEO-APPROVED-V02.mp4",
+                                "size_bytes":  3136016,
+                                "sha256":  "73D2C333D09ACC695A199F4E72CC440A601AD83A82276FA77430E235821A93B7",
+                                "micro_freeze_qc":  "PASS"
+                            },
+                            {
+                                "shot_id":  "S04-004-C06",
+                                "asset_type":  "VIDEO",
+                                "human_approval_status":  "APPROVED",
+                                "approved_generation":  "V01",
+                                "source_mode":  "FIRST_LAST_FRAME",
+                                "approved_asset_path":  "C:\\SIRAJ\\Repositories\\siraj-os\\projects\\episode-الحلقة-4\\manual-visuals\\approved-v1\\videos\\EP004-S04-004-C06-VIDEO-APPROVED-V01.mp4",
+                                "filename":  "EP004-S04-004-C06-VIDEO-APPROVED-V01.mp4",
+                                "size_bytes":  2213177,
+                                "sha256":  "C7E9C61ACA8A65510DB43ED790EB477D4F101D5643DC8D2F9C557147DC5BBB3E",
+                                "micro_freeze_qc":  "PASS"
+                            },
+                            {
+                                "shot_id":  "S04-004-C08",
+                                "asset_type":  "VIDEO",
+                                "human_approval_status":  "APPROVED",
+                                "approved_generation":  "V01",
+                                "source_mode":  "FIRST_FRAME",
+                                "approved_asset_path":  "C:\\SIRAJ\\Repositories\\siraj-os\\projects\\episode-الحلقة-4\\manual-visuals\\approved-v1\\videos\\EP004-S04-004-C08-VIDEO-APPROVED-V01.mp4",
+                                "filename":  "EP004-S04-004-C08-VIDEO-APPROVED-V01.mp4",
+                                "size_bytes":  1302331,
+                                "sha256":  "57353A4669336B1A437C21C8E53908D93834D5317B8045EAF07585AB47ED9D14",
+                                "micro_freeze_qc":  "PASS"
+                            }
+                        ]
+}

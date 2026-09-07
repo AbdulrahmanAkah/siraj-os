@@ -1,0 +1,71 @@
+{
+  "approved_still_count": 3,
+  "approved_video_source_first_frame_count": 2,
+  "approved_visual_count": 5,
+  "assets": [
+    {
+      "asset_role": "HUMAN_APPROVED_STILL",
+      "asset_type": "IMAGE",
+      "desktop_path": "C:\\Users\\abdul\\Desktop\\SIRAJ_EP004_الإنتاج_البصري\\01_المرئيات_المعتمدة\\EP004-S04-007-C01-HUMAN-APPROVED-V01.png",
+      "filename": "EP004-S04-007-C01-HUMAN-APPROVED-V01.png",
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "repo_path": "C:\\SIRAJ\\Repositories\\siraj-os\\projects\\episode-الحلقة-4\\manual-visuals\\approved-v1\\images\\EP004-S04-007-C01-HUMAN-APPROVED-V01.png",
+      "sha256": "688b952218d555831489c756e79ac037a7d1fbf52b08a13860e0564783c54931",
+      "shot_id": "S04-007-C01"
+    },
+    {
+      "asset_role": "HUMAN_APPROVED_STILL",
+      "asset_type": "IMAGE",
+      "desktop_path": "C:\\Users\\abdul\\Desktop\\SIRAJ_EP004_الإنتاج_البصري\\01_المرئيات_المعتمدة\\EP004-S04-007-C02-HUMAN-APPROVED-V01.png",
+      "filename": "EP004-S04-007-C02-HUMAN-APPROVED-V01.png",
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "repo_path": "C:\\SIRAJ\\Repositories\\siraj-os\\projects\\episode-الحلقة-4\\manual-visuals\\approved-v1\\images\\EP004-S04-007-C02-HUMAN-APPROVED-V01.png",
+      "sha256": "0dcf1326a44720a954442ca53bbed9e373790717c73c06e6b050cce93e9fd8c7",
+      "shot_id": "S04-007-C02"
+    },
+    {
+      "asset_role": "HUMAN_APPROVED_STILL",
+      "asset_type": "IMAGE",
+      "desktop_path": "C:\\Users\\abdul\\Desktop\\SIRAJ_EP004_الإنتاج_البصري\\01_المرئيات_المعتمدة\\EP004-S04-007-C04-HUMAN-APPROVED-V01.png",
+      "filename": "EP004-S04-007-C04-HUMAN-APPROVED-V01.png",
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "repo_path": "C:\\SIRAJ\\Repositories\\siraj-os\\projects\\episode-الحلقة-4\\manual-visuals\\approved-v1\\images\\EP004-S04-007-C04-HUMAN-APPROVED-V01.png",
+      "sha256": "2b645e187d9eefbb5510f66aa1a5b0a1cc4ac114031074c251b9f9ce2783ad91",
+      "shot_id": "S04-007-C04"
+    },
+    {
+      "asset_role": "HUMAN_APPROVED_FIRST_FRAME",
+      "asset_type": "VIDEO_SOURCE_FRAME",
+      "desktop_path": "C:\\Users\\abdul\\Desktop\\SIRAJ_EP004_الإنتاج_البصري\\02_First_Last_Frames\\EP004-S04-007-C03-FIRST-HUMAN-APPROVED-V01.png",
+      "filename": "EP004-S04-007-C03-FIRST-HUMAN-APPROVED-V01.png",
+      "generation_strategy": "FIRST_FRAME_MOTION",
+      "repo_path": "C:\\SIRAJ\\Repositories\\siraj-os\\projects\\episode-الحلقة-4\\manual-visuals\\approved-v1\\video-source-frames\\EP004-S04-007-C03-FIRST-HUMAN-APPROVED-V01.png",
+      "sha256": "33b48817044d408c5752119a11495991618ff0d9c88fbf0bd2323b08ef1aa99f",
+      "shot_id": "S04-007-C03"
+    },
+    {
+      "asset_role": "HUMAN_APPROVED_FIRST_FRAME",
+      "asset_type": "VIDEO_SOURCE_FRAME",
+      "desktop_path": "C:\\Users\\abdul\\Desktop\\SIRAJ_EP004_الإنتاج_البصري\\02_First_Last_Frames\\EP004-S04-007-C05-FIRST-HUMAN-APPROVED-V01.png",
+      "filename": "EP004-S04-007-C05-FIRST-HUMAN-APPROVED-V01.png",
+      "generation_strategy": "FIRST_FRAME_MOTION",
+      "repo_path": "C:\\SIRAJ\\Repositories\\siraj-os\\projects\\episode-الحلقة-4\\manual-visuals\\approved-v1\\video-source-frames\\EP004-S04-007-C05-FIRST-HUMAN-APPROVED-V01.png",
+      "sha256": "9da41be52fa6db67634aa658fd896a3732a45798cce01e31629fa9fb57def3fe",
+      "shot_id": "S04-007-C05"
+    }
+  ],
+  "beat_id": "B07",
+  "commit": false,
+  "episode_id": "episode-الحلقة-4",
+  "git_branch_observed": "feature/constitution-v1-2-0-six-fixes-v1",
+  "git_head_observed": "34b52ce75d6b1fdb6b9743d84e89442168de2b2d",
+  "human_approval_source": "USER_EXPLICIT_APPROVAL_IN_CHAT",
+  "manual_visual_pack_sha256": "f7b2e321bf4dd2529436b010d576b9fe5d37b2844246de5d3dc387a97722a155",
+  "push": false,
+  "schema_version": "siraj-human-approved-visuals-v1",
+  "status": "HUMAN_APPROVED_VISUALS_READY_FOR_VIDEO_GENERATION",
+  "video_strategy": {
+    "S04-007-C03": "FIRST_FRAME_MOTION",
+    "S04-007-C05": "FIRST_FRAME_MOTION"
+  }
+}

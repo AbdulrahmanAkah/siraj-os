@@ -1,0 +1,3406 @@
+{
+  "episode_id": "episode-الحلقة-4",
+  "global_visual_constitution": {
+    "absolute_no_divine_depiction": true,
+    "absolute_no_prophet_muhammad_visual": true,
+    "adam_torso_back_fully_covered": true,
+    "correct_occlusion_required": true,
+    "micro_freeze_qc_required_for_every_generated_video": true,
+    "no_angel_form_assertion_when_form_not_source_described": true,
+    "no_heads_faces_sensitive_historical_humans": true,
+    "no_human_wall_fixed_object_intersection": true,
+    "no_visual_divine_hand_eye_face_body_silhouette_or_humanoid_light": true,
+    "very_short_shots_prefer_still_plus_editorial_motion": true
+  },
+  "joint_qa_corrections": [
+    "Rebalanced narration-to-shot timing; no narration-bearing shot exceeds 150 WPM equivalent.",
+    "Kept Quranic audio order contiguous while visual cuts follow valid semantic/waqf boundaries.",
+    "Removed invented direct Adam-to-Seth scroll handoff; Seth scroll imagery remains visual tradition only.",
+    "Bound fire shot to both Quran narration and Tabari visual tradition.",
+    "Added explicit Quran 42:11 primary source binding.",
+    "Added exact source binding for Adam death and first killing claims.",
+    "Expanded B11 to avoid impossible 300-420 WPM shot mappings and to represent Tirmidhi material without depicting the divine or the Angel of Death form."
+  ],
+  "media_selection_policy": {
+    "no_ratio_target": true,
+    "principle": "Motion must earn VIDEO. If composition, stillness, evidence, or a single visual state carries the meaning, prefer a high-quality still with editorial motion.",
+    "still_when": "The shot derives power from composition, tension, aftermath, evidence, landscape, symbolic continuity, or a single visual state.",
+    "very_short_beats": "Prefer still + editorial motion unless the action itself is the information.",
+    "video_when": "The motion itself communicates an event, transition, physical action, or emotional beat that would materially weaken as a still."
+  },
+  "narrative_beat_count": 12,
+  "pacing": {
+    "do_not_split_without_visual_or_semantic_reason": true,
+    "hard_max_shot_duration_seconds": 8.0,
+    "target_average_shot_duration_seconds_range": [
+      4.0,
+      5.5
+    ]
+  },
+  "schema_version": "siraj-pre-narration-storyboard-v2r3",
+  "shot_count": 108,
+  "shots": [
+    {
+      "beat_id": "B01",
+      "camera_ar": "انزلاق بطيء للأمام على ارتفاع ثابت.",
+      "estimated_duration_seconds": 4.3,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "C",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. ريح خفيفة وغبار طبيعي.",
+      "narration_span_ar": "في الحلقة الماضية، تركنا الأرض وقد اتسعت ذرية آدم،",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "LOW",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-001-C01",
+      "source_ids": [],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "افتتاح من السواد.",
+      "visual_description_ar": "لقطة جوية منخفضة لوادٍ واسع عند الفجر، آثار سكن متناثرة ومسارات بشرية ممتدة، بلا أشخاص قريبين.",
+      "visual_information_ar": "الأرض اتسعت وظهرت آثار انتشار البشر."
+    },
+    {
+      "beat_id": "B01",
+      "camera_ar": "Push-in تحريري بسيط.",
+      "estimated_duration_seconds": 3.9,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "C",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. حركة أدوات واقعية قصيرة.",
+      "narration_span_ar": "وبدأ الجيل التالي يحمل العمل والعبادة ومسؤولية الحياة.",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "LOW",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-001-C02",
+      "source_ids": [],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "Match cut على اليد.",
+      "visual_description_ar": "Match cut لأيدٍ تعمل: طحن حبوب، شد حبل، ترتيب حجارة؛ أيدٍ مختلفة الأعمار فقط.",
+      "visual_information_ar": "انتقال المسؤولية إلى جيل جديد دون إعادة أحداث EP003."
+    },
+    {
+      "beat_id": "B01",
+      "camera_ar": "زاوية منخفضة عند مستوى الساقين.",
+      "estimated_duration_seconds": 4.3,
+      "generation_strategy": "FIRST_FRAME_MOTION",
+      "generation_tier": "B",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "عبور طبيعي متواصل.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "لم تعد الأرض موطن رجل وزوجه وأبنائهما القريبين فقط؛",
+      "notes_ar": [
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "MEDIUM",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-001-C03",
+      "source_ids": [],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "قطع على الحركة.",
+      "visual_description_ar": "أقدام متعددة تعبر طريقًا ترابيًا في اتجاهات متباعدة؛ لا وجوه ولا رؤوس.",
+      "visual_information_ar": "الوجود البشري لم يعد محصورًا بعائلة صغيرة."
+    },
+    {
+      "beat_id": "B01",
+      "camera_ar": "Pull-back بطيء يكشف تفرع الطرق.",
+      "estimated_duration_seconds": 3.0,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "C",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. حركة بعيدة مستمرة.",
+      "narration_span_ar": "صارت فيها أقدام أكثر، وطرق أكثر،",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "LOW",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-001-C04",
+      "source_ids": [],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "اتساع بصري.",
+      "visual_description_ar": "ثلاثة مسارات ترابية تتفرع عبر أرض صخرية، أشخاص بعيدون جدًا كنقاط بشرية غير قابلة للتعرّف.",
+      "visual_information_ar": "اتساع الحركة والطرق."
+    },
+    {
+      "beat_id": "B01",
+      "camera_ar": "ماكرو ثابت.",
+      "estimated_duration_seconds": 3.0,
+      "generation_strategy": "FIRST_FRAME_MOTION",
+      "generation_tier": "B",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "تسليم واحد واضح بلا تكرار.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "وأيدٍ تتسلم ما بدأه الجيل الأول.",
+      "notes_ar": [
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "MEDIUM",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-001-C05",
+      "source_ids": [],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "Match cut من المسارات إلى اليد.",
+      "visual_description_ar": "يد أكبر تسلّم أداة بسيطة ليد أصغر؛ خلفية عمل يومي غير محدد تاريخيًا.",
+      "visual_information_ar": "المعرفة والعمل ينتقلان يدًا بيد."
+    },
+    {
+      "beat_id": "B01",
+      "camera_ar": "ثبات مع push-in شديد البطء.",
+      "estimated_duration_seconds": 7.5,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": true,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. توقف الحركة المحيطة تدريجيًا.",
+      "narration_span_ar": "لكن بين أبناء ذلك الجيل، وقع شيء لم تعرفه الأرض من قبل: دم إنسان بيد أخيه.",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "HIGH",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-001-C06",
+      "source_ids": [
+        "SRC-011"
+      ],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "Cut to silence.",
+      "visual_description_ar": "يد تعمل تتوقف فجأة. في الخلفية يظهر جسدان من أسفل الكتفين فقط متقابلان وبينهما مسافة فارغة.",
+      "visual_information_ar": "الانتقال من الاتساع إلى أول قتل."
+    },
+    {
+      "beat_id": "B02",
+      "camera_ar": "تكبير تحريري بسيط.",
+      "estimated_duration_seconds": 2.8,
+      "generation_strategy": "TEXT_EVIDENCE_EDITORIAL_COMPOSITE",
+      "generation_tier": "C",
+      "intentional_silence": false,
+      "media_mode": "TEXT_EVIDENCE",
+      "media_rationale_ar": "النص نفسه هو المعلومة البصرية؛ لا يوجد سبب لتوليد فيديو مستقل.",
+      "motion_ar": "",
+      "narration_span_ar": "قال الله تعالى:",
+      "notes_ar": [],
+      "risk": "LOW",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-002-C01",
+      "source_ids": [
+        "SRC-010"
+      ],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "قطع من السكون إلى النص.",
+      "visual_description_ar": "خامة مخطوطية داكنة هادئة تظهر عليها بداية الآية بخط واضح بلا زخرفة مفرطة.",
+      "visual_information_ar": "الدخول إلى النص القرآني."
+    },
+    {
+      "beat_id": "B02",
+      "camera_ar": "Wide ثابت ثم تقارب طفيف.",
+      "estimated_duration_seconds": 3.0,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. حركة ثياب بفعل الهواء فقط.",
+      "narration_span_ar": "﴿وَاتْلُ عَلَيْهِمْ نَبَأَ ابْنَيْ آدَمَ بِالْحَقِّ﴾",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "HIGH",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-002-C02",
+      "source_ids": [
+        "SRC-010"
+      ],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "شخصان من الخلف من أسفل الرقبة، ثياب تاريخية بسيطة محتشمة، يقفان متباعدين في أرض مفتوحة.",
+      "visual_information_ar": "تثبيت أن الحدث نبأ ابني آدم."
+    },
+    {
+      "beat_id": "B02",
+      "camera_ar": "لقطة علوية مائلة.",
+      "estimated_duration_seconds": 3.0,
+      "generation_strategy": "FIRST_LAST_FRAME",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "وضع القربان ثم سحب اليدين.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "﴿إِذْ قَرَّبَا قُرْبَانًا﴾.",
+      "notes_ar": [
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "HIGH",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-002-C03",
+      "source_ids": [
+        "SRC-010"
+      ],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "ماكرو على يدين منفصلتين تضعان قربانين على موضعين حجريين بسيطين؛ التركيب لا يقرر مهنة أحدهما.",
+      "visual_information_ar": "كلاهما يقدم قربانًا."
+    },
+    {
+      "beat_id": "B02",
+      "camera_ar": "Medium two-shot من مستوى الصدر للأسفل.",
+      "estimated_duration_seconds": 2.7,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. ثبات مشحون.",
+      "narration_span_ar": "وتسمي الروايات المشهورة هذين الابنين",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "HIGH",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-002-C04",
+      "source_ids": [
+        "SRC-006",
+        "SRC-007"
+      ],
+      "source_mode": "LOCKED_TRADITIONAL_NAMING",
+      "transition_ar": "",
+      "visual_description_ar": "لقطة جانبية للجسدين دون رأس، أحدهما في يمين الكادر والآخر في يساره؛ لا رموز أخلاقية مبالغ فيها.",
+      "visual_information_ar": "تقديم الاسمين مرة واحدة فقط."
+    },
+    {
+      "beat_id": "B02",
+      "camera_ar": "ماكرو متعاقب.",
+      "estimated_duration_seconds": 2.7,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "B",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. لا حركة إلا تنفس خفيف في الثوب.",
+      "narration_span_ar": "قابيل وهابيل.",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "MEDIUM",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-002-C05",
+      "source_ids": [
+        "SRC-006",
+        "SRC-007"
+      ],
+      "source_mode": "LOCKED_TRADITIONAL_NAMING",
+      "transition_ar": "",
+      "visual_description_ar": "لقطتان متتاليتان لليدين قرب القربانين، مع اختلاف بسيط في موضعهما يسمح للمشاهد بتمييزهما لاحقًا.",
+      "visual_information_ar": "تثبيت الاسمين للمشاهدة اللاحقة."
+    },
+    {
+      "beat_id": "B02",
+      "camera_ar": "سحب خفيف للخلف.",
+      "estimated_duration_seconds": 3.2,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": true,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. تراجع متزامن خطوة واحدة.",
+      "narration_span_ar": "",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION",
+        "INTENTIONAL_SILENCE_AFTER_TRADITIONAL_NAME_LOCK"
+      ],
+      "risk": "HIGH",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-002-C06",
+      "source_ids": [
+        "SRC-010"
+      ],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "Wide متوازن للقربانين والشخصين متراجعين خطوة إلى الخلف، دون إظهار طريقة قبول بعد.",
+      "visual_information_ar": "تثبيت فعل التقديم بصريًا قبل النتيجة."
+    },
+    {
+      "beat_id": "B02",
+      "camera_ar": "Static symmetrical frame.",
+      "estimated_duration_seconds": 3.5,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "B",
+      "intentional_silence": true,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. دخان طبيعي خفيف فقط إن وُجد.",
+      "narration_span_ar": "ثم جاءت النتيجة التي ستقسم اللحظة بينهما:",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "MEDIUM",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-002-C07",
+      "source_ids": [
+        "SRC-010"
+      ],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "قربانان في نفس الكادر، الهواء ساكن؛ لحظة انتظار بصرية مقصودة.",
+      "visual_information_ar": "النتيجة ستغيّر العلاقة."
+    },
+    {
+      "beat_id": "B02",
+      "camera_ar": "Medium على موضع القربان.",
+      "estimated_duration_seconds": 3.0,
+      "generation_strategy": "FIRST_LAST_FRAME",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "اشتعال واحد واضح ثم استقرار.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "﴿فَتُقُبِّلَ مِنْ أَحَدِهِمَا﴾",
+      "notes_ar": [
+        "VISUAL_ONLY_TRADITION: الراوي لا يذكر أن النار هي علامة القبول.",
+        "لا تحول النار إلى كائن أو شكل سماوي.",
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-002-C08",
+      "source_ids": [
+        "SRC-010",
+        "SRC-014"
+      ],
+      "source_mode": "QURAN_NARRATION_PLUS_VISUAL_TRADITION",
+      "transition_ar": "",
+      "visual_description_ar": "نار تهبط/تشتعل على القربان المقبول وتلتهمه بوضوح، دون أي هيئة خارقة مجسمة أو مصدر مرئي للنار.",
+      "visual_information_ar": "قبول أحد القربانين؛ النار هنا معلومة بصرية مأثورة لا ينطقها الراوي."
+    },
+    {
+      "beat_id": "B02",
+      "camera_ar": "ماكرو يد + قربان.",
+      "estimated_duration_seconds": 3.0,
+      "generation_strategy": "FIRST_LAST_FRAME",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "انقباض تدريجي واحد.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "﴿وَلَمْ يُتَقَبَّلْ مِنَ الْآخَرِ﴾.",
+      "notes_ar": [
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "HIGH",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-002-C09",
+      "source_ids": [
+        "SRC-010"
+      ],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "قطع حاد إلى اليد.",
+      "visual_description_ar": "القربان الآخر باقٍ. اليد القريبة منه تنقبض ببطء ثم تثبت.",
+      "visual_information_ar": "بقاء القربان الآخر دون قبول، وبداية التحول الداخلي."
+    },
+    {
+      "beat_id": "B03",
+      "camera_ar": "Side medium من الكتفين للأسفل.",
+      "estimated_duration_seconds": 2.8,
+      "generation_strategy": "FIRST_FRAME_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": true,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "نصف خطوة واحدة.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "",
+      "notes_ar": [
+        "INTENTIONAL_PRE_THREAT_TENSION",
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "HIGH",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-003-C01",
+      "source_ids": [],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "قطع مباشر.",
+      "visual_description_ar": "مسافة بين الأخوين؛ قابيل يتقدم نصف خطوة، هابيل لا يتحرك.",
+      "visual_information_ar": "سرعة التحول من العبادة إلى التهديد."
+    },
+    {
+      "beat_id": "B03",
+      "camera_ar": "ماكرو على الذراع واليد.",
+      "estimated_duration_seconds": 3.0,
+      "generation_strategy": "FIRST_FRAME_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "رفع بطيء ثم توقف.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "قال الذي لم يُتقبل منه لأخيه:",
+      "notes_ar": [
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "HIGH",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-003-C02",
+      "source_ids": [
+        "SRC-010"
+      ],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "يد قابيل ترتفع قليلًا من جانبه، بلا سلاح.",
+      "visual_information_ar": "تهيئة للتهديد."
+    },
+    {
+      "beat_id": "B03",
+      "camera_ar": "Tight crop.",
+      "estimated_duration_seconds": 3.0,
+      "generation_strategy": "FIRST_LAST_FRAME",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "امتداد حاسم ثم hold قصير.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "﴿لَأَقْتُلَنَّكَ﴾.",
+      "notes_ar": [
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "HIGH",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-003-C03",
+      "source_ids": [
+        "SRC-010"
+      ],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "اليد نفسها تمتد في اتجاه الأخ دون تماس؛ الخلفية ضيقة ومتوترة.",
+      "visual_information_ar": "التهديد الصريح."
+    },
+    {
+      "beat_id": "B03",
+      "camera_ar": "مونتاج match cut.",
+      "estimated_duration_seconds": 5.2,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "B",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. تحول بصري لا يحتاج توليد فيديو طويل.",
+      "narration_span_ar": "في لحظة، انتقل المشهد من عبادةٍ يتقرب بها الإنسان إلى الله،",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "MEDIUM",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-003-C04",
+      "source_ids": [],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "Match cut من اليد التي قدمت القربان إلى اليد المهدِّدة نفسها.",
+      "visual_information_ar": "التحول من القربان إلى الصراع."
+    },
+    {
+      "beat_id": "B03",
+      "camera_ar": "Medium lateral.",
+      "estimated_duration_seconds": 2.7,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. حركة بسيطة في قابيل فقط.",
+      "narration_span_ar": "إلى أخ يهدد أخاه بالموت.",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "HIGH",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-003-C05",
+      "source_ids": [],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "Two-shot جانبي؛ قابيل متقدم في الكادر، هابيل ثابت خلف مسافة أمان واضحة.",
+      "visual_information_ar": "التصعيد صار تهديدًا للحياة."
+    },
+    {
+      "beat_id": "B03",
+      "camera_ar": "Cut to Habil torso/hands.",
+      "estimated_duration_seconds": 5.2,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. تنفس طبيعي فقط.",
+      "narration_span_ar": "وجاء الرد في موضع كان يمكن أن يشتعل فيه كل شيء:",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "HIGH",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-003-C06",
+      "source_ids": [],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "إضاءة طبيعية أكثر ثباتًا على مساحة هابيل، لا استخدام ألوان رمزية مصطنعة.",
+      "visual_information_ar": "تباين بصري بين التهديد والثبات."
+    },
+    {
+      "beat_id": "B03",
+      "camera_ar": "Macro hands.",
+      "estimated_duration_seconds": 3.0,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "ثبات اليدين هو معنى اللقطة؛ الصورة الثابتة مع حركة تحريرية خفيفة أدق وأقل عرضة للتشوه.",
+      "motion_ar": "حركة مونتاجية خفيفة فقط؛ لا فيديو توليدي مستقل.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "﴿إِنَّمَا يَتَقَبَّلُ اللَّهُ مِنَ الْمُتَّقِينَ﴾.",
+      "notes_ar": [
+        "MICRO_FREEZE_QA_REQUIRED",
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "HIGH",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-003-C07",
+      "source_ids": [
+        "SRC-010"
+      ],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "يدا هابيل منخفضتان مفتوحتان، لا دفاع هجومي.",
+      "visual_information_ar": "جواب هابيل الأول."
+    },
+    {
+      "beat_id": "B03",
+      "camera_ar": "Wide side.",
+      "estimated_duration_seconds": 2.7,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. قابيل يتحرك حركة صغيرة، هابيل ثابت.",
+      "narration_span_ar": "ثم قال:",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "HIGH",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-003-C08",
+      "source_ids": [
+        "SRC-010"
+      ],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "تنفّس بصري قبل الآية.",
+      "visual_description_ar": "Wide جانبي يعيد المسافة بينهما قبل حركة اليد التالية.",
+      "visual_information_ar": "فتح آية بسط اليد."
+    },
+    {
+      "beat_id": "B04",
+      "camera_ar": "Macro profile on arms.",
+      "estimated_duration_seconds": 3.0,
+      "generation_strategy": "FIRST_LAST_FRAME",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "امتداد بطيء دون تماس.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "﴿لَئِنْ بَسَطْتَ إِلَيَّ يَدَكَ لِتَقْتُلَنِي﴾",
+      "notes_ar": [
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "HIGH",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-004-C01",
+      "source_ids": [
+        "SRC-010"
+      ],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "يد قابيل تمتد نصف امتداد نحو هابيل؛ يظل بينهما فراغ واضح.",
+      "visual_information_ar": "التهديد المحتمل يُصاغ حول بسط اليد."
+    },
+    {
+      "beat_id": "B04",
+      "camera_ar": "Macro Habil hand.",
+      "estimated_duration_seconds": 3.0,
+      "generation_strategy": "FIRST_LAST_FRAME",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "انخفاض بسيط هادئ.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "﴿مَا أَنَا بِبَاسِطٍ يَدِيَ إِلَيْكَ لِأَقْتُلَكَ﴾",
+      "notes_ar": [
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "HIGH",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-004-C02",
+      "source_ids": [
+        "SRC-010"
+      ],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "يد هابيل تبقى إلى جانبه ثم تنخفض أكثر، عكس اتجاه اليد الأخرى.",
+      "visual_information_ar": "امتناع هابيل عن رد القتل بالقتل."
+    },
+    {
+      "beat_id": "B04",
+      "camera_ar": "Medium torso only.",
+      "estimated_duration_seconds": 3.2,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": true,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. ثبات تام بلا تجميد رقمي؛ micro-motion طبيعي.",
+      "narration_span_ar": "",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION",
+        "VISUAL_HOLD_BEFORE_FEAR_OF_ALLAH_CLAUSE"
+      ],
+      "risk": "HIGH",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-004-C03",
+      "source_ids": [
+        "SRC-010"
+      ],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "جسد هابيل ثابت في نصف الكادر، خلفية واسعة ساكنة.",
+      "visual_information_ar": "تهيئة لحافز الخوف من الله."
+    },
+    {
+      "beat_id": "B04",
+      "camera_ar": "Pull-back من اليد إلى البيئة.",
+      "estimated_duration_seconds": 2.7,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. Pull-back ثابت الارتفاع.",
+      "narration_span_ar": "﴿إِنِّي أَخَافُ اللَّهَ رَبَّ الْعَالَمِينَ﴾.",
+      "notes_ar": [
+        "ABSOLUTE_NO_DIVINE_DEPICTION",
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-004-C04",
+      "source_ids": [
+        "SRC-010"
+      ],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "هبوط اليد إلى موضع الراحة، مع اتساع الكادر إلى السماء والأرض دون أي تمثيل لله.",
+      "visual_information_ar": "سبب الامتناع: خوف الله."
+    },
+    {
+      "beat_id": "B04",
+      "camera_ar": "Two-shot from side below shoulders.",
+      "estimated_duration_seconds": 4.8,
+      "generation_strategy": "FIRST_FRAME_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "تحول وزن الجسد عند قابيل فقط.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "ولم يقف هابيل عند امتناعه عن القتل، بل أكمل موقفه:",
+      "notes_ar": [
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "HIGH",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-004-C05",
+      "source_ids": [],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "الأخوان متقابلان، لكن هابيل لا يغير وضعه؛ قابيل أكثر اضطرابًا في الوقفة فقط.",
+      "visual_information_ar": "الانتقال من الامتناع إلى تبعات الجريمة."
+    },
+    {
+      "beat_id": "B04",
+      "camera_ar": "Medium hands/torso.",
+      "estimated_duration_seconds": 3.0,
+      "generation_strategy": "FIRST_FRAME_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "إشارة واحدة مقتصدة.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "﴿إِنِّي أُرِيدُ أَنْ تَبُوءَ بِإِثْمِي وَإِثْمِكَ﴾",
+      "notes_ar": [
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "HIGH",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-004-C06",
+      "source_ids": [
+        "SRC-010"
+      ],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "يد هابيل تتحرك إشارة واحدة منخفضة نحو نفسه ثم تتوقف؛ لا تمثيل حرفي للإثم.",
+      "visual_information_ar": "إدراج الآية 29 المفقودة كاملة."
+    },
+    {
+      "beat_id": "B04",
+      "camera_ar": "Static wide.",
+      "estimated_duration_seconds": 2.7,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. ريح خفيفة.",
+      "narration_span_ar": "﴿فَتَكُونَ مِنْ أَصْحَابِ النَّارِ﴾",
+      "notes_ar": [
+        "NO_UNSUPPORTED_AFTERLIFE_VISUALIZATION",
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-004-C07",
+      "source_ids": [
+        "SRC-010"
+      ],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "الكادر يبقى على الأخوين والأرض، لا نار ولا جحيم ولا تجسيد للآخرة.",
+      "visual_information_ar": "إكمال الموقف الأخلاقي دون نار مرئية ترمز للآخرة."
+    },
+    {
+      "beat_id": "B04",
+      "camera_ar": "Slow pull-back.",
+      "estimated_duration_seconds": 3.0,
+      "generation_strategy": "FIRST_LAST_FRAME",
+      "generation_tier": "A",
+      "intentional_silence": true,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "الاثنان شبه ثابتين مع micro-motion طبيعي.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "﴿وَذَٰلِكَ جَزَاءُ الظَّالِمِينَ﴾.",
+      "notes_ar": [
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "HIGH",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-004-C08",
+      "source_ids": [
+        "SRC-010"
+      ],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "قطع على السكون.",
+      "visual_description_ar": "المسافة بينهما في Wide طويل نسبيًا؛ قابيل في ظل طبيعي جزئي، هابيل في ضوء محايد؛ لا ترميز لوني مبالغ.",
+      "visual_information_ar": "إغلاق الحوار وترك الاختيار للمشهد التالي."
+    },
+    {
+      "beat_id": "B04",
+      "camera_ar": "Slow pull-back.",
+      "estimated_duration_seconds": 7.5,
+      "generation_strategy": "FIRST_LAST_FRAME",
+      "generation_tier": "A",
+      "intentional_silence": true,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "الاثنان شبه ثابتين مع micro-motion طبيعي.",
+      "narration_span_ar": "الكلمات انتهت هنا. ولم يبق بين الأخوين إلا ما سيفعله كل واحد منهما بعد هذا الاختيار.",
+      "notes_ar": [],
+      "risk": "HIGH",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-004-C09",
+      "source_ids": [],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "قطع على السكون.",
+      "visual_description_ar": "Wide ثابت نسبيًا على المسافة بين الأخوين بعد انتهاء الكلام؛ لا حركة سوى الريح الخفيفة، استعدادًا للقرار التالي.",
+      "visual_information_ar": "إغلاق الحوار وترك الاختيار للمشهد التالي."
+    },
+    {
+      "beat_id": "B05",
+      "camera_ar": "Macro hand.",
+      "estimated_duration_seconds": 3.0,
+      "generation_strategy": "FIRST_FRAME_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "تردد قصير ثم حسم.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "ثم حُسم الاختيار:",
+      "notes_ar": [
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "HIGH",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-005-C01",
+      "source_ids": [],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "ماكرو على يد قابيل تنقبض ثم ترتخي لحظة ثم تعود للانقباض.",
+      "visual_information_ar": "تحول القرار إلى فعل."
+    },
+    {
+      "beat_id": "B05",
+      "camera_ar": "Over-shoulder منخفض دون رأس.",
+      "estimated_duration_seconds": 3.0,
+      "generation_strategy": "FIRST_LAST_FRAME",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "تقدم خطوة واحدة.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "﴿فَطَوَّعَتْ لَهُ نَفْسُهُ قَتْلَ أَخِيهِ﴾.",
+      "notes_ar": [
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "HIGH",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-005-C02",
+      "source_ids": [
+        "SRC-010"
+      ],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "جسد قابيل من الخلف يتحرك خطوة داخل الكادر، بينما هابيل ثابت.",
+      "visual_information_ar": "تسويل النفس دون تفسير نفسي زائد."
+    },
+    {
+      "beat_id": "B05",
+      "camera_ar": "Close crop.",
+      "estimated_duration_seconds": 3.0,
+      "generation_strategy": "FIRST_FRAME_MOTION",
+      "generation_tier": "B",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "هبوط سريع.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "﴿فَقَتَلَهُ﴾.",
+      "notes_ar": [
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "MEDIUM",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-005-C03",
+      "source_ids": [
+        "SRC-010"
+      ],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "قطع إلى ظل الجسدين على الأرض فقط، مع حركة حاسمة غير تفصيلية؛ لا أداة ولا إصابة مرئية.",
+      "visual_information_ar": "انتهاء مرحلة الكلام."
+    },
+    {
+      "beat_id": "B05",
+      "camera_ar": "Top-down على الظلال والأقدام.",
+      "estimated_duration_seconds": 3.0,
+      "generation_strategy": "FIRST_LAST_FRAME",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "حركة واحدة حاسمة.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "﴿فَأَصْبَحَ مِنَ الْخَاسِرِينَ﴾.",
+      "notes_ar": [
+        "لا سلاح مرئي.",
+        "لا دم صريح.",
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-005-C04",
+      "source_ids": [
+        "SRC-010"
+      ],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "يد هابيل تسقط على التراب وتستقر، مع بقاء الجسد خارج الكادر.",
+      "visual_information_ar": "لحظة ما قبل القتل."
+    },
+    {
+      "beat_id": "B05",
+      "camera_ar": "Macro ground level.",
+      "estimated_duration_seconds": 3.0,
+      "generation_strategy": "FIRST_LAST_FRAME",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "سقوط واحد ثم micro-motion ينتهي طبيعيًا.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "لم تعد الفكرة تهديدًا يقال.",
+      "notes_ar": [
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-005-C05",
+      "source_ids": [],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "قطع إلى يد هابيل تسقط على التراب وتستقر.",
+      "visual_information_ar": "وقوع القتل."
+    },
+    {
+      "beat_id": "B05",
+      "camera_ar": "Editorial match cut.",
+      "estimated_duration_seconds": 2.7,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "B",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. لا توليد فيديو مستقل إن كانت اللقطة أقصر من 2 ثانية فعليًا.",
+      "narration_span_ar": "صارت فعلًا.",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "MEDIUM",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-005-C06",
+      "source_ids": [],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "Match cut قصير من اليد المفتوحة سابقًا إلى اليد الساكنة الآن.",
+      "visual_information_ar": "عودة موتيف اليد لتجسيد الخسارة."
+    },
+    {
+      "beat_id": "B05",
+      "camera_ar": "Wide locked-off.",
+      "estimated_duration_seconds": 3.9,
+      "generation_strategy": "FIRST_FRAME_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "قابيل يتراجع نصف خطوة فقط.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "وسقطت اليد التي أبى صاحبها أن يبسطها للقتل.",
+      "notes_ar": [
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-005-C07",
+      "source_ids": [
+        "SRC-010"
+      ],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "قابيل واقف من الخلف، جسد هابيل خارج التركيز جزئيًا ومغطى بالزاوية/الأرض، فراغ واسع حولهما.",
+      "visual_information_ar": "إدراك أثر الجريمة دون عرض جسد صريح."
+    },
+    {
+      "beat_id": "B05",
+      "camera_ar": "Rack focus بطيء من اليد إلى الفراغ.",
+      "estimated_duration_seconds": 3.0,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. تحول تركيز فقط.",
+      "narration_span_ar": "ووقع أول قتل في تاريخ البشر.",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "HIGH",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-005-C08",
+      "source_ids": [
+        "SRC-011"
+      ],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "Fade صوتي لا بصري.",
+      "visual_description_ar": "Wide بعد الجريمة: قابيل من الخلف والفراغ يسيطر على المشهد؛ لا تفاصيل جسدية.",
+      "visual_information_ar": "الخسران خاتمة لحظة القتل."
+    },
+    {
+      "beat_id": "B06",
+      "camera_ar": "Medium rear below shoulders.",
+      "estimated_duration_seconds": 5.2,
+      "generation_strategy": "FIRST_FRAME_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "تردد يدين طبيعي.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "لكن الجريمة تركت القاتل أمام شيء لم يعرف كيف يتعامل معه.",
+      "notes_ar": [
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-006-C01",
+      "source_ids": [],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "قابيل جاثٍ قرب موضع الجسد من الخلف، يداه معلقتان فوق التراب بلا فعل.",
+      "visual_information_ar": "العجز بعد الجريمة."
+    },
+    {
+      "beat_id": "B06",
+      "camera_ar": "Wide lateral.",
+      "estimated_duration_seconds": 2.7,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. ريح خفيفة فقط.",
+      "narration_span_ar": "وقف قابيل أمام جسد أخيه؛",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-006-C02",
+      "source_ids": [],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "Wide جانبي: قابيل والجسد مغطى جزئيًا بالمنظور/الثوب، لا تفاصيل إصابة.",
+      "visual_information_ar": "المواجهة مع أثر الجريمة."
+    },
+    {
+      "beat_id": "B06",
+      "camera_ar": "Macro hand and soil.",
+      "estimated_duration_seconds": 3.5,
+      "generation_strategy": "FIRST_FRAME_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "محاولة قصيرة فاشلة.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "عرف كيف يقتله، ولم يعرف كيف يواريه.",
+      "notes_ar": [
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "HIGH",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-006-C03",
+      "source_ids": [],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "يد قابيل تحاول تحريك التراب بغير حسم ثم تتوقف.",
+      "visual_information_ar": "العجز عن المواراة."
+    },
+    {
+      "beat_id": "B06",
+      "camera_ar": "Medium rear.",
+      "estimated_duration_seconds": 3.0,
+      "generation_strategy": "FIRST_FRAME_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "التفات جذع محدود.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "عندها يقول الله تعالى:",
+      "notes_ar": [
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "HIGH",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-006-C04",
+      "source_ids": [
+        "SRC-010"
+      ],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "قابيل يلتفت بجذعه نحو حركة خارج الكادر، بلا رأس.",
+      "visual_information_ar": "دخول النص القرآني للغراب."
+    },
+    {
+      "beat_id": "B06",
+      "camera_ar": "Low telephoto.",
+      "estimated_duration_seconds": 3.0,
+      "generation_strategy": "FIRST_FRAME_MOTION",
+      "generation_tier": "B",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "هبوط وبحث طبيعي مستمر.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "﴿فَبَعَثَ اللَّهُ غُرَابًا يَبْحَثُ فِي الْأَرْضِ﴾",
+      "notes_ar": [
+        "غراب واحد فقط.",
+        "لا غرابين ولا اقتتال.",
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "MEDIUM",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-006-C05",
+      "source_ids": [
+        "SRC-010"
+      ],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "غراب واحد يهبط طبيعيًا ثم يبدأ بنقر وتحريك التراب كما يفعل الغراب واقعيًا.",
+      "visual_information_ar": "ظهور غراب واحد فقط وفعل البحث."
+    },
+    {
+      "beat_id": "B06",
+      "camera_ar": "Nature macro.",
+      "estimated_duration_seconds": 3.0,
+      "generation_strategy": "FIRST_FRAME_MOTION",
+      "generation_tier": "B",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "حركة تراب واقعية متواصلة.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "﴿لِيُرِيَهُ كَيْفَ يُوَارِي سَوْءَةَ أَخِيهِ﴾.",
+      "notes_ar": [
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "MEDIUM",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-006-C06",
+      "source_ids": [
+        "SRC-010"
+      ],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "ماكرو لمخالب ومنقار الغراب يحركان التراب ثم يكوّنان حفرة صغيرة.",
+      "visual_information_ar": "التعليم العملي للمواراة."
+    },
+    {
+      "beat_id": "B06",
+      "camera_ar": "Macro hand, shallow depth.",
+      "estimated_duration_seconds": 2.7,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. توقف ثم اتجاه بطيء.",
+      "narration_span_ar": "﴿قَالَ يَا وَيْلَتَىٰ﴾.",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "HIGH",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-006-C07",
+      "source_ids": [
+        "SRC-010"
+      ],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "يد قابيل تتوقف عن الحركة، والجذع ينحني قليلًا؛ لا وجه.",
+      "visual_information_ar": "الرؤية والتعلم دون شرح زائد."
+    },
+    {
+      "beat_id": "B06",
+      "camera_ar": "Medium rear + hands.",
+      "estimated_duration_seconds": 3.0,
+      "generation_strategy": "FIRST_FRAME_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "هبوط جسدي واحد.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "﴿أَعَجَزْتُ أَنْ أَكُونَ مِثْلَ هَٰذَا الْغُرَابِ﴾",
+      "notes_ar": [
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "HIGH",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-006-C08",
+      "source_ids": [
+        "SRC-010"
+      ],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "يدا قابيل تهبطان إلى التراب مع انحناء الجذع؛ لا وجه.",
+      "visual_information_ar": "لحظة الانهيار."
+    },
+    {
+      "beat_id": "B06",
+      "camera_ar": "Ground-level close.",
+      "estimated_duration_seconds": 3.0,
+      "generation_strategy": "FIRST_LAST_FRAME",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "حفر ثم سحب تراب مستمر.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "﴿فَأُوَارِيَ سَوْءَةَ أَخِي﴾.",
+      "notes_ar": [
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-006-C09",
+      "source_ids": [
+        "SRC-010"
+      ],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "يداه تحفران التراب على نحو أكثر انتظامًا ثم تبدآن المواراة دون تصوير الجسد صراحة.",
+      "visual_information_ar": "إدراك العجز ثم البدء في المواراة."
+    },
+    {
+      "beat_id": "B06",
+      "camera_ar": "Slow pull-back.",
+      "estimated_duration_seconds": 2.7,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": true,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. Pull-back فقط، لا حركة شخصية كبيرة.",
+      "narration_span_ar": "﴿فَأَصْبَحَ مِنَ النَّادِمِينَ﴾.",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "HIGH",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-006-C10",
+      "source_ids": [
+        "SRC-010"
+      ],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "Dissolve زمني بطيء.",
+      "visual_description_ar": "تراب مسوّى؛ قابيل يقف بعيدًا من الخلف، والمساحة الفارغة تسيطر على الكادر.",
+      "visual_information_ar": "الندم والخاتمة القرآنية."
+    },
+    {
+      "beat_id": "B07",
+      "camera_ar": "Match cut macro.",
+      "estimated_duration_seconds": 3.5,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "B",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. انتقال تحريري.",
+      "narration_span_ar": "انتهت الجريمة، لكن أثرها لم ينتهِ معها.",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "MEDIUM",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-007-C01",
+      "source_ids": [],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "Match cut من يد هابيل الساكنة إلى يد من جيل لاحق تمسك أداة عمل لا سلاحًا.",
+      "visual_information_ar": "الانتقال من الحدث الفردي إلى الأثر الممتد."
+    },
+    {
+      "beat_id": "B07",
+      "camera_ar": "",
+      "estimated_duration_seconds": 4.3,
+      "generation_strategy": "TEXT_EVIDENCE_EDITORIAL_COMPOSITE",
+      "generation_tier": "C",
+      "intentional_silence": false,
+      "media_mode": "TEXT_EVIDENCE",
+      "media_rationale_ar": "النص نفسه هو المعلومة البصرية؛ لا يوجد سبب لتوليد فيديو مستقل.",
+      "motion_ar": "",
+      "narration_span_ar": "وفي صحيح مسلم قال النبي صلى الله عليه وسلم:",
+      "notes_ar": [
+        "ABSOLUTE_NO_PROPHET_VISUAL"
+      ],
+      "risk": "LOW",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-007-C02",
+      "source_ids": [
+        "SRC-011"
+      ],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "نص مرجعي بصري مختصر «صحيح مسلم» على خامة ورقية، بلا صورة أو silhouette للنبي ﷺ.",
+      "visual_information_ar": "إسناد المعنى للحديث دون أي تمثيل للنبي."
+    },
+    {
+      "beat_id": "B07",
+      "camera_ar": "Static low-angle.",
+      "estimated_duration_seconds": 6.1,
+      "generation_strategy": "FIRST_FRAME_MOTION",
+      "generation_tier": "B",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "تعاقب أشخاص عبر match cuts.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "«لَا تُقْتَلُ نَفْسٌ ظُلْمًا إِلَّا كَانَ عَلَى ابْنِ آدَمَ الْأَوَّلِ كِفْلٌ مِنْ دَمِهَا؛»",
+      "notes_ar": [
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "MEDIUM",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-007-C03",
+      "source_ids": [
+        "SRC-011"
+      ],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "أقدام بشرية من أجيال مختلفة تعبر مسارًا واحدًا في أزمنة مختلفة؛ لا نعرض جرائم إضافية.",
+      "visual_information_ar": "امتداد إثم أول قتل."
+    },
+    {
+      "beat_id": "B07",
+      "camera_ar": "Slow push-in.",
+      "estimated_duration_seconds": 3.0,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "C",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. حركة نبات/هواء فقط.",
+      "narration_span_ar": "«لِأَنَّهُ كَانَ أَوَّلَ مَنْ سَنَّ الْقَتْلَ».",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "LOW",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-007-C04",
+      "source_ids": [
+        "SRC-011"
+      ],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "موضع المواراة القديم بعد مرور الزمن، وقد نبتت حوله أعشاب قليلة؛ لا شاهد قبر مخترع.",
+      "visual_information_ar": "تثبيت السبق دون إعادة الجريمة."
+    },
+    {
+      "beat_id": "B07",
+      "camera_ar": "Pull-back إلى Wide.",
+      "estimated_duration_seconds": 5.7,
+      "generation_strategy": "FIRST_FRAME_MOTION",
+      "generation_tier": "C",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "حركة بشرية بعيدة مستمرة.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "انتهى القتل الأول، لكن الباب الذي فتحه بقي مفتوحًا في تاريخ البشر.",
+      "notes_ar": [
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "LOW",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-007-C05",
+      "source_ids": [
+        "SRC-011"
+      ],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "Match dissolve إلى الفصول.",
+      "visual_description_ar": "الطريق يمتد نحو الأفق، يمر عليه أناس من أجيال لاحقة؛ التركيز على الاستمرار لا العنف.",
+      "visual_information_ar": "إغلاق الأثر الأخلاقي وفتح الزمن."
+    },
+    {
+      "beat_id": "B08",
+      "camera_ar": "Time-lapse editorial feel دون تسريع مصطنع مبالغ.",
+      "estimated_duration_seconds": 3.9,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "C",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. ضوء طبيعي يتحرك.",
+      "narration_span_ar": "ومع ذلك، لم تتوقف الحياة عند تلك المأساة.",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "LOW",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-008-C01",
+      "source_ids": [],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "الشروق فوق نفس الوادي بعد زمن؛ أصوات/حركة عمل تعود بصريًا.",
+      "visual_information_ar": "الحياة تستمر بعد الجريمة."
+    },
+    {
+      "beat_id": "B08",
+      "camera_ar": "Frame locked.",
+      "estimated_duration_seconds": 2.7,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "B",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. تبدل فصول تحريري.",
+      "narration_span_ar": "تعاقبت الفصول،",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "LOW",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-008-C02",
+      "source_ids": [],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "نفس شجرة عبر أربعة فصول في match cuts متتالية.",
+      "visual_information_ar": "مرور سنوات كثيرة بلا أرقام."
+    },
+    {
+      "beat_id": "B08",
+      "camera_ar": "Topographic wide.",
+      "estimated_duration_seconds": 2.7,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "B",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. Pull-back بسيط.",
+      "narration_span_ar": "واتسعت المسالك،",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "LOW",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-008-C03",
+      "source_ids": [],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "طريق ضيق قديم ثم نفس المنطقة وقد صار المسار أوضح بكثرة الأقدام.",
+      "visual_information_ar": "اتساع طرق البشر."
+    },
+    {
+      "beat_id": "B08",
+      "camera_ar": "Montage macros.",
+      "estimated_duration_seconds": 7.0,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. حركات قصيرة مستقلة.",
+      "narration_span_ar": "وصار من كانوا أبناءً رجالًا يحملون ما تعلموه من عملٍ وعلمٍ وعبادةٍ إلى من بعدهم.",
+      "notes_ar": [
+        "لا رأس/وجه.",
+        "لا إعادة لمشهد عبادة EP003 حرفيًا.",
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "HIGH",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-008-C04",
+      "source_ids": [],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "ثلاث لقطات متعاقبة: يد تعمل، يد تشير إلى كتابة غير مقروءة، يد ترتفع في دعاء دون رأس.",
+      "visual_information_ar": "الجيل الجديد صار حاملًا للمسؤولية."
+    },
+    {
+      "beat_id": "B08",
+      "camera_ar": "Macro side.",
+      "estimated_duration_seconds": 3.5,
+      "generation_strategy": "FIRST_FRAME_MOTION",
+      "generation_tier": "B",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "تسليم بطيء.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "أيدٍ كانت تتلقى صارت هي التي تسلّم،",
+      "notes_ar": [
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "MEDIUM",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-008-C05",
+      "source_ids": [],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "يد أكبر سنًا تسلّم لفافة/أداة إلى يد أصغر، مع اختلاف واضح عن لقطة B01.",
+      "visual_information_ar": "الانتقال بين الأجيال."
+    },
+    {
+      "beat_id": "B08",
+      "camera_ar": "Low tracking.",
+      "estimated_duration_seconds": 4.8,
+      "generation_strategy": "FIRST_FRAME_MOTION",
+      "generation_tier": "B",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "Tracking مواكب للخطوات.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "وأقدام جديدة سارت في طرق لم تكن موجودة في البداية.",
+      "notes_ar": [
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "MEDIUM",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-008-C06",
+      "source_ids": [],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "أقدام شابة تعبر مسارًا حديث النشوء بين حجارة؛ لا مبانٍ حديثة.",
+      "visual_information_ar": "انتشار جديد."
+    },
+    {
+      "beat_id": "B08",
+      "camera_ar": "Deep composition rack focus.",
+      "estimated_duration_seconds": 5.2,
+      "generation_strategy": "FIRST_LAST_FRAME",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "انتقال التركيز من الخلف إلى المقدمة.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "ومع كل جيل، كان ما بدأه آدم ينتقل إلى أيدٍ جديدة،",
+      "notes_ar": [
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-008-C07",
+      "source_ids": [],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "شخص أصغر سنًا في المقدمة من الخلف، وآدم بعيد في الخلفية على هيئة أكبر سنًا، كلاهما بلا رأس ظاهر.",
+      "visual_information_ar": "تحول مركز القصة من آدم إلى الجيل التالي."
+    },
+    {
+      "beat_id": "B08",
+      "camera_ar": "Long lens rear follow.",
+      "estimated_duration_seconds": 3.5,
+      "generation_strategy": "FIRST_LAST_FRAME",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "مشي بطيء مستمر بلا تجمد.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "بينما كان هو يمضي نحو آخر أيامه.",
+      "notes_ar": [
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-008-C08",
+      "source_ids": [],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "Dissolve إلى شيث.",
+      "visual_description_ar": "آدم وحده من الخلف يمشي ببطء على طريق سبق أن رأيناه في الحلقة، الجذع والظهر مغطّيان بالكامل.",
+      "visual_information_ar": "بداية أواخر حياة آدم."
+    },
+    {
+      "beat_id": "B09",
+      "camera_ar": "Medium rear crop below head.",
+      "estimated_duration_seconds": 3.5,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. يداه تتحركان نحو صندوق بسيط.",
+      "narration_span_ar": "وكان شيث من الذين حملوا هذا الإرث.",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-009-C01",
+      "source_ids": [
+        "SRC-005",
+        "SRC-007"
+      ],
+      "source_mode": "SERIES_CONTINUITY_PLUS_TRADITIONAL_CONTEXT",
+      "transition_ar": "",
+      "visual_description_ar": "شيث من الخلف والجذع مغطى، يقف في مساحة عمل/تعلم بسيطة؛ لا وجه ولا رأس.",
+      "visual_information_ar": "تحديد شيث دون إعادة ولادته أو أحداث EP003."
+    },
+    {
+      "beat_id": "B09",
+      "camera_ar": "Macro handoff.",
+      "estimated_duration_seconds": 4.8,
+      "generation_strategy": "FIRST_LAST_FRAME",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "تسليم واحد واضح.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "وما حمله آدم إلى الأرض صار ينتقل في أيدٍ أخرى؛",
+      "notes_ar": [
+        "لا نطق بخمسين صحيفة.",
+        "لا ادعاء وحي بصري صريح.",
+        "NO_INVENTED_ADAM_TO_SETH_HANDOFF_MECHANISM",
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-009-C02",
+      "source_ids": [
+        "SRC-008"
+      ],
+      "source_mode": "VISUAL_TRADITION_ONLY_FOR_SCROLL_DETAIL",
+      "transition_ar": "",
+      "visual_description_ar": "شيث من الخلف في مساحة تعلم بسيطة، وبين يديه لفائف/صحف غير مقروءة؛ لا نظهر آدم وهو يسلمها له، ولا رقم «خمسين».",
+      "visual_information_ar": "انتقال العلم بصريًا."
+    },
+    {
+      "beat_id": "B09",
+      "camera_ar": "Montage macro.",
+      "estimated_duration_seconds": 3.9,
+      "generation_strategy": "FIRST_FRAME_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "حركتان قصيرتان.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "علم وعبادة ومسؤولية يتلقاها جيل سيبقى بعد رحيله،",
+      "notes_ar": [
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "HIGH",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-009-C03",
+      "source_ids": [],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "اللفائف تُحفظ، ثم يد شيث تشير إلى سطر غير مقروء أمام يد أخرى تتعلم؛ بلا وجوه.",
+      "visual_information_ar": "المعرفة تحفظ وتُمارس."
+    },
+    {
+      "beat_id": "B09",
+      "camera_ar": "Rear wide.",
+      "estimated_duration_seconds": 4.3,
+      "generation_strategy": "FIRST_FRAME_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "مشي مستمر نحو عمق الكادر.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "ويحمل حياة البشر إلى ما بعد زمن أبيهم الأول.",
+      "notes_ar": [
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "HIGH",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-009-C04",
+      "source_ids": [],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "Cut to Adam callback.",
+      "visual_description_ar": "شيث وشخصان من الجيل التالي يمشون بعيدًا في الطريق، وآدم خارج الكادر تمامًا.",
+      "visual_information_ar": "تمهيد لما بعد آدم."
+    },
+    {
+      "beat_id": "B10",
+      "camera_ar": "Wide low-angle restrained.",
+      "estimated_duration_seconds": 5.2,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. ثبات جسدي مع حركة ثوب طبيعية.",
+      "narration_span_ar": "ومع اقتراب زمن آدم من نهايته، تعيدنا السنة إلى بداية خلقه.",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION",
+        "CORRECTED: descendants share Adam's human form; hadith-specific distinction here is height, not a different human anatomy."
+      ],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-010-C01",
+      "source_ids": [
+        "SRC-012"
+      ],
+      "source_mode": "PROPOSED_SOURCE_PENDING_BIND",
+      "transition_ar": "",
+      "visual_description_ar": "آدم من الخلف في تكوين واسع، كامل الجذع والظهر مغطى؛ الكادر يستدعي بداية قصته من دون الإيحاء بأن بنيته الإنسانية مختلفة عن ذريته. لا مقياس حرفي للطول في هذه اللقطة.",
+      "visual_information_ar": "استدعاء بداية خلق آدم قبل نهاية زمنه، مع تخصيص الحديث للطول لا لهيئة بشرية مختلفة عن ذريته."
+    },
+    {
+      "beat_id": "B10",
+      "camera_ar": "",
+      "estimated_duration_seconds": 3.0,
+      "generation_strategy": "TEXT_EVIDENCE_EDITORIAL_COMPOSITE",
+      "generation_tier": "C",
+      "intentional_silence": false,
+      "media_mode": "TEXT_EVIDENCE",
+      "media_rationale_ar": "النص نفسه هو المعلومة البصرية؛ لا يوجد سبب لتوليد فيديو مستقل.",
+      "motion_ar": "",
+      "narration_span_ar": "قال النبي صلى الله عليه وسلم:",
+      "notes_ar": [
+        "ABSOLUTE_NO_PROPHET_VISUAL"
+      ],
+      "risk": "LOW",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-010-C02",
+      "source_ids": [
+        "SRC-012"
+      ],
+      "source_mode": "PROPOSED_SOURCE_PENDING_BIND",
+      "transition_ar": "",
+      "visual_description_ar": "انتقال إلى خامة نصية هادئة باسم الحديث/المصدر فقط.",
+      "visual_information_ar": "إسناد الحديث دون تمثيل النبي."
+    },
+    {
+      "beat_id": "B10",
+      "camera_ar": "Medium rear.",
+      "estimated_duration_seconds": 2.7,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. Push-in بطيء.",
+      "narration_span_ar": "«خَلَقَ اللَّهُ آدَمَ عَلَى صُورَتِهِ،",
+      "notes_ar": [
+        "ABSOLUTE_NO_DIVINE_DEPICTION",
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-010-C03",
+      "source_ids": [
+        "SRC-012"
+      ],
+      "source_mode": "PROPOSED_SOURCE_PENDING_BIND",
+      "transition_ar": "",
+      "visual_description_ar": "عودة إلى آدم وحده؛ لقطة من الخلف على الكتفين والجذع دون الرأس، لا أي مقابل بصري إلهي.",
+      "visual_information_ar": "النصف الأول من الحديث."
+    },
+    {
+      "beat_id": "B10",
+      "camera_ar": "Wide scale composition.",
+      "estimated_duration_seconds": 2.7,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. Pull-back بسيط.",
+      "narration_span_ar": "طُولُهُ سِتُّونَ ذِرَاعًا...",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-010-C04",
+      "source_ids": [
+        "SRC-012"
+      ],
+      "source_mode": "PROPOSED_SOURCE_PENDING_BIND",
+      "transition_ar": "",
+      "visual_description_ar": "Wide يظهر امتداد هيئة آدم بالنسبة للمشهد الطبيعي والبشر البعيدين، دون علامات قياس أو أرقام على الشاشة.",
+      "visual_information_ar": "تثبيت الطول دون تحويله إلى قياس هندسي أو مقارنة ساخرة."
+    },
+    {
+      "beat_id": "B10",
+      "camera_ar": "Wide scale composition.",
+      "estimated_duration_seconds": 3.5,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. Pull-back بسيط.",
+      "narration_span_ar": "فَلَمْ يَزَلِ الْخَلْقُ يَنْقُصُ بَعْدُ حَتَّى الْآنَ».",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-010-C05",
+      "source_ids": [
+        "SRC-012"
+      ],
+      "source_mode": "PROPOSED_SOURCE_PENDING_BIND",
+      "transition_ar": "",
+      "visual_description_ar": "تتابع بصري لأجيال بشرية بعيدة بأحجام طبيعية متدرجة عبر الزمن؛ لا مقياس رقمي ولا تشويه لهيئة آدم.",
+      "visual_information_ar": "تثبيت الطول دون تحويله إلى قياس هندسي أو مقارنة ساخرة."
+    },
+    {
+      "beat_id": "B10",
+      "camera_ar": "Wide scale composition.",
+      "estimated_duration_seconds": 7.0,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. Pull-back بسيط.",
+      "narration_span_ar": "والذي يذكره الحديث هنا صراحةً هو طول القامة؛ ثم يبيّن أن الخلق ظل ينقص بعده.",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION",
+        "NO_FALSE_HUMAN_FORM_DISTINCTION"
+      ],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-010-C06",
+      "source_ids": [
+        "SRC-012"
+      ],
+      "source_mode": "SAHIH_HADITH_EXPLANATORY_LINK",
+      "transition_ar": "",
+      "visual_description_ar": "مقارنة زمنية غير رقمية بين تكوين آدم الطويل وبين أجيال بشرية لاحقة أصغر قامة في لقطات منفصلة؛ لا اختلاف في أصل الهيئة الإنسانية.",
+      "visual_information_ar": "تثبيت الطول دون تحويله إلى قياس هندسي أو مقارنة ساخرة."
+    },
+    {
+      "beat_id": "B10",
+      "camera_ar": "Landscape slow drift.",
+      "estimated_duration_seconds": 3.9,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. سحاب طبيعي فقط.",
+      "narration_span_ar": "وعلى ما قرره أهل السنة كالإمام أحمد وإسحاق،",
+      "notes_ar": [
+        "ABSOLUTE_NO_DIVINE_DEPICTION",
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-010-C07",
+      "source_ids": [
+        "SRC-015",
+        "SRC-016"
+      ],
+      "source_mode": "PROPOSED_SOURCE_PENDING_BIND",
+      "transition_ar": "",
+      "visual_description_ar": "سماء وأرض وخلق طبيعي فقط؛ لا تجسيد لله، ولا أي هيئة أو عضو يُنسب إلى الله بصريًا.",
+      "visual_information_ar": "شرح عقيدة السلف: اشتراك في أصل اسم الصفة لا الكيفية."
+    },
+    {
+      "beat_id": "B10",
+      "camera_ar": "Landscape slow drift.",
+      "estimated_duration_seconds": 5.7,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. سحاب طبيعي فقط.",
+      "narration_span_ar": "فالضمير في قوله «صورته» يعود إلى الله، من غير تشبيه ولا تمثيل.",
+      "notes_ar": [
+        "ABSOLUTE_NO_DIVINE_DEPICTION",
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-010-C08",
+      "source_ids": [
+        "SRC-015",
+        "SRC-016"
+      ],
+      "source_mode": "PROPOSED_SOURCE_PENDING_BIND",
+      "transition_ar": "",
+      "visual_description_ar": "آدم وحده من الخلف بوصفه مخلوقًا؛ لا مقابل بصري إلهي ولا مقارنة شكلية.",
+      "visual_information_ar": "شرح عقيدة السلف: اشتراك في أصل اسم الصفة لا الكيفية."
+    },
+    {
+      "beat_id": "B10",
+      "camera_ar": "Landscape slow drift.",
+      "estimated_duration_seconds": 4.3,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. سحاب طبيعي فقط.",
+      "narration_span_ar": "أي إن التشابه في أصل الصفة، لا في كيفيتها.",
+      "notes_ar": [
+        "ABSOLUTE_NO_DIVINE_DEPICTION",
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-010-C09",
+      "source_ids": [
+        "SRC-015",
+        "SRC-016"
+      ],
+      "source_mode": "PROPOSED_SOURCE_PENDING_BIND",
+      "transition_ar": "",
+      "visual_description_ar": "آدم وحده في الأرض بوصفه مخلوقًا؛ لا مقارنة بصرية بأي هيئة أخرى.",
+      "visual_information_ar": "شرح عقيدة السلف: اشتراك في أصل اسم الصفة لا الكيفية."
+    },
+    {
+      "beat_id": "B10",
+      "camera_ar": "Rear tracking.",
+      "estimated_duration_seconds": 5.2,
+      "generation_strategy": "FIRST_FRAME_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "مشي بطيء.",
+      "narration_span_ar": "فلله يدٌ تليق بجلاله وكماله، وللإنسان يدٌ تليق بكونه مخلوقًا ناقصًا؛",
+      "notes_ar": [],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-010-C10",
+      "source_ids": [
+        "SRC-015",
+        "SRC-016"
+      ],
+      "source_mode": "PROPOSED_SOURCE_PENDING_BIND",
+      "transition_ar": "",
+      "visual_description_ar": "نرى يد آدم البشرية فقط وهي تستقر على ثوبه؛ لا يظهر أي تمثيل بصري ليد الله.",
+      "visual_information_ar": "تلخيص قاعدة الإثبات بلا تشبيه ولا تكييف."
+    },
+    {
+      "beat_id": "B10",
+      "camera_ar": "",
+      "estimated_duration_seconds": 4.3,
+      "generation_strategy": "TEXT_EVIDENCE_EDITORIAL_COMPOSITE",
+      "generation_tier": "C",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "النص نفسه هو المعلومة البصرية؛ لا يوجد سبب لتوليد فيديو مستقل.",
+      "motion_ar": "",
+      "narration_span_ar": "ولله عينٌ تليق بجلاله وكماله، وللإنسان عينٌ تليق بخلقه.",
+      "notes_ar": [
+        "ABSOLUTE_NO_DIVINE_DEPICTION"
+      ],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-010-C11",
+      "source_ids": [
+        "SRC-015",
+        "SRC-016"
+      ],
+      "source_mode": "PROPOSED_SOURCE_PENDING_BIND",
+      "transition_ar": "",
+      "visual_description_ar": "لا نصوّر عينًا أصلًا؛ تفاصيل خلق طبيعية محايدة بينما الشرح صوتي.",
+      "visual_information_ar": "خاتمة عقدية قرآنية تنفي المماثلة."
+    },
+    {
+      "beat_id": "B10",
+      "camera_ar": "Landscape slow drift.",
+      "estimated_duration_seconds": 6.6,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. سحاب طبيعي فقط.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "وهكذا في سائر الصفات الثابتة: اشتراك أصل الصفة لا يعني تماثل حقيقتها أو كيفيتها.",
+      "notes_ar": [
+        "ABSOLUTE_NO_DIVINE_DEPICTION",
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION",
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-010-C12",
+      "source_ids": [
+        "SRC-015",
+        "SRC-016"
+      ],
+      "source_mode": "PROPOSED_SOURCE_PENDING_BIND",
+      "transition_ar": "",
+      "visual_description_ar": "آدم يتحرك في الأرض كعبد مخلوق محدود؛ لا مقارنة ولا تجسيد إلهي.",
+      "visual_information_ar": "شرح عقيدة السلف: اشتراك في أصل اسم الصفة لا الكيفية."
+    },
+    {
+      "beat_id": "B10",
+      "camera_ar": "",
+      "estimated_duration_seconds": 3.0,
+      "generation_strategy": "TEXT_EVIDENCE_EDITORIAL_COMPOSITE",
+      "generation_tier": "C",
+      "intentional_silence": false,
+      "media_mode": "TEXT_EVIDENCE",
+      "media_rationale_ar": "النص نفسه هو المعلومة البصرية؛ لا يوجد سبب لتوليد فيديو مستقل.",
+      "motion_ar": "",
+      "narration_span_ar": "﴿لَيْسَ كَمِثْلِهِ شَيْءٌ وَهُوَ السَّمِيعُ الْبَصِيرُ﴾.",
+      "notes_ar": [
+        "ABSOLUTE_NO_DIVINE_DEPICTION"
+      ],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-010-C13",
+      "source_ids": [
+        "SRC-017"
+      ],
+      "source_mode": "PROPOSED_SOURCE_PENDING_BIND",
+      "transition_ar": "",
+      "visual_description_ar": "نص الآية على خلفية طبيعية مجردة أو خامة داكنة، بلا أي صورة ذات دلالة جسدية لله.",
+      "visual_information_ar": "خاتمة عقدية قرآنية تنفي المماثلة."
+    },
+    {
+      "beat_id": "B11",
+      "camera_ar": "Wide abstract restrained.",
+      "estimated_duration_seconds": 3.5,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. ظهور تدريجي للأجساد عبر dissolve.",
+      "narration_span_ar": "ويروي الحديث أن الله مسح ظهر آدم،",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION",
+        "NO_DIVINE_AGENT_VISUALIZATION"
+      ],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-011-C01",
+      "source_ids": [
+        "SRC-013"
+      ],
+      "source_mode": "HADITH_GROUNDED_NO_DIVINE_VISUALIZATION",
+      "transition_ar": "",
+      "visual_description_ar": "آدم من الخلف، ظهره مغطى بالكامل؛ لا يد إلهية ولا جهة أو جسم يمثل الفعل الإلهي.",
+      "visual_information_ar": "رؤية ذرية آدم في الخبر دون تصوير عالم غيبي محدد الكيفية."
+    },
+    {
+      "beat_id": "B11",
+      "camera_ar": "Wide abstract restrained.",
+      "estimated_duration_seconds": 5.7,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. ظهور تدريجي للأجساد عبر dissolve.",
+      "narration_span_ar": "فسقط من ظهره كل نسمةٍ هو خالقها من ذريته إلى يوم القيامة،",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION",
+        "NO_DIVINE_AGENT_VISUALIZATION"
+      ],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-011-C02",
+      "source_ids": [
+        "SRC-013"
+      ],
+      "source_mode": "HADITH_GROUNDED_NO_DIVINE_VISUALIZATION",
+      "transition_ar": "",
+      "visual_description_ar": "انتقال تجريدي إلى كثرة من الآثار البشرية/الأجساد البعيدة غير القابلة للتعرف، بلا وجوه أو رؤوس مقروءة.",
+      "visual_information_ar": "رؤية ذرية آدم في الخبر دون تصوير عالم غيبي محدد الكيفية."
+    },
+    {
+      "beat_id": "B11",
+      "camera_ar": "Wide abstract restrained.",
+      "estimated_duration_seconds": 4.3,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. ظهور تدريجي للأجساد عبر dissolve.",
+      "narration_span_ar": "وجعل بين عيني كل إنسان منهم وبيصًا من نور.",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-011-C03",
+      "source_ids": [
+        "SRC-013"
+      ],
+      "source_mode": "HADITH_GROUNDED_NO_DIVINE_VISUALIZATION",
+      "transition_ar": "",
+      "visual_description_ar": "نقاط نور صغيرة مجردة مرتبطة بصريًا بمواضع بشرية بعيدة من دون إظهار عيون أو وجوه.",
+      "visual_information_ar": "رؤية ذرية آدم في الخبر دون تصوير عالم غيبي محدد الكيفية."
+    },
+    {
+      "beat_id": "B11",
+      "camera_ar": "Wide abstract restrained.",
+      "estimated_duration_seconds": 4.8,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. ظهور تدريجي للأجساد عبر dissolve.",
+      "narration_span_ar": "ثم عرضهم على آدم، فسأل عنهم، فأخبره الله: هؤلاء ذريتك.",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION",
+        "NO_DIVINE_AGENT_VISUALIZATION"
+      ],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-011-C04",
+      "source_ids": [
+        "SRC-013"
+      ],
+      "source_mode": "HADITH_GROUNDED_NO_DIVINE_VISUALIZATION",
+      "transition_ar": "",
+      "visual_description_ar": "آدم من الخلف أمام الامتداد البشري التجريدي؛ لا جهة سماوية ولا تمثيل لصوت الله.",
+      "visual_information_ar": "رؤية ذرية آدم في الخبر دون تصوير عالم غيبي محدد الكيفية."
+    },
+    {
+      "beat_id": "B11",
+      "camera_ar": "Wide abstract restrained.",
+      "estimated_duration_seconds": 3.9,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. ظهور تدريجي للأجساد عبر dissolve.",
+      "narration_span_ar": "فرأى بينهم رجلًا أعجبه وبيصُ ما بين عينيه.",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-011-C05",
+      "source_ids": [
+        "SRC-013"
+      ],
+      "source_mode": "HADITH_GROUNDED_NO_DIVINE_VISUALIZATION",
+      "transition_ar": "",
+      "visual_description_ar": "شخص بعيد يتميز بوميض صغير غير مجسم في أعلى تكوينه، بلا رأس أو وجه قابل للقراءة.",
+      "visual_information_ar": "رؤية ذرية آدم في الخبر دون تصوير عالم غيبي محدد الكيفية."
+    },
+    {
+      "beat_id": "B11",
+      "camera_ar": "Wide abstract restrained.",
+      "estimated_duration_seconds": 6.6,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. ظهور تدريجي للأجساد عبر dissolve.",
+      "narration_span_ar": "فسأل عنه، فأخبره الله أن هذا رجل من آخر الأمم من ذريته، اسمه داود.",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION",
+        "NO_DIVINE_AGENT_VISUALIZATION"
+      ],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-011-C06",
+      "source_ids": [
+        "SRC-013"
+      ],
+      "source_mode": "HADITH_GROUNDED_NO_DIVINE_VISUALIZATION",
+      "transition_ar": "",
+      "visual_description_ar": "آدم يشاهد من الخلف، وداود يبقى عنصرًا بعيدًا غير مشخص؛ لا تمثيل لله.",
+      "visual_information_ar": "رؤية ذرية آدم في الخبر دون تصوير عالم غيبي محدد الكيفية."
+    },
+    {
+      "beat_id": "B11",
+      "camera_ar": "Wide abstract restrained.",
+      "estimated_duration_seconds": 4.3,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. ظهور تدريجي للأجساد عبر dissolve.",
+      "narration_span_ar": "فسأل آدم: كم جعلت عمره؟ فقيل له: ستون سنة.",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-011-C07",
+      "source_ids": [
+        "SRC-013"
+      ],
+      "source_mode": "HADITH_GROUNDED_NO_DIVINE_VISUALIZATION",
+      "transition_ar": "",
+      "visual_description_ar": "موتيف زمني بسيط بالفصول والظل؛ لا عداد حديث أو رسم بدائي.",
+      "visual_information_ar": "رؤية ذرية آدم في الخبر دون تصوير عالم غيبي محدد الكيفية."
+    },
+    {
+      "beat_id": "B11",
+      "camera_ar": "Medium rear.",
+      "estimated_duration_seconds": 4.8,
+      "generation_strategy": "FIRST_FRAME_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "رفع اليدين ببطء.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "عندها قال آدم: يا رب، زده من عمري أربعين سنة.",
+      "notes_ar": [
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-011-C08",
+      "source_ids": [
+        "SRC-013"
+      ],
+      "source_mode": "HADITH_GROUNDED_NO_DIVINE_VISUALIZATION",
+      "transition_ar": "",
+      "visual_description_ar": "آدم من الخلف يرفع يديه دعاءً منخفضًا؛ كامل الجذع مغطى، لا رأس.",
+      "visual_information_ar": "طلب آدم الزيادة لداود."
+    },
+    {
+      "beat_id": "B11",
+      "camera_ar": "Wide abstract restrained.",
+      "estimated_duration_seconds": 3.0,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. ظهور تدريجي للأجساد عبر dissolve.",
+      "narration_span_ar": "فوهب داود أربعين سنة من عمره؛",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-011-C09",
+      "source_ids": [
+        "SRC-013"
+      ],
+      "source_mode": "HADITH_GROUNDED_NO_DIVINE_VISUALIZATION",
+      "transition_ar": "",
+      "visual_description_ar": "انتقالات زمنية تضاف إلى مسار داود البعيد بلا أسهم أو مخططات.",
+      "visual_information_ar": "رؤية ذرية آدم في الخبر دون تصوير عالم غيبي محدد الكيفية."
+    },
+    {
+      "beat_id": "B11",
+      "camera_ar": "Wide abstract restrained.",
+      "estimated_duration_seconds": 4.3,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. ظهور تدريجي للأجساد عبر dissolve.",
+      "narration_span_ar": "هبة سيعود ذكرها عند اللحظة الأخيرة من حياة آدم.",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-011-C10",
+      "source_ids": [
+        "SRC-013"
+      ],
+      "source_mode": "HADITH_GROUNDED_NO_DIVINE_VISUALIZATION",
+      "transition_ar": "",
+      "visual_description_ar": "Cut من الضوء البعيد إلى يد آدم الأكبر سنًا تستقر على ثوبه.",
+      "visual_information_ar": "رؤية ذرية آدم في الخبر دون تصوير عالم غيبي محدد الكيفية."
+    },
+    {
+      "beat_id": "B11",
+      "camera_ar": "Medium rear.",
+      "estimated_duration_seconds": 4.8,
+      "generation_strategy": "FIRST_FRAME_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "رفع اليدين ببطء.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "ومضى الزمن، حتى جاء اليوم الذي انتهى فيه أجل آدم.",
+      "notes_ar": [
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-011-C11",
+      "source_ids": [
+        "SRC-013"
+      ],
+      "source_mode": "HADITH_GROUNDED_NO_DIVINE_VISUALIZATION",
+      "transition_ar": "",
+      "visual_description_ar": "آدم في أواخر حياته، انتقال ضوئي زمني هادئ إلى يوم النهاية.",
+      "visual_information_ar": "طلب آدم الزيادة لداود."
+    },
+    {
+      "beat_id": "B11",
+      "camera_ar": "Wide abstract restrained.",
+      "estimated_duration_seconds": 2.7,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. ظهور تدريجي للأجساد عبر dissolve.",
+      "narration_span_ar": "جاءه ملك الموت.",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION",
+        "ANGEL_OF_DEATH_PRESENCE_WITHOUT_INVENTED_FORM"
+      ],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-011-C12",
+      "source_ids": [
+        "SRC-013"
+      ],
+      "source_mode": "HADITH_GROUNDED_NO_DIVINE_VISUALIZATION",
+      "transition_ar": "",
+      "visual_description_ar": "المكان نفسه؛ تغير خفيف في الهواء والضوء فقط، بلا ملك أو جناح أو ظل أو جسم.",
+      "visual_information_ar": "رؤية ذرية آدم في الخبر دون تصوير عالم غيبي محدد الكيفية."
+    },
+    {
+      "beat_id": "B11",
+      "camera_ar": "Medium rear.",
+      "estimated_duration_seconds": 3.9,
+      "generation_strategy": "FIRST_FRAME_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "رفع اليدين ببطء.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "فقال آدم: أَوَلَمْ يبق من عمري أربعون سنة؟",
+      "notes_ar": [
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-011-C13",
+      "source_ids": [
+        "SRC-013"
+      ],
+      "source_mode": "HADITH_GROUNDED_NO_DIVINE_VISUALIZATION",
+      "transition_ar": "",
+      "visual_description_ar": "آدم وحده يرفع يده قليلًا في استفهام، بلا طرف آخر ظاهر.",
+      "visual_information_ar": "طلب آدم الزيادة لداود."
+    },
+    {
+      "beat_id": "B11",
+      "camera_ar": "Wide abstract restrained.",
+      "estimated_duration_seconds": 3.0,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. ظهور تدريجي للأجساد عبر dissolve.",
+      "narration_span_ar": "فجاءه الجواب: أَوَلَمْ تُعْطِها ابنك داود؟",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION",
+        "NO_ANGEL_FORM_ASSERTION"
+      ],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-011-C14",
+      "source_ids": [
+        "SRC-013"
+      ],
+      "source_mode": "HADITH_GROUNDED_NO_DIVINE_VISUALIZATION",
+      "transition_ar": "",
+      "visual_description_ar": "الكادر يبقى على آدم، والجواب يُسمع من الراوي دون أي تمثيل للمتكلم.",
+      "visual_information_ar": "رؤية ذرية آدم في الخبر دون تصوير عالم غيبي محدد الكيفية."
+    },
+    {
+      "beat_id": "B11",
+      "camera_ar": "Wide abstract restrained.",
+      "estimated_duration_seconds": 3.0,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. ظهور تدريجي للأجساد عبر dissolve.",
+      "narration_span_ar": "كان آدم قد أعطاها... ثم نسي.",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-011-C15",
+      "source_ids": [
+        "SRC-013"
+      ],
+      "source_mode": "HADITH_GROUNDED_NO_DIVINE_VISUALIZATION",
+      "transition_ar": "",
+      "visual_description_ar": "يد آدم تهبط ببطء؛ تذكير بصري خافت بمشهد داود السابق.",
+      "visual_information_ar": "رؤية ذرية آدم في الخبر دون تصوير عالم غيبي محدد الكيفية."
+    },
+    {
+      "beat_id": "B11",
+      "camera_ar": "Wide abstract restrained.",
+      "estimated_duration_seconds": 6.1,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. ظهور تدريجي للأجساد عبر dissolve.",
+      "narration_span_ar": "وعند نهاية هذه اللحظة، لم يعد الحديث عن عمر طويل أو أجيال ممتدة؛",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-011-C16",
+      "source_ids": [
+        "SRC-013"
+      ],
+      "source_mode": "HADITH_GROUNDED_NO_DIVINE_VISUALIZATION",
+      "transition_ar": "",
+      "visual_description_ar": "Wide ساكن لآدم في المكان؛ الضوء يهدأ ولا توجد حركة زائدة.",
+      "visual_information_ar": "رؤية ذرية آدم في الخبر دون تصوير عالم غيبي محدد الكيفية."
+    },
+    {
+      "beat_id": "B11",
+      "camera_ar": "Wide abstract restrained.",
+      "estimated_duration_seconds": 4.3,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. ظهور تدريجي للأجساد عبر dissolve.",
+      "narration_span_ar": "صار الحديث عن آخر نفس من حياة أول إنسان.",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-011-C17",
+      "source_ids": [
+        "SRC-013"
+      ],
+      "source_mode": "HADITH_GROUNDED_NO_DIVINE_VISUALIZATION",
+      "transition_ar": "",
+      "visual_description_ar": "ماكرو على يد آدم فوق الثوب ثم اتساع بطيء إلى سكون المكان قبل الوفاة.",
+      "visual_information_ar": "رؤية ذرية آدم في الخبر دون تصوير عالم غيبي محدد الكيفية."
+    },
+    {
+      "beat_id": "B12",
+      "camera_ar": "Macro hand.",
+      "estimated_duration_seconds": 3.0,
+      "generation_strategy": "FIRST_LAST_FRAME",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "انخفاض بسيط ثم سكون طبيعي، بلا freeze artifact.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "ثم مات آدم.",
+      "notes_ar": [
+        "NO_SOUL_VISUALIZATION",
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "CRITICAL",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-012-C01",
+      "source_ids": [
+        "SRC-013"
+      ],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "يد آدم تستقر ساكنة فوق ثوبه، والجسد مغطى بالكامل؛ لا وجه ولا رأس ولا روح مرئية.",
+      "visual_information_ar": "وفاة آدم بلا تصوير خروج الروح أو الوجه."
+    },
+    {
+      "beat_id": "B12",
+      "camera_ar": "Locked-off empty frame.",
+      "estimated_duration_seconds": 5.5,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "B",
+      "intentional_silence": true,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. ستارة/غبار/عشب طبيعي فقط.",
+      "narration_span_ar": "",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION",
+        "INTENTIONAL_POST_DEATH_SILENCE"
+      ],
+      "risk": "MEDIUM",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-012-C02",
+      "source_ids": [],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "المكان نفسه بعد لحظة؛ لا حركة بشرية، ضوء ساكن ورياح خفيفة فقط.",
+      "visual_information_ar": "منح الوفاة وزنها بالصمت."
+    },
+    {
+      "beat_id": "B12",
+      "camera_ar": "Slow push-in.",
+      "estimated_duration_seconds": 2.7,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "B",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. دفع بطيء.",
+      "narration_span_ar": "سكن المكان الذي كان فيه.",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "MEDIUM",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-012-C03",
+      "source_ids": [],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "موضع جلوس آدم فارغ، أداة عمل قديمة بجانبه كما تركت، بلا قبر أو طقس دفن.",
+      "visual_information_ar": "غياب آدم يصبح محسوسًا بالمكان الفارغ."
+    },
+    {
+      "beat_id": "B12",
+      "camera_ar": "Wide static.",
+      "estimated_duration_seconds": 3.9,
+      "generation_strategy": "FIRST_FRAME_MOTION",
+      "generation_tier": "C",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "حركة بعيدة مستمرة.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "بقيت الأرض، وبقيت الطرق التي سار فيها أبناؤه،",
+      "notes_ar": [
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "LOW",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-012-C04",
+      "source_ids": [],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "الطريق الذي رأيناه سابقًا ممتدًا، أشخاص من الذرية يمرون بعيدًا.",
+      "visual_information_ar": "استمرار العالم بعده."
+    },
+    {
+      "beat_id": "B12",
+      "camera_ar": "Three-shot montage.",
+      "estimated_duration_seconds": 5.7,
+      "generation_strategy": "STATIC_IMAGE_PLUS_EDITORIAL_MOTION",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "قوة اللقطة في التكوين أو السكون؛ صورة ثابتة عالية الجودة مع push/pull/parallax أو حركة ضوء/حبيبات تحريرية خفيفة أفضل من فيديو توليدي مستقل.",
+      "motion_ar": "حركة مونتاجية فقط (push/pull/parallax/ضوء أو grain خفيف بحسب اللقطة)، بلا فيديو توليدي مستقل. حركات قصيرة.",
+      "narration_span_ar": "وبقي العمل الذي تعلموه والعبادة التي عرفوها، وبقيت آثار اختياراتهم؛ خيرها وشرها.",
+      "notes_ar": [
+        "STILL_PREFERRED_TO_REDUCE_MORPHING_AND_PRESERVE_COMPOSITION"
+      ],
+      "risk": "HIGH",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-012-C05",
+      "source_ids": [],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "مونتاج ثلاثي: يد تعمل، يد ترتفع في دعاء، ثم موضع المواراة القديم في الأرض؛ بلا وعظ نصي.",
+      "visual_information_ar": "بقاء الإرث العملي والعبادي والأخلاقي."
+    },
+    {
+      "beat_id": "B12",
+      "camera_ar": "Deep-focus composition.",
+      "estimated_duration_seconds": 3.5,
+      "generation_strategy": "FIRST_LAST_FRAME",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "حركة في الخلف فقط، المقدمة ثابتة.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "مرّت الأقدام في الطرق التي سار فيها،",
+      "notes_ar": [
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "HIGH",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-012-C06",
+      "source_ids": [],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "",
+      "visual_description_ar": "Foreground: مكان آدم الفارغ؛ background: أقدام وأيدٍ بشرية تعبر وتعمل خارج منطقة الفراغ.",
+      "visual_information_ar": "الناس يتحركون وموضع آدم ثابت."
+    },
+    {
+      "beat_id": "B12",
+      "camera_ar": "Long pull-back constant height.",
+      "estimated_duration_seconds": 3.9,
+      "generation_strategy": "FIRST_LAST_FRAME",
+      "generation_tier": "A",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "حركة بشرية بعيدة مستمرة.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "وتابعت الأيدي ما بدأه، لكن موضعه بقي ساكنًا.",
+      "notes_ar": [
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "HIGH",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-012-C07",
+      "source_ids": [],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "Dissolve إلى الغروب.",
+      "visual_description_ar": "Pull-back واسع جدًا يكشف مجموعة بشرية بعيدة تتحرك في أرض واسعة، مع بقاء مكان آدم خارج مركز الكادر فارغًا.",
+      "visual_information_ar": "التحول التاريخي: بشر كثيرون بلا آدم."
+    },
+    {
+      "beat_id": "B12",
+      "camera_ar": "Slow pull-back ثم fade.",
+      "estimated_duration_seconds": 7.0,
+      "generation_strategy": "FIRST_FRAME_MOTION",
+      "generation_tier": "C",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "حركة طبيعية مستمرة حتى fade.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "للمرة الأولى منذ أن بدأت قصة الإنسان، كانت الأرض عامرة بذريته... ولم يكن آدم بينهم.",
+      "notes_ar": [
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "LOW",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-012-C08",
+      "source_ids": [],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "Fade to black + title.",
+      "visual_description_ar": "أفق عند الغروب، طرق بشرية تمتد إلى البعيد. في الثانيتين الأخيرتين يهبط المشهد تدريجيًا إلى السواد ويظهر السؤال فقط.",
+      "visual_information_ar": "إغلاق زمن آدم وفتح EP005."
+    },
+    {
+      "beat_id": "B12",
+      "camera_ar": "Slow pull-back ثم fade.",
+      "estimated_duration_seconds": 2.7,
+      "generation_strategy": "FIRST_FRAME_MOTION",
+      "generation_tier": "C",
+      "intentional_silence": false,
+      "media_mode": "STILL_EDITORIAL_MOTION",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "حركة طبيعية مستمرة حتى fade.",
+      "narration_span_ar": "بدأ تاريخ البشر بآدم.",
+      "notes_ar": [],
+      "risk": "LOW",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-012-C09",
+      "source_ids": [],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "Fade to black + title.",
+      "visual_description_ar": "أفق هادئ بعد وفاة آدم؛ الطرق البشرية بعيدة، لا ملخص بصري متكرر.",
+      "visual_information_ar": "إغلاق زمن آدم وفتح EP005."
+    },
+    {
+      "beat_id": "B12",
+      "camera_ar": "Slow pull-back ثم fade.",
+      "estimated_duration_seconds": 6.1,
+      "generation_strategy": "FIRST_FRAME_MOTION",
+      "generation_tier": "C",
+      "intentional_silence": false,
+      "media_mode": "VIDEO",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "حركة طبيعية مستمرة حتى fade.",
+      "motion_continuity_required": true,
+      "narration_span_ar": "أما الآن، فسيستمر من دونه. انتهى زمن آدم، وبدأ زمن الذين جاءوا بعده.",
+      "notes_ar": [
+        "MICRO_FREEZE_QA_REQUIRED"
+      ],
+      "risk": "LOW",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-012-C10",
+      "source_ids": [],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "Fade to black + title.",
+      "visual_description_ar": "Pull-back واسع يكشف استمرار البشر في الأرض مع غياب آدم.",
+      "visual_information_ar": "إغلاق زمن آدم وفتح EP005."
+    },
+    {
+      "beat_id": "B12",
+      "camera_ar": "Slow pull-back ثم fade.",
+      "estimated_duration_seconds": 4.8,
+      "generation_strategy": "FIRST_FRAME_MOTION",
+      "generation_tier": "C",
+      "intentional_silence": false,
+      "media_mode": "TEXT_EVIDENCE",
+      "media_rationale_ar": "الحركة هنا تحمل حدثًا أو تغيرًا لا تؤديه صورة ثابتة بالقوة نفسها؛ لذلك يبقى فيديو.",
+      "motion_ar": "حركة طبيعية مستمرة حتى fade.",
+      "narration_span_ar": "ومن هنا تبدأ القصة التالية: ماذا حدث للبشر بعد آدم؟",
+      "notes_ar": [],
+      "risk": "LOW",
+      "safety_contract": {
+        "adam_torso_back_fully_covered": true,
+        "no_divine_depiction": true,
+        "no_head_face_sensitive_historical_humans": true,
+        "no_human_fixed_object_intersection": true,
+        "no_prophet_muhammad_visual": true
+      },
+      "shot_id": "S04-012-C11",
+      "source_ids": [],
+      "source_mode": "LOCKED_OR_PROPOSED",
+      "transition_ar": "Fade to black + title.",
+      "visual_description_ar": "يهبط المشهد إلى السواد ويظهر السؤال فقط في النهاية.",
+      "visual_information_ar": "إغلاق زمن آدم وفتح EP005."
+    }
+  ],
+  "status": "JOINT_QA_SELF_REVIEW_PASS_READY_FOR_CANONICAL_BIND",
+  "supersedes": "siraj-pre-narration-storyboard-v2r2",
+  "timing_authority": "PRE_TTS_ESTIMATE_REBALANCED_FOR_135_WPM_MAX_PER_SHOT_WITH_INTENTIONAL_SILENCE",
+  "title_ar": "نهاية زمن آدم",
+  "tts_authorized": false,
+  "visual_information_policy": {
+    "fire_consuming_accepted_offering": "VISUAL_TRADITION_ONLY",
+    "narration_not_required_for_every_supported_visual_fact": true,
+    "seth_scrolls": "VISUAL_TRADITION_ONLY_NO_NUMBER_NO_VOICE_ASSERTION",
+    "visual_only_information_must_be_source_authorized": true
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "beat_id": "B06",
+  "commit": false,
+  "episode_id": "episode-الحلقة-4",
+  "git_branch_observed": "feature/constitution-v1-2-0-six-fixes-v1",
+  "git_head_observed": "34b52ce75d6b1fdb6b9743d84e89442168de2b2d",
+  "manual_visual_pack_sha256": "f7b2e321bf4dd2529436b010d576b9fe5d37b2844246de5d3dc387a97722a155",
+  "push": false,
+  "regeneration_targets": [
+    {
+      "new_candidate_version": "V02",
+      "shot_id": "S04-006-C08"
+    },
+    {
+      "new_candidate_version": "V02",
+      "shot_id": "S04-006-C09"
+    }
+  ],
+  "rejected_count": 2,
+  "rejections": [
+    {
+      "candidate_filename": "EP004-S04-006-C08-VIDEO-CANDIDATE-V01.mp4",
+      "candidate_version": "V01",
+      "decision": "REJECT",
+      "human_notes": "المشهد مرفوض: ظهر الوجه/الرأس وتحركت الجثة من تلقاء نفسها؛ يجب إعادة التوليد من نفس الفريمات مع منع الكشف ومنع أي حركة للجثة.",
+      "reasons": [
+        "HEAD_FACE_VISIBILITY",
+        "CORPSE_MOVEMENT_DRIFT",
+        "CONSTITUTIONAL_VIOLATION"
+      ],
+      "shot_id": "S04-006-C08"
+    },
+    {
+      "candidate_filename": "EP004-S04-006-C09-VIDEO-CANDIDATE-V01.mp4",
+      "candidate_version": "V01",
+      "decision": "REJECT",
+      "human_notes": "المشهد مرفوض: ظهر الوجه/الرأس وتحركت الجثة/الرداء بشكل غير منطقي؛ يجب أن يتركز الفعل على اليدين والتراب فقط مع ثبات الجثة تمامًا إن ظهرت.",
+      "reasons": [
+        "HEAD_FACE_VISIBILITY",
+        "CORPSE_MOVEMENT_DRIFT",
+        "BURIAL_ACTION_UNSTABLE",
+        "CONSTITUTIONAL_VIOLATION"
+      ],
+      "shot_id": "S04-006-C09"
+    }
+  ],
+  "schema_version": "siraj-human-video-review-decisions-v1",
+  "status": "PARTIAL_REJECTION_AND_REGENERATION_REQUESTED"
+}
