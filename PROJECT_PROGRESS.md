@@ -3548,3 +3548,31 @@ Status: PASS_READY_FOR_MANUAL_DESKTOP_RESEARCH_RETRY
 - Narrator/script evidence extraction and narrative research remain unchanged.
 - No provider/network/paid/media-generation/publication call was made by this
   repair. No automatic retry/resubmission was introduced.
+
+## SIRAJ_EP005_VISUAL_ASSET_EXECUTION_BOOK_V1
+
+- Date: 2026-09-10
+- Status: READY_FOR_SHOT_PRODUCTION
+- Episode: 005
+- Execution book: projects/_orchestrator/contracts/episode-005-visual-asset-execution-book-v1.json
+- Execution book SHA256: 2387edca3f28d159a4fe7ffac9a39e59691c75a8905ab5a51b6f2f2cf10bcef5
+- Storyboard shot IDs: S05-V2-001..S05-V2-137
+- Storyboard shots covered: 137
+- Planned video requests: 84
+- Controlled First+Last Frame requests: 57
+- First Frame + Motion Contract requests: 26
+- System-safe direct-generation requests: 1
+- Reference strategy: JUST_IN_TIME_SHOT_CONTEXT
+- Pre-approved reusable reference packs available: CR00..CR04
+- Remaining generic reference packs CR05..CR10: DEFERRED_NOT_BLOCKING
+- Shot lookup rule: exact storyboard shot_id must be used for every production lookup.
+- Memory-only scene execution when repository source is available: FORBIDDEN
+- Sequential per-shot generation: REQUIRED
+- New generated visual assets require human approval: true
+- Contact sheets for sequential frame production: FORBIDDEN
+- Narration mutation: NO
+- Word-timing mutation: NO
+- Storyboard mutation: NO
+- Provider calls during this integration: 0
+- Paid calls during this integration: 0
+- Next stage: START_FRAME_PRODUCTION_S05-V2-001
