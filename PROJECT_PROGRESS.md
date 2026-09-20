@@ -2,7 +2,40 @@
 ## Master Development Roadmap
 
 آخر تحديث:
-2026-08-20
+2026-09-20
+
+
+========================================================
+SIRAJ_EP006_REMAINING_EPISODE_CANONICAL_GITHUB_REFERENCE_V1 - 2026-09-20
+========================================================
+
+Status:
+EP006_REMAINDER_CANONICAL_REFERENCE_READY_FOR_GITHUB
+
+Certification:
+- Human-approved EP006 visual execution book SHA256: 20db5b2ddfeca6817225dd35c47f7b131d5004a972d5c45880cd083226fc5fb3.
+- Remaining canonical scope after closed Beat 15: S06-V2-162..S06-V2-200.
+- Remaining shots: 39.
+- Detected remaining beat groups: 4.
+- Known production duration sum: 218.12 seconds.
+- Full byte-for-byte approved execution-book snapshot stored under projects/_orchestrator/knowledge/episode-006/canonical/.
+- Canonical remainder JSON preserves raw authoritative shot nodes for future exact lookup.
+- Canonical pointer file added for future SIRAJ EP006 sessions.
+- Beat 15 remains closed and is not reopened by this documentation commit.
+
+Safety:
+- Provider calls: 0.
+- Paid calls: 0.
+- Media generation: 0.
+- Narration/storyboard/execution-book mutation: 0.
+- Scope of this commit: canonical EP006 knowledge files plus mandatory PROJECT_PROGRESS.md governance update only.
+
+Canonical reference:
+- projects/_orchestrator/knowledge/episode-006/canonical/SIRAJ_EP006_CANONICAL_REFERENCE_POINTER_V1.json
+- projects/_orchestrator/knowledge/episode-006/canonical/SIRAJ_EP006_REMAINDER_FROM_SHOT_162_CANONICAL_INDEX_V1.json
+- projects/_orchestrator/knowledge/episode-006/canonical/SIRAJ_EP006_VISUAL_ASSET_EXECUTION_BOOK_V1_HUMAN_APPROVED_SNAPSHOT.json
+
+NEXT=READ_BEAT16_FROM_CANONICAL_EP006_REFERENCE_AND_CONTINUE_VISUAL_PRODUCTION
 
 ========================================================
 SIRAJ NEXT EPISODE MANUAL VISUAL PIPELINE FINALIZATION - 2026-08-20
